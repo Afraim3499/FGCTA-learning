@@ -1,0 +1,1026 @@
+=== PAGE 1 ===
+ATR Breakout Channel – (Parent Family: Technical – Indicator‑Based, Type: Variation)
+Core Logic: Use ATR to define breakout levels above/below a moving average; enter when price
+breaches the channel.
+How it Works: Calculate 20‑period ATR; compute mid‑line (e.g., 20‑period EMA); set upper/lower
+channel at ±k × ATR; go long/short on close outside channel.
+Typical Use Case: Capturing volatility expansions while filtering out noise.
+Known Users/Origin: Variation of Keltner channel; widely used by algorithmic traders.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Ichimoku Cloud Trend Strategy – (Parent Family: Technical – Indicator‑Based, Type: Core)
+Core Logic: Utilise the Ichimoku Cloud to identify trend direction, support/resistance and momentum.
+How it Works: Plot Tenkan‑sen, Kijun‑sen, Senkou Span A/B; go long when price is above cloud with
+Tenkan‑sen above Kijun‑sen; exit when price falls below cloud.
+Typical Use Case: Longer‑term swing trades; capturing major trends in Bitcoin or ETH.
+Known Users/Origin: Developed by Goichi Hosoda in Japan; widely used in FX and crypto.
+Evidence Type: Institutional/Academic and common practice.
+Confidence Level: Medium.
+Parabolic SAR Trend Following – (Parent Family: Technical – Indicator‑Based, Type: Core)
+Core Logic: Use Parabolic SAR dots to determine trend direction and trailing stop; dots below price
+signal long; above price signal short.
+How it Works: SAR calculation uses accelerating factor; start at 0.02 and increase on each new high/
+low; exit when price crosses SAR dot and dot flips sides.
+Typical Use Case: Trend following with clear exit rules; useful in trending markets.
+Known Users/Origin: J. Welles Wilder indicator; widely adopted.
+Evidence Type: Institutional/Academic and common practice.
+Confidence Level: Medium.
+On‑Balance Volume (OBV) Confirmation – (Parent Family: Technical – Volume Analysis, Type: Core)
+Core Logic: Use OBV line to confirm price trends; rising OBV with rising price indicates strong buying
+interest.
+1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
+11. 
+12. 
+13. 
+14. 
+15. 
+16. 
+17. 
+18. 
+19. 
+20. 
+21. 
+22. 
+23. 
+1
+
+=== PAGE 2 ===
+How it Works: OBV adds volume on up days and subtracts on down days; divergences between OBV
+and price hint at trend reversals.
+Typical Use Case: Confirm breakouts or mean‑reversion setups; early detection of accumulation/
+distribution.
+Known Users/Origin: Developed by Joseph Granville; widely used by technical analysts.
+Evidence Type: Institutional/Academic and common practice.
+Confidence Level: Medium.
+Relative Volume (RVOL) Spike Breakout – (Parent Family: Technical – Volume Analysis, Type:
+Variation)
+Core Logic: Monitor relative volume (current volume divided by 30‑period average); spikes above 2–3
+signal strong interest and potential trend continuation
+.
+How it Works: Calculate RVOL; when price breaks a key level and RVOL > 2, enter in direction of
+breakout; low RVOL suggests caution.
+Typical Use Case: Confirming breakouts from support/resistance or patterns.
+Known Users/Origin: altFINS explains RVOL for crypto traders
+.
+Evidence Type: Exchange/Crypto‑native (analysis platform) and common practice.
+Confidence Level: Medium.
+Volume Weighted Average Price (VWAP) Mean Reversion – (Parent Family: Technical –
+ Volume Analysis, Type: Core)
+Core Logic: Compare current price to intraday VWAP; trade long when price is below VWAP and
+reverts upward; short above VWAP expecting reversion downward.
+How it Works: Calculate VWAP each day; treat VWAP as mean; open long positions when price
+deviates significantly below with supportive order flow; exit near VWAP.
+Typical Use Case: Day trading on perpetual futures; capturing intraday mean reversion.
+Known Users/Origin: Institutional traders use VWAP for execution; adopted by crypto traders.
+Evidence Type: Institutional and common practice.
+Confidence Level: Medium.
+Volume Price Trend (VPT) Divergence – (Parent Family: Technical – Volume Analysis, Type:
+Variation)
+Core Logic: Use VPT indicator (cumulative volume adjusted by price change) to spot divergences;
+rising price with falling VPT warns of distribution.
+How it Works: Calculate VPT; compare slope vs price; a bearish divergence occurs when price hits new
+highs but VPT does not; traders may exit or short.
+Typical Use Case: Confirm or invalidate breakouts and trend continuation.
+Known Users/Origin: Variation used by volume analysts; not clearly attributable.
+Evidence Type: Common practice.
+24. 
+25. 
+26. 
+27. 
+28. 
+29. 
+30. 
+1
+31. 
+32. 
+33. 
+1
+34. 
+35. 
+36. 
+37. 
+38. 
+39. 
+40. 
+41. 
+42. 
+43. 
+44. 
+45. 
+46. 
+47. 
+48. 
+2
+
+=== PAGE 3 ===
+Confidence Level: Low (needs validation).
+Trendline Break Strategy – (Parent Family: Technical – Price Action, Type: Core)
+Core Logic: Draw diagonal trendlines along higher lows in an uptrend or lower highs in a downtrend;
+break of trendline signals potential reversal.
+How it Works: Connect at least two swing lows; when price closes below rising trendline, exit long or
+enter short; confirm with volume or other indicators.
+Typical Use Case: Managing positions in trending coins, capturing early reversal signs.
+Known Users/Origin: Chartists; widely used.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Channel Breakout – (Parent Family: Technical – Price Action, Type: Variation)
+Core Logic: Identify ascending or descending channels; trade breakouts when price closes outside
+the channel.
+How it Works: Draw parallel trendlines across swing highs and lows; go long when price breaks above
+an ascending channel; short when it breaks below descending channel.
+Typical Use Case: Trend continuation after consolidation within channels.
+Known Users/Origin: Classical chart technique; widely taught.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Inside Bar Breakout – (Parent Family: Technical – Price Action, Type: Variation)
+Core Logic: An inside bar (narrow range) following a large move signals consolidation; breakout from
+the inside bar sets next direction.
+How it Works: Identify mother bar (large candle) and inside bar; place buy stop above high and sell
+stop below low of mother bar; whichever triggers first determines direction.
+Typical Use Case: Short‑term breakout trades on daily or 4‑hour charts.
+Known Users/Origin: Price action traders.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+False Breakout (Fade) – (Parent Family: Technical – Price Action, Type: Variation)
+Core Logic: Identify a false breakout when price briefly breaks support/resistance but then returns;
+fade the breakout by trading opposite the initial move.
+49. 
+50. 
+51. 
+52. 
+53. 
+54. 
+55. 
+56. 
+57. 
+58. 
+59. 
+60. 
+61. 
+62. 
+63. 
+64. 
+65. 
+66. 
+67. 
+68. 
+69. 
+70. 
+71. 
+72. 
+3
+
+=== PAGE 4 ===
+How it Works: After breakout, if price fails to close outside range and quickly reverses, enter trade
+toward original range; stops beyond false break high/low.
+Typical Use Case: Counter‑trend traders seeking to exploit stop‑hunt liquidity events.
+Known Users/Origin: Experienced discretionary traders; not clearly attributable.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Trend Following with Supertrend Indicator – (Parent Family: Technical – Indicator‑Based, Type:
+Variation)
+Core Logic: Supertrend indicator uses ATR and multiplier to generate trailing stop line; changes
+colour when trend flips.
+How it Works: Compute ATR; set multiplier (e.g., 3); Supertrend draws line below price in uptrend and
+above in downtrend; go long when price crosses above line and line turns green; exit when line flips.
+Typical Use Case: Swing trading trending pairs with simple visual cues.
+Known Users/Origin: Variation of ATR; widely used in trending markets.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Heikin‑Ashi Trend Filter – (Parent Family: Technical – Price Action, Type: Variation)
+Core Logic: Use Heikin‑Ashi candlesticks to smooth price noise and identify trend direction; long
+when candles are continuously green; exit when a red candle appears.
+How it Works: Heikin‑Ashi calculation uses average values of open/high/low/close; consecutive green
+candles with no lower wicks show strong uptrend; traders hold long until red candle forms.
+Typical Use Case: Filtering noise for swing trades; trending markets like Bitcoin or ETH.
+Known Users/Origin: Derived from Japanese charting; widely used.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Donchian Channel Breakout – (Parent Family: Technical – Breakout, Type: Subtype)
+Core Logic: Buy when price breaks above the highest high of the last N periods; sell when it breaks
+below the lowest low.
+How it Works: Calculate N‑period high and low; place buy stop at high and sell stop at low; adjust N
+depending on timeframe (e.g., 20‑day for medium‑term, 55‑day for long‑term); exit via trailing stop
+or reverse breakout.
+Typical Use Case: Turtle trading system; capturing big trends.
+Known Users/Origin: Richard Donchian and the Turtle traders popularised; widely used by system
+traders.
+Evidence Type: Institutional/Academic and common practice.
+73. 
+74. 
+75. 
+76. 
+77. 
+78. 
+79. 
+80. 
+81. 
+82. 
+83. 
+84. 
+85. 
+86. 
+87. 
+88. 
+89. 
+90. 
+91. 
+92. 
+93. 
+94. 
+95. 
+96. 
+97. 
+4
+
+=== PAGE 5 ===
+Confidence Level: High.
+Turtle Trading System – (Parent Family: Technical – Breakout, Type: Variation)
+Core Logic: Use two Donchian channels (20‑day for entries, 10‑day for exits) with position sizing rules;
+scale into positions as price moves favourably.
+How it Works: When price exceeds 20‑day high, go long; exit when price falls below 10‑day low; use
+ATR‑based position sizing; risk 2% per trade.
+Typical Use Case: Capturing long‑term trends in crypto futures; replicating 1980s Turtle system in
+digital assets.
+Known Users/Origin: Created by Richard Dennis and William Eckhardt; some crypto funds replicate.
+Evidence Type: Institutional (Turtle story) and common practice.
+Confidence Level: Medium.
+Momentum Oscillator (ROC) Strategy – (Parent Family: Technical – Momentum, Type: Core)
+Core Logic: Use the Rate of Change (ROC) indicator to measure percentage price change; values
+crossing zero indicate momentum shifts.
+How it Works: Compute ROC over 12 periods; when ROC crosses from negative to positive, go long;
+cross from positive to negative, go short; confirm with trend filter.
+Typical Use Case: Identifying early momentum surges in altcoins.
+Known Users/Origin: Technical traders; indicator from early technical analysis.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Average Directional Index (ADX) Trend Strength Filter – (Parent Family: Technical – Momentum,
+Type: Subtype)
+Core Logic: Use ADX to measure trend strength; values above 25 indicate strong trend; combine with
+DI+ and DI− crosses.
+How it Works: Calculate ADX and directional indicators; go long when DI+ crosses above DI− and ADX
+> 25; exit when DI+ crosses below or ADX falls below 20.
+Typical Use Case: Filtering signals in momentum strategies like moving‑average cross to avoid false
+signals in choppy markets.
+Known Users/Origin: Developed by J. Welles Wilder; widely used.
+Evidence Type: Institutional/Academic and common practice.
+Confidence Level: Medium.
+Squeeze Momentum Indicator – (Parent Family: Technical – Momentum, Type: Variation)
+98. 
+99. 
+100. 
+101. 
+102. 
+103. 
+104. 
+105. 
+106. 
+107. 
+108. 
+109. 
+110. 
+111. 
+112. 
+113. 
+114. 
+115. 
+116. 
+117. 
+118. 
+119. 
+120. 
+5
+
+=== PAGE 6 ===
+Core Logic: Combines Bollinger Bands and Keltner Channels to identify when volatility is low
+(squeeze) and uses momentum histogram to trade the expansion.
+How it Works: When Bollinger Bands narrow inside Keltner Channels, a squeeze is active; when bands
+break out, momentum histogram indicates direction; go long/short accordingly.
+Typical Use Case: Identifying big moves after consolidation; used on daily/4‑hour charts.
+Known Users/Origin: Created by John Carter; widely used by retail traders.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Williams %R Pullback Strategy – (Parent Family: Technical – Momentum, Type: Variation)
+Core Logic: Williams %R measures overbought/oversold conditions; reading below -80 indicates
+oversold; above -20 indicates overbought.
+How it Works: When price is in uptrend and %R drops below -80 then returns above -50, go long; in
+downtrend, if %R rises above -20 then falls back below -50, go short.
+Typical Use Case: Entering on pullbacks within a trend.
+Known Users/Origin: Created by Larry Williams; widely used.
+Evidence Type: Institutional/Academic and common practice.
+Confidence Level: Medium.
+Commodity Channel Index (CCI) Breakout – (Parent Family: Technical – Momentum, Type:
+Variation)
+Core Logic: Use CCI values above +100 or below -100 to signal strong momentum; trade breakouts
+accordingly.
+How it Works: Calculate CCI over 20 periods; when CCI crosses above +100 and price breaks
+resistance, go long; cross below -100 with support break signals short.
+Typical Use Case: Capturing momentum bursts in crypto derivatives.
+Known Users/Origin: Donald Lambert’s indicator; widely used.
+Evidence Type: Institutional/Academic and common practice.
+Confidence Level: Medium.
+Fibonacci Retracement Bounce – (Parent Family: Technical – Mean Reversion, Type: Variation)
+Core Logic: Use Fibonacci ratios (e.g., 38.2%, 50%, 61.8%) as potential support/resistance during
+retracements in a trending market.
+How it Works: After an impulse move, measure range; place buy orders at key Fibonacci levels; stop
+below deeper level; target prior high.
+Typical Use Case: Trend continuation trades when price pulls back to key Fibonacci levels.
+Known Users/Origin: Based on Fibonacci sequence; widely used in TA; origin not clearly attributable.
+121. 
+122. 
+123. 
+124. 
+125. 
+126. 
+127. 
+128. 
+129. 
+130. 
+131. 
+132. 
+133. 
+134. 
+135. 
+136. 
+137. 
+138. 
+139. 
+140. 
+141. 
+142. 
+143. 
+144. 
+145. 
+6
+
+=== PAGE 7 ===
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Pivot Point Reversion – (Parent Family: Technical – Mean Reversion, Type: Variation)
+Core Logic: Use daily/weekly pivot points to identify intraday support/resistance; fade moves near
+these levels expecting reversion to pivot.
+How it Works: Calculate pivot (P) = (High + Low + Close) / 3; derive support/resistance lines
+(S1,S2,R1,R2); if price spikes to R2, short expecting move back to pivot.
+Typical Use Case: Day trading on liquid perpetual futures pairs.
+Known Users/Origin: Floor traders; widely taught in trading literature.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Relative Strength Index (RSI) Overbought/Oversold – (Parent Family: Technical – Indicator‑Based,
+Type: Core)
+Core Logic: Identify overbought (>70) or oversold (<30) levels on RSI; trade mean reversion back to
+neutral.
+How it Works: Calculate RSI over 14 periods; if RSI crosses above 70 and price shows divergence,
+consider short; if RSI below 30 with bullish divergence, consider long.
+Typical Use Case: Short‑term swing trades; altcoins with high volatility.
+Known Users/Origin: J. Welles Wilder’s indicator; widely adopted.
+Evidence Type: Institutional/Academic (original formula) and common practice.
+Confidence Level: High.
+RSI Trend‑Confirmation (RSI 50 Base) – (Parent Family: Technical – Indicator‑Based, Type: Variation)
+Core Logic: Use RSI crossing 50 as trend confirmation rather than overbought/oversold; above 50
+indicates momentum long; below indicates bearish momentum.
+How it Works: Monitor RSI; if RSI goes from below to above 50 with rising price, enter long; exit when
+RSI crosses back below.
+Typical Use Case: Trend‑following system for intraday or daily charts.
+Known Users/Origin: Market technicians; not clearly attributable.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Relative Strength Index Divergence – (Parent Family: Technical – Indicator‑Based, Type: Variation)
+Core Logic: Identify bullish or bearish divergence between price and RSI to anticipate reversals.
+146. 
+147. 
+148. 
+149. 
+150. 
+151. 
+152. 
+153. 
+154. 
+155. 
+156. 
+157. 
+158. 
+159. 
+160. 
+161. 
+162. 
+163. 
+164. 
+165. 
+166. 
+167. 
+168. 
+169. 
+170. 
+7
+
+=== PAGE 8 ===
+How it Works: When price makes a lower low but RSI forms a higher low, it signals weakening selling
+pressure; traders go long. Conversely, a higher high in price with lower high in RSI signals potential
+top; traders short.
+Typical Use Case: Early detection of momentum reversals, used by discretionary traders.
+Known Users/Origin: Common practice in technical analysis.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Moving Average Convergence Divergence (MACD) Cross – (Parent Family: Technical –
+ Indicator‑Based, Type: Core)
+Core Logic: Use MACD line crossing the signal line to generate buy/sell signals.
+How it Works: Calculate fast and slow EMAs (e.g., 12 and 26 periods); MACD = Fast EMA − Slow EMA;
+signal line is 9‑period EMA of MACD; when MACD crosses above signal line, go long; cross below, exit
+or short.
+Typical Use Case: Capturing medium‑term momentum shifts on daily/4‑hour charts.
+Known Users/Origin: Developed by Gerald Appel; widely used.
+Evidence Type: Common practice.
+Confidence Level: High.
+MACD Histogram Zero‑Line Cross – (Parent Family: Technical – Indicator‑Based, Type: Variation)
+Core Logic: Trade when MACD histogram crosses zero, indicating MACD line crossing signal line; used
+as confirmation of momentum change.
+How it Works: Wait for histogram to go from negative to positive for long entry; exit when it flips
+negative; combine with price patterns for improved accuracy.
+Typical Use Case: Swing trading trending altcoins.
+Known Users/Origin: Variation of MACD usage; no single origin.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Stochastic Oscillator Overbought/Oversold – (Parent Family: Technical – Indicator‑Based, Type:
+Core)
+Core Logic: Use %K and %D lines of the stochastic oscillator; values above 80 indicate overbought,
+below 20 indicate oversold.
+How it Works: Compute oscillator using closing price relative to high–low range; cross of %K above
+%D from below 20 signals long; cross down from above 80 signals short.
+Typical Use Case: Short‑term mean‑reversion trades in range‑bound markets.
+Known Users/Origin: Developed by George Lane; widely taught.
+Evidence Type: Institutional/Academic and common practice.
+171. 
+172. 
+173. 
+174. 
+175. 
+176. 
+177. 
+178. 
+179. 
+180. 
+181. 
+182. 
+183. 
+184. 
+185. 
+186. 
+187. 
+188. 
+189. 
+190. 
+191. 
+192. 
+193. 
+194. 
+195. 
+8
+
+=== PAGE 9 ===
+Confidence Level: Medium.
+Stochastic RSI – (Parent Family: Technical – Indicator‑Based, Type: Variation)
+Core Logic: Apply stochastic formula to RSI values; yields more sensitive overbought/oversold signals.
+How it Works: Calculate RSI then apply stochastic; overbought/oversold thresholds used to enter/exit;
+often used in combination with trend filters.
+Typical Use Case: Scalping or intraday trading; altcoins with high volatility.
+Known Users/Origin: Variation developed by Tushar Chande and Stanley Kroll.
+Evidence Type: Institutional/Academic and common practice.
+Confidence Level: Medium.
+Average True Range (ATR) Trailing Stop – (Parent Family: Technical – Indicator‑Based, Type: Core)
+Core Logic: Use ATR to adaptively set stop‑loss distances from current price; maintain open positions
+while trailing stops adjust with volatility.
+How it Works: Compute ATR over a set period; stop‑loss is placed at k × ATR below current price for
+long trades; adjust daily as price moves.
+Typical Use Case: Trend followers wanting to stay in trades while allowing for normal volatility swings.
+Known Users/Origin: J. Welles Wilder; widely used by Turtle traders and system traders.
+Evidence Type: Institutional/Academic and common practice.
+Confidence Level: High.
+Comprehensive Map of Crypto Trading Strategies
+This document compiles a large set of cryptocurrency trading strategies grouped by category. Each
+numbered entry describes a distinct approach together with its parent family, type, variation, concise logic,
+mechanics, typical use, origin, evidence type and a subjective confidence level. Citations from credible
+sources support the general concepts behind these strategies, such as the use of moving averages for trend
+identification
+, narrative rotation in crypto markets
+, perpetual funding and basis trading
+mechanisms
+, options volatility skew
+, on‑chain indicators like whale tracking and exchange flows
+, miner behaviour and halving cycles
+, macro liquidity correlations
+, liquidation cluster
+analysis
+, DeFi yield strategies
+, social sentiment gauges
+, open interest analysis
+, support/
+resistance and candlestick patterns
+, risk management practices
+, arbitrage techniques
+,
+statistical arbitrage
+, impermanent loss mitigation
+, high‑frequency trading and bots
+, volume
+analysis
+, machine‑learning models for price prediction
+ and token unlock dynamics
+.
+Technical Strategies
+Simple Moving Average (SMA) Cross – (Parent Family: Technical – Trend Following, Type: Core)
+Core Logic: Compute short‑ and long‑period SMAs; when the short SMA crosses above the long SMA,
+go long; cross below indicates exit or short.
+196. 
+197. 
+198. 
+199. 
+200. 
+201. 
+202. 
+203. 
+204. 
+205. 
+206. 
+207. 
+208. 
+209. 
+210. 
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+1
+23
+24
+1. 
+2. 
+2
+9
+
+=== PAGE 10 ===
+How it Works: The trader calculates SMAs on closing prices (e.g., 50‑day vs 200‑day) and uses the
+crossover as a momentum signal; positions are updated when crosses occur.
+Typical Use Case: Position traders seeking to capture sustained up‑ or down‑trends in major
+cryptocurrencies.
+Known Users/Origin: Common practice among technical traders; widely used in equity and crypto
+markets; specific origin not clearly attributable.
+Evidence Type: Common practice; educational articles explaining moving averages in crypto
+.
+Confidence Level: High.
+Exponential Moving Average (EMA) Cross – (Parent Family: Technical – Trend Following, Type:
+Subtype)
+Core Logic: Same as SMA cross but EMAs weight recent data more heavily, offering faster reaction to
+price changes
+.
+How it Works: Compute EMAs (e.g., 20‑EMA and 50‑EMA) and trade on crossovers; use EMAs for
+dynamic support/resistance during trending markets.
+Typical Use Case: Shorter‑term traders requiring sensitivity to rapid price movements.
+Known Users/Origin: Popular among day traders and algorithmic systems; origin not clearly
+attributable.
+Evidence Type: Common practice; technical analysis literature
+.
+Confidence Level: High.
+Weighted Moving Average (WMA) Cross – (Parent Family: Technical – Trend Following, Type:
+Subtype)
+Core Logic: Like EMA but weights linearly; emphasises recent price points while still considering
+longer history
+.
+How it Works: Calculate WMAs with chosen periods; crossovers generate entry/exit signals.
+Typical Use Case: Traders balancing between SMA smoothness and EMA responsiveness.
+Known Users/Origin: Technical analysts; origin not clearly attributable.
+Evidence Type: Common practice.
+Confidence Level: High.
+Hull Moving Average (HMA) Trend – (Parent Family: Technical – Trend Following, Type: Variation)
+Core Logic: Use HMA to reduce lag and improve smoothing, providing earlier entries while limiting
+noise.
+How it Works: Compute HMA (combining WMA and sqrt periods) and use its slope or cross with price
+as trend filter; when HMA turns upward, go long.
+Typical Use Case: Swing traders wanting quick trend identification without false signals.
+Known Users/Origin: Introduced by Alan Hull in equity trading; adopted by crypto traders; not clearly
+attributable specifically to crypto.
+3. 
+4. 
+5. 
+6. 
+2
+7. 
+8. 
+9. 
+25
+10. 
+11. 
+12. 
+13. 
+25
+14. 
+15. 
+16. 
+25
+17. 
+18. 
+19. 
+20. 
+21. 
+22. 
+23. 
+24. 
+25. 
+26. 
+10
+
+=== PAGE 11 ===
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Moving Average Ribbon – (Parent Family: Technical – Trend Following, Type: Variation)
+Core Logic: Use multiple moving averages across different lengths to form a “ribbon”; the alignment
+(all pointing up) indicates strong trends.
+How it Works: Plot a series of EMAs (e.g., 20, 50, 100, 200) and interpret the spacing; go long when
+shorter MAs align above longer MAs; exit when the ribbon compresses or inverts.
+Typical Use Case: To visualise momentum and avoid premature exits in trending markets.
+Known Users/Origin: First popularised by traders like Gerald Appel; widely used across asset classes.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Moving Average Envelope – (Parent Family: Technical – Mean Reversion, Type: Variation)
+Core Logic: Create bands around a moving average at fixed percentage distances; price deviations
+beyond the bands are considered overextended.
+How it Works: Plot a central SMA/EMA and calculate upper/lower envelopes (e.g., ±2%); buy when
+price touches lower band and sell at upper band.
+Typical Use Case: Range‑bound markets with mean‑reverting characteristics in mid‑cap altcoins.
+Known Users/Origin: Adapted from equity strategies; common among swing traders.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Breakout from Consolidation – (Parent Family: Technical – Breakout, Type: Core)
+Core Logic: Identify consolidation ranges and enter when price breaks above resistance or below
+support, anticipating momentum continuation
+.
+How it Works: Draw horizontal support/resistance based on previous highs/lows; place stop orders
+just beyond these levels; confirm with volume spikes.
+Typical Use Case: Day traders capturing volatile moves following range compression.
+Known Users/Origin: Widely used across markets; no single origin.
+Evidence Type: Common practice; price‑action education
+.
+Confidence Level: High.
+Volatility Breakout (Keltner/ATR) – (Parent Family: Technical – Breakout, Type: Subtype)
+Core Logic: Use Average True Range (ATR) or Keltner Channels to set volatility‑based bands; trade
+when price closes outside the band.
+27. 
+28. 
+29. 
+30. 
+31. 
+32. 
+33. 
+34. 
+35. 
+36. 
+37. 
+38. 
+39. 
+40. 
+41. 
+42. 
+43. 
+44. 
+15
+45. 
+46. 
+47. 
+48. 
+15
+49. 
+50. 
+51. 
+11
+
+=== PAGE 12 ===
+How it Works: Calculate ATR‑based channel around an EMA; go long when price exceeds upper band
+with rising volume; set stop at opposite band.
+Typical Use Case: Trend followers looking for early entry after volatility expansion.
+Known Users/Origin: Chester Keltner developed channels; widely applied in commodities and crypto.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Bollinger Band Squeeze Breakout – (Parent Family: Technical – Breakout, Type: Subtype)
+Core Logic: Recognise narrowing of Bollinger Bands as signal of low volatility; breakouts follow
+significant expansions.
+How it Works: Plot Bollinger Bands (20‑SMA ±2 standard deviations); when bands constrict, set alerts;
+buy if price closes above upper band on expanding volume, sell if below lower band.
+Typical Use Case: Traders anticipating large moves after periods of low volatility.
+Known Users/Origin: Created by John Bollinger; widely used.
+Evidence Type: Common practice.
+Confidence Level: High.
+Ascending Triangle Breakout – (Parent Family: Technical – Pattern‑Based, Type: Core)
+Core Logic: Price forms rising lows and horizontal resistance; breakout above resistance often signals
+continuation.
+How it Works: Identify at least two rising swing lows and a flat top; draw trendline; enter long on
+confirmed breakout with high volume; place stop below the last higher low.
+Typical Use Case: Bullish pattern seen in trending markets; used on Bitcoin or large‑cap altcoins.
+Known Users/Origin: Classic chartist strategy; widely discussed in technical analysis texts.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Descending Triangle Breakdown – (Parent Family: Technical – Pattern‑Based, Type: Core)
+Core Logic: Mirror of ascending triangle; flat support with lower highs; breakdown signals bearish
+continuation.
+How it Works: Draw flat support line connecting lows and descending trendline connecting lower
+highs; sell short or exit long when price closes below support with high volume.
+Typical Use Case: Bearish continuation pattern in downtrending markets.
+Known Users/Origin: Classic pattern.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Head‑and‑Shoulders Reversal – (Parent Family: Technical – Pattern‑Based, Type: Core)
+52. 
+53. 
+54. 
+55. 
+56. 
+57. 
+58. 
+59. 
+60. 
+61. 
+62. 
+63. 
+64. 
+65. 
+66. 
+67. 
+68. 
+69. 
+70. 
+71. 
+72. 
+73. 
+74. 
+75. 
+76. 
+77. 
+78. 
+12
+
+=== PAGE 13 ===
+Core Logic: Three peaks with middle one higher; neckline break signals trend reversal.
+How it Works: Identify left shoulder, head, and right shoulder; draw neckline across troughs; short
+when price breaks neckline; measure distance from head to neckline to estimate target.
+Typical Use Case: Spotting top formations before bearish reversals; widely used across markets.
+Known Users/Origin: Old pattern; widely studied.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Inverse Head‑and‑Shoulders Reversal – (Parent Family: Technical – Pattern‑Based, Type: Variation)
+Core Logic: Inverted head‑and‑shoulders indicating bearish trend reversal into bullish move.
+How it Works: Find three troughs with deepest middle trough; draw neckline; enter long when price
+breaks above neckline with volume; target measured move.
+Typical Use Case: Market bottom formation; used by swing traders for medium‑term entries.
+Known Users/Origin: Classic pattern.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Cup and Handle Breakout – (Parent Family: Technical – Pattern‑Based, Type: Core)
+Core Logic: Round bottom (cup) followed by small pullback (handle); breakout above handle indicates
+continuation.
+How it Works: Identify U‑shaped consolidation then handle; buy on breakout with increased volume;
+set stop below handle.
+Typical Use Case: Bullish continuation pattern for mid‑cap coins after lengthy consolidation.
+Known Users/Origin: William O’Neil popularised in equity trading.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Bullish Engulfing Candlestick Reversal – (Parent Family: Technical – Pattern‑Based, Type: Subtype)
+Core Logic: A small bearish candle is followed by a larger bullish candle that completely engulfs it;
+indicates a shift from sellers to buyers
+.
+How it Works: After a downtrend, watch for the pattern; enter long at close of the bullish candle;
+place stop below pattern; confirm with volume spikes and other indicators.
+Typical Use Case: Short‑term swing trades capturing immediate reversals on daily or 4‑hour charts.
+Known Users/Origin: Widely used in Japanese candlestick analysis
+.
+Evidence Type: Common practice; pattern described in educational sources
+.
+Confidence Level: High.
+79. 
+80. 
+81. 
+82. 
+83. 
+84. 
+85. 
+86. 
+87. 
+88. 
+89. 
+90. 
+91. 
+92. 
+93. 
+94. 
+95. 
+96. 
+97. 
+98. 
+99. 
+100. 
+16
+101. 
+102. 
+103. 
+16
+104. 
+16
+105. 
+13
+
+=== PAGE 14 ===
+Bearish Engulfing Candlestick Reversal – (Parent Family: Technical – Pattern‑Based, Type: Subtype)
+Core Logic: A small bullish candle followed by a larger bearish candle that engulfs it; signals reversal
+downward.
+How it Works: Occurs after an uptrend; traders sell or short at close of bearish candle; stop above
+pattern high.
+Typical Use Case: Short‑term reversal trades on daily/4‑hour charts.
+Known Users/Origin: Candlestick charting from Japanese traders; widely used.
+Evidence Type: Common practice.
+Confidence Level: High.
+Three White Soldiers / Three Black Crows – (Parent Family: Technical – Pattern‑Based, Type:
+Variation)
+Core Logic: Three consecutive strong bullish (white soldiers) or bearish (black crows) candlesticks
+signify trend continuation or reversal.
+How it Works: After a downtrend, three long green candles with higher closes signal buying strength;
+conversely, three long red candles after an uptrend signal selling strength; entry at close of third
+candle; stops below first candle.
+Typical Use Case: Confirmation of reversal or continuation signals.
+Known Users/Origin: Traditional candlestick pattern; widely described.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+Support Bounce Strategy – (Parent Family: Technical – Price Action, Type: Core)
+Core Logic: Trade long when price tests a known support level and shows rejection; anticipate bounce
+due to accumulated buy orders
+.
+How it Works: Identify horizontal support from prior lows or high‑volume nodes; enter when price
+candles show wicks and close above support; place stop below the level.
+Typical Use Case: Range‑bound markets where price oscillates between support and resistance.
+Known Users/Origin: Generic price‑action methodology; widely used.
+Evidence Type: Common practice; support/resistance concept explained in crypto context
+.
+Confidence Level: High.
+Resistance Short Strategy – (Parent Family: Technical – Price Action, Type: Variation)
+Core Logic: Sell or short when price tests a known resistance level and fails to break through,
+expecting a pullback
+.
+106. 
+107. 
+108. 
+109. 
+110. 
+111. 
+112. 
+113. 
+114. 
+115. 
+116. 
+117. 
+118. 
+119. 
+120. 
+121. 
+15
+122. 
+123. 
+124. 
+125. 
+15
+126. 
+127. 
+128. 
+15
+14
+
+=== PAGE 15 ===
+How it Works: Draw resistance lines; watch for rejection candles (long upper wicks) and declining
+volume; enter short with stop just above resistance; target move to next support.
+Typical Use Case: Profiting from retracements within a range or after extended rallies.
+Known Users/Origin: Price‑action traders.
+Evidence Type: Common practice
+.
+Confidence Level: High.
+Mid‑Range Mean Reversion – (Parent Family: Technical – Mean Reversion, Type: Core)
+Core Logic: Enter long when price is at the lower bound of a defined range and short at the upper
+bound, betting on reversion to the mean.
+How it Works: Define a trading range using Bollinger Bands, price channels or statistical measures;
+place limit orders near extremes; close trades near mid‑line or opposite band.
+Typical Use Case: Sideways markets with low volatility; altcoin pairs with stable liquidity.
+Known Users/Origin: Derived from mean‑reversion theory; widely used by quantitative traders.
+Evidence Type: Common practice.
+Confidence Level: Medium.
+The Relative Volume (RVOL) Indicator - altFINS
+https://altfins.com/knowledge-base/the-relative-volume-rvol-indicator/
+Moving Averages in Crypto: Complete Guide for Profit
+https://www.hyrotrader.com/blog/moving-averages-in-crypto/
+Your Strategic Guide to Crypto Rotations - Weiss Ratings
+https://weissratings.com/en/weiss-crypto-daily/your-strategic-guide-to-crypto-rotations
+One Trading - Where smart money does more - Blog - Understanding the Funding Rate in Perpetual
+Futures
+https://www.onetrading.com/blog/understanding-the-funding-rate-in-perpetual-futures
+Basis Trading – Spot & Futures Strategy Explained | BYDFi
+https://www.bydfi.com/en-kz/cointalk/basis%E2%80%91trading%E2%80%91arbitrage
+Understanding IV Skew In Crypto Options Markets
+https://pi42.com/blog/iv-skew-crypto-options/
+How to Track Crypto Whale Movements?  | Ledger
+https://www.ledger.com/academy/topics/crypto/how-to-track-crypto-whale-movements
+The Role of Miner Behavior in Crypto Price Trends
+https://www.altrady.com/crypto-trading/onchain-blockchain-analytics-for-traders/role-miner-crypto-price-trends
+Bitcoin 4-Year Cycle Explained: Is This Time Different?
+https://nexo.com/blog/bitcoin-4-year-cycle-explained
+The Liquidity Source That Leads Bitcoin
+https://keyrock.com/the-liquidity-source-that-leads-bitcoin/
+129. 
+130. 
+131. 
+132. 
+15
+133. 
+134. 
+135. 
+136. 
+137. 
+138. 
+139. 
+140. 
+1
+2
+25
+3
+4
+5
+6
+7
+8
+9
+10
+15
+
+=== PAGE 16 ===
+Liquidations in Crypto: How to Anticipate Volatile Market Moves
+https://blog.amberdata.io/liquidations-in-crypto-how-to-anticipate-volatile-market-moves
+7 Best DeFi Trading Strategies for Crypto Traders
+https://www.altrady.com/blog/crypto-trading-strategies/defi-trading-strategies
+Crypto Market Sentiment Indicators: Beyond the Fear and Greed Index
+https://www.coinmetro.com/learning-lab/crypto-market-sentiment-indicators
+How to Use Open Interest to Your Advantage in Bitcoin Trading - Whaleportal
+https://whaleportal.com/blog/how-to-use-open-interest-to-your-advantage-in-bitcoin-trading/
+Support and resistance in Crypto trading - What it is? | altFINS
+https://altfins.com/knowledge-base/support-and-resistance-lines/
+Bullish Engulfing Candlestick Pattern: A Comprehensive Guide - altFINS
+https://altfins.com/knowledge-base/bullish-engulfing-candlestick-pattern-a-comprehensive-guide/
+Crypto Trading Risk Management | altFINS
+https://altfins.com/knowledge-base/trading-risk-management/
+Cross Exchange Arbitrage: What It Is and How It Works - Shift Markets
+https://www.shiftmarkets.com/blog/cross-exchange-arbitrage-explained
+Statistical Arbitrage: Strategies, Examples, and Risks
+https://www.dydx.xyz/crypto-learning/statistical-arbitrage
+What Impermanent Loss in DeFi Is and What Liquidity Providers Need to Watch For
+https://www.coingecko.com/learn/impermanent-loss
+Mastering HFT in Crypto: High-Frequency Trading Explained
+https://www.hyrotrader.com/blog/hft-crypto-trading/
+Top Trading Algo Bots: Automating Your Trading Strategy
+https://bookmap.com/blog/top-trading-algo-bots-automating-your-trading-strategy
+Crypto & Stock: Daily Price Prediction using ML algorithms | by Lakshmi Ajay | Medium
+https://lakshmi1212.medium.com/crypto-stock-daily-price-prediction-using-ml-algorithms-b7e815fcb06c
+From Locked to Liquidity: What 16,000+ Token Unlocks Teach Us
+https://keyrock.com/from-locked-to-liquidity-what-16000-token-unlocks-teach-us/
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+16
+
