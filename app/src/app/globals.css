@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* ============================================
+   TRADING ACADEMY — DESIGN SYSTEM TOKENS
+   ============================================ */
+
+@theme {
+  /* Institutional Base */
+  --color-background: #0A0A0B;
+  --color-surface-primary: #161618;
+  --color-surface-secondary: #0A0A0B;
+  --color-surface-tertiary: #1C2128;
+  
+  /* Brand & Actions */
+  --color-brand-400: #0070F3;
+  --color-brand-500: #0070F3;
+  --color-brand-600: #0051B0;
+  
+  /* Intent Colors (Institutional Signals) */
+  --color-profit: #00FF00;
+  --color-loss: #FF0000;
+  --color-warning: #F59E0B;
+  --color-info: #0070F3;
+
+  /* Text Hierarchy */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-accent-blue: #0070F3;
+  --color-fail-red: #FF0000;
+  --color-pass-green: #00FF00;
+  
+  /* Market Track Colors */
+  --color-forex: #38BDF8;
+  --color-crypto: #F59E0B;
+  --color-gold: #EAB308;
+  --color-multi: #818CF8;
+
+  /* Borders */
+  --color-border-default: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.15);
+
+  /* Spacing Scale */
+  --spacing-page: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+
+  /* Shadows & Depth (Institutional Glassmorphism) */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-glow-blue: 0 0 15px rgba(0, 112, 243, 0.3);
+  --shadow-glow-profit: 0 0 20px rgba(0, 255, 0, 0.15);
+  --shadow-glow-loss: 0 0 20px rgba(255, 0, 0, 0.15);
+
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-surface-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: var(--color-text-primary);
+}

@@ -1,0 +1,17 @@
+# Project-wide ignore
+app/node_modules/
+app/.next/
+app/out/
+app/build/
+app/.env*
+app/next-env.d.ts
+app/*.tsbuildinfo
+app/src/generated/prisma/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# General
+*.log
+node_modules/

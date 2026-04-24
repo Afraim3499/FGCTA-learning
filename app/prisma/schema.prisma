@@ -1,0 +1,557 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                String             @id @default(uuid())
+  email             String             @unique
+  password          String
+  name              String
+  avatarUrl         String?            @map("avatar_url")
+  marketTrack       MarketTrack        @default(multi) @map("market_track")
+  createdAt         DateTime           @default(now()) @map("created_at")
+  updatedAt         DateTime           @updatedAt @map("updated_at")
+  isAdmin           Boolean            @default(false) @map("is_admin")
+  certifications    Certification[]
+  dailySnapshots    DailySnapshot[]
+  moduleCompletions ModuleCompletion[]
+  remediationLogs   RemediationLog[]
+  ruleViolations    RuleViolation[]
+  savedAnalyses     SavedAnalysis[]
+  testAttempts      TestAttempt[]
+  trades            Trade[]
+  badges            UserBadge[]
+  events            UserEvent[]
+  phaseAttempts     UserPhaseAttempt[]
+  progress          UserProgress?
+  xpLedger          XPLedgerEntry[]
+  scenarioAttempts  ScenarioAttempt[]
+
+  @@map("users")
+}
+
+model UserProgress {
+  id                   String    @id @default(uuid())
+  userId               String    @unique @map("user_id")
+  currentLevel         Int       @default(0) @map("current_level")
+  currentPhase         Int       @default(0) @map("current_phase")
+  xpTotal              Int       @default(0) @map("xp_total")
+  xpRank               String    @default("Recruit") @map("xp_rank")
+  certLevel            Int       @default(0) @map("cert_level")
+  streakDays           Int       @default(0) @map("streak_days")
+  streakStart          DateTime? @map("streak_start")
+  challengeExamsPassed String[]  @default([]) @map("challenge_exams_passed")
+  strategyLabEnabled   Boolean   @default(false) @map("strategy_lab_enabled")
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_progress")
+}
+
+model CourseModule {
+  id                  String             @id @default(uuid())
+  level               Int
+  moduleNumber        String             @map("module_number")
+  title               String
+  objective           String
+  content             String             @default("")
+  forexAdaptation     String?            @map("forex_adaptation")
+  cryptoAdaptation    String?            @map("crypto_adaptation")
+  goldAdaptation      String?            @map("gold_adaptation")
+  strategyFamilies    String[]           @default([]) @map("strategy_families")
+  logicIds            String[]           @default([]) @map("logic_ids")
+  skillLevel          SkillLevel         @default(beginner) @map("skill_level")
+  marketTrack         ModuleTrack        @default(core) @map("market_track")
+  orderIndex          Int                @map("order_index")
+  interactiveTaskData Json?              @map("interactive_task_data")
+  interactiveTaskType String?            @map("interactive_task_type")
+  correctZones        Json?              @map("correct_zones")
+  completions         ModuleCompletion[]
+  scenarioLinks       ModuleScenarioLink[]
+  scenarioAttempts    ScenarioAttempt[]
+
+  @@unique([level, moduleNumber])
+  @@index([level])
+  @@map("course_modules")
+}
+
+model ModuleCompletion {
+  id          String       @id @default(uuid())
+  userId      String       @map("user_id")
+  moduleId    String       @map("module_id")
+  completedAt DateTime     @default(now()) @map("completed_at")
+  xpAwarded   Int          @default(50) @map("xp_awarded")
+  module      CourseModule @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, moduleId])
+  @@map("module_completions")
+}
+
+model KnowledgeTest {
+  id                  String        @id @default(uuid())
+  level               Int           @unique
+  title               String
+  questions           Json
+  passThreshold       Int           @default(80) @map("pass_threshold")
+  timeLimitMin        Int           @default(30) @map("time_limit_min")
+  questionsPerAttempt Int           @default(20) @map("questions_per_attempt")
+  attempts            TestAttempt[]
+
+  @@map("knowledge_tests")
+}
+
+model TestAttempt {
+  id          String        @id @default(uuid())
+  userId      String        @map("user_id")
+  testId      String        @map("test_id")
+  score       Int
+  passed      Boolean
+  answers     Json
+  weakAreas   String[]      @default([]) @map("weak_areas")
+  attemptedAt DateTime      @default(now()) @map("attempted_at")
+  test        KnowledgeTest @relation(fields: [testId], references: [id], onDelete: Cascade)
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, testId, attemptedAt])
+  @@map("test_attempts")
+}
+
+model TradingPhase {
+  id              String             @id @default(uuid())
+  phaseNumber     Int                @unique @map("phase_number")
+  startingCapital Decimal            @map("starting_capital")
+  targetProfitPct Decimal            @map("target_profit_pct")
+  maxDrawdownPct  Decimal            @map("max_drawdown_pct")
+  timeLimitDays   Int                @map("time_limit_days")
+  minTrades       Int                @map("min_trades")
+  minTradingDays  Int                @map("min_trading_days")
+  maxRiskPerTrade Decimal            @map("max_risk_per_trade")
+  maxPositions    Int                @map("max_positions")
+  maxTradesPerDay Int                @map("max_trades_per_day")
+  maxLeverage     Int                @map("max_leverage")
+  commissionRate  Decimal            @default(0) @map("commission_rate")
+  attempts        UserPhaseAttempt[]
+
+  @@map("trading_phases")
+}
+
+model UserPhaseAttempt {
+  id              String          @id @default(uuid())
+  userId          String          @map("user_id")
+  phaseId         String          @map("phase_id")
+  attemptNumber   Int             @map("attempt_number")
+  status          PhaseStatus     @default(active)
+  startingEquity  Decimal         @map("starting_equity")
+  currentEquity   Decimal         @map("current_equity")
+  peakEquity      Decimal         @map("peak_equity")
+  maxDrawdown     Decimal         @default(0) @map("max_drawdown")
+  tradesCount     Int             @default(0) @map("trades_count")
+  tradingDays     Int             @default(0) @map("trading_days")
+  startedAt       DateTime        @default(now()) @map("started_at")
+  endedAt         DateTime?       @map("ended_at")
+  resetCount      Int             @default(0) @map("reset_count")
+  scoreMultiplier Decimal         @default(1.0) @map("score_multiplier")
+  cooldownUntil   DateTime?       @map("cooldown_until")
+  nearPass        Boolean         @default(false) @map("near_pass")
+  snapshots       DailySnapshot[]
+  violations      RuleViolation[]
+  trades          Trade[]
+  phase           TradingPhase    @relation(fields: [phaseId], references: [id])
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, phaseId])
+  @@map("user_phase_attempts")
+}
+
+model Trade {
+  id             String           @id @default(uuid())
+  userId         String           @map("user_id")
+  attemptId      String           @map("attempt_id")
+  instrument     String
+  direction      TradeDirection
+  entryPrice     Decimal          @map("entry_price")
+  exitPrice      Decimal?         @map("exit_price")
+  positionSize   Decimal          @map("position_size")
+  leverage       Int              @default(1)
+  stopLoss       Decimal?         @map("stop_loss")
+  takeProfit     Decimal?         @map("take_profit")
+  riskAmount     Decimal          @map("risk_amount")
+  riskPercent    Decimal          @map("risk_percent")
+  pnl            Decimal?
+  rMultiple      Decimal?         @map("r_multiple")
+  holdDuration   Int?             @map("hold_duration")
+  orderType      OrderType        @default(market) @map("order_type")
+  strategyTag    String?          @map("strategy_tag")
+  notes          String?
+  openedAt       DateTime         @default(now()) @map("opened_at")
+  closedAt       DateTime?        @map("closed_at")
+  isRevengeTrade Boolean          @default(false) @map("is_revenge_trade")
+  violations     RuleViolation[]
+  attempt        UserPhaseAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, attemptId])
+  @@index([closedAt])
+  @@map("trades")
+}
+
+model RuleViolation {
+  id         String           @id @default(uuid())
+  userId     String           @map("user_id")
+  attemptId  String           @map("attempt_id")
+  tradeId    String?          @map("trade_id")
+  ruleId     String           @map("rule_id")
+  ruleName   String           @map("rule_name")
+  severity   RuleSeverity
+  xpPenalty  Int              @default(0) @map("xp_penalty")
+  occurredAt DateTime         @default(now()) @map("occurred_at")
+  attempt    UserPhaseAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  trade      Trade?           @relation(fields: [tradeId], references: [id])
+  user       User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, attemptId])
+  @@map("rule_violations")
+}
+
+model DailySnapshot {
+  id              String           @id @default(uuid())
+  userId          String           @map("user_id")
+  attemptId       String           @map("attempt_id")
+  date            DateTime         @db.Date
+  startingEquity  Decimal          @map("starting_equity")
+  endingEquity    Decimal          @map("ending_equity")
+  dailyPnl        Decimal          @map("daily_pnl")
+  tradesCount     Int              @default(0) @map("trades_count")
+  violationsCount Int              @default(0) @map("violations_count")
+  rulesFollowed   Boolean          @default(true) @map("rules_followed")
+  attempt         UserPhaseAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, attemptId, date])
+  @@map("daily_snapshots")
+}
+
+model XPLedgerEntry {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  action     String
+  xpAmount   Int      @map("xp_amount")
+  sourceId   String?  @map("source_id")
+  sourceType String?  @map("source_type")
+  createdAt  DateTime @default(now()) @map("created_at")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, sourceId, sourceType])
+  @@index([userId, createdAt])
+  @@map("xp_ledger")
+}
+
+model Badge {
+  id             String      @id @default(uuid())
+  name           String      @unique
+  description    String
+  iconUrl        String?     @map("icon_url")
+  rarity         BadgeRarity
+  conditionType  String      @map("condition_type")
+  conditionValue Json        @map("condition_value")
+  userBadges     UserBadge[]
+
+  @@map("badges")
+}
+
+model UserBadge {
+  id       String   @id @default(uuid())
+  userId   String   @map("user_id")
+  badgeId  String   @map("badge_id")
+  earnedAt DateTime @default(now()) @map("earned_at")
+  badge    Badge    @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, badgeId])
+  @@map("user_badges")
+}
+
+model Certification {
+  id               String   @id @default(uuid())
+  userId           String   @map("user_id")
+  certLevel        Int      @map("cert_level")
+  certTitle        String   @map("cert_title")
+  finalScore       Decimal  @map("final_score")
+  profitScore      Decimal  @map("profit_score")
+  riskScore        Decimal  @map("risk_score")
+  consistencyScore Decimal  @map("consistency_score")
+  disciplineScore  Decimal  @map("discipline_score")
+  resetMultiplier  Decimal  @map("reset_multiplier")
+  adjustedScore    Decimal  @map("adjusted_score")
+  certIdPublic     String   @unique @map("cert_id_public")
+  issuedAt         DateTime @default(now()) @map("issued_at")
+  marketTrack      String   @map("market_track")
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("certifications")
+}
+
+model DiagnosticReport {
+  id                  String   @id @default(uuid())
+  userId              String   @map("user_id")
+  phaseNumber         Int      @map("phase_number")
+  consecutiveFailures Int      @map("consecutive_failures")
+  weaknessAnalysis    Json     @map("weakness_analysis")
+  createdAt           DateTime @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@map("diagnostic_reports")
+}
+
+model UserEvent {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  eventType String   @map("event_type")
+  metadata  Json     @default("{}")
+  timestamp DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, eventType])
+  @@index([timestamp])
+  @@map("user_events")
+}
+
+model SavedAnalysis {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  moduleId   String?  @map("module_id")
+  assetClass String   @map("asset_class")
+  bias       String
+  rationale  String?
+  chartState Json     @map("chart_state")
+  instrument String
+  timeframe  String
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, assetClass])
+  @@map("saved_analyses")
+}
+
+model Strategy {
+  id             String    @id @default(uuid())
+  assetClass     AssetType @map("asset_class")
+  sequenceNumber Int       @map("sequence_number")
+  name           String
+  parentFamily   String    @map("parent_family")
+  coreLogic      String    @map("core_logic")
+  trapMechanics  String?   @map("trap_mechanics")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  @@unique([assetClass, name], name: "assetClass_name")
+  @@map("strategies")
+}
+
+model RemediationLog {
+  id          String    @id @default(uuid())
+  userId      String    @map("user_id")
+  moduleId    String    @map("module_id")
+  failureType String    @map("failure_type")
+  details     String?
+  isResolved  Boolean   @default(false) @map("is_resolved")
+  resolvedAt  DateTime? @map("resolved_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, moduleId])
+  @@map("remediation_logs")
+}
+
+// --- TRAINING SCENARIO BRIDGE MODELS ---
+
+model TrainingScenario {
+  id               String           @id @default(uuid())
+  slug             String           @unique
+  title            String
+  description      String?
+  scenarioType     ScenarioType     @map("scenario_type")
+  status           ScenarioStatus   @default(draft)
+  marketTrack      MarketTrack      @default(multi) @map("market_track")
+  level            Int
+  instrument       String
+  timeframe        String
+  candleSourceType CandleSourceType @map("candle_source_type")
+  candleData       Json?            @map("candle_data")
+  candleSeed       String?          @map("candle_seed")
+  prompt           String
+  expectedActions  Json             @map("expected_actions")
+  gradingRubric    Json             @map("grading_rubric")
+  passThreshold    Int              @default(80) @map("pass_threshold")
+  xpAward          Int              @default(0) @map("xp_award")
+  scenarioVersion  Int              @default(1)  @map("scenario_version")
+  engineVersion    String           @default("1.0.0") @map("engine_version")
+  graderVersion    String           @default("1.0.0") @map("grader_version")
+  metadata         Json             @default("{}")
+  createdAt        DateTime         @default(now()) @map("created_at")
+  updatedAt        DateTime         @updatedAt @map("updated_at")
+
+  links            ModuleScenarioLink[]
+  attempts         ScenarioAttempt[]
+
+  @@index([marketTrack])
+  @@index([status])
+  @@index([level])
+  @@index([marketTrack, status, level])
+  @@map("training_scenarios")
+}
+
+model ModuleScenarioLink {
+  id                  String           @id @default(uuid())
+  moduleId            String           @map("module_id")
+  scenarioId          String           @map("scenario_id")
+  requiredForProgress Boolean          @default(true) @map("required_for_progress")
+  sortOrder           Int              @default(0) @map("sort_order")
+  minScore            Int?             @map("min_score")
+  xpAward             Int?             @map("xp_award")
+
+  module              CourseModule     @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  scenario            TrainingScenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+
+  @@unique([moduleId, scenarioId])
+  @@index([moduleId])
+  @@index([scenarioId])
+  @@map("module_scenario_links")
+}
+
+model ScenarioAttempt {
+  id              String                @id @default(uuid())
+  userId          String                @map("user_id")
+  scenarioId      String                @map("scenario_id")
+  moduleId        String?               @map("module_id")
+  status          ScenarioAttemptStatus @default(started)
+  score           Int?
+  passed          Boolean               @default(false)
+  actions         Json?                 // Student decisions/actions
+  tradeLog        Json?                 @map("trade_log") // Trading engine execution records
+  gradingResult   Json?                 @map("grading_result") // Mission grader output
+  resultSummary   String?               @map("result_summary")
+  weaknessTags    String[]              @default([]) @map("weakness_tags")
+  xpAwarded       Int                   @default(0) @map("xp_awarded")
+  progressApplied Boolean               @default(false) @map("progress_applied")
+  scenarioVersion Int                   @default(1) @map("scenario_version")
+  engineVersion   String                @default("1.0.0") @map("engine_version")
+  graderVersion   String                @default("1.0.0") @map("grader_version")
+  startedAt       DateTime              @default(now()) @map("started_at")
+  completedAt     DateTime?             @map("completed_at")
+
+  user            User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scenario        TrainingScenario      @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  module          CourseModule?         @relation(fields: [moduleId], references: [id])
+
+  @@index([scenarioId])
+  @@index([moduleId])
+  @@index([userId])
+  @@index([status])
+  @@index([userId, scenarioId, startedAt])
+  @@map("scenario_attempts")
+}
+
+// --- ENUMS ---
+
+enum MarketTrack {
+  forex
+  crypto
+  gold
+  multi
+}
+
+enum SkillLevel {
+  beginner
+  intermediate
+  advanced
+  institutional
+}
+
+enum ModuleTrack {
+  core
+  forex
+  crypto
+  gold
+}
+
+enum PhaseStatus {
+  active
+  passed
+  failed_dd
+  failed_time
+  reset
+}
+
+enum TradeDirection {
+  buy
+  sell
+}
+
+enum OrderType {
+  market
+  limit
+  stop
+  stop_limit
+  trailing_stop
+  oco
+}
+
+enum RuleSeverity {
+  hard_block
+  soft_warning
+  silent
+}
+
+enum BadgeRarity {
+  common
+  uncommon
+  rare
+  epic
+  legendary
+}
+
+enum AssetType {
+  CRYPTO
+  FOREX
+  GOLD
+}
+
+enum ScenarioType {
+  order_entry
+  structure_annotation
+  risk_sizing
+  no_trade
+  trap_detection
+  phase_exam
+  certification_exam
+}
+
+enum ScenarioStatus {
+  draft
+  qa
+  active
+  archived
+}
+
+enum ScenarioAttemptStatus {
+  started
+  in_progress
+  passed
+  failed
+  abandoned
+  expired
+}
+
+enum CandleSourceType {
+  generated
+  curated
+  imported_csv
+  live_snapshot
+}
