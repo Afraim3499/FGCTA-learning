@@ -41,6 +41,7 @@
     "node_modules",
     "prisma",
     "scripts",
+    "scratch",
     "check-tests.ts"
   ]
 }
