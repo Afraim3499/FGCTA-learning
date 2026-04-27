@@ -3,7 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { getUser } from "@/lib/auth-actions";
 import { revalidatePath } from "next/cache";
-import { Prisma } from "@/generated/prisma/client";
+import { Prisma } from "@prisma/client";
 import { getXPRank, serializeData } from "@/lib/utils";
 import { logUserEvent } from "./analytics";
 
