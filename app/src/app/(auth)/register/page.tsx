@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { signUp } from "@/lib/auth-actions";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 
-export default function RegisterPage() {
+// useSearchParams() must be in a child component inside <Suspense>
+function RegisterForm() {
   const searchParams = useSearchParams();
   const track = searchParams.get("track") || "forex";
   const [error, setError] = useState<string | null>(null);
@@ -101,5 +102,13 @@ export default function RegisterPage() {
         </p>
       </div>
     </motion.div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={<div className="text-white text-center">Loading...</div>}>
+      <RegisterForm />
+    </Suspense>
   );
 }

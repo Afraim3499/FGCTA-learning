@@ -6,10 +6,11 @@ import { DataBadge } from "@/components/ui/data-badge";
 import { InstitutionalButton } from "@/components/ui/institutional-button";
 import { motion } from "framer-motion";
 import { ShieldCheck, CreditCard, Wallet, ArrowRight, CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { cn } from "@/lib/utils";
 
-export default function CheckoutPage() {
+// useSearchParams() must live inside a child component wrapped in <Suspense>
+function CheckoutContent() {
   const searchParams = useSearchParams();
   const item = searchParams.get("item") || "bundle_mastery";
   const [step, setStep] = useState(1);
@@ -142,7 +143,7 @@ export default function CheckoutPage() {
                </div>
 
                <div className="space-y-4 pt-4">
-                  <p className="text-[10px] font-bold text-text-muted uppercase text-center">Protected by Stripe & AES-256</p>
+                  <p className="text-[10px] font-bold text-text-muted uppercase text-center">Protected by Stripe &amp; AES-256</p>
                   <InstitutionalButton size="lg" glow className="w-full" onClick={() => setStep(3)}>
                      FINALIZE DEPLOYMENT
                   </InstitutionalButton>
@@ -175,5 +176,13 @@ export default function CheckoutPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#050505] flex items-center justify-center text-white">Loading...</div>}>
+      <CheckoutContent />
+    </Suspense>
   );
 }

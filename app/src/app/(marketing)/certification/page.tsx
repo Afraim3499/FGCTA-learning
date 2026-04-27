@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
 import { InstitutionalButton } from "@/components/ui/institutional-button";
@@ -76,8 +77,10 @@ export default function CertificationPage() {
               Every certificate issued by the FGC Academy is etched into our secure ledger. Employers and capital partners can verify your execution metrics in real-time through our public gateway.
             </p>
             <div className="flex gap-4">
-              <InstitutionalButton variant="outline" onClick={() => window.location.href = '/verify'}>
-                EXPLORE VERIFICATION GATEWAY
+              <InstitutionalButton variant="outline" asChild>
+                <Link href="/verify">
+                  EXPLORE VERIFICATION GATEWAY
+                </Link>
               </InstitutionalButton>
             </div>
           </div>
