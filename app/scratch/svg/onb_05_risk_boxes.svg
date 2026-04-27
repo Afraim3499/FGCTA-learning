@@ -1,0 +1,22 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#0B0E14"/>
+  
+  <text x="400" y="80" fill="white" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">RISK VS REWARD</text>
+
+  <!-- Take Profit Zone -->
+  <rect x="250" y="150" width="300" height="150" fill="#10B981" fill-opacity="0.1" stroke="#10B981" stroke-width="2"/>
+  <text x="400" y="230" fill="#10B981" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">TAKE PROFIT (REWARD)</text>
+
+  <!-- Entry Line -->
+  <line x1="200" y1="300" x2="600" y2="300" stroke="white" stroke-width="4" stroke-dasharray="10 5"/>
+  <text x="610" y="305" fill="white" font-family="Arial" font-size="16" font-weight="bold">ENTRY</text>
+
+  <!-- Stop Loss Zone -->
+  <rect x="250" y="300" width="300" height="75" fill="#EF4444" fill-opacity="0.1" stroke="#EF4444" stroke-width="2"/>
+  <text x="400" y="345" fill="#EF4444" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">STOP LOSS (RISK)</text>
+
+  <!-- R-Multiple Note -->
+  <text x="400" y="450" fill="#94A3B8" font-family="Arial" font-size="14" text-anchor="middle">
+    In this example, the Reward is 2x larger than the Risk. This is a 2R trade.
+  </text>
+</svg>

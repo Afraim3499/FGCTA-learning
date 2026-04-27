@@ -11,6 +11,12 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
   const user = await getUser();
 
   if (!user) return <div>Unauthorized</div>;
+  
+  // Legacy Protection: Redirect students away from archived content
+  if (module.level === 1 && module.title.includes("[Legacy]")) {
+    const { redirect } = await import("next/navigation");
+    redirect("/course/1");
+  }
 
   // Fetch user's selected track for the UI hint
   const userProgress = await prisma.userProgress.findUnique({

@@ -318,10 +318,13 @@ export class ExecutionEngine {
 
     return {
       orderId,
+      instrument: this.config.instrument,
       fillPrice,
+      entryPrice: fillPrice,
       stopLoss: intent.stopLoss ?? null,
       takeProfit: intent.takeProfit ?? null,
       size: normalizedSize,
+      positionSize: intent.size, // The raw lot size for the grader
       direction: intent.direction,
       initialRiskAmount,
     };
@@ -465,6 +468,10 @@ export class PortfolioEngine {
     
     for (const pos of this.positions) {
       const liqPrice = pos.direction === "buy" ? tick.bid : tick.ask;
+      
+      // Safety: skip if price is invalid
+      if (isNaN(liqPrice) || liqPrice === 0) continue;
+
       pos.floatingPnl = calculatePnL({
         direction: pos.direction,
         entryPrice: pos.openPrice,

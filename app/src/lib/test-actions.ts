@@ -5,6 +5,7 @@ import { getUser } from "@/lib/auth-actions";
 import { revalidatePath } from "next/cache";
 import { initializePhase } from "./trading-actions";
 import { logUserEvent } from "./analytics";
+import { getXPRank } from "./utils";
 
 interface Question {
   id: string;
@@ -114,7 +115,8 @@ export async function submitTest(level: number, selectedAnswers: { questionId: s
 
   if (lastAttempt) {
     const hoursSince = (Date.now() - new Date(lastAttempt.attemptedAt).getTime()) / (1000 * 60 * 60);
-    if (hoursSince < 4 && !lastAttempt.passed) {
+    // Level 1 (and 0) has unlimited retries; other levels have 4 hour cooldown
+    if (level > 1 && hoursSince < 4 && !lastAttempt.passed) {
       return { 
         success: false, 
         error: `Cooldown active. You can retry in ${Math.ceil(4 - hoursSince)} hours.` 
@@ -175,6 +177,43 @@ export async function submitTest(level: number, selectedAnswers: { questionId: s
         });
 
         await logUserEvent(user.id, "LEVEL_UP", { fromLevel: level, toLevel: nextLevel });
+      }
+
+      // Level 1 Test XP Award (+50 XP one-time)
+      if (level === 1) {
+        const XP_AMOUNT = 50;
+        await tx.xPLedgerEntry.upsert({
+          where: {
+            userId_sourceId_sourceType: {
+              userId: user.id,
+              sourceId: testData.id,
+              sourceType: "test_mastery",
+            },
+          },
+          update: {},
+          create: {
+            userId: user.id,
+            xpAmount: XP_AMOUNT,
+            action: "TEST_COMPLETE",
+            sourceId: testData.id,
+            sourceType: "test_mastery",
+          },
+        });
+
+        // Update total XP
+        const updatedProgress = await tx.userProgress.findUnique({
+          where: { userId: user.id },
+        });
+        if (updatedProgress) {
+          const newTotal = updatedProgress.xpTotal + XP_AMOUNT;
+          await tx.userProgress.update({
+            where: { userId: user.id },
+            data: { 
+              xpTotal: newTotal,
+              xpRank: getXPRank(newTotal)
+            },
+          });
+        }
       }
     }
 

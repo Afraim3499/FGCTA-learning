@@ -127,13 +127,13 @@ export function Topbar() {
               </div>
               <div className="p-2">
                 <Link 
-                  href="/dashboard/profile"
+                  href="/dashboard"
                   className="flex items-center gap-3 p-3 text-xs font-bold text-slate-400 hover:text-white hover:bg-white/5 rounded-2xl transition-all"
                 >
                   <User size={16} className="text-slate-600" /> Tactical Profile
                 </Link>
                 <Link 
-                  href="/dashboard/settings"
+                  href="/dashboard"
                   className="flex items-center gap-3 p-3 text-xs font-bold text-slate-400 hover:text-white hover:bg-white/5 rounded-2xl transition-all"
                 >
                   <Settings size={16} className="text-slate-600" /> Command Settings

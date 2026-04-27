@@ -29,7 +29,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="w-64 h-screen bg-surface-secondary border-r border-border-default flex flex-col fixed left-0 top-0 z-50">
+    <div className="hidden md:flex w-64 h-screen bg-surface-secondary border-r border-border-default flex flex-col fixed left-0 top-0 z-50">
       <div className="p-8">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-accent-blue flex items-center justify-center text-white shadow-glow-blue">

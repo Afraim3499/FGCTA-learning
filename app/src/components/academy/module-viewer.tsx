@@ -11,6 +11,8 @@ import { PointClickEngine, PointClickTaskResult } from "./interactive/point-clic
 import { ScenarioDecisionEngine, ScenarioTaskResult } from './interactive/scenario-decision-engine';
 import { MiniReplayEngine, MiniReplayTaskResult } from './interactive/mini-replay-engine';
 import { ScenarioLauncher } from "./scenario-launcher";
+import { ChartScenarioModal } from "@/components/academy/chart-scenario";
+import { getModuleScenarios } from "@/lib/scenario-actions";
 
 type TaskResultType = PointClickTaskResult | ScenarioTaskResult | MiniReplayTaskResult;
 
@@ -23,6 +25,7 @@ interface ModuleViewerProps {
     cryptoAdaptation?: string | null;
     goldAdaptation?: string | null;
     completed: boolean;
+    level: number;
     prevModuleId: string | null;
     nextModuleId: string | null;
     strategyFamilies?: string[];
@@ -40,6 +43,8 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
   const [activeTab, setActiveTab] = useState<Tab>("core");
   const [isCompleting, setIsCompleting] = useState(false);
   const [taskResult, setTaskResult] = useState<TaskResultType | null>(null);
+  const [activeChartScenario, setActiveChartScenario] = useState<any | null>(null);
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
   const router = useRouter();
 
   const isMasterAdmin = userTrack === "multi";
@@ -84,6 +89,49 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
     }
   };
 
+  const handleLaunchScenario = (scenario: any) => {
+    setActiveChartScenario(scenario);
+  };
+
+  const handleAutoLaunch = async () => {
+    const scenarios = await getModuleScenarios(module.id);
+    if (scenarios && scenarios.length > 0) {
+      const bestMission = scenarios.find((s: any) => {
+        const meta = s.metadata ?? {};
+        return meta.interactionMode === "chart_markup_v1" || meta.interactionMode === "chart_markup_v2";
+      }) || scenarios[0];
+      
+      if (bestMission.scenarioType === 'order_entry') {
+        router.push(`/trading?scenarioId=${bestMission.id}&moduleId=${module.id}`);
+      } else {
+        setActiveChartScenario(bestMission);
+      }
+    }
+  };
+
+  const handleChartPass = () => {
+    setRefreshTrigger(prev => prev + 1);
+  };
+
+  const handleChartClose = () => {
+    setActiveChartScenario(null);
+    setRefreshTrigger(prev => prev + 1);
+  };
+
+  const handleProceed = async (targetPath: string) => {
+    if (!module.completed) {
+      setIsCompleting(true);
+      try {
+        await completeModule(module.id, taskResult || undefined);
+      } catch (error) {
+        console.error("Failed to sync before proceeding:", error);
+      } finally {
+        setIsCompleting(false);
+      }
+    }
+    router.push(targetPath);
+  };
+
   const currentContent = 
     activeTab === "forex" ? module.forexAdaptation :
     activeTab === "crypto" ? module.cryptoAdaptation :
@@ -93,7 +141,6 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
   return (
     <div className="space-y-12">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-        {/* Mission Control Sidebar */}
         <aside className="lg:col-span-1 space-y-8">
           <div className="space-y-3">
             <h3 className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-[0.3em] px-4">Mission Protocols</h3>
@@ -126,20 +173,16 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
           </div>
 
           <div className="p-8 bg-gradient-to-br from-[var(--color-surface-secondary)] to-[var(--color-surface-tertiary)] rounded-[2rem] border border-[var(--color-border-default)] space-y-6 relative overflow-hidden group">
-             {/* Glow Effect */}
-             <div className="absolute -right-10 -top-10 w-24 h-24 bg-[var(--color-brand-500)]/5 blur-3xl group-hover:bg-[var(--color-brand-500)]/10 transition-all" />
-             
+            <div className="absolute -right-10 -top-10 w-24 h-24 bg-[var(--color-brand-500)]/5 blur-3xl group-hover:bg-[var(--color-brand-500)]/10 transition-all" />
             <div className="flex items-center gap-2 mb-4 text-[var(--color-brand-400)] text-sm font-bold tracking-wide">
               <CheckCircle2 className="w-4 h-4" />
               OPERATIONAL SYNC
             </div>
-            
             <p className="text-xs text-[var(--color-text-muted)] mb-6 leading-relaxed">
               {module.completed
-                ? "Synchronized with protocol. +50 XP contributed to your global network rank." 
+                ? `Synchronized with protocol.${module.level > 1 ? ` +50 XP contributed to your global network rank.` : ' +0 XP (Practice Node).'}` 
                 : "Absorb the core logic and track-specific adaptations to synchronize your progress."}
             </p>
-
             <button
               onClick={handleComplete}
               disabled={isCompleting || module.completed || isSyncLocked}
@@ -165,11 +208,13 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
             </button>
           </div>
 
-          {/* Training Missions Bridge */}
-          <ScenarioLauncher moduleId={module.id} />
+          <ScenarioLauncher 
+            moduleId={module.id} 
+            onLaunchScenario={handleLaunchScenario}
+            refreshTrigger={refreshTrigger}
+          />
 
-          {/* Strategic Logic Card */}
-          {module.logicIds && module.logicIds.length > 0 && (
+          {module.level >= 1 && module.logicIds && module.logicIds.length > 0 && (
             <div className="p-8 bg-[var(--color-brand-500)]/5 border border-[var(--color-brand-500)]/20 rounded-[2rem] space-y-4 relative overflow-hidden group/lab">
               <div className="flex items-center gap-3 text-[10px] font-bold text-[var(--color-brand-400)] uppercase tracking-[0.2em]">
                 <FlaskConical className="w-4 h-4" />
@@ -179,59 +224,25 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                 {module.logicIds.map((id) => (
                   <div key={id} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-xl">
                     <span className="text-[10px] font-mono font-bold text-white">{id}</span>
-                    <Link 
-                      href="/lab" 
-                      className="text-[10px] font-bold text-[var(--color-brand-400)] hover:text-white flex items-center gap-1 transition-colors"
-                    >
+                    <Link href="/lab" className="text-[10px] font-bold text-[var(--color-brand-400)] hover:text-white flex items-center gap-1 transition-colors">
                       Lab <ExternalLink size={10} />
                     </Link>
                   </div>
                 ))}
               </div>
-              <p className="text-[10px] text-slate-500 italic leading-relaxed">
-                Click a Logic ID to view the full execution checklist in the Strategy Lab.
-              </p>
             </div>
           )}
-
-          {/* Coach Insights (Tactical Support Layer) */}
-          <div className="p-8 bg-amber-500/5 border border-amber-500/10 rounded-[2rem] space-y-4 relative overflow-hidden group/coach">
-            <div className="flex items-center gap-3 text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em]">
-              <Lightbulb className="w-4 h-4" />
-              Coach Insights
-            </div>
-            
-            <div className="space-y-4">
-              <div className="flex gap-3">
-                <AlertCircle className="w-4 h-4 text-amber-500/50 shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="text-[11px] font-bold text-white uppercase tracking-tight">The "Grave-Digger" Trap</p>
-                  <p className="text-[11px] text-slate-400 leading-relaxed">
-                    Students often chase momentum here without structural confirmation. Verify the **Logic ID** checklist before committing any virtual capital.
-                  </p>
-                </div>
-              </div>
-
-              {module.logicIds?.includes('TF_06.1') && (
-                <div className="p-4 bg-white/5 rounded-xl border border-white/5">
-                  <p className="text-[10px] font-bold text-[var(--color-brand-400)] mb-1 uppercase">Pro Tip: Structure</p>
-                  <p className="text-[10px] text-slate-500 leading-relaxed italic">
-                    "A trend is not broken until a close below the HL. Wicks are noise—ignore them for structural validation."
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
         </aside>
 
-        {/* Tactical Content Area */}
         <main className="lg:col-span-3 min-h-[700px] bg-[var(--color-surface-secondary)] rounded-[2.5rem] border border-[var(--color-border-default)] p-10 md:p-16 shadow-3xl relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-brand-500)]/5 blur-[120px] rounded-full pointer-events-none group-hover:bg-[var(--color-brand-500)]/10 transition-all duration-1000" />
           <div className="relative z-10">
-            <MarkdownRenderer content={currentContent || "No adaptation data exists for this market protocol."} />
+            <MarkdownRenderer 
+              content={currentContent || "No adaptation data exists for this market protocol."} 
+              onLaunchScenario={handleAutoLaunch}
+            />
           </div>
 
-          {/* Dynamic Interactive Execution Tasks */}
           {module.interactiveTaskType === 'type_a_point_click' && module.interactiveTaskData && (
             <div className="mt-8 pt-8 border-t border-[var(--color-border-default)] relative z-20">
               <PointClickEngine
@@ -275,7 +286,6 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
         </main>
       </div>
 
-      {/* Navigation Matrix */}
       <footer className="flex items-center justify-between pt-8 border-t border-white/5">
         {module.prevModuleId ? (
           <Link
@@ -288,23 +298,46 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
         ) : <div />}
 
         {module.nextModuleId ? (
-          <Link
-            href={`/course/module/${module.nextModuleId}`}
-            className="flex items-center gap-3 text-[10px] font-bold text-white uppercase tracking-widest hover:text-[var(--color-brand-400)] transition-all group"
+          <button
+            onClick={() => handleProceed(`/course/module/${module.nextModuleId}`)}
+            disabled={isCompleting || isSyncLocked}
+            className="flex items-center gap-3 text-[10px] font-bold text-white uppercase tracking-widest hover:text-[var(--color-brand-400)] transition-all group disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Advance to Next Node
+            {isCompleting ? "SYNCING..." : "Advance to Next Node"}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </button>
         ) : (
-          <Link
-            href="/course"
-            className="flex items-center gap-3 text-[10px] font-bold text-[var(--color-brand-400)] uppercase tracking-widest hover:text-[var(--color-brand-300)] transition-all"
+          <button
+            onClick={() => handleProceed(module.completed ? `/test/${module.level}` : "/course")}
+            disabled={isCompleting || isSyncLocked}
+            className="flex items-center gap-3 text-[10px] font-bold text-[var(--color-brand-400)] uppercase tracking-widest hover:text-[var(--color-brand-300)] transition-all group disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Return to Protocol Overview
-            <ArrowUpRight size={14} />
-          </Link>
+            {isCompleting 
+              ? "SYNCING..." 
+              : module.completed 
+                ? "Initiate Knowledge Assessment" 
+                : "Sync & Finish Level"}
+            <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </button>
         )}
       </footer>
+
+      {activeChartScenario && (
+        <ChartScenarioModal
+          scenario={{
+            id:            activeChartScenario.id,
+            slug:          activeChartScenario.slug,
+            title:         activeChartScenario.title,
+            prompt:        activeChartScenario.prompt,
+            candleData:    activeChartScenario.candleData ?? [],
+            passThreshold: activeChartScenario.passThreshold ?? 70,
+            metadata:      activeChartScenario.metadata ?? {},
+          }}
+          moduleId={module.id}
+          onClose={handleChartClose}
+          onPass={handleChartPass}
+        />
+      )}
     </div>
   );
 }

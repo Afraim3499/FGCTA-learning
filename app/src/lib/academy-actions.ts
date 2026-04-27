@@ -35,6 +35,8 @@ export async function getNextModule(level: number, moduleNumber: string, assetCl
 }
 
 export async function completeModule(userId: string, moduleId: string, assetClass: string) {
+  const module = await prisma.courseModule.findUnique({ where: { id: moduleId } });
+  
   await prisma.moduleCompletion.upsert({
     where: {
       userId_moduleId: {
@@ -48,12 +50,11 @@ export async function completeModule(userId: string, moduleId: string, assetClas
     create: {
       userId,
       moduleId,
-      xpAwarded: 50
+      xpAwarded: (module?.level ?? 0) <= 1 ? 0 : 50
     }
   });
 
   // If this was the final crucible, issue certification
-  const module = await prisma.courseModule.findUnique({ where: { id: moduleId } });
   if (module && module.level === 8 && module.moduleNumber === "8.1") {
     await issueCertification(userId, assetClass.toUpperCase() as any, {
       profitScore: 95,

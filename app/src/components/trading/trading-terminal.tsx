@@ -500,11 +500,23 @@ export function TradingTerminal({
           )}
 
           <button
-            disabled={isPending || risk.isInvalid || snapshot.status === "complete" || !validation.valid}
+            disabled={isPending || risk.isInvalid || (snapshot.status === "complete" && !isScenarioMode) || !validation.valid}
             onClick={handleExecute}
-            className={cn("w-full py-4 rounded-xl font-bold uppercase text-[11px] transition-all", (risk.isInvalid || !validation.valid) ? "bg-white/5 text-slate-500 cursor-not-allowed" : "bg-white text-black hover:bg-white/90")}
+            className={cn(
+              "w-full py-4 rounded-xl font-bold uppercase text-[11px] transition-all",
+              (risk.isInvalid || !validation.valid) 
+                ? "bg-white/5 text-slate-500 cursor-not-allowed border border-white/5" 
+                : "bg-white text-black hover:bg-white/90 active:scale-[0.98] shadow-xl shadow-white/5"
+            )}
           >
-            {isPending ? <Loader2 className="animate-spin" size={16} /> : "Execute Order"}
+            {isPending ? (
+              <div className="flex items-center justify-center gap-2">
+                <Loader2 className="animate-spin" size={16} />
+                <span>Synchronizing...</span>
+              </div>
+            ) : (
+              <span>{risk.isInvalid ? (risk.text === "Enter stop loss" ? "Define Risk Protocol" : "Invalid Risk Protocol") : "Execute Order"}</span>
+            )}
           </button>
         </div>
       </div>

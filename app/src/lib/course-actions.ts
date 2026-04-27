@@ -20,9 +20,18 @@ export async function getCourseLevels() {
   const trackCondition = userTrack === "multi" ? {} : { OR: [{ marketTrack: "core" }, { marketTrack: userTrack as any }] };
 
   // Fetch all modules grouped by level that belong to the user's track or core
-  const modules = await prisma.courseModule.findMany({
+  const allModules = await prisma.courseModule.findMany({
     where: trackCondition as any,
-    select: { id: true, level: true },
+    select: { id: true, level: true, moduleNumber: true },
+  });
+
+  // Filter Level 1 to only 1.1-1.5 for students
+  const approvedL1 = ["1.1", "1.2", "1.3", "1.4", "1.5"];
+  const modules = allModules.filter(mod => {
+    if (mod.level === 1) {
+      return approvedL1.includes(mod.moduleNumber);
+    }
+    return true;
   });
 
   // Fetch all completions for the current user
@@ -93,7 +102,7 @@ export async function getModules(level: number) {
   }
   */
 
-  const modules = await prisma.courseModule.findMany({
+  const rawModules = await prisma.courseModule.findMany({
     where: {
       level,
       ...(trackCondition as any),
@@ -108,6 +117,12 @@ export async function getModules(level: number) {
       orderIndex: true,
     },
   });
+
+  // Filter Level 1 to only 1.1-1.5 for students
+  const approvedL1 = ["1.1", "1.2", "1.3", "1.4", "1.5"];
+  const modules = level === 1 
+    ? rawModules.filter(m => approvedL1.includes(m.moduleNumber))
+    : rawModules;
 
   const completions = await prisma.moduleCompletion.findMany({
     where: {
@@ -147,12 +162,21 @@ export async function getModuleContent(moduleId: string) {
   }
 
   if (!module) throw new Error(`Module ${moduleId} not found`);
-
-
+  
   const profile = await prisma.user.findUnique({
     where: { id: user.id },
-    select: { marketTrack: true, progress: { select: { currentLevel: true } } },
+    select: { isAdmin: true, marketTrack: true, progress: { select: { currentLevel: true } } },
   });
+
+  const approvedL1 = ["1.1", "1.2", "1.3", "1.4", "1.5"];
+
+  // Blocker 5: Legacy filtering - Reject non-approved Level 1 modules for students
+  if (module.level === 1 && !approvedL1.includes(module.moduleNumber)) {
+    if (!profile?.isAdmin) {
+      throw new Error("Access denied: This module is archived or not part of the active curriculum.");
+    }
+  }
+
   const userTrack = profile?.marketTrack || "forex";
   const trackCondition = userTrack === "multi" ? {} : { OR: [{ marketTrack: "core" }, { marketTrack: userTrack as any }] };
 
@@ -162,16 +186,21 @@ export async function getModuleContent(moduleId: string) {
   }
 
   // Get all modules in this level (restricted to track) to find neighbors
-  const allInLevel = await prisma.courseModule.findMany({
+  const rawInLevel = await prisma.courseModule.findMany({
     where: {
       level: module.level,
       ...(trackCondition as any),
     },
-    orderBy: { moduleNumber: "asc" },
-    select: { id: true },
+    orderBy: { orderIndex: "asc" },
+    select: { id: true, moduleNumber: true },
   });
 
-  const currentIndex = allInLevel.findIndex((m) => m.id === moduleId);
+  // Filter Level 1 for navigation
+  const allInLevel = module.level === 1
+    ? rawInLevel.filter(m => approvedL1.includes(m.moduleNumber))
+    : rawInLevel;
+
+  const currentIndex = allInLevel.findIndex((m) => m.id === module.id);
   const prevModuleId = currentIndex > 0 ? allInLevel[currentIndex - 1].id : null;
   const nextModuleId =
     currentIndex < allInLevel.length - 1 ? allInLevel[currentIndex + 1].id : null;
@@ -227,8 +256,13 @@ export async function completeModule(
   }
   */
 
-  // Standard award for module completion
-  const XP_AWARD = 50;
+  // Standard award for module completion (Level 0, Level 1, and Level 2.7-2.11 award 0 XP)
+  const isPracticeModule = 
+    module.level === 0 || 
+    module.level === 1 || 
+    (module.level === 2 && parseFloat(module.moduleNumber) >= 2.7 && parseFloat(module.moduleNumber) <= 2.11);
+  
+  const XP_AWARD = isPracticeModule ? 0 : 50;
 
   try {
     return await prisma.$transaction(async (tx) => {

@@ -1,39 +1,48 @@
 import Redis from 'ioredis';
 
-const getRedisUrl = () => {
-  if (process.env.REDIS_URL) {
-    return process.env.REDIS_URL;
+const isProduction = process.env.NODE_ENV === 'production';
+const redisUrl = process.env.REDIS_URL;
+
+// Determine if we should attempt a real connection
+const shouldConnect = !!redisUrl;
+
+if (!shouldConnect) {
+  if (isProduction) {
+    console.warn("⚠️ WARNING: REDIS_URL is not defined. Redis caching is DISABLED in production.");
+  } else {
+    // Silent in development to keep terminal clean
   }
-  
-  if (process.env.NODE_ENV !== 'production') {
-    return 'redis://localhost:6379';
-  }
-  
-  console.warn("WARNING: REDIS_URL is not defined in production. Falling back to localhost.");
-  return 'redis://localhost:6379';
-};
+}
 
 // Prevent multiple connections in development due to hot reloading
 const globalForRedis = globalThis as unknown as {
   redis: Redis | undefined;
 };
 
-export const redis = globalForRedis.redis ?? new Redis(getRedisUrl(), {
-  maxRetriesPerRequest: 1,
-  connectTimeout: 5000,
-  lazyConnect: true, // Don't connect until used
-});
+// Initialize the real client OR a silent mock proxy
+export const redis = shouldConnect
+  ? (globalForRedis.redis ?? new Redis(redisUrl, {
+      maxRetriesPerRequest: 1,
+      connectTimeout: 5000,
+      lazyConnect: true,
+    }))
+  : new Proxy({} as any, {
+      get: (target, prop) => {
+        if (prop === 'on') return () => {};
+        // Return a function that does nothing for any Redis method call
+        return async () => null;
+      }
+    });
 
-// Suppress unhandled error events
-redis.on('error', (err) => {
-  if (err.message.includes('ECONNREFUSED')) {
-    // Only log once to avoid noise
-    return;
-  }
-  console.error("Redis Client Error:", err.message);
-});
+// Suppress unhandled error events for real client
+if (shouldConnect && 'on' in redis) {
+  redis.on('error', (err: any) => {
+    if (err.message.includes('ECONNREFUSED')) return;
+    console.error("Redis Client Error:", err.message);
+  });
+}
 
-if (process.env.NODE_ENV !== 'production') {
+if (!isProduction && shouldConnect) {
   globalForRedis.redis = redis;
 }
 

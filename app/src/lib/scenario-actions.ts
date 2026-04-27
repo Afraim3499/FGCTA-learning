@@ -5,6 +5,12 @@ import { getUser } from "@/lib/auth-actions";
 import { revalidatePath } from "next/cache";
 import { ScenarioAttemptStatus } from "@prisma/client";
 import { gradeMission } from "@/lib/trading/mission-grader";
+import {
+  gradeChartScenario,
+  gradeChartScenarioV2,
+  ChartMarkupActions,
+  ChartMarkupActionsV2,
+} from "@/lib/trading/chart-scenario-grader";
 
 /**
  * Fetches a specific training scenario by ID or Slug.
@@ -186,3 +192,123 @@ export async function getUserScenarioStatuses(moduleId: string) {
     orderBy: { startedAt: 'desc' }
   });
 }
+
+/**
+ * Submits a CHART SCENARIO attempt (no trading terminal involved).
+ * Uses gradeChartScenario instead of gradeMission.
+ * Idempotent: won't re-grade a passed attempt.
+ */
+export async function submitChartScenarioAttempt(
+  attemptId: string,
+  actions:   ChartMarkupActions | ChartMarkupActionsV2
+) {
+  const user = await getUser();
+  if (!user) throw new Error("Unauthorized");
+
+  const attempt = await prisma.scenarioAttempt.findUnique({
+    where:   { id: attemptId },
+    include: { scenario: true },
+  });
+
+  if (!attempt)                   throw new Error("Attempt not found");
+  if (attempt.userId !== user.id) throw new Error("Forbidden");
+  if (attempt.status === "passed") return { attempt, gradingResult: attempt.gradingResult as any };
+
+  // Pull validation config from scenario metadata
+  const meta = (attempt.scenario.metadata as any) ?? {};
+  let gradingResult: any;
+
+  if (actions.interactionMode === "chart_markup_v2") {
+    const requirements = meta.requirements || [];
+    gradingResult = gradeChartScenarioV2(
+      actions,
+      requirements,
+      attempt.scenario.passThreshold
+    );
+  } else {
+    const validationZone = meta.validationZones?.[0];
+    if (!validationZone) throw new Error("Scenario has no validation zone configured.");
+
+    gradingResult = gradeChartScenario(
+      actions,
+      validationZone,
+      attempt.scenario.passThreshold,
+      meta.feedbackOnPass ?? "Correct zone identified.",
+      meta.feedbackOnFail ?? "Incorrect zone. Review the lesson and try again.",
+      meta.weaknessTagOnFail ?? "zone_identification"
+    );
+  }
+
+  const isPassed = gradingResult.passed;
+  const xpToAward = isPassed ? (attempt.scenario.xpAward || 0) : 0;
+
+  const updatedAttempt = await prisma.scenarioAttempt.update({
+    where: { id: attemptId },
+    data: {
+      status:        isPassed ? "passed" : "failed",
+      score:         gradingResult.score,
+      passed:        isPassed,
+      actions:       actions as any,
+      gradingResult: gradingResult as any,
+      resultSummary: gradingResult.summary,
+      weaknessTags:  gradingResult.weaknessTags,
+      xpAwarded:     xpToAward,
+      completedAt:   new Date(),
+    },
+  });
+
+  // Award XP if passed.
+  // KEY: Use scenarioId (not attemptId) as the ledger source key.
+  // This means the unique constraint on (userId, sourceId, sourceType) will
+  // block any second XP entry for this scenario, regardless of how many
+  // retry-and-pass attempts the user makes.
+  if (isPassed && xpToAward > 0) {
+    try {
+      // 1. Check if XP was already awarded for this scenario before upsert.
+      const existingEntry = await prisma.xPLedgerEntry.findUnique({
+        where: {
+          userId_sourceId_sourceType: {
+            userId: user.id,
+            sourceId: attempt.scenarioId,
+            sourceType: 'scenario'
+          }
+        }
+      });
+
+      const isFirstAward = !existingEntry;
+
+      // 2. Upsert the ledger entry (no-op if already exists).
+      await prisma.xPLedgerEntry.upsert({
+        where: {
+          userId_sourceId_sourceType: {
+            userId: user.id,
+            sourceId: attempt.scenarioId,
+            sourceType: 'scenario'
+          }
+        },
+        update: {}, // No-op: do NOT change anything on retry
+        create: {
+          userId: user.id,
+          action: `Completed Mission: ${attempt.scenario.title}`,
+          xpAmount: xpToAward,
+          sourceId: attempt.scenarioId,
+          sourceType: 'scenario'
+        }
+      });
+
+      // 3. Only increment XP total on first-ever pass for this scenario.
+      if (isFirstAward) {
+        await prisma.userProgress.update({
+          where: { userId: user.id },
+          data: { xpTotal: { increment: xpToAward } }
+        });
+      }
+    } catch (e) {
+      console.error("XP Award Error (Chart Scenario):", e);
+    }
+  }
+
+  revalidatePath("/dashboard/academy");
+  return { attempt: updatedAttempt, gradingResult };
+}
+

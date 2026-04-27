@@ -139,7 +139,7 @@ export default async function TradingHubPage({
                 Protocol Summary
               </p>
               <h3 className="text-2xl font-bold text-white tracking-tight">
-                Attempt #{activeAttempt.attemptNumber} Operational Telemetry
+                Attempt #{(activeAttempt as any).attemptNumber || '1'} Operational Telemetry
               </h3>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-10">
@@ -148,7 +148,7 @@ export default async function TradingHubPage({
                   Trades Executed
                 </p>
                 <p className="text-2xl font-mono font-bold text-white">
-                  {activeAttempt.tradesCount}
+                  {(activeAttempt as any).tradesCount || 0}
                 </p>
               </div>
               <div className="space-y-1">
@@ -165,16 +165,16 @@ export default async function TradingHubPage({
                 </p>
                 <p
                   className={`text-2xl font-mono font-bold ${
-                    Number(activeAttempt.currentEquity) >=
-                    Number(activeAttempt.startingEquity)
+                    Number((activeAttempt as any).currentEquity || 10000) >=
+                    Number((activeAttempt as any).startingEquity || 10000)
                       ? "text-emerald-400"
                       : "text-rose-400"
                   }`}
                 >
                   $
                   {(
-                    Number(activeAttempt.currentEquity) -
-                    Number(activeAttempt.startingEquity)
+                    Number((activeAttempt as any).currentEquity || 10000) -
+                    Number((activeAttempt as any).startingEquity || 10000)
                   ).toLocaleString()}
                 </p>
               </div>
