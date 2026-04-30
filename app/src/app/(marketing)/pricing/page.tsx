@@ -99,22 +99,22 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0E14] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--ln-bg)] text-[var(--ln-navy-900)] overflow-x-hidden">
       <Navbar />
 
       {/* Hero */}
       <section className="pt-40 pb-16 px-6 lg:px-8 text-center relative overflow-hidden">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[var(--color-brand-500)]/5 blur-[180px] rounded-full pointer-events-none" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[var(--ln-teal-500)]/5 blur-[180px] rounded-full pointer-events-none" />
         <div className="max-w-3xl mx-auto space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-            <Shield size={14} className="text-[var(--color-profit)]" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">One-Time Payment · Full Access</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--ln-bg-soft)] border border-[var(--ln-border)]">
+            <Shield size={14} className="text-[var(--ln-teal-500)]" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ln-text-muted)]">One-Time Payment · Full Access</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-black tracking-tighter">
+          <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-[var(--ln-navy-900)]">
             Choose Your Market.{" "}
-            <span className="text-[var(--color-text-muted)]">Get Everything.</span>
+            <span className="text-[var(--ln-navy-900)] opacity-40">Get Everything.</span>
           </h1>
-          <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-[var(--ln-text-secondary)] max-w-xl mx-auto leading-relaxed">
             No hidden fees. No upsells. No subscriptions. One payment. Full access to your entire track.
           </p>
         </div>
@@ -122,10 +122,10 @@ export default function PricingPage() {
 
       {/* Discount Code */}
       <section className="max-w-md mx-auto px-6 pb-12">
-        <div className="p-4 bg-white/[0.03] border border-white/5 rounded-2xl">
+        <div className="p-4 bg-white border border-[var(--ln-border)] rounded-2xl shadow-sm">
           <div className="flex items-center gap-2 mb-3">
-            <Tag size={14} className="text-[var(--color-brand-400)]" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">Have a referral code?</span>
+            <Tag size={14} className="text-[var(--ln-teal-500)]" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Have a referral code??</span>
           </div>
           <div className="flex gap-2">
             <input
@@ -133,18 +133,18 @@ export default function PricingPage() {
               value={discountCode}
               onChange={(e) => setDiscountCode(e.target.value)}
               placeholder="Enter code"
-              className="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-brand-500)]/50"
+              className="flex-1 px-4 py-3 bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] rounded-xl text-sm text-[var(--ln-navy-900)] placeholder:text-[var(--ln-text-muted)] focus:outline-none focus:border-[var(--ln-teal-500)]/50"
             />
             <button
               onClick={handleApplyCode}
-              className="px-6 py-3 bg-[var(--color-brand-500)] text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-[var(--color-brand-600)] transition-colors"
+              className="px-6 py-3 bg-[var(--ln-navy-900)] text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-[var(--ln-navy-800)] transition-colors"
             >
               Apply
             </button>
           </div>
-          {codeError && <p className="text-xs text-rose-400 mt-2">{codeError}</p>}
+          {codeError && <p className="text-xs text-rose-500 mt-2">{codeError}</p>}
           {appliedDiscount && (
-            <p className="text-xs text-[var(--color-profit)] mt-2 font-bold">
+            <p className="text-xs text-[var(--ln-teal-500)] mt-2 font-bold">
               ✓ {appliedDiscount}% discount applied!
             </p>
           )}
@@ -161,17 +161,17 @@ export default function PricingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               className={cn(
-                "p-8 md:p-10 rounded-3xl border relative overflow-hidden flex flex-col",
+                "p-8 md:p-10 rounded-3xl border relative overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl",
                 tier.popular
-                  ? "bg-[var(--color-surface-secondary)] border-amber-500/30 shadow-[0_0_40px_rgba(245,158,11,0.08)]"
-                  : "bg-white/[0.03] border-white/5"
+                  ? "bg-white border-[var(--ln-teal-500)]/30 shadow-[0_20px_50px_rgba(8,26,54,0.06)]"
+                  : "bg-white border-[var(--ln-border)]"
               )}
             >
               {tier.popular && (
-                <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 blur-[80px] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--ln-teal-500)]/5 blur-[80px] pointer-events-none" />
               )}
               {tier.badge && (
-                <div className="absolute top-5 right-5 px-3 py-1 bg-amber-500 text-black text-[8px] font-bold uppercase tracking-widest rounded-full flex items-center gap-1">
+                <div className="absolute top-5 right-5 px-3 py-1 bg-[var(--ln-teal-500)] text-white text-[8px] font-bold uppercase tracking-widest rounded-full flex items-center gap-1">
                   <Sparkles size={10} />
                   {tier.badge}
                 </div>
@@ -181,24 +181,24 @@ export default function PricingPage() {
                 {/* Header */}
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
-                    <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center", tier.bgAccent, tier.color)}>
+                    <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center", "bg-[var(--ln-bg-soft)]", tier.color)}>
                       <tier.icon size={24} />
                     </div>
-                    <h3 className="text-2xl font-bold text-white">{tier.market}</h3>
+                    <h3 className="text-2xl font-bold text-[var(--ln-navy-900)]">{tier.market}</h3>
                   </div>
 
                   <div className="flex items-baseline gap-2">
                     {appliedDiscount && (
-                      <span className="text-2xl font-bold text-[var(--color-text-muted)] line-through">${tier.price}</span>
+                      <span className="text-2xl font-bold text-[var(--ln-text-muted)] line-through">${tier.price}</span>
                     )}
-                    <span className="text-5xl font-black tracking-tighter">${getPrice(tier.price)}</span>
-                    <span className="text-sm font-bold text-[var(--color-text-muted)] uppercase">one-time</span>
+                    <span className="text-5xl font-black tracking-tighter text-[var(--ln-navy-900)]">${getPrice(tier.price)}</span>
+                    <span className="text-sm font-bold text-slate-500 uppercase">one-time</span>
                   </div>
                 </div>
 
                 {/* Exclusive modules */}
                 <div className="mb-6">
-                  <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] mb-3">
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-slate-500 mb-3">
                     {tier.exclusiveCount} Exclusive Modules
                   </p>
                   <div className="space-y-2">
@@ -213,8 +213,8 @@ export default function PricingPage() {
 
                 {/* Bonus */}
                 {tier.bonus && (
-                  <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl mb-6">
-                    <p className="text-xs text-amber-400 font-bold flex items-center gap-2">
+                  <div className="p-3 bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/10 rounded-xl mb-6">
+                    <p className="text-xs text-[var(--ln-teal-500)] font-bold flex items-center gap-2">
                       <Sparkles size={12} />
                       {tier.bonus}
                     </p>
@@ -228,8 +228,8 @@ export default function PricingPage() {
                     className={cn(
                       "w-full py-4 rounded-2xl font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 group",
                       tier.popular
-                        ? "bg-white text-black hover:bg-white/90"
-                        : "bg-white/5 text-white border border-white/10 hover:bg-white/10"
+                        ? "bg-[var(--ln-navy-900)] text-white hover:bg-[var(--ln-navy-800)] shadow-lg shadow-navy-900/10"
+                        : "bg-white text-[var(--ln-navy-900)] border border-[var(--ln-border)] hover:bg-[var(--ln-bg-soft)]"
                     )}
                   >
                     Start {tier.market} Training
@@ -243,50 +243,50 @@ export default function PricingPage() {
       </section>
 
       {/* Shared Features */}
-      <section className="max-w-4xl mx-auto px-6 lg:px-8 py-20 border-t border-white/5">
+      <section className="max-w-4xl mx-auto px-6 lg:px-8 py-20 border-t border-[var(--ln-border-soft)]">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Everything included in every track</h2>
-          <p className="text-[var(--color-text-secondary)]">No matter which market you choose, you get the full FGC system.</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4 text-[var(--ln-navy-900)]">Everything included in every track</h2>
+          <p className="text-[var(--ln-text-secondary)]">No matter which market you choose, you get the full Lurnava system.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {sharedFeatures.map((feature) => (
-            <div key={feature} className="flex items-start gap-3 p-4 bg-white/[0.02] rounded-xl border border-white/5">
-              <div className="w-5 h-5 rounded-full bg-[var(--color-profit)]/10 flex items-center justify-center shrink-0 mt-0.5">
-                <Check size={10} className="text-[var(--color-profit)]" />
+            <div key={feature} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-[var(--ln-border)] shadow-sm">
+              <div className="w-5 h-5 rounded-full bg-[var(--ln-teal-soft)] flex items-center justify-center shrink-0 mt-0.5">
+                <Check size={10} className="text-[var(--ln-teal-500)]" />
               </div>
-              <span className="text-sm text-[var(--color-text-secondary)]">{feature}</span>
+              <span className="text-sm text-slate-600 font-medium">{feature}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* Value Comparison */}
-      <section className="max-w-4xl mx-auto px-6 lg:px-8 py-20 border-t border-white/5">
+      <section className="max-w-4xl mx-auto px-6 lg:px-8 py-20 border-t border-[var(--ln-border-soft)]">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4 text-[var(--ln-navy-900)]">
             What ${Math.min(...tiers.map(t => t.price))}–${Math.max(...tiers.map(t => t.price))} gets you
           </h2>
-          <p className="text-[var(--color-text-secondary)]">Compared to every alternative on the market.</p>
+          <p className="text-[var(--ln-text-secondary)]">Compared to every alternative on the market.</p>
         </div>
         <div className="space-y-3">
           {comparisons.map((comp) => (
-            <div key={comp.name} className="flex items-center gap-4 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+            <div key={comp.name} className="flex items-center gap-4 p-4 bg-white border border-[var(--ln-border)] rounded-xl">
               <div className="w-24 shrink-0">
-                <span className="text-sm font-bold text-[var(--color-text-muted)]">{comp.price}</span>
+                <span className="text-sm font-bold text-slate-500">{comp.price}</span>
               </div>
               <div className="flex-1">
-                <span className="text-sm font-bold text-white">{comp.name}</span>
-                <span className="text-xs text-[var(--color-text-muted)] ml-3">{comp.gap}</span>
+                <span className="text-sm font-bold text-[var(--ln-navy-900)]">{comp.name}</span>
+                <span className="text-xs text-slate-500 ml-3">{comp.gap}</span>
               </div>
             </div>
           ))}
-          <div className="flex items-center gap-4 p-5 bg-[var(--color-profit)]/5 border border-[var(--color-profit)]/20 rounded-xl">
+          <div className="flex items-center gap-4 p-5 bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/20 rounded-xl">
             <div className="w-24 shrink-0">
-              <span className="text-sm font-bold text-[var(--color-profit)]">$205–245</span>
+              <span className="text-sm font-bold text-[var(--ln-teal-500)]">$205–245</span>
             </div>
             <div className="flex-1">
-              <span className="text-sm font-bold text-white">FGC Academy</span>
-              <span className="text-xs text-[var(--color-profit)] ml-3">Education + Simulation + Certification. One payment. Full access.</span>
+              <span className="text-sm font-bold text-[var(--ln-navy-900)]">Lurnava Academy</span>
+              <span className="text-xs text-[var(--ln-teal-500)] ml-3">Education + Simulation + Certification. One payment. Full access.</span>
             </div>
           </div>
         </div>

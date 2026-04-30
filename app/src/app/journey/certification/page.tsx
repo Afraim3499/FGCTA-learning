@@ -97,7 +97,7 @@ export default async function UserCertificationPage() {
               <div className="space-y-4">
                  <h1 className="text-5xl font-black tracking-tighter uppercase">Operational <span className="text-accent-blue">Verified</span>.</h1>
                  <p className="text-text-secondary leading-relaxed">
-                    Your performance data has been cryptographically signed and stored in the FGC Ledger. This certification serves as high-fidelity proof of your trading discipline and technical precision.
+                    Your performance data has been cryptographically signed and stored in the Lurnava Ledger. This certification serves as high-fidelity proof of your trading discipline and technical precision.
                  </p>
               </div>
 
@@ -126,7 +126,7 @@ export default async function UserCertificationPage() {
                  <div className="flex items-center justify-between p-4 bg-accent-blue/5 border border-accent-blue/20 rounded-xl group cursor-pointer hover:bg-accent-blue/10 transition-all">
                     <div className="flex items-center gap-3">
                        <Globe size={18} className="text-accent-blue" />
-                       <span className="text-xs font-mono text-white">verification.fgc.academy/v/{latestCert.id.substring(0, 8)}</span>
+                       <span className="text-xs font-mono text-white">verification.lurnava.com/v/{latestCert.id.substring(0, 8)}</span>
                     </div>
                     <ExternalLink size={14} className="text-slate-500 group-hover:text-accent-blue transition-colors" />
                  </div>

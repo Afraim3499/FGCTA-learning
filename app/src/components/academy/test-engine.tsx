@@ -28,7 +28,7 @@ export function TestEngine({ level, test }: TestEngineProps) {
   const [answers, setAnswers] = useState<{ questionId: string; selectedIndex: number }[]>([]);
   const [timeLeft, setTimeLeft] = useState(test.timeLimit * 60);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [results, setResults] = useState<{ score: number; passed: boolean } | null>(null);
+  const [results, setResults] = useState<{ score: number; passed: boolean; message?: string } | null>(null);
   const [error, setError] = useState<string | null>(null);
   
   const router = useRouter();
@@ -50,7 +50,7 @@ export function TestEngine({ level, test }: TestEngineProps) {
     try {
       const res = await submitTest(level, answers) as any;
       if (res.success) {
-        setResults({ score: res.score, passed: res.passed });
+        setResults({ score: res.score, passed: res.passed, message: res.message });
       } else {
         setError(res.error || "Submission failed");
       }
@@ -129,17 +129,27 @@ export function TestEngine({ level, test }: TestEngineProps) {
         </div>
 
         <p className="text-sm text-[var(--color-text-secondary)]">
-          {results.passed 
+          {results.message || (results.passed 
             ? "Congratulations! You have unlocked the next level of the curriculum." 
-            : "You did not meet the 80% passing threshold. Please review the course material and try again in 4 hours."}
+            : "You did not meet the 80% passing threshold. Please review the course material and try again.")}
         </p>
 
-        <button
-          onClick={() => router.push("/course")}
-          className="w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-white/90 transition-all"
-        >
-          Back to Academy
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={() => router.push("/course")}
+            className="flex-1 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/5"
+          >
+            Back to Academy
+          </button>
+          {!results.passed && (
+            <button
+              onClick={() => window.location.reload()}
+              className="flex-1 py-4 bg-[var(--color-brand-500)] text-white font-bold rounded-xl hover:bg-[var(--color-brand-600)] transition-all shadow-lg shadow-brand-500/20"
+            >
+              Retry Assessment
+            </button>
+          )}
+        </div>
       </motion.div>
     );
   }

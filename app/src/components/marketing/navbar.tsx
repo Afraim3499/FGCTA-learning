@@ -4,16 +4,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, GraduationCap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/curriculum", label: "Curriculum" },
-  { href: "/simulation", label: "Simulation" },
-  { href: "/certification", label: "Certification" },
-  { href: "/methodology", label: "Methodology" },
+  { href: "/curriculum", label: "Academy" },
+  // { href: "/practice", label: "Practice" },
+  // { href: "/community", label: "Community" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/free-trial", label: "Free Trial" },
+  { href: "/about", label: "About" },
 ];
 
 export function Navbar() {
@@ -36,30 +35,24 @@ export function Navbar() {
     <>
       <nav
         className={cn(
-          "fixed top-0 w-full z-50 transition-all duration-500",
+          "fixed top-0 w-full z-50 transition-all duration-300",
           isScrolled
-            ? "bg-[#0B0E14]/90 backdrop-blur-2xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+            ? "bg-[var(--ln-surface)]/90 backdrop-blur-xl border-b border-[var(--ln-border-soft)] shadow-sm"
             : "bg-transparent border-b border-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-8 h-[100px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[var(--color-brand-500)] to-[var(--color-brand-600)] flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.3)] group-hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-shadow">
-              <GraduationCap size={18} className="text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-sm leading-none text-white">
-                FGC
-              </span>
-              <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)] leading-none mt-0.5">
-                Trading Academy
-              </span>
-            </div>
+          <Link href="/" className="flex items-center group">
+            <img 
+              src="/brand/lurnava/logo-lurnava-web.png" 
+              alt="Lurnava Academy" 
+              className="h-14 md:h-18 w-auto object-contain" 
+            />
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -67,10 +60,10 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "px-4 py-2 rounded-xl text-[11px] font-bold uppercase tracking-[0.12em] transition-all duration-300",
+                    "text-[14px] font-medium transition-colors duration-200",
                     isActive
-                      ? "text-white bg-white/10"
-                      : "text-[var(--color-text-muted)] hover:text-white hover:bg-white/5"
+                      ? "text-[var(--ln-teal-500)]"
+                      : "text-[var(--ln-text-primary)] hover:text-[var(--ln-teal-500)]"
                   )}
                 >
                   {link.label}
@@ -80,32 +73,28 @@ export function Navbar() {
           </div>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/login"
-              className="px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--color-text-muted)] hover:text-white transition-colors rounded-xl hover:bg-white/5"
+              className="px-4 py-2 text-[14px] font-medium text-[var(--ln-text-primary)] hover:text-[var(--ln-teal-500)] transition-colors"
             >
-              Sign In
+              Log in
             </Link>
             <Link
-              href="/free-trial"
-              className="px-6 py-2.5 bg-white text-black text-[10px] font-bold uppercase tracking-[0.15em] rounded-xl hover:bg-white/90 active:scale-[0.98] transition-all flex items-center gap-2 group shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+              href="/register"
+              className="px-6 py-2.5 bg-[var(--ln-navy-900)] text-white text-[14px] font-medium rounded-xl hover:bg-[var(--ln-navy-800)] active:translate-y-px transition-all shadow-[0_10px_24px_rgba(8,26,54,0.16)]"
             >
-              Start Free Trial
-              <ArrowRight
-                size={12}
-                className="group-hover:translate-x-0.5 transition-transform"
-              />
+              Get Started
             </Link>
           </div>
 
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white"
+            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-[var(--ln-surface-soft)] text-[var(--ln-navy-900)]"
             aria-label="Toggle menu"
           >
-            {isMobileOpen ? <X size={18} /> : <Menu size={18} />}
+            {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
@@ -118,7 +107,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-[#0B0E14]/98 backdrop-blur-2xl pt-24 px-6 pb-8 overflow-y-auto lg:hidden"
+            className="fixed inset-0 z-40 bg-[var(--ln-surface)] pt-[104px] px-6 pb-8 overflow-y-auto lg:hidden"
           >
             <div className="space-y-2 mb-8">
               {navLinks.map((link) => {
@@ -128,10 +117,10 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "block px-5 py-4 rounded-2xl text-sm font-bold uppercase tracking-widest transition-all",
+                      "block px-4 py-3 rounded-xl text-lg font-medium transition-all",
                       isActive
-                        ? "text-white bg-white/10"
-                        : "text-[var(--color-text-muted)] hover:text-white hover:bg-white/5"
+                        ? "text-[var(--ln-teal-500)] bg-[var(--ln-teal-soft)]"
+                        : "text-[var(--ln-navy-900)] hover:bg-[var(--ln-surface-soft)]"
                     )}
                   >
                     {link.label}
@@ -140,18 +129,18 @@ export function Navbar() {
               })}
             </div>
 
-            <div className="space-y-3 border-t border-white/5 pt-6">
+            <div className="space-y-3 pt-6 border-t border-[var(--ln-border-soft)]">
               <Link
                 href="/login"
-                className="block w-full px-5 py-4 text-center text-sm font-bold uppercase tracking-widest text-[var(--color-text-muted)] border border-white/10 rounded-2xl hover:bg-white/5 transition-all"
+                className="block w-full px-5 py-4 text-center text-base font-medium text-[var(--ln-navy-900)] border border-[var(--ln-border)] rounded-xl hover:bg-[var(--ln-surface-soft)] transition-all"
               >
-                Sign In
+                Log in
               </Link>
               <Link
-                href="/free-trial"
-                className="block w-full px-5 py-4 text-center text-sm font-bold uppercase tracking-widest bg-white text-black rounded-2xl hover:bg-white/90 transition-all"
+                href="/register"
+                className="block w-full px-5 py-4 text-center text-base font-medium bg-[var(--ln-navy-900)] text-white rounded-xl shadow-[0_10px_24px_rgba(8,26,54,0.16)] transition-all"
               >
-                Start Free Trial
+                Get Started
               </Link>
             </div>
           </motion.div>

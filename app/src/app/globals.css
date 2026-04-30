@@ -5,30 +5,30 @@
    ============================================ */
 
 @theme {
-  /* Institutional Base */
-  --color-background: #0A0A0B;
-  --color-surface-primary: #161618;
-  --color-surface-secondary: #0A0A0B;
-  --color-surface-tertiary: #1C2128;
+  /* Institutional Base - Lurnava Navy */
+  --color-background: #060B19;
+  --color-surface-primary: #0A1128;
+  --color-surface-secondary: #060B19;
+  --color-surface-tertiary: #0F172A;
   
-  /* Brand & Actions */
-  --color-brand-400: #0070F3;
-  --color-brand-500: #0070F3;
-  --color-brand-600: #0051B0;
+  /* Brand & Actions - Lurnava Teal */
+  --color-brand-400: #2DD4BF;
+  --color-brand-500: #14B8A6;
+  --color-brand-600: #0D9488;
   
   /* Intent Colors (Institutional Signals) */
-  --color-profit: #00FF00;
-  --color-loss: #FF0000;
+  --color-profit: #14B8A6; /* Using teal instead of harsh green where applicable */
+  --color-loss: #EF4444; /* softer red */
   --color-warning: #F59E0B;
-  --color-info: #0070F3;
+  --color-info: #14B8A6;
 
   /* Text Hierarchy */
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #94A3B8;
   --color-text-muted: #64748B;
-  --color-accent-blue: #0070F3;
-  --color-fail-red: #FF0000;
-  --color-pass-green: #00FF00;
+  --color-accent-blue: #14B8A6; /* Actually teal now */
+  --color-fail-red: #EF4444;
+  --color-pass-green: #14B8A6; /* using teal for pass */
   
   /* Market Track Colors */
   --color-forex: #38BDF8;
@@ -52,13 +52,39 @@
 
   /* Shadows & Depth (Institutional Glassmorphism) */
   --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-glow-blue: 0 0 15px rgba(0, 112, 243, 0.3);
-  --shadow-glow-profit: 0 0 20px rgba(0, 255, 0, 0.15);
-  --shadow-glow-loss: 0 0 20px rgba(255, 0, 0, 0.15);
+  --shadow-glow-blue: 0 0 15px rgba(20, 184, 166, 0.15); /* Re-mapped to soft teal */
+  --shadow-glow-profit: 0 0 20px rgba(20, 184, 166, 0.15); /* Re-mapped to soft teal */
+  --shadow-glow-loss: 0 0 20px rgba(239, 68, 68, 0.15);
 
   /* Typography */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* LURNAVA LIGHT THEME TOKENS */
+  --ln-bg: #F8FBFC;
+  --ln-bg-soft: #F3F7F8;
+  --ln-surface: #FFFFFF;
+  --ln-surface-soft: #F8FAFC;
+
+  --ln-navy-950: #06122A;
+  --ln-navy-900: #081A36;
+  --ln-navy-800: #0B2344;
+  --ln-navy-700: #12345F;
+
+  --ln-text-primary: #071B36;
+  --ln-text-secondary: #475569;
+  --ln-text-muted: #64748B;
+
+  --ln-teal-500: #14B8A6;
+  --ln-teal-400: #2DD4BF;
+  --ln-teal-300: #5EEAD4;
+  --ln-teal-soft: #E6FFFB;
+
+  --ln-border: #E2E8F0;
+  --ln-border-soft: #EDF2F7;
+
+  --ln-warning: #F59E0B;
+  --ln-success: #14B8A6;
 }
 
 /* ============================================
@@ -66,12 +92,12 @@
    ============================================ */
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background: var(--color-surface-primary);
-  color: var(--color-text-primary);
+  background: var(--ln-bg);
+  color: var(--ln-text-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

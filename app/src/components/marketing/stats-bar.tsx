@@ -17,7 +17,7 @@ export function StatsBar() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div ref={ref} className="w-full py-8 border-y border-white/5 bg-white/[0.01]">
+    <div ref={ref} className="w-full py-8 border-y border-[var(--ln-border-soft)] bg-[var(--ln-bg-soft)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 md:gap-x-16">
           {stats.map((stat, i) => (
@@ -28,10 +28,10 @@ export function StatsBar() {
               transition={{ delay: i * 0.08, duration: 0.4 }}
               className="flex flex-col items-center gap-1"
             >
-              <span className="text-xl md:text-2xl font-extrabold tracking-tight text-white">
+              <span className="text-xl md:text-2xl font-extrabold tracking-tight text-[var(--ln-navy-900)]">
                 {stat.value}
               </span>
-              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--ln-text-muted)]">
                 {stat.label}
               </span>
             </motion.div>

@@ -19,7 +19,7 @@ export default function CertificationPage() {
             The Gold <span className="text-accent-blue italic">Standard</span> of Trading Execution.
           </h1>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
-            FGC Certifications are not participation trophies. They are cryptographic proofs of execution precision, risk discipline, and market mastery.
+            Lurnava Certifications are not participation trophies. They are cryptographic proofs of execution precision, risk discipline, and market mastery.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ export default function CertificationPage() {
           <div className="space-y-6 max-w-xl">
             <h2 className="text-4xl font-black uppercase tracking-tighter">Publicly Verifiable Credentials.</h2>
             <p className="text-text-secondary leading-relaxed">
-              Every certificate issued by the FGC Academy is etched into our secure ledger. Employers and capital partners can verify your execution metrics in real-time through our public gateway.
+              Every certificate issued by the Lurnava Academy is etched into our secure ledger. Employers and capital partners can verify your execution metrics in real-time through our public gateway.
             </p>
             <div className="flex gap-4">
               <InstitutionalButton variant="outline" asChild>

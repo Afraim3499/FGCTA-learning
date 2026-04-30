@@ -134,36 +134,50 @@ export async function submitScenarioAttempt(
     }
   });
 
-  // Award XP if passed (Idempotent via unique constraint)
+  // Award XP if passed.
+  // KEY: Use scenarioId (not attemptId) as the ledger source key so that
+  // multiple passing attempts on the same scenario never double-award XP.
   if (isPassed && xpToAward > 0) {
     try {
+      const existingEntry = await prisma.xPLedgerEntry.findUnique({
+        where: {
+          userId_sourceId_sourceType: {
+            userId: user.id,
+            sourceId: attempt.scenarioId,
+            sourceType: 'scenario'
+          }
+        }
+      });
+
+      const isFirstAward = !existingEntry;
+
       await prisma.xPLedgerEntry.upsert({
         where: {
           userId_sourceId_sourceType: {
             userId: user.id,
-            sourceId: attemptId,
-            sourceType: 'scenario_attempt'
+            sourceId: attempt.scenarioId,
+            sourceType: 'scenario'
           }
         },
-        update: {}, // Do nothing if already exists
+        update: {}, // No-op on retry
         create: {
           userId: user.id,
           action: `Completed Mission: ${attempt.scenario.title}`,
           xpAmount: xpToAward,
-          sourceId: attemptId,
-          sourceType: 'scenario_attempt'
+          sourceId: attempt.scenarioId,
+          sourceType: 'scenario'
         }
       });
 
-      // Update User XP Total
-      await prisma.userProgress.update({
-        where: { userId: user.id },
-        data: {
-          xpTotal: { increment: xpToAward }
-        }
-      });
+      // Only increment xpTotal on the very first pass for this scenario
+      if (isFirstAward) {
+        await prisma.userProgress.update({
+          where: { userId: user.id },
+          data: { xpTotal: { increment: xpToAward } }
+        });
+      }
     } catch (e) {
-      console.error("XP Award Error (likely duplicate):", e);
+      console.error("XP Award Error (Mission Scenario):", e);
     }
   }
 
@@ -305,6 +319,40 @@ export async function submitChartScenarioAttempt(
       }
     } catch (e) {
       console.error("XP Award Error (Chart Scenario):", e);
+    }
+  }
+
+  // Dual-gate check for Level 3 unlock (mirrors Level 2 pattern)
+  if (isPassed && attempt.scenario.slug === "level-3-final-gate") {
+    const testData = await prisma.knowledgeTest.findUnique({ where: { level: 3 } });
+    if (testData) {
+      const testPassed = await prisma.testAttempt.findFirst({
+        where: { userId: user.id, testId: testData.id, passed: true },
+      });
+      const progress = await prisma.userProgress.findUnique({ where: { userId: user.id } });
+      if (testPassed && progress && progress.currentLevel === 3) {
+        await prisma.userProgress.update({
+          where: { userId: user.id },
+          data: { currentLevel: Math.max(progress.currentLevel, 4) },
+        });
+      }
+    }
+  }
+
+  // Dual-gate check for Level 2 unlock (existing logic preserved)
+  if (isPassed && attempt.scenario.slug === "m2-level-2-map-review-v1") {
+    const testData = await prisma.knowledgeTest.findUnique({ where: { level: 2 } });
+    if (testData) {
+      const testPassed = await prisma.testAttempt.findFirst({
+        where: { userId: user.id, testId: testData.id, passed: true },
+      });
+      const progress = await prisma.userProgress.findUnique({ where: { userId: user.id } });
+      if (testPassed && progress && progress.currentLevel === 2) {
+        await prisma.userProgress.update({
+          where: { userId: user.id },
+          data: { currentLevel: Math.max(progress.currentLevel, 3) },
+        });
+      }
     }
   }
 

@@ -127,7 +127,7 @@ const questions: Question[] = [
     context: "Think about institutional risk management rules.",
     options: [
       { label: "$100 (1%)", correct: false, explanation: "1% is actually very conservative and acceptable. But the standard institutional guideline allows up to 2%." },
-      { label: "$200 (2%)", correct: true, explanation: "Correct. The 2% rule is the industry standard for max risk per trade. FGC enforces this as Rule R001 — hard block if exceeded." },
+      { label: "$200 (2%)", correct: true, explanation: "Correct. The 2% rule is the industry standard for max risk per trade. Lurnava enforces this as Rule R001 — hard block if exceeded." },
       { label: "$500 (5%)", correct: false, explanation: "5% per trade means just 4 consecutive losses wipes 20% of your account. That's far too aggressive." },
       { label: "$1,000 (10%)", correct: false, explanation: "10% risk per trade is reckless. Two bad trades = 20% drawdown. This is how accounts get blown." },
     ],
@@ -171,7 +171,7 @@ const questions: Question[] = [
 const resultBands = [
   { min: 0, max: 2, level: "L0", title: "Start from Foundations", desc: "You need the basics first — and that's perfectly fine. Level 0 will teach you everything about charts, instruments, and platform navigation. The good news? It's free.", color: "text-blue-400", bg: "bg-blue-500/10" },
   { min: 3, max: 4, level: "L1–L2", title: "You Know the Basics", desc: "You have foundational awareness but gaps in execution discipline and strategy knowledge. Levels 1–2 will give you structure, and the trading simulation will test your understanding.", color: "text-purple-400", bg: "bg-purple-500/10" },
-  { min: 5, max: 6, level: "L3–L4", title: "Intermediate Trader", desc: "You understand markets well. The question is: can you trade consistently? FGC's simulation and certification will test what matters — not knowledge, but performance under rules.", color: "text-amber-400", bg: "bg-amber-500/10" },
+  { min: 5, max: 6, level: "L3–L4", title: "Intermediate Trader", desc: "You understand markets well. The question is: can you trade consistently? Lurnava's simulation and certification will test what matters — not knowledge, but performance under rules.", color: "text-amber-400", bg: "bg-amber-500/10" },
   { min: 7, max: 7, level: "L5+", title: "Advanced — Prove It", desc: "You answered like a professional. Now prove it with real performance data. The 5-phase simulation and certification scoring will validate whether your knowledge translates to execution.", color: "text-[var(--color-profit)]", bg: "bg-[var(--color-profit)]/10" },
 ];
 
@@ -213,25 +213,25 @@ export function TradingReadinessQuiz() {
   }, []);
 
   return (
-    <section className="py-32 px-6 lg:px-8 border-t border-white/5 relative overflow-hidden" id="readiness-quiz">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--color-brand-500)]/5 blur-[180px] rounded-full pointer-events-none" />
+    <section className="py-32 px-6 lg:px-8 border-t border-[var(--ln-border-soft)] relative overflow-hidden" id="readiness-quiz">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--ln-teal-500)]/5 blur-[180px] rounded-full pointer-events-none" />
 
       <div className="max-w-2xl mx-auto relative z-10">
         <AnimatePresence mode="wait">
           {/* Start Screen */}
           {!started && (
             <motion.div key="start" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="text-center space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-brand-500)]/10 border border-[var(--color-brand-500)]/20">
-                <Target size={14} className="text-[var(--color-brand-400)]" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-brand-400)]">Interactive Assessment</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--ln-teal-500)]/10 border border-[var(--ln-teal-500)]/20">
+                <Target size={14} className="text-[var(--ln-teal-500)]" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ln-teal-500)]">Interactive Assessment</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--ln-navy-900)]">
                 How ready are you to trade?
               </h2>
-              <p className="text-[var(--color-text-secondary)] max-w-lg mx-auto">
-                7 questions. Real charts. Real scenarios. Find out where you&apos;d start in the FGC system — and what you need to learn.
+              <p className="text-[var(--ln-text-secondary)] max-w-lg mx-auto">
+                7 questions. Real charts. Real scenarios. Find out where you&apos;d start in the Lurnava system — and what you need to learn.
               </p>
-              <button onClick={() => setStarted(true)} className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-bold rounded-2xl hover:bg-white/90 active:scale-[0.98] transition-all group">
+              <button onClick={() => setStarted(true)} className="inline-flex items-center gap-3 px-10 py-5 bg-[var(--ln-navy-900)] text-white font-bold rounded-2xl hover:bg-[var(--ln-navy-800)] active:scale-[0.98] transition-all group">
                 Take the Assessment
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
@@ -244,21 +244,21 @@ export function TradingReadinessQuiz() {
             <motion.div key={`q-${current}`} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }} className="space-y-8">
               {/* Progress */}
               <div className="flex items-center gap-4">
-                <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <motion.div className="h-full bg-gradient-to-r from-[var(--color-brand-500)] to-[var(--color-profit)] rounded-full" animate={{ width: `${((current + 1) / questions.length) * 100}%` }} />
+                <div className="flex-1 h-1.5 bg-[var(--ln-bg-soft)] rounded-full overflow-hidden">
+                  <motion.div className="h-full bg-gradient-to-r from-[var(--ln-teal-500)] to-[var(--ln-teal-500)] rounded-full" animate={{ width: `${((current + 1) / questions.length) * 100}%` }} />
                 </div>
-                <span className="text-[10px] font-mono font-bold text-[var(--color-text-muted)]">{current + 1}/{questions.length}</span>
+                <span className="text-[10px] font-mono font-bold text-[var(--ln-text-muted)]">{current + 1}/{questions.length}</span>
               </div>
 
               {/* Question */}
               <div className="space-y-3">
-                <h3 className="text-xl md:text-2xl font-bold text-white leading-snug">{q.question}</h3>
-                {q.context && <p className="text-sm text-[var(--color-text-muted)] italic">{q.context}</p>}
+                <h3 className="text-xl md:text-2xl font-bold text-[var(--ln-navy-900)] leading-snug">{q.question}</h3>
+                {q.context && <p className="text-sm text-[var(--ln-text-muted)] italic">{q.context}</p>}
               </div>
 
               {/* Chart */}
               {q.chart && (
-                <div className="p-4 bg-white/[0.03] border border-white/5 rounded-2xl">
+                <div className="p-4 bg-white border border-[var(--ln-border)] rounded-2xl shadow-sm">
                   <MiniChart candles={q.chart} />
                 </div>
               )}
@@ -296,9 +296,9 @@ export function TradingReadinessQuiz() {
                           {showResult && isSelected && !opt.correct && <XCircle size={14} className="text-rose-400" />}
                         </div>
                         <div className="flex-1">
-                          <span className="text-sm font-semibold text-white">{opt.label}</span>
+                          <span className="text-sm font-semibold text-[var(--ln-navy-900)]">{opt.label}</span>
                           {showResult && (isSelected || opt.correct) && (
-                            <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="text-xs text-[var(--color-text-secondary)] mt-2 leading-relaxed">
+                            <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="text-xs text-[var(--ln-text-secondary)] mt-2 leading-relaxed">
                               {opt.explanation}
                             </motion.p>
                           )}
@@ -312,7 +312,7 @@ export function TradingReadinessQuiz() {
               {/* Next button */}
               {answered && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex justify-end">
-                  <button onClick={handleNext} className="flex items-center gap-2 px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-white/90 transition-all group text-sm">
+                  <button onClick={handleNext} className="flex items-center gap-2 px-8 py-4 bg-[var(--ln-navy-900)] text-white font-bold rounded-2xl hover:bg-[var(--ln-navy-800)] transition-all group text-sm">
                     {current < questions.length - 1 ? "Next Question" : "See Your Result"}
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -325,15 +325,15 @@ export function TradingReadinessQuiz() {
           {finished && (
             <motion.div key="result" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="space-y-8">
               <div className="text-center space-y-6">
-                <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-[var(--color-brand-500)]/20 to-[var(--color-profit)]/20 border border-white/10 flex items-center justify-center mx-auto">
-                  <Trophy size={40} className="text-[var(--color-brand-400)]" />
+                <div className="w-24 h-24 rounded-3xl bg-[var(--ln-teal-soft)] border border-[var(--ln-border)] flex items-center justify-center mx-auto">
+                  <Trophy size={40} className="text-[var(--ln-teal-500)]" />
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] mb-2">Your Trading Readiness Score</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)] mb-2">Your Trading Readiness Score</p>
                   <div className="text-7xl font-black tracking-tighter">
-                    <span className="text-white">{score}</span>
-                    <span className="text-[var(--color-text-muted)] text-4xl">/{questions.length}</span>
+                    <span className="text-[var(--ln-navy-900)]">{score}</span>
+                    <span className="text-[var(--ln-text-muted)] text-4xl">/{questions.length}</span>
                   </div>
                 </div>
 
@@ -341,29 +341,29 @@ export function TradingReadinessQuiz() {
                   <span className="text-[10px] font-bold uppercase tracking-widest">Recommended start: {result.level}</span>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white">{result.title}</h3>
-                <p className="text-[var(--color-text-secondary)] max-w-md mx-auto leading-relaxed">{result.desc}</p>
+                <h3 className="text-2xl font-bold text-[var(--ln-navy-900)]">{result.title}</h3>
+                <p className="text-[var(--ln-text-secondary)] max-md mx-auto leading-relaxed">{result.desc}</p>
               </div>
 
               {/* Score breakdown */}
               <div className="p-6 bg-white/[0.03] border border-white/5 rounded-2xl">
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">Score Breakdown</span>
-                  <span className="text-sm font-bold text-white">{Math.round((score / questions.length) * 100)}%</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)]">Score Breakdown</span>
+                  <span className="text-sm font-bold text-[var(--ln-navy-900)]">{Math.round((score / questions.length) * 100)}%</span>
                 </div>
                 <div className="w-full h-3 bg-white/5 rounded-full overflow-hidden">
                   <div className="h-full bg-gradient-to-r from-[var(--color-brand-500)] to-[var(--color-profit)] rounded-full transition-all" style={{ width: `${(score / questions.length) * 100}%` }} />
                 </div>
                 <div className="grid grid-cols-3 gap-4 mt-4 text-center">
-                  <div><p className="text-xs text-[var(--color-text-muted)]">Charts</p><p className="text-sm font-bold text-white">{score >= 3 ? "✓" : "Needs work"}</p></div>
-                  <div><p className="text-xs text-[var(--color-text-muted)]">Risk Mgmt</p><p className="text-sm font-bold text-white">{score >= 5 ? "✓" : "Needs work"}</p></div>
-                  <div><p className="text-xs text-[var(--color-text-muted)]">Discipline</p><p className="text-sm font-bold text-white">{score >= 6 ? "✓" : "Needs work"}</p></div>
+                  <div><p className="text-xs text-[var(--ln-text-muted)]">Charts</p><p className="text-sm font-bold text-[var(--ln-navy-900)]">{score >= 3 ? "✓" : "Needs work"}</p></div>
+                  <div><p className="text-xs text-[var(--ln-text-muted)]">Risk Mgmt</p><p className="text-sm font-bold text-[var(--ln-navy-900)]">{score >= 5 ? "✓" : "Needs work"}</p></div>
+                  <div><p className="text-xs text-[var(--ln-text-muted)]">Discipline</p><p className="text-sm font-bold text-[var(--ln-navy-900)]">{score >= 6 ? "✓" : "Needs work"}</p></div>
                 </div>
               </div>
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/free-trial" className="flex-1 flex items-center justify-center gap-2 px-8 py-5 bg-white text-black font-bold rounded-2xl hover:bg-white/90 transition-all group text-sm">
+                <Link href="/free-trial" className="flex-1 flex items-center justify-center gap-2 px-8 py-5 bg-[var(--ln-navy-900)] text-white font-bold rounded-2xl hover:bg-[var(--ln-navy-800)] transition-all group text-sm">
                   Start Free Trial — Level 0
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>

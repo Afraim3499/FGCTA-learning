@@ -181,19 +181,19 @@ export function SpotThePatternGame() {
   }, [currentChallenge]);
 
   return (
-    <section className="py-32 px-6 lg:px-8 bg-white/[0.01] border-t border-white/5">
+    <section className="py-32 px-6 lg:px-8 bg-[var(--ln-bg-soft)] border-t border-[var(--ln-border-soft)]">
       <div className="max-w-3xl mx-auto space-y-10">
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20">
             <Crosshair size={14} className="text-amber-400" />
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-400">Interactive Challenge</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--ln-navy-900)]">
             Spot the Pattern
           </h2>
           <p className="text-[var(--color-text-secondary)] max-w-lg mx-auto">
             Real charts. Real patterns. Click on the chart to identify what we&apos;re looking for.
-            This is how you&apos;ll learn inside FGC.
+            This is how you&apos;ll learn inside Lurnava.
           </p>
         </div>
 
@@ -203,8 +203,8 @@ export function SpotThePatternGame() {
               {/* Challenge header */}
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-white">{challenge.title}</h3>
-                  <p className="text-sm text-[var(--color-text-muted)]">{challenge.instruction}</p>
+                  <h3 className="text-lg font-bold text-[var(--ln-navy-900)]">{challenge.title}</h3>
+                  <p className="text-sm text-[var(--ln-text-muted)]">{challenge.instruction}</p>
                 </div>
                 <span className="text-[10px] font-mono font-bold text-[var(--color-text-muted)] bg-white/5 px-3 py-1.5 rounded-lg">
                   {currentChallenge + 1}/{challenges.length}
@@ -212,7 +212,7 @@ export function SpotThePatternGame() {
               </div>
 
               {/* Chart */}
-              <div className="p-3 bg-white/[0.02] border border-white/5 rounded-3xl">
+              <div className="p-3 bg-white border border-[var(--ln-border)] rounded-3xl shadow-sm overflow-hidden">
                 <InteractiveChart challenge={challenge} onSelect={handleSelect} selectedIdx={selectedIdx} result={result} />
               </div>
 
@@ -232,19 +232,19 @@ export function SpotThePatternGame() {
               {result && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
                   <div className={cn("flex items-start gap-3 p-5 rounded-2xl border",
-                    result === "correct" ? "bg-[var(--color-profit)]/5 border-[var(--color-profit)]/20" : "bg-rose-500/5 border-rose-500/20"
+                    result === "correct" ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/20" : "bg-rose-500/5 border-rose-500/20"
                   )}>
-                    {result === "correct" ? <CheckCircle2 className="text-[var(--color-profit)] shrink-0 mt-0.5" size={18} /> : <XCircle className="text-rose-400 shrink-0 mt-0.5" size={18} />}
+                    {result === "correct" ? <CheckCircle2 className="text-[var(--ln-teal-500)] shrink-0 mt-0.5" size={18} /> : <XCircle className="text-rose-500 shrink-0 mt-0.5" size={18} />}
                     <div>
-                      <p className={cn("text-sm font-bold mb-1", result === "correct" ? "text-[var(--color-profit)]" : "text-rose-400")}>
+                      <p className={cn("text-sm font-bold mb-1", result === "correct" ? "text-[var(--ln-teal-500)]" : "text-rose-500")}>
                         {result === "correct" ? "Correct!" : "Not quite — here's the answer:"}
                       </p>
-                      <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{challenge.explanation}</p>
+                      <p className="text-sm text-[var(--ln-text-secondary)] leading-relaxed">{challenge.explanation}</p>
                     </div>
                   </div>
 
                   <div className="flex justify-end">
-                    <button onClick={handleNext} className="flex items-center gap-2 px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-white/90 transition-all group text-sm">
+                    <button onClick={handleNext} className="flex items-center gap-2 px-8 py-4 bg-[var(--ln-navy-900)] text-white font-bold rounded-2xl hover:bg-[var(--ln-navy-800)] transition-all group text-sm">
                       {currentChallenge < challenges.length - 1 ? "Next Challenge" : "See Results"}
                       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -254,18 +254,18 @@ export function SpotThePatternGame() {
             </motion.div>
           </AnimatePresence>
         ) : (
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center space-y-6 p-10 bg-white/[0.03] border border-white/5 rounded-3xl">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center space-y-6 p-10 bg-white border border-[var(--ln-border)] rounded-3xl shadow-lg">
             <Zap size={40} className="text-amber-400 mx-auto" />
             <h3 className="text-2xl font-bold">
               {totalCorrect === challenges.length ? "Perfect! You spotted every pattern." : `You got ${totalCorrect}/${challenges.length} right.`}
             </h3>
             <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">
               {totalCorrect === challenges.length
-                ? "You clearly have chart-reading skills. The FGC system will push you further — into strategies, risk management, and certification."
-                : "Chart reading is a skill that improves with practice. FGC Level 0 teaches all of this — with interactive drills, not just text."}
+                ? "You clearly have chart-reading skills. The Lurnava system will push you further — into strategies, risk management, and certification."
+                : "Chart reading is a skill that improves with practice. Lurnava Level 0 teaches all of this — with interactive drills, not just text."}
             </p>
             <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
-              This is a taste of how FGC teaches. Every module uses interactive exercises like this.
+              This is a taste of how Lurnava teaches. Every module uses interactive exercises like this.
             </p>
           </motion.div>
         )}

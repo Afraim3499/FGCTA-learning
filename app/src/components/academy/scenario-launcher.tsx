@@ -51,13 +51,22 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
 
   if (scenarios.length === 0) return null;
 
-  // Determine if a scenario is a chart-markup mission
+  // Determine if a scenario is a chart-markup mission (uses canvas annotation)
   function isChartMarkup(scenario: any): boolean {
     const meta = scenario.metadata ?? {};
     return (
       scenario.scenarioType === "structure_annotation" &&
       (meta.interactionMode === "chart_markup_v1" || meta.interactionMode === "chart_markup_v2")
     );
+  }
+
+  // Determine if a scenario is a decision-mode scenario (no terminal, no canvas)
+  // These use the ChartScenarioModal launched via onLaunchScenario
+  function isDecisionScenario(scenario: any): boolean {
+    if (scenario.scenarioType === 'order_entry') return false;
+    const meta = scenario.metadata ?? {};
+    if (meta.interactionMode === "chart_markup_v1" || meta.interactionMode === "chart_markup_v2") return false;
+    return true;
   }
 
   return (
@@ -71,6 +80,7 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
           const isPassed = status?.passed;
           const isFailed = status && !status.passed && !["started", "in_progress"].includes(status.status);
           const chartMission = isChartMarkup(scenario);
+          const decisionMission = isDecisionScenario(scenario);
 
           return (
             <div
@@ -85,6 +95,12 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
                     {chartMission && (
                       <span className="flex items-center gap-1 px-2 py-0.5 bg-[var(--color-brand-500)]/10 text-[var(--color-brand-400)] text-[8px] font-bold rounded-full uppercase border border-[var(--color-brand-500)]/20">
                         <MapPin className="w-2 h-2" /> Chart Mission
+                      </span>
+                    )}
+                    {/* Decision mission badge */}
+                    {decisionMission && !chartMission && (
+                      <span className="flex items-center gap-1 px-2 py-0.5 bg-amber-500/10 text-amber-400 text-[8px] font-bold rounded-full uppercase border border-amber-500/20">
+                        Decision Scenario
                       </span>
                     )}
                     {/* Status badge */}
@@ -112,7 +128,7 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
                 </div>
 
                 {/* Action button */}
-                {chartMission ? (
+                {chartMission || decisionMission ? (
                   <button
                     onClick={() => onLaunchScenario?.(scenario)}
                     className={cn(
@@ -122,7 +138,7 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
                         : "bg-[var(--color-brand-500)] text-white hover:bg-[var(--color-brand-400)] shadow-[0_0_15px_rgba(99,102,241,0.2)]"
                     )}
                   >
-                    {isPassed ? "Review" : status ? "Resume" : "Open Chart"}
+                    {isPassed ? "Review" : status ? "Resume" : chartMission ? "Open Chart" : "Begin Scenario"}
                     <MapPin className="w-3 h-3" />
                   </button>
                 ) : (

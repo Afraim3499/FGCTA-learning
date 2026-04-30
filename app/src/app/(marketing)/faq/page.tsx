@@ -10,10 +10,10 @@ import { CTABanner } from "@/components/marketing/cta-banner";
 
 const faqCategories = [
   {
-    title: "About FGC Academy",
+    title: "About Lurnava Academy",
     questions: [
-      { q: "Is this a trading course or a prop firm?", a: "FGC is a training academy. We teach structured trading methodology, test your knowledge, simulate real trading conditions, and certify your performance. We are not a prop firm — we don't manage capital or offer funded accounts. We prepare you to trade professionally." },
-      { q: "Who is FGC Academy for?", a: "Anyone serious about learning to trade professionally. Whether you're a complete beginner, a self-taught trader who wants structure, or a finance professional adding trading credentials — the system adapts from Level 0 (absolute foundations) to Level 9 (institutional-grade execution)." },
+      { q: "Is this a trading course or a prop firm?", a: "Lurnava is a training academy. We teach structured trading methodology, test your knowledge, simulate real trading conditions, and certify your performance. We are not a prop firm — we don't manage capital or offer funded accounts. We prepare you to trade professionally." },
+      { q: "Who is Lurnava Academy for?", a: "Anyone serious about learning to trade professionally. Whether you're a complete beginner, a self-taught trader who wants structure, or a finance professional adding trading credentials — the system adapts from Level 0 (absolute foundations) to Level 9 (institutional-grade execution)." },
       { q: "Do I need any prior trading experience?", a: "No. Level 0 starts from absolute zero — what trading is, how charts work, what instruments are. The curriculum is designed so that someone with zero experience can progress all the way to certification." },
       { q: "How long does the full program take?", a: "Typically 3–6 months for dedicated learners. It's entirely self-paced. Some complete faster, some take longer. The trading phases have time limits (30–90 days each), but you can reset and retry." },
       { q: "Can I access the platform on mobile?", a: "The platform is mobile-responsive. While we recommend desktop for the trading simulation (charts need screen space), all course content, tests, and progress tracking work on mobile." },

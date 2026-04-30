@@ -14,7 +14,7 @@ export async function getCourseLevels() {
 
   const profile = await prisma.user.findUnique({
     where: { id: user.id },
-    select: { marketTrack: true },
+    select: { isAdmin: true, marketTrack: true },
   });
   const userTrack = profile?.marketTrack || "forex";
   const trackCondition = userTrack === "multi" ? {} : { OR: [{ marketTrack: "core" }, { marketTrack: userTrack as any }] };
@@ -74,7 +74,7 @@ export async function getCourseLevels() {
       totalModules: stats.total,
       completedModules: stats.completed,
       completionPct,
-      locked: level > 0 && stats.total === 0, // Lock if no content
+      locked: !profile?.isAdmin && (level > currentLevel || (level > 0 && stats.total === 0)), // Lock if above current level OR no content (admins bypass)
       testUnlocked: stats.total > 0 && stats.completed === stats.total, 
     };
   });
@@ -91,16 +91,15 @@ export async function getModules(level: number) {
 
   const profile = await prisma.user.findUnique({
     where: { id: user.id },
-    select: { marketTrack: true, progress: { select: { currentLevel: true } } },
+    select: { isAdmin: true, marketTrack: true, progress: { select: { currentLevel: true } } },
   });
   const userTrack = profile?.marketTrack || "forex";
   const trackCondition = userTrack === "multi" ? {} : { OR: [{ marketTrack: "core" }, { marketTrack: userTrack as any }] };
 
-  /* TEMPORARY UNLOCK FOR TESTING
-  if (level > (profile?.progress?.currentLevel ?? 0)) {
+  // Enforce level lock for students (admins bypass)
+  if (!profile?.isAdmin && level > (profile?.progress?.currentLevel ?? 0)) {
     throw new Error("Level is locked");
   }
-  */
 
   const rawModules = await prisma.courseModule.findMany({
     where: {
@@ -205,11 +204,10 @@ export async function getModuleContent(moduleId: string) {
   const nextModuleId =
     currentIndex < allInLevel.length - 1 ? allInLevel[currentIndex + 1].id : null;
 
-  /* TEMPORARY UNLOCK FOR TESTING
-  if (module.level > (profile?.progress?.currentLevel ?? 0)) {
+  // Enforce level lock for students (admins bypass)
+  if (!profile?.isAdmin && module.level > (profile?.progress?.currentLevel ?? 0)) {
     throw new Error("Module is locked");
   }
-  */
 
   const completion = await prisma.moduleCompletion.findUnique({
     where: {
@@ -245,16 +243,15 @@ export async function completeModule(
   if (!module) throw new Error("Module not found");
 
   // Check level lock
-  const userProgress = await prisma.userProgress.findUnique({
-    where: { userId: user.id },
-    select: { currentLevel: true },
+  const userProfile = await prisma.user.findUnique({
+    where: { id: user.id },
+    select: { isAdmin: true, progress: { select: { currentLevel: true } } },
   });
 
-  /* TEMPORARY UNLOCK FOR TESTING
-  if (module.level > (userProgress?.currentLevel ?? 0)) {
+  // Enforce level lock for students (admins bypass)
+  if (!userProfile?.isAdmin && module.level > (userProfile?.progress?.currentLevel ?? 0)) {
     throw new Error("Cannot complete modules in a locked level");
   }
-  */
 
   // Standard award for module completion (Level 0, Level 1, and Level 2.7-2.11 award 0 XP)
   const isPracticeModule = 

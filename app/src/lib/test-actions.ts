@@ -30,27 +30,25 @@ export async function getTest(level: number) {
   if (!testData) return null;
 
   // Hardening: Verify level lock and prerequisites
-  const progress = await prisma.userProgress.findUnique({
-    where: { userId: user.id },
-    select: { currentLevel: true },
+  const userProfile = await prisma.user.findUnique({
+    where: { id: user.id },
+    select: { isAdmin: true, progress: { select: { currentLevel: true } } },
   });
 
-  /* TEMPORARY UNLOCK FOR TESTING
-  if (level > (progress?.currentLevel ?? 0)) {
+  // Enforce level lock for students (admins bypass)
+  if (!userProfile?.isAdmin && level > (userProfile?.progress?.currentLevel ?? 0)) {
     throw new Error("Test level is locked");
   }
-  */
 
   const moduleCount = await prisma.courseModule.count({ where: { level } });
   const completedCount = await prisma.moduleCompletion.count({
     where: { userId: user.id, module: { level } },
   });
 
-  /* TEMPORARY UNLOCK FOR TESTING
-  if (completedCount < moduleCount) {
+  // Enforce module completion requirement (admins bypass)
+  if (!userProfile?.isAdmin && completedCount < moduleCount) {
     throw new Error("All modules in this level must be completed before taking the test");
   }
-  */
 
   const allQuestions = testData.questions as unknown as Question[];
   
@@ -116,12 +114,15 @@ export async function submitTest(level: number, selectedAnswers: { questionId: s
   if (lastAttempt) {
     const hoursSince = (Date.now() - new Date(lastAttempt.attemptedAt).getTime()) / (1000 * 60 * 60);
     // Level 1 (and 0) has unlimited retries; other levels have 4 hour cooldown
+    // Alpha override: no cooldowns for any level.
+    /*
     if (level > 1 && hoursSince < 4 && !lastAttempt.passed) {
       return { 
         success: false, 
         error: `Cooldown active. You can retry in ${Math.ceil(4 - hoursSince)} hours.` 
       };
     }
+    */
   }
 
   const questions = testData.questions as unknown as Question[];
@@ -163,13 +164,54 @@ export async function submitTest(level: number, selectedAnswers: { questionId: s
       weakAreas 
     });
 
+    let returnMessage: string | undefined = undefined;
+
     if (passed) {
       const progress = await tx.userProgress.findUnique({
         where: { userId: user.id },
       });
 
-      if (progress && progress.currentLevel === level) {
-        const nextLevel = level + 1;
+      let shouldUnlockNextLevel = true;
+
+      if (level === 2) {
+        // Dual-gate logic for Level 2 → Level 3
+        const missionPassed = await tx.scenarioAttempt.findFirst({
+          where: {
+            userId: user.id,
+            scenario: { slug: "m2-level-2-map-review-v1" },
+            status: "passed",
+          }
+        });
+        
+        if (!missionPassed) {
+          shouldUnlockNextLevel = false;
+          returnMessage = "Test passed. Complete the 2.12 Chart Map Mission to unlock Level 3.";
+        } else {
+          returnMessage = "Level 3 Unlocked! Proceed to the next phase of your training.";
+        }
+      }
+
+      if (level === 3) {
+        // Dual-gate logic for Level 3 → Level 4
+        // BOTH the Level 3 Knowledge Test AND the Level 3 Final Scenario must be passed.
+        const scenarioPassed = await tx.scenarioAttempt.findFirst({
+          where: {
+            userId: user.id,
+            scenario: { slug: "level-3-final-gate" },
+            status: "passed",
+          }
+        });
+
+        if (!scenarioPassed) {
+          shouldUnlockNextLevel = false;
+          returnMessage = "Test passed. Complete the Level 3 Final Scenario (Module 3.10) to unlock Level 4.";
+        } else {
+          returnMessage = "Level 4 Unlocked! You are ready for execution training.";
+        }
+      }
+
+      if (progress && progress.currentLevel === level && shouldUnlockNextLevel) {
+        const nextLevel = Math.max(progress.currentLevel, level + 1);
         
         await tx.userProgress.update({
           where: { userId: user.id },
@@ -179,33 +221,32 @@ export async function submitTest(level: number, selectedAnswers: { questionId: s
         await logUserEvent(user.id, "LEVEL_UP", { fromLevel: level, toLevel: nextLevel });
       }
 
-      // Level 1 Test XP Award (+50 XP one-time)
-      if (level === 1) {
-        const XP_AMOUNT = 50;
-        await tx.xPLedgerEntry.upsert({
-          where: {
-            userId_sourceId_sourceType: {
-              userId: user.id,
-              sourceId: testData.id,
-              sourceType: "test_mastery",
-            },
+      // Test XP Award (+50 XP one-time)
+      const XP_AMOUNT = 50;
+      const existingXp = await tx.xPLedgerEntry.findUnique({
+        where: {
+          userId_sourceId_sourceType: {
+            userId: user.id,
+            sourceId: testData.id,
+            sourceType: "test_mastery",
           },
-          update: {},
-          create: {
+        },
+      });
+
+      if (!existingXp) {
+        await tx.xPLedgerEntry.create({
+          data: {
             userId: user.id,
             xpAmount: XP_AMOUNT,
-            action: "TEST_COMPLETE",
+            action: `Passed Level ${level} Test`,
             sourceId: testData.id,
             sourceType: "test_mastery",
           },
         });
 
         // Update total XP
-        const updatedProgress = await tx.userProgress.findUnique({
-          where: { userId: user.id },
-        });
-        if (updatedProgress) {
-          const newTotal = updatedProgress.xpTotal + XP_AMOUNT;
+        if (progress) {
+          const newTotal = progress.xpTotal + XP_AMOUNT;
           await tx.userProgress.update({
             where: { userId: user.id },
             data: { 
@@ -222,6 +263,7 @@ export async function submitTest(level: number, selectedAnswers: { questionId: s
       score, 
       passed, 
       attemptId: attempt.id, 
+      message: returnMessage,
       results: results.map(r => ({ ...r, correctIndex: passed ? r.correctIndex : undefined })) 
     };
   });

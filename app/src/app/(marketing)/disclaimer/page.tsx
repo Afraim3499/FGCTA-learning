@@ -13,14 +13,14 @@ export default function DisclaimerPage() {
         <div className="!p-6 !bg-rose-500/5 !border !border-rose-500/20 !rounded-2xl !not-prose !mb-8">
           <p className="text-sm text-rose-300 font-bold mb-3">⚠ IMPORTANT NOTICE</p>
           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-            FGC Training and Learning Academy is an <strong className="text-white">educational platform only</strong>.
+            Lurnava Academy is an <strong className="text-white">educational platform only</strong>.
             Nothing on this platform constitutes financial advice, investment advice, trading advice, or any
             other form of professional financial guidance.
           </p>
         </div>
 
         <h2>What We Are</h2>
-        <p>FGC Training and Learning Academy is a trading education and training company. We provide:</p>
+        <p>Lurnava Academy is a trading education and training company. We provide:</p>
         <ul>
           <li>Structured educational content about financial markets and trading strategies.</li>
           <li>Simulated trading environments using virtual capital for skill development.</li>
@@ -65,13 +65,13 @@ export default function DisclaimerPage() {
         </ul>
 
         <h2>YagaCalls Disclaimer</h2>
-        <p>The Crypto track includes access to YagaCalls Premium, a third-party Telegram signal group. Signals provided by YagaCalls are the opinion of its operators and do not constitute financial advice. FGC is not responsible for the accuracy, performance, or outcomes of any signals received through YagaCalls.</p>
+        <p>The Crypto track includes access to YagaCalls Premium, a third-party Telegram signal group. Signals provided by YagaCalls are the opinion of its operators and do not constitute financial advice. Lurnava is not responsible for the accuracy, performance, or outcomes of any signals received through YagaCalls.</p>
 
         <h2>Professional Advice</h2>
         <p><strong>Before trading with real capital, consult a licensed financial professional.</strong> Our educational content is designed to build skill and knowledge, but the decision to trade real money should be made with professional guidance appropriate to your individual financial situation, risk tolerance, and investment objectives.</p>
 
         <h2>Limitation of Liability</h2>
-        <p>FGC Training and Learning Academy, its officers, directors, employees, and affiliates shall not be held liable for any financial losses incurred as a result of applying strategies, techniques, or knowledge gained through the platform in real-market trading.</p>
+        <p>Lurnava Academy, its officers, directors, employees, and affiliates shall not be held liable for any financial losses incurred as a result of applying strategies, techniques, or knowledge gained through the platform in real-market trading.</p>
 
         <h2>Contact</h2>
         <p>For questions about this disclaimer, contact us at legal@fgcacademy.com.</p>

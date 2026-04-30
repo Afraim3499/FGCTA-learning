@@ -36,12 +36,12 @@ export function CTABanner({
         transition={{ duration: 0.6 }}
         className="max-w-3xl mx-auto text-center space-y-8 relative z-10"
       >
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.05]">
+        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.05] text-[var(--ln-navy-900)]">
           {headline}
         </h2>
 
         {subheadline && (
-          <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-[var(--ln-text-secondary)] max-w-xl mx-auto leading-relaxed">
             {subheadline}
           </p>
         )}
@@ -49,7 +49,7 @@ export function CTABanner({
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <Link
             href={primaryHref}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-5 bg-white text-black font-bold rounded-2xl hover:bg-white/90 active:scale-[0.98] transition-all shadow-[0_0_40px_rgba(255,255,255,0.08)] group text-sm"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-5 bg-[var(--ln-navy-900)] text-white font-bold rounded-2xl hover:bg-[var(--ln-navy-800)] active:scale-[0.98] transition-all shadow-[0_10px_24px_rgba(8,26,54,0.16)] group text-sm"
           >
             {primaryLabel}
             <ArrowRight
@@ -61,7 +61,7 @@ export function CTABanner({
           {secondaryLabel && secondaryHref && (
             <Link
               href={secondaryHref}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-5 text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--color-text-muted)] hover:text-white transition-colors border border-white/10 rounded-2xl hover:bg-white/5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-5 text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)] transition-colors border border-[var(--ln-border)] rounded-2xl hover:bg-[var(--ln-bg-soft)]"
             >
               {secondaryLabel}
             </Link>

@@ -32,11 +32,11 @@ export function Sidebar() {
     <div className="hidden md:flex w-64 h-screen bg-surface-secondary border-r border-border-default flex flex-col fixed left-0 top-0 z-50">
       <div className="p-8">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-accent-blue flex items-center justify-center text-white shadow-glow-blue">
-            <span className="text-xs font-black">FGC</span>
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
+            <img src="/brand/lurnava/lurnava-icon.png" alt="Lurnava Icon" className="w-full h-full object-contain" />
           </div>
           <div className="flex flex-col">
-            <span className="text-[10px] font-black text-white uppercase tracking-widest leading-none">Institutional</span>
+            <span className="text-[10px] font-black text-white uppercase tracking-widest leading-none">Lurnava</span>
             <span className="text-[8px] font-bold text-text-muted uppercase tracking-[0.2em] leading-none mt-1">Academy</span>
           </div>
         </div>

@@ -3,11 +3,11 @@ import "./globals.css";
 import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
-  title: "FGC Training and Learning Academy — Learn. Trade. Certify.",
+  title: "Lurnava Academy — Learn the Market With Structure",
   description:
-    "The performance-based trading academy. 42 modules, 220+ strategies, 5-phase simulation, and 5-level certification across Forex, Crypto, and Gold. Prove you can trade.",
+    "Lurnava is a visual-first market education platform that helps beginners learn chart reading, risk discipline, and structured decision-making without hype.",
   keywords: [
-    "FGC Academy",
+    "Lurnava Academy",
     "trading academy",
     "forex trading course",
     "crypto trading course",
@@ -19,10 +19,16 @@ export const metadata: Metadata = {
     "prop firm training",
   ],
   openGraph: {
-    title: "FGC Training and Learning Academy",
+    title: "Lurnava Academy — Learn the Market With Structure",
     description:
-      "Learn to trade. Prove you can. Get certified. The performance-based trading academy for Forex, Crypto, and Gold.",
+      "Structured market learning through visual lessons, practice blocks, chart missions, and knowledge tests.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lurnava Academy — Learn the Market With Structure",
+    description:
+      "Structured market learning through visual lessons, practice blocks, chart missions, and knowledge tests.",
   },
 };
 

@@ -17,7 +17,7 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
       
       <div className="w-full max-w-2xl relative z-10">
         <Link href="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-white transition-colors mb-8 text-xs font-bold uppercase tracking-widest">
-          <ArrowLeft size={14} /> FGC Academy
+          <ArrowLeft size={14} /> Lurnava Academy
         </Link>
 
         {cert ? (
@@ -96,7 +96,7 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
                   </div>
                   <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-relaxed">
                     Institutional Standard <br />
-                    <span className="text-white">FGC Training Academy</span>
+                    <span className="text-white">Lurnava Academy</span>
                   </div>
                 </div>
                 <div className="text-[9px] text-slate-600 italic">

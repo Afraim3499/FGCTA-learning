@@ -28,7 +28,7 @@ const TRACKS: Record<string, TrackData> = {
     symbol: "EUR/USD",
     color: "text-blue-400",
     tagline: "The world's deepest liquidity.",
-    description: "Master the 24/5 currency markets using central bank flow analysis and liquidity hunting strategies.",
+    description: "Master the 24/5 currency markets using central bank flow analysis and liquidity conceptsing strategies.",
     volatility: "Medium",
     bestTime: "London/NY Overlap",
     strategies: ["London Session Breakouts", "Asia Range Liquidity Sweeps", "Central Bank Intervention Plays", "NFP Volatility Expansion"],
@@ -161,7 +161,7 @@ export default function TrackPage({ params }: { params: { track: string } }) {
         <div className="max-w-4xl mx-auto space-y-16">
           <div className="text-center space-y-4">
             <h2 className="text-4xl font-black tracking-tighter uppercase">Market Adaptations</h2>
-            <p className="text-[var(--color-text-secondary)]">The core FGC system is universal. Here is how we adapt it for {track.name}.</p>
+            <p className="text-[var(--color-text-secondary)]">The core Lurnava system is universal. Here is how we adapt it for {track.name}.</p>
           </div>
 
           <div className="space-y-6">

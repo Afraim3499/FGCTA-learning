@@ -18,7 +18,7 @@ import { CertificationCalculator } from "@/components/marketing/certification-ca
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#0B0E14] text-white selection:bg-[var(--color-brand-500)]/30 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--ln-bg)] text-[var(--ln-text-primary)] selection:bg-[var(--ln-teal-500)]/30 selection:text-[var(--ln-navy-900)] overflow-x-hidden">
       <Navbar />
 
       {/* 1. Hero */}
@@ -27,7 +27,7 @@ export default function HomePage() {
       {/* 2. Stats Bar */}
       <StatsBar />
 
-      {/* 3. Trust Breaker — Normal Courses vs FGC */}
+      {/* 3. Trust Breaker — Normal Courses vs Lurnava */}
       <TrustBreakerSection />
 
       {/* 4. Spot the Pattern — Interactive Engagement */}

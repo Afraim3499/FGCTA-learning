@@ -10,6 +10,7 @@ import Link from "next/link";
 import { PointClickEngine, PointClickTaskResult } from "./interactive/point-click-engine";
 import { ScenarioDecisionEngine, ScenarioTaskResult } from './interactive/scenario-decision-engine';
 import { MiniReplayEngine, MiniReplayTaskResult } from './interactive/mini-replay-engine';
+import { ChoiceBlockPractice } from './interactive/choice-block-practice';
 import { ScenarioLauncher } from "./scenario-launcher";
 import { ChartScenarioModal } from "@/components/academy/chart-scenario";
 import { getModuleScenarios } from "@/lib/scenario-actions";
@@ -281,6 +282,28 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                 rationale={module.interactiveTaskData.rationale}
                 onPass={(result) => setTaskResult(result)}
               />
+            </div>
+          )}
+
+          {/* Level 3 Practice: Choice Block (non-graded, unlimited retries, 0 XP) */}
+          {(module.interactiveTaskType === 'choice_block' || module.interactiveTaskType === 'identify_block') && module.interactiveTaskData?.question && (
+            <ChoiceBlockPractice
+              question={module.interactiveTaskData.question}
+              options={module.interactiveTaskData.options || []}
+              onPass={() => setTaskResult({ type: 'practice_complete', score: 100 } as any)}
+            />
+          )}
+
+          {/* Level 3 Scenario Link: shown as a call-to-action, scenario launched via ScenarioLauncher sidebar */}
+          {module.interactiveTaskType === 'scenario_link' && module.interactiveTaskData?.scenarioSlug && (
+            <div className="mt-8 pt-8 border-t border-[var(--color-border-default)] relative z-20">
+              <div className="p-6 bg-amber-500/5 border border-amber-500/20 rounded-2xl text-center space-y-3">
+                <p className="text-xs font-bold text-amber-400 uppercase tracking-widest">Final Assessment</p>
+                <p className="text-sm text-[var(--color-text-muted)]">
+                  Launch the <strong className="text-white">Level 3 Entry Logic Assessment</strong> from the sidebar panel to complete this module.
+                </p>
+                <p className="text-[10px] text-slate-500">Pass threshold: {module.interactiveTaskData.passThreshold}% · No trading terminal · Decision-only</p>
+              </div>
             </div>
           )}
         </main>

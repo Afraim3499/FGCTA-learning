@@ -52,7 +52,7 @@ const steps: WalkthroughStep[] = [
   {
     title: "7. Exit at Target",
     annotation: "Price reaches $117 — close position. Profit: +$8.50 per unit (1.89R)",
-    detail: "Trade closed at target zone. Final P&L: +$8.50 on $4.50 risk = 1.89R. This single trade contributed to a Profit Factor improvement. In FGC, this entire process is scored.",
+    detail: "Trade closed at target zone. Final P&L: +$8.50 on $4.50 risk = 1.89R. This single trade contributed to a Profit Factor improvement. In Lurnava, this entire process is scored.",
     chartHighlight: "exit",
   },
 ];
@@ -89,7 +89,7 @@ function StrategyChart({ highlight }: { highlight: string }) {
 
   return (
     <svg viewBox={`0 0 ${w} ${h}`} className="w-full rounded-2xl">
-      <rect width={w} height={h} rx={16} fill="#0A0D12" />
+      <rect width={w} height={h} rx={16} fill="#0A1A36" />
 
       {/* Grid */}
       {[0.2, 0.4, 0.6, 0.8].map(p => (
@@ -98,7 +98,7 @@ function StrategyChart({ highlight }: { highlight: string }) {
 
       {/* Range zone */}
       {showRange && (
-        <rect x={pad} y={resistanceY} width={pad + 8 * cw} height={supportY - resistanceY} fill="rgba(99,102,241,0.06)" stroke="none" />
+        <rect x={pad} y={resistanceY} width={pad + 8 * cw} height={supportY - resistanceY} fill="rgba(20, 184, 166, 0.06)" stroke="none" />
       )}
 
       {/* Resistance line */}
@@ -112,17 +112,17 @@ function StrategyChart({ highlight }: { highlight: string }) {
       {/* Support line */}
       {showRange && (
         <>
-          <line x1={pad} y1={supportY} x2={pad + 8 * cw} y2={supportY} stroke="#10B981" strokeWidth={1} strokeDasharray="6,4" opacity={0.5} />
-          <text x={pad + 4} y={supportY + 14} fontSize={8} fill="#10B981" opacity={0.6} fontFamily="monospace">Support 100</text>
+          <line x1={pad} y1={supportY} x2={pad + 8 * cw} y2={supportY} stroke="#14B8A6" strokeWidth={1} strokeDasharray="6,4" opacity={0.5} />
+          <text x={pad + 4} y={supportY + 14} fontSize={8} fill="#14B8A6" opacity={0.6} fontFamily="monospace">Support 100</text>
         </>
       )}
 
       {/* Entry line */}
       {showEntry && (
         <>
-          <line x1={pad + 9 * cw} y1={entryY} x2={w - pad} y2={entryY} stroke="#6366F1" strokeWidth={1.5} strokeDasharray="4,3" opacity={0.7} />
-          <text x={w - pad - 60} y={entryY - 6} fontSize={8} fill="#6366F1" fontFamily="monospace">Entry 108.50</text>
-          <circle cx={pad + 9 * cw + cw / 2} cy={entryY} r={4} fill="#6366F1" opacity={0.8} />
+          <line x1={pad + 9 * cw} y1={entryY} x2={w - pad} y2={entryY} stroke="#14B8A6" strokeWidth={1.5} strokeDasharray="4,3" opacity={0.7} />
+          <text x={w - pad - 60} y={entryY - 6} fontSize={8} fill="#14B8A6" fontFamily="monospace">Entry 108.50</text>
+          <circle cx={pad + 9 * cw + cw / 2} cy={entryY} r={4} fill="#14B8A6" opacity={0.8} />
         </>
       )}
 
@@ -137,8 +137,8 @@ function StrategyChart({ highlight }: { highlight: string }) {
       {/* Take-profit line */}
       {showTP && (
         <>
-          <line x1={pad + 9 * cw} y1={tpY} x2={w - pad} y2={tpY} stroke="#10B981" strokeWidth={1.5} strokeDasharray="4,3" opacity={0.6} />
-          <text x={w - pad - 50} y={tpY - 6} fontSize={8} fill="#10B981" fontFamily="monospace">TP 117.50</text>
+          <line x1={pad + 9 * cw} y1={tpY} x2={w - pad} y2={tpY} stroke="#14B8A6" strokeWidth={1.5} strokeDasharray="4,3" opacity={0.6} />
+          <text x={w - pad - 50} y={tpY - 6} fontSize={8} fill="#14B8A6" fontFamily="monospace">TP 117.50</text>
         </>
       )}
 
@@ -146,11 +146,11 @@ function StrategyChart({ highlight }: { highlight: string }) {
       {candles.map((c, i) => {
         const x = pad + i * cw + cw / 2;
         const bull = c.c >= c.o;
-        let color = bull ? "#10B981" : "#EF4444";
+        let color = bull ? "#14B8A6" : "#EF4444";
         let opacity = 1;
 
         if (highlight === "breakout" && i === 8) { color = "#F59E0B"; }
-        if (highlight === "exit" && i === 12) { color = "#10B981"; }
+        if (highlight === "exit" && i === 12) { color = "#14B8A6"; }
 
         const bodyTop = yScale(Math.max(c.o, c.c));
         const bodyBot = yScale(Math.min(c.o, c.c));
@@ -180,25 +180,29 @@ export function StrategyWalkthroughSection() {
   const prev = useCallback(() => { if (currentStep > 0) setCurrentStep(s => s - 1); }, [currentStep]);
 
   return (
-    <section className="py-32 px-6 lg:px-8 border-t border-white/5">
+    <section className="py-24 px-6 lg:px-8 border-t border-[var(--ln-border-soft)] relative overflow-hidden" id="readiness-quiz">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--ln-teal-500)]/5 blur-[180px] rounded-full pointer-events-none" />
       <div className="max-w-4xl mx-auto space-y-10">
         <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-profit)]/10 border border-[var(--color-profit)]/20">
-            <TrendingUp size={14} className="text-[var(--color-profit)]" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-profit)]">Live Strategy Walkthrough</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/20">
+            <TrendingUp size={14} className="text-[var(--ln-teal-500)]" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ln-teal-500)]">Live Strategy Walkthrough</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--ln-navy-900)]">
             Watch a real Breakout Trade unfold
           </h2>
-          <p className="text-[var(--color-text-secondary)] max-w-lg mx-auto">
-            Step through a complete trade from setup to exit. This is how FGC teaches — not theory, but execution.
+          <p className="text-slate-600 max-w-lg mx-auto font-medium">
+            Step through a complete trade from setup to exit. This is how Lurnava teaches — not theory, but execution.
           </p>
         </div>
 
         {!started ? (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
-            <button onClick={() => setStarted(true)} className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-bold rounded-2xl hover:bg-white/90 active:scale-[0.98] transition-all group">
-              <Play size={18} fill="black" />
+            <button 
+              onClick={() => setStarted(true)} 
+              className="inline-flex items-center gap-3 px-12 py-5 bg-[var(--ln-navy-900)] text-white font-bold rounded-2xl hover:bg-[var(--ln-navy-800)] active:scale-[0.98] transition-all shadow-xl group"
+            >
+              <Play size={18} fill="white" />
               Start Walkthrough
             </button>
           </motion.div>
@@ -209,13 +213,13 @@ export function StrategyWalkthroughSection() {
               {steps.map((_, i) => (
                 <button key={i} onClick={() => setCurrentStep(i)}
                   className={cn("flex-1 h-1.5 rounded-full transition-all",
-                    i <= currentStep ? "bg-gradient-to-r from-[var(--color-brand-500)] to-[var(--color-profit)]" : "bg-white/5"
+                    i <= currentStep ? "bg-[var(--ln-teal-500)]" : "bg-[var(--ln-bg-soft)]"
                   )} />
               ))}
             </div>
 
             {/* Chart */}
-            <div className="p-3 bg-white/[0.02] border border-white/5 rounded-3xl">
+            <div className="p-3 bg-[var(--ln-navy-900)] border border-[var(--ln-border)] rounded-3xl shadow-2xl">
               <StrategyChart highlight={step.chartHighlight} />
             </div>
 
@@ -223,13 +227,13 @@ export function StrategyWalkthroughSection() {
             <AnimatePresence mode="wait">
               <motion.div key={currentStep} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <span className="w-10 h-10 rounded-xl bg-[var(--color-brand-500)]/10 flex items-center justify-center shrink-0 text-sm font-bold text-[var(--color-brand-400)]">
+                  <span className="w-10 h-10 rounded-xl bg-[var(--ln-teal-soft)] flex items-center justify-center shrink-0 text-sm font-bold text-[var(--ln-teal-500)]">
                     {currentStep + 1}
                   </span>
                   <div className="space-y-2 flex-1">
-                    <h3 className="text-lg font-bold text-white">{step.title}</h3>
-                    <p className="text-sm text-[var(--color-brand-400)] font-semibold italic">{step.annotation}</p>
-                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{step.detail}</p>
+                    <h3 className="text-lg font-bold text-[var(--ln-navy-900)]">{step.title}</h3>
+                    <p className="text-sm text-[var(--ln-teal-600)] font-semibold italic">{step.annotation}</p>
+                    <p className="text-sm text-slate-600 leading-relaxed font-medium">{step.detail}</p>
                   </div>
                 </div>
               </motion.div>
@@ -239,30 +243,30 @@ export function StrategyWalkthroughSection() {
             <div className="flex items-center justify-between pt-4">
               <button onClick={prev} disabled={currentStep === 0}
                 className={cn("flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all",
-                  currentStep === 0 ? "text-white/20 cursor-not-allowed" : "text-[var(--color-text-muted)] hover:text-white hover:bg-white/5 border border-white/10"
+                  currentStep === 0 ? "text-slate-300 cursor-not-allowed" : "text-[var(--ln-navy-900)] hover:bg-[var(--ln-bg-soft)] border border-[var(--ln-border)]"
                 )}>
                 <ChevronLeft size={16} /> Previous
               </button>
 
-              <span className="text-[10px] font-mono text-[var(--color-text-muted)]">{currentStep + 1}/{steps.length}</span>
+              <span className="text-[10px] font-mono font-bold text-slate-500">{currentStep + 1}/{steps.length}</span>
 
               {currentStep < steps.length - 1 ? (
                 <button onClick={next}
-                  className="flex items-center gap-2 px-5 py-3 bg-white text-black rounded-xl text-sm font-bold hover:bg-white/90 transition-all group">
+                  className="flex items-center gap-2 px-5 py-3 bg-[var(--ln-navy-900)] text-white rounded-xl text-sm font-bold hover:bg-[var(--ln-navy-800)] transition-all group shadow-lg">
                   Next Step <ChevronRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
                 </button>
               ) : (
                 <button onClick={() => { setCurrentStep(0); setStarted(false); }}
-                  className="flex items-center gap-2 px-5 py-3 border border-white/10 rounded-xl text-sm font-bold text-[var(--color-text-muted)] hover:text-white hover:bg-white/5 transition-all">
+                  className="flex items-center gap-2 px-5 py-3 border border-[var(--ln-border)] rounded-xl text-sm font-bold text-slate-500 hover:text-[var(--ln-navy-900)] hover:bg-[var(--ln-bg-soft)] transition-all">
                   <RotateCcw size={14} /> Replay
                 </button>
               )}
             </div>
 
-            {/* FGC callout */}
-            <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl text-center">
-              <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
-                In FGC, you don&apos;t just watch this — you execute it yourself in the simulation, and every metric is scored.
+            {/* Lurnava callout */}
+            <div className="p-4 bg-[var(--ln-bg-soft)] border border-[var(--ln-border-soft)] rounded-xl text-center">
+              <p className="text-[9px] font-bold uppercase tracking-widest text-slate-500">
+                In Lurnava, you don&apos;t just watch this — you execute it yourself in the simulation, and every metric is scored.
               </p>
             </div>
           </div>

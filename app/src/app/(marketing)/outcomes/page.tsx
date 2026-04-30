@@ -106,7 +106,7 @@ export default function OutcomesPage() {
       {/* Use Cases */}
       <section className="bg-white/[0.02] py-20 px-6 lg:px-8 border-t border-white/5">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Who Uses FGC Certifications?</h2>
+          <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Who Uses Lurnava Certifications?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {useCases.map((uc) => (
               <div key={uc.title} className="p-6 bg-white/[0.03] border border-white/5 rounded-2xl flex items-start gap-4">

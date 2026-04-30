@@ -100,7 +100,7 @@ export default async function DashboardPage() {
               </div>
            </div>
         </div>
-      </section><ProgressionTracker currentTier={progress?.currentLevel ?? 1} totalTiers={8} completedModules={8} totalModules={69} operationalScore={5} />
+      </section><ProgressionTracker currentTier={Math.min(progress?.currentLevel ?? 1, 8)} totalTiers={8} completedModules={8} totalModules={69} operationalScore={5} />
 
       {/* Guidance Section */}
       <NextStepCard step={nextStep} />

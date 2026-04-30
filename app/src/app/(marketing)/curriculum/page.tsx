@@ -167,7 +167,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ delay: index * 0.03 }}
-      className="border border-white/5 rounded-3xl overflow-hidden hover:border-white/10 transition-all bg-white/[0.02]"
+      className="border border-[var(--ln-border)] rounded-3xl overflow-hidden hover:border-[var(--ln-border-hover)] transition-all bg-white shadow-sm hover:shadow-md"
     >
       {/* Header — always visible */}
       <button
@@ -188,7 +188,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 flex-wrap">
-            <h3 className="text-base md:text-lg font-bold text-white">{level.name}</h3>
+            <h3 className="text-base md:text-lg font-bold text-[var(--ln-navy-900)]">{level.name}</h3>
             <span className={cn("text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-md border", skillColors[level.skill] || "text-[var(--color-text-muted)]")}>
               {level.skill}
             </span>
@@ -198,7 +198,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
               </span>
             )}
           </div>
-          <p className="text-xs text-[var(--color-text-muted)] mt-1">{level.purpose}</p>
+          <p className="text-xs text-slate-500 mt-1">{level.purpose}</p>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
@@ -219,7 +219,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="px-6 md:px-8 pb-8 space-y-6 border-t border-white/5 pt-6">
+            <div className="px-6 md:px-8 pb-8 space-y-6 border-t border-[var(--ln-border-soft)] pt-6">
               {/* Info strip */}
               <div className="flex flex-wrap gap-4 text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
                 <span>Prereq: {level.prereq}</span>
@@ -229,21 +229,21 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
 
               {/* Outcome */}
               <div className="p-4 bg-[var(--color-profit)]/5 border border-[var(--color-profit)]/10 rounded-xl">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-profit)] mb-1">After completing this level</p>
-                <p className="text-sm text-[var(--color-text-secondary)]">{level.outcome}</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--ln-teal-500)] mb-1">After completing this level</p>
+                <p className="text-sm text-slate-600">{level.outcome}</p>
               </div>
 
               {/* Modules */}
               <div className="space-y-3">
                 {level.modules.map((mod) => (
-                  <div key={mod.id} className="p-4 bg-white/[0.03] border border-white/5 rounded-xl space-y-2">
+                  <div key={mod.id} className="p-4 bg-[var(--ln-bg-soft)] border border-[var(--ln-border-soft)] rounded-xl space-y-2">
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-2">
                           <span className="text-[10px] font-mono font-bold text-[var(--color-brand-400)]">{mod.id}</span>
-                          <h4 className="text-sm font-bold text-white">{mod.title}</h4>
+                          <h4 className="text-sm font-bold text-[var(--ln-navy-900)]">{mod.title}</h4>
                         </div>
-                        <p className="text-xs text-[var(--color-text-secondary)] mt-1">{mod.desc}</p>
+                        <p className="text-xs text-slate-500 mt-1">{mod.desc}</p>
                       </div>
                       <span className="text-[8px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] bg-white/5 px-2 py-1 rounded shrink-0">
                         {mod.families}
@@ -308,7 +308,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
 
 export default function CurriculumPage() {
   return (
-    <div className="min-h-screen bg-[#0B0E14] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--ln-bg)] text-[var(--ln-navy-900)] overflow-x-hidden">
       <Navbar />
 
       {/* Hero */}
@@ -319,10 +319,10 @@ export default function CurriculumPage() {
             <BookOpen size={14} className="text-[var(--color-brand-400)]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Full Curriculum</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-[var(--ln-navy-900)]">
             The Complete Trading Curriculum
           </h1>
-          <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
             10 levels. 42 modules. From zero to certified trader. Every strategy taught once,
             adapted three ways — Forex, Crypto, Gold.
           </p>
@@ -335,9 +335,9 @@ export default function CurriculumPage() {
       <section className="max-w-5xl mx-auto px-6 lg:px-8 py-12">
         <div className="flex flex-wrap justify-center gap-3">
           {[
-            { label: "Forex Track — 3 exclusive modules", href: "/curriculum/forex", icon: Globe, color: "text-blue-400 border-blue-500/20 hover:bg-blue-500/10" },
-            { label: "Crypto Track — 6 exclusive modules", href: "/curriculum/crypto", icon: Bitcoin, color: "text-amber-400 border-amber-500/20 hover:bg-amber-500/10" },
-            { label: "Gold Track — 4 exclusive modules", href: "/curriculum/gold", icon: Coins, color: "text-yellow-400 border-yellow-500/20 hover:bg-yellow-500/10" },
+            { label: "Forex Track — 3 exclusive modules", href: "/curriculum/forex", icon: Globe, color: "text-blue-600 border-blue-500/20 hover:bg-blue-500/10" },
+            { label: "Crypto Track — 6 exclusive modules", href: "/curriculum/crypto", icon: Bitcoin, color: "text-amber-600 border-amber-500/20 hover:bg-amber-500/10" },
+            { label: "Gold Track — 4 exclusive modules", href: "/curriculum/gold", icon: Coins, color: "text-yellow-600 border-yellow-500/20 hover:bg-yellow-500/10" },
           ].map((t) => (
             <Link
               key={t.href}
@@ -359,23 +359,23 @@ export default function CurriculumPage() {
       </section>
 
       {/* Progression Flow */}
-      <section className="max-w-4xl mx-auto px-6 lg:px-8 py-20 border-t border-white/5">
+      <section className="max-w-4xl mx-auto px-6 lg:px-8 py-20 border-t border-[var(--ln-border-soft)]">
         <div className="text-center space-y-6 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Progression Flow</h2>
-          <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto text-sm">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[var(--ln-navy-900)]">Progression Flow</h2>
+          <p className="text-slate-500 max-w-xl mx-auto text-sm font-medium">
             Every gate requires both knowledge AND performance. You can&apos;t skip ahead.
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-3 items-center">
           {["L0", "→", "L1", "→", "L2 + Phase 1", "→", "L3 + Phase 2", "→", "L4 + Phase 3", "→", "L5 + Phase 4", "→", "L6–L7", "→", "L8 + Phase 5", "→", "L9", "→", "Certified"].map((item, i) => (
             item === "→" ? (
-              <ArrowRight key={i} size={14} className="text-white/15" />
+              <ArrowRight key={i} size={14} className="text-slate-300" />
             ) : (
               <span key={i} className={cn(
                 "px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest border",
                 item === "Certified"
-                  ? "bg-[var(--color-profit)]/10 border-[var(--color-profit)]/20 text-[var(--color-profit)]"
-                  : "bg-white/5 border-white/5 text-[var(--color-text-muted)]"
+                  ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/20 text-[var(--ln-teal-500)]"
+                  : "bg-[var(--ln-bg-soft)] border-[var(--ln-border)] text-slate-500"
               )}>
                 {item}
               </span>

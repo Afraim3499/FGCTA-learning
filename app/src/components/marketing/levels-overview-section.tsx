@@ -19,12 +19,12 @@ const levels = [
 ];
 
 const skillColors: Record<string, string> = {
-  "Beginner": "text-green-400 bg-green-500/10",
-  "Beginner→Inter": "text-blue-400 bg-blue-500/10",
-  "Intermediate": "text-blue-400 bg-blue-500/10",
-  "Inter→Advanced": "text-purple-400 bg-purple-500/10",
-  "Advanced": "text-purple-400 bg-purple-500/10",
-  "All Levels": "text-amber-400 bg-amber-500/10",
+  "Beginner": "text-green-600 bg-green-500/10",
+  "Beginner→Inter": "text-blue-600 bg-blue-500/10",
+  "Intermediate": "text-blue-600 bg-blue-500/10",
+  "Inter→Advanced": "text-purple-600 bg-purple-500/10",
+  "Advanced": "text-purple-600 bg-purple-500/10",
+  "All Levels": "text-[var(--ln-teal-600)] bg-[var(--ln-teal-500)]/10",
 };
 
 export function LevelsOverviewSection() {
@@ -32,44 +32,44 @@ export function LevelsOverviewSection() {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="bg-[#090C11] py-32 px-6 lg:px-8 border-t border-white/5">
+    <section ref={ref} className="bg-[var(--ln-bg)] py-24 px-6 lg:px-8 border-t border-[var(--ln-border-soft)]">
       <div className="max-w-6xl mx-auto space-y-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center space-y-4"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--ln-navy-900)]">
             10 levels. Zero shortcuts.
           </h2>
-          <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto">
+          <p className="text-slate-600 max-w-xl mx-auto font-medium">
             Every level unlocks only when you meet the criteria. No completion badges. No fake milestones.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {levels.map((level, i) => (
-            <motion.div
-              key={level.num}
-              initial={{ opacity: 0, y: 15 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.05 + i * 0.04 }}
-              className="flex items-start gap-4 p-5 bg-white/[0.03] border border-white/5 rounded-2xl hover:bg-white/[0.05] hover:border-white/10 transition-all duration-200 group"
-            >
+              <motion.div
+                key={level.num}
+                initial={{ opacity: 0, y: 15 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.05 + i * 0.04 }}
+                className="flex items-start gap-4 p-5 bg-white border border-[var(--ln-border)] rounded-2xl hover:shadow-md hover:border-[var(--ln-teal-500)]/20 transition-all duration-200 group"
+              >
               {/* Level number */}
-              <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-500)]/10 border border-[var(--color-brand-500)]/20 flex items-center justify-center shrink-0">
-                <span className="text-xs font-extrabold text-[var(--color-brand-400)]">{level.num}</span>
+              <div className="w-12 h-12 rounded-xl bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] flex items-center justify-center shrink-0">
+                <span className="text-xs font-extrabold text-[var(--ln-navy-900)]">{level.num}</span>
               </div>
 
               <div className="flex-1 min-w-0 space-y-1.5">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h4 className="text-sm font-bold text-white">{level.name}</h4>
+                  <h4 className="text-sm font-bold text-[var(--ln-navy-900)]">{level.name}</h4>
                   <span className={cn("text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-md", skillColors[level.skill])}>
                     {level.skill}
                   </span>
                 </div>
-                <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{level.desc}</p>
-                <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
+                <p className="text-xs text-slate-600 font-medium leading-relaxed">{level.desc}</p>
+                <p className="text-[9px] font-bold uppercase tracking-widest text-slate-500">
                   Unlocks → {level.unlocks}
                 </p>
               </div>
@@ -80,7 +80,7 @@ export function LevelsOverviewSection() {
         <div className="text-center">
           <Link
             href="/curriculum"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--color-brand-400)] hover:text-[var(--color-brand-300)] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--ln-teal-500)] hover:text-[var(--ln-teal-600)] transition-colors"
           >
             View full curriculum with all 42 modules →
           </Link>
