@@ -42,6 +42,9 @@
     "prisma",
     "scripts",
     "scratch",
-    "check-tests.ts"
+    "check-tests.ts",
+    "seed-phase-10-prisma.ts",
+    "count.ts",
+    "get-level3.ts"
   ]
 }

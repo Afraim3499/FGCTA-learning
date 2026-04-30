@@ -1,5 +1,5 @@
 const { prisma } = require('./src/lib/prisma');
-const crypto = require('crypto');
+const nodeCrypto = require('crypto');
 
 async function main() {
   try {
@@ -61,7 +61,7 @@ async function main() {
       where: { slug: scenarioData.slug },
       update: scenarioData,
       create: {
-        id: crypto.randomUUID(),
+        id: nodeCrypto.randomUUID(),
         ...scenarioData
       }
     });
