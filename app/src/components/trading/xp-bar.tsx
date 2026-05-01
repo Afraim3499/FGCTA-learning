@@ -31,7 +31,7 @@ export function XPBar({ currentXP, rank }: XPBarProps) {
                 {rank}
               </span>
             </div>
-            <p className="text-[10px] text-[var(--color-text-muted)] font-medium mt-0.5">CONTRIBUTING TO PROTOCOL LIQUIDITY</p>
+            <p className="text-[10px] text-[var(--color-text-muted)] font-medium mt-0.5">CONTRIBUTING TO Logic LIQUIDITY</p>
           </div>
         </div>
         <div className="text-right">

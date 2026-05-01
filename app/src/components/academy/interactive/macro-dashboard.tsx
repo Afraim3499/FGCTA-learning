@@ -12,8 +12,8 @@ import {
   BarChart3
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { InstitutionalButton } from "@/components/ui/institutional-button";
-import { TerminalCard, TerminalCardContent, TerminalCardHeader, TerminalCardTitle, TerminalCardDescription } from "@/components/ui/terminal-card";
+import { AcademyButton } from "@/components/ui/academy-button";
+import { AcademyCard, AcademyCardContent, AcademyCardHeader, AcademyCardTitle, AcademyCardDescription } from "@/components/ui/academy-card";
 import { DataBadge } from "@/components/ui/data-badge";
 
 interface MacroSignal {
@@ -29,7 +29,7 @@ export function MacroDashboard() {
   const [yieldValue, setYieldValue] = useState(4.25); // US10Y
   const [goldPrice, setGoldPrice] = useState(2050.00);
 
-  // Simulation Logic: DXY up -> Gold down, Yields up -> Gold down
+  // Practice Logic: DXY up -> Gold down, Yields up -> Gold down
   const calculateGoldPrice = useMemo(() => {
     const dxyImpact = (104.50 - dxyValue) * 50; // Every 1 point dxy is $50 gold
     const yieldImpact = (4.25 - yieldValue) * 100; // Every 1% yield is $100 gold
@@ -45,8 +45,8 @@ export function MacroDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         {/* DXY Card */}
-        <TerminalCard>
-          <TerminalCardContent className="p-8 space-y-4">
+        <AcademyCard>
+          <AcademyCardContent className="p-8 space-y-4">
             <div className="flex items-center justify-between">
               <div className="p-2 bg-accent-blue/10 text-accent-blue rounded-lg">
                 <DollarSign size={20} />
@@ -55,7 +55,7 @@ export function MacroDashboard() {
             </div>
             <div className="space-y-1">
               <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Dollar Strength</p>
-              <div className="text-4xl font-black text-white">{dxyValue.toFixed(2)}</div>
+              <div className="text-4xl font-extrabold text-white">{dxyValue.toFixed(2)}</div>
             </div>
             <div className="pt-4 space-y-4">
               <input 
@@ -69,12 +69,12 @@ export function MacroDashboard() {
                 <span>Hawkish (110)</span>
               </div>
             </div>
-          </TerminalCardContent>
-        </TerminalCard>
+          </AcademyCardContent>
+        </AcademyCard>
 
         {/* Yields Card */}
-        <TerminalCard>
-          <TerminalCardContent className="p-8 space-y-4">
+        <AcademyCard>
+          <AcademyCardContent className="p-8 space-y-4">
             <div className="flex items-center justify-between">
               <div className="p-2 bg-pass-green/10 text-pass-green rounded-lg">
                 <BarChart3 size={20} />
@@ -83,7 +83,7 @@ export function MacroDashboard() {
             </div>
             <div className="space-y-1">
               <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Real Yield Context</p>
-              <div className="text-4xl font-black text-white">{yieldValue.toFixed(2)}%</div>
+              <div className="text-4xl font-extrabold text-white">{yieldValue.toFixed(2)}%</div>
             </div>
             <div className="pt-4 space-y-4">
               <input 
@@ -97,12 +97,12 @@ export function MacroDashboard() {
                 <span>Tightening (6%)</span>
               </div>
             </div>
-          </TerminalCardContent>
-        </TerminalCard>
+          </AcademyCardContent>
+        </AcademyCard>
 
         {/* Gold Performance */}
-        <TerminalCard className="bg-gold/5 border-gold/20">
-          <TerminalCardContent className="p-8 space-y-4">
+        <AcademyCard className="bg-gold/5 border-gold/20">
+          <AcademyCardContent className="p-8 space-y-4">
             <div className="flex items-center justify-between">
               <div className="p-2 bg-gold/10 text-gold rounded-lg">
                 <Zap size={20} />
@@ -111,7 +111,7 @@ export function MacroDashboard() {
             </div>
             <div className="space-y-1">
               <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Correlated Outcome</p>
-              <div className="text-4xl font-black text-white">${goldPrice.toFixed(2)}</div>
+              <div className="text-4xl font-extrabold text-white">${goldPrice.toFixed(2)}</div>
             </div>
             <div className="pt-4 flex items-center gap-2">
               <div className={cn(
@@ -127,20 +127,20 @@ export function MacroDashboard() {
                 />
               </div>
             </div>
-          </TerminalCardContent>
-        </TerminalCard>
+          </AcademyCardContent>
+        </AcademyCard>
 
       </div>
 
-      <TerminalCard className="relative overflow-hidden">
+      <AcademyCard className="relative overflow-hidden">
         <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
             <Globe size={240} />
         </div>
-        <TerminalCardHeader>
-          <TerminalCardTitle>Institutional Correlation Matrix</TerminalCardTitle>
-          <TerminalCardDescription>Visualizing intermarket relationships in real-time.</TerminalCardDescription>
-        </TerminalCardHeader>
-        <TerminalCardContent>
+        <AcademyCardHeader>
+          <AcademyCardTitle>Academy Correlation Matrix</AcademyCardTitle>
+          <AcademyCardDescription>Visualizing intermarket relationships in real-time.</AcademyCardDescription>
+        </AcademyCardHeader>
+        <AcademyCardContent>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-6">
               <h4 className="text-xs font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2">
@@ -179,11 +179,11 @@ export function MacroDashboard() {
 
             <div className="space-y-6">
               <h4 className="text-xs font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2">
-                <Globe size={14} className="text-pass-green" /> Institutional Narrative
+                <Globe size={14} className="text-pass-green" /> Academy Narrative
               </h4>
               <div className="p-6 bg-surface-secondary border border-border-default rounded-[2rem] h-full">
                 <p className="text-sm text-text-secondary leading-relaxed italic">
-                  "Gold is the ultimate hedge against sovereign debt and currency debasement. When the DXY rallies, it signals global liquidity tightening, putting immediate pressure on non-yielding assets like Gold. As an institutional trader, you never trade the XAU/USD chart in isolation—you trade the Dollar Index."
+                  "Gold is the ultimate hedge against sovereign debt and currency debasement. When the DXY rallies, it signals global liquidity tightening, putting immediate pressure on non-yielding assets like Gold. As an Academy trader, you never trade the XAU/USD chart in isolation—you trade the Dollar Index."
                 </p>
                 <div className="mt-8 flex gap-4">
                    <div className="flex-1 p-4 bg-background border border-border-default rounded-xl text-center">
@@ -208,8 +208,8 @@ export function MacroDashboard() {
               </div>
             </div>
           </div>
-        </TerminalCardContent>
-      </TerminalCard>
+        </AcademyCardContent>
+      </AcademyCard>
     </div>
   );
 }

@@ -18,7 +18,7 @@ export interface ButtonProps
   glow?: boolean;
 }
 
-const InstitutionalButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const AcademyButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", asChild = false, glow = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
 
@@ -58,6 +58,6 @@ const InstitutionalButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
-InstitutionalButton.displayName = "InstitutionalButton";
+AcademyButton.displayName = "AcademyButton";
 
-export { InstitutionalButton };
+export { AcademyButton };

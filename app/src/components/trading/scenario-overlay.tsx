@@ -79,7 +79,7 @@ export function ScenarioOverlay({ scenarioId, onScenarioLoaded }: ScenarioOverla
             </li>
             <li className="flex items-center gap-2 text-[10px] text-slate-400">
               <Shield className="w-3 h-3 text-[var(--color-brand-400)]" />
-              <span>One Valid Execution to Complete</span>
+              <span>One Valid Method to Complete</span>
             </li>
           </ul>
         </div>

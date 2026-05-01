@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Lock, CheckCircle2, ArrowRight, BookOpen, Zap, Globe, Bitcoin, Coins } from "lucide-react";
-import Link from "next/link";
+import { ChevronDown, Lock, ArrowRight, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
@@ -19,12 +18,12 @@ const levels = [
     outcome: "You can navigate a trading platform, read basic charts, and understand instrument mechanics.",
     unlocks: "Level 1",
     modules: [
-      { id: "0.1", title: "What Is Trading", desc: "Market participants, bid/ask, spread, execution, edge defined", families: "None (foundational)" },
+      { id: "0.1", title: "What Is Trading", desc: "Market participants, bid/ask, spread, Method, edge defined", families: "None (foundational)" },
       { id: "0.2", title: "Instrument Mechanics", desc: "How Forex pairs, crypto tokens, and gold contracts work", families: "None (foundational)", adaptations: { forex: "Pairs, pips, lots, swap rates", crypto: "Tokens, gas fees, CEX vs DEX, wallet setup", gold: "XAU/USD spot, GC futures, GLD ETF" } },
       { id: "0.3", title: "Chart Reading Fundamentals", desc: "Candlestick anatomy, timeframes, volume basics, chart types", families: "None (foundational)" },
       { id: "0.4", title: "Trading Platform Orientation", desc: "Order types, margin, leverage intro, P&L calculation", families: "None (foundational)", adaptations: { forex: "MT4/MT5 orientation", crypto: "CEX (Binance/Bybit) + DEX", gold: "Futures platform + spot broker" } },
     ],
-    gate: { test: "L0 Knowledge Test (80%+)", unlockText: "Unlocks Level 1" },
+    gate: { test: "Mission 1 Completion", unlockText: "Unlocks Level 1" },
     free: true,
   },
   {
@@ -52,7 +51,7 @@ const levels = [
       { id: "2.4", title: "Momentum (Core)", desc: "Momentum vs trend, divergence warnings, relative strength", families: "MO_01, MO_02" },
       { id: "2.5", title: "Price Action Foundations", desc: "Reversal candles, continuation patterns, pattern recognition at levels", families: "PA_01, PA_02, PA_03" },
     ],
-    gate: { test: "L2 Knowledge Test (80%+) + Phase 1 Passed", unlockText: "Unlocks L3 + Cert Level 1 Check" },
+    gate: { test: "2.12 Chart Map Mission + L2 Knowledge Test (80%+)", unlockText: "Unlocks Level 3" },
   },
   {
     id: "L3", name: "Strategy Subtypes & Variations", skill: "Intermediate", prereq: "L2 Complete",
@@ -67,7 +66,7 @@ const levels = [
       { id: "3.5", title: "Wave & Cycle Analysis", desc: "Elliott Wave basics, Heikin-Ashi, Renko — taught with validation caveats", families: "PA_05, TF_06" },
       { id: "3.6", title: "Algorithmic Trend Systems", desc: "Turtle Trading, rule-based MA bots, multi-indicator stacking", families: "TF_07" },
     ],
-    gate: { test: "L3 Test + Phase 2 Passed", unlockText: "Unlocks L4 + Cert Level 2 Check" },
+    gate: { test: "3.10 Final Scenario + L3 Knowledge Test (80%+)", unlockText: "Unlocks Level 4" },
   },
   {
     id: "L4", name: "Market-Specific Edge", skill: "Intermediate → Advanced", prereq: "L3 Complete",
@@ -79,15 +78,16 @@ const levels = [
       { id: "4.2", title: "Sentiment & Positioning", desc: "COT data, options sentiment, retail contrarian signals", families: "SE_01, SE_06, SE_07", shared: true },
     ],
     exclusiveNote: "Plus 3–6 market-exclusive modules depending on your track",
-    gate: { test: "L4 Test + Phase 3 Passed", unlockText: "Unlocks L5 + Cert Level 3 (Broker Referral)" },
+    gate: { test: "L4 Knowledge Test (80%+)", unlockText: "Unlocks Level 5" },
+    planned: true,
   },
   {
-    id: "L5", name: "Advanced & Institutional", skill: "Advanced", prereq: "L4 Complete",
+    id: "L5", name: "Advanced & Academy", skill: "Advanced", prereq: "L4 Complete",
     purpose: "Derivatives, order flow, arbitrage, ML, market making.",
-    outcome: "You can design multi-leg trades and institutional-grade systems.",
+    outcome: "You can design multi-leg trades and Academy-grade systems.",
     unlocks: "Trading Phase 4 ($3,000)",
     modules: [
-      { id: "5.1", title: "Order Flow & Liquidity", desc: "Institutional order flow, supply/demand zones, DOM reading", families: "OF_01, OF_02" },
+      { id: "5.1", title: "Order Flow & Liquidity", desc: "Academy order flow, supply/demand zones, DOM reading", families: "OF_01, OF_02" },
       { id: "5.2", title: "Directional Options", desc: "Express directional views via options structures", families: "DE_01" },
       { id: "5.3", title: "Non-Directional Options", desc: "Trade volatility and time decay without directional bias", families: "DE_02" },
       { id: "5.4", title: "Greeks & Volatility Trading", desc: "Implied vs realized vol, gamma, skew trading", families: "DE_03" },
@@ -95,7 +95,8 @@ const levels = [
       { id: "5.6", title: "Market Making", desc: "Spread capture and liquidity provision mechanics", families: "MM_01" },
       { id: "5.7", title: "Machine Learning in Trading", desc: "ML models for prediction, regime detection, optimization", families: "ML_01–ML_04" },
     ],
-    gate: { test: "L5 Complete", unlockText: "Unlocks Phase 4" },
+    gate: { test: "L5 Knowledge Test", unlockText: "Unlocks Level 6" },
+    planned: true,
   },
   {
     id: "L6", name: "Risk & Capital Systems", skill: "Intermediate → Advanced", prereq: "L2+ (parallel track)",
@@ -108,9 +109,10 @@ const levels = [
       { id: "6.3", title: "Portfolio Risk Management", desc: "Correlation, VaR, max exposure, diversification", families: "RM_03" },
       { id: "6.4", title: "Leverage & Liquidation Control", desc: "Margin management, liquidation prevention", families: "RM_04" },
       { id: "6.5", title: "Hedging Strategies", desc: "Direct hedging, cross-asset, options-based hedging", families: "RM_05, DE_04" },
-      { id: "6.6", title: "Operational & Execution Risk", desc: "Custody, counterparty, slippage, exchange risk", families: "RM_06" },
+      { id: "6.6", title: "Operational & Method Risk", desc: "Custody, counterparty, slippage, exchange risk", families: "RM_06" },
     ],
-    gate: { test: "L6 Complete + Phase 4 integrations", unlockText: "Feeds into Cert Level 4" },
+    gate: { test: "L6 Knowledge Test", unlockText: "Unlocks Level 7" },
+    planned: true,
   },
   {
     id: "L7", name: "Regime & Market Conditions", skill: "Advanced", prereq: "L3+ Complete",
@@ -121,10 +123,11 @@ const levels = [
       { id: "7.1", title: "Regime Classification", desc: "ADX/DMI, volatility measures, structural identification", families: "ML_03, FD_03" },
       { id: "7.2", title: "Strategy-Regime Matching", desc: "Map every strategy family to its optimal regime; know when NOT to trade", families: "Selection matrix" },
     ],
-    gate: { test: "L7 Test — Classify 30 historical regimes", unlockText: "Unlocks L8 + Cert Level 4" },
+    gate: { test: "L7 Knowledge Test", unlockText: "Unlocks Level 8" },
+    planned: true,
   },
   {
-    id: "L8", name: "Strategy Integration", skill: "Advanced → Institutional", prereq: "L5+ Complete",
+    id: "L8", name: "Strategy Integration", skill: "Advanced → Academy", prereq: "L5+ Complete",
     purpose: "Combine multiple strategies into unified decision frameworks.",
     outcome: "You can build multi-pillar confluence systems and multi-timeframe trading models.",
     unlocks: "Trading Phase 5 ($10,000)",
@@ -132,19 +135,21 @@ const levels = [
       { id: "8.1", title: "Multi-Pillar Confluence", desc: "Technical + fundamental + sentiment composite signals", families: "HY_01" },
       { id: "8.2", title: "Multi-Timeframe Systems", desc: "Weekly/Daily/4H/1H stacking for entry precision", families: "HY_02" },
     ],
-    gate: { test: "L8 Test + Build 3 confluence systems", unlockText: "Unlocks Phase 5" },
+    gate: { test: "L8 Knowledge Test", unlockText: "Unlocks Level 9" },
+    planned: true,
   },
   {
-    id: "L9", name: "Execution & Psychology", skill: "All Levels", prereq: "L2+ (progressive)",
+    id: "L9", name: "Method & Psychology", skill: "All Levels", prereq: "L2+ (progressive)",
     purpose: "Bridge from strategy knowledge to live performance.",
     outcome: "You are ready for live trading with systematic discipline, journal habits, and emotional control.",
-    unlocks: "Final Certification",
+    unlocks: "Final LearningRecord",
     modules: [
-      { id: "9.1", title: "Execution Algorithms", desc: "TWAP, VWAP, iceberg orders, smart routing", families: "EX_01" },
+      { id: "9.1", title: "Method Algorithms", desc: "TWAP, VWAP, iceberg orders, smart routing", families: "EX_01" },
       { id: "9.2", title: "Trading Psychology & Discipline", desc: "Loss aversion, FOMO, revenge trading, process vs outcome", families: "Behavioral" },
       { id: "9.3", title: "Trade Journal & Performance Review", desc: "Systematic feedback loops, metric tracking, review cadence", families: "System design" },
     ],
-    gate: { test: "30-day simulated journal + Final evaluation", unlockText: "Cert Level 5 — Certified Trader" },
+    gate: { test: "Final evaluation", unlockText: "Program Complete" },
+    planned: true,
   },
 ];
 
@@ -154,7 +159,7 @@ const skillColors: Record<string, string> = {
   "Intermediate": "text-blue-400 bg-blue-500/10 border-blue-500/20",
   "Intermediate → Advanced": "text-purple-400 bg-purple-500/10 border-purple-500/20",
   "Advanced": "text-purple-400 bg-purple-500/10 border-purple-500/20",
-  "Advanced → Institutional": "text-rose-400 bg-rose-500/10 border-rose-500/20",
+  "Advanced → Academy": "text-rose-400 bg-rose-500/10 border-rose-500/20",
   "All Levels": "text-amber-400 bg-amber-500/10 border-amber-500/20",
 };
 
@@ -195,6 +200,11 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
             {level.free && (
               <span className="text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-md text-[var(--color-profit)] bg-[var(--color-profit)]/10 border border-[var(--color-profit)]/20">
                 Free Trial
+              </span>
+            )}
+            {(level as any).planned && (
+              <span className="text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-md text-amber-600 bg-amber-50 border border-amber-200">
+                Planned
               </span>
             )}
           </div>
@@ -240,19 +250,16 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-mono font-bold text-[var(--color-brand-400)]">{mod.id}</span>
+                          <span className="text-[10px] font-mono font-bold text-[var(--ln-teal-500)]">{mod.id}</span>
                           <h4 className="text-sm font-bold text-[var(--ln-navy-900)]">{mod.title}</h4>
                         </div>
                         <p className="text-xs text-slate-500 mt-1">{mod.desc}</p>
                       </div>
-                      <span className="text-[8px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] bg-white/5 px-2 py-1 rounded shrink-0">
-                        {mod.families}
-                      </span>
                     </div>
 
                     {/* Market adaptations */}
                     {"adaptations" in mod && mod.adaptations && (
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-2 border-t border-white/5 mt-2">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-2 border-t border-[var(--ln-border-soft)] mt-2">
                         {Object.entries(mod.adaptations).map(([market, text]) => (
                           <div key={market} className="flex items-start gap-2 text-[10px]">
                             <span className={cn(
@@ -261,7 +268,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
                             )}>
                               {market}:
                             </span>
-                            <span className="text-[var(--color-text-muted)]">{text}</span>
+                            <span className="text-slate-500">{text}</span>
                           </div>
                         ))}
                       </div>
@@ -272,19 +279,8 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
 
               {/* Exclusive note for L4 */}
               {level.exclusiveNote && (
-                <div className="p-4 bg-[var(--color-brand-500)]/5 border border-[var(--color-brand-500)]/10 rounded-xl">
-                  <p className="text-sm text-[var(--color-brand-400)] font-semibold">{level.exclusiveNote}</p>
-                  <div className="flex gap-3 mt-3">
-                    {[
-                      { label: "Forex: 3 exclusive", href: "/curriculum/forex", color: "text-blue-400" },
-                      { label: "Crypto: 6 exclusive", href: "/curriculum/crypto", color: "text-amber-400" },
-                      { label: "Gold: 4 exclusive", href: "/curriculum/gold", color: "text-yellow-400" },
-                    ].map((t) => (
-                      <Link key={t.href} href={t.href} className={cn("text-[10px] font-bold uppercase tracking-widest hover:underline", t.color)}>
-                        {t.label} →
-                      </Link>
-                    ))}
-                  </div>
+                <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                  <p className="text-sm text-amber-700 font-semibold">{level.exclusiveNote}</p>
                 </div>
               )}
 
@@ -313,43 +309,24 @@ export default function CurriculumPage() {
 
       {/* Hero */}
       <section className="pt-40 pb-20 px-6 lg:px-8 text-center relative overflow-hidden">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[var(--color-brand-500)]/5 blur-[180px] rounded-full pointer-events-none" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[var(--ln-teal-500)]/5 blur-[180px] rounded-full pointer-events-none" />
         <div className="max-w-4xl mx-auto space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-            <BookOpen size={14} className="text-[var(--color-brand-400)]" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Full Curriculum</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--ln-bg-soft)] border border-[var(--ln-border)]">
+            <BookOpen size={14} className="text-[var(--ln-teal-500)]" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ln-text-muted)]">Learning Path</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-[var(--ln-navy-900)]">
-            The Complete Trading Curriculum
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-[var(--ln-navy-900)]">
+            Structured Market Curriculum
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
-            10 levels. 42 modules. From zero to certified trader. Every strategy taught once,
-            adapted three ways — Forex, Crypto, Gold.
+            A structured learning path from market foundations to advanced concepts. Levels 0–3 are live. More levels are in development.
           </p>
         </div>
       </section>
 
       <StatsBar />
 
-      {/* Market Track Quick Links */}
-      <section className="max-w-5xl mx-auto px-6 lg:px-8 py-12">
-        <div className="flex flex-wrap justify-center gap-3">
-          {[
-            { label: "Forex Track — 3 exclusive modules", href: "/curriculum/forex", icon: Globe, color: "text-blue-600 border-blue-500/20 hover:bg-blue-500/10" },
-            { label: "Crypto Track — 6 exclusive modules", href: "/curriculum/crypto", icon: Bitcoin, color: "text-amber-600 border-amber-500/20 hover:bg-amber-500/10" },
-            { label: "Gold Track — 4 exclusive modules", href: "/curriculum/gold", icon: Coins, color: "text-yellow-600 border-yellow-500/20 hover:bg-yellow-500/10" },
-          ].map((t) => (
-            <Link
-              key={t.href}
-              href={t.href}
-              className={cn("flex items-center gap-2 px-5 py-3 rounded-2xl border bg-white/[0.02] text-xs font-bold uppercase tracking-widest transition-all", t.color)}
-            >
-              <t.icon size={16} />
-              {t.label}
-            </Link>
-          ))}
-        </div>
-      </section>
+
 
       {/* Level Cards */}
       <section className="max-w-5xl mx-auto px-6 lg:px-8 pb-20 space-y-4">
@@ -363,21 +340,21 @@ export default function CurriculumPage() {
         <div className="text-center space-y-6 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[var(--ln-navy-900)]">Progression Flow</h2>
           <p className="text-slate-500 max-w-xl mx-auto text-sm font-medium">
-            Every gate requires both knowledge AND performance. You can&apos;t skip ahead.
+            Every level gate must be passed before advancing. No shortcuts.
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-3 items-center">
-          {["L0", "→", "L1", "→", "L2 + Phase 1", "→", "L3 + Phase 2", "→", "L4 + Phase 3", "→", "L5 + Phase 4", "→", "L6–L7", "→", "L8 + Phase 5", "→", "L9", "→", "Certified"].map((item, i) => (
+          {["L0", "→", "L1", "→", "L2", "→", "L3", "→", "L4+"].map((item, i) => (
             item === "→" ? (
               <ArrowRight key={i} size={14} className="text-slate-300" />
             ) : (
               <span key={i} className={cn(
                 "px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest border",
-                item === "Certified"
-                  ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/20 text-[var(--ln-teal-500)]"
+                item === "L4+"
+                  ? "bg-amber-50 border-amber-200 text-amber-600"
                   : "bg-[var(--ln-bg-soft)] border-[var(--ln-border)] text-slate-500"
               )}>
-                {item}
+                {item}{item === "L4+" && " (Coming Soon)"}
               </span>
             )
           ))}

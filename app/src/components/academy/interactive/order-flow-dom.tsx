@@ -12,8 +12,8 @@ import {
   Target
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { InstitutionalButton } from "@/components/ui/institutional-button";
-import { TerminalCard, TerminalCardContent, TerminalCardHeader, TerminalCardTitle, TerminalCardDescription } from "@/components/ui/terminal-card";
+import { AcademyButton } from "@/components/ui/academy-button";
+import { AcademyCard, AcademyCardContent, AcademyCardHeader, AcademyCardTitle, AcademyCardDescription } from "@/components/ui/academy-card";
 import { DataBadge } from "@/components/ui/data-badge";
 
 interface OrderBookLevel {
@@ -144,70 +144,70 @@ export function OrderFlowDOM() {
       
       {/* Header Stat Bar */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <TerminalCard className="bg-accent-blue/5 border-accent-blue/20">
-          <TerminalCardContent className="p-4 flex items-center justify-between">
+        <AcademyCard className="bg-accent-blue/5 border-accent-blue/20">
+          <AcademyCardContent className="p-4 flex items-center justify-between">
             <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Last Price</p>
-            <div className="text-xl font-black text-white font-mono">{lastPrice.toFixed(2)}</div>
-          </TerminalCardContent>
-        </TerminalCard>
-        <TerminalCard>
-          <TerminalCardContent className="p-4 flex items-center justify-between">
+            <div className="text-xl font-extrabold text-white font-mono">{lastPrice.toFixed(2)}</div>
+          </AcademyCardContent>
+        </AcademyCard>
+        <AcademyCard>
+          <AcademyCardContent className="p-4 flex items-center justify-between">
             <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Feed Speed</p>
             <DataBadge variant="outline">{tickSpeed}ms</DataBadge>
-          </TerminalCardContent>
-        </TerminalCard>
-        <TerminalCard className="md:col-span-2">
-          <TerminalCardContent className="p-4 flex items-center gap-4">
+          </AcademyCardContent>
+        </AcademyCard>
+        <AcademyCard className="md:col-span-2">
+          <AcademyCardContent className="p-4 flex items-center gap-4">
             <div className={cn(
               "w-2 h-2 rounded-full animate-pulse",
               activeScenario === "none" ? "bg-pass-green" : "bg-fail-red"
             )} />
             <p className="text-xs font-bold text-white leading-tight truncate">{statusMessage}</p>
-          </TerminalCardContent>
-        </TerminalCard>
+          </AcademyCardContent>
+        </AcademyCard>
       </div>
 
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden">
         
-        {/* Tactical Controls */}
+        {/* Practice Controls */}
         <div className="lg:col-span-2 space-y-4">
-          <TerminalCard>
-            <TerminalCardHeader className="p-4">
-              <TerminalCardTitle className="text-xs">Injectors</TerminalCardTitle>
-            </TerminalCardHeader>
-            <TerminalCardContent className="p-4 pt-0 space-y-2">
-              <InstitutionalButton 
+          <AcademyCard>
+            <AcademyCardHeader className="p-4">
+              <AcademyCardTitle className="text-xs">Injectors</AcademyCardTitle>
+            </AcademyCardHeader>
+            <AcademyCardContent className="p-4 pt-0 space-y-2">
+              <AcademyButton 
                 variant="glass" size="sm" className="w-full justify-start text-[10px]" 
                 onClick={triggerIceberg} glow={activeScenario === "iceberg"}
               >
                 <Layers size={14} className="mr-2" /> Iceberg
-              </InstitutionalButton>
-              <InstitutionalButton 
+              </AcademyButton>
+              <AcademyButton 
                 variant="glass" size="sm" className="w-full justify-start text-[10px]" 
                 onClick={triggerSpoofing} glow={activeScenario === "spoofing"}
               >
                 <ShieldAlert size={14} className="mr-2" /> Spoofing
-              </InstitutionalButton>
-              <InstitutionalButton 
+              </AcademyButton>
+              <AcademyButton 
                 variant="glass" size="sm" className="w-full justify-start text-[10px] text-fail-red" 
                 onClick={triggerCascade} glow={activeScenario === "cascade"}
               >
                 <Zap size={14} className="mr-2" /> Cascade
-              </InstitutionalButton>
-              <InstitutionalButton 
+              </AcademyButton>
+              <AcademyButton 
                 variant="outline" size="sm" className="w-full justify-start text-[10px]" 
                 onClick={resetMarket}
               >
                 <Activity size={14} className="mr-2" /> Reset
-              </InstitutionalButton>
-            </TerminalCardContent>
-          </TerminalCard>
+              </AcademyButton>
+            </AcademyCardContent>
+          </AcademyCard>
 
-          <TerminalCard className="flex-1">
-            <TerminalCardHeader className="p-4">
-              <TerminalCardTitle className="text-xs">Time & Sales</TerminalCardTitle>
-            </TerminalCardHeader>
-            <TerminalCardContent className="p-0 h-[400px] overflow-hidden">
+          <AcademyCard className="flex-1">
+            <AcademyCardHeader className="p-4">
+              <AcademyCardTitle className="text-xs">Time & Sales</AcademyCardTitle>
+            </AcademyCardHeader>
+            <AcademyCardContent className="p-0 h-[400px] overflow-hidden">
                <div className="h-full overflow-y-auto custom-scrollbar px-4 space-y-1">
                   {tape.map(entry => (
                     <div key={entry.id} className="flex justify-between text-[10px] font-mono py-1 border-b border-white/[0.02]">
@@ -219,12 +219,12 @@ export function OrderFlowDOM() {
                     </div>
                   ))}
                </div>
-            </TerminalCardContent>
-          </TerminalCard>
+            </AcademyCardContent>
+          </AcademyCard>
         </div>
 
         {/* Main DOM Table */}
-        <TerminalCard className="lg:col-span-10 flex flex-col h-full bg-[#050505] overflow-hidden">
+        <AcademyCard className="lg:col-span-10 flex flex-col h-full bg-[#050505] overflow-hidden">
           <div className="grid grid-cols-5 border-b border-white/5 bg-surface-secondary">
             <div className="p-3 text-center border-r border-white/5 text-[9px] font-bold text-pass-green uppercase tracking-widest">Bids</div>
             <div className="p-3 text-center border-r border-white/5 text-[9px] font-bold text-text-muted uppercase tracking-widest">Price</div>
@@ -261,7 +261,7 @@ export function OrderFlowDOM() {
 
                   {/* Price */}
                   <div className={cn(
-                    "flex items-center justify-center border-r border-white/5 font-black tracking-tighter relative",
+                    "flex items-center justify-center border-r border-white/5 font-extrabold tracking-tighter relative",
                     isCurrentPrice ? "text-white text-sm" : "text-text-muted"
                   )}>
                     {level.price.toFixed(2)}
@@ -296,7 +296,7 @@ export function OrderFlowDOM() {
             })}
           </div>
 
-          {/* Tactical Footer */}
+          {/* Practice Footer */}
           <div className="p-3 border-t border-white/10 bg-surface-secondary flex items-center justify-between">
               <div className="flex gap-4">
                  <div className="flex items-center gap-2">
@@ -313,7 +313,7 @@ export function OrderFlowDOM() {
                  <DataBadge variant="outline" className="text-[8px]">PRO_FLOW_V4</DataBadge>
               </div>
           </div>
-        </TerminalCard>
+        </AcademyCard>
       </div>
     </div>
   );

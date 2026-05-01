@@ -1,6 +1,6 @@
 import { createTradingEngine } from "./engine";
 import type { Tick } from "./chart-types";
-import { calculatePnL, calculateRiskAmount, convertSizeToUnits } from "./execution-engine";
+import { calculatePnL, calculateRiskAmount, convertSizeToUnits } from "./order-engine";
 
 const EURUSD_SPEC = {
   symbol: "EURUSD",
@@ -76,7 +76,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     
     // We'll mock slippage to 0 for this specific test to verify base PnL math
     // @ts-ignore
-    jest.spyOn(engine.executionEngine, 'getDeterministicSlippage').mockReturnValue(0);
+    jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
     engine.executeMarketOrder("buy", 1); // 1 lot = 100k units
     advanceTick(engine, 1.1010, 0); // 10 pip gain
@@ -90,7 +90,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.start();
     advanceTick(engine, 60000, 0);
     // @ts-ignore
-    jest.spyOn(engine.executionEngine, 'getDeterministicSlippage').mockReturnValue(0);
+    jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
     engine.executeMarketOrder("buy", 0.5); 
     advanceTick(engine, 61000, 0); 
@@ -103,7 +103,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.start();
     advanceTick(engine, 2300, 0);
     // @ts-ignore
-    jest.spyOn(engine.executionEngine, 'getDeterministicSlippage').mockReturnValue(0);
+    jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
     engine.executeMarketOrder("buy", 1); // 1 lot = 100 oz
     advanceTick(engine, 2310, 0); 
@@ -144,7 +144,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.start();
     advanceTick(engine, 1.1000, 0);
     // @ts-ignore
-    jest.spyOn(engine.executionEngine, 'getDeterministicSlippage').mockReturnValue(0);
+    jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
     engine.executeMarketOrder("buy", 1, 1.0990); // $100 risk
     const posId = engine.getSnapshot().openPositions[0].id;
@@ -153,7 +153,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.closePosition(posId);
 
     // @ts-ignore
-    const record = engine.executionEngine.tradeLog[0];
+    const record = engine.OrderEngine.tradeLog[0];
     expect(record.inputSize).toBe(1);
     expect(record.inputMode).toBe("lots");
     expect(record.normalizedUnits).toBe(100000);
@@ -170,7 +170,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.start();
     advanceTick(engine, 1.1000, 0);
     // @ts-ignore
-    jest.spyOn(engine.executionEngine, 'getDeterministicSlippage').mockReturnValue(0);
+    jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
     engine.executeMarketOrder("sell", 1); // Short at 1.1000
     advanceTick(engine, 1.0990, 0); // 10 pip drop = gain for short
@@ -183,7 +183,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.start();
     advanceTick(engine, 60000, 0);
     // @ts-ignore
-    jest.spyOn(engine.executionEngine, 'getDeterministicSlippage').mockReturnValue(0);
+    jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
     engine.executeMarketOrder("sell", 1); // Short at 60,000
     advanceTick(engine, 61000, 0); // $1,000 rise = loss for short
@@ -196,7 +196,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.start();
     advanceTick(engine, 2300, 0);
     // @ts-ignore
-    jest.spyOn(engine.executionEngine, 'getDeterministicSlippage').mockReturnValue(0);
+    jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
     engine.executeMarketOrder("sell", 1); // Short at 2300
     advanceTick(engine, 2290, 0); // $10 drop = $1000 gain (100 oz)
@@ -209,7 +209,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.start();
     advanceTick(engine, 1.1000, 0);
     // @ts-ignore
-    jest.spyOn(engine.executionEngine, 'getDeterministicSlippage').mockReturnValue(0);
+    jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
     engine.executeMarketOrder("buy", 1, 1.0990); // $100 risk
     const pos = engine.getSnapshot().openPositions[0];
@@ -221,7 +221,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.closePosition(pos.id);
 
     // @ts-ignore
-    const record = engine.executionEngine.tradeLog[0];
+    const record = engine.OrderEngine.tradeLog[0];
     // R-Multiple should be based on initial risk ($100), not adjusted risk ($0)
     // 200 / 100 = 2
     expect(record.rMultiple).toBe(2);

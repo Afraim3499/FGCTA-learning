@@ -22,6 +22,7 @@ const tiers = [
     exclusiveModules: ["Gold Macro Drivers", "Relative Value & Cross-Asset", "ETF Flow & COT Analysis", "Seasonal & Geopolitical"],
     badge: null,
     popular: false,
+    bonus: null,
   },
   {
     market: "Forex",
@@ -35,6 +36,7 @@ const tiers = [
     exclusiveModules: ["Carry & Interest Rate Trading", "Macro Differential Trading", "Seasonal & Calendar Patterns"],
     badge: null,
     popular: false,
+    bonus: null,
   },
   {
     market: "Crypto",
@@ -48,31 +50,29 @@ const tiers = [
     exclusiveModules: ["On-Chain Analytics", "Funding Rate & Derivatives", "Narrative & Tokenomics", "DeFi Yield & Liquidity", "DeFi Arbitrage", "Governance & Social Sentiment"],
     badge: "Most Complete",
     popular: true,
-    bonus: "1 Month YagaCalls Premium — Real-time signals for live testing",
+    bonus: "Includes 12 months of Strategy Vault updates",
   },
 ];
 
 const sharedFeatures = [
-  "Full L0–L9 course access (42 modules, 10 levels)",
-  "220+ verified trading strategies across 26 families",
-  "5-phase trading simulation ($100 → $10,000)",
-  "Institutional rules engine (6 rules, hard-enforced)",
-  "5-level certification system with performance scoring",
-  "Verifiable digital certificate with unique ID",
-  "Full performance analytics dashboard (17+ metrics)",
-  "XP progression, badges & leaderboard system",
-  "Trade journal with strategy tagging",
+  "Lurnava Academy foundation path access",
+  "Visual lessons with guided practice blocks",
+  "Chart missions and interactive exercises",
   "Knowledge tests per level (80%+ to advance)",
-  "1-month premium community access",
-  "Market-specific practice exercises",
+  "Structured progress from foundations to application",
+  "XP progression and achievement tracking",
+  "Market-specific chart-reading exercises",
+  "Future updates and new levels as platform expands",
+  "No signals, no financial advice — education only",
+  "One-time payment, full access to your track",
 ];
 
 const comparisons = [
   { name: "Udemy trading course", price: "$15–30", gap: "Videos only. No practice. No accountability." },
   { name: "Trading signal service", price: "$50–200/mo", gap: "No learning. Pure dependency. Cancel = nothing." },
-  { name: "Prop firm evaluation", price: "$200–1,000", gap: "No education. Just testing. Fail = pay again." },
-  { name: "University finance course", price: "$2,000–50K", gap: "Academic theory. No live practice." },
-  { name: "1:1 trading mentorship", price: "$5,000+", gap: "Quality varies. No system. No certification." },
+  { name: "YouTube tutorials", price: "Free", gap: "Scattered tips. No structure. No progress tracking." },
+  { name: "University finance course", price: "$2,000–50K", gap: "Academic theory. No applied practice." },
+  { name: "1:1 trading mentorship", price: "$5,000+", gap: "Quality varies. No structured system." },
 ];
 
 export default function PricingPage() {
@@ -110,7 +110,7 @@ export default function PricingPage() {
             <Shield size={14} className="text-[var(--ln-teal-500)]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ln-text-muted)]">One-Time Payment · Full Access</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-[var(--ln-navy-900)]">
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter text-[var(--ln-navy-900)]">
             Choose Your Market.{" "}
             <span className="text-[var(--ln-navy-900)] opacity-40">Get Everything.</span>
           </h1>
@@ -191,7 +191,7 @@ export default function PricingPage() {
                     {appliedDiscount && (
                       <span className="text-2xl font-bold text-[var(--ln-text-muted)] line-through">${tier.price}</span>
                     )}
-                    <span className="text-5xl font-black tracking-tighter text-[var(--ln-navy-900)]">${getPrice(tier.price)}</span>
+                    <span className="text-5xl font-extrabold tracking-tighter text-[var(--ln-navy-900)]">${getPrice(tier.price)}</span>
                     <span className="text-sm font-bold text-slate-500 uppercase">one-time</span>
                   </div>
                 </div>
@@ -286,7 +286,7 @@ export default function PricingPage() {
             </div>
             <div className="flex-1">
               <span className="text-sm font-bold text-[var(--ln-navy-900)]">Lurnava Academy</span>
-              <span className="text-xs text-[var(--ln-teal-500)] ml-3">Education + Simulation + Certification. One payment. Full access.</span>
+              <span className="text-xs text-[var(--ln-teal-500)] ml-3">Education + Practice + LearningRecord. One payment. Full access.</span>
             </div>
           </div>
         </div>

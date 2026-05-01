@@ -1,6 +1,6 @@
 "use client";
 
-import { InstitutionalButton } from "@/components/ui/institutional-button";
+import { AcademyButton } from "@/components/ui/academy-button";
 import { ChevronRight } from "lucide-react";
 import { completeModule } from "@/lib/academy-actions";
 import { useRouter } from "next/navigation";
@@ -35,7 +35,7 @@ export function ModuleNavigation({ userId, moduleId, assetClass, nextUrl }: Modu
           <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Next Objective</span>
           <span className="text-sm font-bold text-white uppercase tracking-tight">Mission progression authorized</span>
        </div>
-       <InstitutionalButton 
+       <AcademyButton 
           size="lg" 
           glow 
           className="group" 
@@ -44,7 +44,7 @@ export function ModuleNavigation({ userId, moduleId, assetClass, nextUrl }: Modu
        >
           {isPending ? "SYNCHRONIZING..." : "PROCEED TO NEXT MODULE"}
           {!isPending && <ChevronRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />}
-       </InstitutionalButton>
+       </AcademyButton>
     </div>
   );
 }

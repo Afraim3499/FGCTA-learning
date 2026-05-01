@@ -11,21 +11,21 @@ import { cn } from "@/lib/utils";
 import { useUser } from "@/components/user-provider";
 
 const GOALS = [
-  { id: "CAPITAL", name: "Capital Growth", sub: "Scale simulation equity to $10,000 via performance." },
+  { id: "CAPITAL", name: "Capital Growth", sub: "Scale Practice equity to $10,000 via performance." },
   { id: "INCOME", name: "Yield Generation", sub: "Establish a consistent, rule-based secondary income." },
-  { id: "CAREER", name: "Institutional Path", sub: "Build a professional track record for certification." },
+  { id: "CAREER", name: "Academy Path", sub: "Build a professional track record for LearningRecord." },
 ];
 
 const TRACKS = [
-  { id: "forex" as MarketTrack, name: "Forex Protocol", description: "Global macro trends and currency liquidity.", icon: Globe, color: "text-blue-400" },
+  { id: "forex" as MarketTrack, name: "Forex Logic", description: "Global macro trends and currency liquidity.", icon: Globe, color: "text-blue-400" },
   { id: "crypto" as MarketTrack, name: "Crypto Sentinel", description: "Digital asset volatility and on-chain cycles.", icon: Bitcoin, color: "text-orange-400" },
   { id: "gold" as MarketTrack, name: "Metal Titan", description: "Commodity stability and inflation protection.", icon: Coins, color: "text-amber-400" },
 ];
 
 const EXPERIENCE = [
-  { id: "RECRUIT", name: "Recruit", sub: "New to the protocol. Require full foundational training." },
-  { id: "CANDIDATE", name: "Candidate", sub: "Prior market exposure. Seeking institutional edge." },
-  { id: "OPERATOR", name: "Operator", sub: "Regular execution history. Validating advanced strategies." },
+  { id: "RECRUIT", name: "Recruit", sub: "New to the Logic. Require full foundational training." },
+  { id: "CANDIDATE", name: "Candidate", sub: "Prior market exposure. Seeking Academy edge." },
+  { id: "OPERATOR", name: "Operator", sub: "Regular Method history. Validating advanced strategies." },
 ];
 
 const RULES = [
@@ -93,7 +93,7 @@ export default function OnboardingPage() {
               <button onClick={() => setStep(1)} className="inline-flex items-center gap-2 text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest hover:text-white transition-colors">
                 <ChevronLeft size={14} /> Back to Objectives
               </button>
-              <h1 className="text-5xl font-bold text-white tracking-tighter">Market Protocol</h1>
+              <h1 className="text-5xl font-bold text-white tracking-tighter">Market Logic</h1>
               <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">Choose the liquidity environment where you will perform your evaluation.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -110,7 +110,7 @@ export default function OnboardingPage() {
           <motion.div key="step3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-12">
             <div className="text-center space-y-4">
               <button onClick={() => setStep(2)} className="inline-flex items-center gap-2 text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest hover:text-white transition-colors">
-                <ChevronLeft size={14} /> Back to Protocols
+                <ChevronLeft size={14} /> Back to Logics
               </button>
               <h1 className="text-5xl font-bold text-white tracking-tighter">Clearance Level</h1>
               <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">Synchronize your initial training baseline based on your experience.</p>
@@ -133,7 +133,7 @@ export default function OnboardingPage() {
                 <AlertTriangle size={12} /> Final Verification
               </div>
               <h1 className="text-5xl font-bold text-white tracking-tighter">Rules of Engagement</h1>
-              <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">By proceeding, you acknowledge the institutional constraints of the system.</p>
+              <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">By proceeding, you acknowledge the Academy constraints of the system.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {RULES.map((rule) => (

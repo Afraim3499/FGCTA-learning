@@ -87,7 +87,7 @@ export function ScenarioDecisionEngine({
         </div>
         <div className="flex items-center gap-3 mb-4 text-[var(--color-brand-400)] text-[10px] font-bold tracking-[0.3em] uppercase">
           <Target className="w-4 h-4" />
-          Interactive Scenario Execution
+          Interactive Scenario Method
         </div>
         <p className="text-white text-lg font-medium leading-relaxed max-w-2xl">{contextPrompt}</p>
       </div>
@@ -164,7 +164,7 @@ export function ScenarioDecisionEngine({
                         "text-[10px] font-bold uppercase tracking-[0.2em]",
                         status === "passed" ? "text-emerald-500" : "text-amber-500"
                     )}>
-                        {status === "passed" ? "Protocol Verified" : "Tactical Analysis"}
+                        {status === "passed" ? "Logic Verified" : "Practice Analysis"}
                     </p>
                     <p className={cn(
                         "text-base font-bold",
@@ -177,7 +177,7 @@ export function ScenarioDecisionEngine({
 
             {rationale && (
                 <div className="space-y-3 pt-6 border-t border-white/5">
-                    <h5 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">The Institutional Rationale</h5>
+                    <h5 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">The Academy Rationale</h5>
                     <p className="text-sm text-slate-400 leading-relaxed italic">
                         {rationale}
                     </p>
@@ -196,7 +196,7 @@ export function ScenarioDecisionEngine({
                         }}
                         className="text-[10px] font-bold text-white hover:text-[var(--color-brand-400)] transition-colors uppercase tracking-widest"
                     >
-                        Reset Execution & Try Again
+                        Reset Method & Try Again
                     </button>
                 </div>
             )}

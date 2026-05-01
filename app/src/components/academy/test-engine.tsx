@@ -90,63 +90,70 @@ export function TestEngine({ level, test }: TestEngineProps) {
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="max-w-2xl mx-auto text-center space-y-8 p-12 bg-[var(--color-surface-secondary)] rounded-3xl border border-[var(--color-border-default)] shadow-2xl"
+        className="max-w-2xl mx-auto text-center space-y-8 p-12 bg-white rounded-[2.5rem] border border-[var(--ln-border)] shadow-xl"
       >
         <div className="flex justify-center">
           {results.passed ? (
-            <div className="p-6 bg-emerald-500/20 rounded-full">
-              <Award className="w-16 h-16 text-emerald-400" />
+            <div className="p-6 bg-[var(--ln-teal-soft)] rounded-full">
+              <CheckCircle2 className="w-16 h-16 text-[var(--ln-teal-500)]" />
             </div>
           ) : (
-            <div className="p-6 bg-rose-500/20 rounded-full">
-              <XCircle className="w-16 h-16 text-rose-400" />
+            <div className="p-6 bg-amber-50 rounded-full">
+              <AlertTriangle className="w-16 h-16 text-amber-500" />
             </div>
           )}
         </div>
 
         <div className="space-y-2">
-          <h2 className="text-4xl font-bold text-white">
-            {results.passed ? "Knowledge Certified" : "Assessment Failed"}
+          <h2 className="text-4xl font-extrabold text-[var(--ln-navy-900)] tracking-tight">
+            {results.passed ? "Test Passed" : "Test Review Required"}
           </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Level {level} Knowledge Assessment
+          <p className="text-[var(--ln-text-secondary)] font-semibold uppercase tracking-[0.2em] text-[10px]">
+            Level {level} Knowledge Review
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 py-8">
-          <div className="p-6 bg-white/5 rounded-2xl border border-white/5">
-            <span className="block text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-1">Score</span>
-            <span className={cn("text-3xl font-bold", results.passed ? "text-emerald-400" : "text-rose-400")}>
+          <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <span className="block text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-1">Final Score</span>
+            <span className={cn("text-3xl font-extrabold", results.passed ? "text-[var(--ln-teal-600)]" : "text-rose-500")}>
               {results.score}%
             </span>
           </div>
-          <div className="p-6 bg-white/5 rounded-2xl border border-white/5">
-            <span className="block text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-1">Status</span>
-            <span className={cn("text-3xl font-bold", results.passed ? "text-emerald-400" : "text-rose-400")}>
+          <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+            <span className="block text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-1">Final Result</span>
+            <span className={cn("text-3xl font-extrabold", results.passed ? "text-[var(--ln-teal-600)]" : "text-rose-500")}>
               {results.passed ? "PASS" : "FAIL"}
             </span>
           </div>
         </div>
 
-        <p className="text-sm text-[var(--color-text-secondary)]">
+        <p className="text-sm text-[var(--ln-text-secondary)] font-medium leading-relaxed max-w-md mx-auto">
           {results.message || (results.passed 
-            ? "Congratulations! You have unlocked the next level of the curriculum." 
-            : "You did not meet the 80% passing threshold. Please review the course material and try again.")}
+            ? "You met the required score for this level." 
+            : "Review the material and try again when you are ready.")}
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4 pt-4">
           <button
             onClick={() => router.push("/course")}
-            className="flex-1 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/5"
+            className="flex-1 py-4 bg-slate-100 text-slate-600 font-extrabold rounded-2xl hover:bg-slate-200 transition-all uppercase tracking-widest text-xs"
           >
-            Back to Academy
+            Review Course Material
           </button>
-          {!results.passed && (
+          {!results.passed ? (
             <button
               onClick={() => window.location.reload()}
-              className="flex-1 py-4 bg-[var(--color-brand-500)] text-white font-bold rounded-xl hover:bg-[var(--color-brand-600)] transition-all shadow-lg shadow-brand-500/20"
+              className="flex-1 py-4 bg-[var(--ln-teal-500)] text-white font-extrabold rounded-2xl hover:bg-[var(--ln-teal-600)] transition-all shadow-lg shadow-[var(--ln-teal-500)]/20 uppercase tracking-widest text-xs"
             >
-              Retry Assessment
+              Retry Test
+            </button>
+          ) : (
+            <button
+              onClick={() => router.push("/course")}
+              className="flex-1 py-4 bg-[var(--ln-teal-500)] text-white font-extrabold rounded-2xl hover:bg-[var(--ln-teal-600)] transition-all shadow-lg shadow-[var(--ln-teal-500)]/20 uppercase tracking-widest text-xs"
+            >
+              Continue Learning Path
             </button>
           )}
         </div>
@@ -156,13 +163,15 @@ export function TestEngine({ level, test }: TestEngineProps) {
 
   if (error) {
     return (
-      <div className="max-w-xl mx-auto p-12 text-center space-y-6 bg-[var(--color-surface-secondary)] rounded-3xl border border-rose-500/20">
-        <AlertTriangle className="w-12 h-12 text-rose-400 mx-auto" />
-        <h3 className="text-xl font-bold text-white">Execution Error</h3>
-        <p className="text-[var(--color-text-secondary)]">{error}</p>
+      <div className="max-w-xl mx-auto p-12 text-center space-y-6 bg-white rounded-[2.5rem] border border-rose-100 shadow-sm">
+        <div className="w-16 h-16 bg-rose-50 rounded-full flex items-center justify-center mx-auto mb-2">
+          <AlertTriangle className="w-8 h-8 text-rose-500" />
+        </div>
+        <h3 className="text-xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">Submission Error</h3>
+        <p className="text-[var(--ln-text-secondary)] font-medium">{error}</p>
         <button
           onClick={() => router.push("/course")}
-          className="px-8 py-3 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all"
+          className="px-8 py-3 bg-slate-100 text-slate-600 font-extrabold rounded-xl hover:bg-slate-200 transition-all uppercase tracking-widest text-[10px]"
         >
           Return to Academy
         </button>
@@ -175,32 +184,34 @@ export function TestEngine({ level, test }: TestEngineProps) {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Test Header */}
-      <div className="flex items-center justify-between px-6 py-4 bg-[var(--color-surface-secondary)] border border-[var(--color-border-default)] rounded-2xl">
+      <div className="flex items-center justify-between px-6 py-4 bg-white border border-[var(--ln-border)] rounded-[2rem] shadow-sm">
         <div className="flex items-center gap-4">
-          <div className="p-2 bg-[var(--color-brand-500)]/20 rounded-lg">
-            <Award className="w-5 h-5 text-[var(--color-brand-400)]" />
+          <div className="p-2.5 bg-[var(--ln-teal-soft)] rounded-xl">
+            <Award className="w-5 h-5 text-[var(--ln-teal-500)]" />
           </div>
           <div>
-            <h2 className="text-sm font-bold text-white uppercase tracking-wider">{test.title}</h2>
-            <p className="text-[10px] text-[var(--color-text-muted)] font-bold uppercase tracking-tighter">
+            <h2 className="text-xs font-extrabold text-[var(--ln-navy-900)] uppercase tracking-[0.1em]">{test.title}</h2>
+            <p className="text-[10px] text-slate-400 font-extrabold uppercase tracking-tighter">
               Question {currentIndex + 1} of {test.questions.length}
             </p>
           </div>
         </div>
 
         <div className={cn(
-          "flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-bold text-sm border transition-colors",
-          timeLeft < 60 ? "bg-rose-500/20 border-rose-500/30 text-rose-400 animate-pulse" : "bg-white/5 border-white/5 text-[var(--color-brand-400)]"
+          "flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-bold text-sm border transition-all",
+          timeLeft < 60 
+            ? "bg-amber-50 border-amber-200 text-amber-600" 
+            : "bg-slate-50 border-slate-100 text-[var(--ln-navy-900)]"
         )}>
-          <Timer className="w-4 h-4" />
+          <Timer className={cn("w-4 h-4", timeLeft < 60 && "animate-pulse")} />
           {formatTime(timeLeft)}
         </div>
       </div>
 
       {/* Progress Bar */}
-      <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+      <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden shadow-inner">
         <div 
-          className="h-full bg-[var(--color-brand-500)] transition-all duration-500" 
+          className="h-full bg-[var(--ln-teal-500)] transition-all duration-700 ease-in-out" 
           style={{ width: `${((currentIndex + 1) / test.questions.length) * 100}%` }}
         />
       </div>
@@ -209,12 +220,12 @@ export function TestEngine({ level, test }: TestEngineProps) {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          className="p-10 bg-[var(--color-surface-secondary)] border border-[var(--color-border-default)] rounded-3xl shadow-xl space-y-10"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="p-12 bg-white border border-[var(--ln-border)] rounded-[2.5rem] shadow-sm space-y-10"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+          <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--ln-navy-900)] leading-tight tracking-tight">
             {currentQuestion.question}
           </h3>
 
@@ -224,17 +235,17 @@ export function TestEngine({ level, test }: TestEngineProps) {
                 key={i}
                 onClick={() => handleSelect(i)}
                 className={cn(
-                  "flex items-center gap-4 p-5 rounded-2xl border text-left transition-all group",
+                  "flex items-center gap-4 p-5 rounded-[1.5rem] border text-left transition-all group",
                   selectedAnswer?.selectedIndex === i
-                    ? "bg-[var(--color-brand-500)] border-[var(--color-brand-400)] text-white shadow-lg shadow-brand-500/10"
-                    : "bg-white/5 border-transparent text-[var(--color-text-secondary)] hover:bg-white/10 hover:border-white/10 hover:text-white"
+                    ? "bg-[var(--ln-teal-500)] border-[var(--ln-teal-500)] text-white shadow-lg shadow-[var(--ln-teal-500)]/20"
+                    : "bg-white border-slate-100 text-slate-600 hover:border-[var(--ln-teal-500)]/30 hover:bg-slate-50"
                 )}
               >
                 <div className={cn(
-                  "w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs border transition-colors",
+                  "w-9 h-9 rounded-xl flex items-center justify-center font-extrabold text-xs border transition-colors",
                   selectedAnswer?.selectedIndex === i
                     ? "bg-white/20 border-white/20 text-white"
-                    : "bg-white/5 border-white/5 text-[var(--color-text-muted)] group-hover:text-white"
+                    : "bg-slate-50 border-slate-200 text-slate-400 group-hover:border-[var(--ln-teal-500)]/20"
                 )}>
                   {String.fromCharCode(65 + i)}
                 </div>
@@ -246,11 +257,11 @@ export function TestEngine({ level, test }: TestEngineProps) {
       </AnimatePresence>
 
       {/* Controls */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between pt-4">
         <button
           onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
           disabled={currentIndex === 0}
-          className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-[var(--color-text-muted)] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl font-extrabold text-xs uppercase tracking-widest text-slate-400 hover:text-[var(--ln-navy-900)] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
         >
           <ChevronLeft className="w-5 h-5" />
           Previous
@@ -260,16 +271,16 @@ export function TestEngine({ level, test }: TestEngineProps) {
           <button
             onClick={handleSubmit}
             disabled={answers.length < test.questions.length || isSubmitting}
-            className="flex items-center gap-2 px-10 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-2xl shadow-xl shadow-emerald-500/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:grayscale"
+            className="flex items-center gap-2 px-10 py-4 bg-[var(--ln-teal-500)] hover:bg-[var(--ln-teal-600)] text-white font-extrabold rounded-2xl shadow-xl shadow-[var(--ln-teal-500)]/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:grayscale uppercase tracking-widest text-xs"
           >
             {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <CheckCircle2 className="w-5 h-5" />}
-            Submit Assessment
+            Submit Test
           </button>
         ) : (
           <button
             onClick={() => setCurrentIndex((prev) => Math.min(test.questions.length - 1, prev + 1))}
             disabled={selectedAnswer === undefined}
-            className="flex items-center gap-2 px-10 py-4 bg-white text-black font-bold rounded-2xl shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-10 py-4 bg-[var(--ln-navy-900)] text-white font-extrabold rounded-2xl shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed uppercase tracking-widest text-xs"
           >
             Next Question
             <ChevronRight className="w-5 h-5" />

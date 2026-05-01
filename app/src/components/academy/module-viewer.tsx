@@ -141,31 +141,31 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
 
   return (
     <div className="space-y-12">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-        <aside className="lg:col-span-1 space-y-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <aside className="lg:col-span-3 space-y-6">
           <div className="space-y-3">
-            <h3 className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-[0.3em] px-4">Mission Protocols</h3>
-            <div className="p-1.5 bg-[var(--color-surface-tertiary)] rounded-[1.5rem] border border-[var(--color-border-default)] flex flex-col gap-1 overflow-hidden">
+            <h3 className="text-[10px] font-extrabold text-[var(--ln-text-secondary)] uppercase tracking-[0.2em] px-4">Lesson Tracks</h3>
+            <div className="p-1.5 bg-white rounded-3xl border border-[var(--ln-border)] flex flex-col gap-1 overflow-hidden shadow-sm">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   disabled={tab.id !== "core" && !tab.available}
                   onClick={() => setActiveTab(tab.id as Tab)}
                   className={cn(
-                    "flex items-center gap-3 px-4 py-4 rounded-xl text-xs font-bold transition-all relative group",
+                    "flex items-center gap-3 px-4 py-3.5 rounded-2xl text-xs font-bold transition-all relative group",
                     activeTab === tab.id
-                      ? "bg-[var(--color-brand-500)] text-white shadow-[0_0_20px_rgba(99,102,241,0.3)]"
+                      ? "bg-[var(--ln-teal-500)] text-white shadow-lg shadow-[var(--ln-teal-500)]/20"
                       : tab.id !== "core" && !tab.available
-                      ? "opacity-20 grayscale cursor-not-allowed text-[var(--color-text-muted)]"
-                      : "text-[var(--color-text-secondary)] hover:bg-white/5 hover:text-white"
+                      ? "opacity-20 grayscale cursor-not-allowed text-slate-400"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-[var(--ln-navy-900)]"
                   )}
                 >
                   <tab.icon className="w-4 h-4" />
                   {tab.label}
                   {tab.id === userTrack && tab.id !== "core" && (
                     <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
-                      <span className="text-[8px] font-bold text-[var(--color-brand-400)] uppercase tracking-tighter">Your Track</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                      <span className="text-[8px] font-bold text-white/80 uppercase tracking-tighter">Current</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
                     </span>
                   )}
                 </button>
@@ -173,38 +173,37 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
             </div>
           </div>
 
-          <div className="p-8 bg-gradient-to-br from-[var(--color-surface-secondary)] to-[var(--color-surface-tertiary)] rounded-[2rem] border border-[var(--color-border-default)] space-y-6 relative overflow-hidden group">
-            <div className="absolute -right-10 -top-10 w-24 h-24 bg-[var(--color-brand-500)]/5 blur-3xl group-hover:bg-[var(--color-brand-500)]/10 transition-all" />
-            <div className="flex items-center gap-2 mb-4 text-[var(--color-brand-400)] text-sm font-bold tracking-wide">
+          <div className="p-6 bg-white rounded-3xl border border-[var(--ln-border)] shadow-sm space-y-5 relative overflow-hidden group">
+            <div className="flex items-center gap-2 mb-2 text-[var(--ln-teal-500)] text-[10px] font-extrabold uppercase tracking-widest">
               <CheckCircle2 className="w-4 h-4" />
-              OPERATIONAL SYNC
+              Learning Progress
             </div>
-            <p className="text-xs text-[var(--color-text-muted)] mb-6 leading-relaxed">
+            <p className="text-xs text-[var(--ln-text-secondary)] mb-4 font-medium leading-relaxed">
               {module.completed
-                ? `Synchronized with protocol.${module.level > 1 ? ` +50 XP contributed to your global network rank.` : ' +0 XP (Practice Node).'}` 
-                : "Absorb the core logic and track-specific adaptations to synchronize your progress."}
+                ? `Lesson completed.${module.level > 1 ? ` +50 XP added to your roadmap.` : ' +0 XP (Practice module).'}` 
+                : "Complete the lesson content and tasks to verify your understanding."}
             </p>
             <button
               onClick={handleComplete}
               disabled={isCompleting || module.completed || isSyncLocked}
               className={cn(
-                "w-full py-3 px-4 rounded-xl font-bold tracking-widest text-xs transition-all duration-300 flex items-center justify-center gap-2",
-                isCompleting ? "bg-[var(--color-brand-500)]/50 text-white cursor-not-allowed" :
+                "w-full py-3.5 px-4 rounded-2xl font-extrabold tracking-widest text-[10px] uppercase transition-all duration-300 flex items-center justify-center gap-2 border",
+                isCompleting ? "bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed" :
                 module.completed
-                  ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20"
+                  ? "bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] border-[var(--ln-teal-500)]/20"
                   : isSyncLocked
-                    ? "bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700"
-                    : "bg-[var(--color-brand-500)] hover:bg-[var(--color-brand-400)] text-white shadow-[0_0_20px_rgba(99,102,241,0.2)]"
+                    ? "bg-slate-50 text-slate-400 cursor-not-allowed border-slate-200"
+                    : "bg-[var(--ln-teal-500)] hover:bg-[var(--ln-teal-600)] text-white shadow-lg shadow-[var(--ln-teal-500)]/20 border-transparent"
               )}
             >
               {isCompleting ? (
-                <><Loader2 className="w-4 h-4 animate-spin" /> SYNCHRONIZING...</>
+                <><Loader2 className="w-4 h-4 animate-spin" /> UPDATING PROGRESS...</>
               ) : module.completed ? (
-                <><CheckCircle2 className="w-4 h-4" /> SYNCHRONIZED</>
+                <><CheckCircle2 className="w-4 h-4" /> COMPLETED</>
               ) : isSyncLocked ? (
-                <><Target className="w-4 h-4" /> COMPLETE TASK TO SYNC</>
+                <><Target className="w-4 h-4" /> COMPLETE TASK TO CONTINUE</>
               ) : (
-                <><CheckCircle2 className="w-4 h-4" /> SYNC PROGRESS</>
+                <><CheckCircle2 className="w-4 h-4" /> MARK AS COMPLETE</>
               )}
             </button>
           </div>
@@ -216,17 +215,17 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
           />
 
           {module.level >= 1 && module.logicIds && module.logicIds.length > 0 && (
-            <div className="p-8 bg-[var(--color-brand-500)]/5 border border-[var(--color-brand-500)]/20 rounded-[2rem] space-y-4 relative overflow-hidden group/lab">
-              <div className="flex items-center gap-3 text-[10px] font-bold text-[var(--color-brand-400)] uppercase tracking-[0.2em]">
+            <div className="p-6 bg-slate-50 border border-[var(--ln-border)] rounded-3xl space-y-4">
+              <div className="flex items-center gap-3 text-[10px] font-extrabold text-slate-500 uppercase tracking-[0.2em]">
                 <FlaskConical className="w-4 h-4" />
-                Strategic Protocol
+                Related Strategies
               </div>
               <div className="space-y-2">
                 {module.logicIds.map((id) => (
-                  <div key={id} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-xl">
-                    <span className="text-[10px] font-mono font-bold text-white">{id}</span>
-                    <Link href="/lab" className="text-[10px] font-bold text-[var(--color-brand-400)] hover:text-white flex items-center gap-1 transition-colors">
-                      Lab <ExternalLink size={10} />
+                  <div key={id} className="flex items-center justify-between p-3 bg-white border border-[var(--ln-border)] rounded-2xl shadow-sm">
+                    <span className="text-[10px] font-bold text-[var(--ln-navy-900)]">{id}</span>
+                    <Link href="/lab" className="text-[10px] font-extrabold text-[var(--ln-teal-500)] hover:text-[var(--ln-teal-600)] flex items-center gap-1 transition-colors">
+                      VIEW LAB <ExternalLink size={10} />
                     </Link>
                   </div>
                 ))}
@@ -235,88 +234,87 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
           )}
         </aside>
 
-        <main className="lg:col-span-3 min-h-[700px] bg-[var(--color-surface-secondary)] rounded-[2.5rem] border border-[var(--color-border-default)] p-10 md:p-16 shadow-3xl relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-brand-500)]/5 blur-[120px] rounded-full pointer-events-none group-hover:bg-[var(--color-brand-500)]/10 transition-all duration-1000" />
+        <main className="lg:col-span-9 min-h-[700px] bg-white rounded-[2.5rem] border border-[var(--ln-border)] p-10 md:p-16 shadow-sm relative">
           <div className="relative z-10">
             <MarkdownRenderer 
-              content={currentContent || "No adaptation data exists for this market protocol."} 
+              content={currentContent || "Lesson content is currently being prepared."} 
               onLaunchScenario={handleAutoLaunch}
             />
           </div>
 
-          {module.interactiveTaskType === 'type_a_point_click' && module.interactiveTaskData && (
-            <div className="mt-8 pt-8 border-t border-[var(--color-border-default)] relative z-20">
-              <PointClickEngine
-                taskId={`task_${module.id}`}
-                moduleId={module.id}
-                chartData={module.interactiveTaskData.chartData}
-                prompt={module.interactiveTaskData.prompt}
-                validationZones={module.interactiveTaskData.validationZones}
-                hints={module.interactiveTaskData.hints}
-                rationale={module.interactiveTaskData.rationale}
-                onPass={(result) => setTaskResult(result)}
-              />
-            </div>
-          )}
+          {module.interactiveTaskType && (
+            <div className="mt-12 pt-12 border-t border-[var(--ln-border)]">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="px-3 py-1 rounded-full bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] text-[10px] font-extrabold uppercase tracking-widest">Practice Exercise</span>
+              </div>
+              
+              <div className="bg-slate-50 rounded-3xl border border-[var(--ln-border)] p-6 md:p-10">
+                {module.interactiveTaskType === 'type_a_point_click' && module.interactiveTaskData && (
+                  <PointClickEngine
+                    taskId={`task_${module.id}`}
+                    moduleId={module.id}
+                    chartData={module.interactiveTaskData.chartData}
+                    prompt={module.interactiveTaskData.prompt}
+                    validationZones={module.interactiveTaskData.validationZones}
+                    hints={module.interactiveTaskData.hints}
+                    rationale={module.interactiveTaskData.rationale}
+                    onPass={(result) => setTaskResult(result)}
+                  />
+                )}
 
-          {module.interactiveTaskType === 'type_b_scenario' && module.interactiveTaskData && (
-            <div className="mt-8 pt-8 border-t border-[var(--color-border-default)] relative z-20">
-              <ScenarioDecisionEngine
-                taskId={`task_${module.id}`}
-                moduleId={module.id}
-                contextPrompt={module.interactiveTaskData.contextPrompt}
-                options={module.interactiveTaskData.options}
-                onPass={(result) => setTaskResult(result)}
-              />
-            </div>
-          )}
+                {module.interactiveTaskType === 'type_b_scenario' && module.interactiveTaskData && (
+                  <ScenarioDecisionEngine
+                    taskId={`task_${module.id}`}
+                    moduleId={module.id}
+                    contextPrompt={module.interactiveTaskData.contextPrompt}
+                    options={module.interactiveTaskData.options}
+                    onPass={(result) => setTaskResult(result)}
+                  />
+                )}
 
-          {module.interactiveTaskType === 'type_c_replay' && module.interactiveTaskData && (
-            <div className="mt-8 pt-8 border-t border-[var(--color-border-default)] relative z-20">
-              <MiniReplayEngine
-                taskId={`task_${module.id}`}
-                moduleId={module.id}
-                chartData={module.interactiveTaskData.chartData}
-                initialCandleCount={module.interactiveTaskData.initialCandleCount}
-                prompt={module.interactiveTaskData.prompt}
-                rationale={module.interactiveTaskData.rationale}
-                onPass={(result) => setTaskResult(result)}
-              />
-            </div>
-          )}
+                {module.interactiveTaskType === 'type_c_replay' && module.interactiveTaskData && (
+                  <MiniReplayEngine
+                    taskId={`task_${module.id}`}
+                    moduleId={module.id}
+                    chartData={module.interactiveTaskData.chartData}
+                    initialCandleCount={module.interactiveTaskData.initialCandleCount}
+                    prompt={module.interactiveTaskData.prompt}
+                    rationale={module.interactiveTaskData.rationale}
+                    onPass={(result) => setTaskResult(result)}
+                  />
+                )}
 
-          {/* Level 3 Practice: Choice Block (non-graded, unlimited retries, 0 XP) */}
-          {(module.interactiveTaskType === 'choice_block' || module.interactiveTaskType === 'identify_block') && module.interactiveTaskData?.question && (
-            <ChoiceBlockPractice
-              question={module.interactiveTaskData.question}
-              options={module.interactiveTaskData.options || []}
-              onPass={() => setTaskResult({ type: 'practice_complete', score: 100 } as any)}
-            />
-          )}
+                {(module.interactiveTaskType === 'choice_block' || module.interactiveTaskType === 'identify_block') && module.interactiveTaskData?.question && (
+                  <ChoiceBlockPractice
+                    question={module.interactiveTaskData.question}
+                    options={module.interactiveTaskData.options || []}
+                    onPass={() => setTaskResult({ type: 'practice_complete', score: 100 } as any)}
+                  />
+                )}
 
-          {/* Level 3 Scenario Link: shown as a call-to-action, scenario launched via ScenarioLauncher sidebar */}
-          {module.interactiveTaskType === 'scenario_link' && module.interactiveTaskData?.scenarioSlug && (
-            <div className="mt-8 pt-8 border-t border-[var(--color-border-default)] relative z-20">
-              <div className="p-6 bg-amber-500/5 border border-amber-500/20 rounded-2xl text-center space-y-3">
-                <p className="text-xs font-bold text-amber-400 uppercase tracking-widest">Final Assessment</p>
-                <p className="text-sm text-[var(--color-text-muted)]">
-                  Launch the <strong className="text-white">Level 3 Entry Logic Assessment</strong> from the sidebar panel to complete this module.
-                </p>
-                <p className="text-[10px] text-slate-500">Pass threshold: {module.interactiveTaskData.passThreshold}% · No trading terminal · Decision-only</p>
+                {module.interactiveTaskType === 'scenario_link' && module.interactiveTaskData?.scenarioSlug && (
+                  <div className="text-center space-y-4">
+                    <p className="text-[10px] font-extrabold text-amber-500 uppercase tracking-widest">Practical Mission Required</p>
+                    <p className="text-sm text-[var(--ln-text-secondary)] font-medium">
+                      Launch the <strong className="text-[var(--ln-navy-900)]">Knowledge Test</strong> from the sidebar to complete this module.
+                    </p>
+                    <p className="text-[10px] text-slate-400 font-bold uppercase">Pass threshold: {module.interactiveTaskData.passThreshold}% · Knowledge Review</p>
+                  </div>
+                )}
               </div>
             </div>
           )}
         </main>
       </div>
 
-      <footer className="flex items-center justify-between pt-8 border-t border-white/5">
+      <footer className="flex items-center justify-between pt-8 border-t border-[var(--ln-border)]">
         {module.prevModuleId ? (
           <Link
             href={`/course/module/${module.prevModuleId}`}
-            className="flex items-center gap-3 text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest hover:text-white transition-all group"
+            className="flex items-center gap-3 text-[10px] font-extrabold text-slate-400 uppercase tracking-widest hover:text-[var(--ln-navy-900)] transition-all group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Previous Node
+            Previous Lesson
           </Link>
         ) : <div />}
 
@@ -324,22 +322,22 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
           <button
             onClick={() => handleProceed(`/course/module/${module.nextModuleId}`)}
             disabled={isCompleting || isSyncLocked}
-            className="flex items-center gap-3 text-[10px] font-bold text-white uppercase tracking-widest hover:text-[var(--color-brand-400)] transition-all group disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-3 text-[10px] font-extrabold text-[var(--ln-navy-900)] uppercase tracking-widest hover:text-[var(--ln-teal-500)] transition-all group disabled:opacity-30 disabled:cursor-not-allowed"
           >
-            {isCompleting ? "SYNCING..." : "Advance to Next Node"}
+            {isCompleting ? "UPDATING..." : "Advance to Next Lesson"}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         ) : (
           <button
             onClick={() => handleProceed(module.completed ? `/test/${module.level}` : "/course")}
             disabled={isCompleting || isSyncLocked}
-            className="flex items-center gap-3 text-[10px] font-bold text-[var(--color-brand-400)] uppercase tracking-widest hover:text-[var(--color-brand-300)] transition-all group disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-3 text-[10px] font-extrabold text-[var(--ln-teal-500)] uppercase tracking-widest hover:text-[var(--ln-teal-600)] transition-all group disabled:opacity-30 disabled:cursor-not-allowed"
           >
             {isCompleting 
-              ? "SYNCING..." 
+              ? "UPDATING..." 
               : module.completed 
-                ? "Initiate Knowledge Assessment" 
-                : "Sync & Finish Level"}
+                ? "Start Knowledge Test" 
+                : "Finish Level"}
             <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
         )}

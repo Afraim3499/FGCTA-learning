@@ -284,16 +284,18 @@ export function ChartMarkupPanel({
       : null;
 
   return (
-    <div className="flex flex-col gap-0">
+    <div className="flex flex-col flex-1 bg-white">
       {/* Prompt bar */}
-      <div className="px-8 py-5 bg-[var(--color-surface-secondary)] border-b border-[var(--color-border-default)]">
-        <div className="flex items-start gap-3">
-          <MousePointer2 className="w-4 h-4 text-[var(--color-brand-400)] shrink-0 mt-0.5" />
+      <div className="px-8 py-5 bg-white border-b border-[var(--ln-border)] shadow-sm shrink-0">
+        <div className="flex items-start gap-4">
+          <div className="p-2 rounded-lg bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/20">
+            <MousePointer2 className="w-4 h-4 text-[var(--ln-teal-500)] shrink-0" />
+          </div>
           <div className="space-y-1">
-            <p className="text-sm text-white leading-relaxed">{prompt}</p>
+            <p className="text-sm text-[var(--ln-navy-900)] font-medium leading-relaxed">{prompt}</p>
             {activeTool && !isReadOnly && (
-              <p className="text-[11px] text-[var(--color-brand-400)] font-bold uppercase tracking-wider">
-                Tool Active: {activeTool.label}
+              <p className="text-[10px] text-[var(--ln-teal-500)] font-extrabold uppercase tracking-[0.1em]">
+                Active Tool: {activeTool.label}
               </p>
             )}
           </div>
@@ -304,11 +306,10 @@ export function ChartMarkupPanel({
       <div
         ref={containerRef}
         className={cn(
-          "relative bg-[#0B0E14] select-none",
+          "relative bg-[#0B0E14] select-none flex-1 w-full min-h-[360px] lg:min-h-[420px]",
           !isReadOnly && activeTool && "cursor-crosshair",
           !isReadOnly && !activeTool && "cursor-default"
         )}
-        style={{ height: 420 }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -317,13 +318,13 @@ export function ChartMarkupPanel({
         {/* Live drawing */}
         {liveRect && (
           <div
-            className="absolute pointer-events-none border-2 border-[var(--color-brand-400)] bg-[var(--color-brand-500)]/20 rounded-sm"
+            className="absolute pointer-events-none border-2 border-[var(--ln-teal-500)] bg-[var(--ln-teal-500)]/20 rounded-sm"
             style={{ left: liveRect.x, top: liveRect.y, width: liveRect.width, height: liveRect.height }}
           />
         )}
         {liveLineY !== null && (
           <div
-            className="absolute left-0 right-0 h-[2px] bg-[var(--color-brand-400)] pointer-events-none shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+            className="absolute left-0 right-0 h-[2px] bg-[var(--ln-teal-500)] pointer-events-none shadow-[0_0_10px_rgba(20,184,166,0.5)]"
             style={{ top: liveLineY }}
           />
         )}
@@ -332,10 +333,10 @@ export function ChartMarkupPanel({
         {elementRects.map((rect, i) => (
           <div
             key={`drawn-rect-${i}`}
-            className="absolute pointer-events-none border-2 border-[var(--color-brand-400)] bg-[var(--color-brand-500)]/15 rounded-sm"
+            className="absolute pointer-events-none border-2 border-[var(--ln-teal-500)] bg-[var(--ln-teal-500)]/15 rounded-sm"
             style={{ left: rect.x, top: rect.y, width: rect.width, height: rect.height }}
           >
-             <span className="absolute -top-5 left-0 text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-[var(--color-brand-500)] text-white">
+             <span className="absolute -top-5 left-0 text-[8px] font-extrabold uppercase tracking-widest px-1.5 py-0.5 rounded bg-[var(--ln-teal-500)] text-white shadow-sm">
               {rect.label}
             </span>
           </div>
@@ -345,10 +346,10 @@ export function ChartMarkupPanel({
         {elementLines.map((line, i) => (
           <div
             key={`drawn-line-${i}`}
-            className="absolute left-0 right-0 h-[2px] bg-[var(--color-brand-400)] pointer-events-none"
+            className="absolute left-0 right-0 h-[2px] bg-[var(--ln-teal-500)] pointer-events-none"
             style={{ top: line.y }}
           >
-             <span className="absolute -top-4 right-4 text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-[var(--color-brand-500)] text-white">
+             <span className="absolute -top-4 right-4 text-[8px] font-extrabold uppercase tracking-widest px-1.5 py-0.5 rounded bg-[var(--ln-teal-500)] text-white shadow-sm">
               {line.label}
             </span>
           </div>
@@ -360,15 +361,15 @@ export function ChartMarkupPanel({
             key={`correct-rect-${i}`}
             className={cn(
               "absolute pointer-events-none border-2 border-dashed rounded-sm",
-              passed ? "border-emerald-500 bg-emerald-500/10" : "border-rose-500 bg-rose-500/10"
+              passed ? "border-[var(--ln-teal-600)] bg-[var(--ln-teal-500)]/10" : "border-rose-500 bg-rose-500/10"
             )}
             style={{ left: rect.x, top: rect.y, width: rect.width, height: rect.height }}
           >
              <span className={cn(
-               "absolute -top-5 left-0 text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded text-white",
-               passed ? "bg-emerald-500" : "bg-rose-500"
+               "absolute -top-5 left-0 text-[8px] font-extrabold uppercase tracking-widest px-1.5 py-0.5 rounded text-white shadow-sm",
+               passed ? "bg-[var(--ln-teal-600)]" : "bg-rose-500"
              )}>
-              {passed ? `✓ ${rect.label}` : `Target: ${rect.label}`}
+              {passed ? `✓ Correct` : `Target: ${rect.label}`}
             </span>
           </div>
         ))}
@@ -378,25 +379,25 @@ export function ChartMarkupPanel({
             key={`correct-line-${i}`}
             className={cn(
               "absolute left-0 right-0 h-[2px] border-t-2 border-dashed pointer-events-none",
-              passed ? "border-emerald-500" : "border-rose-500"
+              passed ? "border-[var(--ln-teal-600)]" : "border-rose-500"
             )}
             style={{ top: line.y }}
           >
              <span className={cn(
-               "absolute -top-4 right-4 text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded text-white",
-               passed ? "bg-emerald-500" : "bg-rose-500"
+               "absolute -top-4 right-4 text-[8px] font-extrabold uppercase tracking-widest px-1.5 py-0.5 rounded text-white shadow-sm",
+               passed ? "bg-[var(--ln-teal-600)]" : "bg-rose-500"
              )}>
-              {passed ? `✓ ${line.label}` : `Target: ${line.label}`}
+              {passed ? `✓ Correct` : `Target: ${line.label}`}
             </span>
           </div>
         ))}
 
         {/* HUD */}
         <div className="absolute top-4 right-4 flex flex-col gap-2 pointer-events-none">
-          <div className="bg-black/60 backdrop-blur-md border border-white/10 px-3 py-2 rounded-xl flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[10px] font-bold text-white uppercase tracking-widest">
-              EURUSD · 1H · Mission Reference
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 px-3 py-2 rounded-xl flex items-center gap-2 shadow-lg">
+            <div className="w-1.5 h-1.5 rounded-full bg-[var(--ln-teal-500)] animate-pulse" />
+            <span className="text-[10px] font-extrabold text-white uppercase tracking-widest">
+              Market View · Chart Reference
             </span>
           </div>
         </div>

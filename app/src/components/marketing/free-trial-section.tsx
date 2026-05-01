@@ -6,10 +6,10 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, BarChart3, Brain, Fingerprint } from "lucide-react";
 
 const trialFeatures = [
-  { icon: BookOpen, label: "4 full modules", desc: "Complete Level 0 — Market Foundations" },
-  { icon: BarChart3, label: "Real chart drills", desc: "Practice reading actual historical data" },
-  { icon: Brain, label: "Knowledge test", desc: "Prove you understand before you trade" },
-  { icon: Fingerprint, label: "Platform access", desc: "See the full dashboard, terminal & tools" },
+  { icon: BookOpen, label: "Visual lessons", desc: "Complete Level 0 — Market Foundations" },
+  { icon: BarChart3, label: "Chart reading drills", desc: "Practice reading real market charts" },
+  { icon: Brain, label: "Knowledge check", desc: "Prove you understand before moving forward" },
+  { icon: Fingerprint, label: "Full platform preview", desc: "See the learning experience firsthand" },
 ];
 
 export function FreeTrialSection() {

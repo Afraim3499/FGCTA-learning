@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const TRACKS = [
   {
     id: "FOREX",
-    name: "Forex Protocol",
+    name: "Forex Logic",
     desc: "Master global liquidity and currency fluctuations.",
     icon: Globe,
     color: "text-blue-400",
@@ -45,7 +45,7 @@ export default function TrackSelectionPage() {
     
     try {
       await saveOnboardingData({ marketTrack: selected, experienceLevel: "CANDIDATE" });
-      // Simulate protocol sync for 2 seconds
+      // Simulate Logic sync for 2 seconds
       setTimeout(() => {
         router.push("/dashboard");
       }, 2000);
@@ -73,7 +73,7 @@ export default function TrackSelectionPage() {
               </div>
               <h1 className="text-5xl md:text-6xl font-bold tracking-tighter">Choose Your Battlefield.</h1>
               <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed">
-                Your evaluation will be tailored to the specific liquidity patterns and risk profiles of your chosen market protocol.
+                Your evaluation will be tailored to the specific liquidity patterns and risk profiles of your chosen market Logic.
               </p>
             </div>
 
@@ -119,7 +119,7 @@ export default function TrackSelectionPage() {
                     : "bg-white/5 text-[var(--color-text-muted)] cursor-not-allowed"
                 )}
               >
-                Sync with Protocol
+                Sync with Logic
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -138,7 +138,7 @@ export default function TrackSelectionPage() {
               <div className="absolute inset-0 bg-[var(--color-brand-500)]/20 blur-2xl animate-pulse" />
             </div>
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter">Synchronizing Protocol...</h2>
+              <h2 className="text-3xl font-bold tracking-tighter">Synchronizing Logic...</h2>
               <p className="text-[var(--color-text-muted)] font-mono text-xs tracking-widest uppercase">
                 Initializing Mission Hub • Enforcing Risk Rules
               </p>

@@ -21,114 +21,100 @@ const BLOCK_CONFIG: Record<string, { icon: any; label: string; color: string; bg
   "skill-target": { 
     icon: Target, 
     label: "SKILL TARGET", 
-    color: "text-blue-400", 
-    bgColor: "bg-blue-500/5", 
-    borderColor: "border-blue-500/20" 
+    color: "text-blue-600", 
+    bgColor: "bg-blue-50", 
+    borderColor: "border-blue-100" 
   },
   "simple-meaning": { 
     icon: Lightbulb, 
     label: "SIMPLE MEANING", 
-    color: "text-amber-400", 
-    bgColor: "bg-amber-500/5", 
-    borderColor: "border-amber-500/20" 
+    color: "text-amber-600", 
+    bgColor: "bg-amber-50", 
+    borderColor: "border-amber-100" 
   },
   "why-it-matters": { 
     icon: AlertCircle, 
-    label: "WHY IT MATTERS", 
-    color: "text-indigo-400", 
-    bgColor: "bg-indigo-500/5", 
-    borderColor: "border-indigo-500/20" 
+    label: "INSIGHT", 
+    color: "text-[var(--ln-teal-500)]", 
+    bgColor: "bg-[var(--ln-teal-soft)]", 
+    borderColor: "border-[var(--ln-teal-500)]/10" 
   },
   "look-for": { 
     icon: Search, 
-    label: "CHART LOOK-FOR", 
-    color: "text-emerald-400", 
-    bgColor: "bg-emerald-500/5", 
-    borderColor: "border-emerald-500/20" 
+    label: "LOOK FOR", 
+    color: "text-emerald-600", 
+    bgColor: "bg-emerald-50", 
+    borderColor: "border-emerald-100" 
   },
   "key-terms": { 
     icon: BookOpen, 
     label: "KEY TERMS", 
-    color: "text-slate-300", 
-    bgColor: "bg-slate-800/20", 
-    borderColor: "border-slate-700" 
+    color: "text-slate-600", 
+    bgColor: "bg-slate-50", 
+    borderColor: "border-slate-100" 
   },
   "steps": { 
     icon: ListChecks, 
-    label: "STEP-BY-STEP RECOGNITION", 
-    color: "text-brand-400", 
-    bgColor: "bg-brand-500/5", 
-    borderColor: "border-brand-500/20" 
+    label: "ACTION STEPS", 
+    color: "text-[var(--ln-teal-500)]", 
+    bgColor: "bg-[var(--ln-teal-soft)]", 
+    borderColor: "border-[var(--ln-teal-500)]/10" 
   },
   "example": { 
     icon: CheckCircle2, 
     label: "VALID EXAMPLE", 
-    color: "text-emerald-400", 
-    bgColor: "bg-emerald-500/5", 
-    borderColor: "border-emerald-500/20" 
+    color: "text-emerald-600", 
+    bgColor: "bg-emerald-50", 
+    borderColor: "border-emerald-100" 
   },
   "trap": { 
     icon: ShieldAlert, 
-    label: "TRAP ALERT", 
-    color: "text-rose-400", 
-    bgColor: "bg-rose-500/5", 
-    borderColor: "border-rose-500/30" 
+    label: "CAUTION", 
+    color: "text-amber-600", 
+    bgColor: "bg-amber-50", 
+    borderColor: "border-amber-200" 
   },
   "quick-check": { 
     icon: HelpCircle, 
     label: "QUICK CHECK", 
-    color: "text-amber-500", 
-    bgColor: "bg-amber-500/5", 
-    borderColor: "border-amber-500/20" 
+    color: "text-[var(--ln-teal-500)]", 
+    bgColor: "bg-[var(--ln-teal-soft)]", 
+    borderColor: "border-[var(--ln-teal-500)]/20" 
   },
   "decision-rule": { 
     icon: Gavel, 
     label: "DECISION RULE", 
-    color: "text-blue-400", 
-    bgColor: "bg-blue-500/5", 
-    borderColor: "border-blue-500/20" 
+    color: "text-blue-600", 
+    bgColor: "bg-blue-50", 
+    borderColor: "border-blue-100" 
   },
   "risk-logic": { 
     icon: Scale, 
-    label: "RISK / INVALIDATION LOGIC", 
-    color: "text-slate-400", 
-    bgColor: "bg-slate-800/10", 
-    borderColor: "border-slate-700" 
+    label: "RISK LOGIC", 
+    color: "text-slate-500", 
+    bgColor: "bg-slate-50", 
+    borderColor: "border-slate-100" 
   },
   "common-mistakes": { 
     icon: XCircle, 
-    label: "COMMON MISTAKES", 
-    color: "text-rose-400", 
-    bgColor: "bg-rose-500/5", 
-    borderColor: "border-rose-500/20" 
+    label: "COMMON ERRORS", 
+    color: "text-rose-600", 
+    bgColor: "bg-rose-50", 
+    borderColor: "border-rose-100" 
   },
   "task-prep": { 
     icon: PlayCircle, 
-    label: "FINAL TASK PREPARATION", 
-    color: "text-brand-400", 
-    bgColor: "bg-brand-500/5", 
-    borderColor: "border-brand-500/30" 
+    label: "PRACTICE PREP", 
+    color: "text-[var(--ln-teal-500)]", 
+    bgColor: "bg-[var(--ln-teal-soft)]", 
+    borderColor: "border-[var(--ln-teal-500)]/20" 
   },
   "summary": { 
     icon: ClipboardCheck, 
     label: "MODULE SUMMARY", 
-    color: "text-slate-300", 
-    bgColor: "bg-slate-800/20", 
-    borderColor: "border-slate-700" 
-  },
-  "choice": {
-    icon: HelpCircle,
-    label: "PRACTICE CHOICE",
-    color: "text-blue-400",
-    bgColor: "bg-blue-500/5",
-    borderColor: "border-blue-500/20"
-  },
-  "identify": {
-    icon: Target,
-    label: "PRACTICE IDENTIFY",
-    color: "text-purple-400",
-    bgColor: "bg-purple-500/5",
-    borderColor: "border-purple-500/20"
+    color: "text-slate-600", 
+    bgColor: "bg-slate-50", 
+    borderColor: "border-slate-200" 
   }
 };
 
@@ -169,47 +155,47 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
     return metadata;
   };
 
-  const config = BLOCK_CONFIG[type] || { icon: Info, label: type.toUpperCase(), color: 'text-slate-400', bgColor: 'bg-slate-800/20', borderColor: 'border-slate-700' };
+  const config = BLOCK_CONFIG[type] || { icon: Info, label: type.toUpperCase(), color: 'text-slate-500', bgColor: 'bg-slate-50', borderColor: 'border-slate-200' };
 
   if (type === 'visual') {
     const meta = parseMetadata(content);
     return (
-      <div className="my-10 space-y-6">
+      <div className="my-10 space-y-4">
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-1.5 h-6 bg-brand-500 rounded-full" />
-          <h3 className="text-xl font-bold text-white tracking-tight">{meta.title}</h3>
+          <div className="w-1 h-5 bg-[var(--ln-teal-500)] rounded-full" />
+          <h3 className="text-lg font-bold text-[var(--ln-navy-900)] tracking-tight">{meta.title}</h3>
         </div>
-        <div className="group overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 shadow-2xl">
-          <div className="relative overflow-hidden">
+        <div className="group rounded-2xl border border-[var(--ln-border)] bg-white shadow-md">
+          <div className="relative bg-slate-50/50 p-2 rounded-t-2xl">
             {meta.image ? (
               <img 
                 src={meta.image} 
                 alt={meta.title || "Visual content"} 
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                className="w-full h-auto object-contain rounded-xl"
               />
             ) : (
-              <div className="aspect-video bg-slate-900 flex flex-col items-center justify-center text-slate-500 gap-2">
+              <div className="aspect-video bg-slate-50 flex flex-col items-center justify-center text-slate-300 gap-2">
                 <AlertCircle className="w-8 h-8 opacity-20" />
                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">Image Reference Missing</span>
               </div>
             )}
           </div>
           {meta.caption && (
-            <div className="p-5 bg-slate-900/80 border-t border-white/10">
-              <p className="text-sm text-slate-300 italic leading-relaxed">
-                <span className="text-brand-400 font-semibold not-italic mr-2">Note:</span>
+            <div className="p-4 bg-slate-50/50 border-t border-[var(--ln-border)]">
+              <p className="text-xs text-[var(--ln-text-secondary)] italic leading-relaxed">
+                <span className="text-[var(--ln-teal-500)] font-bold not-italic mr-2">Context:</span>
                 {meta.caption}
               </p>
             </div>
           )}
         </div>
         {meta.lookFor && (
-          <div className="bg-slate-900/80 border-l-4 border-amber-500/50 p-6 rounded-r-xl">
-            <span className="text-xs font-bold text-amber-500 uppercase tracking-widest block mb-4">Tactical Checklist</span>
+          <div className="bg-slate-50 border-l-4 border-amber-500/50 p-6 rounded-r-2xl">
+            <span className="text-[10px] font-extrabold text-amber-600 uppercase tracking-widest block mb-4">Observation Points</span>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {meta.lookFor.map((item: string, idx: number) => (
-                <li key={idx} className="flex items-start gap-3 text-sm text-slate-300">
-                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-500" />
+                <li key={idx} className="flex items-start gap-3 text-xs text-slate-600 font-medium">
+                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-500/40 shrink-0" />
                   {item}
                 </li>
               ))}
@@ -229,30 +215,30 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
     return (
       <div className="my-12 space-y-6">
         <div className="text-center mb-6">
-          <h3 className="text-xl font-bold text-white mb-2">{meta.title}</h3>
-          {meta.caption && <p className="text-slate-400 text-sm italic max-w-xl mx-auto">{meta.caption}</p>}
+          <h3 className="text-lg font-bold text-[var(--ln-navy-900)] mb-1">{meta.title}</h3>
+          {meta.caption && <p className="text-slate-500 text-xs italic max-w-xl mx-auto">{meta.caption}</p>}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-3">
-            <div className="relative rounded-xl overflow-hidden border border-emerald-500/30 bg-slate-900 shadow-lg">
+            <div className="relative rounded-2xl border border-emerald-500/20 bg-white shadow-sm p-2">
               {leftImg ? (
-                <img src={leftImg} alt={leftLbl || 'Valid Example'} className="w-full h-auto" />
+                <img src={leftImg} alt={leftLbl || 'Valid'} className="w-full h-auto object-contain rounded-xl" />
               ) : (
-                <div className="h-48 flex items-center justify-center text-slate-600 text-sm">No image</div>
+                <div className="h-48 flex items-center justify-center text-slate-300 text-xs">No image</div>
               )}
-              <div className="absolute top-3 left-3 px-3 py-1 bg-emerald-500 text-white text-[10px] font-black uppercase tracking-widest rounded-md shadow-lg">
+              <div className="absolute top-4 left-4 px-2.5 py-1 bg-emerald-500 text-white text-[9px] font-extrabold uppercase tracking-widest rounded-lg shadow-md">
                 {leftLbl || 'VALID'}
               </div>
             </div>
           </div>
           <div className="space-y-3">
-            <div className="relative rounded-xl overflow-hidden border border-rose-500/30 bg-slate-900 shadow-lg">
+            <div className="relative rounded-2xl border border-rose-500/20 bg-white shadow-sm p-2">
               {rightImg ? (
-                <img src={rightImg} alt={rightLbl || 'Invalid Example'} className="w-full h-auto" />
+                <img src={rightImg} alt={rightLbl || 'Invalid'} className="w-full h-auto object-contain rounded-xl" />
               ) : (
-                <div className="h-48 flex items-center justify-center text-slate-600 text-sm">No image</div>
+                <div className="h-48 flex items-center justify-center text-slate-300 text-xs">No image</div>
               )}
-              <div className="absolute top-3 left-3 px-3 py-1 bg-rose-500 text-white text-[10px] font-black uppercase tracking-widest rounded-md shadow-lg">
+              <div className="absolute top-4 left-4 px-2.5 py-1 bg-rose-500 text-white text-[9px] font-extrabold uppercase tracking-widest rounded-lg shadow-md">
                 {rightLbl || 'INVALID'}
               </div>
             </div>
@@ -269,30 +255,30 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
     const isCorrect = choiceSelected === correctIdx;
     
     return (
-      <div className={cn("my-8 rounded-[1.5rem] border overflow-hidden bg-blue-500/5 border-blue-500/20")}>
-        <div className="px-6 py-4 border-b border-inherit flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-white/5 text-blue-400">
-            <HelpCircle size={18} />
+      <div className={cn("my-8 rounded-3xl border overflow-hidden bg-white border-[var(--ln-border)] shadow-sm")}>
+        <div className="px-6 py-4 border-b border-inherit bg-slate-50/50 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-white text-blue-500 shadow-sm border border-slate-100">
+            <HelpCircle size={16} />
           </div>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">PRACTICE CHOICE</span>
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-blue-600">Knowledge Check</span>
         </div>
         <div className="p-8 space-y-6">
-          <p className="text-white font-bold">{meta.question || "What is your decision?"}</p>
-          <div className="space-y-3">
+          <p className="text-[var(--ln-navy-900)] font-bold">{meta.question || "What is your decision?"}</p>
+          <div className="space-y-2.5">
             {options.map((opt: string, i: number) => (
               <button
                 key={i}
                 disabled={choiceSelected !== null}
                 onClick={() => setChoiceSelected(i)}
                 className={cn(
-                  "w-full text-left px-5 py-4 rounded-xl border text-sm transition-all flex items-center justify-between group",
+                  "w-full text-left px-5 py-3.5 rounded-2xl border text-xs font-medium transition-all flex items-center justify-between group",
                   choiceSelected === null 
-                    ? "bg-white/5 border-white/10 hover:border-brand-500/50 hover:bg-white/10"
+                    ? "bg-white border-slate-200 hover:border-[var(--ln-teal-500)] hover:bg-slate-50"
                     : i === correctIdx 
-                      ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
+                      ? "bg-emerald-50 border-emerald-500/30 text-emerald-700"
                       : i === choiceSelected
-                        ? "bg-rose-500/10 border-rose-500/30 text-rose-400"
-                        : "bg-white/5 border-white/10 opacity-50"
+                        ? "bg-rose-50 border-rose-500/30 text-rose-700"
+                        : "bg-white border-slate-100 opacity-50"
                 )}
               >
                 {opt}
@@ -304,19 +290,19 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
           {choiceSelected !== null && (
             <div className={cn(
               "p-6 rounded-2xl border animate-in fade-in slide-in-from-top-2 duration-300",
-              isCorrect ? "bg-emerald-500/5 border-emerald-500/20" : "bg-rose-500/5 border-rose-500/20"
+              isCorrect ? "bg-emerald-50 border-emerald-100" : "bg-rose-50 border-rose-100"
             )}>
-              <div className="flex items-center gap-2 text-xs font-bold mb-2">
-                {isCorrect ? <CheckCircle2 size={14} className="text-emerald-400" /> : <ShieldAlert size={14} className="text-rose-400" />}
-                {isCorrect ? "CORRECT" : "NOT QUITE"}
+              <div className="flex items-center gap-2 text-[10px] font-extrabold mb-2 uppercase tracking-tight">
+                {isCorrect ? <CheckCircle2 size={14} className="text-emerald-600" /> : <ShieldAlert size={14} className="text-rose-600" />}
+                {isCorrect ? "Correct Solution" : "Review Concepts"}
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed italic">
-                {isCorrect ? (meta.correctFeedback || "Great job! You understood the logic.") : (meta.incorrectFeedback || "Review the lesson and try again.")}
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                {isCorrect ? (meta.correctFeedback || "Excellent. Your understanding of this logic is correct.") : (meta.incorrectFeedback || "Review the key indicators before attempting again.")}
               </p>
               {!isCorrect && (
                 <button 
                   onClick={() => setChoiceSelected(null)}
-                  className="mt-4 text-[10px] font-bold text-slate-500 hover:text-slate-300"
+                  className="mt-4 text-[10px] font-extrabold text-slate-400 hover:text-[var(--ln-navy-900)] uppercase tracking-widest transition-colors"
                 >
                   Try Again
                 </button>
@@ -349,52 +335,52 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
     };
 
     return (
-      <div className="my-8 rounded-[1.5rem] border overflow-hidden bg-purple-500/5 border-purple-500/20">
-        <div className="px-6 py-4 border-b border-inherit flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-white/5 text-purple-400">
-            <Target size={18} />
+      <div className="my-8 rounded-3xl border overflow-hidden bg-white border-[var(--ln-border)] shadow-sm">
+        <div className="px-6 py-4 border-b border-inherit bg-slate-50/50 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-white text-purple-600 shadow-sm border border-slate-100">
+            <Target size={16} />
           </div>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-purple-400">PRACTICE IDENTIFY</span>
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-purple-600">Visual Identification</span>
         </div>
         <div className="p-8 space-y-6">
-          <div className="space-y-2">
-            <p className="text-white font-bold text-lg">{meta.question || "Find the target"}</p>
-            <p className="text-slate-400 text-sm">Click the exact area on the chart below.</p>
+          <div className="space-y-1">
+            <p className="text-[var(--ln-navy-900)] font-bold text-lg">{meta.question || "Find the target"}</p>
+            <p className="text-slate-500 text-xs font-medium">Analyze the chart and click the identified area.</p>
           </div>
-          <div className="relative group cursor-crosshair rounded-xl overflow-hidden border border-white/10" onClick={handleImageClick}>
+          <div className="relative group cursor-crosshair rounded-2xl overflow-hidden border border-slate-200" onClick={handleImageClick}>
             {meta.image ? (
               <img src={meta.image} alt="Identify Task" className="w-full h-auto select-none pointer-events-none" />
             ) : (
-              <div className="h-64 bg-slate-900 flex items-center justify-center text-slate-600">No task image provided</div>
+              <div className="h-64 bg-slate-50 flex items-center justify-center text-slate-300">No chart image provided</div>
             )}
             {identifyStatus && (
               <div 
                 className={cn(
-                  "absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 flex items-center justify-center animate-in zoom-in duration-200",
-                  identifyStatus.success ? "bg-emerald-500/20 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)]" : "bg-rose-500/20 border-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.5)]"
+                  "absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 flex items-center justify-center animate-in zoom-in duration-200 shadow-lg",
+                  identifyStatus.success ? "bg-emerald-500/20 border-emerald-500" : "bg-rose-500/20 border-rose-500"
                 )}
                 style={{ left: `${identifyStatus.x}%`, top: `${identifyStatus.y}%` }}
               >
-                {identifyStatus.success ? <CheckCircle2 size={16} className="text-emerald-400" /> : <XCircle size={16} className="text-rose-400" />}
+                {identifyStatus.success ? <CheckCircle2 size={16} className="text-emerald-600" /> : <XCircle size={16} className="text-rose-600" />}
               </div>
             )}
           </div>
           {identifyStatus && (
             <div className={cn(
               "p-6 rounded-2xl border animate-in fade-in slide-in-from-top-2 duration-300",
-              identifyStatus.success ? "bg-emerald-500/5 border-emerald-500/20" : "bg-rose-500/5 border-rose-500/20"
+              identifyStatus.success ? "bg-emerald-50 border-emerald-100" : "bg-rose-50 border-rose-100"
             )}>
-              <div className="flex items-center gap-2 text-xs font-bold mb-2">
-                {identifyStatus.success ? <CheckCircle2 size={14} className="text-emerald-400" /> : <ShieldAlert size={14} className="text-rose-400" />}
-                {identifyStatus.success ? "FOUND IT" : "NOT QUITE"}
+              <div className="flex items-center gap-2 text-[10px] font-extrabold mb-2 uppercase tracking-tight">
+                {identifyStatus.success ? <CheckCircle2 size={14} className="text-emerald-600" /> : <ShieldAlert size={14} className="text-rose-600" />}
+                {identifyStatus.success ? "Target Verified" : "Incorrect Area"}
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed italic">
-                {identifyStatus.success ? (meta.successFeedback || "Excellent eye for detail.") : (meta.failFeedback || "Try looking at the wicks or the specific close price.")}
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                {identifyStatus.success ? (meta.successFeedback || "Perfect identification.") : (meta.failFeedback || "Review the technical requirements and try again.")}
               </p>
               {!identifyStatus.success && (
                 <button 
                   onClick={() => setIdentifyStatus(null)}
-                  className="mt-4 text-[10px] font-bold text-slate-500 hover:text-slate-300"
+                  className="mt-4 text-[10px] font-extrabold text-slate-400 hover:text-[var(--ln-navy-900)] uppercase tracking-widest transition-colors"
                 >
                   Try Again
                 </button>
@@ -408,19 +394,19 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
 
   if (type === 'launch') {
     return (
-      <div className="mt-12 mb-16 p-10 rounded-2xl border-2 border-dashed border-brand-500/30 bg-brand-500/5 flex flex-col items-center text-center group">
-        <div className="w-20 h-20 rounded-full bg-brand-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-          <Target className="w-10 h-10 text-brand-400" />
+      <div className="mt-12 mb-16 p-10 rounded-3xl border border-[var(--ln-border)] bg-slate-50 flex flex-col items-center text-center group shadow-sm">
+        <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 shadow-md border border-slate-100 group-hover:scale-110 transition-transform">
+          <Target className="w-10 h-10 text-[var(--ln-teal-500)]" />
         </div>
-        <h3 className="text-2xl font-bold text-white mb-3">Mastery Check: Final Mission</h3>
-        <p className="text-slate-400 max-w-md mb-8 leading-relaxed">
-          The practice phase is complete. Now, apply your logic to a formal assessment to confirm your understanding.
+        <h3 className="text-2xl font-extrabold text-[var(--ln-navy-900)] mb-3 uppercase tracking-tight">Knowledge Test</h3>
+        <p className="text-[var(--ln-text-secondary)] font-medium max-w-md mb-8 leading-relaxed">
+          Final practice phase. Apply your knowledge to a guided mission to confirm your learning progress.
         </p>
         <button 
           onClick={onLaunchScenario}
-          className="px-10 py-4 bg-brand-500 hover:bg-brand-400 text-white font-bold rounded-xl transition-all shadow-xl shadow-brand-500/20 active:scale-95 flex items-center gap-3 text-lg"
+          className="px-10 py-4 bg-[var(--ln-teal-500)] hover:bg-[var(--ln-teal-600)] text-white font-extrabold rounded-2xl transition-all shadow-lg shadow-[var(--ln-teal-500)]/20 active:scale-95 flex items-center gap-3 text-lg uppercase tracking-widest"
         >
-          LAUNCH MASTERY CHECK
+          Start Test
           <ArrowRight className="w-5 h-5" />
         </button>
       </div>
@@ -451,28 +437,28 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
       <div className="p-8">
         {type === "quick-check" ? (
           <div className="space-y-6">
-            <div className="text-[var(--color-text-secondary)] leading-relaxed">
+            <div className="text-[var(--ln-text-secondary)] font-medium leading-relaxed">
               {content.split(/\n\*(Answer:.*)\*/s)[0]}
             </div>
             
             {!isRevealed ? (
               <button 
                 onClick={() => setIsRevealed(true)}
-                className="flex items-center gap-2 px-5 py-2.5 bg-amber-500/10 text-amber-500 border border-amber-500/20 rounded-xl text-xs font-bold hover:bg-amber-500/20 transition-all"
+                className="flex items-center gap-2 px-5 py-2.5 bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] border border-[var(--ln-teal-500)]/20 rounded-xl text-[10px] font-extrabold uppercase tracking-widest hover:bg-[var(--ln-teal-500)]/10 transition-all"
               >
                 Reveal Logic <ChevronDown size={14} />
               </button>
             ) : (
-              <div className="p-6 bg-white/5 rounded-2xl border border-white/10 animate-in fade-in slide-in-from-top-2 duration-500">
-                <div className="flex items-center gap-2 text-xs font-bold text-white mb-3">
-                  <Lightbulb size={14} className="text-amber-400" /> RATIONALE
+              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 animate-in fade-in slide-in-from-top-2 duration-500">
+                <div className="flex items-center gap-2 text-[10px] font-extrabold text-[var(--ln-navy-900)] mb-3 uppercase tracking-tight">
+                  <Lightbulb size={14} className="text-amber-500" /> Rationale
                 </div>
-                <div className="text-xs text-[var(--color-text-muted)] leading-relaxed italic">
-                  {content.match(/\*Answer:(.*)\*/s)?.[1] || "Check the next module for the answer."}
+                <div className="text-xs text-slate-500 leading-relaxed font-medium">
+                  {content.match(/\*Answer:(.*)\*/s)?.[1] || "Reference your roadmap notes for the solution."}
                 </div>
                 <button 
                   onClick={() => setIsRevealed(false)}
-                  className="mt-4 text-[10px] font-bold text-slate-500 hover:text-slate-300 flex items-center gap-1"
+                  className="mt-4 text-[10px] font-extrabold text-slate-300 hover:text-slate-500 flex items-center gap-1 uppercase tracking-widest"
                 >
                   Hide <ChevronUp size={12} />
                 </button>
@@ -480,7 +466,7 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
             )}
           </div>
         ) : (
-          <div className="prose prose-invert max-w-none">
+          <div className="markdown-content">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
           </div>
         )}
@@ -490,9 +476,9 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
           <div className="mt-8 pt-8 border-t border-inherit">
             <button 
               onClick={onLaunchScenario}
-              className="flex items-center gap-3 px-6 py-3.5 bg-[var(--color-brand-500)] text-white rounded-xl text-xs font-bold hover:bg-[var(--color-brand-400)] transition-all shadow-glow-blue group"
+              className="flex items-center gap-3 px-6 py-3.5 bg-[var(--ln-teal-500)] text-white rounded-2xl text-[10px] font-extrabold tracking-widest uppercase hover:bg-[var(--ln-teal-600)] transition-all shadow-lg shadow-[var(--ln-teal-500)]/20 group"
             >
-              LAUNCH MASTERY CHECK <MapPin size={16} className="group-hover:scale-110 transition-transform" />
+              Start Practice <MapPin size={16} className="group-hover:scale-110 transition-transform" />
             </button>
           </div>
         )}
@@ -512,7 +498,7 @@ export function MarkdownRenderer({ content, className, onLaunchScenario }: Markd
   const parts = content.split(/(:::[a-z-]+\n[\s\S]*?\n:::)/g);
 
   return (
-    <div className={cn("markdown-content prose prose-invert max-w-none", className)}>
+    <div className={cn("markdown-content max-w-none", className)}>
       {parts.map((part, index) => {
         if (part.startsWith(":::")) {
           const match = part.match(/:::([a-z-]+)\n([\s\S]*?)\n:::/);
@@ -536,31 +522,31 @@ export function MarkdownRenderer({ content, className, onLaunchScenario }: Markd
             remarkPlugins={[remarkGfm]}
             components={{
               h1: ({ className, ...props }) => (
-                <h1 className={cn("text-3xl font-bold text-white mb-6 border-b border-[var(--color-border-default)] pb-4", className)} {...props} />
+                <h1 className={cn("text-3xl font-extrabold text-[var(--ln-navy-900)] mb-6 border-b border-slate-100 pb-4 tracking-tight", className)} {...props} />
               ),
               h2: ({ className, ...props }) => (
-                <h2 className={cn("text-2xl font-bold text-[var(--color-brand-400)] mt-10 mb-4", className)} {...props} />
+                <h2 className={cn("text-2xl font-bold text-[var(--ln-navy-900)] mt-12 mb-4 tracking-tight", className)} {...props} />
               ),
               h3: ({ className, ...props }) => (
-                <h3 className={cn("text-xl font-bold text-white mt-8 mb-2", className)} {...props} />
+                <h3 className={cn("text-xl font-bold text-[var(--ln-navy-900)] mt-10 mb-3 tracking-tight", className)} {...props} />
               ),
               p: ({ className, ...props }) => (
-                <p className={cn("text-[var(--color-text-secondary)] leading-relaxed mb-6", className)} {...props} />
+                <p className={cn("text-[var(--ln-text-secondary)] leading-relaxed mb-6 font-medium", className)} {...props} />
               ),
               ul: ({ className, ...props }) => (
-                <ul className={cn("list-disc list-inside space-y-3 mb-8 text-[var(--color-text-secondary)]", className)} {...props} />
+                <ul className={cn("list-disc list-inside space-y-3 mb-8 text-[var(--ln-text-secondary)] font-medium", className)} {...props} />
               ),
               li: ({ className, ...props }) => (
-                <li className={cn("marker:text-[var(--color-brand-500)]", className)} {...props} />
+                <li className={cn("marker:text-[var(--ln-teal-500)]", className)} {...props} />
               ),
               blockquote: ({ className, ...props }) => (
-                <blockquote className={cn("border-l-4 border-[var(--color-brand-500)] bg-[var(--color-surface-tertiary)] p-6 rounded-r-xl italic my-8", className)} {...props} />
+                <blockquote className={cn("border-l-4 border-[var(--ln-teal-500)] bg-[var(--ln-teal-soft)] p-6 rounded-r-2xl italic my-8 font-medium", className)} {...props} />
               ),
               strong: ({ className, ...props }) => (
-                <strong className={cn("text-white font-bold", className)} {...props} />
+                <strong className={cn("text-[var(--ln-navy-900)] font-extrabold", className)} {...props} />
               ),
               code: ({ className, ...props }) => (
-                <code className={cn("bg-white/10 px-1.5 py-0.5 rounded text-sm text-[var(--color-brand-300)] font-mono", className)} {...props} />
+                <code className={cn("bg-slate-100 px-1.5 py-0.5 rounded text-sm text-[var(--ln-teal-600)] font-mono font-bold", className)} {...props} />
               ),
             }}
           >

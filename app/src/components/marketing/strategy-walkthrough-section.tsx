@@ -192,7 +192,7 @@ export function StrategyWalkthroughSection() {
             Watch a real Breakout Trade unfold
           </h2>
           <p className="text-slate-600 max-w-lg mx-auto font-medium">
-            Step through a complete trade from setup to exit. This is how Lurnava teaches — not theory, but execution.
+            Step through a complete trade from setup to exit. This is how Lurnava teaches — not theory, but Method.
           </p>
         </div>
 
@@ -266,7 +266,7 @@ export function StrategyWalkthroughSection() {
             {/* Lurnava callout */}
             <div className="p-4 bg-[var(--ln-bg-soft)] border border-[var(--ln-border-soft)] rounded-xl text-center">
               <p className="text-[9px] font-bold uppercase tracking-widest text-slate-500">
-                In Lurnava, you don&apos;t just watch this — you execute it yourself in the simulation, and every metric is scored.
+                In Lurnava, you don&apos;t just watch this — you execute it yourself in the Practice, and every metric is scored.
               </p>
             </div>
           </div>

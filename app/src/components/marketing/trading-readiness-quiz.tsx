@@ -124,9 +124,9 @@ const questions: Question[] = [
   {
     id: 4, type: "scenario",
     question: "You have $10,000 capital. What's the MAXIMUM you should risk on a single trade?",
-    context: "Think about institutional risk management rules.",
+    context: "Think about Academy risk management rules.",
     options: [
-      { label: "$100 (1%)", correct: false, explanation: "1% is actually very conservative and acceptable. But the standard institutional guideline allows up to 2%." },
+      { label: "$100 (1%)", correct: false, explanation: "1% is actually very conservative and acceptable. But the standard Academy guideline allows up to 2%." },
       { label: "$200 (2%)", correct: true, explanation: "Correct. The 2% rule is the industry standard for max risk per trade. Lurnava enforces this as Rule R001 — hard block if exceeded." },
       { label: "$500 (5%)", correct: false, explanation: "5% per trade means just 4 consecutive losses wipes 20% of your account. That's far too aggressive." },
       { label: "$1,000 (10%)", correct: false, explanation: "10% risk per trade is reckless. Two bad trades = 20% drawdown. This is how accounts get blown." },
@@ -151,7 +151,7 @@ const questions: Question[] = [
     options: [
       { label: "Double your position size to recover faster", correct: false, explanation: "This is revenge trading. Doubling down after losses is emotional, not strategic. It's the #1 account killer." },
       { label: "Keep trading the same strategy — variance happens", correct: false, explanation: "5 losses in a row could be variance, but it could also indicate the strategy doesn't fit current conditions. Blind persistence is dangerous." },
-      { label: "Stop trading. Review journal. Identify if conditions changed.", correct: true, explanation: "Correct. A disciplined trader stops, reviews, and adapts. Maybe the market regime shifted. Maybe execution was poor. The journal tells you." },
+      { label: "Stop trading. Review journal. Identify if conditions changed.", correct: true, explanation: "Correct. A disciplined trader stops, reviews, and adapts. Maybe the market regime shifted. Maybe Method was poor. The journal tells you." },
       { label: "Switch to a completely different strategy immediately", correct: false, explanation: "Strategy-hopping after losses is another emotional response. You need data from your journal first, not a random switch." },
     ],
   },
@@ -170,9 +170,9 @@ const questions: Question[] = [
 
 const resultBands = [
   { min: 0, max: 2, level: "L0", title: "Start from Foundations", desc: "You need the basics first — and that's perfectly fine. Level 0 will teach you everything about charts, instruments, and platform navigation. The good news? It's free.", color: "text-blue-400", bg: "bg-blue-500/10" },
-  { min: 3, max: 4, level: "L1–L2", title: "You Know the Basics", desc: "You have foundational awareness but gaps in execution discipline and strategy knowledge. Levels 1–2 will give you structure, and the trading simulation will test your understanding.", color: "text-purple-400", bg: "bg-purple-500/10" },
-  { min: 5, max: 6, level: "L3–L4", title: "Intermediate Trader", desc: "You understand markets well. The question is: can you trade consistently? Lurnava's simulation and certification will test what matters — not knowledge, but performance under rules.", color: "text-amber-400", bg: "bg-amber-500/10" },
-  { min: 7, max: 7, level: "L5+", title: "Advanced — Prove It", desc: "You answered like a professional. Now prove it with real performance data. The 5-phase simulation and certification scoring will validate whether your knowledge translates to execution.", color: "text-[var(--color-profit)]", bg: "bg-[var(--color-profit)]/10" },
+  { min: 3, max: 4, level: "L1–L2", title: "You Know the Basics", desc: "You have foundational awareness but gaps in Method discipline and strategy knowledge. Levels 1–2 will give you structure, and the trading Practice will test your understanding.", color: "text-purple-400", bg: "bg-purple-500/10" },
+  { min: 5, max: 6, level: "L3–L4", title: "Intermediate Trader", desc: "You understand markets well. The question is: can you trade consistently? Lurnava's Practice and LearningRecord will test what matters — not knowledge, but performance under rules.", color: "text-amber-400", bg: "bg-amber-500/10" },
+  { min: 7, max: 7, level: "L5+", title: "Advanced — Prove It", desc: "You answered like a professional. Now prove it with real performance data. The 5-phase Practice and LearningRecord scoring will validate whether your knowledge translates to Method.", color: "text-[var(--color-profit)]", bg: "bg-[var(--color-profit)]/10" },
 ];
 
 export function TradingReadinessQuiz() {
@@ -331,7 +331,7 @@ export function TradingReadinessQuiz() {
 
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)] mb-2">Your Trading Readiness Score</p>
-                  <div className="text-7xl font-black tracking-tighter">
+                  <div className="text-7xl font-extrabold tracking-tighter">
                     <span className="text-[var(--ln-navy-900)]">{score}</span>
                     <span className="text-[var(--ln-text-muted)] text-4xl">/{questions.length}</span>
                   </div>

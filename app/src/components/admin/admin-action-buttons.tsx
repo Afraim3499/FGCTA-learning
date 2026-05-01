@@ -17,7 +17,7 @@ export function AdminActionButtons({ userId, currentTrack }: AdminActionButtonsP
   const [isPending, startTransition] = useTransition();
 
   const handleReset = () => {
-    if (confirm("CAUTION: Are you sure you want to reset this candidate's active simulation phase? This action will archive their current progress and cannot be undone.")) {
+    if (confirm("CAUTION: Are you sure you want to reset this candidate's active Practice phase? This action will archive their current progress and cannot be undone.")) {
       startTransition(async () => {
         try {
           await resetUserPhase(userId);
@@ -30,7 +30,7 @@ export function AdminActionButtons({ userId, currentTrack }: AdminActionButtonsP
 
   const handleChangeTrack = () => {
     const tracks = ["forex", "crypto", "gold", "multi"];
-    const newTrack = prompt(`Enter new market protocol (${tracks.join(", ")}):`, currentTrack);
+    const newTrack = prompt(`Enter new market Logic (${tracks.join(", ")}):`, currentTrack);
     
     if (newTrack && newTrack !== currentTrack && tracks.includes(newTrack)) {
       startTransition(async () => {
@@ -41,7 +41,7 @@ export function AdminActionButtons({ userId, currentTrack }: AdminActionButtonsP
         }
       });
     } else if (newTrack && !tracks.includes(newTrack)) {
-      alert("Invalid protocol selection.");
+      alert("Invalid Logic selection.");
     }
   };
 
@@ -52,7 +52,7 @@ export function AdminActionButtons({ userId, currentTrack }: AdminActionButtonsP
         onClick={handleChangeTrack}
         className="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-colors disabled:opacity-30 flex items-center gap-1"
       >
-        Protocol
+        Logic
       </button>
       <button 
         disabled={isPending}

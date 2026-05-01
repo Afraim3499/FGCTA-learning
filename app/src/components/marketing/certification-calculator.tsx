@@ -59,7 +59,7 @@ const metrics: ScoringMetric[] = [
   },
 ];
 
-export function CertificationCalculator() {
+export function LearningRecordCalculator() {
   const [values, setValues] = useState<Record<string, number>>({
     "Profit Target": 8,
     "Max Drawdown": 3,
@@ -80,7 +80,7 @@ export function CertificationCalculator() {
     if (score >= 80) return { name: "L4 Professional", color: "text-amber-400", bg: "bg-amber-400/10" };
     if (score >= 70) return { name: "L3 Advanced", color: "text-purple-400", bg: "bg-purple-400/10" };
     if (score >= 60) return { name: "L2 Intermediate", color: "text-blue-400", bg: "bg-blue-500/10" };
-    return { name: "Uncertified", color: "text-rose-400", bg: "bg-rose-500/10" };
+    return { name: "UnCompleted", color: "text-rose-400", bg: "bg-rose-500/10" };
   }, [score]);
 
   return (
@@ -89,9 +89,9 @@ export function CertificationCalculator() {
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/20">
             <Calculator size={14} className="text-[var(--ln-teal-500)]" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ln-teal-500)]">Institutional Tool</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ln-teal-500)]">Academy Tool</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--ln-navy-900)]">Certification Simulator</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--ln-navy-900)]">LearningRecord PracticeEnvironment</h2>
           <p className="text-lg text-slate-600 font-medium italic">
             You don&apos;t &ldquo;finish lessons.&rdquo; You prove you can trade.
           </p>
@@ -136,7 +136,7 @@ export function CertificationCalculator() {
 
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">Simulated Score</p>
-                <div className="text-7xl font-black tracking-tighter text-[var(--ln-navy-900)]">{score}</div>
+                <div className="text-7xl font-extrabold tracking-tighter text-[var(--ln-navy-900)]">{score}</div>
               </div>
 
               <div className={cn("inline-block px-6 py-3 rounded-xl border font-bold uppercase tracking-widest text-xs", level.bg, level.color, level.color.replace("text-", "border-").replace("]", "/20]"))}>
@@ -149,13 +149,13 @@ export function CertificationCalculator() {
                   <span className="text-[var(--ln-navy-900)] font-mono font-bold">{(score / 100).toFixed(2)}</span>
                 </div>
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-slate-500 font-medium">Institutional Standing</span>
+                  <span className="text-slate-500 font-medium">Academy Standing</span>
                   <span className="text-[var(--ln-navy-900)] font-bold">{score >= 80 ? "EXCEPTIONAL" : score >= 60 ? "STABLE" : "IMPROVEMENT NEEDED"}</span>
                 </div>
               </div>
 
               <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400">
-                Lurnava Certification isn&apos;t just about profit. It&apos;s about risk-adjusted consistency.
+                Lurnava LearningRecord isn&apos;t just about profit. It&apos;s about risk-adjusted consistency.
               </p>
             </div>
           </div>

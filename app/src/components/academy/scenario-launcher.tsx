@@ -71,8 +71,8 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
 
   return (
     <div className="space-y-4">
-      <h3 className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-[0.2em] px-2">
-        Training Missions
+      <h3 className="text-[10px] font-extrabold text-[var(--ln-text-secondary)] uppercase tracking-[0.2em] px-2">
+        Chart Missions
       </h3>
       <div className="space-y-3">
         {scenarios.map((scenario) => {
@@ -85,45 +85,34 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
           return (
             <div
               key={scenario.id}
-              className="p-6 bg-gradient-to-br from-[var(--color-surface-secondary)] to-[var(--color-surface-tertiary)] rounded-[1.5rem] border border-[var(--color-border-default)] group hover:border-[var(--color-brand-500)]/30 transition-all"
+              className="p-6 bg-white rounded-3xl border border-[var(--ln-border)] shadow-sm group hover:border-[var(--ln-teal-500)]/30 transition-all"
             >
               <div className="flex items-center justify-between gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-xs font-bold text-white tracking-tight">{scenario.title}</span>
-                    {/* Chart mission badge */}
-                    {chartMission && (
-                      <span className="flex items-center gap-1 px-2 py-0.5 bg-[var(--color-brand-500)]/10 text-[var(--color-brand-400)] text-[8px] font-bold rounded-full uppercase border border-[var(--color-brand-500)]/20">
-                        <MapPin className="w-2 h-2" /> Chart Mission
-                      </span>
-                    )}
-                    {/* Decision mission badge */}
-                    {decisionMission && !chartMission && (
-                      <span className="flex items-center gap-1 px-2 py-0.5 bg-amber-500/10 text-amber-400 text-[8px] font-bold rounded-full uppercase border border-amber-500/20">
-                        Decision Scenario
-                      </span>
-                    )}
+                    <span className="text-xs font-extrabold text-[var(--ln-navy-900)] tracking-tight">{scenario.title}</span>
+                    
                     {/* Status badge */}
                     {isPassed ? (
-                      <span className="flex items-center gap-1 px-2 py-0.5 bg-emerald-500/10 text-emerald-400 text-[8px] font-bold rounded-full uppercase border border-emerald-500/20">
-                        <CheckCircle2 className="w-2.5 h-2.5" /> PASSED
+                      <span className="flex items-center gap-1 px-2 py-0.5 bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] text-[8px] font-extrabold rounded-lg uppercase border border-[var(--ln-teal-500)]/20">
+                        <CheckCircle2 className="w-2.5 h-2.5" /> COMPLETED
                       </span>
                     ) : isFailed ? (
-                      <span className="flex items-center gap-1 px-2 py-0.5 bg-rose-500/10 text-rose-400 text-[8px] font-bold rounded-full uppercase border border-rose-500/20">
-                        <XCircle className="w-2.5 h-2.5" /> FAILED
+                      <span className="flex items-center gap-1 px-2 py-0.5 bg-rose-50 text-rose-500 text-[8px] font-extrabold rounded-lg uppercase border border-rose-500/20">
+                        <XCircle className="w-2.5 h-2.5" /> REVIEW NEEDED
                       </span>
                     ) : status?.status === "in_progress" || status?.status === "started" ? (
-                      <span className="flex items-center gap-1 px-2 py-0.5 bg-amber-500/10 text-amber-400 text-[8px] font-bold rounded-full uppercase border border-amber-500/20">
+                      <span className="flex items-center gap-1 px-2 py-0.5 bg-amber-50 text-amber-500 text-[8px] font-extrabold rounded-lg uppercase border border-amber-500/20">
                         <Loader2 className="w-2.5 h-2.5 animate-spin" /> IN PROGRESS
                       </span>
                     ) : (
-                      <span className="px-2 py-0.5 bg-slate-500/10 text-slate-400 text-[8px] font-bold rounded-full uppercase border border-slate-500/20">
+                      <span className="px-2 py-0.5 bg-slate-50 text-slate-400 text-[8px] font-extrabold rounded-lg uppercase border border-slate-200">
                         NOT STARTED
                       </span>
                     )}
                   </div>
-                  <p className="text-[10px] text-[var(--color-text-muted)] leading-relaxed max-w-[240px]">
-                    {scenario.description || "Complete the mission to verify your understanding."}
+                  <p className="text-[10px] text-[var(--ln-text-secondary)] font-medium leading-relaxed max-w-[240px]">
+                    {scenario.description || "Apply your learning to this practical mission."}
                   </p>
                 </div>
 
@@ -132,26 +121,26 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
                   <button
                     onClick={() => onLaunchScenario?.(scenario)}
                     className={cn(
-                      "flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] font-bold transition-all shrink-0",
+                      "flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] font-extrabold tracking-widest uppercase transition-all shrink-0",
                       isPassed
-                        ? "bg-white/5 text-white hover:bg-white/10"
-                        : "bg-[var(--color-brand-500)] text-white hover:bg-[var(--color-brand-400)] shadow-[0_0_15px_rgba(99,102,241,0.2)]"
+                        ? "bg-slate-50 text-slate-500 hover:bg-slate-100"
+                        : "bg-[var(--ln-teal-500)] text-white hover:bg-[var(--ln-teal-600)] shadow-lg shadow-[var(--ln-teal-500)]/20"
                     )}
                   >
-                    {isPassed ? "Review" : status ? "Resume" : chartMission ? "Open Chart" : "Begin Scenario"}
+                    {isPassed ? "Review" : status ? "Resume" : chartMission ? "Open Chart" : "Start"}
                     <MapPin className="w-3 h-3" />
                   </button>
                 ) : (
                   <Link
                     href={`/trading?scenarioId=${scenario.id}&moduleId=${moduleId}`}
                     className={cn(
-                      "flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] font-bold transition-all shrink-0",
+                      "flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] font-extrabold tracking-widest uppercase transition-all shrink-0",
                       isPassed
-                        ? "bg-white/5 text-white hover:bg-white/10"
-                        : "bg-[var(--color-brand-500)] text-white hover:bg-[var(--color-brand-400)] shadow-[0_0_15px_rgba(99,102,241,0.2)]"
+                        ? "bg-slate-50 text-slate-500 hover:bg-slate-100"
+                        : "bg-[var(--ln-teal-500)] text-white hover:bg-[var(--ln-teal-600)] shadow-lg shadow-[var(--ln-teal-500)]/20"
                     )}
                   >
-                    {isPassed ? "Review Mission" : status ? "Resume Mission" : "Start Mission"}
+                    {isPassed ? "Review" : status ? "Resume" : "Start"}
                     <Play className="w-3 h-3 fill-current" />
                   </Link>
                 )}
@@ -159,18 +148,18 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
 
               {/* Score bar */}
               {status?.score !== undefined && (
-                <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
-                  <span className="text-[9px] font-bold text-[var(--color-text-muted)] uppercase tracking-tighter">
-                    Score
+                <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-tighter">
+                    Last Result
                   </span>
                   <div className="flex items-center gap-2">
-                    <div className="w-24 h-1 bg-white/5 rounded-full overflow-hidden">
+                    <div className="w-24 h-1 bg-slate-100 rounded-full overflow-hidden">
                       <div
-                        className={cn("h-full transition-all", isPassed ? "bg-emerald-500" : "bg-amber-500")}
+                        className={cn("h-full transition-all", isPassed ? "bg-[var(--ln-teal-500)]" : "bg-amber-500")}
                         style={{ width: `${status.score}%` }}
                       />
                     </div>
-                    <span className={cn("text-[10px] font-mono font-bold", isPassed ? "text-emerald-400" : "text-amber-400")}>
+                    <span className={cn("text-[10px] font-mono font-bold", isPassed ? "text-[var(--ln-teal-600)]" : "text-amber-500")}>
                       {status.score}%
                     </span>
                   </div>

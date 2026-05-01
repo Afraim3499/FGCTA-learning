@@ -4,20 +4,12 @@ import { GraduationCap } from "lucide-react";
 const footerLinks = {
   Platform: [
     { label: "Curriculum", href: "/curriculum" },
-    { label: "Simulation", href: "/simulation" },
-    { label: "Certification", href: "/certification" },
-    { label: "Methodology", href: "/methodology" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Free Trial", href: "/free-trial" },
   ],
-  Markets: [
-    { label: "Forex Trading", href: "/curriculum/forex" },
-    { label: "Crypto Trading", href: "/curriculum/crypto" },
-    { label: "Gold Trading", href: "/curriculum/gold" },
-  ],
   Company: [
-    { label: "Pricing", href: "/pricing" },
+    { label: "About", href: "/about" },
     { label: "FAQ", href: "/faq" },
-    { label: "Outcomes", href: "/outcomes" },
   ],
   Legal: [
     { label: "Terms of Service", href: "/terms" },

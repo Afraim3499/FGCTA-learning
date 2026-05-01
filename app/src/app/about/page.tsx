@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/marketing/navbar";
+import { Footer } from "@/components/marketing/footer";
 import { Sparkles, Target, Shield, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -15,7 +16,7 @@ export default function AboutPage() {
               <Sparkles size={14} />
               ABOUT LURNAVA
             </span>
-            <h1 className="text-5xl md:text-6xl font-black tracking-tight text-[var(--ln-navy-900)] leading-[1.1]">
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-[var(--ln-navy-900)] leading-[1.1]">
               Built for traders who seek <span className="text-[var(--ln-teal-500)]">structure.</span>
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed max-w-2xl font-medium">
@@ -24,7 +25,7 @@ export default function AboutPage() {
           </div>
 
           {/* Core Values */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-8 bg-white border border-[var(--ln-border)] rounded-[32px] shadow-sm space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-[var(--ln-teal-soft)] flex items-center justify-center">
                 <Target className="text-[var(--ln-teal-500)]" size={24} />
@@ -42,6 +43,16 @@ export default function AboutPage() {
               <h3 className="text-xl font-bold text-[var(--ln-navy-900)]">Risk-First Mentality</h3>
               <p className="text-slate-500 leading-relaxed">
                 Before you learn how to win, you must learn how to survive. Our training enforces strict risk awareness from the very first module.
+              </p>
+            </div>
+
+            <div className="p-8 bg-white border border-[var(--ln-border)] rounded-[32px] shadow-sm space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center">
+                <Sparkles className="text-amber-600" size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-[var(--ln-navy-900)]">No Hype Promise</h3>
+              <p className="text-slate-500 leading-relaxed">
+                No signals. No guaranteed profits. No fake certainty. We teach structured market learning and let the progress speak for itself.
               </p>
             </div>
           </div>
@@ -75,10 +86,8 @@ export default function AboutPage() {
         </div>
       </main>
       
-      {/* Basic Footer Placeholder */}
-      <footer className="py-12 border-t border-[var(--ln-border-soft)] text-center text-slate-400 text-sm">
-        <p>&copy; {new Date().getFullYear()} Lurnava Academy. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
+

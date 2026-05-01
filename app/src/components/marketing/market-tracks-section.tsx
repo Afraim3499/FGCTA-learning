@@ -5,13 +5,13 @@ import { motion, useInView } from "framer-motion";
 import { Globe, Bitcoin, Coins, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { 
-  TerminalCard, 
-  TerminalCardContent, 
-  TerminalCardHeader, 
-  TerminalCardTitle 
-} from "@/components/ui/terminal-card";
+  AcademyCard, 
+  AcademyCardContent, 
+  AcademyCardHeader, 
+  AcademyCardTitle 
+} from "@/components/ui/academy-card";
 import { DataBadge } from "@/components/ui/data-badge";
-import { InstitutionalButton } from "@/components/ui/institutional-button";
+import { AcademyButton } from "@/components/ui/academy-button";
 
 const matrices = [
   {
@@ -20,7 +20,7 @@ const matrices = [
     icon: Globe,
     price: "$300",
     description: "Master Global Macro, Interest Rate Differentials, and Central Bank Order Flow.",
-    features: ["Macro Differential Analysis", "Central Bank Protocols", "Seasonal Flow Models"],
+    features: ["Macro Differential Analysis", "Central Bank Logics", "Seasonal Flow Models"],
     color: "text-[var(--ln-teal-500)]",
     border: "border-[var(--ln-teal-500)]/20",
     badge: "LOW_VOL_EDGE",
@@ -69,7 +69,7 @@ export function MarketTracksSection() {
           CHOOSE YOUR <span className="text-slate-400 italic">MATRIX.</span>
         </h2>
         <p className="text-slate-600 max-w-2xl mx-auto font-medium">
-          Select your primary asset theater. Each matrix includes the full core institutional curriculum plus asset-specific execution protocols.
+          Select your primary asset theater. Each matrix includes the full core Academy curriculum plus asset-specific Method Logics.
         </p>
       </motion.div>
 
@@ -81,11 +81,11 @@ export function MarketTracksSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: i * 0.15 }}
           >
-            <TerminalCard className={cn(
+            <AcademyCard className={cn(
               "h-full flex flex-col transition-all duration-500 group",
               matrix.featured ? "border-[var(--ln-teal-500)]/40 bg-white shadow-[0_0_50px_rgba(34,197,94,0.05)] scale-105 z-10" : "bg-white border-[var(--ln-border)] hover:border-[var(--ln-teal-500)]/20"
             )}>
-              <TerminalCardHeader className="space-y-4">
+              <AcademyCardHeader className="space-y-4">
                 <div className="flex justify-between items-start">
                    <div className={cn("p-3 rounded-2xl bg-white/5", matrix.color)}>
                       <matrix.icon size={24} />
@@ -96,17 +96,17 @@ export function MarketTracksSection() {
                 </div>
                  <div>
                     <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">{matrix.name}</div>
-                    <TerminalCardTitle className="text-3xl font-black text-[var(--ln-navy-900)]">{matrix.asset}</TerminalCardTitle>
+                    <AcademyCardTitle className="text-3xl font-extrabold text-[var(--ln-navy-900)]">{matrix.asset}</AcademyCardTitle>
                  </div>
-              </TerminalCardHeader>
+              </AcademyCardHeader>
 
-              <TerminalCardContent className="flex-1 space-y-8">
+              <AcademyCardContent className="flex-1 space-y-8">
                 <p className="text-sm text-slate-600 font-medium leading-relaxed h-12">
                   {matrix.description}
                 </p>
 
                  <div className="space-y-4">
-                    <p className="text-[10px] font-bold text-[var(--ln-navy-900)] uppercase tracking-widest">Protocol Features</p>
+                    <p className="text-[10px] font-bold text-[var(--ln-navy-900)] uppercase tracking-widest">Logic Features</p>
                    <ul className="space-y-3">
                       {matrix.features.map(item => (
                         <li key={item} className="flex items-start gap-3 text-sm text-[var(--ln-navy-900)] font-medium">
@@ -119,20 +119,20 @@ export function MarketTracksSection() {
 
                 <div className="pt-6 border-t border-[var(--ln-border)] mt-auto space-y-6">
                    <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-black text-[var(--ln-navy-900)]">{matrix.price}</span>
+                      <span className="text-4xl font-extrabold text-[var(--ln-navy-900)]">{matrix.price}</span>
                       <span className="text-[10px] font-bold text-slate-500 uppercase">One-Time Access</span>
                    </div>
-                   <InstitutionalButton 
+                   <AcademyButton 
                       glow={matrix.featured} 
                       variant={matrix.featured ? "primary" : "outline"}
                       className="w-full"
                       onClick={() => window.location.href = `/checkout?item=${matrix.asset.toLowerCase().replace('the ', '').replace(' matrix', '')}`}
                    >
                       {matrix.btnLabel}
-                   </InstitutionalButton>
+                   </AcademyButton>
                 </div>
-              </TerminalCardContent>
-            </TerminalCard>
+              </AcademyCardContent>
+            </AcademyCard>
           </motion.div>
         ))}
       </div>
@@ -145,19 +145,19 @@ export function MarketTracksSection() {
         onClick={() => window.location.href = '/checkout?item=bundle_mastery'}
       >
          <div className="absolute inset-0 bg-gradient-to-r from-[var(--ln-teal-500)]/20 via-[var(--ln-teal-500)]/20 to-[var(--ln-teal-500)]/20 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-         <TerminalCard className="border-[var(--ln-teal-500)]/40 bg-white overflow-hidden w-full">
-            <TerminalCardContent className="p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+         <AcademyCard className="border-[var(--ln-teal-500)]/40 bg-white overflow-hidden w-full">
+            <AcademyCardContent className="p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
                <div className="space-y-2 text-center md:text-left">
                   <DataBadge variant="profit" className="mb-4">ULTIMATE_ACCESS</DataBadge>
-                  <h3 className="text-2xl md:text-3xl font-black text-[var(--ln-navy-900)] tracking-tighter uppercase">The Mastery Bundle</h3>
-                  <p className="text-[var(--ln-text-secondary)] max-w-xl text-sm md:text-base">The Complete Institutional Desk. Access all three global markets simultaneously.</p>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--ln-navy-900)] tracking-tighter uppercase">The Mastery Bundle</h3>
+                  <p className="text-[var(--ln-text-secondary)] max-w-xl text-sm md:text-base">The Complete Academy Desk. Access all three global markets simultaneously.</p>
                </div>
                <div className="flex flex-col items-center md:items-end gap-4 w-full md:w-auto">
-                  <div className="text-4xl md:text-5xl font-black text-[var(--ln-navy-900)]">$750</div>
-                  <InstitutionalButton glow size="lg" className="w-full md:w-auto" onClick={() => window.location.href = '/checkout?item=bundle_mastery'}>ACCESS THE INSTITUTIONAL DESK</InstitutionalButton>
+                  <div className="text-4xl md:text-5xl font-extrabold text-[var(--ln-navy-900)]">$750</div>
+                  <AcademyButton glow size="lg" className="w-full md:w-auto" onClick={() => window.location.href = '/checkout?item=bundle_mastery'}>ACCESS THE Academy DESK</AcademyButton>
                </div>
-            </TerminalCardContent>
-         </TerminalCard>
+            </AcademyCardContent>
+         </AcademyCard>
       </motion.div>
     </section>
   );

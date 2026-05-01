@@ -23,23 +23,23 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The certification scoring changed everything for me. When I saw my discipline score was 4/10, I understood why I kept blowing accounts. Lurnava showed me the problem in numbers, not opinions.",
+      "The LearningRecord scoring changed everything for me. When I saw my discipline score was 4/10, I understood why I kept blowing accounts. Lurnava showed me the problem in numbers, not opinions.",
     name: "S.M.",
     role: "Crypto Trader",
-    status: "Level 4 Certified",
+    status: "Level 4 Completed",
     statusColor: "text-amber-600",
   },
   {
     quote:
-      "As a finance professional, I needed something with actual rigor. The scoring formula, the rules engine, the phase progression — this is structured like institutional training, not a YouTube playlist.",
+      "As a finance professional, I needed something with actual rigor. The scoring formula, the rules engine, the phase progression — this is structured like Academy training, not a YouTube playlist.",
     name: "D.A.",
     role: "Portfolio Analyst",
-    status: "Level 5 Certified",
+    status: "Level 5 Completed",
     statusColor: "text-[var(--ln-teal-500)]",
   },
   {
     quote:
-      "The Crypto track alone has 6 exclusive modules. On-chain analytics, funding rates, DeFi arbitrage — things I couldn't find in any course at any price. And I get to practice all of it in simulation.",
+      "The Crypto track alone has 6 exclusive modules. On-chain analytics, funding rates, DeFi arbitrage — things I couldn't find in any course at any price. And I get to practice all of it in Practice.",
     name: "T.L.",
     role: "Crypto Trader",
     status: "Phase 4 Active",
@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
       "I failed Phase 2 twice. The reset system forced me to review my trades, find the pattern, and fix it. Third attempt: passed with a 78/100 score. That's how real learning works.",
     name: "M.H.",
     role: "Gold Trader",
-    status: "Level 3 Certified",
+    status: "Level 3 Completed",
     statusColor: "text-yellow-600",
   },
   {
@@ -58,7 +58,7 @@ const testimonials: Testimonial[] = [
       "My employer verified my Level 5 certificate. It was the first time a trading credential actually meant something in a job interview.",
     name: "A.P.",
     role: "Junior Trader",
-    status: "Level 5 Certified",
+    status: "Level 5 Completed",
     statusColor: "text-[var(--ln-teal-500)]",
   },
 ];
@@ -118,7 +118,7 @@ export function TestimonialsSection() {
           </h2>
           <p className="text-slate-600 max-w-xl mx-auto leading-relaxed font-medium">
             Real experiences from traders who trained, failed, adapted, and
-            earned their certification.
+            earned their LearningRecord.
           </p>
         </div>
 

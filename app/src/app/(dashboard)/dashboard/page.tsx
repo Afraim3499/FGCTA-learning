@@ -1,27 +1,17 @@
 import { prisma } from "@/lib/prisma";
 import { getUser } from "@/lib/auth-actions";
-import { 
-  getActivePhaseAttempt, 
-  getPhasePerformance, 
-  syncDailyState 
-} from "@/lib/trading-actions";
-import { PhaseStatusCard } from "@/components/trading/phase-status-card";
-import { MetricsGrid } from "@/components/trading/metrics-grid";
-import { XPBar } from "@/components/trading/xp-bar";
-import { PerformanceChart } from "@/components/trading/performance-chart";
-import { XPLedgerWidget } from "@/components/dashboard/xp-ledger-widget";
-import { LearningProgressCard } from "@/components/dashboard/learning-progress-card";
-import { Target, TrendingUp, ShieldCheck, BookOpen } from "lucide-react";
 import { getNextStep } from "@/lib/guidance-utils";
-import { NextStepCard } from "@/components/dashboard/next-step-card";
-import Link from "next/link";
-import { MissionReadinessCard } from "@/components/dashboard/mission-readiness-card";
-import { UserIdentityWidget } from "@/components/dashboard/user-identity-widget";
-
+import { getCourseLevels } from "@/lib/course-actions";
 import { updateActivityStreak, checkMilestones } from "@/lib/retention-actions";
-import { Star } from "lucide-react";
-import { ProgressionTracker } from "@/components/academy/progression-tracker";
-import { serializeData } from "@/lib/utils";
+import { syncDailyState } from "@/lib/trading-actions";
+import { ContinueLearningCard } from "@/components/dashboard/cards/continue-learning-card";
+import { CurrentProgressCard } from "@/components/dashboard/cards/current-progress-card";
+import { NextGateCard } from "@/components/dashboard/cards/next-gate-card";
+import { LearningPathCard } from "@/components/dashboard/cards/learning-path-card";
+import { RecentActivityCard } from "@/components/dashboard/cards/recent-activity-card";
+import { MilestoneMapCard } from "@/components/dashboard/cards/milestone-map-card";
+import { SafeLearningCard } from "@/components/dashboard/cards/safe-learning-card";
+import { LearningNoteCard } from "@/components/dashboard/cards/learning-note-card";
 
 export default async function DashboardPage() {
   const user = await getUser();
@@ -39,169 +29,135 @@ export default async function DashboardPage() {
   });
 
   const nextStep = await getNextStep(user.id);
-  const rawActiveAttempt = await getActivePhaseAttempt();
-  const activeAttempt = serializeData(rawActiveAttempt);
-  const performance = activeAttempt 
-    ? await getPhasePerformance(activeAttempt.id)
-    : null;
-
-  const snapshots = activeAttempt 
-    ? await prisma.dailySnapshot.findMany({
-        where: { attemptId: activeAttempt.id },
-        orderBy: { date: "asc" },
-      })
-    : [];
-
-  const chartData = snapshots.map(s => ({
-    date: s.date.toLocaleDateString(),
-    equity: Number(s.endingEquity),
-  }));
-
-  const userBadges = await prisma.userBadge.findMany({
+  const levels = await getCourseLevels();
+  const activeLevel = levels.find(l => !l.locked && l.completionPct < 100) || levels[levels.length - 1] || levels[0];
+  
+  // Recent Activity Sourcing
+  const ledgerEntries = await prisma.xPLedgerEntry.findMany({
     where: { userId: user.id },
-    include: { badge: true },
-    take: 3,
-    orderBy: { earnedAt: "desc" }
+    orderBy: { createdAt: "desc" },
+    take: 4
   });
 
+  // Activity Label Mapping
+  const activityMap: Record<string, string> = {
+    "TRADE_EXECUTE": "Submitted Practice Order",
+    "TEST_COMPLETE": "Passed Knowledge Test",
+    "MODULE_COMPLETE": "Completed Module",
+    "SCENARIO_PASS": "Passed Chart Mission",
+    "SCENARIO_ATTEMPT": "Attempted Chart Mission",
+    "XP_AWARD": "Progress Updated",
+  };
+
+  const recentActivity = ledgerEntries.map((entry: any) => {
+    const titleLower = entry.action.toLowerCase();
+    let type: "complete" | "pass" | "start" | "review" | "other" = "other";
+    
+    if (titleLower.includes("complete") || titleLower.includes("module")) type = "complete";
+    if (titleLower.includes("pass") || titleLower.includes("test") || titleLower.includes("assessment")) type = "pass";
+    if (titleLower.includes("start")) type = "start";
+    if (titleLower.includes("review")) type = "review";
+
+    // Format relative time safely
+    const diffHours = Math.round((new Date().getTime() - entry.createdAt.getTime()) / (1000 * 60 * 60));
+    const timeAgo = diffHours === 0 ? "Just now" : diffHours < 24 ? `${diffHours}h ago` : diffHours < 48 ? "Yesterday" : `${Math.floor(diffHours/24)} days ago`;
+
+    return {
+      id: entry.id,
+      title: activityMap[entry.action] || entry.action,
+      timeAgo,
+      type
+    };
+  });
+
+  const isAdmin = user.role === "ADMIN";
+
+  // Gate Status Logic (Derived from nextStep and completion)
+  let missionStatus: "Locked" | "Not Started" | "Passed" = "Locked";
+  let testStatus: "Locked" | "Not Started" | "Passed" = "Locked";
+
+  if (activeLevel.completionPct === 100) {
+    missionStatus = "Passed";
+    testStatus = "Passed";
+  } else if (nextStep.action === "TAKE_ASSESSMENT") {
+    missionStatus = "Passed";
+    testStatus = "Not Started";
+  } else if (nextStep.action === "START_PHASE" || nextStep.action === "EXECUTE_TRADE") {
+    missionStatus = "Not Started";
+    testStatus = "Locked";
+  } else if (activeLevel.completionPct > 50) {
+    missionStatus = "Not Started";
+    testStatus = "Locked";
+  } else {
+    missionStatus = "Locked";
+    testStatus = "Locked";
+  }
+
+  // Calculate global completion for the progress card
+  const totalModules = levels.reduce((acc, curr) => acc + curr.totalModules, 0);
+  const completedModules = levels.reduce((acc, curr) => acc + curr.completedModules, 0);
+  const globalCompletionPct = totalModules > 0 ? Math.round((completedModules / totalModules) * 100) : 0;
+
   return (
-    <div className="space-y-10 pb-20">
-      {/* System Status Ticker */}
-      <div className="flex items-center gap-6 overflow-hidden bg-accent-blue/5 border-y border-accent-blue/10 py-2 -mx-8 px-8">
-         <div className="flex items-center gap-2 shrink-0">
-            <div className="w-1.5 h-1.5 rounded-full bg-pass-green animate-pulse" />
-            <span className="text-[9px] font-bold text-pass-green uppercase tracking-[0.2em]">System_Online</span>
-         </div>
-         <div className="flex items-center gap-8 animate-marquee whitespace-nowrap">
-            <span className="text-[9px] font-mono text-text-muted uppercase tracking-widest">Global_Liquidity_Index: 104.50 [+0.2%]</span>
-            <span className="text-[9px] font-mono text-text-muted uppercase tracking-widest">DXY_Correl: High</span>
-            <span className="text-[9px] font-mono text-text-muted uppercase tracking-widest">Active_Mission: Level_{progress?.currentLevel ?? 0}_Foundations</span>
-            <span className="text-[9px] font-mono text-text-muted uppercase tracking-widest">Institutional_Bias: Bullish_Expansion</span>
-         </div>
+    <div className="space-y-6 pb-20">
+      {/* Header Section */}
+      <section className="space-y-2">
+        <div className="flex items-center gap-3">
+          <h1 className="text-3xl font-bold text-[var(--ln-navy-900)]">Learning Dashboard</h1>
+          {isAdmin && (
+            <span className="px-2 py-0.5 rounded text-[10px] font-extrabold bg-slate-100 text-slate-500 uppercase tracking-widest border border-slate-200">
+              Admin/Test Account
+            </span>
+          )}
+        </div>
+        <p className="text-[var(--ln-text-secondary)] font-medium">Welcome back. Continue learning with structure.</p>
+      </section>
+
+      {/* Main Grid Top Row (Cards) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
+        <ContinueLearningCard 
+          step={nextStep} 
+          progressPercent={activeLevel.completionPct} 
+        />
+        
+        <CurrentProgressCard 
+          currentLevel={progress?.currentLevel ?? 0}
+          levelTitle={activeLevel.title}
+          xpTotal={progress?.xpTotal ?? 0}
+          completionPercent={activeLevel.completionPct}
+          nextGate={missionStatus === "Passed" ? "Knowledge Test" : "Chart Map Mission"}
+        />
+        
+        <NextGateCard 
+          level={activeLevel.level}
+          missionStatus={missionStatus}
+          testStatus={testStatus}
+        />
       </div>
 
-      {/* Header Section */}
-      <section className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div className="space-y-2">
-          <div className="text-accent-blue text-[10px] font-bold tracking-[0.4em] uppercase">Tactical Overview</div>
-          <h1 className="text-5xl font-black text-white tracking-tighter uppercase">Command Center</h1>
-          <p className="text-text-muted font-medium italic">Welcome back, Operator. Synchronizing market data...</p>
-        </div>
-        <div className="flex gap-4">
-           <div className="px-6 py-3 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-4">
-              <div className="text-right">
-                 <p className="text-[8px] font-bold text-text-muted uppercase">Global Rank</p>
-                 <p className="text-lg font-black text-white">#1,240</p>
-              </div>
-              <div className="w-px h-8 bg-white/10" />
-              <div className="text-right">
-                 <p className="text-[8px] font-bold text-text-muted uppercase">Precision</p>
-                 <p className="text-lg font-black text-pass-green">94.2%</p>
-              </div>
-           </div>
-        </div>
-      </section><ProgressionTracker currentTier={Math.min(progress?.currentLevel ?? 1, 8)} totalTiers={8} completedModules={8} totalModules={69} operationalScore={5} />
+      {/* Learning Path (Horizontal Stepper) */}
+      <div className="w-full">
+        <LearningPathCard levels={levels.map(l => ({
+          level: l.level,
+          title: l.title,
+          completed: l.completionPct === 100,
+          locked: l.locked
+        }))} />
+      </div>
 
-      {/* Guidance Section */}
-      <NextStepCard step={nextStep} />
-
-      {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        {/* Trading Phase & Performance */}
-        <div className="lg:col-span-2 space-y-8">
-          {activeAttempt ? (
-            <>
-              <PhaseStatusCard 
-                phaseNumber={activeAttempt.phase.phaseNumber}
-                startingCapital={Number(activeAttempt.startingEquity)}
-                currentEquity={Number(activeAttempt.currentEquity)}
-                targetProfitPct={Number(activeAttempt.phase.targetProfitPct)}
-                maxDrawdownPct={Number(activeAttempt.phase.maxDrawdownPct)}
-                status={activeAttempt.status as any}
-              />
-              
-              <MetricsGrid 
-                winRate={performance?.winRate ?? 0}
-                profitFactor={performance?.profitFactor ?? 0}
-                avgRMultiple={performance?.avgRMultiple ?? 0}
-                totalTrades={performance?.totalTrades ?? 0}
-                netPnl={performance?.netPnl ?? 0}
-                currentDrawdown={performance?.currentDrawdown ?? 0}
-              />
-
-              <PerformanceChart 
-                data={chartData} 
-                startingEquity={Number(activeAttempt.startingEquity)} 
-              />
-            </>
-          ) : (
-            <MissionReadinessCard 
-              currentLevel={progress?.currentLevel ?? 0}
-              nextStepLink={nextStep.link}
-              nextStepTitle={nextStep.action === "START_FOUNDATION" || nextStep.action === "CONTINUE_ACADEMY" ? "Resume Training" : "Take Action"}
-            />
-          )}
-        </div>
-
-        {/* Sidebar */}
-        <div className="space-y-8">
-          <UserIdentityWidget 
-            streakDays={progress?.streakDays ?? 0}
-            xpTotal={progress?.xpTotal ?? 0}
-            xpRank={progress?.xpRank ?? "Recruit"}
-          />
-
-          <LearningProgressCard />
-
-          {/* Recent Milestones */}
-          {userBadges.length > 0 && (
-            <div className="p-8 bg-[var(--color-surface-secondary)] border border-[var(--color-border-default)] rounded-[2.5rem] space-y-6">
-              <h3 className="text-[10px] font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2">
-                <Star className="w-3 h-3 text-amber-400" />
-                Latest Ascension
-              </h3>
-              <div className="space-y-4">
-                {userBadges.map((ub) => (
-                  <div key={ub.id} className="flex items-center gap-4 group/item">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500/5 border border-amber-500/10 flex items-center justify-center text-amber-500 text-xs font-bold group-hover/item:border-amber-500/30 transition-all">
-                      {ub.badge.name[0]}
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs font-bold text-white leading-tight uppercase tracking-tight">{ub.badge.name}</p>
-                      <p className="text-[10px] text-[var(--color-text-muted)] font-mono uppercase mt-0.5">{new Date(ub.earnedAt).toLocaleDateString()}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <XPLedgerWidget />
-          
-          {/* Quick Rules Ref */}
-          <div className="p-6 bg-slate-900/40 border border-slate-800 rounded-2xl space-y-4">
-            <h3 className="text-sm font-bold text-white flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-indigo-400" />
-              Active Constraints
-            </h3>
-            <div className="space-y-2 text-xs">
-              <div className="flex justify-between py-1 border-b border-white/5">
-                <span className="text-slate-500">Max Risk</span>
-                <span className="text-white font-mono">{activeAttempt?.phase.maxRiskPerTrade.toString() ?? "2"}%</span>
-              </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
-                <span className="text-slate-500">Daily Trade Limit</span>
-                <span className="text-white font-mono">{activeAttempt?.phase.maxTradesPerDay.toString() ?? "5"} Trades</span>
-              </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
-                <span className="text-slate-500">Stop Loss</span>
-                <span className="text-emerald-400 uppercase font-bold">Mandatory</span>
-              </div>
-            </div>
+      {/* Main Grid Bottom Row */}
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-5">
+        <div className="xl:col-span-2 flex flex-col gap-4 md:gap-5">
+          <MilestoneMapCard />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+            <LearningNoteCard />
+            <SafeLearningCard />
           </div>
         </div>
-
+        
+        <div className="xl:col-span-1 h-full">
+          <RecentActivityCard activities={recentActivity} />
+        </div>
       </div>
     </div>
   );

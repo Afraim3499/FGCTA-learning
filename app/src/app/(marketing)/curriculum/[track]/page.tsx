@@ -24,7 +24,7 @@ interface TrackData {
 const TRACKS: Record<string, TrackData> = {
   forex: {
     id: "forex",
-    name: "Forex Institutional",
+    name: "Forex Academy",
     symbol: "EUR/USD",
     color: "text-blue-400",
     tagline: "The world's deepest liquidity.",
@@ -87,12 +87,12 @@ export default function TrackPage({ params }: { params: { track: string } }) {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="space-y-8">
             <div className="flex items-center gap-3">
-              <span className={cn("px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-black tracking-widest uppercase", track.color)}>
+              <span className={cn("px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-extrabold tracking-widest uppercase", track.color)}>
                 Track: {track.id}
               </span>
               <span className="text-[10px] font-mono text-[var(--color-text-muted)]">{track.symbol}</span>
             </div>
-            <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-none">
+            <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none">
               {track.name.split(' ')[0]} <br/> 
               <span className={track.color}>{track.name.split(' ')[1]}</span>
             </h1>
@@ -100,19 +100,19 @@ export default function TrackPage({ params }: { params: { track: string } }) {
               {track.description}
             </p>
             <div className="flex items-center gap-6">
-              <Link href="/register" className="px-10 py-5 bg-white text-black font-black rounded-2xl hover:scale-105 transition-all uppercase tracking-widest text-sm">
+              <Link href="/register" className="px-10 py-5 bg-white text-black font-extrabold rounded-2xl hover:scale-105 transition-all uppercase tracking-widest text-sm">
                 Enroll in {track.id} track
               </Link>
             </div>
           </div>
 
-          {/* Institutional Stats Card */}
+          {/* Academy Stats Card */}
           <div className="p-10 bg-white/[0.02] border border-white/10 rounded-[3rem] space-y-10">
             <div className="grid grid-cols-2 gap-8">
               {track.metrics.map(m => (
                 <div key={m.label} className="space-y-1">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">{m.label}</p>
-                  <p className="text-2xl font-black tracking-tighter text-white">{m.value}</p>
+                  <p className="text-2xl font-extrabold tracking-tighter text-white">{m.value}</p>
                 </div>
               ))}
             </div>
@@ -124,7 +124,7 @@ export default function TrackPage({ params }: { params: { track: string } }) {
                 )}>{track.volatility}</span>
               </div>
               <div className="flex justify-between items-center text-sm">
-                <span className="text-[var(--color-text-secondary)]">Institutional Edge</span>
+                <span className="text-[var(--color-text-secondary)]">Academy Edge</span>
                 <span className="text-white font-bold">L1 - L9 Included</span>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function TrackPage({ params }: { params: { track: string } }) {
       <section className="py-32 px-6 lg:px-8 border-t border-white/5">
         <div className="max-w-6xl mx-auto space-y-16">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl font-black tracking-tighter uppercase">Strategy Taxonomy</h2>
+            <h2 className="text-4xl font-extrabold tracking-tighter uppercase">Strategy Taxonomy</h2>
             <p className="text-[var(--color-text-secondary)]">Real strategies you will master in this specific track.</p>
           </div>
 
@@ -144,7 +144,7 @@ export default function TrackPage({ params }: { params: { track: string } }) {
             {track.strategies.map((s, i) => (
               <div key={s} className="p-8 bg-white/[0.01] border border-white/5 rounded-3xl flex items-center justify-between group hover:border-white/20 transition-all">
                 <div className="flex items-center gap-6">
-                  <span className="text-4xl font-black text-white/5 group-hover:text-white/10 transition-colors">0{i+1}</span>
+                  <span className="text-4xl font-extrabold text-white/5 group-hover:text-white/10 transition-colors">0{i+1}</span>
                   <p className="text-lg font-bold text-white tracking-tight">{s}</p>
                 </div>
                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[var(--color-text-muted)]">
@@ -160,7 +160,7 @@ export default function TrackPage({ params }: { params: { track: string } }) {
       <section className="py-32 px-6 lg:px-8 bg-white/[0.01] border-y border-white/5">
         <div className="max-w-4xl mx-auto space-y-16">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl font-black tracking-tighter uppercase">Market Adaptations</h2>
+            <h2 className="text-4xl font-extrabold tracking-tighter uppercase">Market Adaptations</h2>
             <p className="text-[var(--color-text-secondary)]">The core Lurnava system is universal. Here is how we adapt it for {track.name}.</p>
           </div>
 
@@ -183,12 +183,12 @@ export default function TrackPage({ params }: { params: { track: string } }) {
       {/* Conversion */}
       <section className="py-32 px-6 lg:px-8 text-center">
         <div className="max-w-3xl mx-auto space-y-10">
-          <h2 className="text-5xl font-black tracking-tighter uppercase">Ready to dominate {track.symbol}?</h2>
+          <h2 className="text-5xl font-extrabold tracking-tighter uppercase">Ready to dominate {track.symbol}?</h2>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/register" className="px-12 py-6 bg-white text-black font-black rounded-2xl hover:scale-105 transition-all uppercase tracking-widest text-sm">
+            <Link href="/register" className="px-12 py-6 bg-white text-black font-extrabold rounded-2xl hover:scale-105 transition-all uppercase tracking-widest text-sm">
               Start Free Trial
             </Link>
-            <Link href="/pricing" className="px-12 py-6 border border-white/10 text-white font-black rounded-2xl hover:bg-white/5 transition-all uppercase tracking-widest text-sm">
+            <Link href="/pricing" className="px-12 py-6 border border-white/10 text-white font-extrabold rounded-2xl hover:bg-white/5 transition-all uppercase tracking-widest text-sm">
               View Enrollment Plans
             </Link>
           </div>

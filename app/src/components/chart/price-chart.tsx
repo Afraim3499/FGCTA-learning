@@ -160,7 +160,7 @@ export function PriceChart({
 
   // Task 3: Visible candles logic
   // If we are IDLE (not replaying yet), we show all data to allow scenario analysis.
-  // Once RUNNING or PAUSED, we use the cursor for replay simulation.
+  // Once RUNNING or PAUSED, we use the cursor for replay Practice.
   const cursor = useMemo(() => {
     if (!snapshot || snapshot.status === "idle") return data.length - 1;
     return snapshot.candleIndex;
@@ -765,7 +765,7 @@ export function PriceChart({
               }`}
             />
             <span className="text-[10px] font-bold text-white uppercase tracking-widest">
-              {snapshot.status === "running" ? "Simulation Active" : "Simulation Paused"}
+              {snapshot.status === "running" ? "Practice Active" : "Practice Paused"}
             </span>
             <div className="w-px h-3 bg-white/10 mx-1" />
             <span className="text-[10px] font-mono text-slate-400">

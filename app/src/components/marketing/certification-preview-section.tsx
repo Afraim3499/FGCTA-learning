@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Check, Trophy } from "lucide-react";
 
-export function CertificationPreviewSection() {
+export function LearningRecordPreviewSection() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -25,13 +25,13 @@ export function CertificationPreviewSection() {
           </h2>
           <div className="space-y-6">
             <p className="text-slate-600 font-medium leading-relaxed text-lg italic">
-              You are not certified for finishing lessons. You are certified for
+              You are not Completed for finishing lessons. You are Completed for
               proving consistent, disciplined performance.
             </p>
             <ul className="space-y-4">
               {[
                 "Scored on profit (40%), risk management (30%), consistency (20%), discipline (10%)",
-                "5 certification levels: Market Literate → Certified Trader",
+                "5 LearningRecord levels: Market Literate → Completed Trader",
                 "Every certificate has a unique verifiable ID",
                 "Employers and firms can verify at our public page",
               ].map((item) => (
@@ -73,8 +73,8 @@ export function CertificationPreviewSection() {
               <p className="text-[9px] font-bold text-[var(--ln-teal-500)] uppercase tracking-[0.4em]">
                 Lurnava Academy
               </p>
-              <h4 className="text-2xl md:text-3xl font-black text-[var(--ln-navy-900)] tracking-tight uppercase">
-                Certified Trader
+              <h4 className="text-2xl md:text-3xl font-extrabold text-[var(--ln-navy-900)] tracking-tight uppercase">
+                Completed Trader
               </h4>
               <p className="text-slate-600 font-medium text-sm">Level 5 — Forex Track</p>
               <p className="text-slate-500 text-[9px] font-mono uppercase tracking-widest">

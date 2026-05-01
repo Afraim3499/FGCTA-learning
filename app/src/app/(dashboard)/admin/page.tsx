@@ -62,7 +62,7 @@ export default async function AdminPage() {
             <thead>
               <tr className="bg-white/[0.02]">
                 <th className="p-5 text-[10px] font-bold uppercase tracking-widest text-slate-500">Candidate Information</th>
-                <th className="p-5 text-[10px] font-bold uppercase tracking-widest text-slate-500">Market Protocol</th>
+                <th className="p-5 text-[10px] font-bold uppercase tracking-widest text-slate-500">Market Logic</th>
                 <th className="p-5 text-[10px] font-bold uppercase tracking-widest text-slate-500">Academy Baseline</th>
                 <th className="p-5 text-[10px] font-bold uppercase tracking-widest text-slate-500">Status</th>
                 <th className="p-5 text-[10px] font-bold uppercase tracking-widest text-slate-500 text-right">Actions</th>
@@ -93,7 +93,7 @@ export default async function AdminPage() {
                   </td>
                   <td className="p-5">
                     <div className="space-y-1">
-                      <div className="text-xs font-bold text-white">L{user.progress?.currentLevel} Certification</div>
+                      <div className="text-xs font-bold text-white">L{user.progress?.currentLevel} LearningRecord</div>
                       <div className="text-[10px] text-slate-500 uppercase tracking-widest">{user.progress?.xpTotal} Performance XP</div>
                     </div>
                   </td>
@@ -101,7 +101,7 @@ export default async function AdminPage() {
                     {user.phaseAttempts[0] ? (
                       <span className="flex items-center gap-1.5 text-[9px] font-bold text-emerald-400 uppercase tracking-widest">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        Simulation Active
+                        Practice Active
                       </span>
                     ) : (
                       <span className="text-[9px] font-bold text-slate-600 uppercase tracking-widest">Idle</span>

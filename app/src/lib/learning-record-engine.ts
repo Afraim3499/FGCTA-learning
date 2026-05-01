@@ -9,10 +9,10 @@ export interface CertScore {
 }
 
 /**
- * Calculates the certification score based on a completed simulation phase.
- * Scores are weighted based on institutional performance standards.
+ * Calculates the learning score based on a completed practice session.
+ * Scores are weighted based on pedagogical standards.
  */
-export async function calculateCertificationScore(attemptId: string): Promise<CertScore> {
+export async function calculateLearningScore(attemptId: string): Promise<CertScore> {
   const attempt = await prisma.userPhaseAttempt.findUnique({
     where: { id: attemptId },
     include: { trades: true, violations: true },
@@ -23,15 +23,15 @@ export async function calculateCertificationScore(attemptId: string): Promise<Ce
   const trades = attempt.trades;
   const totalTrades = trades.length;
 
-  // 1. Profit Score (Target: hitting the phase profit target)
+  // 1. Progress Score (Target: hitting the practice target)
   const startingEquity = Number(attempt.startingEquity);
   const currentEquity = Number(attempt.currentEquity);
   const profitMade = currentEquity - startingEquity;
-  // Assuming a 10% profit target for certification baseline
+  // Assuming a 10% progress target for baseline
   const profitTarget = startingEquity * 0.10;
   const profitScore = Math.min(100, Math.max(0, (profitMade / profitTarget) * 100));
 
-  // 2. Risk Score (Based on Max Drawdown relative to limit)
+  // 2. Risk Awareness Score (Based on Max Drawdown relative to limit)
   const maxDD = Number(attempt.maxDrawdown);
   const ddLimit = 5.0; // 5% limit
   const riskScore = Math.max(0, 100 - (maxDD / ddLimit) * 100);
@@ -64,16 +64,16 @@ export async function calculateCertificationScore(attemptId: string): Promise<Ce
 }
 
 /**
- * Issues a new certification record in the database.
+ * Issues a new learning record in the database.
  */
-export async function issueCertification(userId: string, track: string, score: CertScore) {
-  const certIdPublic = `CERT-${Math.random().toString(36).substring(2, 7).toUpperCase()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
+export async function issueLearningRecord(userId: string, track: string, score: CertScore) {
+  const certIdPublic = `REC-${Math.random().toString(36).substring(2, 7).toUpperCase()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
 
   return await prisma.certification.create({
     data: {
       userId,
-      certLevel: 1, // Phase 1 complete
-      certTitle: `${track.toUpperCase()} Operational Associate`,
+      certLevel: 1, // Progress level 1
+      certTitle: `${track.toUpperCase()} Learning Achievement`,
       finalScore: score.finalScore,
       profitScore: score.profitScore,
       riskScore: score.riskScore,
@@ -88,9 +88,9 @@ export async function issueCertification(userId: string, track: string, score: C
 }
 
 /**
- * Fetches all certifications earned by a specific user.
+ * Fetches all learning records earned by a specific user.
  */
-export async function getUserCertifications(userId: string) {
+export async function getUserLearningRecords(userId: string) {
   return await prisma.certification.findMany({
     where: { userId },
     orderBy: { issuedAt: "desc" },
@@ -98,10 +98,10 @@ export async function getUserCertifications(userId: string) {
 }
 
 /**
- * Fetches a public certification record for verification.
+ * Fetches a public learning record for verification.
  * Restricted to public-safe fields.
  */
-export async function getPublicCertification(certId: string) {
+export async function getPublicLearningRecord(certId: string) {
   return await prisma.certification.findUnique({
     where: { certIdPublic: certId },
     select: {

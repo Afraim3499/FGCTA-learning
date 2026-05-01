@@ -11,11 +11,11 @@ const levels = [
   { num: "L2", name: "Core Strategy Families", skill: "Beginner→Inter", desc: "5 foundational archetypes: trend, breakout, MR, momentum, PA", unlocks: "L3 + Phase 1" },
   { num: "L3", name: "Strategy Subtypes", skill: "Intermediate", desc: "When each variant applies — adaptive MAs, squeeze, harmonics", unlocks: "L4 + Phase 2" },
   { num: "L4", name: "Market-Specific Edge", skill: "Inter→Advanced", desc: "Carry trade, on-chain, gold macro — exclusive strategies", unlocks: "L5 + Phase 3" },
-  { num: "L5", name: "Advanced & Institutional", skill: "Advanced", desc: "Order flow, derivatives, arbitrage, ML, market making", unlocks: "Phase 4" },
+  { num: "L5", name: "Advanced & Academy", skill: "Advanced", desc: "Order flow, derivatives, arbitrage, ML, market making", unlocks: "Phase 4" },
   { num: "L6", name: "Risk & Capital Systems", skill: "Inter→Advanced", desc: "Position sizing, stop systems, portfolio risk, hedging", unlocks: "Phase 4-5" },
   { num: "L7", name: "Regime & Conditions", skill: "Advanced", desc: "Classify market state, select strategies per regime", unlocks: "L8" },
   { num: "L8", name: "Strategy Integration", skill: "Advanced", desc: "Multi-pillar confluence, multi-timeframe systems", unlocks: "Phase 5" },
-  { num: "L9", name: "Execution & Psychology", skill: "All Levels", desc: "Execution algos, behavioral traps, journal discipline", unlocks: "Certification" },
+  { num: "L9", name: "Method & Psychology", skill: "All Levels", desc: "Method algos, behavioral traps, journal discipline", unlocks: "LearningRecord" },
 ];
 
 const skillColors: Record<string, string> = {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { InstitutionalButton } from "@/components/ui/institutional-button";
+import { AcademyButton } from "@/components/ui/academy-button";
 import { CheckCircle2, ChevronRight, Lock, RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { resolveRemediation } from "@/lib/assessment-actions";
@@ -13,32 +13,32 @@ interface RemediationQuizProps {
 
 const QUIZ_STEPS = [
   {
-    question: "Why was your entry considered a 'Retail Trap'?",
+    question: "Why was your analysis considered a 'Common Mistake'?",
     options: [
-      "I entered before the HTF structure break was confirmed.",
-      "The volume was too high on the breakout candle.",
-      "I was using a 1-minute timeframe for a daily bias.",
+      "I identified the setup before market structure was confirmed.",
+      "The price action was too aggressive on the breakout.",
+      "I was using a low timeframe for a high timeframe bias.",
       "All of the above."
     ],
     correct: 0
   },
   {
-    question: "Where should the institutional stop-loss have been placed?",
+    question: "Where should the academy-standard stop-loss have been placed?",
     options: [
-      "Exactly at the break-even point.",
-      "Below the last structural HL (Higher Low) candle.",
-      "Directly at the 50% equilibrium of the trap zone.",
-      "Stops are not necessary for institutional strategies."
+      "Exactly at the entry point.",
+      "Below the last structural low or high point.",
+      "Directly at the 50% equilibrium of the range.",
+      "Stops are always necessary for safe practice."
     ],
     correct: 1
   },
   {
-    question: "What is the correct protocol after a Liquidation event?",
+    question: "What is the recommended practice after an invalid setup?",
     options: [
-      "Double the position size to recover losses quickly (Martingale).",
+      "Wait for a clear re-confirmation of market behavior.",
       "Immediate re-entry into the same zone.",
-      "Post-mortem analysis and 24h market cooling period.",
-      "Contacting the broker to reverse the trade."
+      "Review the lesson and wait for the next clear opportunity.",
+      "Increase risk to recover previous losses."
     ],
     correct: 2
   }
@@ -61,7 +61,7 @@ export function RemediationQuiz({ moduleId }: RemediationQuizProps) {
       }
     } else {
       // Failed a question - restart the remediation
-      alert("Logic mismatch detected. Remediation reset.");
+      alert("Analysis mismatch. Let's review the steps again.");
       setCurrentStep(0);
       setSelectedOption(null);
     }
@@ -72,7 +72,7 @@ export function RemediationQuiz({ moduleId }: RemediationQuizProps) {
     try {
       const res = await resolveRemediation(moduleId);
       if (res.success) {
-        router.push(`/journey/core/tier-1/module-1.1`); // Return to module (should be dynamic)
+        router.push(`/course/module/${moduleId}`); // Return to module
       }
     } finally {
       setIsResolving(false);
@@ -80,29 +80,29 @@ export function RemediationQuiz({ moduleId }: RemediationQuizProps) {
   };
 
   return (
-    <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-10 space-y-8 relative overflow-hidden">
+    <div className="bg-white border border-[var(--ln-border)] rounded-[3rem] p-12 space-y-10 relative overflow-hidden shadow-sm">
       {!isResolved ? (
         <>
-          <div className="space-y-2">
+          <div className="space-y-3">
             <div className="flex items-center justify-between">
-               <span className="text-[10px] font-bold text-accent-blue uppercase tracking-widest">Remediation Quiz</span>
-               <span className="text-[10px] font-mono text-slate-500">{currentStep + 1} / {QUIZ_STEPS.length}</span>
+               <span className="text-[10px] font-extrabold text-[var(--ln-teal-500)] uppercase tracking-widest">Remediation Review</span>
+               <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">{currentStep + 1} / {QUIZ_STEPS.length}</span>
             </div>
-            <h3 className="text-xl font-bold text-white leading-tight">
+            <h3 className="text-2xl font-extrabold text-[var(--ln-navy-900)] leading-tight uppercase tracking-tight">
                {QUIZ_STEPS[currentStep].question}
             </h3>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
              {QUIZ_STEPS[currentStep].options.map((option, i) => (
                <button
                  key={i}
                  onClick={() => setSelectedOption(i)}
                  className={cn(
-                   "w-full text-left p-5 rounded-2xl border transition-all text-sm",
+                   "w-full text-left p-6 rounded-2xl border transition-all text-sm font-medium",
                    selectedOption === i 
-                     ? "bg-accent-blue/20 border-accent-blue text-white" 
-                     : "bg-white/5 border-white/5 text-slate-400 hover:bg-white/10"
+                     ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)] text-[var(--ln-navy-900)]" 
+                     : "bg-slate-50 border-slate-100 text-slate-500 hover:bg-slate-100"
                  )}
                >
                  {option}
@@ -110,36 +110,34 @@ export function RemediationQuiz({ moduleId }: RemediationQuizProps) {
              ))}
           </div>
 
-          <InstitutionalButton 
-            glow 
-            className="w-full" 
+          <button 
             disabled={selectedOption === null}
             onClick={handleNext}
+            className="w-full py-5 bg-[var(--ln-teal-500)] text-white rounded-2xl font-extrabold uppercase text-[10px] tracking-widest shadow-lg shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all disabled:opacity-30 flex items-center justify-center gap-3"
           >
-             CONTINUE ANALYSIS <ChevronRight size={16} className="ml-2" />
-          </InstitutionalButton>
+             CONTINUE REVIEW <ChevronRight size={18} />
+          </button>
         </>
       ) : (
-        <div className="text-center space-y-8 animate-in zoom-in-95 duration-500">
-           <div className="w-24 h-24 rounded-full bg-pass-green/10 border border-pass-green/20 flex items-center justify-center text-pass-green mx-auto shadow-[0_0_50px_rgba(0,255,0,0.1)]">
+        <div className="text-center space-y-10 animate-in zoom-in-95 duration-500">
+           <div className="w-24 h-24 rounded-[2rem] bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/20 flex items-center justify-center text-[var(--ln-teal-500)] mx-auto shadow-sm">
               <CheckCircle2 size={48} />
            </div>
-           <div className="space-y-2">
-              <h3 className="text-2xl font-bold text-white uppercase tracking-tight">Remediation Complete</h3>
-              <p className="text-slate-500 text-sm max-w-xs mx-auto">
-                 Institutional logic has been restored. You are authorized for a secondary execution attempt.
+           <div className="space-y-3">
+              <h3 className="text-3xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tighter">Review Complete</h3>
+              <p className="text-[var(--ln-text-secondary)] text-sm max-w-xs mx-auto font-medium leading-relaxed">
+                 Academy logic has been verified. You are ready to retry your practice session.
               </p>
            </div>
 
-           <div className="pt-6 border-t border-white/5">
-              <InstitutionalButton 
-                glow 
-                className="w-full" 
+           <div className="pt-8 border-t border-slate-50">
+              <button 
                 onClick={handleUnlock}
                 disabled={isResolving}
+                className="w-full py-5 bg-[var(--ln-teal-500)] text-white rounded-2xl font-extrabold uppercase text-[10px] tracking-widest shadow-lg shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all disabled:opacity-30"
               >
-                 {isResolving ? "SYNCING..." : "RETRY EXECUTION"}
-              </InstitutionalButton>
+                 {isResolving ? "SAVING..." : "RETRY PRACTICE"}
+              </button>
            </div>
         </div>
       )}

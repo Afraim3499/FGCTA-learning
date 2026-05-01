@@ -261,7 +261,7 @@ export function SpotThePatternGame() {
             </h3>
             <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">
               {totalCorrect === challenges.length
-                ? "You clearly have chart-reading skills. The Lurnava system will push you further — into strategies, risk management, and certification."
+                ? "You clearly have chart-reading skills. The Lurnava system will push you further — into strategies, risk management, and LearningRecord."
                 : "Chart reading is a skill that improves with practice. Lurnava Level 0 teaches all of this — with interactive drills, not just text."}
             </p>
             <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">

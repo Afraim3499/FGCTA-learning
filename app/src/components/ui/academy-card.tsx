@@ -6,7 +6,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const TerminalCard = React.forwardRef<
+const AcademyCard = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & { glass?: boolean }
 >(({ className, glass = true, ...props }, ref) => (
@@ -21,9 +21,9 @@ const TerminalCard = React.forwardRef<
     {...props}
   />
 ));
-TerminalCard.displayName = "TerminalCard";
+AcademyCard.displayName = "AcademyCard";
 
-const TerminalCardHeader = React.forwardRef<
+const AcademyCardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -33,9 +33,9 @@ const TerminalCardHeader = React.forwardRef<
     {...props}
   />
 ));
-TerminalCardHeader.displayName = "TerminalCardHeader";
+AcademyCardHeader.displayName = "AcademyCardHeader";
 
-const TerminalCardTitle = React.forwardRef<
+const AcademyCardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
@@ -48,9 +48,9 @@ const TerminalCardTitle = React.forwardRef<
     {...props}
   />
 ));
-TerminalCardTitle.displayName = "TerminalCardTitle";
+AcademyCardTitle.displayName = "AcademyCardTitle";
 
-const TerminalCardDescription = React.forwardRef<
+const AcademyCardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
@@ -60,17 +60,17 @@ const TerminalCardDescription = React.forwardRef<
     {...props}
   />
 ));
-TerminalCardDescription.displayName = "TerminalCardDescription";
+AcademyCardDescription.displayName = "AcademyCardDescription";
 
-const TerminalCardContent = React.forwardRef<
+const AcademyCardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
 ));
-TerminalCardContent.displayName = "TerminalCardContent";
+AcademyCardContent.displayName = "AcademyCardContent";
 
-const TerminalCardFooter = React.forwardRef<
+const AcademyCardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -80,13 +80,13 @@ const TerminalCardFooter = React.forwardRef<
     {...props}
   />
 ));
-TerminalCardFooter.displayName = "TerminalCardFooter";
+AcademyCardFooter.displayName = "AcademyCardFooter";
 
 export {
-  TerminalCard,
-  TerminalCardHeader,
-  TerminalCardFooter,
-  TerminalCardTitle,
-  TerminalCardDescription,
-  TerminalCardContent,
+  AcademyCard,
+  AcademyCardHeader,
+  AcademyCardFooter,
+  AcademyCardTitle,
+  AcademyCardDescription,
+  AcademyCardContent,
 };

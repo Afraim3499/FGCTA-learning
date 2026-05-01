@@ -1,7 +1,7 @@
 /**
  * Strategy Data Repository (V1)
  * 
- * Contains the execution checklists and logic definitions for the Strategy Lab.
+ * Contains the learning checklists and logic definitions for the Strategy Lab.
  * This acts as a lightweight source of truth before a full database migration.
  */
 
@@ -466,7 +466,7 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
   // --- LEVEL 1 FOUNDATIONS ---
   {
     logicId: "SR_01.1",
-    name: "Institutional Supply/Demand",
+    name: "Market Supply/Demand",
     family: "SR",
     track: "core",
     level: 1,
@@ -518,7 +518,7 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
   },
   {
     logicId: "PA_04.1",
-    name: "Institutional Candle Timing",
+    name: "Price Action Candle Timing",
     family: "PA",
     track: "core",
     level: 1,
@@ -544,11 +544,11 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
   },
   {
     logicId: "EX_01",
-    name: "Institutional Execution Protocol",
-    family: "Execution",
+    name: "Academy Entry Logic",
+    family: "Decision Logic",
     track: "core",
     level: 3,
-    setupSummary: "The baseline protocol for entering a trade once all confluence criteria are met.",
+    setupSummary: "The baseline method for entering a trade once all confluence criteria are met.",
     checklists: {
       entry: [
         "Wait for price to reach the Order Block or Liquidity Zone",
@@ -566,12 +566,12 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
         "Higher Timeframe structure shift (CHoCH)"
       ]
     },
-    riskNotes: "Focus on execution speed and precision. Do not hesitate once the trigger is present.",
+    riskNotes: "Focus on entry speed and precision. Do not hesitate once the trigger is present.",
     metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "3.1"
   },
   {
     logicId: "TF_ICH_01",
-    name: "Ichimoku Cloud Protocol",
+    name: "Ichimoku Cloud Logic",
     family: "Trend following",
     track: "core",
     level: 2,

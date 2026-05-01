@@ -11,57 +11,85 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
-  RotateCcw
+  RotateCcw,
+  X
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { InstitutionalButton } from "@/components/ui/institutional-button";
+import { AcademyButton } from "@/components/ui/academy-button";
 import { DataBadge } from "@/components/ui/data-badge";
-import { TerminalCard, TerminalCardContent, TerminalCardHeader, TerminalCardTitle } from "@/components/ui/terminal-card";
-import { ChartSimulator } from "./interactive/chart-simulator";
+import { AcademyCard, AcademyCardContent, AcademyCardHeader, AcademyCardTitle } from "@/components/ui/academy-card";
+import { ChartPractice } from "@/components/academy/interactive/chart-practice-engine"; 
 
 import { generateMockCandles } from "@/lib/utils/market";
 
 interface StrategyLabClientProps {
   userTrack: string;
   completedModuleNumbers: Set<string>;
+  initialSavedAnalyses: any[];
+  dbStrategies: any[];
 }
+
+const PRIMARY_TABS = ["Core Concepts", "Market Logic", "Risk & Bias", "Saved"] as const;
+type PrimaryTab = typeof PRIMARY_TABS[number];
+
+const CATEGORY_MAP: Record<string, PrimaryTab> = {
+  "Trend Following": "Core Concepts",
+  "Trend Structure": "Core Concepts",
+  "Trend following": "Core Concepts",
+  "Trend structure": "Core Concepts",
+  "Breakout": "Core Concepts",
+  "Reversal": "Core Concepts",
+  "PA": "Core Concepts",
+  "SR": "Core Concepts",
+  "Market Specific Edge": "Market Logic",
+  "On-Chain Analytics": "Market Logic",
+  "Macro Drivers": "Market Logic",
+  "Seasonal Patterns": "Market Logic",
+  "Derivatives & Funding": "Market Logic",
+  "Risk Management": "Risk & Bias",
+  "Decision Logic": "Risk & Bias",
+  "VM": "Risk & Bias",
+};
 
 export function StrategyLabClient({ 
   userTrack, 
   completedModuleNumbers, 
   initialSavedAnalyses,
   dbStrategies 
-}: StrategyLabClientProps & { initialSavedAnalyses: any[], dbStrategies: any[] }) {
-  const [activeTab, setActiveTab] = useState<"library" | "forge" | "vault">("library");
+}: StrategyLabClientProps) {
+  const [activeTab, setActiveTab] = useState<PrimaryTab>("Core Concepts");
   const [search, setSearch] = useState("");
-  const [selectedFamily, setSelectedFamily] = useState<string | null>(null);
-  const [selectedStrategy, setSelectedStrategy] = useState<StrategyDefinition | null>(STRATEGIES_DATA[0]);
-  const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [savedAnalyses, setSavedAnalyses] = useState(initialSavedAnalyses);
+  const [selectedStrategy, setSelectedStrategy] = useState<StrategyDefinition | null>(null);
   
-  // Forge State
+  // Practice State
+  const [isPracticing, setIsPracticing] = useState(false);
+  const [forgeData] = useState(() => generateMockCandles(200, 2300));
   const [forgeBias, setForgeBias] = useState<"bullish" | "bearish" | "neutral">("neutral");
   const [forgeRationale, setForgeRationale] = useState("");
   const [isSaving, setIsSaving] = useState(false);
+  
+  // Saved Analyses
+  const [savedAnalyses, setSavedAnalyses] = useState(initialSavedAnalyses);
   const [viewingAnalysis, setViewingAnalysis] = useState<any | null>(null);
-  const [forgeData] = useState(() => generateMockCandles(200, 2300));
 
   // Filter strategies
   const availableStrategies = STRATEGIES_DATA.filter(s => 
     s.track === "core" || s.track === userTrack || userTrack === "multi"
   );
 
-  const families = Array.from(new Set(availableStrategies.map(s => s.family)));
-
   const filteredStrategies = availableStrategies.filter(s => {
     const matchesSearch = s.name.toLowerCase().includes(search.toLowerCase()) || 
                           s.logicId.toLowerCase().includes(search.toLowerCase());
-    const matchesFamily = !selectedFamily || s.family === selectedFamily;
-    return matchesSearch && matchesFamily;
+    
+    // Fallback unmapped to Core Concepts
+    const mappedTab = CATEGORY_MAP[s.family] || "Core Concepts";
+    const matchesTab = mappedTab === activeTab;
+    
+    return matchesSearch && matchesTab;
   });
 
   const handleSaveAnalysis = async (boxes: any[]) => {
-    if (!selectedStrategy) return;
+    if (!selectedStrategy && !viewingAnalysis) return;
     setIsSaving(true);
     try {
       const { saveAnalysis } = await import("@/lib/academy-actions");
@@ -72,11 +100,12 @@ export function StrategyLabClient({
         bias: forgeBias,
         rationale: forgeRationale,
         chartState: { boxes },
-        moduleId: selectedStrategy.linkedModuleNumber
+        moduleId: selectedStrategy?.linkedModuleNumber || "GENERAL"
       });
       if (result.success) {
         setSavedAnalyses([result.analysis, ...savedAnalyses]);
-        setActiveTab("vault");
+        setIsPracticing(false);
+        setActiveTab("Saved");
         setForgeRationale("");
         setForgeBias("neutral");
       }
@@ -87,154 +116,242 @@ export function StrategyLabClient({
     }
   };
 
+  const handleSelectStrategy = (s: StrategyDefinition) => {
+    setSelectedStrategy(s);
+    setIsPracticing(false);
+    setViewingAnalysis(null);
+  };
+
+  const handleSelectAnalysis = (analysis: any) => {
+    setViewingAnalysis(analysis);
+    setIsPracticing(true);
+  };
+
   return (
     <div className="flex flex-col h-full gap-6 overflow-hidden">
-      {/* Tab Navigation */}
-      <div className="flex items-center gap-2 bg-white/5 p-1 rounded-2xl border border-white/10 w-fit">
-        {[
-          { id: "library", label: "Protocol Library", icon: BookOpen },
-          { id: "forge", label: "Analysis Forge", icon: Target },
-          { id: "vault", label: "My Vault", icon: ShieldCheck }
-        ].map(tab => (
+      
+      {/* 4 Primary Category Tabs */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 custom-scrollbar shrink-0">
+        {PRIMARY_TABS.map(tab => (
           <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id as any)}
+            key={tab}
+            onClick={() => {
+               setActiveTab(tab);
+               setSelectedStrategy(null);
+               setIsPracticing(false);
+               setViewingAnalysis(null);
+            }}
             className={cn(
-              "flex items-center gap-2 px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all",
-              activeTab === tab.id ? "bg-white text-black shadow-lg" : "text-slate-500 hover:text-white"
+              "px-5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap",
+              activeTab === tab 
+                ? "bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] border border-[var(--ln-teal-500)]/20 shadow-sm" 
+                : "bg-white text-[var(--ln-text-secondary)] border border-[var(--ln-border)] hover:bg-slate-50 hover:text-[var(--ln-navy-900)]"
             )}
           >
-            <tab.icon size={14} />
-            {tab.label}
+            {tab}
           </button>
         ))}
       </div>
 
-      <div className="flex flex-1 h-full gap-8 overflow-hidden">
-        {activeTab === "library" && (
-          <>
-            {/* Left: Search and List */}
-            <div className="w-[380px] flex flex-col gap-4 shrink-0 overflow-hidden">
-              <div className="space-y-4">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
-                  <input 
-                    type="text" 
-                    placeholder="Search Logic ID..." 
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-2xl text-sm text-white focus:outline-none focus:border-accent-blue/50 transition-all"
-                  />
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {families.map(f => (
-                    <button 
-                      key={f}
-                      onClick={() => setSelectedFamily(selectedFamily === f ? null : f)}
-                      className={cn(
-                        "px-3 py-1.5 rounded-lg text-[9px] font-bold uppercase tracking-widest border transition-all",
-                        selectedFamily === f ? "bg-white text-black border-white" : "bg-white/5 text-slate-400 border-white/10"
-                      )}
-                    >
-                      {f}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex-1 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
-                {filteredStrategies.map((s) => (
-                  <button
-                    key={s.logicId}
-                    onClick={() => setSelectedStrategy(s)}
-                    className={cn(
-                      "w-full text-left p-5 rounded-3xl border transition-all group",
-                      selectedStrategy?.logicId === s.logicId ? "bg-accent-blue/10 border-accent-blue/30" : "bg-white/[0.02] border-white/5"
-                    )}
-                  >
-                    <div className="flex items-center justify-between">
-                       <div className="space-y-1">
-                          <span className="text-[9px] font-mono font-bold text-accent-blue uppercase">{s.logicId}</span>
-                          <h4 className="font-bold text-white text-sm">{s.name}</h4>
-                       </div>
-                       <ChevronRight size={16} className="text-slate-600 group-hover:translate-x-1 transition-all" />
-                    </div>
-                  </button>
-                ))}
-              </div>
+      <div className="flex flex-col lg:flex-row flex-1 gap-8 overflow-hidden">
+        
+        {/* LEFT LIST PANEL */}
+        <div className={cn(
+          "w-full lg:w-[380px] flex-col gap-4 shrink-0 overflow-hidden",
+          (selectedStrategy || viewingAnalysis || isPracticing) ? "hidden lg:flex" : "flex"
+        )}>
+          {activeTab !== "Saved" && (
+            <div className="relative shrink-0">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+              <input 
+                type="text" 
+                placeholder="Search concepts, lessons, or terms..." 
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 bg-white border border-[var(--ln-border)] rounded-xl text-sm text-[var(--ln-navy-900)] font-medium focus:outline-none focus:border-[var(--ln-teal-500)]/50 transition-all shadow-sm placeholder:text-slate-400"
+              />
             </div>
+          )}
 
-            {/* Right: Detail */}
-            <div className="flex-1 bg-white/[0.02] border border-white/5 rounded-[2.5rem] overflow-hidden">
-               {selectedStrategy ? (
-                 <div className="h-full overflow-y-auto p-12 space-y-12 custom-scrollbar">
-                    <div className="space-y-6">
-                       <div className="flex items-center justify-between">
-                          <div className="space-y-2">
-                             <div className="flex items-center gap-2">
-                                <DataBadge variant="outline" className="text-accent-blue">{selectedStrategy.logicId}</DataBadge>
-                                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{selectedStrategy.family}</span>
-                             </div>
-                             <h2 className="text-4xl font-bold text-white tracking-tighter uppercase">{selectedStrategy.name}</h2>
-                          </div>
-                          <InstitutionalButton variant="outline" size="sm" onClick={() => setActiveTab("forge")}>
-                             PRACTICE IN FORGE
-                          </InstitutionalButton>
-                       </div>
-                       <p className="text-lg text-text-secondary leading-relaxed max-w-2xl">{selectedStrategy.setupSummary}</p>
-                    </div>
+          <div className="flex-1 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
+            {activeTab !== "Saved" ? (
+              filteredStrategies.length > 0 ? filteredStrategies.map((s) => (
+                <button
+                  key={s.logicId}
+                  onClick={() => handleSelectStrategy(s)}
+                  className={cn(
+                    "w-full text-left p-4 rounded-2xl border transition-all group",
+                    selectedStrategy?.logicId === s.logicId && !isPracticing
+                      ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 border-l-4 border-l-[var(--ln-teal-500)]" 
+                      : "bg-white border-[var(--ln-border)] hover:border-[var(--ln-teal-500)]/20 hover:bg-slate-50"
+                  )}
+                >
+                  <div className="flex flex-col gap-1.5">
+                     <span className="text-[10px] font-bold text-[var(--ln-teal-600)] uppercase tracking-wider">{s.logicId}</span>
+                     <h4 className="font-bold text-[var(--ln-navy-900)] text-sm">{s.name}</h4>
+                  </div>
+                </button>
+              )) : (
+                <div className="p-6 text-center text-sm text-slate-400 italic">No concepts found.</div>
+              )
+            ) : (
+              // Saved Analyses List
+              savedAnalyses.length > 0 ? savedAnalyses.map((analysis) => (
+                <button
+                  key={analysis.id}
+                  onClick={() => handleSelectAnalysis(analysis)}
+                  className={cn(
+                    "w-full text-left p-4 rounded-2xl border transition-all group",
+                    viewingAnalysis?.id === analysis.id 
+                      ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 border-l-4 border-l-[var(--ln-teal-500)]" 
+                      : "bg-white border-[var(--ln-border)] hover:border-[var(--ln-teal-500)]/20 hover:bg-slate-50"
+                  )}
+                >
+                  <div className="flex items-center justify-between mb-2">
+                     <span className={cn(
+                       "px-2 py-0.5 rounded text-[9px] font-bold uppercase",
+                       analysis.bias === "bullish" ? "bg-teal-50 text-teal-600" : 
+                       analysis.bias === "bearish" ? "bg-rose-50 text-rose-600" : 
+                       "bg-slate-100 text-slate-500"
+                     )}>
+                        {analysis.bias}
+                     </span>
+                     <span className="text-[10px] text-slate-400">{new Date(analysis.createdAt).toLocaleDateString()}</span>
+                  </div>
+                  <h4 className="font-bold text-[var(--ln-navy-900)] text-sm">{analysis.instrument} / {analysis.timeframe}</h4>
+                </button>
+              )) : (
+                <div className="p-6 text-center text-sm text-slate-400 italic">My Journal is currently empty.</div>
+              )
+            )}
+          </div>
+        </div>
 
-                    <div className="grid grid-cols-2 gap-8">
-                       <div className="space-y-4">
-                          <h4 className="text-xs font-bold text-pass-green uppercase tracking-widest flex items-center gap-2">
-                             <CheckCircle2 size={14} /> Entry Protocol
-                          </h4>
-                          <div className="space-y-3">
-                             {selectedStrategy.checklists.entry.map((step, i) => (
-                               <div key={i} className="p-4 bg-white/5 border border-white/5 rounded-2xl text-xs text-text-secondary">
-                                  {step}
-                               </div>
-                             ))}
-                          </div>
-                       </div>
-                       <div className="space-y-4">
-                          <h4 className="text-xs font-bold text-fail-red uppercase tracking-widest flex items-center gap-2">
-                             <AlertTriangle size={14} /> Invalidation
-                          </h4>
-                          <div className="space-y-3">
-                             {selectedStrategy.checklists.invalidation.map((step, i) => (
-                               <div key={i} className="p-4 bg-white/5 border border-white/5 rounded-2xl text-xs text-text-secondary">
-                                  {step}
-                               </div>
-                             ))}
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-               ) : (
-                 <div className="h-full flex items-center justify-center text-text-muted italic">Select a strategy to view protocol</div>
-               )}
-            </div>
-          </>
-        )}
+        {/* RIGHT DETAIL PANEL */}
+        <div className={cn(
+          "flex-1 bg-white border border-[var(--ln-border)] rounded-3xl overflow-hidden shadow-sm flex-col min-h-[600px] lg:min-h-0",
+          !selectedStrategy ? "hidden lg:flex" : "flex"
+        )}>
+           
+           {!selectedStrategy ? (
+             <div className="flex-1 flex flex-col items-center justify-center text-center p-8">
+               <BookOpen className="w-12 h-12 text-slate-200 mb-4" />
+               <p className="text-slate-500 font-medium">Select a concept to review its criteria.</p>
+             </div>
+           ) : (
+             // DETAIL VIEW
+             <div className="flex-1 overflow-y-auto p-6 md:p-10 space-y-10 custom-scrollbar">
+                
+                {/* Mobile Back Button */}
+                <button 
+                  onClick={() => setSelectedStrategy(null)}
+                  className="lg:hidden flex items-center gap-1 text-sm font-bold text-slate-500 hover:text-[var(--ln-navy-900)] -mb-4"
+                >
+                  <ChevronRight size={16} className="rotate-180" /> Back to Library
+                </button>
 
-        {activeTab === "forge" && (
-          <div className="flex-1 flex flex-col gap-6 overflow-hidden">
-             <div className="grid grid-cols-12 gap-8 h-full">
-                <div className="col-span-8 bg-black/50 border border-white/5 rounded-[2.5rem] overflow-hidden relative">
-                   {viewingAnalysis && (
-                      <div className="absolute top-8 left-8 z-20 flex items-center gap-3 px-4 py-2 bg-accent-blue/20 border border-accent-blue/30 rounded-xl backdrop-blur-md animate-pulse">
-                         <ShieldCheck size={14} className="text-accent-blue" />
-                         <span className="text-[10px] font-bold text-white uppercase tracking-widest">Replaying Historical Analysis</span>
-                         <button 
-                            onClick={() => setViewingAnalysis(null)}
-                            className="ml-2 p-1 hover:bg-white/10 rounded-lg transition-all"
-                         >
-                            <RotateCcw size={12} className="text-slate-400" />
-                         </button>
-                      </div>
-                   )}
-                   <ChartSimulator 
+                {/* 1 & 2: Header, Badge, ID */}
+                <div className="space-y-4">
+                   <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-1 rounded bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] text-[10px] font-bold uppercase tracking-wider">Concept ID: {selectedStrategy.logicId}</span>
+                      <span className="text-[11px] font-semibold text-slate-500">{selectedStrategy.family}</span>
+                   </div>
+                   <h2 className="text-2xl md:text-3xl font-bold text-[var(--ln-navy-900)] tracking-tight">{selectedStrategy.name}</h2>
+                </div>
+
+                {/* 3: Concept Summary */}
+                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                   <p className="text-sm md:text-base text-[var(--ln-text-secondary)] leading-relaxed font-medium">
+                     {selectedStrategy.setupSummary}
+                   </p>
+                </div>
+
+                {/* 4 & 5: Criteria */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                   <div className="space-y-4">
+                      <h4 className="text-sm font-bold text-[var(--ln-teal-600)] flex items-center gap-2">
+                         <CheckCircle2 size={18} /> Decision Criteria
+                      </h4>
+                      <ul className="space-y-2">
+                         {selectedStrategy.checklists.entry.map((step, i) => (
+                           <li key={i} className="p-4 bg-white border border-slate-200 rounded-xl text-xs md:text-sm text-slate-600 leading-relaxed shadow-sm">
+                              {step}
+                            </li>
+                         ))}
+                      </ul>
+                   </div>
+                   <div className="space-y-4">
+                      <h4 className="text-sm font-bold text-rose-500 flex items-center gap-2">
+                         <AlertTriangle size={18} /> Review Conditions
+                      </h4>
+                      <ul className="space-y-2">
+                         {selectedStrategy.checklists.invalidation.map((step, i) => (
+                           <li key={i} className="p-4 bg-white border border-slate-200 rounded-xl text-xs md:text-sm text-slate-600 leading-relaxed shadow-sm">
+                              {step}
+                            </li>
+                         ))}
+                      </ul>
+                   </div>
+                </div>
+
+                {/* 6 & 7: Mistake & Links */}
+                <div className="flex flex-col gap-4">
+                   <div className="p-5 bg-amber-50 border border-amber-100 rounded-2xl">
+                      <h4 className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-2">Common Mistake</h4>
+                      <p className="text-sm text-amber-900/80">{selectedStrategy.riskNotes}</p>
+                   </div>
+                   <div className="flex items-center gap-2 mt-4">
+                      <span className="text-sm font-medium text-slate-500">Related Lesson:</span>
+                      <span className="text-sm font-bold text-[var(--ln-navy-900)]">Module {selectedStrategy.linkedModuleNumber}</span>
+                   </div>
+                </div>
+
+                {/* 8: CTA */}
+                <div className="pt-6 border-t border-slate-100">
+                   <button 
+                     onClick={() => setIsPracticing(true)}
+                     className="w-full md:w-auto px-8 py-3.5 bg-[var(--ln-teal-500)] text-white rounded-xl text-sm font-bold shadow-md shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all flex items-center justify-center gap-2"
+                   >
+                      <Target size={18} /> Practice This Concept
+                   </button>
+                </div>
+
+             </div>
+           )}
+        </div>
+      </div>
+
+      {/* FULL-SCREEN PRACTICE MODAL */}
+      {(isPracticing || viewingAnalysis) && (
+        <div className="fixed inset-0 z-[100] bg-slate-50 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+           {/* Modal Header */}
+           <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-slate-200 shadow-sm shrink-0">
+             <div className="flex items-center gap-3">
+               <div className="p-2 bg-[var(--ln-teal-soft)] rounded-xl">
+                 <Target className="w-5 h-5 text-[var(--ln-teal-500)]" />
+               </div>
+               <div>
+                 <p className="text-[10px] font-extrabold text-[var(--ln-teal-600)] uppercase tracking-widest">
+                   {viewingAnalysis ? "My Journal" : "Concept Practice"}
+                 </p>
+                 <h2 className="text-sm md:text-base font-bold text-[var(--ln-navy-900)]">
+                   {viewingAnalysis ? viewingAnalysis.instrument : selectedStrategy?.name}
+                 </h2>
+               </div>
+             </div>
+             <button 
+               onClick={() => { setIsPracticing(false); setViewingAnalysis(null); }}
+               className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
+             >
+               <X size={24} />
+             </button>
+           </div>
+
+           {/* Modal Body */}
+           <div className="flex-1 overflow-hidden flex flex-col lg:flex-row">
+             <div className="flex-1 overflow-y-auto bg-slate-100 p-4 md:p-6 flex flex-col custom-scrollbar">
+                <div className="flex-1 min-h-[500px] flex flex-col">
+                   <ChartPractice 
                       prompt={viewingAnalysis ? `Reviewing: ${viewingAnalysis.instrument}` : (selectedStrategy?.name || "Free Analysis Mode")}
                       data={viewingAnalysis ? viewingAnalysis.chartState.candles : forgeData} 
                       onValidate={() => {}} 
@@ -242,91 +359,66 @@ export function StrategyLabClient({
                       readOnly={!!viewingAnalysis}
                    />
                 </div>
-                <div className="col-span-4 space-y-6">
-                   <TerminalCard className="h-fit">
-                      <TerminalCardHeader>
-                         <TerminalCardTitle className="text-sm">Analysis Rationale</TerminalCardTitle>
-                      </TerminalCardHeader>
-                      <TerminalCardContent className="space-y-6">
-                         <div className="space-y-3">
-                            <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Market Bias</label>
-                            <div className="grid grid-cols-3 gap-2">
-                               {["bullish", "bearish", "neutral"].map(b => (
-                                 <button
-                                    key={b}
-                                    onClick={() => setForgeBias(b as any)}
-                                    className={cn(
-                                      "py-2 rounded-xl text-[9px] font-bold uppercase tracking-widest border transition-all",
-                                      forgeBias === b ? "bg-accent-blue border-accent-blue text-white" : "bg-white/5 border-white/10 text-slate-500"
-                                    )}
-                                 >
-                                    {b}
-                                 </button>
-                               ))}
-                            </div>
-                         </div>
-                         <div className="space-y-3">
-                            <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Logic Justification</label>
-                            <textarea 
-                               value={forgeRationale}
-                               onChange={(e) => setForgeRationale(e.target.value)}
-                               placeholder="Explain the institutional footprint you've identified..."
-                               className="w-full h-32 bg-white/5 border border-white/10 rounded-2xl p-4 text-xs text-white focus:outline-none focus:border-accent-blue/50"
-                            />
-                         </div>
-                         <InstitutionalButton 
-                            glow 
-                            className="w-full" 
-                            disabled={!forgeRationale || isSaving}
-                            onClick={() => handleSaveAnalysis([])}
-                         >
-                            {isSaving ? "SYNCING..." : "SAVE TO STRATEGY VAULT"}
-                         </InstitutionalButton>
-                      </TerminalCardContent>
-                   </TerminalCard>
+             </div>
+             
+             {/* Rationale Sidebar */}
+             <div className="w-full lg:w-96 bg-white border-t lg:border-t-0 lg:border-l border-slate-200 shrink-0 flex flex-col">
+                <div className="p-6 flex-1 overflow-y-auto space-y-6 custom-scrollbar">
+                  <div className="space-y-4">
+                     <h3 className="font-bold text-[var(--ln-navy-900)] text-sm">Analysis Rationale</h3>
+                     <div className="space-y-2">
+                        <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Market Bias</label>
+                        <div className="grid grid-cols-3 gap-2">
+                           {["bullish", "bearish", "neutral"].map(b => (
+                             <button
+                                key={b}
+                                onClick={() => setForgeBias(b as any)}
+                                disabled={!!viewingAnalysis}
+                                className={cn(
+                                  "py-2 rounded-lg text-[10px] font-bold uppercase transition-all",
+                                  (viewingAnalysis ? viewingAnalysis.bias : forgeBias) === b 
+                                    ? "bg-[var(--ln-navy-900)] text-white" 
+                                    : "bg-slate-50 text-slate-500 border border-slate-200 hover:bg-slate-100"
+                                )}
+                             >
+                                {b}
+                             </button>
+                           ))}
+                        </div>
+                     </div>
+                     <div className="space-y-2">
+                         <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Logic Justification</label>
+                        <textarea 
+                           value={viewingAnalysis ? viewingAnalysis.rationale : forgeRationale}
+                           onChange={(e) => setForgeRationale(e.target.value)}
+                           disabled={!!viewingAnalysis}
+                           placeholder="Explain the market behavior you've identified..."
+                           className="w-full h-32 bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-[var(--ln-navy-900)] focus:outline-none focus:border-[var(--ln-teal-500)]/50 transition-all resize-none disabled:bg-slate-100 disabled:text-slate-600 shadow-inner"
+                        />
+                     </div>
+                     {!viewingAnalysis && (
+                       <button 
+                          disabled={!forgeRationale || isSaving}
+                          onClick={() => handleSaveAnalysis([])}
+                          className="w-full py-3 bg-[var(--ln-teal-500)] text-white rounded-xl font-bold text-xs hover:bg-[var(--ln-teal-600)] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-[var(--ln-teal-500)]/20"
+                       >
+                          {isSaving ? "Saving..." : "Save to My Journal"}
+                       </button>
+                     )}
+                     {viewingAnalysis && (
+                        <button 
+                          onClick={() => setViewingAnalysis(null)}
+                          className="w-full py-3 bg-slate-100 text-[var(--ln-text-secondary)] rounded-xl font-bold text-xs hover:bg-slate-200 transition-all border border-slate-200"
+                       >
+                          Close Journal Entry
+                       </button>
+                     )}
+                  </div>
                 </div>
              </div>
-          </div>
-        )}
-
-        {activeTab === "vault" && (
-          <div className="flex-1 space-y-6 overflow-y-auto pr-4 custom-scrollbar">
-             {savedAnalyses.length === 0 ? (
-               <div className="h-full flex items-center justify-center text-text-muted italic">Your vault is currently empty. Start analyzing in the Forge.</div>
-             ) : (
-               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {savedAnalyses.map(analysis => (
-                    <TerminalCard 
-                       key={analysis.id} 
-                       className="hover:border-accent-blue/30 transition-all cursor-pointer group"
-                       onClick={() => {
-                          setViewingAnalysis(analysis);
-                          setActiveTab("forge");
-                       }}
-                    >
-                       <TerminalCardHeader className="flex flex-row justify-between items-start">
-                          <div className="space-y-1">
-                             <DataBadge variant={analysis.bias === "bullish" ? "profit" : analysis.bias === "bearish" ? "loss" : "outline"} className="text-[8px]">
-                                {analysis.bias.toUpperCase()}
-                             </DataBadge>
-                             <TerminalCardTitle className="text-sm font-bold">{analysis.instrument} / {analysis.timeframe}</TerminalCardTitle>
-                          </div>
-                          <span className="text-[8px] font-mono text-text-muted">{new Date(analysis.createdAt).toLocaleDateString()}</span>
-                       </TerminalCardHeader>
-                       <TerminalCardContent className="space-y-4">
-                          <p className="text-xs text-text-secondary line-clamp-2 italic">"{analysis.rationale}"</p>
-                          <div className="pt-4 border-t border-white/5 flex justify-between items-center">
-                             <span className="text-[9px] font-bold text-accent-blue uppercase tracking-widest">Protocol: V5_CORE</span>
-                             <ArrowRight size={14} className="text-slate-600" />
-                          </div>
-                       </TerminalCardContent>
-                    </TerminalCard>
-                  ))}
-               </div>
-             )}
-          </div>
-        )}
-      </div>
+           </div>
+        </div>
+      )}
     </div>
   );
 }

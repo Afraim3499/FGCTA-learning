@@ -1,7 +1,7 @@
 import type { Tick, OHLCV } from "./chart-types";
 import { ReplayLoop } from "./replay-loop";
 import type { ReplayCursor } from "./replay-loop";
-import { ExecutionEngine, PortfolioEngine, RulesEngine } from "./execution-engine";
+import { OrderEngine, PortfolioEngine, RulesEngine } from "./order-engine";
 
 // --- Event Bus Types ---
 export type EngineEventType =
@@ -102,7 +102,7 @@ export class TradingEngine {
     positions: [],
   };
 
-  private executionEngine!: ExecutionEngine;
+  private OrderEngine!: OrderEngine;
   private portfolioEngine!: PortfolioEngine;
   private rulesEngine!: RulesEngine;
 
@@ -146,7 +146,7 @@ export class TradingEngine {
 
   private initializeSubEngines() {
     this.portfolioEngine = new PortfolioEngine(10000);
-    this.executionEngine = new ExecutionEngine(
+    this.OrderEngine = new OrderEngine(
       this.config,
       this.eventBus,
       () => this.replayLoop.cursor,
@@ -160,7 +160,7 @@ export class TradingEngine {
       this.scenarioState.currentTick = tick;
 
       // 1. Execution Engine checks SL/TP
-      this.executionEngine.checkTriggers(tick);
+      this.OrderEngine.checkTriggers(tick);
 
       // 2. Portfolio Engine updates floating PnL
       const { floatingPnl, equity } = this.portfolioEngine.evaluateTick(tick);
@@ -190,7 +190,7 @@ export class TradingEngine {
     if (this.replayLoop.cursor.status !== "running") return null;
     if (!this.scenarioState.currentTick) return null;
 
-    const posData = this.executionEngine.executeMarketOrder(intent, this.scenarioState.currentTick);
+    const posData = this.OrderEngine.executeMarketOrder(intent, this.scenarioState.currentTick);
     
     if (!posData) return null;
 
@@ -213,12 +213,12 @@ export class TradingEngine {
   public closePosition(id: string) {
     if (this.replayLoop.cursor.status !== "running") return;
     if (!this.scenarioState.currentTick) return;
-    this.executionEngine.closePositionManual(id, this.scenarioState.currentTick);
+    this.OrderEngine.closePositionManual(id, this.scenarioState.currentTick);
   }
 
   // Phase 5: Expose Trade Log
   public get tradeLog() {
-    return this.executionEngine.tradeLog;
+    return this.OrderEngine.tradeLog;
   }
 
   // --- Lifecycle Methods ---

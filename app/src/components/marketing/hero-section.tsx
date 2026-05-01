@@ -39,7 +39,7 @@ export function HeroSection() {
                 <Sparkles size={14} className="animate-pulse" />
                 STRUCTURED MARKET EDUCATION PLATFORM
               </span>
-              <h1 className="text-5xl md:text-6xl lg:text-[76px] font-black tracking-tight leading-[0.9] text-[var(--ln-navy-900)]">
+              <h1 className="text-5xl md:text-6xl lg:text-[76px] font-extrabold tracking-tight leading-[0.9] text-[var(--ln-navy-900)]">
                 Learn the market<br />with structure<span className="text-[var(--ln-teal-500)]">.</span>
               </h1>
               <p className="text-base md:text-lg text-[var(--ln-text-secondary)] max-w-xl leading-relaxed font-medium">
@@ -179,7 +179,7 @@ export function HeroSection() {
                        initial={{ opacity: 0, y: 10 }}
                        animate={{ opacity: 1, y: 0 }}
                        transition={{ delay: 1 }}
-                       className="text-2xl font-black text-[var(--ln-navy-900)] tracking-tighter"
+                       className="text-2xl font-extrabold text-[var(--ln-navy-900)] tracking-tighter"
                     >
                       72%
                     </motion.span>
@@ -205,7 +205,7 @@ export function HeroSection() {
                        </div>
                        <p className="text-[10px] font-bold text-[var(--ln-navy-900)]">{stat.label}</p>
                     </div>
-                    <span className={cn("text-[12px] font-black", stat.accent ? "text-[var(--ln-teal-500)]" : "text-[var(--ln-navy-900)]")}>
+                    <span className={cn("text-[12px] font-extrabold", stat.accent ? "text-[var(--ln-teal-500)]" : "text-[var(--ln-navy-900)]")}>
                       {stat.val}
                     </span>
                   </motion.div>
@@ -264,7 +264,7 @@ export function HeroSection() {
                            <rect x={c.x - 4} y={Math.min(c.o, c.c)} width="8" height={Math.max(2, Math.abs(c.o - c.c))} fill={c.c < c.o ? "var(--ln-teal-500)" : "var(--ln-navy-900)"} rx="1.5" />
                          </motion.g>
                        ))}
-                       <g className="text-[10px] font-black uppercase tracking-tighter">
+                       <g className="text-[10px] font-extrabold uppercase tracking-tighter">
                           <text x="60" y="50" className="fill-[var(--ln-teal-500)]">HH</text>
                           <text x="100" y="180" className="fill-[var(--ln-teal-500)]">HL</text>
                           <motion.circle 

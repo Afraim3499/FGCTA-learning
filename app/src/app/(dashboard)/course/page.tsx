@@ -1,73 +1,54 @@
 import { getCourseLevels } from "@/lib/course-actions";
-import Link from "next/link";
-import { Lock, ChevronRight, CheckCircle2, PlayCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { LevelCard } from "@/components/academy/level-card";
 
 export default async function AcademyPage() {
   const levels = await getCourseLevels();
 
   return (
-    <div className="space-y-10">
-      <section className="space-y-2">
-        <h1 className="text-3xl font-bold text-white">Academy</h1>
-        <p className="text-[var(--color-text-secondary)] italic">
-          Master the markets through a structured, institutional curriculum.
+    <div className="space-y-8 pb-20">
+      {/* Header Section */}
+      <section className="space-y-3">
+        <h1 className="text-3xl font-extrabold text-[var(--ln-navy-900)] tracking-tight">Academy</h1>
+        <p className="text-[var(--ln-text-secondary)] font-medium max-w-2xl leading-relaxed">
+          Build your market understanding through structured levels, visual lessons, 
+          practice blocks, chart missions, and knowledge tests.
         </p>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {levels.map((level) => (
-          <Link
-            key={level.level}
-            href={level.locked ? "#" : `/course/${level.level}`}
-            className={cn(
-              "group p-6 rounded-2xl border transition-all relative overflow-hidden",
-              level.locked
-                ? "bg-[var(--color-surface-secondary)] border-[var(--color-border-default)] opacity-60 cursor-not-allowed"
-                : "bg-gradient-to-br from-[var(--color-surface-secondary)] to-[var(--color-surface-tertiary)] border-[var(--color-border-default)] hover:border-[var(--color-brand-500)] shadow-lg hover:shadow-brand-500/5"
-            )}
-          >
-            <div className="flex items-center justify-between mb-6">
-              <div className="space-y-1">
-                <span className="text-[10px] uppercase tracking-widest font-bold text-[var(--color-brand-400)]">
-                  Level {level.level}
-                </span>
-                <h3 className="text-xl font-bold text-white group-hover:text-[var(--color-brand-400)] transition-colors">
-                  {level.title}
-                </h3>
-              </div>
-              {level.locked ? (
-                <Lock className="w-5 h-5 text-[var(--color-text-muted)]" />
-              ) : level.completionPct === 100 ? (
-                <CheckCircle2 className="w-6 h-6 text-emerald-400" />
-              ) : (
-                <PlayCircle className="w-6 h-6 text-[var(--color-brand-400)]" />
-              )}
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex justify-between items-end">
-                <span className="text-xs text-[var(--color-text-secondary)]">
-                  {level.completedModules} / {level.totalModules} Modules
-                </span>
-                <span className="text-sm font-bold text-white">{level.completionPct}%</span>
-              </div>
-              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-gradient-to-r from-[var(--color-brand-500)] to-[var(--color-brand-400)] rounded-full transition-all duration-1000" 
-                  style={{ width: `${level.completionPct}%` }}
-                />
-              </div>
-            </div>
-
-            {!level.locked && (
-              <div className="mt-6 flex items-center text-xs font-bold text-[var(--color-brand-400)] opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
-                Continue Learning <ChevronRight className="w-4 h-4 ml-1" />
-              </div>
-            )}
-          </Link>
-        ))}
+      {/* Level Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {levels.map((level) => {
+          // A level is considered "Planned" if it has no modules yet
+          const isPlanned = level.totalModules === 0 && level.level > 3;
+          
+          return (
+            <LevelCard 
+              key={level.level} 
+              level={{
+                ...level,
+                // Add descriptions if they don't exist yet for better UX
+                description: getLevelDescription(level.level)
+              }} 
+              isPlanned={isPlanned}
+            />
+          );
+        })}
       </div>
     </div>
   );
+}
+
+function getLevelDescription(level: number): string {
+  const descriptions: Record<number, string> = {
+    0: "Establish your core market understanding. Learn the essential mechanics and set up your safe PracticeEnvironment.",
+    1: "Building your chart-reading foundation. Master basic concepts and begin interpreting market behavior.",
+    2: "Exploring market mechanics. Understand the relationship between price action and market participants.",
+    3: "Applying your knowledge. Learn to read advanced market interactions and practice within guided scenarios.",
+    4: "Planned: Advanced timing and price interaction concepts.",
+    5: "Planned: Risk management frameworks and capital preservation concepts.",
+    6: "Planned: Macro narrative building and market correlation analysis.",
+    7: "Planned: Synthesis of core pillars into a repeatable practice framework.",
+    8: "Planned: Advanced decision-making and performance review."
+  };
+  return descriptions[level] || "Academy level currently in planning.";
 }

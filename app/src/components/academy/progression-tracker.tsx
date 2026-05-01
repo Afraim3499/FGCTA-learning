@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Clock, Target, Award, Zap, ChevronRight, AlertCircle } from "lucide-react";
-import { InstitutionalButton } from "@/components/ui/institutional-button";
+import { AcademyButton } from "@/components/ui/academy-button";
 
 interface ProgressionTrackerProps {
   currentTier: number;
@@ -25,7 +25,7 @@ export function ProgressionTracker({
   const hoursPerModule = 0.75; // Average
   const hoursRemaining = Math.max(0, (totalModules - completedModules) * hoursPerModule);
   
-  const nextMilestone = currentTier < 4 ? "Phase 1 Demo Access" : currentTier < 8 ? "Final Crucible" : "Institutional Certification";
+  const nextMilestone = currentTier < 4 ? "Advanced Practice Access" : currentTier < 8 ? "Final Review" : "Mastery Verification";
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -36,8 +36,8 @@ export function ProgressionTracker({
           <span className="text-[10px] font-bold uppercase tracking-widest">Est. Completion</span>
         </div>
         <div className="space-y-1">
-          <h4 className="text-3xl font-black text-white tracking-tighter">~{hoursRemaining.toFixed(1)}h</h4>
-          <p className="text-[10px] text-text-secondary font-medium uppercase">Institutional training remaining</p>
+          <h4 className="text-3xl font-extrabold text-white tracking-tighter">~{hoursRemaining.toFixed(1)}h</h4>
+          <p className="text-[10px] text-text-secondary font-medium uppercase">Academy training remaining</p>
         </div>
       </div>
 
@@ -48,7 +48,7 @@ export function ProgressionTracker({
           <span className="text-[10px] font-bold uppercase tracking-widest">Next Objective</span>
         </div>
         <div className="space-y-1">
-          <h4 className="text-xl font-black text-white tracking-tighter uppercase">{nextMilestone}</h4>
+          <h4 className="text-xl font-extrabold text-white tracking-tighter uppercase">{nextMilestone}</h4>
           <div className="flex items-center gap-2">
             <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
                <div className="h-full bg-accent-blue transition-all duration-1000" style={{ width: `${(currentTier/totalTiers)*100}%` }} />
@@ -58,15 +58,15 @@ export function ProgressionTracker({
         </div>
       </div>
 
-      {/* Operational Readiness */}
+      {/* Academy Progress */}
       <div className="p-6 bg-white/[0.02] border border-white/5 rounded-3xl space-y-4">
         <div className="flex items-center gap-2 text-pass-green">
           <Zap size={14} />
           <span className="text-[10px] font-bold uppercase tracking-widest">Readiness Score</span>
         </div>
         <div className="space-y-1">
-          <h4 className="text-3xl font-black text-white tracking-tighter">{operationalScore}%</h4>
-          <p className="text-[10px] text-text-secondary font-medium uppercase">Tactical proficiency rating</p>
+          <h4 className="text-3xl font-extrabold text-white tracking-tighter">{operationalScore}%</h4>
+          <p className="text-[10px] text-text-secondary font-medium uppercase">Learning progress rating</p>
         </div>
       </div>
 
@@ -79,9 +79,9 @@ export function ProgressionTracker({
          <p className="text-[9px] text-text-muted leading-tight mb-4">
             Confidence check: Take a placement quiz to skip current theory.
          </p>
-         <InstitutionalButton variant="outline" size="sm" className="w-full text-[9px]">
+         <AcademyButton variant="outline" size="sm" className="w-full text-[9px]">
             ATTEMPT PLACEMENT TEST
-         </InstitutionalButton>
+         </AcademyButton>
       </div>
     </div>
   );

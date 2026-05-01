@@ -131,12 +131,12 @@ export function MiniReplayEngine({
     }
   };
 
-  const resetSimulation = () => {
+  const resetPractice = () => {
     setCurrentIndex(initialCandleCount);
   };
 
   const currentInsight = useMemo(() => {
-    if (currentIndex <= initialCandleCount) return "Observe the starting market structure. What is the institutional narrative?";
+    if (currentIndex <= initialCandleCount) return "Observe the starting market structure. What is the Academy narrative?";
     if (currentIndex >= chartData.length) return "Scenario complete. Review the final structural outcome below.";
     
     const candle = chartData[currentIndex - 1];
@@ -144,7 +144,7 @@ export function MiniReplayEngine({
     if (!prevCandle) return "Scenario active.";
     
     if (candle.close > prevCandle.close) return "Bullish expansion. Price is respecting structural demand.";
-    return "Momentum cooling. Institutional participants are absorbing supply.";
+    return "Momentum cooling. Academy participants are absorbing supply.";
   }, [currentIndex, chartData, initialCandleCount]);
 
   return (
@@ -157,7 +157,7 @@ export function MiniReplayEngine({
             Strategic Case Study
           </div>
           <button 
-            onClick={resetSimulation}
+            onClick={resetPractice}
             className="p-2 hover:bg-white/5 rounded-lg text-slate-500 hover:text-white transition-all flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest"
           >
             <RefreshCcw size={14} />
@@ -191,7 +191,7 @@ export function MiniReplayEngine({
                     <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-lg">
                         <Lightbulb size={18} />
                     </div>
-                    <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Institutional Commentary</h4>
+                    <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Academy Commentary</h4>
                 </div>
                 <p className="text-lg font-bold text-white leading-tight min-h-[3rem]">
                     {currentInsight}
@@ -221,7 +221,7 @@ export function MiniReplayEngine({
                     <Shield className="text-slate-500" size={14} />
                 </div>
                 <p className="text-sm text-slate-400 leading-relaxed italic">
-                    "Retail traders rush into moves. Institutional traders wait for the market to reveal its hand. Observe the candle closures carefully."
+                    "Retail traders rush into moves. Academy traders wait for the market to reveal its hand. Observe the candle closures carefully."
                 </p>
                 <div className="pt-2">
                     <div className="flex justify-between text-[10px] font-bold mb-1.5">
@@ -247,7 +247,7 @@ export function MiniReplayEngine({
                     <CheckCircle2 size={24} />
                 </div>
                 <div className="space-y-2">
-                    <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-[0.2em]">Institutional Lesson</p>
+                    <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-[0.2em]">Academy Lesson</p>
                     <p className="text-base text-emerald-50/90 leading-relaxed font-medium">
                         {rationale}
                     </p>

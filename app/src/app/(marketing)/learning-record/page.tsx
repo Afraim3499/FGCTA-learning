@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
-import { InstitutionalButton } from "@/components/ui/institutional-button";
+import { AcademyButton } from "@/components/ui/academy-button";
 import { Award, ShieldCheck, Zap, Target, Globe, BarChart3 } from "lucide-react";
 
-export default function CertificationPage() {
+export default function LearningRecordPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Navbar />
@@ -13,13 +13,13 @@ export default function CertificationPage() {
         {/* Hero */}
         <div className="text-center space-y-6 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-[10px] font-bold text-accent-blue uppercase tracking-widest">
-            <Award size={12} /> Institutional Standards
+            <Award size={12} /> Academy Standards
           </div>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
-            The Gold <span className="text-accent-blue italic">Standard</span> of Trading Execution.
+          <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter uppercase leading-[0.9]">
+            The Gold <span className="text-accent-blue italic">Standard</span> of Trading Method.
           </h1>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
-            Lurnava Certifications are not participation trophies. They are cryptographic proofs of execution precision, risk discipline, and market mastery.
+            Lurnava LearningRecords are not participation trophies. They are cryptographic proofs of Method precision, risk discipline, and market mastery.
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export default function CertificationPage() {
               title: "Operational Associate",
               level: "Tier 1-3",
               icon: Zap,
-              description: "Verified ability to execute basic institutional protocols and maintain static risk limits.",
+              description: "Verified ability to execute basic Academy Logics and maintain static risk limits.",
               requirements: ["90% Logic Accuracy", "Max 2% Daily Drawdown", "50+ Validated Trades"]
             },
             {
@@ -41,10 +41,10 @@ export default function CertificationPage() {
               requirements: ["95% Logic Accuracy", "Max 1% Daily Drawdown", "Proven Profit Consistency"]
             },
             {
-              title: "Institutional Desk Lead",
+              title: "Academy Desk Lead",
               level: "Tier 8-10",
               icon: Globe,
-              description: "The elite 0.1%. Authorized for high-capital simulation and algorithmic desk management.",
+              description: "The elite 0.1%. Authorized for high-capital Practice and algorithmic desk management.",
               requirements: ["99.9% Logic Accuracy", "Zero Rule Violations", "S-Rank Performance Grade"]
             }
           ].map((tier, i) => (
@@ -54,7 +54,7 @@ export default function CertificationPage() {
               </div>
               <div className="space-y-2">
                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{tier.level}</span>
-                <h3 className="text-2xl font-black uppercase">{tier.title}</h3>
+                <h3 className="text-2xl font-extrabold uppercase">{tier.title}</h3>
               </div>
               <p className="text-sm text-text-secondary leading-relaxed">{tier.description}</p>
               <div className="space-y-3 pt-6 border-t border-white/5">
@@ -72,16 +72,16 @@ export default function CertificationPage() {
         {/* Verification Proof */}
         <div className="bg-accent-blue/5 border border-accent-blue/20 rounded-[4rem] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="space-y-6 max-w-xl">
-            <h2 className="text-4xl font-black uppercase tracking-tighter">Publicly Verifiable Credentials.</h2>
+            <h2 className="text-4xl font-extrabold uppercase tracking-tighter">Publicly Verifiable records.</h2>
             <p className="text-text-secondary leading-relaxed">
-              Every certificate issued by the Lurnava Academy is etched into our secure ledger. Employers and capital partners can verify your execution metrics in real-time through our public gateway.
+              Every certificate issued by the Lurnava Academy is etched into our secure ledger. Employers and capital partners can verify your Method metrics in real-time through our public gateway.
             </p>
             <div className="flex gap-4">
-              <InstitutionalButton variant="outline" asChild>
+              <AcademyButton variant="outline" asChild>
                 <Link href="/verify">
                   EXPLORE VERIFICATION GATEWAY
                 </Link>
-              </InstitutionalButton>
+              </AcademyButton>
             </div>
           </div>
           <div className="w-full max-w-sm aspect-[4/5] bg-[#0D1117] border border-white/10 rounded-[3rem] p-10 shadow-2xl relative overflow-hidden group">

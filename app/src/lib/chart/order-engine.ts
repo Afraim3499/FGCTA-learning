@@ -146,7 +146,7 @@ function generateExecutionSeed(baseSeed: string, tickIndex: number): number {
 }
 
 // --- Execution Engine ---
-export class ExecutionEngine {
+export class OrderEngine {
   private config: EngineConfig;
   private eventBus: EventBus;
   private getCursor: () => ReplayCursor;

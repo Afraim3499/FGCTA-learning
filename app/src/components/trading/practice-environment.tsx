@@ -33,7 +33,7 @@ import { MissionDebrief } from "./mission-debrief";
 import { validateMissionOrder } from "@/lib/scenarios/scenario-validator";
 import { submitScenarioAttempt } from "@/lib/scenario-actions";
 
-interface TradingTerminalProps {
+interface PracticeEnvironmentProps {
   activeAttempt: any;
   initialChartData: OHLCV[];
   initialInstrument: string;
@@ -62,12 +62,12 @@ function validateCandles(candles: OHLCV[]): { valid: boolean; error?: string } {
   return { valid: true };
 }
 
-export function TradingTerminal({
+export function PracticeEnvironment({
   activeAttempt,
   initialChartData,
   initialInstrument,
   userTrack,
-}: TradingTerminalProps) {
+}: PracticeEnvironmentProps) {
   // ---- Phase 5.3: Telemetry & Safety ----
   const [staleTickCount, setStaleTickCount] = useState(0);
   const [chartErrorCount, setChartErrorCount] = useState(0);
@@ -226,7 +226,7 @@ export function TradingTerminal({
         }
       }
     } catch (err: any) {
-      setError({ message: err.message || "Execution failed" });
+      setError({ message: err.message || "Method failed" });
     } finally {
       setIsPending(false);
     }
@@ -266,9 +266,11 @@ export function TradingTerminal({
 
   if (isDataLoading) {
     return (
-      <div className="flex flex-col items-center justify-center h-[700px] bg-[#0D1117] text-slate-500 gap-4 rounded-2xl border border-white/5">
-        <Loader2 className="w-8 h-8 animate-spin text-[#6366F1]" />
-        <span className="text-xs font-medium animate-pulse uppercase tracking-[0.2em]">Loading {instrument} Data...</span>
+    <div className="flex flex-col items-center justify-center h-[700px] bg-white text-slate-400 gap-6 rounded-[2.5rem] border border-[var(--ln-border)] shadow-sm">
+        <div className="p-4 rounded-full bg-[var(--ln-teal-soft)] animate-pulse">
+          <Loader2 className="w-8 h-8 animate-spin text-[var(--ln-teal-500)]" />
+        </div>
+        <span className="text-[10px] font-extrabold text-[var(--ln-navy-900)] uppercase tracking-[0.2em]">Preparing Practice Session...</span>
       </div>
     );
   }
@@ -277,69 +279,74 @@ export function TradingTerminal({
     <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 relative">
       {/* ====== DEBUG PANEL (Phase 5.3) ====== */}
       {showDebug && isDev && (
-        <div className="absolute -top-40 left-0 right-0 z-[100] bg-[#161B22]/95 border border-amber-500/30 rounded-xl p-4 font-mono text-[10px] grid grid-cols-4 gap-4 shadow-2xl backdrop-blur-md">
+        <div className="absolute -top-40 left-0 right-0 z-[100] bg-white/95 border border-[var(--ln-teal-500)]/30 rounded-3xl p-6 font-mono text-[10px] grid grid-cols-4 gap-4 shadow-2xl backdrop-blur-md">
           <div className="space-y-1">
-            <p className="text-amber-500 font-bold border-b border-white/5 pb-1">MARKET DATA</p>
-            <p><span className="text-slate-500">Instrument:</span> {instrument}</p>
-            <p><span className="text-slate-500">Candles:</span> {chartData.length}</p>
-            <p><span className="text-slate-500">Valid:</span> {validateCandles(chartData).valid ? "YES" : "NO"}</p>
+            <p className="text-[var(--ln-teal-600)] font-extrabold border-b border-slate-100 pb-1 uppercase tracking-widest">Market Data</p>
+            <p><span className="text-slate-400">Instrument:</span> {instrument}</p>
+            <p><span className="text-slate-400">Candles:</span> {chartData.length}</p>
+            <p><span className="text-slate-400">Valid:</span> {validateCandles(chartData).valid ? "YES" : "NO"}</p>
           </div>
           <div className="space-y-1">
-            <p className="text-amber-500 font-bold border-b border-white/5 pb-1">ENGINE STATE</p>
-            <p><span className="text-slate-500">Status:</span> {snapshot.status}</p>
-            <p><span className="text-slate-500">Price:</span> {snapshot.currentPrice || "NULL"}</p>
-            <p><span className="text-slate-500">Index:</span> {snapshot.candleIndex}</p>
+            <p className="text-[var(--ln-teal-600)] font-extrabold border-b border-slate-100 pb-1 uppercase tracking-widest">Engine State</p>
+            <p><span className="text-slate-400">Status:</span> {snapshot.status}</p>
+            <p><span className="text-slate-400">Price:</span> {snapshot.currentPrice || "NULL"}</p>
+            <p><span className="text-slate-400">Index:</span> {snapshot.candleIndex}</p>
           </div>
           <div className="space-y-1">
-            <p className="text-rose-500 font-bold border-b border-white/5 pb-1 uppercase tracking-tighter">Stability Telemetry</p>
-            <p><span className="text-slate-500">Stale Ticks:</span> <span className={staleTickCount > 0 ? "text-rose-400 font-bold" : "text-emerald-400"}>{staleTickCount}</span></p>
-            <p><span className="text-slate-500">Chart Errors:</span> <span className={chartErrorCount > 0 ? "text-rose-400 font-bold" : "text-emerald-400"}>{chartErrorCount}</span></p>
-            <p><span className="text-slate-500">Feed:</span> {snapshot.currentPrice ? "CONNECTED" : "WAITING"}</p>
+            <p className="text-rose-500 font-extrabold border-b border-slate-100 pb-1 uppercase tracking-widest">Telemetry</p>
+            <p><span className="text-slate-400">Stale Ticks:</span> <span className={staleTickCount > 0 ? "text-rose-500 font-bold" : "text-[var(--ln-teal-600)]"}>{staleTickCount}</span></p>
+            <p><span className="text-slate-400">Chart Errors:</span> <span className={chartErrorCount > 0 ? "text-rose-500 font-bold" : "text-[var(--ln-teal-600)]"}>{chartErrorCount}</span></p>
+            <p><span className="text-slate-400">Feed:</span> {snapshot.currentPrice ? "CONNECTED" : "WAITING"}</p>
           </div>
           <div className="space-y-1">
-            <p className="text-amber-500 font-bold border-b border-white/5 pb-1 uppercase tracking-tighter text-[9px]">Last Stale Event</p>
+            <p className="text-[var(--ln-teal-600)] font-extrabold border-b border-slate-100 pb-1 uppercase tracking-widest">Last Event</p>
             {lastStaleTick ? (
               <>
-                <p><span className="text-slate-500">Tick:</span> {lastStaleTick.time}</p>
-                <p><span className="text-slate-500">Last:</span> {lastStaleTick.last}</p>
+                <p><span className="text-slate-400">Tick:</span> {lastStaleTick.time}</p>
+                <p><span className="text-slate-400">Last:</span> {lastStaleTick.last}</p>
               </>
-            ) : <p className="text-slate-500">No events</p>}
+            ) : <p className="text-slate-400">No events</p>}
           </div>
-          <button onClick={() => setShowDebug(false)} className="absolute top-2 right-2 text-slate-500 hover:text-white p-1 hover:bg-white/5 rounded"><Activity size={12}/></button>
+          <button onClick={() => setShowDebug(false)} className="absolute top-4 right-4 text-slate-300 hover:text-slate-600 p-1 rounded-lg transition-colors"><Activity size={14}/></button>
         </div>
       )}
 
       {/* ====== CHART AREA (3/4 width) ====== */}
-      <div className="xl:col-span-3 space-y-0">
-        <div className="flex items-center justify-between bg-[#161B22] border-x border-t border-white/5 px-4 py-2 rounded-t-2xl">
-          <div className="flex items-center gap-2">
+      <div className="xl:col-span-3 space-y-0 bg-white rounded-[2.5rem] border border-[var(--ln-border)] overflow-hidden shadow-sm">
+        <div className="flex items-center justify-between bg-slate-50 border-b border-[var(--ln-border)] px-6 py-4">
+          <div className="flex items-center gap-3">
             <button
               onClick={handleTogglePlay}
               className={cn(
-                "p-2 rounded-lg transition-all",
+                "p-2.5 rounded-xl transition-all shadow-sm",
                 snapshot.status === "running"
-                  ? "bg-amber-500/10 text-amber-500 hover:bg-amber-500/20"
-                  : "bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20"
+                  ? "bg-amber-100 text-amber-600 hover:bg-amber-200"
+                  : "bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] hover:bg-[var(--ln-teal-500)]/10"
               )}
             >
-              {snapshot.status === "running" ? <Pause size={16} /> : <Play size={16} />}
+              {snapshot.status === "running" ? <Pause size={18} /> : <Play size={18} />}
             </button>
             <button
               onClick={handleStep}
-              className="p-2 rounded-lg bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-all"
+              className="p-2.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-[var(--ln-navy-900)] hover:bg-slate-50 transition-all shadow-sm"
             >
-              <SkipForward size={16} />
+              <SkipForward size={18} />
             </button>
             <button
               onClick={handleReset}
-              className="p-2 rounded-lg bg-white/5 text-slate-400 hover:text-rose-400 hover:bg-rose-400/10 transition-all"
+              className="p-2.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm"
             >
-              <RotateCcw size={16} />
+              <RotateCcw size={18} />
             </button>
-            <button onClick={() => setShowDebug(!showDebug)} className="p-2 rounded-lg bg-white/5 text-amber-500/50 hover:text-amber-500 transition-all">
-              <Bug size={16} />
+            <button onClick={() => setShowDebug(!showDebug)} className="p-2.5 rounded-xl bg-white border border-slate-100 text-amber-500/50 hover:text-amber-500 transition-all shadow-sm">
+              <Bug size={18} />
             </button>
           </div>
+          {isDataLoading && (
+            <div className="flex items-center gap-2 text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">
+              <Loader2 className="w-3 h-3 animate-spin" /> Updating Feed...
+            </div>
+          )}
         </div>
 
         <ChartToolbar
@@ -356,10 +363,10 @@ export function TradingTerminal({
           crosshairData={null}
           currentPrice={snapshot.currentPrice || 0}
           instrumentDecimals={spec.pricePrecision}
-          className="border-x border-t-0 rounded-none"
+          className="border-none"
         />
 
-        <div className="relative border-x border-b border-[rgba(255,255,255,0.05)] rounded-b-2xl overflow-hidden bg-[#0D1117]">
+        <div className="relative overflow-hidden bg-[#0D1117]">
           {!validation.valid ? (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0D1117] text-rose-500 p-10 text-center gap-4 z-50">
                <AlertCircle size={40} />
@@ -390,16 +397,16 @@ export function TradingTerminal({
           )}
 
           {/* HUD Driven by Engine Snapshot */}
-          <div className="absolute top-20 left-4 z-20 flex gap-2">
-            <div className="bg-[#161B22]/90 border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md">
-              <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest block">Equity</span>
-              <span className="text-lg font-mono font-bold text-white">
+          <div className="absolute top-6 left-6 z-20 flex gap-3">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3 shadow-lg">
+              <span className="text-[9px] font-extrabold text-white/60 uppercase tracking-widest block mb-0.5">Equity</span>
+              <span className="text-xl font-mono font-bold text-white">
                 {formatCurrency(snapshot.equity)}
               </span>
             </div>
-            <div className="bg-[#161B22]/90 border border-white/10 rounded-xl px-4 py-3 backdrop-blur-md">
-              <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest block">Positions</span>
-              <span className="text-lg font-mono font-bold text-emerald-500">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3 shadow-lg">
+              <span className="text-[9px] font-extrabold text-white/60 uppercase tracking-widest block mb-0.5">Positions</span>
+              <span className="text-xl font-mono font-bold text-[var(--ln-teal-500)]">
                 {snapshot.openPositions.length}
               </span>
             </div>
@@ -416,17 +423,17 @@ export function TradingTerminal({
           />
         )}
 
-        <div className="p-5 bg-[#0D1117] border border-[rgba(255,255,255,0.05)] rounded-2xl space-y-3">
+        <div className="p-6 bg-white border border-[var(--ln-border)] rounded-[2rem] space-y-4 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#6366F1]/10 rounded-xl text-[#818CF8]">
+            <div className="p-2.5 bg-[var(--ln-teal-soft)] rounded-xl text-[var(--ln-teal-500)]">
               <Activity className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-white">{instrument}</h3>
-              <p className="text-[9px] text-[#64748B] font-bold tracking-widest uppercase">Engine Live</p>
+              <h3 className="text-sm font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">{instrument}</h3>
+              <p className="text-[9px] text-slate-400 font-extrabold tracking-widest uppercase">Engine Active</p>
             </div>
           </div>
-          <div className="text-3xl font-mono font-bold text-white tracking-tighter text-center py-2">
+          <div className="text-3xl font-mono font-bold text-[var(--ln-navy-900)] tracking-tighter text-center py-2">
             {formatPrice(snapshot.currentPrice, spec.pricePrecision)}
           </div>
         </div>
@@ -503,19 +510,19 @@ export function TradingTerminal({
             disabled={isPending || risk.isInvalid || (snapshot.status === "complete" && !isScenarioMode) || !validation.valid}
             onClick={handleExecute}
             className={cn(
-              "w-full py-4 rounded-xl font-bold uppercase text-[11px] transition-all",
+              "w-full py-5 rounded-[1.5rem] font-extrabold uppercase text-[10px] tracking-[0.2em] transition-all shadow-lg",
               (risk.isInvalid || !validation.valid) 
-                ? "bg-white/5 text-slate-500 cursor-not-allowed border border-white/5" 
-                : "bg-white text-black hover:bg-white/90 active:scale-[0.98] shadow-xl shadow-white/5"
+                ? "bg-slate-50 text-slate-400 cursor-not-allowed border border-slate-100" 
+                : "bg-[var(--ln-teal-500)] text-white hover:bg-[var(--ln-teal-600)] shadow-[var(--ln-teal-500)]/20 active:scale-[0.98]"
             )}
           >
             {isPending ? (
               <div className="flex items-center justify-center gap-2">
                 <Loader2 className="animate-spin" size={16} />
-                <span>Synchronizing...</span>
+                <span>Updating...</span>
               </div>
             ) : (
-              <span>{risk.isInvalid ? (risk.text === "Enter stop loss" ? "Define Risk Protocol" : "Invalid Risk Protocol") : "Execute Order"}</span>
+              <span>{risk.isInvalid ? (risk.text === "Enter stop loss" ? "Define Risk Parameters" : "Invalid Risk Settings") : "Place Order"}</span>
             )}
           </button>
         </div>

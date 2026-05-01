@@ -27,12 +27,12 @@ const certLevels = [
   {
     level: 4, title: "Consistent Trader", color: "text-amber-400", border: "border-amber-500/20", bg: "bg-amber-500/5",
     requires: ["Cert Level 3 earned", "L6–L7 course complete", "Phase 4 passed — +25% on $3,000", "Sharpe ratio ≥ 1.0", "Consistency score ≥ 14/20", "SL compliance ≥ 95%"],
-    proves: "You deliver consistent risk-adjusted returns with institutional discipline.",
+    proves: "You deliver consistent risk-adjusted returns with Academy discipline.",
   },
   {
-    level: 5, title: "Certified Trader", color: "text-[var(--color-profit)]", border: "border-[var(--color-profit)]/30", bg: "bg-[var(--color-profit)]/5",
+    level: 5, title: "Completed Trader", color: "text-[var(--color-profit)]", border: "border-[var(--color-profit)]/30", bg: "bg-[var(--color-profit)]/5",
     requires: ["Cert Level 4 earned", "ALL levels L0–L9 complete", "Phase 5 passed — +30% on $10,000", "Final Score ≥ 70/100", "Min 60 trades in Phase 5", "Min 30 trading days", "Rule violations ≤ 3"],
-    proves: "Full institutional-grade trading capability. Verifiable credential for professional use.",
+    proves: "Full Academy-grade trading capability. Verifiable credential for professional use.",
     special: "🏆 Verifiable Certificate Issued",
   },
 ];
@@ -58,7 +58,7 @@ const scoringMetrics = {
   ]},
 };
 
-export default function CertificationPage() {
+export default function LearningRecordPage() {
   return (
     <div className="min-h-screen bg-[#0B0E14] text-white overflow-x-hidden">
       <Navbar />
@@ -69,10 +69,10 @@ export default function CertificationPage() {
         <div className="max-w-4xl mx-auto space-y-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
             <Award size={14} className="text-[var(--color-brand-400)]" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Certification System</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">LearningRecord System</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter">
-            Certification Through{" "}
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter">
+            LearningRecord Through{" "}
             <span className="text-[var(--color-brand-400)]">Performance.</span>
           </h1>
           <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
@@ -94,12 +94,12 @@ export default function CertificationPage() {
             className={cn("p-8 rounded-3xl border bg-white/[0.02] space-y-6", cert.border)}
           >
             <div className="flex items-center gap-4 flex-wrap">
-              <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center font-black text-lg", cert.bg, cert.color)}>
+              <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-lg", cert.bg, cert.color)}>
                 {cert.level}
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">{cert.title}</h3>
-                <p className="text-xs text-[var(--color-text-muted)]">Certification Level {cert.level}</p>
+                <p className="text-xs text-[var(--color-text-muted)]">LearningRecord Level {cert.level}</p>
               </div>
               {cert.special && (
                 <span className={cn("text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-lg", cert.bg, cert.color)}>
@@ -182,13 +182,13 @@ export default function CertificationPage() {
             Each certificate has a unique ID (CERT-XXXXX-XXXXX). Employers, firms, and peers
             can verify any certificate at our public verification page.
           </p>
-          <p className="text-sm font-mono text-[var(--color-brand-400)]">fgcacademy.com/verify/CERT-XXXXX</p>
+          <p className="text-sm font-mono text-[var(--ln-teal-500)]">lurnava.com/verify/CERT-XXXXX</p>
         </div>
       </section>
 
       <CTABanner
-        headline="Earn a certification that actually means something."
-        subheadline="Start free. Train hard. Get certified on performance, not attendance."
+        headline="Earn a LearningRecord that actually means something."
+        subheadline="Start free. Train hard. Get Completed on performance, not attendance."
         primaryLabel="Start Free Trial"
         primaryHref="/free-trial"
         secondaryLabel="View Pricing"

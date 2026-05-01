@@ -46,7 +46,7 @@ export function PhaseStatusCard({
           <div className="space-y-1">
             <h3 className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-[0.2em] flex items-center gap-2">
               <Trophy size={12} className="text-amber-400" />
-              Institutional Phase {phaseNumber}
+              Academy Phase {phaseNumber}
             </h3>
             <div className="flex items-end gap-3">
               <p className="text-4xl font-bold text-white font-mono tracking-tighter">

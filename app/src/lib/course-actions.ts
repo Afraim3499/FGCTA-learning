@@ -27,7 +27,7 @@ export async function getCourseLevels() {
 
   // Filter Level 1 to only 1.1-1.5 for students
   const approvedL1 = ["1.1", "1.2", "1.3", "1.4", "1.5"];
-  const modules = allModules.filter(mod => {
+  const modules = allModules.filter((mod: any) => {
     if (mod.level === 1) {
       return approvedL1.includes(mod.moduleNumber);
     }
@@ -40,12 +40,12 @@ export async function getCourseLevels() {
     select: { moduleId: true },
   });
 
-  const completedModuleIds = new Set(completions.map((c) => c.moduleId));
+  const completedModuleIds = new Set(completions.map((c: any) => c.moduleId));
 
   // Calculate stats per level
   const levelStats: Record<number, { total: number; completed: number }> = {};
   
-  modules.forEach((mod) => {
+  modules.forEach((mod: any) => {
     if (!levelStats[mod.level]) {
       levelStats[mod.level] = { total: 0, completed: 0 };
     }
@@ -120,20 +120,20 @@ export async function getModules(level: number) {
   // Filter Level 1 to only 1.1-1.5 for students
   const approvedL1 = ["1.1", "1.2", "1.3", "1.4", "1.5"];
   const modules = level === 1 
-    ? rawModules.filter(m => approvedL1.includes(m.moduleNumber))
+    ? rawModules.filter((m: any) => approvedL1.includes(m.moduleNumber))
     : rawModules;
 
   const completions = await prisma.moduleCompletion.findMany({
     where: {
       userId: user.id,
-      moduleId: { in: modules.map((m) => m.id) },
+      moduleId: { in: modules.map((m: any) => m.id) },
     },
     select: { moduleId: true },
   });
 
-  const completedModuleIds = new Set(completions.map((c) => c.moduleId));
+  const completedModuleIds = new Set(completions.map((c: any) => c.moduleId));
 
-  return modules.map((mod) => ({
+  return modules.map((mod: any) => ({
     ...mod,
     completed: completedModuleIds.has(mod.id),
   }));
@@ -196,10 +196,10 @@ export async function getModuleContent(moduleId: string) {
 
   // Filter Level 1 for navigation
   const allInLevel = module.level === 1
-    ? rawInLevel.filter(m => approvedL1.includes(m.moduleNumber))
+    ? rawInLevel.filter((m: any) => approvedL1.includes(m.moduleNumber))
     : rawInLevel;
 
-  const currentIndex = allInLevel.findIndex((m) => m.id === module.id);
+  const currentIndex = allInLevel.findIndex((m: any) => m.id === module.id);
   const prevModuleId = currentIndex > 0 ? allInLevel[currentIndex - 1].id : null;
   const nextModuleId =
     currentIndex < allInLevel.length - 1 ? allInLevel[currentIndex + 1].id : null;
@@ -262,7 +262,7 @@ export async function completeModule(
   const XP_AWARD = isPracticeModule ? 0 : 50;
 
   try {
-    return await prisma.$transaction(async (tx) => {
+    return await prisma.$transaction(async (tx: any) => {
       // 1. Create the completion record (unique constraint will catch duplicates)
       const completion = await tx.moduleCompletion.create({
         data: {
@@ -329,7 +329,7 @@ function getLevelTitle(level: number): string {
     5: "Risk Mgmt",
     6: "Macro",
     7: "Synthesis",
-    8: "The Crucible",
+    8: "Advanced Practice",
   };
   return titles[level] || `Level ${level}`;
 }

@@ -57,8 +57,8 @@ export async function getNextStep(userId: string): Promise<NextStep> {
 
     return {
       action: "EXECUTE_TRADE",
-      title: "Master the Terminal",
-      description: `Phase ${activePhase.phase.phaseNumber} in progress. Execute your strategy within the risk parameters.`,
+      title: "Continue Practice Mission",
+      description: `Practice session in progress. Apply your learning in a safe environment.`,
       link: "/trading",
       priority: 150,
     };
@@ -72,15 +72,15 @@ export async function getNextStep(userId: string): Promise<NextStep> {
   });
 
   const completions = await prisma.moduleCompletion.findMany({
-    where: { userId, moduleId: { in: modulesInLevel.map(m => m.id) } },
+    where: { userId, moduleId: { in: modulesInLevel.map((m: any) => m.id) } },
   });
 
   if (completions.length < modulesInLevel.length) {
-    const nextMod = modulesInLevel.find(m => !completions.some(c => c.moduleId === m.id));
+    const nextMod = modulesInLevel.find((m: any) => !completions.some((c: any) => c.moduleId === m.id));
     return {
       action: "CONTINUE_ACADEMY",
       title: `Advance to Module ${nextMod?.moduleNumber || currentLevel}`,
-      description: `Complete '${nextMod?.title || "next module"}' to master the Level ${currentLevel} core concepts.`,
+      description: `Complete '${nextMod?.title || "next module"}' to build your Level ${currentLevel} foundation.`,
       link: nextMod ? `/course/module/${nextMod.id}` : `/course/${currentLevel}`,
       priority: 100,
     };
@@ -98,8 +98,8 @@ export async function getNextStep(userId: string): Promise<NextStep> {
   if (!testPassed) {
     return {
       action: "TAKE_ASSESSMENT",
-      title: "Final Assessment",
-      description: `You've completed all modules in Level ${currentLevel}. Pass the assessment to unlock the next stage.`,
+      title: "Knowledge Test",
+      description: `You've completed all modules in Level ${currentLevel}. Verify your knowledge to unlock the next stage.`,
       link: `/test/${currentLevel}`,
       priority: 180,
     };
@@ -109,8 +109,8 @@ export async function getNextStep(userId: string): Promise<NextStep> {
   if (currentLevel >= 1) {
     return {
       action: "START_PHASE",
-      title: "Initiate Challenge",
-      description: `You've mastered the theory. It's time to prove your discipline in Phase 1 of the Trading Simulator.`,
+      title: "Start Practical Mission",
+      description: `You've mastered the theory. It's time to build your experience in the PracticeEnvironment.`,
       link: "/trading",
       priority: 170,
     };
@@ -119,8 +119,8 @@ export async function getNextStep(userId: string): Promise<NextStep> {
   // Fallback
   return {
     action: "JOURNEY_COMPLETE",
-    title: "Mastery Achieved",
-    description: "You have completed all current training levels. Monitor the terminal for new opportunities.",
+    title: "Academy Progress Complete",
+    description: "You have completed all current training levels. Monitor your dashboard for new academy updates.",
     link: "/dashboard",
     priority: 50,
   };

@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { issueCertification } from "./certification-engine";
+import { issueLearningRecord } from "./learning-record-engine";
 
 export async function getNextModule(level: number, moduleNumber: string, assetClass: string) {
   // Find all modules in this level, ordered
@@ -11,12 +11,12 @@ export async function getNextModule(level: number, moduleNumber: string, assetCl
     orderBy: { orderIndex: 'asc' }
   });
 
-  const currentIndex = levelModules.findIndex(m => m.moduleNumber === moduleNumber);
+  const currentIndex = levelModules.findIndex((m: any) => m.moduleNumber === moduleNumber);
 
   // If there's another module in this level
   if (currentIndex !== -1 && currentIndex < levelModules.length - 1) {
     const nextMod = levelModules[currentIndex + 1];
-    return `/journey/${assetClass}/tier-${level}/module-${nextMod.moduleNumber}`;
+    return `/course/module/${nextMod.id}`;
   }
 
   // If no more modules in this level, go to next level module 1
@@ -27,11 +27,11 @@ export async function getNextModule(level: number, moduleNumber: string, assetCl
   });
 
   if (firstModNextLevel) {
-    return `/journey/${assetClass}/tier-${nextLevel}/module-${firstModNextLevel.moduleNumber}`;
+    return `/course/module/${firstModNextLevel.id}`;
   }
 
-  // If this was the last module of the final level, go to Certification
-  return "/journey/certification";
+  // If this was the last module of the final level, go to records
+  return "/course";
 }
 
 export async function completeModule(userId: string, moduleId: string, assetClass: string) {
@@ -54,9 +54,9 @@ export async function completeModule(userId: string, moduleId: string, assetClas
     }
   });
 
-  // If this was the final crucible, issue certification
-  if (module && module.level === 8 && module.moduleNumber === "8.1") {
-    await issueCertification(userId, assetClass.toUpperCase() as any, {
+  // If this was the final review, issue learning record
+  if (module && module.level === 3 && module.moduleNumber === "3.10") {
+    await issueLearningRecord(userId, assetClass.toUpperCase() as any, {
       profitScore: 95,
       riskScore: 95,
       consistencyScore: 95,
@@ -66,7 +66,7 @@ export async function completeModule(userId: string, moduleId: string, assetClas
   }
 
   revalidatePath("/dashboard");
-  revalidatePath(`/journey/${assetClass}`);
+  revalidatePath("/course");
 }
 
 export async function saveAnalysis(data: {

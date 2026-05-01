@@ -174,7 +174,7 @@ export function PointClickEngine({
 
       if (isPrimary) {
         setStatus("passed");
-        setFeedback("Target confirmed. Structure validated.");
+        setFeedback("Selection verified. Logic confirmed.");
 
         // Draw a marker on the successful candle
         markersRef.current?.setMarkers([
@@ -183,7 +183,7 @@ export function PointClickEngine({
             position: "belowBar",
             color: "#10b981",
             shape: "arrowUp",
-            text: "HL Validated",
+            text: "Confirmed",
           },
         ]);
 
@@ -208,14 +208,14 @@ export function PointClickEngine({
         setTimeout(() => setFlashError(false), 500);
 
         if (isSecondary) {
-          setFeedback("Acceptable zone, but there is a more precise institutional origin. Click the exact wick.");
+          setFeedback("Valid area, but there is a more precise origin. Review the candle structure.");
         } else {
           if (newAttempts === 1) {
             setFeedback("Incorrect placement. Try again.");
           } else if (newAttempts === 2) {
-            setFeedback(`Hint: ${hints.light}`);
+            setFeedback(`Learning Hint: ${hints.light}`);
           } else {
-            setFeedback(`Guided Correction: ${hints.guided}`);
+            setFeedback(`Guided Support: ${hints.guided}`);
           }
         }
       }
@@ -230,21 +230,21 @@ export function PointClickEngine({
 
   return (
     <div className={cn(
-      "rounded-[2rem] border bg-[var(--color-surface)] overflow-hidden flex flex-col transition-all duration-500 shadow-2xl relative",
-      flashError ? "border-red-500/50 shadow-red-500/5" : 
-      status === "passed" ? "border-emerald-500/30 shadow-emerald-500/5" : 
-      "border-[var(--color-border)]"
+      "rounded-[2.5rem] border bg-white overflow-hidden flex flex-col transition-all duration-500 shadow-sm relative",
+      flashError ? "border-rose-500/50 shadow-rose-500/5" : 
+      status === "passed" ? "border-[var(--ln-teal-500)]/30 shadow-[var(--ln-teal-500)]/5" : 
+      "border-[var(--ln-border)]"
     )}>
       {/* Header / Briefing */}
-      <div className="p-8 border-b border-[var(--color-border)] bg-[var(--color-surface-hover)]/50 backdrop-blur-sm relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+      <div className="p-8 border-b border-[var(--ln-border)] bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none text-[var(--ln-navy-900)]">
             <Target size={120} />
         </div>
-        <div className="flex items-center gap-3 mb-4 text-[var(--color-brand-400)] text-[10px] font-bold tracking-[0.3em] uppercase">
+        <div className="flex items-center gap-3 mb-4 text-[var(--ln-teal-600)] text-[10px] font-extrabold tracking-[0.3em] uppercase">
           <Target className="w-4 h-4" />
-          Interactive Execution Task
+          Interactive Learning
         </div>
-        <p className="text-white text-lg font-medium leading-relaxed max-w-2xl">{prompt}</p>
+        <p className="text-[var(--ln-navy-900)] text-xl font-extrabold leading-relaxed max-w-2xl tracking-tight">{prompt}</p>
       </div>
 
       {/* Chart Section */}
@@ -252,35 +252,35 @@ export function PointClickEngine({
         <div 
           ref={chartContainerRef} 
           className={cn(
-            "w-full h-[450px] bg-[#0B0E14] transition-opacity duration-700",
+            "w-full h-[450px] bg-slate-900 transition-opacity duration-700",
             status === "passed" ? "opacity-60 grayscale-[0.5]" : ""
           )}
         />
         
-        {/* Floating Tactical HUD */}
+        {/* Floating Practice HUD */}
         <div className="absolute top-6 right-6 flex flex-col gap-3 pointer-events-none">
-            <div className="bg-black/60 backdrop-blur-md border border-white/10 p-3 rounded-xl flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[10px] font-bold text-white uppercase tracking-widest">Live Terminal</span>
+            <div className="bg-white/90 backdrop-blur-md border border-[var(--ln-border)] p-3 rounded-xl flex items-center gap-3 shadow-lg">
+                <div className="w-2 h-2 rounded-full bg-[var(--ln-teal-500)] animate-pulse" />
+                <span className="text-[10px] font-extrabold text-[var(--ln-navy-900)] uppercase tracking-widest">Practice Environment</span>
             </div>
             {attempts > 0 && (
-                <div className="bg-black/60 backdrop-blur-md border border-white/10 p-3 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-right-4">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Attempts</span>
-                    <span className="text-[10px] font-bold text-white">{attempts}</span>
+                <div className="bg-white/90 backdrop-blur-md border border-[var(--ln-border)] p-3 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-right-4 shadow-lg">
+                    <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Attempts</span>
+                    <span className="text-[10px] font-extrabold text-[var(--ln-navy-900)]">{attempts}</span>
                 </div>
             )}
         </div>
 
         {/* Success Overlay */}
         {status === "passed" && (
-            <div className="absolute inset-0 flex items-center justify-center bg-emerald-500/5 backdrop-blur-[2px] animate-in fade-in duration-700">
-                <div className="p-8 rounded-[2.5rem] bg-black/80 border border-emerald-500/20 shadow-2xl flex flex-col items-center gap-4 text-center max-w-xs">
-                    <div className="w-16 h-16 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-500">
+            <div className="absolute inset-0 flex items-center justify-center bg-[var(--ln-teal-500)]/5 backdrop-blur-[2px] animate-in fade-in duration-700">
+                <div className="p-8 rounded-[2.5rem] bg-white border border-[var(--ln-teal-500)]/20 shadow-2xl flex flex-col items-center gap-4 text-center max-w-xs">
+                    <div className="w-16 h-16 rounded-2xl bg-[var(--ln-teal-soft)] flex items-center justify-center text-[var(--ln-teal-500)] shadow-inner">
                         <CheckCircle2 size={40} />
                     </div>
                     <div>
-                        <h4 className="text-xl font-bold text-white">Target Verified</h4>
-                        <p className="text-sm text-slate-400 mt-1">Institutional structure identified correctly.</p>
+                        <h4 className="text-xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">Confirmed</h4>
+                        <p className="text-sm text-slate-500 mt-1 font-medium">Learning objective identified correctly.</p>
                     </div>
                 </div>
             </div>
@@ -290,27 +290,27 @@ export function PointClickEngine({
       {/* Analysis Panel */}
       {(feedback || rationale) && (
         <div className={cn(
-          "mx-8 mb-8 p-8 rounded-3xl border animate-in slide-in-from-bottom-4 duration-500 mt-8",
-          status === "passed" ? "bg-emerald-500/5 border-emerald-500/10" : "bg-amber-500/5 border-amber-500/10"
+          "mx-8 mb-8 p-8 rounded-[2rem] border animate-in slide-in-from-bottom-4 duration-500 mt-8 shadow-sm",
+          status === "passed" ? "bg-[var(--ln-teal-soft)]/30 border-[var(--ln-teal-500)]/10" : "bg-amber-50 border-amber-200"
         )}>
           <div className="flex flex-col gap-6">
             <div className="flex items-start gap-4">
                 <div className={cn(
-                    "p-3 rounded-2xl",
-                    status === "passed" ? "bg-emerald-500/10 text-emerald-500" : "bg-amber-500/10 text-amber-500"
+                    "p-3 rounded-2xl shadow-inner",
+                    status === "passed" ? "bg-white text-[var(--ln-teal-500)]" : "bg-white text-amber-500"
                 )}>
                     {status === "passed" ? <CheckCircle2 size={24} /> : <Lightbulb size={24} />}
                 </div>
                 <div className="space-y-1">
                     <p className={cn(
-                        "text-[10px] font-bold uppercase tracking-[0.2em]",
-                        status === "passed" ? "text-emerald-500" : "text-amber-500"
+                        "text-[10px] font-extrabold uppercase tracking-[0.2em]",
+                        status === "passed" ? "text-[var(--ln-teal-600)]" : "text-amber-600"
                     )}>
-                        {status === "passed" ? "Tactical Confirmation" : "Execution Feedback"}
+                        {status === "passed" ? "Learning Confirmation" : "Insight Feedback"}
                     </p>
                     <p className={cn(
-                        "text-base font-bold",
-                        status === "passed" ? "text-emerald-400" : "text-amber-200"
+                        "text-base font-extrabold tracking-tight",
+                        status === "passed" ? "text-[var(--ln-navy-900)]" : "text-amber-700"
                     )}>
                         {feedback}
                     </p>
@@ -318,9 +318,9 @@ export function PointClickEngine({
             </div>
 
             {status === "passed" && rationale && (
-                <div className="space-y-3 pt-6 border-t border-white/5">
-                    <h5 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Institutional Rationale</h5>
-                    <p className="text-sm text-slate-400 leading-relaxed italic">
+                <div className="space-y-3 pt-6 border-t border-[var(--ln-border)]">
+                    <h5 className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Pedagogical Rationale</h5>
+                    <p className="text-sm text-slate-500 font-medium leading-relaxed italic">
                         {rationale}
                     </p>
                 </div>
@@ -333,9 +333,9 @@ export function PointClickEngine({
                             setStatus("idle");
                             setFeedback(null);
                         }}
-                        className="text-[10px] font-bold text-white hover:text-amber-500 transition-colors uppercase tracking-widest"
+                        className="text-[10px] font-extrabold text-[var(--ln-navy-900)] hover:text-[var(--ln-teal-500)] transition-colors uppercase tracking-widest"
                     >
-                        Try Next Candle
+                        Try Again
                     </button>
                 </div>
             )}

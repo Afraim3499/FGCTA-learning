@@ -14,33 +14,33 @@ export async function XPLedgerWidget() {
   });
 
   return (
-    <div className="p-8 bg-[var(--color-surface-secondary)] border border-[var(--color-border-default)] rounded-[2.5rem] space-y-6">
-      <h3 className="text-[10px] font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2">
-        <History className="w-3 h-3 text-[var(--color-brand-400)]" />
-        Protocol Activity
+    <div className="p-8 bg-white border border-[var(--ln-border)] rounded-[2.5rem] space-y-6 shadow-sm">
+      <h3 className="text-[10px] font-extrabold text-[var(--ln-navy-900)] uppercase tracking-[0.2em] flex items-center gap-2">
+        <History className="w-4 h-4 text-[var(--ln-teal-500)]" />
+        Learning Activity
       </h3>
 
-      <div className="space-y-5">
+      <div className="space-y-6">
         {activities.length === 0 ? (
           <div className="py-8 text-center space-y-2">
-            <p className="text-[10px] text-[var(--color-text-muted)] uppercase font-bold tracking-widest italic">No events detected</p>
+            <p className="text-[10px] text-slate-400 uppercase font-extrabold tracking-widest italic">No events detected</p>
           </div>
         ) : (
-          activities.map((entry) => (
+          activities.map((entry: any) => (
             <div key={entry.id} className="flex items-center justify-between group">
               <div className="space-y-1">
-                <p className="text-xs font-bold text-white group-hover:text-[var(--color-brand-400)] transition-colors uppercase tracking-tight">
+                <p className="text-xs font-bold text-[var(--ln-navy-900)] group-hover:text-[var(--ln-teal-500)] transition-colors uppercase tracking-tight">
                   {formatAction(entry.action)}
                 </p>
-                <p className="text-[10px] text-[var(--color-text-muted)] font-mono uppercase">
+                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
                   {getRelativeTime(entry.createdAt)}
                 </p>
               </div>
               <div className={cn(
-                "flex items-center gap-1 font-mono font-bold text-xs px-3 py-1.5 rounded-xl transition-all",
+                "flex items-center gap-1 font-bold text-[10px] px-3 py-1.5 rounded-xl transition-all",
                 entry.xpAmount >= 0 
-                  ? "text-[var(--color-profit)] bg-[var(--color-profit)]/5 border border-[var(--color-profit)]/10" 
-                  : "text-[var(--color-loss)] bg-[var(--color-loss)]/5 border border-[var(--color-loss)]/10"
+                  ? "text-[var(--ln-teal-600)] bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/10" 
+                  : "text-rose-600 bg-rose-50 border border-rose-100"
               )}>
                 {entry.xpAmount >= 0 ? "+" : "-"}{Math.abs(entry.xpAmount)}
               </div>
@@ -49,9 +49,9 @@ export async function XPLedgerWidget() {
         )}
       </div>
 
-      <button className="w-full py-3 border border-[var(--color-border-default)] rounded-xl text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest hover:text-white hover:bg-white/5 transition-all flex items-center justify-center gap-2">
-        Full Audit Log
-        <ArrowUpRight size={12} />
+      <button className="w-full py-4 border border-[var(--ln-border)] rounded-2xl text-[10px] font-extrabold text-slate-400 uppercase tracking-widest hover:text-[var(--ln-navy-900)] hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm">
+        Full History
+        <ArrowUpRight size={14} />
       </button>
     </div>
   );
@@ -69,12 +69,12 @@ function getRelativeTime(date: Date): string {
 
 function formatAction(action: string): string {
   const map: Record<string, string> = {
-    "MODULE_COMPLETE": "Node Synced",
-    "TEST_PASS": "Protocol Verified",
-    "TEST_FAIL": "Validation Failed",
-    "TRADE_EXECUTE": "Transaction Sent",
-    "RULE_VIOLATION": "Logic Fault",
-    "PHASE_UNLOCKED": "Access Escalated",
+    "MODULE_COMPLETE": "Lesson Completed",
+    "TEST_PASS": "Test Passed",
+    "TEST_FAIL": "Review Needed",
+    "TRADE_EXECUTE": "Practice Session",
+    "RULE_VIOLATION": "Strategy Review",
+    "PHASE_UNLOCKED": "Level Unlocked",
   };
   return map[action] || action.replace(/_/g, " ");
 }

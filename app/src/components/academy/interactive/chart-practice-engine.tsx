@@ -21,13 +21,13 @@ import {
   Undo2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { InstitutionalButton } from "@/components/ui/institutional-button";
+import { AcademyButton } from "@/components/ui/academy-button";
 import { 
-  TerminalCard, 
-  TerminalCardContent, 
-  TerminalCardHeader, 
-  TerminalCardTitle 
-} from "@/components/ui/terminal-card";
+  AcademyCard, 
+  AcademyCardContent, 
+  AcademyCardHeader, 
+  AcademyCardTitle 
+} from "@/components/ui/academy-card";
 
 export interface ChartBox {
   id: string;
@@ -38,7 +38,7 @@ export interface ChartBox {
   color: string;
 }
 
-interface ChartSimulatorProps {
+interface ChartPracticeProps {
   data: any[];
   correctZones?: Array<{
     startTime: UTCTimestamp;
@@ -55,7 +55,7 @@ interface ChartSimulatorProps {
   readOnly?: boolean;
 }
 
-export function ChartSimulator({ 
+export function ChartPractice({ 
   data, 
   correctZones = [], 
   prompt, 
@@ -64,7 +64,7 @@ export function ChartSimulator({
   mode = "assessment",
   initialBoxes = [],
   readOnly = false
-}: ChartSimulatorProps) {
+}: ChartPracticeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<IChartApi | null>(null);
   const seriesRef = useRef<ISeriesApi<"Candlestick"> | null>(null);
@@ -263,9 +263,9 @@ export function ChartSimulator({
             height: Math.abs(yEnd - yStart),
           }}
         >
-          <div className="absolute -top-6 left-0 text-[8px] font-bold text-accent-blue uppercase tracking-tighter bg-accent-blue/10 px-1 rounded flex items-center gap-1">
+          <div className="absolute -top-6 left-0 text-[8px] font-extrabold text-accent-blue uppercase tracking-tighter bg-accent-blue/10 px-1 rounded flex items-center gap-1">
             <Target size={8} />
-            INSTITUTIONAL_FOOTPRINT_L1
+            MARKET_STRUCTURE_L1
           </div>
         </div>
       );
@@ -273,26 +273,26 @@ export function ChartSimulator({
   };
 
   return (
-    <div className="flex flex-col gap-6 h-[850px] max-w-7xl mx-auto py-4">
-      {/* Tactical Briefing Header */}
+    <div className="flex flex-col gap-6 w-full flex-1 min-h-[600px] lg:min-h-0">
+      {/* Learning Briefing Header */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <TerminalCard className="lg:col-span-3">
-          <TerminalCardContent className="p-6 flex items-center justify-between">
+        <AcademyCard className="lg:col-span-3">
+          <AcademyCardContent className="p-6 flex items-center justify-between">
             <div className="flex items-start gap-4">
-               <div className="p-3 bg-accent-blue/10 text-accent-blue rounded-2xl">
+               <div className="p-3 bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] rounded-2xl">
                   <Target size={24} />
                </div>
                <div className="space-y-1">
-                  <div className="text-[10px] font-bold text-text-muted uppercase tracking-[0.3em]">Execution Protocol</div>
-                  <h2 className="text-xl font-bold text-white tracking-tight">{prompt}</h2>
+                  <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-[0.3em]">Entry Method</div>
+                  <h2 className="text-xl font-extrabold text-[var(--ln-navy-900)] tracking-tight">{prompt}</h2>
                </div>
             </div>
-            <div className="flex items-center gap-2 bg-background p-2 rounded-2xl border border-border-default">
+            <div className="flex items-center gap-2 bg-white p-2 rounded-2xl border border-[var(--ln-border)] shadow-sm">
               <button 
                 onClick={() => setTool("pointer")}
                 className={cn(
                   "p-3 rounded-xl transition-all",
-                  tool === "pointer" ? "bg-accent-blue text-white shadow-glow-blue" : "text-text-muted hover:text-white"
+                  tool === "pointer" ? "bg-[var(--ln-teal-500)] text-white shadow-lg" : "text-slate-400 hover:text-[var(--ln-navy-900)]"
                 )}
               >
                 <MousePointer2 size={20} />
@@ -301,39 +301,39 @@ export function ChartSimulator({
                 onClick={() => setTool("box")}
                 className={cn(
                   "p-3 rounded-xl transition-all",
-                  tool === "box" ? "bg-accent-blue text-white shadow-glow-blue" : "text-text-muted hover:text-white"
+                  tool === "box" ? "bg-[var(--ln-teal-500)] text-white shadow-lg" : "text-slate-400 hover:text-[var(--ln-navy-900)]"
                 )}
               >
                 <Square size={20} />
               </button>
-              <div className="w-px h-8 bg-border-default mx-1" />
+              <div className="w-px h-8 bg-slate-100 mx-1" />
               <button 
                 onClick={clearBoxes}
-                className="p-3 text-text-muted hover:text-fail-red transition-all"
+                className="p-3 text-slate-400 hover:text-fail-red transition-all"
               >
                 <Trash2 size={20} />
               </button>
             </div>
-          </TerminalCardContent>
-        </TerminalCard>
+          </AcademyCardContent>
+        </AcademyCard>
 
-        <TerminalCard className="lg:col-span-1 flex items-center justify-center text-center">
-           <TerminalCardContent className="p-4">
-              <p className="text-[9px] font-bold text-text-muted uppercase mb-1">Target Precision</p>
-              <p className="text-2xl font-black text-white">99.8%</p>
-           </TerminalCardContent>
-        </TerminalCard>
+        <AcademyCard className="lg:col-span-1 flex items-center justify-center text-center">
+           <AcademyCardContent className="p-4">
+              <p className="text-[9px] font-bold text-slate-400 uppercase mb-1">Target Precision</p>
+              <p className="text-2xl font-extrabold text-[var(--ln-navy-900)]">99.8%</p>
+           </AcademyCardContent>
+        </AcademyCard>
       </div>
 
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden">
         
-        {/* Left: Tactical Instructions */}
+        {/* Practice Instructions */}
         <div className="lg:col-span-3 space-y-6">
-           <TerminalCard className="h-full">
-              <TerminalCardHeader>
-                 <TerminalCardTitle className="text-xs">Tactical Guide</TerminalCardTitle>
-              </TerminalCardHeader>
-              <TerminalCardContent className="space-y-6">
+           <AcademyCard className="h-full">
+              <AcademyCardHeader>
+                 <AcademyCardTitle className="text-xs">Learning Guide</AcademyCardTitle>
+              </AcademyCardHeader>
+              <AcademyCardContent className="space-y-6">
                  <div className="space-y-4">
                     <div className="flex gap-3">
                        <div className="w-5 h-5 rounded bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center text-[10px] text-accent-blue font-bold">1</div>
@@ -345,7 +345,7 @@ export function ChartSimulator({
                     </div>
                     <div className="flex gap-3">
                        <div className="w-5 h-5 rounded bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center text-[10px] text-accent-blue font-bold">3</div>
-                       <p className="text-xs text-text-secondary leading-relaxed">Click 'Validate Logic' to confirm institutional alignment.</p>
+                       <p className="text-xs text-text-secondary leading-relaxed">Click 'Validate Logic' to confirm market alignment.</p>
                     </div>
                  </div>
 
@@ -363,15 +363,16 @@ export function ChartSimulator({
                       </p>
                    </div>
                  )}
-              </TerminalCardContent>
-           </TerminalCard>
+              </AcademyCardContent>
+           </AcademyCard>
         </div>
 
         {/* Center: Main Chart Canvas */}
-        <div className="lg:col-span-9 relative rounded-3xl border border-border-default overflow-hidden bg-background group">
-          <div 
-            ref={containerRef} 
-            className="w-full h-full"
+        <div className="lg:col-span-9 relative rounded-3xl border border-slate-200 bg-slate-50 p-2 md:p-3 group min-h-[400px] lg:min-h-[520px] flex flex-col">
+          <div className="relative flex-1 bg-[#0A0A0B] rounded-2xl">
+            <div 
+              ref={containerRef} 
+              className="absolute inset-0"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -418,15 +419,16 @@ export function ChartSimulator({
 
           {!readOnly && (
             <div className="absolute bottom-8 right-8 flex gap-3 pointer-events-auto">
-              <InstitutionalButton variant="outline" onClick={clearBoxes}>
+              <AcademyButton variant="outline" onClick={clearBoxes}>
                 <Undo2 className="mr-2" size={16} />
                 Reset Analysis
-              </InstitutionalButton>
-              <InstitutionalButton glow onClick={validateBoxes} disabled={boxes.length === 0 || isSubmitting}>
-                {isSubmitting ? "TRANSMITTING..." : "Validate Logic"}
-              </InstitutionalButton>
+              </AcademyButton>
+              <AcademyButton glow onClick={validateBoxes} disabled={boxes.length === 0 || isSubmitting}>
+                {isSubmitting ? "SAVING..." : "Validate Logic"}
+              </AcademyButton>
             </div>
           )}
+          </div>
         </div>
       </div>
     </div>

@@ -4,12 +4,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const stats = [
-  { value: "42", label: "Modules" },
-  { value: "220+", label: "Strategies" },
-  { value: "5", label: "Trading Phases" },
+  { value: "Visual", label: "Lessons" },
+  { value: "Guided", label: "Practice" },
+  { value: "Chart", label: "Missions" },
+  { value: "Level", label: "Gates" },
   { value: "3", label: "Market Tracks" },
-  { value: "5", label: "Cert Levels" },
-  { value: "$100→$10K", label: "Progression" },
+  { value: "Free", label: "Level 0" },
 ];
 
 export function StatsBar() {

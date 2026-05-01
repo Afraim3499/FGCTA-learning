@@ -29,14 +29,14 @@ export function PlatformPreviewSection() {
 
         <p className="text-slate-600 font-medium leading-relaxed">
           Start with $100 in a controlled environment and trade under strict
-          institutional rules. Your capital grows only if your decisions are
+          Academy rules. Your capital grows only if your decisions are
           correct. Every metric is tracked. Every rule is enforced.
         </p>
 
         <div className="space-y-4">
           {[
             { icon: TrendingUp, label: "Real P&L tracking across 5 capital phases" },
-            { icon: Shield, label: "6 institutional risk rules — hard-enforced" },
+            { icon: Shield, label: "6 Academy risk rules — hard-enforced" },
             { icon: Activity, label: "17+ performance metrics scored continuously" },
           ].map(({ icon: Icon, label }) => (
             <div key={label} className="flex items-center gap-3 text-sm font-bold text-[var(--ln-navy-900)]">

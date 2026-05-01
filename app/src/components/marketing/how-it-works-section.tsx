@@ -5,11 +5,10 @@ import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 
 const steps = [
-  { step: "Learn", desc: "Structured modules with real strategy content — not scattered YouTube tips", icon: "📖" },
-  { step: "Test", desc: "Pass knowledge gates at 80%+ to prove understanding before moving forward", icon: "✍️" },
-  { step: "Trade", desc: "Execute in a simulated environment under institutional risk rules", icon: "📊" },
-  { step: "Evaluate", desc: "Every trade is tracked. Profit, risk, consistency, discipline — all scored", icon: "📈" },
-  { step: "Advance", desc: "Your capital grows from $100 to $10,000 only if your performance proves it", icon: "🏆" },
+  { step: "Learn", desc: "Structured visual lessons that explain market concepts clearly — not scattered tips or dense theory", icon: "📖" },
+  { step: "Practice", desc: "Guided exercises and chart-reading tasks that build real skills through active participation", icon: "✍️" },
+  { step: "Prove", desc: "Chart missions and knowledge tests that verify your understanding before you move forward", icon: "✅" },
+  { step: "Progress", desc: "Advance through structured levels as your skills develop — each level builds on the last", icon: "📈" },
 ];
 
 export function HowItWorksSection() {
@@ -25,15 +24,15 @@ export function HowItWorksSection() {
           className="text-center space-y-4"
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--ln-navy-900)]">
-            A system designed to build discipline,{" "}
+            A system designed to build understanding,{" "}
             <span className="text-slate-400">not guesswork</span>
           </h2>
           <p className="text-slate-600 max-w-xl mx-auto font-medium">
-            Every level follows the same four-phase architecture. No shortcuts. No skipping.
+            Every level follows the same four-step approach. No shortcuts. No skipping.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {steps.map((item, i) => (
             <motion.div
               key={item.step}
@@ -50,7 +49,7 @@ export function HowItWorksSection() {
               <p className="text-xs text-slate-600 font-medium leading-relaxed">
                 {item.desc}
               </p>
-              {i < 4 && (
+              {i < 3 && (
                 <ArrowRight size={14} className="hidden md:block absolute -right-5 top-1/2 -translate-y-1/2 text-slate-200" />
               )}
             </motion.div>

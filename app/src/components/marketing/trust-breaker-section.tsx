@@ -12,12 +12,12 @@ const normalCourse = [
   "No accountability, no tracking",
 ];
 
-const fgcSystem = [
-  "42 structured modules with knowledge gates",
-  "5-phase simulation with institutional risk rules",
-  "5-level certification scored on real performance",
-  "220+ verified strategies in 26 organized families",
-  "Every trade tracked, every metric scored",
+const lurnavaDifference = [
+  "Visual lessons with guided practice blocks",
+  "Chart missions that test real understanding",
+  "Level gates — prove it before you proceed",
+  "Structured progress from foundations to application",
+  "Every step tracked, every concept verified",
 ];
 
 export function TrustBreakerSection() {
@@ -67,13 +67,13 @@ export function TrustBreakerSection() {
           transition={{ delay: 0.2 }}
           className="p-10 md:p-12 bg-[var(--ln-navy-900)] rounded-3xl border border-[var(--ln-teal-500)]/20 space-y-8 relative overflow-hidden shadow-xl"
         >
-          <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--color-brand-500)]/10 blur-[100px]" />
+          <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--ln-teal-500)]/10 blur-[100px]" />
           <div className="space-y-6 relative z-10">
             <h3 className="text-lg font-bold text-[var(--ln-teal-400)] uppercase tracking-widest">
               The Lurnava System
             </h3>
             <ul className="space-y-5">
-              {fgcSystem.map((item) => (
+              {lurnavaDifference.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-white font-medium">
                   <Check size={16} className="text-[var(--ln-teal-500)] mt-0.5 shrink-0" />
                   <span>{item}</span>

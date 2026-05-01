@@ -37,7 +37,7 @@ export function MissionReadinessCard({
           <h2 className="text-[10px] font-bold text-[var(--color-brand-400)] uppercase tracking-[0.3em]">Operational Objective</h2>
           <h3 className="text-3xl font-bold text-white tracking-tighter uppercase">Mission: Complete Level {currentLevel}</h3>
           <p className="text-sm text-[var(--color-text-secondary)] max-w-sm mx-auto leading-relaxed">
-            Your simulation node is active. Complete the foundational modules to unlock institutional capital and live evaluation phases.
+            Your Practice node is active. Complete the foundational modules to unlock Academy capital and live evaluation phases.
           </p>
         </div>
 
