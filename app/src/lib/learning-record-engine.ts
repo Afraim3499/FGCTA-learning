@@ -41,7 +41,7 @@ export async function calculateLearningScore(attemptId: string): Promise<CertSco
   const disciplineScore = Math.max(0, 100 - (violations * 20)); // -20 points per violation
 
   // 4. Consistency Score (Win Rate + Avg R-Multiple)
-  const wins = trades.filter(t => Number(t.pnl || 0) > 0).length;
+  const wins = trades.filter((t: any) => Number(t.pnl || 0) > 0).length;
   const winRate = totalTrades > 0 ? (wins / totalTrades) * 100 : 0;
   
   // Consistency is a mix of win-rate (ideal 40-60%) and survival

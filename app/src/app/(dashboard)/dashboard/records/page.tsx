@@ -32,7 +32,7 @@ export default async function LearningRecordPage() {
 
       {LearningRecords.length > 0 ? (
         <div className="grid grid-cols-1 gap-8">
-          {LearningRecords.map((cert) => (
+          {LearningRecords.map((cert: any) => (
             <div key={cert.id} className="relative group">
               {/* Record Card Container */}
               <div className="bg-white border border-[var(--ln-border)] rounded-[3rem] overflow-hidden shadow-sm transition-all group-hover:border-[var(--ln-teal-500)]/20 group-hover:shadow-xl group-hover:shadow-[var(--ln-teal-500)]/5">

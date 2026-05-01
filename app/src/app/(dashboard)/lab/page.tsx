@@ -24,7 +24,7 @@ export default async function StrategyLabPage() {
     include: { module: { select: { moduleNumber: true } } },
   });
 
-  const completedModuleNumbers = new Set(completions.map(c => c.module.moduleNumber));
+  const completedModuleNumbers = new Set<string>(completions.map((c: any) => c.module.moduleNumber));
 
   // Fetch saved analyses
   const savedAnalyses = await prisma.savedAnalysis.findMany({
