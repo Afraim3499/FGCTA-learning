@@ -42,7 +42,7 @@ export function ModuleNavigation({ userId, moduleId, assetClass, nextUrl }: Modu
           onClick={handleProceed}
           disabled={isPending}
        >
-          {isPending ? "SYNCHRONIZING..." : "PROCEED TO NEXT MODULE"}
+          {isPending ? "UPDATING..." : "PROCEED TO NEXT MODULE"}
           {!isPending && <ChevronRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />}
        </AcademyButton>
     </div>

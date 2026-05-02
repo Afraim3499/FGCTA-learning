@@ -160,6 +160,7 @@ export function StrategyLabClient({
         {PRIMARY_TABS.map(tab => (
           <button
             key={tab}
+            data-nava-target={tab === "Saved" ? "saved-analysis-tab" : undefined}
             onClick={() => {
                setActiveTab(tab);
                setSelectedStrategy(null);
@@ -249,7 +250,12 @@ export function StrategyLabClient({
                   </h4>
                 </button>
               )) : (
-                <div className="p-6 text-center text-sm text-slate-400 italic">My Journal is currently empty.</div>
+                <div 
+                  data-nava-target="saved-analysis-tab"
+                  className="p-6 text-center text-sm text-slate-400 italic"
+                >
+                  My Journal is currently empty.
+                </div>
               )
             )}
           </div>
@@ -338,6 +344,7 @@ export function StrategyLabClient({
                 <div className="pt-6 border-t border-slate-100">
                    <button 
                      onClick={() => setIsPracticing(true)}
+                     data-nava-target="practice-concept-cta"
                      className="w-full md:w-auto px-8 py-3.5 bg-[var(--ln-teal-500)] text-white rounded-xl text-sm font-bold shadow-md shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all flex items-center justify-center gap-2"
                    >
                       <Target size={18} /> Practice This Concept

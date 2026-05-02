@@ -119,7 +119,7 @@ export default function TrackSelectionPage() {
                     : "bg-white/5 text-[var(--color-text-muted)] cursor-not-allowed"
                 )}
               >
-                Sync with Logic
+                Initialize Path
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -138,7 +138,7 @@ export default function TrackSelectionPage() {
               <div className="absolute inset-0 bg-[var(--color-brand-500)]/20 blur-2xl animate-pulse" />
             </div>
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter">Synchronizing Logic...</h2>
+              <h2 className="text-3xl font-bold tracking-tighter">Initializing Path...</h2>
               <p className="text-[var(--color-text-muted)] font-mono text-xs tracking-widest uppercase">
                 Initializing Mission Hub • Enforcing Risk Rules
               </p>

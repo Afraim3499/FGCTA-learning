@@ -22,7 +22,7 @@ import { useUser } from "@/components/user-provider";
 const NAV_ITEMS = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { name: "Academy", href: "/course", icon: BookOpen },
-  { name: "Practice Environment", href: "/trading", icon: Target },
+  { name: "Chart Practice", href: "/trading", icon: Target },
   { name: "Library", href: "/lab", icon: Library },
   { name: "Settings", href: "/dashboard/records", icon: Settings },
 ];

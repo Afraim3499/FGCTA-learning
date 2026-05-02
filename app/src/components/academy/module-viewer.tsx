@@ -50,7 +50,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
 
   const isMasterAdmin = userTrack === "multi";
   const requiresTask = !!module.interactiveTaskType;
-  const isSyncLocked = requiresTask && !taskResult;
+  const isTaskLocked = requiresTask && !taskResult;
 
   const tabs = [
     { id: "core", label: "Core Concept", icon: Layout, available: true },
@@ -125,7 +125,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
       try {
         await completeModule(module.id, taskResult || undefined);
       } catch (error) {
-        console.error("Failed to sync before proceeding:", error);
+        console.error("Failed to update progress before proceeding:", error);
       } finally {
         setIsCompleting(false);
       }
@@ -185,13 +185,13 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
             </p>
             <button
               onClick={handleComplete}
-              disabled={isCompleting || module.completed || isSyncLocked}
+              disabled={isCompleting || module.completed || isTaskLocked}
               className={cn(
                 "w-full py-3.5 px-4 rounded-2xl font-extrabold tracking-widest text-[10px] uppercase transition-all duration-300 flex items-center justify-center gap-2 border",
                 isCompleting ? "bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed" :
                 module.completed
                   ? "bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] border-[var(--ln-teal-500)]/20"
-                  : isSyncLocked
+                  : isTaskLocked
                     ? "bg-slate-50 text-slate-400 cursor-not-allowed border-slate-200"
                     : "bg-[var(--ln-teal-500)] hover:bg-[var(--ln-teal-600)] text-white shadow-lg shadow-[var(--ln-teal-500)]/20 border-transparent"
               )}
@@ -200,8 +200,8 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                 <><Loader2 className="w-4 h-4 animate-spin" /> UPDATING PROGRESS...</>
               ) : module.completed ? (
                 <><CheckCircle2 className="w-4 h-4" /> COMPLETED</>
-              ) : isSyncLocked ? (
-                <><Target className="w-4 h-4" /> COMPLETE TASK TO CONTINUE</>
+              ) : isTaskLocked ? (
+                <><Target className="w-4 h-4" /> TASK COMPLETION REQUIRED</>
               ) : (
                 <><CheckCircle2 className="w-4 h-4" /> MARK AS COMPLETE</>
               )}
@@ -234,7 +234,10 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
           )}
         </aside>
 
-        <main className="lg:col-span-9 min-h-[700px] bg-white rounded-[2.5rem] border border-[var(--ln-border)] p-10 md:p-16 shadow-sm relative">
+        <main 
+          data-nava-target="module-intro-card"
+          className="lg:col-span-9 min-h-[700px] bg-white rounded-[2.5rem] border border-[var(--ln-border)] p-10 md:p-16 shadow-sm relative"
+        >
           <div className="relative z-10">
             <MarkdownRenderer 
               content={currentContent || "Lesson content is currently being prepared."} 
@@ -248,7 +251,10 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                 <span className="px-3 py-1 rounded-full bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] text-[10px] font-extrabold uppercase tracking-widest">Practice Exercise</span>
               </div>
               
-              <div className="bg-slate-50 rounded-3xl border border-[var(--ln-border)] p-6 md:p-10">
+              <div 
+                data-nava-target="practice-exercise-block"
+                className="bg-slate-50 rounded-3xl border border-[var(--ln-border)] p-6 md:p-10"
+              >
                 {module.interactiveTaskType === 'type_a_point_click' && module.interactiveTaskData && (
                   <PointClickEngine
                     taskId={`task_${module.id}`}
@@ -321,7 +327,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
         {module.nextModuleId ? (
           <button
             onClick={() => handleProceed(`/course/module/${module.nextModuleId}`)}
-            disabled={isCompleting || isSyncLocked}
+            disabled={isCompleting || isTaskLocked}
             className="flex items-center gap-3 text-[10px] font-extrabold text-[var(--ln-navy-900)] uppercase tracking-widest hover:text-[var(--ln-teal-500)] transition-all group disabled:opacity-30 disabled:cursor-not-allowed"
           >
             {isCompleting ? "UPDATING..." : "Advance to Next Lesson"}
@@ -330,7 +336,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
         ) : (
           <button
             onClick={() => handleProceed(module.completed ? `/test/${module.level}` : "/course")}
-            disabled={isCompleting || isSyncLocked}
+            disabled={isCompleting || isTaskLocked}
             className="flex items-center gap-3 text-[10px] font-extrabold text-[var(--ln-teal-500)] uppercase tracking-widest hover:text-[var(--ln-teal-600)] transition-all group disabled:opacity-30 disabled:cursor-not-allowed"
           >
             {isCompleting 

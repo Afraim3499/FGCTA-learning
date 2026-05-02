@@ -95,7 +95,7 @@ function gradeMission1(trade: any): GradingResult {
     score,
     passed,
     summary: passed 
-      ? "Perfect sync! You successfully placed a disciplined order with correct risk controls." 
+      ? "Fully Complete! You successfully placed a disciplined order with correct risk controls." 
       : "Mission Failed. Review the required lot size and risk-to-reward ratio.",
     points,
     weaknessTags

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { NavaGuide } from "@/components/nava/NavaGuide";
 
 export const metadata: Metadata = {
   title: "Lurnava Academy — Learn the Market With Structure",
@@ -52,7 +53,10 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <NavaGuide />
+        </Providers>
       </body>
     </html>
   );

@@ -113,7 +113,7 @@ export default function OnboardingPage() {
                 <ChevronLeft size={14} /> Back to Logics
               </button>
               <h1 className="text-5xl font-bold text-white tracking-tighter">Clearance Level</h1>
-              <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">Synchronize your initial training baseline based on your experience.</p>
+              <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">Initialize your initial training baseline based on your experience.</p>
             </div>
             <div className="space-y-4 max-w-2xl mx-auto">
               {EXPERIENCE.map((exp) => (

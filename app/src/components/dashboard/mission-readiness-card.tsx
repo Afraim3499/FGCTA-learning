@@ -50,7 +50,7 @@ export function MissionReadinessCard({
             </p>
           </div>
           <div className="p-4 bg-white/5 border border-white/5 rounded-2xl flex flex-col items-center gap-1">
-            <p className="text-[8px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest">Sync Requirement</p>
+            <p className="text-[8px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest">Level Requirement</p>
             <p className="text-sm font-bold text-white">Lvl {currentLevel} 100%</p>
           </div>
         </div>

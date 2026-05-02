@@ -22,16 +22,16 @@ export default function JourneyError({
           <AlertTriangle size={32} />
         </div>
         <div className="space-y-3">
-          <h3 className="text-2xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">Sync Delayed</h3>
+          <h3 className="text-2xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">Connection Delayed</h3>
           <p className="text-xs text-[var(--ln-text-secondary)] leading-relaxed font-medium">
-            The academy interface is having trouble connecting to the course data feed. 
+            We’re having trouble loading your course data. Try again in a moment.
           </p>
         </div>
         <button 
           onClick={() => reset()}
           className="w-full py-4 bg-[var(--ln-teal-500)] text-white rounded-2xl font-extrabold uppercase text-[10px] tracking-widest shadow-lg shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all flex items-center justify-center gap-2"
         >
-          <RotateCcw size={14} /> RETRY CONNECTION
+          <RotateCcw size={14} /> RETRY
         </button>
       </div>
     </div>

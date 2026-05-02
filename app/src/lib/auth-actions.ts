@@ -61,10 +61,10 @@ export async function signUp(formData: FormData) {
       });
       // Initial tier is 0
       await cacheUserTier(data.user.id, 0);
-      console.log("✅ Prisma Profile Synchronized & Cached");
+      console.log("✅ Prisma Profile Initialized & Cached");
     } catch (dbError: any) {
-      console.error("❌ Failed to synchronize user profile:", dbError.message);
-      return { error: "Database synchronization failed: " + dbError.message };
+      console.error("❌ Failed to update user profile:", dbError.message);
+      return { error: "Profile update failure: " + dbError.message };
     }
   }
 

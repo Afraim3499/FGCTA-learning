@@ -28,7 +28,7 @@ export async function getNextStep(userId: string): Promise<NextStep> {
     return {
       action: "START_FOUNDATION",
       title: "Begin Your Journey",
-      description: "Start with the 'What is Trading' foundation module to unlock the terminal.",
+      description: "Start with the 'What is Trading' foundation module to unlock the platform.",
       link: "/course/0",
       priority: 100,
     };
@@ -110,7 +110,7 @@ export async function getNextStep(userId: string): Promise<NextStep> {
     return {
       action: "START_PHASE",
       title: "Start Practical Mission",
-      description: `You've mastered the theory. It's time to build your experience in the Practice Environment.`,
+      description: `You've mastered the theory. It's time to build your experience with Chart Practice.`,
       link: "/trading",
       priority: 170,
     };

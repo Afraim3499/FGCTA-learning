@@ -6,6 +6,7 @@ import { ChevronRight, ChevronLeft, Timer, Award, AlertTriangle, CheckCircle2, X
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNava } from "@/hooks/useNava";
 
 interface Question {
   id: string;
@@ -28,6 +29,7 @@ export function TestEngine({ level, test }: TestEngineProps) {
   const [answers, setAnswers] = useState<{ questionId: string; selectedIndex: number }[]>([]);
   const [timeLeft, setTimeLeft] = useState(test.timeLimit * 60);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { triggerMessage } = useNava();
   const [results, setResults] = useState<{ score: number; passed: boolean; message?: string } | null>(null);
   const [error, setError] = useState<string | null>(null);
   
@@ -41,6 +43,15 @@ export function TestEngine({ level, test }: TestEngineProps) {
       return [...existing, { questionId: currentQuestion.id, selectedIndex: optionIndex }];
     });
   };
+
+  useEffect(() => {
+    if (results) {
+      triggerMessage('test_result_review', {
+        pose: results.passed ? 'celebration' : 'empathy',
+        ctaLabel: results.passed ? 'Continue Learning Path' : 'Retry Test'
+      });
+    }
+  }, [results, triggerMessage]);
 
   const handleSubmit = useCallback(async () => {
     if (isSubmitting) return;
@@ -144,6 +155,7 @@ export function TestEngine({ level, test }: TestEngineProps) {
           {!results.passed ? (
             <button
               onClick={() => window.location.reload()}
+              data-nava-target="test-result-action"
               className="flex-1 py-4 bg-[var(--ln-teal-500)] text-white font-extrabold rounded-2xl hover:bg-[var(--ln-teal-600)] transition-all shadow-lg shadow-[var(--ln-teal-500)]/20 uppercase tracking-widest text-xs"
             >
               Retry Test
@@ -151,6 +163,7 @@ export function TestEngine({ level, test }: TestEngineProps) {
           ) : (
             <button
               onClick={() => router.push("/course")}
+              data-nava-target="test-result-action"
               className="flex-1 py-4 bg-[var(--ln-teal-500)] text-white font-extrabold rounded-2xl hover:bg-[var(--ln-teal-600)] transition-all shadow-lg shadow-[var(--ln-teal-500)]/20 uppercase tracking-widest text-xs"
             >
               Continue Learning Path

@@ -68,7 +68,7 @@ export async function submitAssessment(moduleId: string, result: AssessmentResul
     return submitAssessment(moduleId, { 
       success: false, 
       failureType: "TRAP", 
-      message: "Logic Desync: Institutional verification failed on server.",
+      message: "Connection Mismatch: Verification failed on server.",
       rationale: "Our server-side monitors detected a mismatch between your local drawing and institutional data."
     });
   }

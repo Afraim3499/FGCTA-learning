@@ -55,7 +55,7 @@ export default async function PracticeEnvironmentPage({
       <section className="flex items-center justify-between">
         <div className="space-y-2">
           <h1 className="text-3xl font-extrabold text-[var(--ln-navy-900)] tracking-tight uppercase">
-            Practice Environment
+            Chart Practice
           </h1>
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1.5 text-[10px] font-extrabold text-[var(--ln-teal-600)] uppercase tracking-widest bg-[var(--ln-teal-soft)] px-2.5 py-1 rounded-lg border border-[var(--ln-teal-500)]/10">

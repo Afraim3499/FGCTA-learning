@@ -206,7 +206,7 @@ export async function submitTest(level: number, selectedAnswers: { questionId: s
           shouldUnlockNextLevel = false;
           returnMessage = "Test passed. Complete the Level 3 Final Scenario (Module 3.10) to unlock Level 4.";
         } else {
-          returnMessage = "Level 4 Unlocked! You are ready for execution training.";
+          returnMessage = "Level 4 Unlocked! You are ready for practical training.";
         }
       }
 

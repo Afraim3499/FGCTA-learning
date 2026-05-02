@@ -9,12 +9,25 @@ interface ContinueLearningCardProps {
   progressPercent: number;
 }
 
+import { useNava } from "@/hooks/useNava";
+import { useEffect } from "react";
+
 export function ContinueLearningCard({ step, progressPercent }: ContinueLearningCardProps) {
-  // Try to parse out level and module from the description if possible, or use defaults
-  // e.g. title: "Start Level 1", description: "Module 1.1 - Something"
-  
+  const { triggerMessage } = useNava();
+
+  useEffect(() => {
+    // Trigger Nava pointing guidance for this specific next step
+    triggerMessage('dashboard_returning', {
+      ctaLabel: step.title,
+      ctaHref: step.link
+    });
+  }, [step, triggerMessage]);
+
   return (
-    <div className="bg-white rounded-3xl p-5 border border-[var(--ln-border)] shadow-sm flex flex-col h-full hover:shadow-md transition-all">
+    <div 
+      data-nava-target="continue-learning-card"
+      className="bg-white rounded-3xl p-5 border border-[var(--ln-border)] shadow-sm flex flex-col h-full hover:shadow-md transition-all"
+    >
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-bold text-[var(--ln-navy-900)]">Continue Learning</h3>
         <BookOpen className="w-4 h-4 text-slate-400" />

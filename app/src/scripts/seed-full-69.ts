@@ -49,7 +49,7 @@ async function main() {
     {
       level: 0, moduleNumber: "0.3", title: "Platform Orientation",
       objective: "Setting up your workspace for simulation.",
-      content: "# Synchronize Your Terminal\n\nEnsure your data feeds are active. Institutional trading requires millisecond precision.",
+      content: "# Initialize Your Platform\n\nEnsure your data feeds are active. Institutional trading requires millisecond precision.",
       logicIds: ["INT_004"],
       skillLevel: "beginner", orderIndex: 3
     },

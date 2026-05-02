@@ -3,6 +3,7 @@
 import { Lock, Target, ChevronRight, Unlock, CheckCircle2, PlayCircle, Clock } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useNava } from "@/hooks/useNava";
 
 export interface LevelData {
   level: number;
@@ -20,6 +21,7 @@ interface LevelCardProps {
 }
 
 export function LevelCard({ level, isPlanned = false }: LevelCardProps) {
+  const { triggerMessage } = useNava();
   const isComplete = level.completionPct === 100;
   const isInProgress = !level.locked && !isComplete && !isPlanned;
   
@@ -107,17 +109,24 @@ export function LevelCard({ level, isPlanned = false }: LevelCardProps) {
     </div>
   );
 
+
+
   if (level.locked || isPlanned) {
     return (
-      <div className="bg-white rounded-3xl border border-[var(--ln-border)] shadow-sm relative overflow-hidden group grayscale-[0.5]">
+      <button 
+        data-nava-target={level.locked ? "gate-requirement-card" : undefined}
+        onClick={() => level.locked && triggerMessage('locked_level_explanation')}
+        className="bg-white rounded-3xl border border-[var(--ln-border)] shadow-sm relative overflow-hidden group grayscale-[0.5] text-left w-full"
+      >
         {CardContent}
-      </div>
+      </button>
     );
   }
 
   return (
     <Link 
       href={`/course/${level.level}`}
+      data-nava-target={`level-card-${level.level}`}
       className="bg-white rounded-3xl border border-[var(--ln-border)] shadow-sm hover:shadow-xl hover:shadow-[var(--ln-teal-500)]/5 hover:border-[var(--ln-teal-500)]/30 transition-all duration-300 relative overflow-hidden group"
     >
       {CardContent}
