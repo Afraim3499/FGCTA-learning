@@ -9,11 +9,11 @@ const globalForPrisma = globalThis as unknown as {
 
 function createPrismaClient() {
   const pool = new Pool({ 
-    user: "postgres.oqaxpfldczldfmbuopbn",
-    password: "Rizwan99636?",
-    host: "aws-1-ap-southeast-1.pooler.supabase.com",
-    port: 5432,
-    database: "postgres",
+    user: process.env.DB_USER || "postgres.oqaxpfldczldfmbuopbn",
+    password: process.env.DB_PASSWORD || "Rizwan99636?",
+    host: process.env.DB_HOST || "aws-1-ap-southeast-1.pooler.supabase.com",
+    port: parseInt(process.env.DB_PORT || "5432"),
+    database: process.env.DB_NAME || "postgres",
     ssl: { rejectUnauthorized: false }
   });
   const adapter = new PrismaPg(pool);
