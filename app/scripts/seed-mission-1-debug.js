@@ -26,7 +26,7 @@ async function main() {
       scenario = await prisma.trainingScenario.update({
         where: { id: existing.id },
         data: {
-          title: 'Mission 1: Terminal Synchronization',
+          title: 'Mission 1: Practice Setup',
           prompt: 'Execute a 0.01 lot EURUSD Market Order. You MUST set a Stop Loss and a Take Profit that results in at least 2.0R reward.',
         }
       });
@@ -35,7 +35,7 @@ async function main() {
       scenario = await prisma.trainingScenario.create({
         data: {
           slug: 'l0-sync-order-entry-v1',
-          title: 'Mission 1: Terminal Synchronization',
+          title: 'Mission 1: Practice Setup',
           description: 'Synchronize your execution engine by placing your first demo order with mandatory risk controls.',
           scenarioType: 'order_entry',
           status: 'active',

@@ -13,7 +13,14 @@ export default async function DashboardLayout({
   const rawProfile = await getProfile();
 
   if (!rawProfile) {
-    redirect("/login");
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-[var(--ln-bg)]">
+        <div className="flex flex-col items-center gap-4">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-[var(--ln-teal-500)] border-t-transparent"></div>
+          <p className="text-sm font-bold text-[var(--ln-text-secondary)]">Preparing your learning dashboard...</p>
+        </div>
+      </div>
+    );
   }
 
   const profile = serializeData(rawProfile);

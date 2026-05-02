@@ -28,9 +28,9 @@ async function main() {
       skillLevel: "beginner", orderIndex: 1
     },
     {
-      level: 0, moduleNumber: "0.2", title: "The Institutional Edge",
+      level: 0, moduleNumber: "0.2", title: "Market Participation Basics",
       objective: "Understanding why we trade the way we do.",
-      content: "# Why Institutions Always Win\n\nIt is not about intelligence; it is about capital and priority access.",
+      content: "# Why Market Size Matters\n\nIt is not about intelligence; it is about capital and priority access.",
       forexAdaptation: "## FX Edge\nBullion banks and central banks have direct 'Prime' access. We replicate their entries by identifying their mitigation zones.",
       cryptoAdaptation: "## Crypto Edge\nExchange orderbooks are manipulated by market makers (MMs). We trade alongside the MMs, not against them.",
       goldAdaptation: "## Gold Edge\nPhysical delivery cycles drive spot pricing. We track the 'London Fix' to determine the daily institutional objective.",
@@ -47,7 +47,7 @@ async function main() {
       skillLevel: "beginner", orderIndex: 2
     },
     {
-      level: 0, moduleNumber: "0.3", title: "Terminal Synchronization",
+      level: 0, moduleNumber: "0.3", title: "Platform Orientation",
       objective: "Setting up your workspace for simulation.",
       content: "# Synchronize Your Terminal\n\nEnsure your data feeds are active. Institutional trading requires millisecond precision.",
       logicIds: ["INT_004"],
@@ -296,9 +296,9 @@ async function main() {
       skillLevel: "intermediate", orderIndex: 7
     },
     {
-      level: 3, moduleNumber: "3.8", title: "Institutional Footprints",
+      level: 3, moduleNumber: "3.8", title: "Market Footprints",
       objective: "Putting it all together on a naked chart.",
-      content: "# Institutional Footprints\n\nSeeing the bank's tracks in the snow.",
+      content: "# Market Footprints\n\nSeeing the bank's tracks in the snow.",
       interactiveTaskType: "footprint_annotation_exam",
       skillLevel: "intermediate", orderIndex: 8
     },
@@ -394,7 +394,7 @@ async function main() {
     {
       level: 5, moduleNumber: "5.4", title: "Protecting Initial Risk",
       objective: "Moving to Break Even protocols.",
-      content: "# BE Protocols\n\nWhen to remove the risk from the table.",
+      content: "# Break-Even Rules\n\nWhen to remove the risk from the table.",
       skillLevel: "intermediate", orderIndex: 4
     },
     {

@@ -57,7 +57,7 @@ function CheckoutContent() {
                   {[
                     "Full Curriculum Access",
                     "All Learning Modules Included",
-                    "PracticeEnvironments",
+                    "Practice Environments",
                     "Academy LearningRecord Path"
                   ].map(feature => (
                     <li key={feature} className="flex items-center gap-3 text-xs text-slate-500 font-medium">

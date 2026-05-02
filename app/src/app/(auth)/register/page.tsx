@@ -30,7 +30,7 @@ function RegisterForm() {
       transition={{ duration: 0.4 }}
     >
       <h2 className="text-xl font-bold text-[var(--ln-navy-900)] mb-6 text-center uppercase tracking-widest">
-        Join {track.toUpperCase()} Track
+        Create your Lurnava Account
       </h2>
 
       <form action={handleSubmit} className="space-y-4">

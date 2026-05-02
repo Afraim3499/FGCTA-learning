@@ -11,7 +11,7 @@ const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  const MODULE_0_3_ID = '1b4c12b0-ce2b-4fc2-b240-e273a40be97d'; // 0.3 Terminal Synchronization
+  const MODULE_0_3_ID = '1b4c12b0-ce2b-4fc2-b240-e273a40be97d'; // 0.3 Platform Orientation
 
   console.log('🌱 Seeding Mission 1: Level 0 Order Entry...');
 
@@ -21,7 +21,7 @@ async function main() {
     update: {},
     create: {
       slug: 'l0-sync-order-entry-v1',
-      title: 'Mission 1: Terminal Synchronization',
+      title: 'Mission 1: Practice Setup',
       description: 'Synchronize your execution engine by placing your first demo order with mandatory risk controls.',
       scenarioType: 'order_entry',
       status: 'active',

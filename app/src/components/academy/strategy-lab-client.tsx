@@ -20,7 +20,7 @@ import { DataBadge } from "@/components/ui/data-badge";
 import { AcademyCard, AcademyCardContent, AcademyCardHeader, AcademyCardTitle } from "@/components/ui/academy-card";
 import { ChartPractice } from "@/components/academy/interactive/chart-practice-engine"; 
 
-import { generateMockCandles } from "@/lib/utils/market";
+import { generateMockCandles, getConceptCandles } from "@/lib/utils/market";
 
 interface StrategyLabClientProps {
   userTrack: string;
@@ -63,9 +63,11 @@ export function StrategyLabClient({
   
   // Practice State
   const [isPracticing, setIsPracticing] = useState(false);
-  const [forgeData] = useState(() => generateMockCandles(200, 2300));
+  const [practiceCandles, setPracticeCandles] = useState<any[]>([]);
   const [forgeBias, setForgeBias] = useState<"bullish" | "bearish" | "neutral">("neutral");
   const [forgeRationale, setForgeRationale] = useState("");
+  const [checklistState, setChecklistState] = useState<string[]>([]);
+  const [drawnBoxes, setDrawnBoxes] = useState<any[]>([]);
   const [isSaving, setIsSaving] = useState(false);
   
   // Saved Analyses
@@ -99,15 +101,19 @@ export function StrategyLabClient({
         timeframe: "1H",
         bias: forgeBias,
         rationale: forgeRationale,
-        chartState: { boxes },
+        chartState: { 
+          boxes: drawnBoxes, 
+          candles: practiceCandles,
+          checklist: checklistState,
+          logicId: selectedStrategy?.logicId
+        },
         moduleId: selectedStrategy?.linkedModuleNumber || "GENERAL"
       });
       if (result.success) {
         setSavedAnalyses([result.analysis, ...savedAnalyses]);
         setIsPracticing(false);
         setActiveTab("Saved");
-        setForgeRationale("");
-        setForgeBias("neutral");
+        resetPracticeState();
       }
     } catch (err) {
       console.error(err);
@@ -116,16 +122,35 @@ export function StrategyLabClient({
     }
   };
 
+  const resetPracticeState = () => {
+    setForgeRationale("");
+    setForgeBias("neutral");
+    setChecklistState([]);
+    setDrawnBoxes([]);
+    // Candles will be set when selecting strategy
+  };
+
   const handleSelectStrategy = (s: StrategyDefinition) => {
     setSelectedStrategy(s);
     setIsPracticing(false);
     setViewingAnalysis(null);
+    resetPracticeState();
+    setPracticeCandles(getConceptCandles(s.logicId));
   };
 
   const handleSelectAnalysis = (analysis: any) => {
     setViewingAnalysis(analysis);
     setIsPracticing(true);
+    setPracticeCandles(analysis.chartState?.candles || []);
+    setChecklistState(analysis.chartState?.checklist || []);
+    setDrawnBoxes(analysis.chartState?.boxes || []);
+    setForgeBias(analysis.bias || "neutral");
   };
+
+  const effectiveStrategy = selectedStrategy || 
+    (viewingAnalysis?.chartState?.logicId ? 
+      STRATEGIES_DATA.find(s => s.logicId === viewingAnalysis.chartState.logicId) : 
+      null);
 
   return (
     <div className="flex flex-col h-full gap-6 overflow-hidden">
@@ -140,6 +165,7 @@ export function StrategyLabClient({
                setSelectedStrategy(null);
                setIsPracticing(false);
                setViewingAnalysis(null);
+               resetPracticeState();
             }}
             className={cn(
               "px-5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap",
@@ -218,7 +244,9 @@ export function StrategyLabClient({
                      </span>
                      <span className="text-[10px] text-slate-400">{new Date(analysis.createdAt).toLocaleDateString()}</span>
                   </div>
-                  <h4 className="font-bold text-[var(--ln-navy-900)] text-sm">{analysis.instrument} / {analysis.timeframe}</h4>
+                  <h4 className="font-bold text-[var(--ln-navy-900)] text-sm">
+                      {analysis.chartState?.logicId ? analysis.chartState.logicId + ": " : ""}{analysis.instrument} / {analysis.timeframe}
+                  </h4>
                 </button>
               )) : (
                 <div className="p-6 text-center text-sm text-slate-400 italic">My Journal is currently empty.</div>
@@ -334,77 +362,128 @@ export function StrategyLabClient({
                  <p className="text-[10px] font-extrabold text-[var(--ln-teal-600)] uppercase tracking-widest">
                    {viewingAnalysis ? "My Journal" : "Concept Practice"}
                  </p>
-                 <h2 className="text-sm md:text-base font-bold text-[var(--ln-navy-900)]">
-                   {viewingAnalysis ? viewingAnalysis.instrument : selectedStrategy?.name}
-                 </h2>
-               </div>
-             </div>
-             <button 
-               onClick={() => { setIsPracticing(false); setViewingAnalysis(null); }}
-               className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
-             >
-               <X size={24} />
-             </button>
+                  <h2 className="text-sm md:text-base font-bold text-[var(--ln-navy-900)]">
+                    {viewingAnalysis ? (viewingAnalysis.chartState?.logicId || viewingAnalysis.instrument) : effectiveStrategy?.name}
+                  </h2>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                 {viewingAnalysis && (
+                   <span className="text-[10px] font-bold text-slate-400 italic">Review Mode</span>
+                 )}
+                 <button 
+                   onClick={() => { setIsPracticing(false); setViewingAnalysis(null); resetPracticeState(); }}
+                   className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
+                 >
+                   <X size={24} />
+                 </button>
+              </div>
            </div>
 
            {/* Modal Body */}
            <div className="flex-1 overflow-hidden flex flex-col lg:flex-row">
              <div className="flex-1 overflow-y-auto bg-slate-100 p-4 md:p-6 flex flex-col custom-scrollbar">
-                <div className="flex-1 min-h-[500px] flex flex-col">
-                   <ChartPractice 
-                      prompt={viewingAnalysis ? `Reviewing: ${viewingAnalysis.instrument}` : (selectedStrategy?.name || "Free Analysis Mode")}
-                      data={viewingAnalysis ? viewingAnalysis.chartState.candles : forgeData} 
-                      onValidate={() => {}} 
-                      initialBoxes={viewingAnalysis?.chartState?.boxes || []}
-                      readOnly={!!viewingAnalysis}
-                   />
-                </div>
+                 <div className="flex-1 min-h-[500px] flex flex-col">
+                    <ChartPractice 
+                       prompt={viewingAnalysis ? `Reviewing Analysis` : (effectiveStrategy?.practiceConfig?.prompt || "Practice Interpretation")}
+                       data={practiceCandles} 
+                       onValidate={() => {}} 
+                       initialBoxes={viewingAnalysis?.chartState?.boxes || []}
+                       readOnly={!!viewingAnalysis}
+                       mode="practice"
+                       guideSteps={effectiveStrategy?.practiceConfig?.guideSteps}
+                       onBoxesChange={setDrawnBoxes}
+                    />
+                 </div>
              </div>
              
              {/* Rationale Sidebar */}
              <div className="w-full lg:w-96 bg-white border-t lg:border-t-0 lg:border-l border-slate-200 shrink-0 flex flex-col">
                 <div className="p-6 flex-1 overflow-y-auto space-y-6 custom-scrollbar">
                   <div className="space-y-4">
-                     <h3 className="font-bold text-[var(--ln-navy-900)] text-sm">Analysis Rationale</h3>
-                     <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Market Bias</label>
-                        <div className="grid grid-cols-3 gap-2">
-                           {["bullish", "bearish", "neutral"].map(b => (
-                             <button
-                                key={b}
-                                onClick={() => setForgeBias(b as any)}
+                      <div className="space-y-3">
+                         <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Self-Review Checklist</label>
+                         <div className="space-y-2">
+                            {(effectiveStrategy?.practiceConfig?.selfReview || [
+                              "I marked the relevant chart area.",
+                              "I checked price behavior for the concept.",
+                              "I wrote a clear reasoning.",
+                              "I reviewed common mistakes."
+                            ]).map((item, idx) => (
+                              <button
+                                key={idx}
                                 disabled={!!viewingAnalysis}
+                                onClick={() => {
+                                  if (checklistState.includes(item)) {
+                                    setChecklistState(checklistState.filter(i => i !== item));
+                                  } else {
+                                    setChecklistState([...checklistState, item]);
+                                  }
+                                }}
                                 className={cn(
-                                  "py-2 rounded-lg text-[10px] font-bold uppercase transition-all",
-                                  (viewingAnalysis ? viewingAnalysis.bias : forgeBias) === b 
-                                    ? "bg-[var(--ln-navy-900)] text-white" 
-                                    : "bg-slate-50 text-slate-500 border border-slate-200 hover:bg-slate-100"
+                                  "w-full text-left p-3 rounded-xl border text-[11px] font-medium transition-all flex items-center gap-3",
+                                  checklistState.includes(item)
+                                    ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 text-[var(--ln-teal-600)]"
+                                    : "bg-slate-50 border-slate-200 text-slate-500 hover:bg-slate-100"
                                 )}
-                             >
-                                {b}
-                             </button>
-                           ))}
-                        </div>
-                     </div>
-                     <div className="space-y-2">
-                         <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Logic Justification</label>
+                              >
+                                <div className={cn(
+                                  "w-4 h-4 rounded border flex items-center justify-center shrink-0",
+                                  checklistState.includes(item) ? "bg-[var(--ln-teal-500)] border-[var(--ln-teal-500)] text-white" : "bg-white border-slate-300"
+                                )}>
+                                  {checklistState.includes(item) && <CheckCircle2 size={10} />}
+                                </div>
+                                {item}
+                              </button>
+                            ))}
+                         </div>
+                      </div>
+
+                      <div className="space-y-2">
+                         <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Market Bias</label>
+                         <div className="grid grid-cols-3 gap-2">
+                            {["bullish", "bearish", "neutral"].map(b => (
+                              <button
+                                 key={b}
+                                 onClick={() => setForgeBias(b as any)}
+                                 disabled={!!viewingAnalysis}
+                                 className={cn(
+                                   "py-2 rounded-lg text-[10px] font-bold uppercase transition-all",
+                                   (viewingAnalysis ? viewingAnalysis.bias : forgeBias) === b 
+                                     ? "bg-[var(--ln-navy-900)] text-white" 
+                                     : "bg-slate-50 text-slate-500 border border-slate-200 hover:bg-slate-100"
+                                 )}
+                              >
+                                 {b}
+                              </button>
+                            ))}
+                         </div>
+                      </div>
+
+                      <div className="space-y-2">
+                         <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Analysis Rationale</label>
+                         {effectiveStrategy?.practiceConfig?.reflection && (
+                           <p className="text-[10px] text-slate-400 italic mb-2">
+                             Reflection: {effectiveStrategy.practiceConfig.reflection[Math.floor(Date.now() / 86400000) % effectiveStrategy.practiceConfig.reflection.length]}
+                           </p>
+                         )}
                         <textarea 
                            value={viewingAnalysis ? viewingAnalysis.rationale : forgeRationale}
                            onChange={(e) => setForgeRationale(e.target.value)}
                            disabled={!!viewingAnalysis}
                            placeholder="Explain the market behavior you've identified..."
-                           className="w-full h-32 bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-[var(--ln-navy-900)] focus:outline-none focus:border-[var(--ln-teal-500)]/50 transition-all resize-none disabled:bg-slate-100 disabled:text-slate-600 shadow-inner"
+                           className="w-full h-24 bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-[var(--ln-navy-900)] focus:outline-none focus:border-[var(--ln-teal-500)]/50 transition-all resize-none disabled:bg-slate-100 disabled:text-slate-600 shadow-inner"
                         />
-                     </div>
-                     {!viewingAnalysis && (
-                       <button 
-                          disabled={!forgeRationale || isSaving}
-                          onClick={() => handleSaveAnalysis([])}
-                          className="w-full py-3 bg-[var(--ln-teal-500)] text-white rounded-xl font-bold text-xs hover:bg-[var(--ln-teal-600)] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-[var(--ln-teal-500)]/20"
-                       >
-                          {isSaving ? "Saving..." : "Save to My Journal"}
-                       </button>
-                     )}
+                      </div>
+                      {!viewingAnalysis && (
+                        <button 
+                           disabled={!forgeRationale || checklistState.length === 0 || isSaving}
+                           onClick={() => handleSaveAnalysis(drawnBoxes)}
+                           className="w-full py-3 bg-[var(--ln-teal-500)] text-white rounded-xl font-bold text-xs hover:bg-[var(--ln-teal-600)] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-[var(--ln-teal-500)]/20"
+                        >
+                           {isSaving ? "Saving..." : "Save Practice Notes"}
+                        </button>
+                      )}
                      {viewingAnalysis && (
                         <button 
                           onClick={() => setViewingAnalysis(null)}

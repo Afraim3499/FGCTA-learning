@@ -37,7 +37,7 @@ export default function DisclaimerPage() {
           <li><strong>Not a signal service.</strong> Our curriculum teaches methodology, not trade recommendations.</li>
         </ul>
 
-        <h2>PracticeEnvironment Disclaimer</h2>
+        <h2>Practice Environment Disclaimer</h2>
         <p>Any practice activities on our platform use <strong>virtual scenarios only</strong>. No real money is at risk at any time. Practice results:</p>
         <ul>
           <li>Do NOT represent real trading results.</li>

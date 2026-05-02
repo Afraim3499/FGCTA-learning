@@ -40,7 +40,7 @@ export default async function AcademyPage() {
 
 function getLevelDescription(level: number): string {
   const descriptions: Record<number, string> = {
-    0: "Establish your core market understanding. Learn the essential mechanics and set up your safe PracticeEnvironment.",
+    0: "Establish your core market understanding. Learn the essential mechanics and set up your safe Practice Environment.",
     1: "Building your chart-reading foundation. Master basic concepts and begin interpreting market behavior.",
     2: "Exploring market mechanics. Understand the relationship between price action and market participants.",
     3: "Applying your knowledge. Learn to read advanced market interactions and practice within guided scenarios.",

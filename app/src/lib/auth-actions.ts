@@ -12,8 +12,9 @@ export async function signUp(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
   const name = formData.get("name") as string;
-  const marketTrack = formData.get("marketTrack") as MarketTrack || "multi";
-
+  const rawTrack = formData.get("marketTrack") as string;
+  const validTracks = ["forex", "crypto", "gold", "multi"];
+  const marketTrack = (validTracks.includes(rawTrack) ? rawTrack : "multi") as MarketTrack;
   const admin = createAdminClient();
 
   // Bypass rate limit by using Admin API
@@ -124,7 +125,8 @@ export async function signOut() {
 
 export async function getUser() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { user }, error } = await supabase.auth.getUser();
+  if (error) console.error("Server getUser error:", error.message);
   return user;
 }
 

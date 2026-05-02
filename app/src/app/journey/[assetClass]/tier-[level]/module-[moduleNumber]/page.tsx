@@ -51,7 +51,7 @@ export default async function JourneyPage({ params }: JourneyPageProps) {
       <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
         <h2 className="text-2xl font-extrabold text-white uppercase tracking-tighter">Mission Data Not Found</h2>
         <p className="text-text-muted">The requested Practice data (Level {levelInt}, Module {moduleNumber}) is currently encrypted or unavailable.</p>
-        <AcademyButton variant="outline" onClick={() => redirect("/dashboard")}>Return to Command Center</AcademyButton>
+        <AcademyButton variant="outline" onClick={() => redirect("/dashboard")}>Return to Dashboard</AcademyButton>
       </div>
     );
   }

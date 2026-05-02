@@ -12,7 +12,7 @@ export default async function LiquidationPage({
   searchParams: { moduleId: string; reason: string };
 }) {
   const user = await getUser();
-  if (!user) redirect("/login");
+  if (!user) return null;
 
   const { moduleId, reason } = searchParams;
 

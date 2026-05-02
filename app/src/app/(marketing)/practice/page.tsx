@@ -51,7 +51,7 @@ export default function PracticePage() {
         <div className="max-w-4xl mx-auto space-y-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/10">
             <Activity size={14} className="text-[var(--ln-teal-500)]" />
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--ln-teal-600)]">PracticeEnvironment</span>
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[var(--ln-teal-600)]">Practice Environment</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-[var(--ln-navy-900)] uppercase">
             Practical Mastery.

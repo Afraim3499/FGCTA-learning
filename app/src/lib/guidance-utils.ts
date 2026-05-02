@@ -110,7 +110,7 @@ export async function getNextStep(userId: string): Promise<NextStep> {
     return {
       action: "START_PHASE",
       title: "Start Practical Mission",
-      description: `You've mastered the theory. It's time to build your experience in the PracticeEnvironment.`,
+      description: `You've mastered the theory. It's time to build your experience in the Practice Environment.`,
       link: "/trading",
       priority: 170,
     };

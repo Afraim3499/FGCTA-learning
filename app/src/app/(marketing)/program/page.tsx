@@ -19,7 +19,7 @@ const certLevels = [
     proves: "You can select the right strategy variant for given market conditions.",
   },
   {
-    level: 3, title: "Strategy Operator", color: "text-purple-400", border: "border-purple-500/20", bg: "bg-purple-500/5",
+    level: 3, title: "Advanced Learner", color: "text-purple-400", border: "border-purple-500/20", bg: "bg-purple-500/5",
     requires: ["Cert Level 2 earned", "L5 course complete", "Phase 3 passed — +25% on $1,000", "Profit factor ≥ 1.3", "Max drawdown ≤ 12%", "Rule violations ≤ 5"],
     proves: "Operational competency proven. Broker referral unlocked — you can transition to live trading.",
     special: "🔓 Broker Referral Unlocked",

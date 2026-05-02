@@ -33,9 +33,9 @@ export function formatXP(value: number): string {
 export function getXPRank(xp: number): string {
   if (xp >= 35001) return "Elite";
   if (xp >= 20001) return "Master Trader";
-  if (xp >= 12001) return "Operator";
+  if (xp >= 12001) return "Learner";
   if (xp >= 7001) return "Strategist";
-  if (xp >= 3501) return "Tactician";
+  if (xp >= 3501) return "Practitioner";
   if (xp >= 1501) return "Analyst";
   if (xp >= 501) return "Apprentice";
   return "Recruit";
@@ -59,7 +59,7 @@ export function getCertTitle(level: number): string {
     0: "Unranked",
     1: "Market Literate",
     2: "Structured Trader",
-    3: "Strategy Operator",
+    3: "Advanced Learner",
     4: "Consistent Trader",
     5: "Certified Trader",
   };

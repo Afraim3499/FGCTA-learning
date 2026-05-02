@@ -12,7 +12,14 @@ export default async function OnboardingLayout({
   const rawProfile = await getProfile();
 
   if (!rawProfile) {
-    redirect("/login");
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-[var(--color-surface-primary)]">
+        <div className="flex flex-col items-center gap-4">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-[var(--color-brand-500)] border-t-transparent"></div>
+          <p className="text-sm font-bold text-[var(--color-text-secondary)]">Preparing Setup Phase...</p>
+        </div>
+      </div>
+    );
   }
 
   const profile = serializeData(rawProfile);

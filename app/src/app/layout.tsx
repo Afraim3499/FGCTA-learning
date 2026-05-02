@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "crypto trading course",
     "gold trading course",
     "trading LearningRecord",
-    "trading PracticeEnvironment",
+    "trading Practice Environment",
     "learn to trade",
     "trading education",
     "prop firm training",

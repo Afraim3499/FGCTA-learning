@@ -55,7 +55,7 @@ export default async function PracticeEnvironmentPage({
       <section className="flex items-center justify-between">
         <div className="space-y-2">
           <h1 className="text-3xl font-extrabold text-[var(--ln-navy-900)] tracking-tight uppercase">
-            PracticeEnvironment
+            Practice Environment
           </h1>
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1.5 text-[10px] font-extrabold text-[var(--ln-teal-600)] uppercase tracking-widest bg-[var(--ln-teal-soft)] px-2.5 py-1 rounded-lg border border-[var(--ln-teal-500)]/10">
@@ -88,7 +88,7 @@ export default async function PracticeEnvironmentPage({
             </h2>
             <p className="text-[var(--ln-text-secondary)] max-w-md mx-auto leading-relaxed font-medium">
               {profile.progress?.currentLevel && profile.progress.currentLevel >= 1 
-                ? "You have access to the PracticeEnvironment, but no active session is started. Begin your session below."
+                ? "You have access to the Practice Environment, but no active session is started. Begin your session below."
                 : "Practice access is restricted to verified students. You must pass the Level 1 Knowledge Test and prepare your roadmap before starting a practice session."}
             </p>
           </div>

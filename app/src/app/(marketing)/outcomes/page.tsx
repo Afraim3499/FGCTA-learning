@@ -16,8 +16,8 @@ const skillStages = [
 
 const xpRanks = [
   { range: "0–500", title: "Recruit" }, { range: "501–1,500", title: "Apprentice" },
-  { range: "1,501–3,500", title: "Analyst" }, { range: "3,501–7,000", title: "Tactician" },
-  { range: "7,001–12,000", title: "Strategist" }, { range: "12,001–20,000", title: "Operator" },
+  { range: "1,501–3,500", title: "Analyst" }, { range: "3,501–7,000", title: "Practitioner" },
+  { range: "7,001–12,000", title: "Strategist" }, { range: "12,001–20,000", title: "Learner" },
   { range: "20,001–35,000", title: "Master Trader" }, { range: "35,001+", title: "Elite" },
 ];
 
@@ -74,7 +74,7 @@ export default function OutcomesPage() {
           <h2 className="text-3xl font-bold tracking-tighter mb-10">What LearningRecord Gets You</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { level: "Level 3", title: "Broker Referral", desc: "Unlocks at Strategy Operator. Transition from Practice to live trading with a real broker account." },
+              { level: "Level 3", title: "Broker Referral", desc: "Unlocks at Advanced Learner. Transition from Practice to live trading with a real broker account." },
               { level: "Level 5", title: "Verifiable Credential", desc: "Unique certificate ID. Employers, firms, and peers can verify your score at our public page." },
               { level: "All Levels", title: "Leaderboard Ranking", desc: "Global and market-specific rankings based on cert score, XP, discipline, and consistency." },
             ].map((b) => (

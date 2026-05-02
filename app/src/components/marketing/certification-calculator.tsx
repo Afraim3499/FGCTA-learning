@@ -91,7 +91,7 @@ export function LearningRecordCalculator() {
             <Calculator size={14} className="text-[var(--ln-teal-500)]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ln-teal-500)]">Academy Tool</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--ln-navy-900)]">LearningRecord PracticeEnvironment</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[var(--ln-navy-900)]">LearningRecord Practice Environment</h2>
           <p className="text-lg text-slate-600 font-medium italic">
             You don&apos;t &ldquo;finish lessons.&rdquo; You prove you can trade.
           </p>

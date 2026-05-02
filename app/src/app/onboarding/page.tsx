@@ -25,7 +25,7 @@ const TRACKS = [
 const EXPERIENCE = [
   { id: "RECRUIT", name: "Recruit", sub: "New to the Logic. Require full foundational training." },
   { id: "CANDIDATE", name: "Candidate", sub: "Prior market exposure. Seeking Academy edge." },
-  { id: "OPERATOR", name: "Operator", sub: "Regular Method history. Validating advanced strategies." },
+  { id: "OPERATOR", name: "Learner", sub: "Regular Method history. Validating advanced strategies." },
 ];
 
 const RULES = [

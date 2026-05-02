@@ -11,7 +11,7 @@ import { StrategyLabClient } from "@/components/academy/strategy-lab-client";
  */
 export default async function StrategyLabPage() {
   const user = await getUser();
-  if (!user) redirect("/login");
+  if (!user) return null;
 
   const profile = await prisma.user.findUnique({
     where: { id: user.id },

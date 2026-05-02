@@ -34,7 +34,7 @@ export default function LearningRecordPage() {
               requirements: ["90% Logic Accuracy", "Max 2% Daily Drawdown", "50+ Validated Trades"]
             },
             {
-              title: "Strategy Operator",
+              title: "Advanced Learner",
               level: "Tier 4-7",
               icon: Target,
               description: "Verified mastery of macro differentials and cross-asset liquidity harvesting.",

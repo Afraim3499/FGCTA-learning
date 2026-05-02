@@ -79,13 +79,13 @@ A market is in a trend when it produces a directional series of peaks and trough
 - **Bullish (The Staircase Up)**: Higher Highs (HH) and Higher Lows (HL)
 - **Bearish (The Staircase Down)**: Lower Lows (LL) and Lower Highs (LH)
 
-## The Institutional Edge
+## Market Participation Basics
 Retail traders try to predict reversals by buying falling markets ("catching a falling knife"). Institutional algorithms simply follow the existing order flow. They wait for a **Higher Low (HL)** to form, confirming that buyers are stepping in at higher prices to protect the trend.
 
 ## The Retail Trap
 The biggest trap in trend trading is confusing a "Liquidity Sweep" with a "Break of Structure." A wick below a previous Higher Low is often just institutions triggering retail stop-losses before continuing the trend. **Wicks do not break structure—only candle bodies do.**
 
-## The Execution Protocol
+## The Decision Process
 1. Identify the most recent swing high and swing low.
 2. Verify that the current low is higher than the previous low (HL).
 3. Wait for a bullish candle close to confirm the HL is locked in.
@@ -153,13 +153,13 @@ A market is in a trend when it produces a directional series of peaks and trough
 - **Bullish (The Staircase Up)**: Higher Highs (HH) and Higher Lows (HL)
 - **Bearish (The Staircase Down)**: Lower Lows (LL) and Lower Highs (LH)
 
-## The Institutional Edge
+## Market Participation Basics
 Retail traders try to predict reversals by buying falling markets ("catching a falling knife"). Institutional algorithms simply follow the existing order flow. They wait for a **Higher Low (HL)** to form, confirming that buyers are stepping in at higher prices to protect the trend.
 
 ## The Retail Trap
 The biggest trap in trend trading is confusing a "Liquidity Sweep" with a "Break of Structure." A wick below a previous Higher Low is often just institutions triggering retail stop-losses before continuing the trend. **Wicks do not break structure—only candle bodies do.**
 
-## The Execution Protocol
+## The Decision Process
 1. Identify the most recent swing high and swing low.
 2. Verify that the current low is higher than the previous low (HL).
 3. Wait for a bullish candle close to confirm the HL is locked in.
@@ -208,13 +208,13 @@ Retail traders trade *at* lines. Institutional traders trade the *reaction* to z
 ## The Core Logic
 An **Order Block (OB)** is the last opposing candle before an aggressive expansion in price that breaks structure. This represents the "footprint" of institutional money entering the market.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutions cannot enter all their positions at once without causing massive slippage. They leave "resting orders" at the origin of their initial move (the OB). When price returns to this zone, these resting orders are triggered, causing a high-probability bounce.
 
 ## The Retail Trap
 Retail traders buy *before* price reaches the true OB, entering too early and getting stopped out. Conversely, they place stops exactly at the OB, making them prime targets for a liquidity sweep. 
 
-## The Execution Protocol
+## The Decision Process
 1. Identify a clean Break of Structure (BoS).
 2. Look back to find the last opposing candle before the BoS (The Order Block).
 3. Wait for price to retrace into the OB zone.
@@ -260,13 +260,13 @@ Retail traders trade *at* lines. Institutional traders trade the *reaction* to z
 ## The Core Logic
 An **Order Block (OB)** is the last opposing candle before an aggressive expansion in price that breaks structure. This represents the "footprint" of institutional money entering the market.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutions cannot enter all their positions at once without causing massive slippage. They leave "resting orders" at the origin of their initial move (the OB). When price returns to this zone, these resting orders are triggered, causing a high-probability bounce.
 
 ## The Retail Trap
 Retail traders buy *before* price reaches the true OB, entering too early and getting stopped out. Conversely, they place stops exactly at the OB, making them prime targets for a liquidity sweep. 
 
-## The Execution Protocol
+## The Decision Process
 1. Identify a clean Break of Structure (BoS).
 2. Look back to find the last opposing candle before the BoS (The Order Block).
 3. Wait for price to retrace into the OB zone.
@@ -318,13 +318,13 @@ Price tells you *what* is happening. Volume tells you *how much belief* there is
 ## The Core Logic
 Volume is the "fuel" of the market. A breakout with high volume indicates strong institutional participation. A breakout with low volume indicates a lack of interest.
 
-## The Institutional Edge
+## Market Participation Basics
 Smart money uses volume anomalies to identify turning points. If price is rising aggressively but volume is dropping (Divergence), the move is "hollow." Institutions will use this hollow liquidity to offload their positions to retail buyers.
 
 ## The Retail Trap
 The **Low-Volume Fakeout**. Retail sees price break above a resistance line and immediately market buys (FOMO). Institutions, seeing the lack of real buying pressure, aggressively short the market, creating a "Bull Trap."
 
-## The Execution Protocol
+## The Decision Process
 1. Identify a key level or breakout point.
 2. Check the volume on the breakout candle. Is it significantly higher than the 20-period average?
 3. If YES: Proceed with the trade (Institutional Continuation).
@@ -373,13 +373,13 @@ Price tells you *what* is happening. Volume tells you *how much belief* there is
 ## The Core Logic
 Volume is the "fuel" of the market. A breakout with high volume indicates strong institutional participation. A breakout with low volume indicates a lack of interest.
 
-## The Institutional Edge
+## Market Participation Basics
 Smart money uses volume anomalies to identify turning points. If price is rising aggressively but volume is dropping (Divergence), the move is "hollow." Institutions will use this hollow liquidity to offload their positions to retail buyers.
 
 ## The Retail Trap
 The **Low-Volume Fakeout**. Retail sees price break above a resistance line and immediately market buys (FOMO). Institutions, seeing the lack of real buying pressure, aggressively short the market, creating a "Bull Trap."
 
-## The Execution Protocol
+## The Decision Process
 1. Identify a key level or breakout point.
 2. Check the volume on the breakout candle. Is it significantly higher than the 20-period average?
 3. If YES: Proceed with the trade (Institutional Continuation).
@@ -392,7 +392,7 @@ The **Low-Volume Fakeout**. Retail sees price break above a resistance line and 
   await prisma.courseModule.upsert({
     where: { level_moduleNumber: { level: 1, moduleNumber: '1.4' } },
     update: {
-      title: 'Institutional Footprints (Candles)',
+      title: 'Market Footprints (Candles)',
       objective: 'Identify entry triggers using price action footprints at key levels.',
       forexAdaptation: 'Look for "News Spikes" that leave long wicks. These are often institutional "Stop Runs".',
       cryptoAdaptation: 'In Crypto, "Engulfing" candles are powerful after a deep pullback.',
@@ -425,13 +425,13 @@ Candles are the granular footprints of the battle between buyers and sellers.
 ## The Core Logic
 A **Pin Bar** (or hammer/shooting star) occurs when price pushes aggressively into a zone but is immediately rejected, leaving a long wick and a small body.
 
-## The Institutional Edge
+## Market Participation Basics
 A long wick into a key level is the visual representation of an **Institutional Stop Run**. The "Smart Money" pushed price past a level to trigger retail stop losses (which are market orders), using that liquidity to fill their own massive positions in the opposite direction.
 
 ## The Retail Trap
 Trading candle patterns in isolation. A pin bar in the middle of a random price range is just noise. It only holds power if it occurs at a structurally significant level (like an Order Block or major S&R).
 
-## The Execution Protocol
+## The Decision Process
 1. Wait for price to approach a verified institutional zone (OB or Daily Level).
 2. Look for a liquidity sweep (price temporarily piercing the zone).
 3. Confirm the rejection via a Pin Bar or Engulfing candle close.
@@ -441,7 +441,7 @@ Trading candle patterns in isolation. A pin bar in the middle of a random price 
     create: {
       level: 1,
       moduleNumber: '1.4',
-      title: 'Institutional Footprints (Candles)',
+      title: 'Market Footprints (Candles)',
       objective: 'Identify entry triggers using price action footprints at key levels.',
       skillLevel: SkillLevel.beginner,
       marketTrack: ModuleTrack.core,
@@ -474,13 +474,13 @@ Candles are the granular footprints of the battle between buyers and sellers.
 ## The Core Logic
 A **Pin Bar** (or hammer/shooting star) occurs when price pushes aggressively into a zone but is immediately rejected, leaving a long wick and a small body.
 
-## The Institutional Edge
+## Market Participation Basics
 A long wick into a key level is the visual representation of an **Institutional Stop Run**. The "Smart Money" pushed price past a level to trigger retail stop losses (which are market orders), using that liquidity to fill their own massive positions in the opposite direction.
 
 ## The Retail Trap
 Trading candle patterns in isolation. A pin bar in the middle of a random price range is just noise. It only holds power if it occurs at a structurally significant level (like an Order Block or major S&R).
 
-## The Execution Protocol
+## The Decision Process
 1. Wait for price to approach a verified institutional zone (OB or Daily Level).
 2. Look for a liquidity sweep (price temporarily piercing the zone).
 3. Confirm the rejection via a Pin Bar or Engulfing candle close.
@@ -512,7 +512,7 @@ An institutional execution is never based on one variable. It is a confluence of
 3. **Fuel (1.3)**: Volume decreased during the pullback (low selling pressure) and expanded on the reaction (institutional buying).
 4. **Trigger (1.4)**: A clear footprint (like a Pin Bar or Bullish Engulfing) confirms the rejection at the level.
 
-## The Execution Protocol
+## The Decision Process
 If any of these 4 pillars are missing, **you do not trade.** Patience is your greatest edge. Waiting for the "A+ Setup" is what separates professionals from gamblers.
 
 **Operational Gate**: Before taking the Level 1 Test, you must mark up 5 screenshots showing all four pillars aligned and post them in the Simulation channel.
@@ -540,7 +540,7 @@ An institutional execution is never based on one variable. It is a confluence of
 3. **Fuel (1.3)**: Volume decreased during the pullback (low selling pressure) and expanded on the reaction (institutional buying).
 4. **Trigger (1.4)**: A clear footprint (like a Pin Bar or Bullish Engulfing) confirms the rejection at the level.
 
-## The Execution Protocol
+## The Decision Process
 If any of these 4 pillars are missing, **you do not trade.** Patience is your greatest edge. Waiting for the "A+ Setup" is what separates professionals from gamblers.
 
 **Operational Gate**: Before taking the Level 1 Test, you must mark up 5 screenshots showing all four pillars aligned and post them in the Simulation channel.
@@ -597,13 +597,13 @@ Retail traders trade *at* lines. Institutional traders trade the *reaction* to l
 ## The Core Logic
 When price approaches a major daily resistance, massive liquidity sits just above it in the form of breakout buyers' buy stops and early sellers' stop losses.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutions know exactly where these stops are. They will intentionally push price through the resistance line just to capture this liquidity (The Liquidity Sweep) before aggressively reversing the market.
 
 ## The Retail Trap
 **The Blind Entry**. Retail traders either market buy the moment price touches the line (anticipating a breakout) or market sell immediately (anticipating a bounce). Both are gambling against momentum.
 
-## The Execution Protocol
+## The Decision Process
 1. Mark the major daily/weekly level.
 2. Wait for price to reach the level. **Do nothing.**
 3. Let the candle close. Did it sweep liquidity and reject (leaving a wick)?
@@ -658,13 +658,13 @@ Retail traders trade *at* lines. Institutional traders trade the *reaction* to l
 ## The Core Logic
 When price approaches a major daily resistance, massive liquidity sits just above it in the form of breakout buyers' buy stops and early sellers' stop losses.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutions know exactly where these stops are. They will intentionally push price through the resistance line just to capture this liquidity (The Liquidity Sweep) before aggressively reversing the market.
 
 ## The Retail Trap
 **The Blind Entry**. Retail traders either market buy the moment price touches the line (anticipating a breakout) or market sell immediately (anticipating a bounce). Both are gambling against momentum.
 
-## The Execution Protocol
+## The Decision Process
 1. Mark the major daily/weekly level.
 2. Wait for price to reach the level. **Do nothing.**
 3. Let the candle close. Did it sweep liquidity and reject (leaving a wick)?
@@ -712,13 +712,13 @@ Moving averages (MAs) are the most widely used indicators in the world, yet most
 - **EMA (Exponential, The Pulse)**: Gives weight to recent action. The 50 EMA is used for momentum tracking.
 - **The Golden Cross**: When the 50 EMA crosses above the 200 SMA, signaling a major structural shift to the upside.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutional desks use the 200 SMA as a strict "Line in the Sand." If price is below the 200 SMA, the desk is strictly forbidden from taking LONG positions, eliminating the urge to "catch falling knives."
 
 ## The Retail Trap
 **The Exhaustion Cross**: Retail traders buy a Golden Cross blindly. If the cross happens after price has already surged massively (extended from the mean), it's a trap. Professionals only trade crosses that happen near consolidation zones.
 
-## The Execution Protocol
+## The Decision Process
 1. Verify price is above the 200 SMA.
 2. Wait for the 50 EMA to cross above the 200 SMA.
 3. Wait for price to pullback and retest the MAs (Dynamic Support).
@@ -763,13 +763,13 @@ Moving averages (MAs) are the most widely used indicators in the world, yet most
 - **EMA (Exponential, The Pulse)**: Gives weight to recent action. The 50 EMA is used for momentum tracking.
 - **The Golden Cross**: When the 50 EMA crosses above the 200 SMA, signaling a major structural shift to the upside.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutional desks use the 200 SMA as a strict "Line in the Sand." If price is below the 200 SMA, the desk is strictly forbidden from taking LONG positions, eliminating the urge to "catch falling knives."
 
 ## The Retail Trap
 **The Exhaustion Cross**: Retail traders buy a Golden Cross blindly. If the cross happens after price has already surged massively (extended from the mean), it's a trap. Professionals only trade crosses that happen near consolidation zones.
 
-## The Execution Protocol
+## The Decision Process
 1. Verify price is above the 200 SMA.
 2. Wait for the 50 EMA to cross above the 200 SMA.
 3. Wait for price to pullback and retest the MAs (Dynamic Support).
@@ -823,13 +823,13 @@ The MACD (Moving Average Convergence Divergence) shows the relationship between 
 - Above the Zero Line: Bullish Control.
 - Below the Zero Line: Bearish Control.
 
-## The Institutional Edge: Divergence
+## Market Participation Basics: Divergence
 The ultimate professional signal is Divergence. If price makes a **Higher High**, but the MACD makes a **Lower High**, this is Bearish Divergence. It proves that the upward move is running on empty fumes (low momentum). Institutions use this to spot exhaustion before a major reversal.
 
 ## The Retail Trap
 Ignoring divergence. Retail traders see a new Higher High and FOMO buy, unaware that the underlying momentum engine is dead. They get trapped at the exact top.
 
-## The Execution Protocol
+## The Decision Process
 1. Spot a new High in price.
 2. Check the MACD histogram. Is it lower than the previous peak? (Bearish Divergence).
 3. **Crucial**: Do NOT short immediately. Divergence is a warning, not a trigger.
@@ -865,13 +865,13 @@ The MACD (Moving Average Convergence Divergence) shows the relationship between 
 - Above the Zero Line: Bullish Control.
 - Below the Zero Line: Bearish Control.
 
-## The Institutional Edge: Divergence
+## Market Participation Basics: Divergence
 The ultimate professional signal is Divergence. If price makes a **Higher High**, but the MACD makes a **Lower High**, this is Bearish Divergence. It proves that the upward move is running on empty fumes (low momentum). Institutions use this to spot exhaustion before a major reversal.
 
 ## The Retail Trap
 Ignoring divergence. Retail traders see a new Higher High and FOMO buy, unaware that the underlying momentum engine is dead. They get trapped at the exact top.
 
-## The Execution Protocol
+## The Decision Process
 1. Spot a new High in price.
 2. Check the MACD histogram. Is it lower than the previous peak? (Bearish Divergence).
 3. **Crucial**: Do NOT short immediately. Divergence is a warning, not a trigger.
@@ -897,7 +897,7 @@ Ignoring divergence. Retail traders see a new Higher High and FOMO buy, unaware 
             text: 'Yes. The MA crossover is the primary signal.',
             grade: 'poor',
             feedback: 'High risk. An ADX below 20 indicates a "Choppy" market where trend signals are noise. You will likely be stopped out.',
-            rationale: "Trading a trend system in a range is the #1 reason for trader failure. ADX acts as your tactical gatekeeper. If the value is below 20, there is no 'edge' for trend followers."
+            rationale: "Trading a trend system in a range is the #1 reason for trader failure. ADX acts as your learning checkpoint. If the value is below 20, there is no 'edge' for trend followers."
           },
           {
             id: 'adx_2',
@@ -916,7 +916,7 @@ The fastest way to destroy a trading account is using a Trend-Following system i
 ## The Core Logic
 The ADX (Average Directional Index) does not tell you *where* price is going; it only tells you *how hard* it is going there. It measures pure trend velocity.
 
-## The Institutional Edge: The Safety Switch
+## Market Participation Basics: The Safety Switch
 Institutions use ADX as a hard operational gate.
 - **ADX < 20**: The market is choppy and ranging. Turn off trend systems.
 - **ADX > 25**: A strong trend is active. Engage trend-following systems.
@@ -924,7 +924,7 @@ Institutions use ADX as a hard operational gate.
 ## The Retail Trap
 **The Whipsaw**. Retail traders get a moving average crossover signal and blindly buy, not realizing the ADX is at 12. The market chops sideways, stops them out, and reverses. 
 
-## The Execution Protocol
+## The Decision Process
 1. You spot a valid trend-following entry signal (e.g., a pullback in an uptrend).
 2. Check the ADX value. Is it above 25?
 3. Check the ADX slope. Is it pointing UP?
@@ -957,7 +957,7 @@ The fastest way to destroy a trading account is using a Trend-Following system i
 ## The Core Logic
 The ADX (Average Directional Index) does not tell you *where* price is going; it only tells you *how hard* it is going there. It measures pure trend velocity.
 
-## The Institutional Edge: The Safety Switch
+## Market Participation Basics: The Safety Switch
 Institutions use ADX as a hard operational gate.
 - **ADX < 20**: The market is choppy and ranging. Turn off trend systems.
 - **ADX > 25**: A strong trend is active. Engage trend-following systems.
@@ -965,7 +965,7 @@ Institutions use ADX as a hard operational gate.
 ## The Retail Trap
 **The Whipsaw**. Retail traders get a moving average crossover signal and blindly buy, not realizing the ADX is at 12. The market chops sideways, stops them out, and reverses. 
 
-## The Execution Protocol
+## The Decision Process
 1. You spot a valid trend-following entry signal (e.g., a pullback in an uptrend).
 2. Check the ADX value. Is it above 25?
 3. Check the ADX slope. Is it pointing UP?
@@ -1095,13 +1095,13 @@ Theory is useless without flawless execution. This is where you put everything t
 ## The Core Logic
 A high-probability execution is the result of waiting for multiple institutional factors to align, and then pulling the trigger without hesitation or fear.
 
-## The Institutional Edge
+## Market Participation Basics
 Amateurs predict. Professionals react. By waiting for price to enter a premium value area (Order Block) and waiting for a rejection footprint (Pin Bar), you shift the mathematical probability entirely in your favor.
 
 ## The Retail Trap
 "If I wait for confirmation, I'll miss the move." This FOMO mindset causes retail traders to enter prematurely, ensuring they have wider stop losses and worse risk-to-reward ratios. 
 
-## The Execution Protocol
+## The Decision Process
 1. **Structural Alignment**: Verify the higher timeframe trend is bullish.
 2. **Value Area**: Identify the Order Block.
 3. **Patience**: Let price fall into the Order Block. Do not front-run.
@@ -1149,13 +1149,13 @@ Theory is useless without flawless execution. This is where you put everything t
 ## The Core Logic
 A high-probability execution is the result of waiting for multiple institutional factors to align, and then pulling the trigger without hesitation or fear.
 
-## The Institutional Edge
+## Market Participation Basics
 Amateurs predict. Professionals react. By waiting for price to enter a premium value area (Order Block) and waiting for a rejection footprint (Pin Bar), you shift the mathematical probability entirely in your favor.
 
 ## The Retail Trap
 "If I wait for confirmation, I'll miss the move." This FOMO mindset causes retail traders to enter prematurely, ensuring they have wider stop losses and worse risk-to-reward ratios. 
 
-## The Execution Protocol
+## The Decision Process
 1. **Structural Alignment**: Verify the higher timeframe trend is bullish.
 2. **Value Area**: Identify the Order Block.
 3. **Patience**: Let price fall into the Order Block. Do not front-run.
@@ -1199,13 +1199,13 @@ Advanced trend-following requires moving beyond static numbers and accounting fo
 - **Ichimoku Kumo (The Cloud)**: Projects support/resistance forward in time. If price is above the Cloud, the path of least resistance is UP.
 - **Supertrend**: Uses the Average True Range (ATR) to calculate a trailing stop that tightens during low volatility and widens during high volatility.
 
-## The Institutional Edge
+## Market Participation Basics
 Systematic funds use Volatility Stops (like Supertrend) because they "breathe" with the market. A static 50-pip stop might be too tight during a news event and too loose during consolidation. ATR-based stops solve this mathematically.
 
 ## The Retail Trap
 **Cutting Winners Early**. Retail traders get nervous during minor pullbacks and close their positions, missing the massive parabolic moves. Professionals "Walk the Bands," trusting the Supertrend to keep them in the trade until the trend structurally breaks.
 
-## The Execution Protocol
+## The Decision Process
 1. Ensure price is Above the Ichimoku Cloud (Bullish Bias).
 2. Wait for a Supertrend buy signal.
 3. Enter Long.
@@ -1248,13 +1248,13 @@ Advanced trend-following requires moving beyond static numbers and accounting fo
 - **Ichimoku Kumo (The Cloud)**: Projects support/resistance forward in time. If price is above the Cloud, the path of least resistance is UP.
 - **Supertrend**: Uses the Average True Range (ATR) to calculate a trailing stop that tightens during low volatility and widens during high volatility.
 
-## The Institutional Edge
+## Market Participation Basics
 Systematic funds use Volatility Stops (like Supertrend) because they "breathe" with the market. A static 50-pip stop might be too tight during a news event and too loose during consolidation. ATR-based stops solve this mathematically.
 
 ## The Retail Trap
 **Cutting Winners Early**. Retail traders get nervous during minor pullbacks and close their positions, missing the massive parabolic moves. Professionals "Walk the Bands," trusting the Supertrend to keep them in the trade until the trend structurally breaks.
 
-## The Execution Protocol
+## The Decision Process
 1. Ensure price is Above the Ichimoku Cloud (Bullish Bias).
 2. Wait for a Supertrend buy signal.
 3. Enter Long.
@@ -1300,13 +1300,13 @@ Markets breathe in cycles: Compression (Consolidation) leads to Expansion (Break
 - **Bollinger Bands**: When the bands tighten (The Squeeze), volatility is incredibly low. A massive move is imminent.
 - **Donchian Channels**: A breakout of the 20-period high is the purest momentum entry trigger.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutions load their massive positions during the "Compression" phase (The Squeeze). Once they are ready, they trigger the breakout. Breakout traders aim to catch the resulting wave of forced liquidation as trapped traders are stopped out.
 
 ## The Retail Trap
 **The Low-Volume Fakeout**. Price pierces the upper Bollinger Band, retail buys the breakout, but volume is dead. Institutions fade the move and drive price back into the range. 
 
-## The Execution Protocol
+## The Decision Process
 1. Identify a prolonged Bollinger Squeeze (tight consolidation).
 2. Wait for a candle to close outside the bands (The Breakout).
 3. **Verify Fuel**: Check if volume on the breakout candle is significantly higher than average.
@@ -1352,13 +1352,13 @@ Markets breathe in cycles: Compression (Consolidation) leads to Expansion (Break
 - **Bollinger Bands**: When the bands tighten (The Squeeze), volatility is incredibly low. A massive move is imminent.
 - **Donchian Channels**: A breakout of the 20-period high is the purest momentum entry trigger.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutions load their massive positions during the "Compression" phase (The Squeeze). Once they are ready, they trigger the breakout. Breakout traders aim to catch the resulting wave of forced liquidation as trapped traders are stopped out.
 
 ## The Retail Trap
 **The Low-Volume Fakeout**. Price pierces the upper Bollinger Band, retail buys the breakout, but volume is dead. Institutions fade the move and drive price back into the range. 
 
-## The Execution Protocol
+## The Decision Process
 1. Identify a prolonged Bollinger Squeeze (tight consolidation).
 2. Wait for a candle to close outside the bands (The Breakout).
 3. **Verify Fuel**: Check if volume on the breakout candle is significantly higher than average.
@@ -1399,13 +1399,13 @@ Indicators are just delayed derivatives of price. To master the markets, you mus
 ## The Core Logic
 A valid uptrend is an unbroken series of Higher Highs (HH) and Higher Lows (HL). The trend remains intact until price breaks and closes below the most recent Higher Low.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutions don't use RSI or Stochastics to determine trends; they use liquidity. A Higher Low represents the exact price level where institutional buyers previously absorbed all selling pressure. It is a fortified wall. 
 
 ## The Retail Trap
 **The Liquidity Sweep**. Retail traders place their stops exactly 1 pip below the Higher Low. Institutions will briefly spike price below the HL (creating a wick) to trigger those stops and acquire liquidity, before continuing the uptrend. 
 
-## The Execution Protocol
+## The Decision Process
 1. Map every major swing high and swing low on the chart.
 2. To short the market, wait for price to break below the most recent Higher Low.
 3. Wait for the candle to **CLOSE** below the HL. (Wicks do not count).
@@ -1446,13 +1446,13 @@ Indicators are just delayed derivatives of price. To master the markets, you mus
 ## The Core Logic
 A valid uptrend is an unbroken series of Higher Highs (HH) and Higher Lows (HL). The trend remains intact until price breaks and closes below the most recent Higher Low.
 
-## The Institutional Edge
+## Market Participation Basics
 Institutions don't use RSI or Stochastics to determine trends; they use liquidity. A Higher Low represents the exact price level where institutional buyers previously absorbed all selling pressure. It is a fortified wall. 
 
 ## The Retail Trap
 **The Liquidity Sweep**. Retail traders place their stops exactly 1 pip below the Higher Low. Institutions will briefly spike price below the HL (creating a wick) to trigger those stops and acquire liquidity, before continuing the uptrend. 
 
-## The Execution Protocol
+## The Decision Process
 1. Map every major swing high and swing low on the chart.
 2. To short the market, wait for price to break below the most recent Higher Low.
 3. Wait for the candle to **CLOSE** below the HL. (Wicks do not count).

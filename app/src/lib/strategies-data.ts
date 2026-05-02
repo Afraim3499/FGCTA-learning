@@ -24,6 +24,14 @@ export interface StrategyDefinition {
     complexity: "LOW" | "MED" | "HIGH" | "ELITE";
   };
   linkedModuleNumber: string;
+  practiceConfig?: {
+    prompt: string;
+    guideSteps: string[];
+    reflection: string[];
+    selfReview: string[];
+    chartDatasetId?: string;
+    validationMode: "self" | "guided" | "none";
+  };
 }
 
 export const STRATEGIES_DATA: StrategyDefinition[] = [
@@ -51,7 +59,28 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
       ]
     },
     riskNotes: "Avoid in ranging markets. Best used on 4H or Daily timeframes.",
-    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.1"
+    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.1",
+    practiceConfig: {
+      prompt: "Identify a trend pullback and a valid EMA rejection candle.",
+      guideSteps: [
+        "Identify the current trend (HH/HL structure).",
+        "Mark the zone where price touches the 21 or 50 EMA.",
+        "Highlight the rejection candle (Pin bar or Engulfing) that signals the entry.",
+        "Ensure the candle closes back in the direction of the trend."
+      ],
+      reflection: [
+        "Did price close decisively on the EMA or just wick through it?",
+        "Is the trend momentum increasing or slowing down before the pullback?",
+        "What structural level is the next likely target?"
+      ],
+      selfReview: [
+        "I marked the trend structure clearly.",
+        "I identified a valid EMA touch point.",
+        "I marked a high-probability rejection candle.",
+        "I checked for confluence with horizontal structure."
+      ],
+      validationMode: "self"
+    }
   },
   {
     logicId: "TF_06.1",
@@ -177,7 +206,28 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
       ]
     },
     riskNotes: "MACD is a momentum-lag hybrid. Use for confirmation, not primary entry.",
-    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.3"
+    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.3",
+    practiceConfig: {
+      prompt: "Mark the MACD crossover point and the corresponding price behavior.",
+      guideSteps: [
+        "Locate the MACD line crossing above/below the Signal line.",
+        "Identify the price action candle that corresponds to the crossover.",
+        "Mark the structural high/low that was established prior to the cross.",
+        "Check if the crossover occurs above or below the zero line for context."
+      ],
+      reflection: [
+        "Is price making a higher low as the MACD crosses bullishly?",
+        "Is there any divergence between price and the MACD histogram?",
+        "How sharp is the angle of the crossover?"
+      ],
+      selfReview: [
+        "I identified the exact crossover candle.",
+        "I checked the MACD zero-line context.",
+        "I looked for momentum divergence.",
+        "I verified the structural alignment."
+      ],
+      validationMode: "self"
+    }
   },
   {
     logicId: "TF_ADX_01",
@@ -202,7 +252,28 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
       ]
     },
     riskNotes: "ADX does not show direction, only strength. Always use with a directional indicator.",
-    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.5"
+    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.5",
+    practiceConfig: {
+      prompt: "Identify where trend strength becomes valid for entry.",
+      guideSteps: [
+        "Locate where the ADX line crosses above the 25 level.",
+        "Identify the directional trend (using MAs or structure).",
+        "Mark the 'Expansion Zone' where both ADX and Price are rising.",
+        "Identify any signs of ADX exhaustion above 50."
+      ],
+      reflection: [
+        "Is the ADX slope steep or flat during the move?",
+        "Did price move significantly before the ADX reached 25?",
+        "Is there a directional bias confirmed by another tool?"
+      ],
+      selfReview: [
+        "I marked the ADX > 25 threshold point.",
+        "I verified the directional trend alignment.",
+        "I identified the expansion phase.",
+        "I checked for exhaustion signals."
+      ],
+      validationMode: "self"
+    }
   },
   {
     logicId: "BO_01.1",
@@ -228,7 +299,28 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
       ]
     },
     riskNotes: "Always wait for the candle close. Wicks are traps.",
-    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.2"
+    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.2",
+    practiceConfig: {
+      prompt: "Mark the horizontal level and the decisive breakout candle.",
+      guideSteps: [
+        "Identify a horizontal S/R level with at least 3 distinct touches.",
+        "Mark the consolidation range immediately preceding the break.",
+        "Highlight the breakout candle that closed outside the level.",
+        "Mark the retest area if applicable."
+      ],
+      reflection: [
+        "Was the breakout candle accompanied by a volume spike?",
+        "Did the breakout candle close near its high/low (full body)?",
+        "Is price returning to the 'flipped' level with low momentum?"
+      ],
+      selfReview: [
+        "I marked a level with 3+ clear touches.",
+        "I identified the breakout candle close.",
+        "I checked for fakeout rejection wicks.",
+        "I marked the structural target."
+      ],
+      validationMode: "self"
+    }
   },
   {
     logicId: "BO_02.1",
@@ -253,7 +345,28 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
       ]
     },
     riskNotes: "Avoid if the opening range is excessively wide (>50% of ADR).",
-    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.2"
+    metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.2",
+    practiceConfig: {
+      prompt: "Mark the London opening range and the direction-setting breakout.",
+      guideSteps: [
+        "Mark the High and Low of the first 60 minutes of London session.",
+        "Identify the first 15m candle that closes outside this range.",
+        "Mark the initial expansion target based on session volatility.",
+        "Identify any 'Stop Run' that occurred before the true move."
+      ],
+      reflection: [
+        "Was the opening range narrow or wide relative to recent days?",
+        "Did the breakout happen in the first 30 minutes or later?",
+        "Is there a clear higher-timeframe bias supporting the move?"
+      ],
+      selfReview: [
+        "I correctly marked the 1-hour opening range.",
+        "I identified the 15m breakout close.",
+        "I checked for news events during the open.",
+        "I marked the session expansion target."
+      ],
+      validationMode: "self"
+    }
   },
   {
     logicId: "BO_03.1",

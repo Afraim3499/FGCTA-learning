@@ -56,7 +56,7 @@ export function Topbar() {
                   <BookOpen className="w-5 h-5 text-slate-400" /> Academy
                 </Link>
                 <Link href="/trading" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-navy-900)] hover:bg-[var(--ln-surface-soft)]">
-                  <Target className="w-5 h-5 text-slate-400" /> PracticeEnvironment
+                  <Target className="w-5 h-5 text-slate-400" /> Practice Environment
                 </Link>
                 <Link href="/lab" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-navy-900)] hover:bg-[var(--ln-surface-soft)]">
                   <BarChart className="w-5 h-5 text-slate-400" /> Progress
