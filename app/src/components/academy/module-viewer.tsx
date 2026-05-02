@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MarkdownRenderer } from "./markdown-renderer";
 import { completeModule } from "@/lib/course-actions";
 import { CheckCircle2, Layout, Globe, Bitcoin, Target, Loader2, ArrowLeft, ArrowRight, ArrowUpRight, FlaskConical, ExternalLink, Lightbulb, AlertCircle } from "lucide-react";
@@ -14,6 +14,7 @@ import { ChoiceBlockPractice } from './interactive/choice-block-practice';
 import { ScenarioLauncher } from "./scenario-launcher";
 import { ChartScenarioModal } from "@/components/academy/chart-scenario";
 import { getModuleScenarios } from "@/lib/scenario-actions";
+import { useNava } from "@/hooks/useNava";
 
 type TaskResultType = PointClickTaskResult | ScenarioTaskResult | MiniReplayTaskResult;
 
@@ -46,7 +47,14 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
   const [taskResult, setTaskResult] = useState<TaskResultType | null>(null);
   const [activeChartScenario, setActiveChartScenario] = useState<any | null>(null);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const { triggerMessage } = useNava();
   const router = useRouter();
+
+  useEffect(() => {
+    if (module.interactiveTaskType && !module.completed) {
+      triggerMessage('practice_block_pulse');
+    }
+  }, [module.id, module.interactiveTaskType, module.completed, triggerMessage]);
 
   const isMasterAdmin = userTrack === "multi";
   const requiresTask = !!module.interactiveTaskType;
@@ -79,6 +87,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
     try {
       const result = await completeModule(module.id, taskResult || undefined);
       if (result.success) {
+        triggerMessage(module.nextModuleId ? 'module_completion_next_lesson' : 'module_completion_start_test');
         router.refresh();
       } else if ("error" in result) {
         alert(result.error);
@@ -328,6 +337,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
           <button
             onClick={() => handleProceed(`/course/module/${module.nextModuleId}`)}
             disabled={isCompleting || isTaskLocked}
+            data-nava-target="next-lesson-cta"
             className="flex items-center gap-3 text-[10px] font-extrabold text-[var(--ln-navy-900)] uppercase tracking-widest hover:text-[var(--ln-teal-500)] transition-all group disabled:opacity-30 disabled:cursor-not-allowed"
           >
             {isCompleting ? "UPDATING..." : "Advance to Next Lesson"}
@@ -337,6 +347,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
           <button
             onClick={() => handleProceed(module.completed ? `/test/${module.level}` : "/course")}
             disabled={isCompleting || isTaskLocked}
+            data-nava-target={module.completed ? "start-test-cta" : undefined}
             className="flex items-center gap-3 text-[10px] font-extrabold text-[var(--ln-teal-500)] uppercase tracking-widest hover:text-[var(--ln-teal-600)] transition-all group disabled:opacity-30 disabled:cursor-not-allowed"
           >
             {isCompleting 

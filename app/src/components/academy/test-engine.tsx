@@ -46,10 +46,7 @@ export function TestEngine({ level, test }: TestEngineProps) {
 
   useEffect(() => {
     if (results) {
-      triggerMessage('test_result_review', {
-        pose: results.passed ? 'celebration' : 'empathy',
-        ctaLabel: results.passed ? 'Continue Learning Path' : 'Retry Test'
-      });
+      triggerMessage(results.passed ? 'test_result_passed' : 'test_result_review_needed');
     }
   }, [results, triggerMessage]);
 

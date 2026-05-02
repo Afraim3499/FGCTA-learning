@@ -2,6 +2,7 @@ import { getModules, getCourseLevels } from "@/lib/course-actions";
 import Link from "next/link";
 import { ChevronLeft, CheckCircle2, Circle, ArrowRight, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { NavaTrigger } from "@/components/nava/NavaTrigger";
 
 export default async function LevelPage({ params }: { params: Promise<{ levelId: string }> }) {
   const { levelId: levelIdStr } = await params;
@@ -14,6 +15,7 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
 
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
+      {currentLevel.testUnlocked && <NavaTrigger messageId="knowledge_test_unlocked" />}
       <Link 
         href="/course" 
         className="inline-flex items-center text-sm text-[var(--color-text-muted)] hover:text-white transition-colors group"
@@ -49,6 +51,7 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
         {currentLevel.testUnlocked ? (
           <Link
             href={`/test/${levelId}`}
+            data-nava-target="knowledge-test-launcher"
             className="flex items-center gap-2 px-6 py-3 bg-[var(--color-brand-500)] hover:bg-[var(--color-brand-600)] text-white font-bold rounded-xl transition-all shadow-lg shadow-brand-500/20 whitespace-nowrap"
           >
             <Award className="w-5 h-5" />
