@@ -81,7 +81,7 @@ export async function signUp(formData: FormData) {
   revalidatePath("/", "layout");
   
   if (marketTrack && marketTrack !== "multi") {
-    redirect(`/api/checkout?track=${marketTrack}`);
+    redirect(`/checkout?track=${marketTrack}`);
   } else {
     redirect("/onboarding");
   }

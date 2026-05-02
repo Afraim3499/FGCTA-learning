@@ -6,14 +6,28 @@ import { DataBadge } from "@/components/ui/data-badge";
 import { AcademyButton } from "@/components/ui/academy-button";
 import { motion } from "framer-motion";
 import { ShieldCheck, CreditCard, Wallet, ArrowRight, CheckCircle2 } from "lucide-react";
-import { useState, Suspense } from "react";
+import { useState, Suspense, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { createClient } from "@/utils/supabase/client";
 
 // useSearchParams() must live inside a child component wrapped in <Suspense>
 function CheckoutContent() {
+  const [user, setUser] = useState<any>(null);
   const searchParams = useSearchParams();
-  const item = searchParams.get("item") || "bundle_mastery";
+  const item = searchParams.get("item") || searchParams.get("track") || "bundle_mastery";
   const [step, setStep] = useState(1);
+
+  useEffect(() => {
+    async function checkUser() {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setUser(user);
+        setStep(2);
+      }
+    }
+    checkUser();
+  }, []);
 
   const itemDetails: Record<string, { title: string; price: string; description: string }> = {
     forex: { title: "The Forex Matrix", price: "$300", description: "Master Global Macro and Market Order Flow." },
@@ -132,7 +146,24 @@ function CheckoutContent() {
                </div>
 
                <div className="grid grid-cols-2 gap-4">
-                  <button className="p-8 rounded-[2.5rem] border border-[var(--ln-teal-500)]/40 bg-[var(--ln-teal-soft)] flex flex-col items-center gap-3 group hover:bg-[var(--ln-teal-500)]/10 transition-all shadow-sm">
+                  <button 
+                    onClick={async () => {
+                      try {
+                        const response = await fetch("/api/checkout", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ track: item }),
+                        });
+                        const data = await response.json();
+                        if (data.url) {
+                          window.location.href = data.url;
+                        }
+                      } catch (err) {
+                        console.error("Checkout error:", err);
+                      }
+                    }}
+                    className="p-8 rounded-[2.5rem] border border-[var(--ln-teal-500)]/40 bg-[var(--ln-teal-soft)] flex flex-col items-center gap-3 group hover:bg-[var(--ln-teal-500)]/10 transition-all shadow-sm"
+                  >
                      <CreditCard className="text-[var(--ln-teal-500)]" size={32} />
                      <span className="text-[10px] font-extrabold text-[var(--ln-navy-900)] uppercase">Secure Stripe</span>
                   </button>
