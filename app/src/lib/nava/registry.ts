@@ -29,12 +29,17 @@ export const NAVA_MESSAGES: NavaMessage[] = [
     pose: 'pointing',
     targetRoute: '/dashboard',
     targetSelector: '[data-nava-target="continue-learning-card"]',
-    markerType: 'soft_pulse',
+    markerType: 'spark',
+    sparkVariant: 'next',
     scrollToTarget: true,
     dismissible: true,
     showOnce: false,
     cooldownDays: 1,
     priority: 10,
+    objective: {
+      label: 'Continue current learning path',
+      priority: 'primary'
+    }
   },
   {
     id: 'course_level_2_intro',
@@ -47,7 +52,8 @@ export const NAVA_MESSAGES: NavaMessage[] = [
     pose: 'bust_neutral',
     targetRoute: '/course',
     targetSelector: '[data-nava-target="level-card-2"]',
-    markerType: 'nava_badge',
+    markerType: 'spark',
+    sparkVariant: 'available',
     dismissible: true,
     showOnce: true,
     priority: 5,
@@ -111,10 +117,15 @@ export const NAVA_MESSAGES: NavaMessage[] = [
     pose: 'pointing',
     targetRoute: '/lab',
     targetSelector: '[data-nava-target="practice-concept-cta"]',
-    markerType: 'soft_pulse',
+    markerType: 'spark',
+    sparkVariant: 'available',
     dismissible: true,
     showOnce: true,
     priority: 5,
+    objective: {
+      label: 'Complete your first Lab practice',
+      priority: 'secondary'
+    }
   },
   {
     id: 'journal_empty_state',
@@ -142,7 +153,8 @@ export const NAVA_MESSAGES: NavaMessage[] = [
     mode: 'directional_focus',
     pose: 'pointing',
     targetSelector: '[data-nava-target="gate-requirement-card"]',
-    markerType: 'locked_gate_marker',
+    markerType: 'spark',
+    sparkVariant: 'locked',
     dismissible: true,
     showOnce: false,
     cooldownDays: 0,

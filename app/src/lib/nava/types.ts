@@ -4,7 +4,10 @@ export type NavaMarkerType =
   | 'highlight_card'
   | 'tooltip_arrow'
   | 'objective_strip'
-  | 'locked_gate_marker';
+  | 'locked_gate_marker'
+  | 'spark';
+
+export type NavaSparkVariant = 'next' | 'available' | 'locked' | 'review' | 'milestone';
 
 export type NavaAttentionLevel = 'high' | 'medium' | 'low';
 
@@ -37,11 +40,16 @@ export interface NavaMessage {
   mode: NavaMode;
   pose: NavaPose;
   
-  // Guidance Fields
+  // Guidance Fields (Phase 1B)
   targetRoute?: string;
   targetSelector?: string; // CSS selector or data-nava-target
   markerType?: NavaMarkerType;
+  sparkVariant?: NavaSparkVariant;
   scrollToTarget?: boolean;
+  objective?: {
+    label: string;
+    priority: 'primary' | 'secondary';
+  };
   
   // Placement/Rules
   placement?: 'top' | 'bottom' | 'inline';
@@ -54,6 +62,7 @@ export interface NavaMessage {
   maxShowCount?: number;
   cooldownDays?: number;
 }
+
 
 export interface NavaState {
   seenMessages: Record<string, {
