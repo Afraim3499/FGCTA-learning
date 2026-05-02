@@ -3,6 +3,8 @@
 import { CheckCircle2, XCircle, BarChart3, Tag, RotateCcw, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ChartScenarioGradingResult } from "@/lib/trading/chart-scenario-grader";
+import { useNava } from "@/hooks/useNava";
+import { useEffect } from "react";
 
 interface ScenarioFeedbackOverlayProps {
   result:    ChartScenarioGradingResult;
@@ -12,6 +14,11 @@ interface ScenarioFeedbackOverlayProps {
 
 export function ScenarioFeedbackOverlay({ result, onRetry, onClose }: ScenarioFeedbackOverlayProps) {
   const { passed, score, overlapPct, feedbackText, weaknessTags } = result;
+  const { triggerMessage } = useNava();
+
+  useEffect(() => {
+    triggerMessage(passed ? 'mission_result_passed' : 'mission_result_review');
+  }, [passed, triggerMessage]);
 
   return (
     <div className={cn(
@@ -97,6 +104,7 @@ export function ScenarioFeedbackOverlay({ result, onRetry, onClose }: ScenarioFe
         {!passed && (
           <button
             onClick={onRetry}
+            data-nava-target="mission-result-action"
             className="flex items-center gap-2 px-6 py-3 rounded-xl text-[10px] font-extrabold uppercase tracking-widest text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all shadow-sm"
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -105,6 +113,7 @@ export function ScenarioFeedbackOverlay({ result, onRetry, onClose }: ScenarioFe
         )}
         <button
           onClick={onClose}
+          data-nava-target="mission-result-action"
           className={cn(
             "flex items-center gap-2 px-8 py-4 rounded-xl text-[10px] font-extrabold uppercase tracking-[0.2em] transition-all ml-auto shadow-lg shadow-[var(--ln-teal-500)]/20",
             passed

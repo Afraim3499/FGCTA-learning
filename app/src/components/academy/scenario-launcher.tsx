@@ -5,6 +5,7 @@ import { getModuleScenarios, getUserScenarioStatuses } from "@/lib/scenario-acti
 import { Play, CheckCircle2, XCircle, Loader2, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useNava } from "@/hooks/useNava";
 
 interface ScenarioLauncherProps {
   moduleId: string;
@@ -16,6 +17,7 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
   const [scenarios,            setScenarios]            = useState<any[]>([]);
   const [statuses,             setStatuses]             = useState<Record<string, any>>({});
   const [isLoading,            setIsLoading]            = useState(true);
+  const { triggerMessage } = useNava();
 
   async function loadScenarios() {
     try {
@@ -38,7 +40,15 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
     }
   }
 
-  useEffect(() => { loadScenarios(); }, [moduleId, refreshTrigger]);
+  useEffect(() => { 
+    loadScenarios(); 
+  }, [moduleId, refreshTrigger]);
+
+  useEffect(() => {
+    if (!isLoading && scenarios.length > 0) {
+      triggerMessage('mission_launcher_tip');
+    }
+  }, [isLoading, scenarios.length, triggerMessage]);
 
   if (isLoading) {
     return (
@@ -120,6 +130,7 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
                 {chartMission || decisionMission ? (
                   <button
                     onClick={() => onLaunchScenario?.(scenario)}
+                    data-nava-target="chart-mission-launcher"
                     className={cn(
                       "flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] font-extrabold tracking-widest uppercase transition-all shrink-0",
                       isPassed
@@ -133,6 +144,7 @@ export function ScenarioLauncher({ moduleId, onLaunchScenario, refreshTrigger }:
                 ) : (
                   <Link
                     href={`/trading?scenarioId=${scenario.id}&moduleId=${moduleId}`}
+                    data-nava-target="chart-mission-launcher"
                     className={cn(
                       "flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] font-extrabold tracking-widest uppercase transition-all shrink-0",
                       isPassed

@@ -12,6 +12,7 @@ interface NavaContextType {
   dismissMessage: (id: string) => void;
   muteNava: () => void;
   triggerMessage: (id: string, overrides?: Partial<NavaMessage>) => void;
+  setSuppressed: (suppressed: boolean) => void;
   isMounted: boolean;
 }
 
@@ -27,6 +28,7 @@ export function NavaProvider({ children }: { children: ReactNode }) {
   const [activeMessage, setActiveMessage] = useState<NavaMessage | null>(null);
   const [state, setState] = useState<NavaState>(INITIAL_STATE);
   const [isMounted, setIsMounted] = useState(false);
+  const [isSuppressed, setIsSuppressed] = useState(false);
 
   // Initialize state from localStorage
   useEffect(() => {
@@ -50,7 +52,9 @@ export function NavaProvider({ children }: { children: ReactNode }) {
     const possibleMessages = NAVA_MESSAGES.filter((msg) => {
       if (msg.targetRoute && !pathname.startsWith(msg.targetRoute)) return false;
       
-      const isDrawing = pathname.includes('/lab') || pathname.includes('/practice');
+      if (isSuppressed) return false;
+
+      const isDrawing = pathname.includes('/practice');
       const isTesting = pathname.includes('/test/') && !pathname.endsWith('/result');
       if (isTesting || isDrawing) return false;
 
@@ -105,7 +109,7 @@ export function NavaProvider({ children }: { children: ReactNode }) {
     } else {
       setActiveMessage(null);
     }
-  }, [isMounted, pathname, state.muted]);
+  }, [isMounted, pathname, state.muted, isSuppressed]);
 
   const dismissMessage = useCallback((id: string) => {
     setState(prevState => {
@@ -169,6 +173,7 @@ export function NavaProvider({ children }: { children: ReactNode }) {
       dismissMessage,
       muteNava,
       triggerMessage,
+      setSuppressed: setIsSuppressed,
       isMounted
     }}>
       {children}

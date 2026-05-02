@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNava } from "@/hooks/useNava";
 import { STRATEGIES_DATA, StrategyDefinition } from "@/lib/strategies-data";
 import { 
   Search, 
@@ -57,6 +58,7 @@ export function StrategyLabClient({
   initialSavedAnalyses,
   dbStrategies 
 }: StrategyLabClientProps) {
+  const { triggerMessage, setSuppressed } = useNava();
   const [activeTab, setActiveTab] = useState<PrimaryTab>("Core Concepts");
   const [search, setSearch] = useState("");
   const [selectedStrategy, setSelectedStrategy] = useState<StrategyDefinition | null>(null);
@@ -69,10 +71,23 @@ export function StrategyLabClient({
   const [checklistState, setChecklistState] = useState<string[]>([]);
   const [drawnBoxes, setDrawnBoxes] = useState<any[]>([]);
   const [isSaving, setIsSaving] = useState(false);
-  
+
+  // Sync suppression with practice state
+  useEffect(() => {
+    setSuppressed(isPracticing);
+    return () => setSuppressed(false);
+  }, [isPracticing, setSuppressed]);
+
   // Saved Analyses
   const [savedAnalyses, setSavedAnalyses] = useState(initialSavedAnalyses);
   const [viewingAnalysis, setViewingAnalysis] = useState<any | null>(null);
+
+  // Trigger journal empty tip
+  useEffect(() => {
+    if (activeTab === "Saved" && savedAnalyses.length === 0) {
+      triggerMessage('journal_empty_tip');
+    }
+  }, [activeTab, savedAnalyses.length, triggerMessage]);
 
   // Filter strategies
   const availableStrategies = STRATEGIES_DATA.filter(s => 
@@ -110,6 +125,9 @@ export function StrategyLabClient({
         moduleId: selectedStrategy?.linkedModuleNumber || "GENERAL"
       });
       if (result.success) {
+        if (savedAnalyses.length === 0) {
+          triggerMessage('first_note_saved_celebration');
+        }
         setSavedAnalyses([result.analysis, ...savedAnalyses]);
         setIsPracticing(false);
         setActiveTab("Saved");
