@@ -5,7 +5,7 @@ import path from "path";
 dotenv.config({ path: path.resolve(process.cwd(), ".env") });
 
 async function testConnection() {
-  const password = encodeURIComponent("Afraim9934?");
+  const password = encodeURIComponent("Rizwan99636?");
   const connectionString = `postgresql://postgres:${password}@db.oqaxpfldczldfmbuopbn.supabase.co:5432/postgres`;
   console.log("Testing ALTERNATIVE connection to:", connectionString.split("@")[1]);
 
