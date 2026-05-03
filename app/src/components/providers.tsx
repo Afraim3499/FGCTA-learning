@@ -5,7 +5,6 @@ import { useState, type ReactNode } from "react";
 
 import { ToastProvider, ToastViewport } from "@/components/ui/status-toast";
 
-import { NavaProvider } from "@/components/nava/NavaProvider";
 
 export function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(
@@ -23,12 +22,10 @@ export function Providers({ children }: { children: ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <NavaProvider>
-        <ToastProvider>
-          {children}
-          <ToastViewport />
-        </ToastProvider>
-      </NavaProvider>
+      <ToastProvider>
+        {children}
+        <ToastViewport />
+      </ToastProvider>
     </QueryClientProvider>
   );
 }

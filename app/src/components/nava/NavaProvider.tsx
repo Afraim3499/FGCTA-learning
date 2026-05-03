@@ -6,6 +6,14 @@ import { NavaMessage, NavaState, NavaUserMode } from '@/lib/nava/types';
 import { NAVA_MESSAGES } from '@/lib/nava/registry';
 import { getLocalStorageState, saveLocalStorageState, scrollToTarget } from '@/lib/nava/utils';
 
+const NAVA_ALLOWED_ROUTES = [
+  '/dashboard',
+  '/course',
+  '/test',
+  '/lab',
+  '/trading',
+];
+
 interface NavaContextType {
   activeMessage: NavaMessage | null;
   activeObjective?: { label: string; priority: 'primary' | 'secondary' };
@@ -40,6 +48,10 @@ export function NavaProvider({ children }: { children: ReactNode }) {
   const lastFetchRef = React.useRef<number>(0);
 
   const fetchContext = useCallback(async () => {
+    // Route guard
+    const isAllowed = NAVA_ALLOWED_ROUTES.some(route => pathname.startsWith(route));
+    if (!isAllowed) return;
+
     // 3-minute TTL to prevent spam
     const now = Date.now();
     if (now - lastFetchRef.current < 3 * 60 * 1000) return;
@@ -117,6 +129,13 @@ export function NavaProvider({ children }: { children: ReactNode }) {
   // Automatic message selection logic
   useEffect(() => {
     if (!isMounted || state.mode === 'muted') return;
+
+    // Route guard
+    const isAllowed = NAVA_ALLOWED_ROUTES.some(route => pathname.startsWith(route));
+    if (!isAllowed) {
+      if (activeMessage) setActiveMessage(null);
+      return;
+    }
 
     // Check for Quiet Mode expiry
     if (state.mode === 'quiet' && state.quietUntil && Date.now() > state.quietUntil) {
