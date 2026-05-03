@@ -6,6 +6,7 @@ import { TrustBreakerSection } from "@/components/marketing/trust-breaker-sectio
 import { HowItWorksSection } from "@/components/marketing/how-it-works-section";
 import { SpotThePatternGame } from "@/components/marketing/spot-the-pattern-game";
 import { FreeTrialSection } from "@/components/marketing/free-trial-section";
+import { NavaTeaserSection } from "@/components/marketing/nava-teaser-section";
 import { CTABanner } from "@/components/marketing/cta-banner";
 
 export default function HomePage() {
@@ -30,6 +31,9 @@ export default function HomePage() {
 
       {/* 6. Free Trial CTA */}
       <FreeTrialSection />
+
+      {/* 6.5 Nava Teaser */}
+      <NavaTeaserSection />
 
       {/* 7. No-Hype Promise CTA */}
       <CTABanner

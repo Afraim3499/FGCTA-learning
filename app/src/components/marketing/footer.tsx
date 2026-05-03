@@ -4,6 +4,7 @@ import { GraduationCap } from "lucide-react";
 const footerLinks = {
   Platform: [
     { label: "Curriculum", href: "/curriculum" },
+    { label: "Nava Guide", href: "/nava" },
     { label: "Pricing", href: "/pricing" },
     { label: "Free Trial", href: "/free-trial" },
   ],
