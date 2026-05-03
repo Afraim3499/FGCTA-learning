@@ -360,3 +360,21 @@ export async function submitChartScenarioAttempt(
   return { attempt: updatedAttempt, gradingResult };
 }
 
+
+/**
+ * Fetches all active training scenarios for global search.
+ */
+export async function getAllScenarios() {
+  return await prisma.trainingScenario.findMany({
+    where: { status: 'active' },
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      description: true,
+      level: true,
+      scenarioType: true
+    },
+    orderBy: { level: 'asc' }
+  });
+}

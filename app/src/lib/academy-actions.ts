@@ -78,23 +78,29 @@ export async function saveAnalysis(data: {
   chartState: any;
   moduleId?: string;
 }) {
-  const { getUser } = await import("./auth-actions");
-  const user = await getUser();
-  if (!user) throw new Error("Unauthorized");
+  try {
+    const { getUser } = await import("./auth-actions");
+    const user = await getUser();
+    if (!user) throw new Error("Unauthorized");
 
-  const result = await prisma.savedAnalysis.create({
-    data: {
-      userId: user.id,
-      assetClass: data.assetClass,
-      instrument: data.instrument,
-      timeframe: data.timeframe,
-      bias: data.bias,
-      rationale: data.rationale,
-      chartState: data.chartState,
-      moduleId: data.moduleId
-    }
-  });
+    const analysis = await prisma.savedAnalysis.create({
+      data: {
+        userId: user.id,
+        assetClass: data.assetClass,
+        instrument: data.instrument,
+        timeframe: data.timeframe,
+        bias: data.bias,
+        rationale: data.rationale,
+        chartState: data.chartState || {},
+        moduleId: data.moduleId
+      }
+    });
 
-  revalidatePath("/dashboard/lab");
-  return { success: true, analysis: result };
+    console.log(`[saveAnalysis] Success: Created analysis ${analysis.id} for user ${user.id}`);
+    revalidatePath('/lab');
+    return { success: true, analysis };
+  } catch (error) {
+    console.error("[saveAnalysis] Critical Error:", error);
+    return { success: false, error: String(error) };
+  }
 }

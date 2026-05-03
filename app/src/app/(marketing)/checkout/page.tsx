@@ -49,7 +49,7 @@ function CheckoutContent() {
           className="space-y-8"
         >
           <div className="space-y-2">
-            <DataBadge variant="outline" className="text-[var(--ln-teal-500)] border-[var(--ln-teal-500)]/20 bg-[var(--ln-teal-soft)]">SECURE_ENROLLMENT</DataBadge>
+            <DataBadge variant="outline" className="text-[var(--ln-teal-500)] border-[var(--ln-teal-500)]/20 bg-[var(--ln-teal-soft)]">Secure Enrollment</DataBadge>
             <h1 className="text-4xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tighter">Order Summary</h1>
           </div>
 
@@ -72,7 +72,7 @@ function CheckoutContent() {
                     "Full Curriculum Access",
                     "All Learning Modules Included",
                     "Practice Environments",
-                    "Academy LearningRecord Path"
+                    "Academy Learning Record Path"
                   ].map(feature => (
                     <li key={feature} className="flex items-center gap-3 text-xs text-slate-500 font-medium">
                        <CheckCircle2 size={14} className="text-[var(--ln-teal-500)]" />

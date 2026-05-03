@@ -58,6 +58,9 @@ const TOOLS = [
   { id: "no_trade",   label: "No-Trade Middle", type: "box" as const },
 ];
 
+// V1 Default Tool for non-toolbar missions
+const V1_TOOL = { id: "v1_zone", label: "Structural Zone", type: "box" as const };
+
 export function ChartScenarioEngine({ scenario, moduleId, onClose, onPass }: ChartScenarioEngineProps) {
   const [phase, setPhase] = useState<Phase>("idle");
   const [attemptId, setAttemptId] = useState<string | null>(null);
@@ -76,7 +79,9 @@ export function ChartScenarioEngine({ scenario, moduleId, onClose, onPass }: Cha
   const isV2 = interactionMode === "chart_markup_v2";
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
-  const activeTool = TOOLS.find(t => t.id === activeToolId) || null;
+  const activeTool = isV2 
+    ? (TOOLS.find(t => t.id === activeToolId) || null)
+    : V1_TOOL;
 
   const handleElementAdded = useCallback((el: DrawnElement) => {
     if (isV2) {

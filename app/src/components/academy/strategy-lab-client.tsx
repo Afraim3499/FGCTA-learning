@@ -15,6 +15,7 @@ import {
   RotateCcw,
   X
 } from "lucide-react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { AcademyButton } from "@/components/ui/academy-button";
 import { DataBadge } from "@/components/ui/data-badge";
@@ -61,7 +62,22 @@ export function StrategyLabClient({
   const { triggerMessage, setSuppressed } = useNava();
   const [activeTab, setActiveTab] = useState<PrimaryTab>("Core Concepts");
   const [search, setSearch] = useState("");
+  const [allScenarios, setAllScenarios] = useState<any[]>([]);
   const [selectedStrategy, setSelectedStrategy] = useState<StrategyDefinition | null>(null);
+
+  // Fetch all scenarios for search
+  useEffect(() => {
+    async function loadScenarios() {
+      try {
+        const { getAllScenarios } = await import("@/lib/scenario-actions");
+        const scenarios = await getAllScenarios();
+        setAllScenarios(scenarios);
+      } catch (err) {
+        console.error("Failed to load scenarios for Lab search:", err);
+      }
+    }
+    loadScenarios();
+  }, []);
   
   // Practice State
   const [isPracticing, setIsPracticing] = useState(false);
@@ -105,6 +121,13 @@ export function StrategyLabClient({
     return matchesSearch && matchesTab;
   });
 
+  // Filter missions
+  const filteredMissions = allScenarios.filter(s => {
+    if (!search.trim()) return false;
+    return s.title.toLowerCase().includes(search.toLowerCase()) || 
+           s.description.toLowerCase().includes(search.toLowerCase());
+  });
+
   const handleSaveAnalysis = async (boxes: any[]) => {
     if (!selectedStrategy && !viewingAnalysis) return;
     setIsSaving(true);
@@ -112,26 +135,25 @@ export function StrategyLabClient({
       const { saveAnalysis } = await import("@/lib/academy-actions");
       const result = await saveAnalysis({
         assetClass: userTrack,
-        instrument: userTrack === "crypto" ? "BTCUSD" : userTrack === "gold" ? "XAUUSD" : "EURUSD",
-        timeframe: "1H",
+        instrument: practiceCandles[practiceCandles.length - 1]?.symbol || "EURUSD",
+        timeframe: practiceCandles[practiceCandles.length - 1]?.timeframe || "1H",
         bias: forgeBias,
         rationale: forgeRationale,
-        chartState: { 
-          boxes: drawnBoxes, 
-          candles: practiceCandles,
+        chartState: {
+          boxes: drawnBoxes,
           checklist: checklistState,
-          logicId: selectedStrategy?.logicId
-        },
-        moduleId: selectedStrategy?.linkedModuleNumber || "GENERAL"
-      });
-      if (result.success) {
-        if (savedAnalyses.length === 0) {
-          triggerMessage('first_note_saved_celebration');
+          logicId: effectiveStrategy?.logicId,
         }
+      });
+
+      if (result?.success) {
         setSavedAnalyses([result.analysis, ...savedAnalyses]);
         setIsPracticing(false);
-        setActiveTab("Saved");
         resetPracticeState();
+        triggerMessage('journal_success');
+      } else {
+        console.error("Failed to save analysis:", result?.error);
+        alert("Failed to save to journal. Check connection.");
       }
     } catch (err) {
       console.error(err);
@@ -207,7 +229,7 @@ export function StrategyLabClient({
         )}>
           {activeTab !== "Saved" && (
             <div className="relative shrink-0">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input 
                 type="text" 
                 placeholder="Search concepts, lessons, or terms..." 
@@ -219,6 +241,32 @@ export function StrategyLabClient({
           )}
 
           <div className="flex-1 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
+            {search.trim() !== "" && filteredMissions.length > 0 && (
+              <div className="space-y-3 px-1 mb-6">
+                <h3 className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest pl-2">Matching Missions</h3>
+                <div className="grid grid-cols-1 gap-2">
+                  {filteredMissions.map(mission => (
+                    <Link 
+                      key={mission.id}
+                      href={`/trading?scenario=${mission.slug}`}
+                      className="p-3 bg-white border border-[var(--ln-border)] rounded-xl hover:border-[var(--ln-teal-500)]/30 hover:shadow-md transition-all group flex items-center justify-between"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="p-1.5 bg-[var(--ln-teal-soft)] rounded-lg group-hover:scale-105 transition-transform">
+                          <Target className="w-3.5 h-3.5 text-[var(--ln-teal-500)]" />
+                        </div>
+                        <div>
+                          <h4 className="text-[11px] font-bold text-[var(--ln-navy-900)] leading-none">{mission.title}</h4>
+                          <p className="text-[9px] text-slate-500 line-clamp-1 mt-1">{mission.description}</p>
+                        </div>
+                      </div>
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[var(--ln-teal-500)] transition-colors" />
+                    </Link>
+                  ))}
+                </div>
+                <div className="h-px bg-slate-100 mt-4 mb-2" />
+              </div>
+            )}
             {activeTab !== "Saved" ? (
               filteredStrategies.length > 0 ? filteredStrategies.map((s) => (
                 <button

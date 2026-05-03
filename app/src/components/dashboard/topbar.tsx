@@ -15,6 +15,43 @@ export function Topbar() {
   const notificationRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [allScenarios, setAllScenarios] = useState<any[]>([]);
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  // Fetch all scenarios for searching
+  useEffect(() => {
+    async function loadScenarios() {
+      try {
+        const { getAllScenarios } = await import("@/lib/scenario-actions");
+        const scenarios = await getAllScenarios();
+        setAllScenarios(scenarios);
+      } catch (err) {
+        console.error("Failed to load scenarios for search:", err);
+      }
+    }
+    loadScenarios();
+  }, []);
+
+  // Filter scenarios based on query
+  useEffect(() => {
+    if (!searchQuery.trim()) {
+      setSearchResults([]);
+      return;
+    }
+
+    const query = searchQuery.toLowerCase();
+    const filtered = allScenarios.filter(s => 
+      s.title.toLowerCase().includes(query) || 
+      s.description.toLowerCase().includes(query) ||
+      s.slug.toLowerCase().includes(query)
+    ).slice(0, 5); // Limit to 5 results
+
+    setSearchResults(filtered);
+  }, [searchQuery, allScenarios]);
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
@@ -25,6 +62,9 @@ export function Topbar() {
       }
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
         setIsMobileMenuOpen(false);
+      }
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setIsSearchFocused(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -66,13 +106,41 @@ export function Topbar() {
           )}
         </div>
 
-        <div className="hidden md:block relative group">
+        <div className="hidden md:block relative group" ref={searchContainerRef}>
           <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[var(--ln-teal-500)] transition-colors" />
           <input 
             type="text" 
-            placeholder="Search learning materials..." 
+            placeholder="Search missions & materials..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setIsSearchFocused(true)}
             className="pl-12 pr-4 py-2.5 bg-[var(--ln-surface-soft)] border border-[var(--ln-border)] rounded-2xl text-sm text-[var(--ln-navy-900)] focus:outline-none focus:ring-1 focus:ring-[var(--ln-teal-500)]/50 w-72 transition-all placeholder:text-slate-400 font-medium"
           />
+
+          {/* Search Results Dropdown */}
+          {isSearchFocused && searchResults.length > 0 && (
+            <div className="absolute left-0 mt-2 w-full bg-white border border-[var(--ln-border)] rounded-2xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+              <div className="p-3 bg-[var(--ln-surface-soft)] border-b border-[var(--ln-border)]">
+                <p className="text-[9px] font-extrabold uppercase tracking-widest text-slate-500">Missions Found</p>
+              </div>
+              <div className="max-h-64 overflow-y-auto">
+                {searchResults.map((s) => (
+                  <Link 
+                    key={s.id}
+                    href={`/trading?scenario=${s.slug}`}
+                    onClick={() => setIsSearchFocused(false)}
+                    className="flex flex-col gap-0.5 p-3 hover:bg-[var(--ln-surface-soft)] transition-colors border-b border-[var(--ln-border)] last:border-0"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-[var(--ln-navy-900)]">{s.title}</span>
+                      <span className="text-[8px] font-black px-1.5 py-0.5 rounded bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] uppercase">L{s.level}</span>
+                    </div>
+                    <p className="text-[10px] text-slate-500 truncate">{s.description}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

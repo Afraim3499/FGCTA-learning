@@ -48,9 +48,13 @@ export function NavaProvider({ children }: { children: ReactNode }) {
   const lastFetchRef = React.useRef<number>(0);
 
   const fetchContext = useCallback(async () => {
-    // Route guard
+    // Route guard: Strictly only allow dashboard, course, test, lab, and trading
+    const publicRoutes = ['/login', '/register', '/forgot-password', '/nava', '/pricing', '/about', '/program', '/curriculum', '/methodology', '/outcomes', '/journey', '/verify', '/checkout', '/free-trial', '/terms', '/privacy', '/disclaimer'];
+    const isPublic = publicRoutes.some(route => pathname === route || pathname.startsWith(route + '/')) || pathname === '/';
+    
     const isAllowed = NAVA_ALLOWED_ROUTES.some(route => pathname.startsWith(route));
-    if (!isAllowed) return;
+    
+    if (isPublic || !isAllowed) return;
 
     // 3-minute TTL to prevent spam
     const now = Date.now();
