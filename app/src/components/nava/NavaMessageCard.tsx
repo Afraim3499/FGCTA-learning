@@ -186,10 +186,10 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
       exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 30, scale: 0.98 }}
       transition={{ duration: 0.28, ease: "easeOut" }}
       className={cn(
-        "fixed right-6 z-50 bg-white rounded-2xl shadow-[0_15px_50px_rgba(8,26,54,0.12)] border border-slate-100 overflow-hidden flex flex-col sm:flex-row",
-        message.attentionLevel === 'medium' ? 'bottom-24' : 'bottom-6',
+        "fixed z-50 bg-white rounded-2xl shadow-[0_15px_50px_rgba(8,26,54,0.12)] border border-slate-100 overflow-hidden flex flex-col sm:flex-row transition-all",
+        message.attentionLevel === 'medium' ? 'bottom-20 sm:bottom-24' : 'bottom-4 sm:bottom-6',
         isLow ? 'max-w-[300px]' : 'max-w-md',
-        "w-[calc(100vw-3rem)] sm:w-full"
+        "right-4 left-4 sm:left-auto sm:right-6 w-auto sm:w-full"
       )}
     >
       <div className="flex">

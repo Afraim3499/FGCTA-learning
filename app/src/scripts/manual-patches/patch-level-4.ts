@@ -60,6 +60,18 @@ Main structure is your primary map; minor swings are just the terrain details. F
       interactiveTaskType: "type_a_point_click",
       interactiveTaskData: {
         prompt: "Identify the Major Swing Low that anchored the current directional movement.",
+        chartData: [
+          { time: "2024-01-01", open: 110, high: 112, low: 108, close: 111 },
+          { time: "2024-01-02", open: 111, high: 115, low: 110, close: 114 },
+          { time: "2024-01-03", open: 114, high: 116, low: 113, close: 115 },
+          { time: "2024-01-04", open: 115, high: 118, low: 114, close: 117 },
+          { time: "2024-01-05", open: 117, high: 120, low: 99, close: 101 },
+          { time: "2024-01-06", open: 101, high: 105, low: 98, close: 103 },
+          { time: "2024-01-07", open: 103, high: 108, low: 102, close: 106 },
+          { time: "2024-01-08", open: 106, high: 110, low: 105, close: 109 },
+          { time: "2024-01-09", open: 109, high: 112, low: 108, close: 111 },
+          { time: "2024-01-10", open: 111, high: 115, low: 110, close: 114 }
+        ],
         validationZones: {
           primary: [{ time: "2024-01-05", priceMin: 98, priceMax: 102 }]
         },
@@ -149,6 +161,20 @@ Ranges provide the energy; transitions provide the direction. Map the boundaries
       interactiveTaskType: "type_a_point_click",
       interactiveTaskData: {
         prompt: "Identify the upper boundary of the established range before the transition area.",
+        chartData: [
+          { time: "2024-01-01", open: 110, high: 115, low: 108, close: 112 },
+          { time: "2024-01-02", open: 112, high: 116, low: 110, close: 114 },
+          { time: "2024-01-03", open: 114, high: 116, low: 113, close: 115 },
+          { time: "2024-01-04", open: 115, high: 118, low: 114, close: 116 },
+          { time: "2024-01-05", open: 116, high: 118, low: 115, close: 117 },
+          { time: "2024-01-06", open: 117, high: 119, low: 116, close: 118 },
+          { time: "2024-01-07", open: 118, high: 120, low: 117, close: 119 },
+          { time: "2024-01-08", open: 119, high: 122, low: 118, close: 121 },
+          { time: "2024-01-09", open: 121, high: 123, low: 120, close: 122 },
+          { time: "2024-01-10", open: 122, high: 125, low: 121, close: 124 },
+          { time: "2024-01-11", open: 124, high: 126, low: 123, close: 125 },
+          { time: "2024-01-12", open: 125, high: 128, low: 112, close: 114 }
+        ],
         validationZones: {
           primary: [{ time: "2024-01-12", priceMin: 110, priceMax: 115 }]
         },
@@ -324,9 +350,21 @@ Process over anticipation. Follow the workflow consistently to maintain objectiv
       skillLevel: "advanced", orderIndex: 7,
       interactiveTaskType: "type_a_point_click",
       interactiveTaskData: {
-        prompt: "Identify the current 'Decision Checkpoint' where the upward structural reading must be reviewed.",
+        prompt: "Identify the Decision Checkpoint where an upward structure reading would be invalidated.",
+        chartData: [
+          { time: "2024-01-01", open: 100, high: 105, low: 98, close: 103 },
+          { time: "2024-01-02", open: 103, high: 108, low: 102, close: 106 },
+          { time: "2024-01-03", open: 106, high: 110, low: 105, close: 109 },
+          { time: "2024-01-04", open: 109, high: 112, low: 108, close: 111 },
+          { time: "2024-01-05", open: 111, high: 115, low: 100, close: 104 },
+          { time: "2024-01-06", open: 104, high: 108, low: 103, close: 107 },
+          { time: "2024-01-07", open: 107, high: 112, low: 106, close: 111 },
+          { time: "2024-01-08", open: 111, high: 115, low: 110, close: 114 },
+          { time: "2024-01-09", open: 114, high: 118, low: 113, close: 117 },
+          { time: "2024-01-10", open: 117, high: 122, low: 116, close: 121 }
+        ],
         validationZones: {
-          primary: [{ time: "2024-01-18", priceMin: 120, priceMax: 125 }]
+          primary: [{ time: "2024-01-05", priceMin: 98, priceMax: 104 }]
         },
         hints: {
           light: "Look for the most recent major swing low that anchors the current leg.",
@@ -371,9 +409,21 @@ Congratulations! You have now developed an advanced structural mapping process. 
       skillLevel: "advanced", orderIndex: 8,
       interactiveTaskType: "type_a_point_click",
       interactiveTaskData: {
-        prompt: "Identify the primary structural anchor for the current directional movement.",
+        prompt: "Identify the area where a Structural Break (closure beyond wick) occurred.",
+        chartData: [
+          { time: "2024-01-01", open: 100, high: 110, low: 98, close: 105 },
+          { time: "2024-01-02", open: 105, high: 112, low: 104, close: 110 },
+          { time: "2024-01-03", open: 110, high: 115, low: 109, close: 113 },
+          { time: "2024-01-04", open: 113, high: 115, low: 111, close: 112 },
+          { time: "2024-01-05", open: 112, high: 120, low: 111, close: 118 },
+          { time: "2024-01-06", open: 118, high: 122, low: 117, close: 121 },
+          { time: "2024-01-07", open: 121, high: 125, low: 120, close: 124 },
+          { time: "2024-01-08", open: 124, high: 128, low: 123, close: 127 },
+          { time: "2024-01-09", open: 127, high: 130, low: 126, close: 129 },
+          { time: "2024-01-10", open: 129, high: 135, low: 128, close: 133 }
+        ],
         validationZones: {
-          primary: [{ time: "2024-01-08", priceMin: 105, priceMax: 108 }]
+          primary: [{ time: "2024-01-05", priceMin: 115, priceMax: 120 }]
         },
         hints: {
           light: "Focus on the point that initiated the directional movement from the initial base.",
@@ -408,6 +458,7 @@ Congratulations! You have now developed an advanced structural mapping process. 
       { id: "q4_6", question: "True or False: Every candle break of a minor high is a structural shift.", options: ["True", "False"], correctIndex: 1, explanation: "Minor breaks are often internal movement and do not shift the main structure." },
       { id: "q4_7", question: "In a 'Continuation Attempt', what is the market trying to do?", options: ["Reverse the trend", "Extend the current structural direction", "Fill a price gap", "Ignore the previous structure"], correctIndex: 1, explanation: "Continuation is the attempt to maintain the existing structural sequence." },
       { id: "q4_8", question: "Why is 'Review Required' an objective structural reading?", options: ["Because you don't know what to do", "Because price action is currently unclear or conflicting", "Because the market is unclear", "Because you are tired"], correctIndex: 1, explanation: "Recognizing uncertainty is a hallmark of advanced structural mapping." },
+      { id: "q4_9", question: "Which evidence supports a 'Reversal Attempt'?", options: ["A minor swing break", "Violation of a major structural anchor with displacement", "A slow retracement", "Price staying in a range"], correctIndex: 1, explanation: "Reversals require the violation of the primary anchors defining the main structure." },
       { id: "q4_10", question: "What is 'Internal Movement'?", options: ["Price action occurring within a major structural leg", "A breakout", "Lateral consolidation", "Market volatility"], correctIndex: 0, explanation: "Internal movement is fluctuations that do not create new primary anchors." },
       { id: "q4_11", question: "What is the primary goal of Level 4 Structure Mapping?", options: ["Memorize isolated chart labels", "Mark every small candle movement", "Develop an objective structural mapping process", "Ignore unclear structure"], correctIndex: 2, explanation: "Level 4 focuses on building a repeatable process for applied chart review, not guessing the next movement." },
       { id: "q4_12", question: "When price 'sweeps' a level but does not close beyond it, it is a:", options: ["Structural Break", "Range violation / Failed Break", "Continuation pattern", "Failed structural validation"], correctIndex: 1, explanation: "A sweep without closure is not a confirmed structural shift." },

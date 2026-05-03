@@ -7,11 +7,52 @@ import { NavaTrigger } from "@/components/nava/NavaTrigger";
 export default async function LevelPage({ params }: { params: Promise<{ levelId: string }> }) {
   const { levelId: levelIdStr } = await params;
   const levelId = parseInt(levelIdStr);
-  const modules = await getModules(levelId);
-  const allLevels = await getCourseLevels();
-  const currentLevel = allLevels.find(l => l.level === levelId);
+  
+  let modules: any[] = [];
+  let allLevels: any[] = [];
+  let currentLevel: any = null;
+  let isLocked = false;
+
+  try {
+    modules = await getModules(levelId);
+    allLevels = await getCourseLevels();
+    currentLevel = allLevels.find(l => l.level === levelId);
+  } catch (error: any) {
+    if (error.message === "Level is locked" || error.message === "Unauthorized") {
+      isLocked = true;
+      // Fetch levels without enforcement to show the locked UI correctly
+      // Note: getCourseLevels already returns 'locked' property
+      allLevels = await getCourseLevels();
+      currentLevel = allLevels.find(l => l.level === levelId);
+    } else {
+      throw error;
+    }
+  }
 
   if (!currentLevel) return <div>Level not found</div>;
+
+  if (isLocked) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-6 text-center">
+        <div className="w-20 h-20 rounded-3xl bg-slate-800 flex items-center justify-center text-slate-500 shadow-inner">
+          <Award size={40} className="opacity-20" />
+        </div>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-extrabold text-white uppercase tracking-tighter">Level {levelId} Restricted</h2>
+          <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">
+            This part of the curriculum is currently locked. Complete the prerequisite Knowledge Test to unlock {currentLevel.title}.
+          </p>
+        </div>
+        <Link 
+          href="/course" 
+          className="inline-flex items-center gap-2 px-8 py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl transition-all border border-white/10"
+        >
+          <ChevronLeft className="w-4 h-4" />
+          Back to Academy
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
