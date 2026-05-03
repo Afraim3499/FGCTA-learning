@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Lock } from 'lucide-react';
-import { NavaMarkerType, NavaSparkVariant } from '@/lib/nava/types';
+import { NavaMarkerType, NavaSparkVariant, NavaUserMode } from '@/lib/nava/types';
 import { NavaSpark } from './NavaSpark';
 
 interface NavaGuidanceMarkerProps {
@@ -13,6 +13,7 @@ interface NavaGuidanceMarkerProps {
   sparkVariant?: NavaSparkVariant;
   label?: string;
   active?: boolean;
+  userMode?: NavaUserMode;
 }
 
 export function NavaGuidanceMarker({ 
@@ -20,7 +21,8 @@ export function NavaGuidanceMarker({
   markerType, 
   sparkVariant = 'next',
   label,
-  active = true 
+  active = true,
+  userMode = 'normal'
 }: NavaGuidanceMarkerProps) {
   const [targetEl, setTargetEl] = useState<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -42,7 +44,7 @@ export function NavaGuidanceMarker({
             active={active} 
             variant={sparkVariant} 
             label={label} 
-            reducedMotion={!!shouldReduceMotion} 
+            reducedMotion={!!shouldReduceMotion || userMode === 'quiet'} 
           />
         );
       case 'soft_pulse':
@@ -50,10 +52,12 @@ export function NavaGuidanceMarker({
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ 
-              opacity: shouldReduceMotion ? 0.3 : [0.2, 0.5, 0.2],
+              opacity: shouldReduceMotion ? 0.1 : (userMode === 'quiet' ? [0.1, 0.2, 0.1] : [0.2, 0.5, 0.2]),
               boxShadow: shouldReduceMotion 
-                ? '0 0 20px rgba(45,212,191,0.2)' 
-                : ['0 0 20px rgba(45,212,191,0.2)', '0 0 40px rgba(45,212,191,0.4)', '0 0 20px rgba(45,212,191,0.2)']
+                ? '0 0 10px rgba(45,212,191,0.1)' 
+                : (userMode === 'quiet' 
+                  ? ['0 0 10px rgba(45,212,191,0.1)', '0 0 20px rgba(45,212,191,0.2)', '0 0 10px rgba(45,212,191,0.1)']
+                  : ['0 0 20px rgba(45,212,191,0.2)', '0 0 40px rgba(45,212,191,0.4)', '0 0 20px rgba(45,212,191,0.2)'])
             }}
             transition={shouldReduceMotion ? {} : { 
               duration: 2.5, 

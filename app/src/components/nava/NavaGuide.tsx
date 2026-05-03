@@ -8,7 +8,7 @@ import { NavaObjectiveStrip } from './NavaObjectiveStrip';
 import { AnimatePresence } from 'framer-motion';
 
 export function NavaGuide() {
-  const { activeMessage, activeObjective, dismissMessage, isMounted } = useNava();
+  const { activeMessage, activeObjective, dismissMessage, isMounted, setQuietMode, muteNava, mode } = useNava();
 
   if (!isMounted) return null;
 
@@ -18,7 +18,7 @@ export function NavaGuide() {
   return (
     <>
       {/* Global Objective Strip */}
-      {activeObjective && (
+      {activeObjective && mode !== 'muted' && (
         <div className="fixed top-20 left-0 right-0 z-40 pointer-events-none">
           <NavaObjectiveStrip 
             active={true}
@@ -35,6 +35,9 @@ export function NavaGuide() {
           <NavaMessageCard
             message={activeMessage}
             onDismiss={() => dismissMessage(activeMessage.id)}
+            onHideTips={() => setQuietMode(48)}
+            onMute={muteNava}
+            userMode={mode}
           />
         )}
       </AnimatePresence>
@@ -46,6 +49,7 @@ export function NavaGuide() {
           markerType={activeMessage.markerType}
           sparkVariant={activeMessage.sparkVariant}
           label={activeMessage.ctaLabel}
+          userMode={mode}
         />
       )}
     </>

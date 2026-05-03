@@ -1,8 +1,10 @@
 'use client';
 
+import React from 'react';
+
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { X, ChevronRight, Info, AlertTriangle, PartyPopper, Lock } from 'lucide-react';
-import { NavaMessage, NavaPose } from '@/lib/nava/types';
+import { X, ChevronRight, Info, AlertTriangle, PartyPopper, Lock, Settings, EyeOff, MessageSquareOff } from 'lucide-react';
+import { NavaMessage, NavaPose, NavaUserMode } from '@/lib/nava/types';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -12,7 +14,9 @@ import { NavaPoseImage } from './NavaPoseImage';
 interface NavaMessageCardProps {
   message: NavaMessage;
   onDismiss: (id: string) => void;
+  onHideTips?: () => void;
   onMute?: () => void;
+  userMode?: NavaUserMode;
 }
 
 const VARIANTS = {
@@ -23,18 +27,20 @@ const VARIANTS = {
   locked: { icon: Lock, color: 'text-slate-600', bg: 'bg-slate-50' },
 };
 
-export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDismiss, onMute }) => {
+export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDismiss, onHideTips, onMute, userMode }) => {
   const shouldReduceMotion = useReducedMotion();
+  const [showSettings, setShowSettings] = React.useState(false);
   const config = VARIANTS[message.variant] || VARIANTS.tip;
 
   // High Attention Layout (Cinematic / Full Overlay)
   if (message.attentionLevel === 'high') {
     return (
-      <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-8 bg-slate-900/40 backdrop-blur-[2px] overflow-y-auto">
+      <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-8 bg-slate-900/60 backdrop-blur-[4px] overflow-y-auto">
         <motion.div
-          initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 100 }}
+          initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.9, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.9, y: 20 }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="relative max-w-4xl w-full"
         >
           {/* Desktop-only Peeking Nava Character */}
@@ -50,39 +56,82 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
           <div className="relative bg-white rounded-t-[3rem] sm:rounded-[3rem] shadow-2xl flex flex-col sm:flex-row h-auto max-h-[90vh] sm:min-h-[500px] overflow-hidden">
             {/* Zone 1: Visual Stage (Mobile Image / Desktop Sidebar) */}
             <div className="w-full sm:w-[40%] h-48 sm:h-auto bg-gradient-to-br from-slate-50 to-teal-50/50 shrink-0 relative flex items-center justify-center overflow-hidden">
-              <div className="sm:hidden w-full h-full">
+              <div className="sm:hidden w-full h-full scale-90 origin-bottom">
                 <NavaPoseImage 
                   pose={message.pose} 
                   attentionLevel="high" 
                   forceBustOnMobile 
                   priority 
-                  className="scale-125"
+                  className="scale-110"
                 />
               </div>
             </div>
 
-            {/* Content Section (Zone 2 & 3 Combined but Structured) */}
+            {/* Content Section */}
             <div className="flex-1 p-8 sm:p-16 flex flex-col justify-center bg-white relative z-10 overflow-y-auto">
-              {/* Zone 2: Message Content */}
               <div className="flex items-center justify-between mb-4 sm:mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-teal-500 flex items-center justify-center text-white shadow-lg shadow-teal-500/20">
                     <Info size={16} />
                   </div>
-                  <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-teal-600">
-                    Nava Guide
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-teal-600">
+                      Nava Guide
+                    </span>
+                  </div>
                 </div>
-                {message.dismissible && (
-                  <button 
-                    onClick={() => onDismiss(message.id)} 
-                    className="p-2 -mr-2 text-slate-300 hover:text-slate-900 transition-colors rounded-full hover:bg-slate-50"
-                    aria-label="Close"
+                
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setShowSettings(!showSettings)}
+                    className={cn(
+                      "p-2 text-slate-300 hover:text-slate-600 transition-colors rounded-full hover:bg-slate-50",
+                      showSettings && "bg-slate-50 text-slate-600"
+                    )}
                   >
-                    <X size={24} />
+                    <Settings size={20} />
                   </button>
-                )}
+                  {message.dismissible && (
+                    <button 
+                      onClick={() => onDismiss(message.id)} 
+                      className="p-2 text-slate-300 hover:text-slate-900 transition-colors rounded-full hover:bg-slate-50"
+                      aria-label="Close"
+                    >
+                      <X size={24} />
+                    </button>
+                  )}
+                </div>
               </div>
+
+              <AnimatePresence>
+                {showSettings && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mb-8 p-4 bg-slate-50 rounded-[2rem] space-y-2 overflow-hidden"
+                  >
+                    <div className="flex items-center justify-between px-3 mb-2">
+                      <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">Guidance Preferences</p>
+                      {userMode === 'quiet' && (
+                        <span className="text-[8px] font-bold text-teal-600 uppercase tracking-tight">Nava is quieter for now</span>
+                      )}
+                    </div>
+                    <button 
+                      onClick={() => { onHideTips?.(); setShowSettings(false); }}
+                      className="w-full flex items-center gap-3 px-4 py-3 text-xs font-bold text-slate-600 hover:text-[var(--ln-navy-900)] hover:bg-white rounded-2xl transition-all shadow-sm shadow-transparent hover:shadow-slate-200/50"
+                    >
+                      <EyeOff size={16} /> Hide all non-critical tips for 48 hours
+                    </button>
+                    <button 
+                      onClick={() => { onMute?.(); setShowSettings(false); }}
+                      className="w-full flex items-center gap-3 px-4 py-3 text-xs font-bold text-slate-600 hover:text-red-600 hover:bg-white rounded-2xl transition-all shadow-sm shadow-transparent hover:shadow-red-100/50"
+                    >
+                      <MessageSquareOff size={16} /> Mute Nava guide completely
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <div className="space-y-4 sm:space-y-6">
                 <h2 className="text-2xl sm:text-5xl font-black text-slate-900 leading-[1.1] tracking-tight">
@@ -98,7 +147,7 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
                 {message.ctaHref ? (
                   <Link
                     href={message.ctaHref}
-                    className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 sm:px-12 py-4 sm:py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-2xl hover:shadow-slate-900/20 active:scale-95"
+                    className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 sm:px-12 py-4 sm:py-5 bg-[var(--ln-navy-900)] text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-2xl hover:shadow-slate-900/20 active:scale-95"
                   >
                     {message.ctaLabel}
                     <ChevronRight size={22} className="group-hover:translate-x-1 transition-transform" />
@@ -106,7 +155,7 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
                 ) : (
                   <button
                     onClick={() => onDismiss(message.id)}
-                    className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 sm:px-12 py-4 sm:py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-2xl hover:shadow-slate-900/20 active:scale-95"
+                    className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 sm:px-12 py-4 sm:py-5 bg-[var(--ln-navy-900)] text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-2xl hover:shadow-slate-900/20 active:scale-95"
                   >
                     {message.ctaLabel}
                     <ChevronRight size={22} className="group-hover:translate-x-1 transition-transform" />
@@ -132,81 +181,128 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
   
   return (
     <motion.div
-      initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 50, scale: 0.95 }}
+      initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 30, scale: 0.98 }}
       animate={{ opacity: 1, x: 0, scale: 1 }}
-      exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 50, scale: 0.95 }}
+      exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 30, scale: 0.98 }}
+      transition={{ duration: 0.28, ease: "easeOut" }}
       className={cn(
-        "fixed right-6 z-50 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden flex",
+        "fixed right-6 z-50 bg-white rounded-2xl shadow-[0_15px_50px_rgba(8,26,54,0.12)] border border-slate-100 overflow-hidden flex flex-col sm:flex-row",
         message.attentionLevel === 'medium' ? 'bottom-24' : 'bottom-6',
-        isLow ? 'max-w-[280px]' : 'max-w-sm',
+        isLow ? 'max-w-[300px]' : 'max-w-md',
         "w-[calc(100vw-3rem)] sm:w-full"
       )}
     >
-      {/* Nava Character Container */}
-      <div className={cn(
-        "bg-gradient-to-b from-slate-50 to-white flex items-end justify-center overflow-hidden border-r border-slate-50",
-        isLow ? 'w-20' : 'w-24 sm:w-28'
-      )}>
-        <NavaPoseImage 
-          pose={message.pose} 
-          attentionLevel={message.attentionLevel} 
-          className={cn(
-             // Controlled peeking for side cards
-             "-bottom-2" 
-          )}
-        />
-      </div>
-
-      <div className={`flex-1 ${isLow ? 'p-4' : 'p-5 sm:p-6'}`}>
-        <div className="flex items-start justify-between mb-2">
-          <div>
-            <h4 className="text-[9px] font-black uppercase tracking-widest text-teal-600 mb-0.5">
-              Nava Guide
-            </h4>
-            <p className={`${isLow ? 'text-xs' : 'text-sm'} font-extrabold text-slate-900 leading-tight`}>
-              {message.title}
-            </p>
+      <div className="flex">
+        {/* Nava Character Container */}
+        <div className={cn(
+          "bg-gradient-to-b from-slate-50 to-white flex items-end justify-center overflow-hidden border-r border-slate-50 shrink-0",
+          isLow ? 'w-20' : 'w-24 sm:w-32'
+        )}>
+          <div className="sm:scale-100 scale-90 origin-bottom">
+            <NavaPoseImage 
+              pose={message.pose} 
+              attentionLevel={message.attentionLevel} 
+              className="-bottom-1"
+            />
           </div>
-          {message.dismissible && (
-            <button
-              onClick={() => onDismiss(message.id)}
-              className="p-1 -mt-1 -mr-1 text-slate-300 hover:text-slate-600 transition-colors rounded-lg hover:bg-slate-50"
-            >
-              <X size={16} />
-            </button>
-          )}
         </div>
 
-        <p className={`${isLow ? 'text-[11px]' : 'text-xs'} text-slate-500 mb-3 leading-relaxed font-medium line-clamp-3`}>
-          {message.body}
-        </p>
-
-        {message.ctaLabel && !isLow && (
-          <div className="flex items-center gap-2">
-            {message.ctaHref ? (
-              <Link
-                href={message.ctaHref}
-                className="flex-1 flex items-center justify-center gap-1.5 px-4 py-2 bg-slate-900 text-white text-[11px] font-bold rounded-xl hover:bg-slate-800 transition-all shadow-md active:scale-95"
-              >
-                {message.ctaLabel}
-                <ChevronRight size={14} />
-              </Link>
-            ) : (
+        <div className={`flex-1 ${isLow ? 'p-4' : 'p-5 sm:p-7'} relative`}>
+          <div className="flex items-start justify-between mb-3">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <h4 className="text-[9px] font-black uppercase tracking-widest text-teal-600">
+                  Nava Guide
+                </h4>
+              </div>
+              <p className={`${isLow ? 'text-xs' : 'text-[15px]'} font-extrabold text-[var(--ln-navy-900)] leading-tight tracking-tight`}>
+                {message.title}
+              </p>
+            </div>
+            
+            <div className="flex items-center gap-1">
               <button
-                onClick={() => onDismiss(message.id)}
-                className="flex-1 flex items-center justify-center gap-1.5 px-4 py-2 bg-slate-900 text-white text-[11px] font-bold rounded-xl hover:bg-slate-800 transition-all shadow-md active:scale-95"
+                onClick={() => setShowSettings(!showSettings)}
+                className={cn(
+                  "p-1.5 text-slate-300 hover:text-slate-600 transition-colors rounded-lg hover:bg-slate-50",
+                  showSettings && "bg-slate-50 text-slate-600"
+                )}
+                title="Guidance Settings"
               >
-                {message.ctaLabel}
-                <ChevronRight size={14} />
+                <Settings size={14} />
               </button>
-            )}
+              {message.dismissible && (
+                <button
+                  onClick={() => onDismiss(message.id)}
+                  className="p-1.5 text-slate-300 hover:text-slate-900 transition-colors rounded-lg hover:bg-slate-50"
+                >
+                  <X size={16} />
+                </button>
+              )}
+            </div>
           </div>
-        )}
+
+          <AnimatePresence>
+            {showSettings && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="mb-4 space-y-1 overflow-hidden"
+              >
+                <div className="flex items-center justify-between px-3 mb-2">
+                  <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">Settings</p>
+                  {userMode === 'quiet' && (
+                    <span className="text-[8px] font-bold text-teal-600 uppercase tracking-tight">Quieter Mode Active</span>
+                  )}
+                </div>
+                <button 
+                  onClick={() => { onHideTips?.(); setShowSettings(false); }}
+                  className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-slate-500 hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all"
+                >
+                  <EyeOff size={12} /> Hide tips for 48h
+                </button>
+                <button 
+                  onClick={() => { onMute?.(); setShowSettings(false); }}
+                  className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
+                >
+                  <MessageSquareOff size={12} /> Mute Nava guide
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <p className={`${isLow ? 'text-[11px]' : 'text-[13px]'} text-slate-500 mb-4 leading-relaxed font-medium`}>
+            {message.body}
+          </p>
+
+          {message.ctaLabel && !isLow && (
+            <div className="flex items-center gap-3">
+              {message.ctaHref ? (
+                <Link
+                  href={message.ctaHref}
+                  className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 bg-[var(--ln-navy-900)] text-white text-[11px] font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-[var(--ln-navy-900)]/10 active:scale-95"
+                >
+                  {message.ctaLabel}
+                  <ChevronRight size={14} />
+                </Link>
+              ) : (
+                <button
+                  onClick={() => onDismiss(message.id)}
+                  className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 bg-[var(--ln-navy-900)] text-white text-[11px] font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-[var(--ln-navy-900)]/10 active:scale-95"
+                >
+                  {message.ctaLabel}
+                  <ChevronRight size={14} />
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
       
       {/* Attention Marker */}
       {message.attentionLevel === 'medium' && (
-        <div className="absolute top-0 left-0 w-1.5 h-full bg-teal-500" />
+        <div className="absolute top-0 left-0 w-1 sm:w-1.5 h-full bg-teal-500" />
       )}
     </motion.div>
   );

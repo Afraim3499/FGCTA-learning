@@ -64,11 +64,25 @@ export interface NavaMessage {
 }
 
 
+export type NavaUserMode = "normal" | "quiet" | "muted";
+
 export interface NavaState {
+  mode: NavaUserMode;
+  quietUntil?: number | null;
+  session?: {
+    id: string;
+    seenCount: number;
+    dismissCount: number;
+    highAttentionShown: boolean;
+    lastRoute?: string;
+    autoMessageShownForRoute?: string;
+  };
   seenMessages: Record<string, {
     seenCount: number;
-    lastSeenAt: number;
+    dismissCount: number;
+    lastSeenAt?: number;
     dismissedAt: number | null;
+    actionTakenAt?: number | null;
   }>;
-  muted: boolean;
+  muted: boolean; // Legacy support
 }
