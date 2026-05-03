@@ -26,10 +26,21 @@ export type NavaPose =
   | 'celebration' 
   | 'avatar';
 
+export type NavaTrigger = 
+  | 'dashboard_first_visit'
+  | 'dashboard_visit'
+  | 'module_visit'
+  | 'test_result_ready'
+  | 'mission_result_ready'
+  | 'personalized_next_action'
+  | 'journal_milestone'
+  | 'test_review_needed'
+  | 'mission_review_needed';
+
 export interface NavaMessage {
   id: string; // Unique slug
   variant: 'welcome' | 'tip' | 'warning' | 'celebration' | 'locked';
-  trigger: string; // e.g., 'dashboard_returning', 'course_new_level'
+  trigger: NavaTrigger; 
   title: string;
   body: string;
   ctaLabel?: string;
@@ -63,20 +74,57 @@ export interface NavaMessage {
   cooldownDays?: number;
 }
 
+export type NavaSession = {
+  id: string;
+  seenCount: number;
+  dismissCount: number;
+  highAttentionShown: boolean;
+  lastRoute?: string;
+  autoMessageShownForRoute?: string;
+};
 
 export type NavaUserMode = "normal" | "quiet" | "muted";
+
+export type NavaContextViewModel = {
+  currentLevel?: number;
+  xpTotal?: number;
+
+  nextAction?: {
+    title: string;
+    href: string;
+    type: 'module' | 'test' | 'mission' | 'lab' | 'course' | 'unknown';
+    targetSelector?: string;
+    confidence: 'high' | 'medium' | 'fallback';
+  };
+
+  journal?: {
+    count: number;
+    milestone?: 'first_note' | 'third_note' | null;
+  };
+
+  testReview?: {
+    hasRecentReviewNeeded: boolean;
+    level?: number;
+    attemptCount?: number;
+  };
+
+  missionReview?: {
+    hasRecentReviewNeeded: boolean;
+    level?: number;
+    attemptCount?: number;
+  };
+
+  gate?: {
+    hasBlockedNextStep?: boolean;
+    reason?: string;
+  };
+};
 
 export interface NavaState {
   mode: NavaUserMode;
   quietUntil?: number | null;
-  session?: {
-    id: string;
-    seenCount: number;
-    dismissCount: number;
-    highAttentionShown: boolean;
-    lastRoute?: string;
-    autoMessageShownForRoute?: string;
-  };
+  session?: NavaSession;
+  context?: NavaContextViewModel | null;
   seenMessages: Record<string, {
     seenCount: number;
     dismissCount: number;

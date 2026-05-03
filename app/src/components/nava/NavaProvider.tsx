@@ -24,6 +24,7 @@ const INITIAL_STATE: NavaState = {
   mode: 'normal',
   seenMessages: {},
   muted: false,
+  context: null,
 };
 
 function generateSessionId() {
@@ -36,6 +37,28 @@ export function NavaProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<NavaState>(INITIAL_STATE);
   const [isMounted, setIsMounted] = useState(false);
   const [isSuppressed, setIsSuppressed] = useState(false);
+  const lastFetchRef = React.useRef<number>(0);
+
+  const fetchContext = useCallback(async () => {
+    // 3-minute TTL to prevent spam
+    const now = Date.now();
+    if (now - lastFetchRef.current < 3 * 60 * 1000) return;
+    
+    try {
+      const res = await fetch('/api/nava/context');
+      if (res.ok) {
+        const data = await res.json();
+        setState(prev => {
+          const newState = { ...prev, context: data };
+          saveLocalStorageState(newState);
+          return newState;
+        });
+        lastFetchRef.current = now;
+      }
+    } catch (error) {
+      console.warn('[NAVA] Context fetch failed, falling back to static guidance.');
+    }
+  }, []);
 
   // Initialize state from localStorage with migration
   useEffect(() => {
@@ -79,7 +102,17 @@ export function NavaProvider({ children }: { children: ReactNode }) {
         }
       });
     }
-  }, []);
+
+    // Fetch context on initial load
+    fetchContext();
+  }, [fetchContext]);
+
+  // Refetch context on major route changes
+  useEffect(() => {
+    if (pathname === '/dashboard' || pathname === '/course' || pathname === '/lab') {
+      fetchContext();
+    }
+  }, [pathname, fetchContext]);
 
   // Automatic message selection logic
   useEffect(() => {
@@ -142,19 +175,59 @@ export function NavaProvider({ children }: { children: ReactNode }) {
 
       // Trigger matching
       if (!msg.trigger) return true;
+      
+      // Phase 2A Personalized Triggers
+      if (msg.trigger === 'personalized_next_action') {
+        return pathname === '/dashboard' && !!state.context?.nextAction;
+      }
+      if (msg.trigger === 'journal_milestone') {
+        return !!state.context?.journal?.milestone;
+      }
+      if (msg.trigger === 'test_review_needed') {
+        return !!state.context?.testReview?.hasRecentReviewNeeded;
+      }
+      if (msg.trigger === 'mission_review_needed') {
+        return !!state.context?.missionReview?.hasRecentReviewNeeded;
+      }
+
+      // Phase 1 Legacy Triggers
       if (msg.trigger === 'dashboard_first_visit') {
         return pathname === '/dashboard' && !state.seenMessages[msg.id];
       }
-      if (msg.trigger === 'dashboard_visit') return false; // Manual trigger only
+      if (msg.trigger === 'dashboard_visit') {
+        // Level-aware tone overrides for dashboard
+        if (msg.id === 'level_0_tone_orientation') return state.context?.currentLevel === 0;
+        if (msg.id === 'level_2_tone_orientation') return state.context?.currentLevel === 2;
+        return false;
+      }
       if (msg.trigger === 'module_visit') return pathname.includes('/course/module/');
-      if (msg.trigger === 'test_result_ready' || msg.trigger === 'mission_result_ready') return false; // Manual trigger only
       
       return false;
     });
 
     // Sort by priority
     possibleMessages.sort((a, b) => (b.priority || 0) - (a.priority || 0));
-    const msg = possibleMessages[0] || null;
+    let msg = possibleMessages[0] || null;
+
+    // Apply personalization
+    if (msg && state.context) {
+      const ctx = state.context;
+      let body = msg.body;
+      let title = msg.title;
+      let ctaHref = msg.ctaHref;
+      let ctaLabel = msg.ctaLabel;
+
+      if (msg.trigger === 'personalized_next_action' && ctx.nextAction) {
+        body = body.replace('{level}', String(ctx.currentLevel ?? 0))
+                   .replace('{type}', ctx.nextAction.type);
+        ctaHref = ctx.nextAction.href;
+        ctaLabel = 'Continue ' + ctx.nextAction.title;
+      }
+
+      if (body !== msg.body || title !== msg.title || ctaHref !== msg.ctaHref || ctaLabel !== msg.ctaLabel) {
+        msg = { ...msg, body, title, ctaHref, ctaLabel };
+      }
+    }
 
     if (msg) {
       setActiveMessage(msg);
@@ -188,7 +261,7 @@ export function NavaProvider({ children }: { children: ReactNode }) {
     } else {
       setActiveMessage(null);
     }
-  }, [isMounted, pathname, state.mode, state.quietUntil, isSuppressed]);
+  }, [isMounted, pathname, state.mode, state.quietUntil, isSuppressed, state.context, activeMessage]);
 
   const dismissMessage = useCallback((id: string) => {
     setState(prevState => {
@@ -196,7 +269,6 @@ export function NavaProvider({ children }: { children: ReactNode }) {
       const newDismissCount = (currentMsgState?.dismissCount || 0) + 1;
       const sessionDismissCount = (prevState.session?.dismissCount || 0) + 1;
       
-      // Auto-quiet logic: 3 dismisses in session -> 48h quiet
       let newMode = prevState.mode;
       let newQuietUntil = prevState.quietUntil;
       
