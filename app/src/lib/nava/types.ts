@@ -24,7 +24,9 @@ export type NavaPose =
   | 'pointing' 
   | 'empathy' 
   | 'celebration' 
-  | 'avatar';
+  | 'avatar'
+  | 'thinking'
+  | 'point_side';
 
 export type NavaTrigger = 
   | 'dashboard_first_visit'
@@ -35,7 +37,12 @@ export type NavaTrigger =
   | 'personalized_next_action'
   | 'journal_milestone'
   | 'test_review_needed'
-  | 'mission_review_needed';
+  | 'test_review_repeated'
+  | 'mission_review_needed'
+  | 'mission_review_repeated'
+  | 'gate_blocker_module'
+  | 'gate_blocker_test'
+  | 'journal_review_habit';
 
 export interface NavaMessage {
   id: string; // Unique slug
@@ -100,23 +107,32 @@ export type NavaContextViewModel = {
   journal?: {
     count: number;
     milestone?: 'first_note' | 'third_note' | null;
+    reviewPromptEligible?: boolean;
   };
 
-  testReview?: {
-    hasRecentReviewNeeded: boolean;
+  review?: {
+    test?: {
+      hasReviewNeeded: boolean;
+      level?: number;
+      attemptCount?: number;
+      repeated?: boolean;
+      ctaHref?: string;
+    };
+    mission?: {
+      hasReviewNeeded: boolean;
+      scenarioId?: string;
+      level?: number;
+      attemptCount?: number;
+      repeated?: boolean;
+      ctaHref?: string;
+    };
+  };
+
+  gates?: {
+    missingRequirement?: 'module' | 'test' | 'mission' | 'unknown';
     level?: number;
-    attemptCount?: number;
-  };
-
-  missionReview?: {
-    hasRecentReviewNeeded: boolean;
-    level?: number;
-    attemptCount?: number;
-  };
-
-  gate?: {
-    hasBlockedNextStep?: boolean;
-    reason?: string;
+    ctaHref?: string;
+    targetSelector?: string;
   };
 };
 

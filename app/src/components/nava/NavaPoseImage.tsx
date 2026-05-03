@@ -22,6 +22,8 @@ const POSE_IMAGES: Record<NavaPose, string> = {
   empathy: '/brand/nava/nava-empathy.png',
   celebration: '/brand/nava/nava-celebration.png',
   avatar: '/brand/nava/nava-avatar.png',
+  thinking: '/brand/nava/nava-bust.png',
+  point_side: '/brand/nava/nava-pointing.png',
 };
 
 export const NavaPoseImage: React.FC<NavaPoseImageProps> = ({

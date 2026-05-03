@@ -20,6 +20,8 @@ export async function getNavaContext(userId: string): Promise<NavaContextViewMod
       })
     ]);
 
+    const currentLevel = progress?.currentLevel ?? 0;
+
     // Determine journal milestone
     let journalMilestone: "first_note" | "third_note" | null = null;
     if (journalCount === 1) journalMilestone = "first_note";
@@ -27,44 +29,76 @@ export async function getNavaContext(userId: string): Promise<NavaContextViewMod
 
     // Detect recent test review need
     const latestTest = testAttempts[0];
+    const testReviewCount = testAttempts.filter(t => !t.passed && t.testId === latestTest?.testId).length;
     const hasRecentTestReview = latestTest ? !latestTest.passed : false;
 
     // Detect recent mission review need
     const latestMission = scenarioAttempts[0];
+    const missionReviewCount = scenarioAttempts.filter(s => s.status === 'failed' && s.scenarioId === latestMission?.scenarioId).length;
     const hasRecentMissionReview = latestMission ? latestMission.status === 'failed' : false;
 
+    // Gate & Blocker Logic
+    let missingRequirement: "module" | "test" | "mission" | "unknown" | undefined = undefined;
+    let gateCta: string | undefined = undefined;
+
+    if (nextStep.action === 'CONTINUE_ACADEMY') {
+      missingRequirement = 'module';
+      gateCta = nextStep.link;
+    } else if (nextStep.action === 'TAKE_ASSESSMENT') {
+      missingRequirement = 'test';
+      gateCta = nextStep.link;
+    } else if (nextStep.action === 'START_PHASE') {
+      missingRequirement = 'mission';
+      gateCta = nextStep.link;
+    }
+
     // Map next step type
-    let type: "module" | "test" | "mission" | "lab" | "course" | "unknown" = 'unknown';
-    if (nextStep.link.includes('/module/')) type = 'module';
-    else if (nextStep.link.includes('/test/')) type = 'test';
-    else if (nextStep.link.includes('/trading')) type = 'mission';
-    else if (nextStep.link.includes('/lab')) type = 'lab';
-    else if (nextStep.link.includes('/course/')) type = 'course';
+    let nextStepType: "module" | "test" | "mission" | "lab" | "course" | "unknown" = 'unknown';
+    if (nextStep.link.includes('/module/')) nextStepType = 'module';
+    else if (nextStep.link.includes('/test/')) nextStepType = 'test';
+    else if (nextStep.link.includes('/trading')) nextStepType = 'mission';
+    else if (nextStep.link.includes('/lab')) nextStepType = 'lab';
+    else if (nextStep.link.includes('/course/')) nextStepType = 'course';
 
     return {
-      currentLevel: progress?.currentLevel ?? 0,
+      currentLevel,
       xpTotal: progress?.xpTotal ?? 0,
       
       nextAction: {
         title: nextStep.title,
         href: nextStep.link,
-        type,
+        type: nextStepType,
         confidence: 'high'
       },
 
       journal: {
         count: journalCount,
-        milestone: journalMilestone
+        milestone: journalMilestone,
+        reviewPromptEligible: journalCount >= 3
       },
 
-      testReview: {
-        hasRecentReviewNeeded: hasRecentTestReview,
-        attemptCount: testAttempts.length
+      review: {
+        test: {
+          hasReviewNeeded: hasRecentTestReview,
+          level: currentLevel,
+          attemptCount: testReviewCount,
+          repeated: testReviewCount >= 2,
+          ctaHref: `/test/${currentLevel}`
+        },
+        mission: {
+          hasReviewNeeded: hasRecentMissionReview,
+          scenarioId: latestMission?.scenarioId,
+          level: currentLevel,
+          attemptCount: missionReviewCount,
+          repeated: missionReviewCount >= 2,
+          ctaHref: '/trading'
+        }
       },
 
-      missionReview: {
-        hasRecentReviewNeeded: hasRecentMissionReview,
-        attemptCount: scenarioAttempts.length
+      gates: {
+        missingRequirement,
+        level: currentLevel,
+        ctaHref: gateCta
       }
     };
   } catch (error) {

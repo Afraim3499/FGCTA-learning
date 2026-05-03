@@ -152,10 +152,11 @@ export function NavaProvider({ children }: { children: ReactNode }) {
       if (state.mode === 'quiet') {
         const isCritical = msg.attentionLevel === 'high' && msg.showOnce;
         const isResult = msg.trigger === 'test_result_ready' || msg.trigger === 'mission_result_ready';
-        const isGated = msg.variant === 'locked';
+        const isGated = msg.variant === 'locked' || msg.trigger?.startsWith('gate_blocker_');
+        const isRepeatedReview = msg.trigger === 'test_review_repeated' || msg.trigger === 'mission_review_repeated';
         const isHighPriority = (msg.priority || 0) >= 80;
         
-        if (!isCritical && !isResult && !isGated && !isHighPriority) return false;
+        if (!isCritical && !isResult && !isGated && !isRepeatedReview && !isHighPriority) return false;
       }
 
       // Caps & state checks
@@ -176,6 +177,29 @@ export function NavaProvider({ children }: { children: ReactNode }) {
       // Trigger matching
       if (!msg.trigger) return true;
       
+      // Phase 2B Review Triggers
+      if (msg.trigger === 'test_review_repeated') {
+        return !!state.context?.review?.test?.repeated;
+      }
+      if (msg.trigger === 'test_review_needed') {
+        return !!state.context?.review?.test?.hasReviewNeeded && !state.context?.review?.test?.repeated;
+      }
+      if (msg.trigger === 'mission_review_repeated') {
+        return !!state.context?.review?.mission?.repeated;
+      }
+      if (msg.trigger === 'mission_review_needed') {
+        return !!state.context?.review?.mission?.hasReviewNeeded && !state.context?.review?.mission?.repeated;
+      }
+      if (msg.trigger === 'gate_blocker_module') {
+        return state.context?.gates?.missingRequirement === 'module';
+      }
+      if (msg.trigger === 'gate_blocker_test') {
+        return state.context?.gates?.missingRequirement === 'test';
+      }
+      if (msg.trigger === 'journal_review_habit') {
+        return !!state.context?.journal?.reviewPromptEligible;
+      }
+
       // Phase 2A Personalized Triggers
       if (msg.trigger === 'personalized_next_action') {
         return pathname === '/dashboard' && !!state.context?.nextAction;
@@ -183,19 +207,12 @@ export function NavaProvider({ children }: { children: ReactNode }) {
       if (msg.trigger === 'journal_milestone') {
         return !!state.context?.journal?.milestone;
       }
-      if (msg.trigger === 'test_review_needed') {
-        return !!state.context?.testReview?.hasRecentReviewNeeded;
-      }
-      if (msg.trigger === 'mission_review_needed') {
-        return !!state.context?.missionReview?.hasRecentReviewNeeded;
-      }
 
       // Phase 1 Legacy Triggers
       if (msg.trigger === 'dashboard_first_visit') {
         return pathname === '/dashboard' && !state.seenMessages[msg.id];
       }
       if (msg.trigger === 'dashboard_visit') {
-        // Level-aware tone overrides for dashboard
         if (msg.id === 'level_0_tone_orientation') return state.context?.currentLevel === 0;
         if (msg.id === 'level_2_tone_orientation') return state.context?.currentLevel === 2;
         return false;
@@ -222,6 +239,11 @@ export function NavaProvider({ children }: { children: ReactNode }) {
                    .replace('{type}', ctx.nextAction.type);
         ctaHref = ctx.nextAction.href;
         ctaLabel = 'Continue ' + ctx.nextAction.title;
+      }
+
+      // Inject dynamic links for gate blockers if available
+      if (msg.trigger?.startsWith('gate_blocker_') && ctx.gates?.ctaHref) {
+        ctaHref = ctx.gates.ctaHref;
       }
 
       if (body !== msg.body || title !== msg.title || ctaHref !== msg.ctaHref || ctaLabel !== msg.ctaLabel) {
