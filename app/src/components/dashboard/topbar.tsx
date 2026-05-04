@@ -42,11 +42,15 @@ export function Topbar() {
       return;
     }
 
+    const safeLower = (val: unknown) => (typeof val === 'string' ? val.toLowerCase() : '');
     const query = searchQuery.toLowerCase();
-    const filtered = allScenarios.filter(s => 
-      s.title.toLowerCase().includes(query) || 
-      s.description.toLowerCase().includes(query) ||
-      s.slug.toLowerCase().includes(query)
+
+    const filtered = allScenarios.filter(s =>
+      safeLower(s.title).includes(query) ||
+      safeLower(s.description).includes(query) ||
+      safeLower(s.slug).includes(query) ||
+      safeLower(s.scenarioType).includes(query) ||
+      String(s.level).includes(query)
     ).slice(0, 5); // Limit to 5 results
 
     setSearchResults(filtered);

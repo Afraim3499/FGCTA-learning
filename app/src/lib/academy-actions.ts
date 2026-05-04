@@ -97,7 +97,12 @@ export async function saveAnalysis(data: {
     });
 
     console.log(`[saveAnalysis] Success: Created analysis ${analysis.id} for user ${user.id}`);
+    
+    // Forced revalidation of both path and layout to ensure server components refresh
     revalidatePath('/lab');
+    revalidatePath('/lab', 'page');
+    revalidatePath('/(dashboard)/lab', 'page');
+    
     return { success: true, analysis };
   } catch (error) {
     console.error("[saveAnalysis] Critical Error:", error);

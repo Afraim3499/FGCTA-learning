@@ -98,6 +98,11 @@ export function StrategyLabClient({
   const [savedAnalyses, setSavedAnalyses] = useState(initialSavedAnalyses);
   const [viewingAnalysis, setViewingAnalysis] = useState<any | null>(null);
 
+  // Sync state with props when server-side refresh occurs
+  useEffect(() => {
+    setSavedAnalyses(initialSavedAnalyses);
+  }, [initialSavedAnalyses]);
+
   // Trigger journal empty tip
   useEffect(() => {
     if (activeTab === "Saved" && savedAnalyses.length === 0) {
@@ -111,8 +116,10 @@ export function StrategyLabClient({
   );
 
   const filteredStrategies = availableStrategies.filter(s => {
-    const matchesSearch = s.name.toLowerCase().includes(search.toLowerCase()) || 
-                          s.logicId.toLowerCase().includes(search.toLowerCase());
+    const safeLower = (val: unknown) => (typeof val === 'string' ? val.toLowerCase() : '');
+    const query = search.toLowerCase();
+    const matchesSearch = safeLower(s.name).includes(query) || 
+                          safeLower(s.logicId).includes(query);
     
     // Fallback unmapped to Core Concepts
     const mappedTab = CATEGORY_MAP[s.family] || "Core Concepts";
@@ -123,9 +130,11 @@ export function StrategyLabClient({
 
   // Filter missions
   const filteredMissions = allScenarios.filter(s => {
+    const safeLower = (val: unknown) => (typeof val === 'string' ? val.toLowerCase() : '');
+    const query = search.toLowerCase();
     if (!search.trim()) return false;
-    return s.title.toLowerCase().includes(search.toLowerCase()) || 
-           s.description.toLowerCase().includes(search.toLowerCase());
+    return safeLower(s.title).includes(query) || 
+           safeLower(s.description).includes(query);
   });
 
   const handleSaveAnalysis = async (boxes: any[]) => {
@@ -143,6 +152,7 @@ export function StrategyLabClient({
           boxes: drawnBoxes,
           checklist: checklistState,
           logicId: effectiveStrategy?.logicId,
+          candles: practiceCandles, // CRITICAL: Save candles for replay
         }
       });
 
