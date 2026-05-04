@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { 
-  LayoutDashboard, 
-  BookOpen, 
-  Target, 
-  Award, 
-  BarChart, 
+import {
+  LayoutDashboard,
+  BookOpen,
+  Target,
+  Award,
+  BarChart,
   Settings,
   LogOut,
   Flame,
@@ -65,17 +65,19 @@ export function Sidebar() {
               href={item.href}
               className={cn(
                 "flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold transition-all group relative",
-                isActive 
-                  ? "text-[var(--ln-teal-500)] bg-[var(--ln-teal-soft)] shadow-sm" 
+                isActive
+                  ? "text-[var(--ln-teal-500)] bg-[var(--ln-teal-soft)] shadow-sm"
                   : "text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-[var(--ln-surface-soft)]"
               )}
             >
-              <item.icon className={cn(
-                "w-5 h-5 transition-colors",
-                isActive ? "text-[var(--ln-teal-500)]" : "text-slate-400 group-hover:text-[var(--ln-navy-900)]"
-              )} />
+              <div className={cn(
+                "p-2 rounded-xl transition-all",
+                isActive ? "bg-white text-[var(--ln-teal-500)] shadow-sm" : "text-[var(--ln-text-dim)] group-hover:text-[var(--ln-navy-900)]"
+              )}>
+                <item.icon className="w-5 h-5" />
+              </div>
               {item.name}
-              
+
               {isActive && (
                 <motion.div
                   layoutId="active-pill"
@@ -97,16 +99,12 @@ export function Sidebar() {
           </div>
           <p className="text-sm font-bold text-[var(--ln-navy-900)]">{streakDays} Day Streak</p>
           <p className="text-xs text-[var(--ln-text-secondary)] mb-3">Keep it going!</p>
-          
+
           <div className="flex justify-between items-center px-2">
             {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day, i) => (
-              <div key={i} className="flex flex-col items-center gap-1">
-                <span className="text-[8px] font-bold text-slate-400">{day}</span>
-                {i < Math.min(streakDays, 7) ? (
-                  <CheckCircle2 className="w-3 h-3 text-[var(--ln-teal-500)]" />
-                ) : (
-                  <div className="w-3 h-3 rounded-full border-2 border-dashed border-slate-200" />
-                )}
+              <div key={day} className="flex flex-col items-center gap-1.5 flex-1 opacity-100">
+                <div className={cn("w-full h-1.5 rounded-full transition-all", i < 4 ? "bg-[var(--ln-teal-500)]" : "bg-[var(--ln-border)]")} />
+                <span className="text-[8px] font-bold text-[var(--ln-text-dim)] uppercase tracking-tighter">{day}</span>
               </div>
             ))}
           </div>
@@ -123,7 +121,7 @@ export function Sidebar() {
               <p className="text-xs text-[var(--ln-text-secondary)]">{progress?.xpRank || 'Recruit'}</p>
             </div>
           </div>
-          
+
           <div className="space-y-1">
             <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
               <div className="h-full bg-[var(--ln-teal-500)]" style={{ width: `${xpPercentage}%` }} />

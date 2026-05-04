@@ -22,8 +22,8 @@ export async function XPLedgerWidget() {
 
       <div className="space-y-6">
         {activities.length === 0 ? (
-          <div className="py-8 text-center space-y-2">
-            <p className="text-[10px] text-slate-400 uppercase font-extrabold tracking-widest italic">No events detected</p>
+          <div className="flex flex-col items-center justify-center h-24 border border-dashed border-[var(--ln-border)] rounded-2xl bg-slate-50/50">
+            <p className="text-[10px] text-[var(--ln-text-muted)] uppercase font-extrabold tracking-widest italic">No events detected</p>
           </div>
         ) : (
           activities.map((entry: any) => (
@@ -32,14 +32,14 @@ export async function XPLedgerWidget() {
                 <p className="text-xs font-bold text-[var(--ln-navy-900)] group-hover:text-[var(--ln-teal-500)] transition-colors uppercase tracking-tight">
                   {formatAction(entry.action)}
                 </p>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                <p className="text-[10px] text-[var(--ln-text-muted)] font-bold uppercase tracking-widest">
                   {getRelativeTime(entry.createdAt)}
                 </p>
               </div>
               <div className={cn(
                 "flex items-center gap-1 font-bold text-[10px] px-3 py-1.5 rounded-xl transition-all",
-                entry.xpAmount >= 0 
-                  ? "text-[var(--ln-teal-600)] bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/10" 
+                entry.xpAmount >= 0
+                  ? "text-[var(--ln-teal-600)] bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/10"
                   : "text-rose-600 bg-rose-50 border border-rose-100"
               )}>
                 {entry.xpAmount >= 0 ? "+" : "-"}{Math.abs(entry.xpAmount)}
@@ -49,7 +49,7 @@ export async function XPLedgerWidget() {
         )}
       </div>
 
-      <button className="w-full py-4 border border-[var(--ln-border)] rounded-2xl text-[10px] font-extrabold text-slate-400 uppercase tracking-widest hover:text-[var(--ln-navy-900)] hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm">
+      <button className="w-full py-4 border border-[var(--ln-border)] rounded-2xl text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest hover:text-[var(--ln-navy-900)] hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm">
         Full History
         <ArrowUpRight size={14} />
       </button>

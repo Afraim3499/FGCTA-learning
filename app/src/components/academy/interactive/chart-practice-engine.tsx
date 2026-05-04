@@ -1,32 +1,32 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { 
-  createChart, 
-  IChartApi, 
-  ISeriesApi, 
+import {
+  createChart,
+  IChartApi,
+  ISeriesApi,
   CandlestickSeries,
   UTCTimestamp,
   MouseEventParams,
   LogicalRange,
 } from "lightweight-charts";
 import { LogicValidator, ValidationResult } from "@/lib/logic-validator";
-import { 
-  Target, 
-  Square, 
-  MousePointer2, 
-  Trash2, 
-  CheckCircle2, 
+import {
+  Target,
+  Square,
+  MousePointer2,
+  Trash2,
+  CheckCircle2,
   AlertCircle,
   Undo2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AcademyButton } from "@/components/ui/academy-button";
-import { 
-  AcademyCard, 
-  AcademyCardContent, 
-  AcademyCardHeader, 
-  AcademyCardTitle 
+import {
+  AcademyCard,
+  AcademyCardContent,
+  AcademyCardHeader,
+  AcademyCardTitle
 } from "@/components/ui/academy-card";
 
 export interface ChartBox {
@@ -57,10 +57,10 @@ interface ChartPracticeProps {
   onBoxesChange?: (boxes: ChartBox[]) => void;
 }
 
-export function ChartPractice({ 
-  data, 
-  correctZones = [], 
-  prompt, 
+export function ChartPractice({
+  data,
+  correctZones = [],
+  prompt,
   onValidate,
   moduleId,
   mode = "assessment",
@@ -74,7 +74,7 @@ export function ChartPractice({
   const seriesRef = useRef<ISeriesApi<"Candlestick"> | null>(null);
   const [tool, setTool] = useState<"pointer" | "box">("pointer");
   const [boxes, setBoxes] = useState<ChartBox[]>(initialBoxes);
-  
+
   // Track boxes changes for parent
   useEffect(() => {
     onBoxesChange?.(boxes);
@@ -97,8 +97,8 @@ export function ChartPractice({
 
     const chart = createChart(containerRef.current, {
       layout: {
-        background: { color: "#0A0A0B" },
-        textColor: "#94A3B8",
+        background: { color: "#0D1117" },
+        textColor: "#E2E8F0",
         fontFamily: "'JetBrains Mono', monospace",
       },
       grid: {
@@ -153,7 +153,7 @@ export function ChartPractice({
     if (tool !== "box" || !containerRef.current || readOnly) return;
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
-    
+
     setDrawingBox({
       startX: e.clientX - rect.left,
       startY: e.clientY - rect.top,
@@ -182,7 +182,7 @@ export function ChartPractice({
     }
 
     const { startX, startY, currentX, currentY } = drawingBox;
-    
+
     // Convert pixels to chart coordinates
     const timeScale = chartRef.current.timeScale();
     const startTime = timeScale.coordinateToTime(startX);
@@ -254,7 +254,7 @@ export function ChartPractice({
 
   const renderBoxes = () => {
     if (!chartLoaded || !chartRef.current || !seriesRef.current) return null;
-    
+
     return boxes.map(box => {
       const xStart = chartRef.current!.timeScale().timeToCoordinate(box.startTime);
       const xEnd = chartRef.current!.timeScale().timeToCoordinate(box.endTime);
@@ -264,7 +264,7 @@ export function ChartPractice({
       if (xStart === null || xEnd === null || yStart === null || yEnd === null) return null;
 
       return (
-        <div 
+        <div
           key={box.id}
           className="absolute border-2 border-accent-blue/50 bg-accent-blue/10 backdrop-blur-[1px] group-hover:border-accent-blue transition-all"
           style={{
@@ -290,37 +290,37 @@ export function ChartPractice({
         <AcademyCard className="lg:col-span-4">
           <AcademyCardContent className="p-6 flex items-center justify-between">
             <div className="flex items-start gap-4">
-               <div className="p-3 bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] rounded-2xl">
+               <div className="p-3 bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] rounded-2xl shadow-sm">
                   <Target size={24} />
                </div>
                <div className="space-y-1">
-                  <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-[0.3em]">Concept Practice</div>
+                  <div className="text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-[0.3em]">Concept Practice</div>
                   <h2 className="text-xl font-extrabold text-[var(--ln-navy-900)] tracking-tight">{prompt}</h2>
                </div>
             </div>
-            <div className="flex items-center gap-2 bg-white p-2 rounded-2xl border border-[var(--ln-border)] shadow-sm">
-              <button 
+            <div className="flex items-center gap-2 bg-[var(--ln-bg-soft)] p-2 rounded-2xl border border-[var(--ln-border)]">
+              <button
                 onClick={() => setTool("pointer")}
                 className={cn(
                   "p-3 rounded-xl transition-all",
-                  tool === "pointer" ? "bg-[var(--ln-teal-500)] text-white shadow-lg" : "text-slate-400 hover:text-[var(--ln-navy-900)]"
+                  tool === "pointer" ? "bg-[var(--ln-navy-900)] text-white shadow-lg" : "text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)]"
                 )}
               >
                 <MousePointer2 size={20} />
               </button>
-              <button 
+              <button
                 onClick={() => setTool("box")}
                 className={cn(
                   "p-3 rounded-xl transition-all",
-                  tool === "box" ? "bg-[var(--ln-teal-500)] text-white shadow-lg" : "text-slate-400 hover:text-[var(--ln-navy-900)]"
+                  tool === "box" ? "bg-[var(--ln-navy-900)] text-white shadow-lg" : "text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)]"
                 )}
               >
                 <Square size={20} />
               </button>
-              <div className="w-px h-8 bg-slate-100 mx-1" />
-              <button 
+              <div className="w-px h-8 bg-[var(--ln-border)] mx-1" />
+              <button
                 onClick={clearBoxes}
-                className="p-3 text-slate-400 hover:text-fail-red transition-all"
+                className="p-3 text-[var(--ln-text-dim)] hover:text-rose-600 transition-all"
               >
                 <Trash2 size={20} />
               </button>
@@ -330,7 +330,7 @@ export function ChartPractice({
       </div>
 
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden">
-        
+
         {/* Practice Instructions */}
         <div className="lg:col-span-3 space-y-6">
            <AcademyCard className="h-full">
@@ -346,8 +346,8 @@ export function ChartPractice({
                       "Save your notes to your journal."
                     ]).map((step, idx) => (
                       <div key={idx} className="flex gap-3">
-                         <div className="w-5 h-5 rounded bg-accent-blue/10 border border-accent-blue/30 flex items-center justify-center text-[10px] text-accent-blue font-bold shrink-0">{idx + 1}</div>
-                         <p className="text-xs text-text-secondary leading-relaxed">{step}</p>
+                         <div className="w-5 h-5 rounded bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/30 flex items-center justify-center text-[10px] text-[var(--ln-teal-600)] font-bold shrink-0">{idx + 1}</div>
+                         <p className="text-xs text-[var(--ln-text-secondary)] font-medium leading-relaxed">{step}</p>
                       </div>
                     ))}
                  </div>
@@ -358,10 +358,10 @@ export function ChartPractice({
                      feedback.success ? "bg-pass-green/10 border-pass-green/30" : "bg-fail-red/10 border-fail-red/30"
                    )}>
                       <div className="flex items-center gap-2 mb-3">
-                         {feedback.success ? <CheckCircle2 size={16} className="text-pass-green" /> : <AlertCircle size={16} className="text-fail-red" />}
+                         {feedback.success ? <CheckCircle2 size={16} className="text-emerald-600" /> : <AlertCircle size={16} className="text-rose-600" />}
                          <span className="text-[10px] font-bold uppercase tracking-widest">{feedback.message}</span>
                       </div>
-                      <p className="text-xs text-text-secondary leading-relaxed italic">
+                      <p className="text-xs text-[var(--ln-text-secondary)] leading-relaxed italic">
                         {feedback.rationale}
                       </p>
                    </div>
@@ -371,10 +371,10 @@ export function ChartPractice({
         </div>
 
         {/* Center: Main Chart Canvas */}
-        <div className="lg:col-span-9 relative rounded-3xl border border-slate-200 bg-slate-50 p-2 md:p-3 group min-h-[400px] lg:min-h-[520px] flex flex-col">
+        <div className="lg:col-span-9 relative rounded-[2.5rem] border border-[var(--ln-border)] bg-[var(--ln-bg-soft)] p-2 md:p-3 group min-h-[400px] lg:min-h-[520px] flex flex-col">
           <div className="relative flex-1 bg-[#0A0A0B] rounded-2xl">
-            <div 
-              ref={containerRef} 
+            <div
+              ref={containerRef}
               className="absolute inset-0"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -387,7 +387,7 @@ export function ChartPractice({
                 onClick={() => setTool("pointer")}
                 className={cn(
                   "p-3 rounded-2xl border transition-all",
-                  tool === "pointer" ? "bg-white text-black border-white" : "bg-black/50 text-slate-400 border-white/10 hover:bg-black/80"
+                  tool === "pointer" ? "bg-white text-black border-white shadow-xl" : "bg-black/60 text-white/70 border-white/10 hover:bg-black/80 hover:text-white"
                 )}
               >
                 <MousePointer2 size={20} />
@@ -396,19 +396,19 @@ export function ChartPractice({
                 onClick={() => setTool("box")}
                 className={cn(
                   "p-3 rounded-2xl border transition-all",
-                  tool === "box" ? "bg-white text-black border-white" : "bg-black/50 text-slate-400 border-white/10 hover:bg-black/80"
+                  tool === "box" ? "bg-white text-black border-white shadow-xl" : "bg-black/60 text-white/70 border-white/10 hover:bg-black/80 hover:text-white"
                 )}
               >
                 <Square size={20} />
               </button>
             </div>
           )}
-          
+
           {/* Drawing Overlay */}
           <div className="absolute inset-0 pointer-events-none">
             {renderBoxes()}
             {drawingBox && (
-              <div 
+              <div
                 className="absolute border-2 border-accent-blue border-dashed bg-accent-blue/10 shadow-[0_0_20px_rgba(0,112,243,0.2)]"
                 style={{
                   left: Math.min(drawingBox.startX, drawingBox.currentX),

@@ -39,7 +39,7 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-[10px] font-extrabold text-[var(--ln-teal-500)] uppercase tracking-widest">
           <span>Level {module.level}</span>
-          <span className="text-slate-300">/</span>
+          <span className="text-[var(--ln-text-dim)]">/</span>
           <span>Module {module.moduleNumber}</span>
         </div>
         <h1 className="text-4xl font-extrabold text-[var(--ln-navy-900)] tracking-tight">{module.title}</h1>

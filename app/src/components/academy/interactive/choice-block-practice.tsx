@@ -51,20 +51,20 @@ export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPr
   };
 
   return (
-    <div className="mt-8 pt-8 border-t border-[var(--color-border-default)] relative z-20">
+    <div className="mt-8 pt-8 border-t border-[var(--ln-border)] relative z-20">
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-brand-500)]/20 border border-[var(--color-brand-500)]/30">
-            <span className="text-[9px] font-bold text-[var(--color-brand-400)]">?</span>
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--ln-teal-soft)] border border-[var(--ln-teal-500)]/30">
+            <span className="text-[9px] font-bold text-[var(--ln-teal-600)]">?</span>
           </div>
-          <span className="text-[10px] font-bold text-[var(--color-brand-400)] uppercase tracking-[0.2em]">
+          <span className="text-[10px] font-bold text-[var(--ln-teal-600)] uppercase tracking-[0.2em]">
             Practice Check — No Grade · Unlimited Retries
           </span>
         </div>
 
         {/* Question */}
-        <p className="text-sm font-medium text-white leading-relaxed">
+        <p className="text-sm font-extrabold text-[var(--ln-navy-900)] leading-relaxed uppercase tracking-tight">
           {question}
         </p>
 
@@ -82,12 +82,12 @@ export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPr
                 className={cn(
                   "w-full text-left p-4 rounded-xl border text-xs font-medium transition-all duration-200",
                   !hasAnswered
-                    ? "border-white/10 bg-white/5 hover:bg-white/10 hover:border-[var(--color-brand-500)]/40 text-[var(--color-text-secondary)] cursor-pointer"
+                    ? "border-[var(--ln-border)] bg-white hover:bg-[var(--ln-bg-soft)] hover:border-[var(--ln-teal-500)]/40 text-[var(--ln-text-secondary)] cursor-pointer"
                     : isSelected && option.isCorrect
-                    ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300 cursor-default"
+                    ? "border-teal-500 bg-teal-50 text-teal-700 cursor-default shadow-sm"
                     : isSelected && !option.isCorrect
-                    ? "border-rose-500/40 bg-rose-500/10 text-rose-300 cursor-default"
-                    : "border-white/5 bg-white/3 text-[var(--color-text-muted)] opacity-50 cursor-not-allowed"
+                    ? "border-rose-500 bg-rose-50 text-rose-700 cursor-default shadow-sm"
+                    : "border-[var(--ln-border)] bg-[var(--ln-bg-soft)] text-[var(--ln-text-muted)] cursor-not-allowed"
                 )}
               >
                 <div className="flex items-start gap-3">
@@ -95,22 +95,22 @@ export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPr
                     className={cn(
                       "mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border text-[8px] font-bold",
                       !hasAnswered
-                        ? "border-white/20 text-white/40"
+                        ? "border-[var(--ln-border)] text-[var(--ln-text-muted)]"
                         : isSelected && option.isCorrect
-                        ? "border-emerald-400 bg-emerald-500/20 text-emerald-400"
+                        ? "border-teal-500 bg-teal-500/10 text-teal-600"
                         : isSelected && !option.isCorrect
-                        ? "border-rose-400 bg-rose-500/20 text-rose-400"
-                        : "border-white/10 text-white/20"
+                        ? "border-rose-500 bg-rose-500/10 text-rose-600"
+                        : "border-[var(--ln-border)] text-[var(--ln-text-dim)]"
                     )}
                   >
                     {option.id.toUpperCase()}
                   </span>
                   <div className="flex-1 space-y-1">
-                    <span>{option.text}</span>
+                    <span className="font-bold">{option.text}</span>
                     {showResult && (
                       <p className={cn(
-                        "text-[10px] leading-relaxed mt-1",
-                        option.isCorrect ? "text-emerald-400/80" : "text-rose-400/80"
+                        "text-[10px] leading-relaxed mt-1 font-medium",
+                        option.isCorrect ? "text-teal-700" : "text-rose-700"
                       )}>
                         {option.feedback}
                       </p>
@@ -118,8 +118,8 @@ export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPr
                   </div>
                   {showResult && (
                     option.isCorrect
-                      ? <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400 mt-0.5" />
-                      : <XCircle className="w-4 h-4 shrink-0 text-rose-400 mt-0.5" />
+                      ? <CheckCircle2 className="w-4 h-4 shrink-0 text-teal-600 mt-0.5" />
+                      : <XCircle className="w-4 h-4 shrink-0 text-rose-600 mt-0.5" />
                   )}
                 </div>
               </button>
@@ -130,28 +130,28 @@ export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPr
         {/* Result State */}
         {hasAnswered && (
           <div className={cn(
-            "flex items-center justify-between p-4 rounded-xl border",
+            "flex items-center justify-between p-4 rounded-xl border shadow-sm",
             isCorrect
-              ? "bg-emerald-500/5 border-emerald-500/20"
-              : "bg-rose-500/5 border-rose-500/20"
+              ? "bg-teal-50 border-teal-200"
+              : "bg-rose-50 border-rose-200"
           )}>
             <div className="flex items-center gap-2">
               {isCorrect ? (
                 <>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span className="text-xs font-bold text-emerald-400">Correct! Module unlocked.</span>
+                  <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                  <span className="text-xs font-bold text-teal-700">Correct! Module unlocked.</span>
                 </>
               ) : (
                 <>
-                  <XCircle className="w-4 h-4 text-rose-400" />
-                  <span className="text-xs font-bold text-rose-400">Not quite. Review the lesson and try again.</span>
+                  <XCircle className="w-4 h-4 text-rose-600" />
+                  <span className="text-xs font-bold text-rose-700">Not quite. Review the lesson and try again.</span>
                 </>
               )}
             </div>
             {!isCorrect && (
               <button
                 onClick={handleRetry}
-                className="flex items-center gap-1 text-[10px] font-bold text-[var(--color-text-muted)] hover:text-white transition-colors"
+                className="flex items-center gap-1 text-[10px] font-bold text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)] transition-colors uppercase tracking-widest"
               >
                 <RefreshCw className="w-3 h-3" />
                 Retry

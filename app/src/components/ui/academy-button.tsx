@@ -23,11 +23,12 @@ const AcademyButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button";
 
     const variants = {
-      primary: "bg-brand-500 text-white hover:bg-brand-600 shadow-glow-blue",
-      secondary: "bg-surface-tertiary text-text-primary hover:bg-white/10",
-      outline: "border border-border-default bg-transparent hover:bg-white/5",
-      ghost: "bg-transparent hover:bg-white/5",
-      glass: "bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10",
+      primary: "bg-[var(--ln-navy-950)] text-white hover:bg-[var(--ln-navy-800)] shadow-sm active:scale-95",
+      secondary: "bg-[var(--ln-teal-500)] text-white hover:bg-[var(--ln-teal-600)] shadow-sm",
+      outline: "border-2 border-[var(--ln-border)] bg-white text-[var(--ln-navy-900)] hover:bg-[var(--ln-bg-soft)] hover:border-[var(--ln-teal-500)]/30",
+      ghost: "bg-transparent text-[var(--ln-text-secondary)] hover:bg-[var(--ln-bg-soft)] hover:text-[var(--ln-navy-900)]",
+      glass: "bg-white/80 backdrop-blur-md border border-[var(--ln-border)] text-[var(--ln-navy-900)] hover:bg-white shadow-sm",
+      teal: "bg-[var(--ln-teal-500)] text-white hover:bg-[var(--ln-teal-600)]",
     };
 
     const sizes = {

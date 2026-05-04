@@ -45,13 +45,13 @@ interface PracticeEnvironmentProps {
  */
 function validateCandles(candles: OHLCV[]): { valid: boolean; error?: string } {
   if (!candles || candles.length === 0) return { valid: false, error: "No market data loaded" };
-  
+
   for (let i = 0; i < candles.length; i++) {
     const c = candles[i];
     if (
       !isFinite(c.open) || !isFinite(c.high) || !isFinite(c.low) || !isFinite(c.close) ||
       isNaN(c.open) || isNaN(c.high) || isNaN(c.low) || isNaN(c.close) ||
-      c.high < c.low || 
+      c.high < c.low ||
       c.open > c.high || c.open < c.low ||
       c.close > c.high || c.close < c.low ||
       !c.time || isNaN(c.time)
@@ -75,7 +75,7 @@ export function PracticeEnvironment({
   const [isDataLoading, setIsDataLoading] = useState(false);
   const [showDebug, setShowDebug] = useState(process.env.NODE_ENV === "development");
   const isDev = process.env.NODE_ENV === "development";
-  
+
   // ---- Engine Management ----
   const engine = useTradingEngine({
     attemptId: activeAttempt.id,
@@ -102,7 +102,7 @@ export function PracticeEnvironment({
   useEffect(() => {
     // Skip if it's the initial load instrument and data is already set
     if (instrument === initialInstrument && chartData === initialChartData) return;
-    
+
     let isMounted = true;
     const loadNewData = async () => {
       setIsDataLoading(true);
@@ -244,7 +244,7 @@ export function PracticeEnvironment({
   const getRiskContent = () => {
     if (!snapshot.currentPrice) return { text: "Price unavailable", color: "text-slate-500", percent: 0, isInvalid: true };
     if (stopLoss === "" || stopLoss === null) return { text: "Enter stop loss", color: "text-amber-500", percent: 0, isInvalid: true };
-    
+
     const sl = Number(stopLoss);
     const isInvalidDir = (direction === "buy" && sl >= snapshot.currentPrice) || (direction === "sell" && sl <= snapshot.currentPrice);
     if (isInvalidDir) return { text: "Invalid stop loss", color: "text-rose-500", percent: 0, isInvalid: true };
@@ -266,7 +266,7 @@ export function PracticeEnvironment({
 
   if (isDataLoading) {
     return (
-    <div className="flex flex-col items-center justify-center h-[700px] bg-white text-slate-400 gap-6 rounded-[2.5rem] border border-[var(--ln-border)] shadow-sm">
+    <div className="flex flex-col items-center justify-center h-[700px] bg-white text-[var(--ln-text-muted)] gap-6 rounded-[2.5rem] border border-[var(--ln-border)] shadow-sm">
         <div className="p-4 rounded-full bg-[var(--ln-teal-soft)] animate-pulse">
           <Loader2 className="w-8 h-8 animate-spin text-[var(--ln-teal-500)]" />
         </div>
@@ -279,35 +279,35 @@ export function PracticeEnvironment({
     <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 relative">
       {/* ====== DEBUG PANEL (Phase 5.3) ====== */}
       {showDebug && isDev && (
-        <div className="absolute -top-40 left-0 right-0 z-[100] bg-white/95 border border-[var(--ln-teal-500)]/30 rounded-3xl p-6 font-mono text-[10px] grid grid-cols-4 gap-4 shadow-2xl backdrop-blur-md">
+        <div className="absolute -top-40 left-0 right-0 z-[100] bg-white border border-[var(--ln-teal-500)]/30 rounded-3xl p-6 font-mono text-[10px] grid grid-cols-4 gap-4 shadow-2xl">
           <div className="space-y-1">
-            <p className="text-[var(--ln-teal-600)] font-extrabold border-b border-slate-100 pb-1 uppercase tracking-widest">Market Data</p>
-            <p><span className="text-slate-400">Instrument:</span> {instrument}</p>
-            <p><span className="text-slate-400">Candles:</span> {chartData.length}</p>
-            <p><span className="text-slate-400">Valid:</span> {validateCandles(chartData).valid ? "YES" : "NO"}</p>
+            <p className="text-[var(--ln-teal-600)] font-extrabold border-b border-[var(--ln-border)] pb-1 uppercase tracking-widest">Market Data</p>
+            <p><span className="text-[var(--ln-text-muted)]">Instrument:</span> {instrument}</p>
+            <p><span className="text-[var(--ln-text-muted)]">Candles:</span> {chartData.length}</p>
+            <p><span className="text-[var(--ln-text-muted)]">Valid:</span> {validateCandles(chartData).valid ? "YES" : "NO"}</p>
           </div>
           <div className="space-y-1">
-            <p className="text-[var(--ln-teal-600)] font-extrabold border-b border-slate-100 pb-1 uppercase tracking-widest">Engine State</p>
-            <p><span className="text-slate-400">Status:</span> {snapshot.status}</p>
-            <p><span className="text-slate-400">Price:</span> {snapshot.currentPrice || "NULL"}</p>
-            <p><span className="text-slate-400">Index:</span> {snapshot.candleIndex}</p>
+            <p className="text-[var(--ln-teal-600)] font-extrabold border-b border-[var(--ln-border)] pb-1 uppercase tracking-widest">Engine State</p>
+            <p><span className="text-[var(--ln-text-muted)]">Status:</span> {snapshot.status}</p>
+            <p><span className="text-[var(--ln-text-muted)]">Price:</span> {snapshot.currentPrice || "NULL"}</p>
+            <p><span className="text-[var(--ln-text-muted)]">Index:</span> {snapshot.candleIndex}</p>
           </div>
           <div className="space-y-1">
-            <p className="text-rose-500 font-extrabold border-b border-slate-100 pb-1 uppercase tracking-widest">Telemetry</p>
-            <p><span className="text-slate-400">Stale Ticks:</span> <span className={staleTickCount > 0 ? "text-rose-500 font-bold" : "text-[var(--ln-teal-600)]"}>{staleTickCount}</span></p>
-            <p><span className="text-slate-400">Chart Errors:</span> <span className={chartErrorCount > 0 ? "text-rose-500 font-bold" : "text-[var(--ln-teal-600)]"}>{chartErrorCount}</span></p>
-            <p><span className="text-slate-400">Feed:</span> {snapshot.currentPrice ? "CONNECTED" : "WAITING"}</p>
+            <p className="text-rose-600 font-extrabold border-b border-[var(--ln-border)] pb-1 uppercase tracking-widest">Telemetry</p>
+            <p><span className="text-[var(--ln-text-muted)]">Stale Ticks:</span> <span className={staleTickCount > 0 ? "text-rose-600 font-bold" : "text-[var(--ln-teal-600)]"}>{staleTickCount}</span></p>
+            <p><span className="text-[var(--ln-text-muted)]">Chart Errors:</span> <span className={chartErrorCount > 0 ? "text-rose-600 font-bold" : "text-[var(--ln-teal-600)]"}>{chartErrorCount}</span></p>
+            <p><span className="text-[var(--ln-text-muted)]">Feed:</span> {snapshot.currentPrice ? "CONNECTED" : "WAITING"}</p>
           </div>
           <div className="space-y-1">
-            <p className="text-[var(--ln-teal-600)] font-extrabold border-b border-slate-100 pb-1 uppercase tracking-widest">Last Event</p>
+            <p className="text-[var(--ln-teal-600)] font-extrabold border-b border-[var(--ln-border)] pb-1 uppercase tracking-widest">Last Event</p>
             {lastStaleTick ? (
               <>
-                <p><span className="text-slate-400">Tick:</span> {lastStaleTick.time}</p>
-                <p><span className="text-slate-400">Last:</span> {lastStaleTick.last}</p>
+                <p><span className="text-[var(--ln-text-muted)]">Tick:</span> {lastStaleTick.time}</p>
+                <p><span className="text-[var(--ln-text-muted)]">Last:</span> {lastStaleTick.last}</p>
               </>
-            ) : <p className="text-slate-400">No events</p>}
+            ) : <p className="text-[var(--ln-text-muted)]">No events</p>}
           </div>
-          <button onClick={() => setShowDebug(false)} className="absolute top-4 right-4 text-slate-300 hover:text-slate-600 p-1 rounded-lg transition-colors"><Activity size={14}/></button>
+          <button onClick={() => setShowDebug(false)} className="absolute top-4 right-4 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] p-1 rounded-lg transition-colors"><Activity size={14}/></button>
         </div>
       )}
 
@@ -328,22 +328,22 @@ export function PracticeEnvironment({
             </button>
             <button
               onClick={handleStep}
-              className="p-2.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-[var(--ln-navy-900)] hover:bg-slate-50 transition-all shadow-sm"
+              className="p-2.5 rounded-xl bg-white border border-[var(--ln-border)] text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)] hover:bg-[var(--ln-bg-soft)] transition-all shadow-sm"
             >
               <SkipForward size={18} />
             </button>
             <button
               onClick={handleReset}
-              className="p-2.5 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm"
+              className="p-2.5 rounded-xl bg-white border border-[var(--ln-border)] text-[var(--ln-text-muted)] hover:text-rose-600 hover:bg-rose-50 transition-all shadow-sm"
             >
               <RotateCcw size={18} />
             </button>
-            <button onClick={() => setShowDebug(!showDebug)} className="p-2.5 rounded-xl bg-white border border-slate-100 text-amber-500/50 hover:text-amber-500 transition-all shadow-sm">
+            <button onClick={() => setShowDebug(!showDebug)} className="p-2.5 rounded-xl bg-white border border-[var(--ln-border)] text-amber-600 hover:text-amber-700 transition-all shadow-sm">
               <Bug size={18} />
             </button>
           </div>
           {isDataLoading && (
-            <div className="flex items-center gap-2 text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest">
               <Loader2 className="w-3 h-3 animate-spin" /> Updating Feed...
             </div>
           )}
@@ -398,15 +398,15 @@ export function PracticeEnvironment({
 
           {/* HUD Driven by Engine Snapshot */}
           <div className="absolute top-6 left-6 z-20 flex gap-3">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3 shadow-lg">
-              <span className="text-[9px] font-extrabold text-white/60 uppercase tracking-widest block mb-0.5">Equity</span>
+            <div className="bg-slate-900/80 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3 shadow-lg">
+              <span className="text-[9px] font-extrabold text-white/70 uppercase tracking-widest block mb-0.5">Equity</span>
               <span className="text-xl font-mono font-bold text-white">
                 {formatCurrency(snapshot.equity)}
               </span>
             </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3 shadow-lg">
-              <span className="text-[9px] font-extrabold text-white/60 uppercase tracking-widest block mb-0.5">Positions</span>
-              <span className="text-xl font-mono font-bold text-[var(--ln-teal-500)]">
+            <div className="bg-slate-900/80 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3 shadow-lg">
+              <span className="text-[9px] font-extrabold text-white/70 uppercase tracking-widest block mb-0.5">Positions</span>
+              <span className="text-xl font-mono font-bold text-[var(--ln-teal-400)]">
                 {snapshot.openPositions.length}
               </span>
             </div>
@@ -417,8 +417,8 @@ export function PracticeEnvironment({
       {/* ====== ORDER ENTRY SIDEBAR ====== */}
       <div className="space-y-4">
         {isScenarioMode && activeAttempt.scenarioId && (
-          <ScenarioOverlay 
-            scenarioId={activeAttempt.scenarioId} 
+          <ScenarioOverlay
+            scenarioId={activeAttempt.scenarioId}
             onScenarioLoaded={setScenario}
           />
         )}
@@ -430,7 +430,7 @@ export function PracticeEnvironment({
             </div>
             <div>
               <h3 className="text-sm font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">{instrument}</h3>
-              <p className="text-[9px] text-slate-400 font-extrabold tracking-widest uppercase">Engine Active</p>
+              <p className="text-[9px] text-[var(--ln-text-muted)] font-extrabold tracking-widest uppercase">Engine Active</p>
             </div>
           </div>
           <div className="text-3xl font-mono font-bold text-[var(--ln-navy-900)] tracking-tighter text-center py-2">
@@ -442,14 +442,14 @@ export function PracticeEnvironment({
         {snapshot.openPositions.length > 0 && (
           <div className="space-y-2">
             {snapshot.openPositions.map((pos) => (
-              <div key={pos.id} className="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-3 flex justify-between items-center">
+              <div key={pos.id} className="bg-emerald-50 border border-emerald-100 rounded-xl p-3 flex justify-between items-center">
                 <div>
-                  <p className="text-[10px] font-bold text-white">{pos.direction.toUpperCase()} {pos.size} {spec.sizeLabel}</p>
-                  <p className="text-[8px] text-slate-500 font-mono">@{formatPrice(pos.openPrice, spec.pricePrecision)}</p>
+                  <p className="text-[10px] font-bold text-[var(--ln-navy-900)]">{pos.direction.toUpperCase()} {pos.size} {spec.sizeLabel}</p>
+                  <p className="text-[8px] text-[var(--ln-text-muted)] font-mono">@{formatPrice(pos.openPrice, spec.pricePrecision)}</p>
                 </div>
                 <button
                   onClick={() => engine.closePosition(pos.id)}
-                  className="text-[9px] font-bold text-rose-500 uppercase hover:text-rose-400"
+                  className="text-[9px] font-bold text-rose-600 uppercase hover:text-rose-700"
                 >
                   Close
                 </button>
@@ -459,35 +459,35 @@ export function PracticeEnvironment({
         )}
 
         <div className="bg-[#0D1117] border border-[rgba(255,255,255,0.05)] rounded-2xl p-4 space-y-4">
-          <div className="flex gap-2 p-1 bg-white/5 rounded-xl">
-            <button onClick={() => setDirection("buy")} className={cn("flex-1 py-3 rounded-lg font-bold text-[10px] uppercase transition-all", direction === "buy" ? "bg-[#10B981] text-white" : "text-slate-500")}>Buy</button>
-            <button onClick={() => setDirection("sell")} className={cn("flex-1 py-3 rounded-lg font-bold text-[10px] uppercase transition-all", direction === "sell" ? "bg-[#EF4444] text-white" : "text-slate-500")}>Sell</button>
+          <div className="flex gap-2 p-1 bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] rounded-xl">
+            <button onClick={() => setDirection("buy")} className={cn("flex-1 py-3 rounded-lg font-bold text-[10px] uppercase transition-all", direction === "buy" ? "bg-teal-600 text-white shadow-sm" : "text-[var(--ln-text-muted)]")}>Buy</button>
+            <button onClick={() => setDirection("sell")} className={cn("flex-1 py-3 rounded-lg font-bold text-[10px] uppercase transition-all", direction === "sell" ? "bg-rose-600 text-white shadow-sm" : "text-[var(--ln-text-muted)]")}>Sell</button>
           </div>
 
           <div className="space-y-3">
             <div className="space-y-1">
-              <label className="text-[9px] font-bold text-slate-500 uppercase px-1">Size ({spec.sizeLabel})</label>
-              <input type="number" step={spec.sizePrecision} value={sizeInput} onChange={(e) => setSizeInput(Number(e.target.value))} className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white font-mono text-sm" />
+              <label className="text-[9px] font-bold text-[var(--ln-text-muted)] uppercase px-1">Size ({spec.sizeLabel})</label>
+              <input type="number" step={spec.sizePrecision} value={sizeInput} onChange={(e) => setSizeInput(Number(e.target.value))} className="w-full bg-white border border-[var(--ln-border)] rounded-lg px-3 py-2 text-[var(--ln-navy-900)] font-mono text-sm" />
             </div>
             <div className="space-y-1">
-              <label className="text-[9px] font-bold text-slate-500 uppercase px-1">Stop Loss</label>
-              <input type="number" step={spec.tickSize} value={stopLoss} onChange={(e) => setStopLoss(e.target.value === "" ? "" : Number(e.target.value))} placeholder="MANDATORY" className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white font-mono text-sm" />
+              <label className="text-[9px] font-bold text-[var(--ln-text-muted)] uppercase px-1">Stop Loss</label>
+              <input type="number" step={spec.tickSize} value={stopLoss} onChange={(e) => setStopLoss(e.target.value === "" ? "" : Number(e.target.value))} placeholder="MANDATORY" className="w-full bg-white border border-[var(--ln-border)] rounded-lg px-3 py-2 text-[var(--ln-navy-900)] font-mono text-sm" />
             </div>
             <div className="space-y-1">
-              <label className="text-[9px] font-bold text-slate-500 uppercase px-1">Take Profit</label>
-              <input type="number" step={spec.tickSize} value={takeProfit} onChange={(e) => setTakeProfit(e.target.value === "" ? "" : Number(e.target.value))} placeholder="MANDATORY" className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white font-mono text-sm" />
+              <label className="text-[9px] font-bold text-[var(--ln-text-muted)] uppercase px-1">Take Profit</label>
+              <input type="number" step={spec.tickSize} value={takeProfit} onChange={(e) => setTakeProfit(e.target.value === "" ? "" : Number(e.target.value))} placeholder="MANDATORY" className="w-full bg-white border border-[var(--ln-border)] rounded-lg px-3 py-2 text-[var(--ln-navy-900)] font-mono text-sm" />
             </div>
           </div>
 
           {/* Risk Preview */}
-          <div className="p-3 bg-white/5 rounded-xl space-y-1">
+          <div className="p-3 bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] rounded-xl space-y-1">
             <div className="flex justify-between text-[9px] font-bold uppercase tracking-widest">
-              <span className="text-slate-500">Risk Projection</span>
+              <span className="text-[var(--ln-text-muted)]">Risk Projection</span>
               <span className={cn(risk.color)}>
                 {risk.text}
               </span>
             </div>
-            <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-1 bg-white border border-[var(--ln-border)] rounded-full overflow-hidden">
               <div className={cn("h-full transition-all", risk.color.replace("text-", "bg-"))} style={{ width: `${Math.min(100, risk.percent * 50)}%` }} />
             </div>
           </div>
@@ -511,8 +511,8 @@ export function PracticeEnvironment({
             onClick={handleExecute}
             className={cn(
               "w-full py-5 rounded-[1.5rem] font-extrabold uppercase text-[10px] tracking-[0.2em] transition-all shadow-lg",
-              (risk.isInvalid || !validation.valid) 
-                ? "bg-slate-50 text-slate-400 cursor-not-allowed border border-slate-100" 
+              (risk.isInvalid || !validation.valid)
+                ? "bg-[var(--ln-bg-soft)] text-[var(--ln-text-muted)] cursor-not-allowed border border-[var(--ln-border)]"
                 : "bg-[var(--ln-teal-500)] text-white hover:bg-[var(--ln-teal-600)] shadow-[var(--ln-teal-500)]/20 active:scale-[0.98]"
             )}
           >
@@ -529,8 +529,8 @@ export function PracticeEnvironment({
       </div>
 
       {missionResult && (
-        <MissionDebrief 
-          result={missionResult} 
+        <MissionDebrief
+          result={missionResult}
           moduleId={activeAttempt.moduleId}
           onRetry={() => setMissionResult(null)}
         />

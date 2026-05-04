@@ -33,54 +33,54 @@ export function ScenarioOverlay({ scenarioId, onScenarioLoaded }: ScenarioOverla
   if (!scenario) return null;
 
   return (
-    <div className="bg-[#161B22] border border-[var(--color-brand-500)]/20 rounded-2xl p-5 space-y-4 shadow-2xl relative overflow-hidden">
+    <div className="bg-white border border-[var(--ln-border)] rounded-[2rem] p-6 space-y-4 shadow-sm relative overflow-hidden">
       {/* Visual Accent */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-brand-500)]/5 blur-[40px] pointer-events-none" />
-      
-      <div className="flex items-center gap-3 border-b border-white/5 pb-3">
-        <div className="p-2 bg-[var(--color-brand-500)]/10 rounded-lg text-[var(--color-brand-400)]">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--ln-teal-soft)] blur-[40px] pointer-events-none" />
+
+      <div className="flex items-center gap-3 border-b border-[var(--ln-border-soft)] pb-4">
+        <div className="p-2.5 bg-[var(--ln-teal-soft)] rounded-xl text-[var(--ln-teal-500)]">
           <Target className="w-5 h-5" />
         </div>
         <div>
-          <h3 className="text-sm font-bold text-white tracking-tight">{scenario.title}</h3>
-          <p className="text-[9px] text-[var(--color-brand-400)] font-bold uppercase tracking-widest">Training Mission Active</p>
+          <h3 className="text-sm font-extrabold text-[var(--ln-navy-900)] tracking-tight uppercase">{scenario.title}</h3>
+          <p className="text-[9px] text-[var(--ln-teal-600)] font-extrabold uppercase tracking-widest">Training Mission Active</p>
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-5">
         <div className="flex gap-3">
-          <Info className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
-          <p className="text-[11px] text-slate-400 leading-relaxed">
+          <div className="mt-1">
+            <Info size={14} className="text-[var(--ln-text-muted)]" />
+          </div>
+          <p className="text-xs font-medium text-[var(--ln-text-secondary)] leading-relaxed">
             {scenario.prompt}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-2">
-          <div className="p-3 bg-white/5 rounded-xl border border-white/5 space-y-1">
-            <span className="text-[8px] font-bold text-slate-500 uppercase block">Instrument</span>
-            <span className="text-[10px] font-bold text-white uppercase">{scenario.instrument} Locked</span>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="p-4 bg-[var(--ln-bg-soft)] rounded-2xl border border-[var(--ln-border)] space-y-1">
+            <span className="text-[8px] font-bold text-[var(--ln-text-muted)] uppercase block tracking-wider">Instrument</span>
+            <span className="text-xs font-extrabold text-[var(--ln-navy-900)] uppercase">{scenario.instrument}</span>
           </div>
-          <div className="p-3 bg-white/5 rounded-xl border border-white/5 space-y-1">
-            <span className="text-[8px] font-bold text-slate-500 uppercase block">Lot Size</span>
-            <span className="text-[10px] font-bold text-white">0.01 Fixed</span>
+          <div className="p-4 bg-[var(--ln-bg-soft)] rounded-2xl border border-[var(--ln-border)] space-y-1">
+            <span className="text-[8px] font-bold text-[var(--ln-text-muted)] uppercase block tracking-wider">Parameters</span>
+            <span className="text-xs font-extrabold text-[var(--ln-navy-900)]">Fixed Entry</span>
           </div>
         </div>
 
-        <div className="space-y-2">
-          <h4 className="text-[9px] font-bold text-slate-500 uppercase tracking-widest px-1">Mission Requirements</h4>
-          <ul className="space-y-1.5">
-            <li className="flex items-center gap-2 text-[10px] text-slate-400">
-              <Shield className="w-3 h-3 text-[var(--color-brand-400)]" />
-              <span>Mandatory Stop Loss & Take Profit</span>
-            </li>
-            <li className="flex items-center gap-2 text-[10px] text-slate-400">
-              <Shield className="w-3 h-3 text-[var(--color-brand-400)]" />
-              <span>Minimum 2.0R Reward Ratio</span>
-            </li>
-            <li className="flex items-center gap-2 text-[10px] text-slate-400">
-              <Shield className="w-3 h-3 text-[var(--color-brand-400)]" />
-              <span>One Valid Method to Complete</span>
-            </li>
+        <div className="space-y-3">
+          <h4 className="text-[9px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest px-1">Mission Requirements</h4>
+          <ul className="space-y-2">
+            {[
+              "Mandatory Stop Loss & Take Profit",
+              "Minimum 2.0R Reward Ratio",
+              "One Valid Method to Complete"
+            ].map((req, i) => (
+              <li key={i} className="flex items-center gap-2 text-[10px] font-bold text-[var(--ln-text-secondary)]">
+                <Shield className="w-3.5 h-3.5 text-[var(--ln-teal-500)]" />
+                <span>{req}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

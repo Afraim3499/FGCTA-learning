@@ -10,14 +10,14 @@ interface CurrentProgressCardProps {
   nextGate: string;
 }
 
-export function CurrentProgressCard({ 
-  currentLevel, 
-  levelTitle, 
-  xpTotal, 
+export function CurrentProgressCard({
+  currentLevel,
+  levelTitle,
+  xpTotal,
   completionPercent,
   nextGate
 }: CurrentProgressCardProps) {
-  
+
   // Simple SVG circle progress
   const radius = 40;
   const circumference = 2 * Math.PI * radius;
@@ -27,7 +27,7 @@ export function CurrentProgressCard({
     <div className="bg-white rounded-3xl p-5 border border-[var(--ln-border)] shadow-sm flex flex-col h-full hover:shadow-md transition-all">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-bold text-[var(--ln-navy-900)]">Current Progress</h3>
-        <BarChart2 className="w-4 h-4 text-slate-400" />
+        <BarChart2 className="w-4 h-4 text-[var(--ln-text-muted)]" />
       </div>
 
       <div className="flex items-center gap-4 flex-1">
@@ -67,7 +67,7 @@ export function CurrentProgressCard({
             <h4 className="text-sm font-bold text-[var(--ln-navy-900)]">Level {currentLevel} — {levelTitle}</h4>
             <p className="text-sm font-bold text-[var(--ln-teal-500)] mt-0.5">{xpTotal.toLocaleString()} XP</p>
           </div>
-          
+
           <div>
             <p className="text-[10px] text-[var(--ln-text-secondary)] uppercase tracking-wider font-bold mb-0.5">Next Gate</p>
             <p className="text-xs text-[var(--ln-text-secondary)]">{nextGate}</p>

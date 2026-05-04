@@ -29,7 +29,7 @@ export default function LoginPage() {
 
       <form action={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-sm font-medium text-slate-600 mb-1.5">
+          <label className="block text-sm font-medium text-[var(--ln-text-secondary)] mb-1.5">
             Email Address
           </label>
           <input
@@ -43,7 +43,7 @@ export default function LoginPage() {
 
         <div>
           <div className="flex items-center justify-between mb-1.5">
-            <label className="block text-sm font-medium text-slate-600">
+            <label className="block text-sm font-medium text-[var(--ln-text-secondary)]">
               Password
             </label>
             <Link
@@ -78,7 +78,7 @@ export default function LoginPage() {
       </form>
 
       <div className="mt-8 text-center">
-        <p className="text-sm text-slate-500 font-medium">
+        <p className="text-sm text-[var(--ln-text-muted)] font-medium">
           Don't have an account?{" "}
           <Link
             href="/register"

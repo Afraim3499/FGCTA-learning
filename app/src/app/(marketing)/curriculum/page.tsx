@@ -208,14 +208,14 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
               </span>
             )}
           </div>
-          <p className="text-xs text-slate-500 mt-1">{level.purpose}</p>
+          <p className="text-xs text-[var(--ln-text-secondary)] mt-1">{level.purpose}</p>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
-          <span className="text-[9px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] hidden md:block">
+          <span className="text-[9px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)] hidden md:block">
             {level.modules.length} modules
           </span>
-          <ChevronDown size={18} className={cn("text-[var(--color-text-muted)] transition-transform duration-300", isOpen && "rotate-180")} />
+          <ChevronDown size={18} className={cn("text-[var(--ln-text-muted)] transition-transform duration-300", isOpen && "rotate-180")} />
         </div>
       </button>
 
@@ -231,7 +231,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
           >
             <div className="px-6 md:px-8 pb-8 space-y-6 border-t border-[var(--ln-border-soft)] pt-6">
               {/* Info strip */}
-              <div className="flex flex-wrap gap-4 text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
+              <div className="flex flex-wrap gap-4 text-[10px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)]">
                 <span>Prereq: {level.prereq}</span>
                 <span>•</span>
                 <span>Unlocks: {level.unlocks}</span>
@@ -240,7 +240,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
               {/* Outcome */}
               <div className="p-4 bg-[var(--color-profit)]/5 border border-[var(--color-profit)]/10 rounded-xl">
                 <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--ln-teal-500)] mb-1">After completing this level</p>
-                <p className="text-sm text-slate-600">{level.outcome}</p>
+                <p className="text-sm text-[var(--ln-text-secondary)]">{level.outcome}</p>
               </div>
 
               {/* Modules */}
@@ -253,7 +253,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
                           <span className="text-[10px] font-mono font-bold text-[var(--ln-teal-500)]">{mod.id}</span>
                           <h4 className="text-sm font-bold text-[var(--ln-navy-900)]">{mod.title}</h4>
                         </div>
-                        <p className="text-xs text-slate-500 mt-1">{mod.desc}</p>
+                        <p className="text-xs text-[var(--ln-text-secondary)] mt-1">{mod.desc}</p>
                       </div>
                     </div>
 
@@ -268,7 +268,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
                             )}>
                               {market}:
                             </span>
-                            <span className="text-slate-500">{text}</span>
+                            <span className="text-[var(--ln-text-muted)]">{text}</span>
                           </div>
                         ))}
                       </div>
@@ -285,11 +285,11 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
               )}
 
               {/* Gate */}
-              <div className="flex items-center gap-3 p-4 bg-white/[0.03] border border-white/5 rounded-xl">
-                <Lock size={16} className="text-[var(--color-text-muted)] shrink-0" />
+              <div className="flex items-center gap-3 p-4 bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] rounded-xl">
+                <Lock size={16} className="text-[var(--ln-text-muted)] shrink-0" />
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">Gate Requirement</p>
-                  <p className="text-xs text-[var(--color-text-secondary)]">{level.gate.test} → {level.gate.unlockText}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)]">Gate Requirement</p>
+                  <p className="text-xs text-[var(--ln-text-secondary)]">{level.gate.test} → {level.gate.unlockText}</p>
                 </div>
               </div>
             </div>
@@ -318,7 +318,7 @@ export default function CurriculumPage() {
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-[var(--ln-navy-900)]">
             Structured Market Curriculum
           </h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-lg text-[var(--ln-text-secondary)] max-w-2xl mx-auto leading-relaxed font-medium">
             A structured learning path from market foundations to advanced concepts. Levels 0–3 are live. More levels are in development.
           </p>
         </div>
@@ -339,20 +339,20 @@ export default function CurriculumPage() {
       <section className="max-w-4xl mx-auto px-6 lg:px-8 py-20 border-t border-[var(--ln-border-soft)]">
         <div className="text-center space-y-6 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[var(--ln-navy-900)]">Progression Flow</h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-sm font-medium">
+          <p className="text-[var(--ln-text-muted)] max-w-xl mx-auto text-sm font-medium">
             Every level gate must be passed before advancing. No shortcuts.
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-3 items-center">
           {["L0", "→", "L1", "→", "L2", "→", "L3", "→", "L4+"].map((item, i) => (
             item === "→" ? (
-              <ArrowRight key={i} size={14} className="text-slate-300" />
+              <ArrowRight key={i} size={14} className="text-[var(--ln-border)]" />
             ) : (
               <span key={i} className={cn(
                 "px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest border",
                 item === "L4+"
                   ? "bg-amber-50 border-amber-200 text-amber-600"
-                  : "bg-[var(--ln-bg-soft)] border-[var(--ln-border)] text-slate-500"
+                  : "bg-[var(--ln-bg-soft)] border-[var(--ln-border)] text-[var(--ln-text-muted)]"
               )}>
                 {item}{item === "L4+" && " (Coming Soon)"}
               </span>

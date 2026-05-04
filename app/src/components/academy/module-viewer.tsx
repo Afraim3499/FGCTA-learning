@@ -65,23 +65,23 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
 
   const tabs = [
     { id: "core", label: "Core Concept", icon: Layout, available: true },
-    { 
-      id: "forex", 
-      label: "Forex Adaptation", 
-      icon: Globe, 
-      available: !!module.forexAdaptation && (isMasterAdmin || userTrack === "forex") 
+    {
+      id: "forex",
+      label: "Forex Adaptation",
+      icon: Globe,
+      available: !!module.forexAdaptation && (isMasterAdmin || userTrack === "forex")
     },
-    { 
-      id: "crypto", 
-      label: "Crypto Adaptation", 
-      icon: Bitcoin, 
-      available: !!module.cryptoAdaptation && (isMasterAdmin || userTrack === "crypto") 
+    {
+      id: "crypto",
+      label: "Crypto Adaptation",
+      icon: Bitcoin,
+      available: !!module.cryptoAdaptation && (isMasterAdmin || userTrack === "crypto")
     },
-    { 
-      id: "gold", 
-      label: "Gold Adaptation", 
-      icon: Target, 
-      available: !!module.goldAdaptation && (isMasterAdmin || userTrack === "gold") 
+    {
+      id: "gold",
+      label: "Gold Adaptation",
+      icon: Target,
+      available: !!module.goldAdaptation && (isMasterAdmin || userTrack === "gold")
     },
   ];
 
@@ -113,7 +113,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
         const meta = s.metadata ?? {};
         return meta.interactionMode === "chart_markup_v1" || meta.interactionMode === "chart_markup_v2";
       }) || scenarios[0];
-      
+
       if (bestMission.scenarioType === 'order_entry') {
         router.push(`/trading?scenarioId=${bestMission.id}&moduleId=${module.id}`);
       } else {
@@ -145,7 +145,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
     router.push(targetPath);
   };
 
-  const currentContent = 
+  const currentContent =
     activeTab === "forex" ? module.forexAdaptation :
     activeTab === "crypto" ? module.cryptoAdaptation :
     activeTab === "gold" ? module.goldAdaptation :
@@ -168,8 +168,8 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                     activeTab === tab.id
                       ? "bg-[var(--ln-teal-500)] text-white shadow-lg shadow-[var(--ln-teal-500)]/20"
                       : tab.id !== "core" && !tab.available
-                      ? "opacity-20 grayscale cursor-not-allowed text-slate-400"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-[var(--ln-navy-900)]"
+                      ? "opacity-20 grayscale cursor-not-allowed text-[var(--ln-text-dim)]"
+                      : "text-[var(--ln-text-secondary)] hover:bg-slate-50 hover:text-[var(--ln-navy-900)]"
                   )}
                 >
                   <tab.icon className="w-4 h-4" />
@@ -192,7 +192,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
             </div>
             <p className="text-xs text-[var(--ln-text-secondary)] mb-4 font-medium leading-relaxed">
               {module.completed
-                ? `Lesson completed.${module.level > 1 ? ` +50 XP added to your roadmap.` : ' +0 XP (Practice module).'}` 
+                ? `Lesson completed.${module.level > 1 ? ` +50 XP added to your roadmap.` : ' +0 XP (Practice module).'}`
                 : "Complete the lesson content and tasks to verify your understanding."}
             </p>
             <button
@@ -200,11 +200,11 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
               disabled={isCompleting || module.completed || isTaskLocked}
               className={cn(
                 "w-full py-3.5 px-4 rounded-2xl font-extrabold tracking-widest text-[10px] uppercase transition-all duration-300 flex items-center justify-center gap-2 border",
-                isCompleting ? "bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed" :
+                isCompleting ? "bg-slate-100 border-slate-200 text-[var(--ln-text-muted)] cursor-not-allowed" :
                 module.completed
                   ? "bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] border-[var(--ln-teal-500)]/20"
                   : isTaskLocked
-                    ? "bg-slate-50 text-slate-400 cursor-not-allowed border-slate-200"
+                    ? "bg-slate-100 text-[var(--ln-text-muted)] cursor-not-allowed border-slate-200"
                     : "bg-[var(--ln-teal-500)] hover:bg-[var(--ln-teal-600)] text-white shadow-lg shadow-[var(--ln-teal-500)]/20 border-transparent"
               )}
             >
@@ -220,15 +220,15 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
             </button>
           </div>
 
-          <ScenarioLauncher 
-            moduleId={module.id} 
+          <ScenarioLauncher
+            moduleId={module.id}
             onLaunchScenario={handleLaunchScenario}
             refreshTrigger={refreshTrigger}
           />
 
           {module.level >= 1 && module.logicIds && module.logicIds.length > 0 && (
             <div className="p-6 bg-slate-50 border border-[var(--ln-border)] rounded-3xl space-y-4">
-              <div className="flex items-center gap-3 text-[10px] font-extrabold text-slate-500 uppercase tracking-[0.2em]">
+              <div className="flex items-center gap-3 text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-[0.2em]">
                 <FlaskConical className="w-4 h-4" />
                 Related Strategies
               </div>
@@ -246,13 +246,13 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
           )}
         </aside>
 
-        <main 
+        <main
           data-nava-target="module-intro-card"
           className="lg:col-span-9 min-h-[700px] bg-white rounded-[2.5rem] border border-[var(--ln-border)] p-10 md:p-16 shadow-sm relative"
         >
           <div className="relative z-10">
-            <MarkdownRenderer 
-              content={currentContent || "Lesson content is currently being prepared."} 
+            <MarkdownRenderer
+              content={currentContent || "Lesson content is currently being prepared."}
               onLaunchScenario={handleAutoLaunch}
             />
           </div>
@@ -262,8 +262,8 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
               <div className="flex items-center gap-3 mb-6">
                 <span className="px-3 py-1 rounded-full bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] text-[10px] font-extrabold uppercase tracking-widest">Practice Exercise</span>
               </div>
-              
-              <div 
+
+              <div
                 data-nava-target="practice-exercise-block"
                 className="bg-slate-50 rounded-3xl border border-[var(--ln-border)] p-6 md:p-10"
               >
@@ -328,7 +328,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                     <p className="text-sm text-[var(--ln-text-secondary)] font-medium">
                       Launch the <strong className="text-[var(--ln-navy-900)]">Knowledge Test</strong> from the sidebar to complete this module.
                     </p>
-                    <p className="text-[10px] text-slate-400 font-bold uppercase">Pass threshold: {module.interactiveTaskData.passThreshold}% · Knowledge Review</p>
+                    <p className="text-[10px] text-[var(--ln-text-muted)] font-bold uppercase">Pass threshold: {module.interactiveTaskData.passThreshold}% · Knowledge Review</p>
                   </div>
                 )}
               </div>
@@ -341,7 +341,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
         {module.prevModuleId ? (
           <Link
             href={`/course/module/${module.prevModuleId}`}
-            className="flex items-center gap-3 text-[10px] font-extrabold text-slate-400 uppercase tracking-widest hover:text-[var(--ln-navy-900)] transition-all group"
+            className="flex items-center gap-3 text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest hover:text-[var(--ln-navy-900)] transition-all group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Previous Lesson
@@ -365,10 +365,10 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
             data-nava-target={module.completed ? "start-test-cta" : undefined}
             className="flex items-center gap-3 text-[10px] font-extrabold text-[var(--ln-teal-500)] uppercase tracking-widest hover:text-[var(--ln-teal-600)] transition-all group disabled:opacity-30 disabled:cursor-not-allowed"
           >
-            {isCompleting 
-              ? "UPDATING..." 
-              : module.completed 
-                ? "Start Knowledge Test" 
+            {isCompleting
+              ? "UPDATING..."
+              : module.completed
+                ? "Start Knowledge Test"
                 : "Finish Level"}
             <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>

@@ -15,7 +15,7 @@ export function MilestoneMapCard() {
     <div className="bg-white rounded-3xl p-5 border border-[var(--ln-border)] shadow-sm hover:shadow-md transition-all flex flex-col justify-center h-full">
       <div className="mb-4 flex items-baseline gap-2">
         <h3 className="text-sm font-bold text-[var(--ln-navy-900)]">Milestone Map</h3>
-        <span className="text-[10px] font-bold text-slate-400 tracking-wide uppercase">&bull; Road to Unlock</span>
+        <span className="text-[10px] font-bold text-[var(--ln-text-muted)] tracking-wide uppercase">&bull; Road to Unlock</span>
       </div>
 
       <div className="flex items-center justify-between w-full">
@@ -24,19 +24,19 @@ export function MilestoneMapCard() {
             <div className="flex items-center gap-3">
               <div className={cn(
                 "w-10 h-10 rounded-full border-2 bg-white flex items-center justify-center transition-all",
-                step.active ? "border-[var(--ln-teal-500)] text-[var(--ln-teal-500)] bg-[var(--ln-teal-soft)] shadow-sm" : "border-slate-200 text-slate-300"
+                step.active ? "border-[var(--ln-teal-500)] text-[var(--ln-teal-500)] bg-[var(--ln-teal-soft)] shadow-sm" : "border-[var(--ln-border)] text-[var(--ln-text-dim)]"
               )}>
                 <step.icon className="w-4 h-4" />
               </div>
               <div className="hidden sm:block">
                 <p className="text-[10px] font-bold text-[var(--ln-navy-900)]">{step.title}</p>
-                <p className={cn("text-[9px] font-bold", step.active ? "text-[var(--ln-teal-500)]" : "text-slate-400")}>
+                <p className={cn("text-[9px] font-extrabold uppercase tracking-tight", step.active ? "text-[var(--ln-teal-600)]" : "text-[var(--ln-text-muted)]")}>
                   {step.subtitle}
                 </p>
               </div>
             </div>
             {idx < steps.length - 1 && (
-              <ChevronRight className="w-4 h-4 text-slate-200 mx-auto" />
+              <ChevronRight className="w-4 h-4 text-[var(--ln-border)] mx-auto" />
             )}
           </div>
         ))}

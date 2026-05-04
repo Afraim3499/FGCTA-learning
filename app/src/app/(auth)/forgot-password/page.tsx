@@ -23,7 +23,7 @@ export default function ForgotPasswordPage() {
           Reset Password
         </h2>
         <p className="text-[var(--ln-text-secondary)] font-medium leading-relaxed">
-          Self-service password reset is currently being updated. 
+          Self-service password reset is currently being updated.
           Please contact our support team or use your linked account for access.
         </p>
       </div>
@@ -33,7 +33,7 @@ export default function ForgotPasswordPage() {
           <Mail size={18} />
         </div>
         <div>
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Support Access</p>
+          <p className="text-[10px] font-bold text-[var(--ln-text-muted)] uppercase tracking-widest">Support Access</p>
           <p className="text-sm font-bold text-[var(--ln-navy-900)]">support@lurnava.academy</p>
         </div>
       </div>

@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { 
-  Shield, 
-  ArrowUpCircle, 
-  ArrowDownCircle, 
-  AlertTriangle, 
+import {
+  Shield,
+  ArrowUpCircle,
+  ArrowDownCircle,
+  AlertTriangle,
   Info,
   TrendingUp,
   TrendingDown,
@@ -36,13 +36,13 @@ export function LendingPractice() {
   const [collateralAmount, setCollateralAmount] = useState<number>(10);
   const [borrowedAmount, setBorrowedAmount] = useState<number>(15000);
   const [userBalance, setUserBalance] = useState({ eth: 5, usdc: 20000 });
-  const [marketVolatility, setMarketVolatility] = useState<number>(0); 
+  const [marketVolatility, setMarketVolatility] = useState<number>(0);
 
   // Real-time Math
   const currentCollateralPrice = collateralAsset.price * (1 + marketVolatility);
   const collateralValue = collateralAmount * currentCollateralPrice;
-  const borrowedValue = borrowedAmount; 
-  
+  const borrowedValue = borrowedAmount;
+
   const healthFactor = useMemo(() => {
     if (borrowedValue === 0) return 100;
     return (collateralValue * collateralAsset.liquidationThreshold) / borrowedValue;
@@ -81,7 +81,7 @@ export function LendingPractice() {
   return (
     <div className="space-y-8 max-w-6xl mx-auto py-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
+
         {/* Control Panel */}
         <AcademyCard className="lg:col-span-4">
           <AcademyCardHeader>
@@ -92,8 +92,8 @@ export function LendingPractice() {
             <AcademyCardTitle>Learning Environment</AcademyCardTitle>
           </AcademyCardHeader>
           <AcademyCardContent className="space-y-6">
-            <div className="p-4 bg-slate-50 border border-[var(--ln-border)] rounded-2xl space-y-3 shadow-sm">
-               <div className="flex justify-between text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Available Balance</div>
+            <div className="p-4 bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] rounded-2xl space-y-3 shadow-sm">
+               <div className="flex justify-between text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest">Available Balance</div>
                <div className="flex justify-between">
                   <span className="text-xs font-mono font-bold text-[var(--ln-navy-900)]">{userBalance.eth} ETH</span>
                   <span className="text-xs font-mono font-bold text-[var(--ln-navy-900)]">${userBalance.usdc.toLocaleString()} USDC</span>
@@ -101,7 +101,7 @@ export function LendingPractice() {
             </div>
 
             <div className="space-y-4">
-              <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Active Position</label>
+              <label className="text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest">Active Position</label>
               <div className="grid grid-cols-1 gap-3">
                 <AcademyButton variant="outline" className="justify-between" onClick={depositCollateral} disabled={userBalance.eth === 0 || isLiquidated}>
                   Deposit 1 ETH Collateral
@@ -115,7 +115,7 @@ export function LendingPractice() {
             </div>
 
             <div className="pt-4 border-t border-[var(--ln-border)] space-y-3">
-              <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Market Shift Scenarios</p>
+              <p className="text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest">Market Shift Scenarios</p>
               <AcademyButton variant="outline" className="w-full justify-between text-rose-500 border-rose-100 hover:bg-rose-50" onClick={simulateFlashCrash} disabled={isLiquidated}>
                 Simulate Market Shift (-35%)
                 <TrendingDown size={16} />
@@ -136,7 +136,7 @@ export function LendingPractice() {
               isLiquidated ? "bg-rose-50 border-rose-200" : isLiquidationImminent ? "bg-amber-50 border-amber-200 animate-pulse" : ""
             )}>
               <AcademyCardContent className="p-8 flex flex-col items-center justify-center text-center space-y-2">
-                <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Safety Score</p>
+                <p className="text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest">Safety Score</p>
                 <div className={cn(
                   "text-6xl font-extrabold tracking-tighter transition-all duration-500",
                   isLiquidated ? "text-rose-500 scale-110" : isLiquidationImminent ? "text-amber-500" : "text-[var(--ln-teal-500)]"
@@ -151,11 +151,11 @@ export function LendingPractice() {
 
             <AcademyCard>
               <AcademyCardContent className="p-8 flex flex-col items-center justify-center text-center space-y-2">
-                <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Current LTV</p>
+                <p className="text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest">Current LTV</p>
                 <div className="text-6xl font-extrabold tracking-tighter text-[var(--ln-navy-900)]">
                   {currentLTV.toFixed(1)}%
                 </div>
-                <p className="text-[10px] font-mono font-bold text-slate-400 uppercase">Threshold: {collateralAsset.ltv * 100}%</p>
+                <p className="text-[10px] font-mono font-bold text-[var(--ln-text-muted)] uppercase">Threshold: {collateralAsset.ltv * 100}%</p>
               </AcademyCardContent>
             </AcademyCard>
           </div>
@@ -170,11 +170,11 @@ export function LendingPractice() {
             <AcademyCardContent className="space-y-6">
               <div className="space-y-2">
                 <div className="flex justify-between text-xs font-mono font-bold mb-2">
-                  <span className="text-slate-500">Asset Value</span>
+                  <span className="text-[var(--ln-text-secondary)]">Asset Value</span>
                   <span className="text-[var(--ln-navy-900)]">${collateralValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
                 </div>
-                <div className="h-2 w-full bg-slate-50 rounded-full overflow-hidden border border-[var(--ln-border)]">
-                  <div 
+                <div className="h-2 w-full bg-[var(--ln-bg-soft)] rounded-full overflow-hidden border border-[var(--ln-border)]">
+                  <div
                     className={cn(
                       "h-full transition-all duration-1000",
                       isLiquidated ? "bg-rose-500" : "bg-[var(--ln-teal-500)] shadow-lg shadow-[var(--ln-teal-500)]/20"
@@ -190,12 +190,12 @@ export function LendingPractice() {
                     <Info size={14} className="text-[var(--ln-teal-500)]" /> Risk Metrics
                   </h4>
                   <ul className="space-y-3">
-                    <li className="flex justify-between items-center text-xs p-3 bg-slate-50 rounded-xl border border-[var(--ln-border)]">
-                      <span className="text-slate-500">Safety Threshold</span>
+                    <li className="flex justify-between items-center text-xs p-3 bg-[var(--ln-bg-soft)] rounded-xl border border-[var(--ln-border)]">
+                      <span className="text-[var(--ln-text-secondary)]">Safety Threshold</span>
                       <span className="text-[var(--ln-navy-900)] font-mono font-bold">{collateralAsset.liquidationThreshold * 100}%</span>
                     </li>
-                    <li className="flex justify-between items-center text-xs p-3 bg-slate-50 rounded-xl border border-[var(--ln-border)]">
-                      <span className="text-slate-500">Total Obligation</span>
+                    <li className="flex justify-between items-center text-xs p-3 bg-[var(--ln-bg-soft)] rounded-xl border border-[var(--ln-border)]">
+                      <span className="text-[var(--ln-text-secondary)]">Total Obligation</span>
                       <span className="text-[var(--ln-navy-900)] font-mono font-bold">${borrowedAmount.toLocaleString()}</span>
                     </li>
                   </ul>
@@ -205,11 +205,11 @@ export function LendingPractice() {
                   <h4 className="text-[10px] font-extrabold text-[var(--ln-navy-900)] uppercase tracking-[0.2em] flex items-center gap-2">
                     <AlertTriangle size={14} className="text-amber-500" /> Practice Insight
                   </h4>
-                  <div className="p-4 bg-slate-50 border border-[var(--ln-border)] rounded-2xl">
-                    <p className="text-xs text-slate-500 leading-relaxed italic font-medium">
-                      {isLiquidated 
+                  <div className="p-4 bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] rounded-2xl">
+                    <p className="text-xs text-[var(--ln-text-secondary)] leading-relaxed italic font-medium">
+                      {isLiquidated
                         ? "Review Required. The market shift has exceeded your safety score. Analyze the outcome to improve risk awareness."
-                        : isLiquidationImminent 
+                        : isLiquidationImminent
                           ? "Alert: Your safety score is low. Deposit more assets or repay obligations to maintain position security."
                           : "Position is within secure parameters. Maintain monitoring of market shifts."}
                     </p>

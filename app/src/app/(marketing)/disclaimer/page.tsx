@@ -12,7 +12,7 @@ export default function DisclaimerPage() {
 
         <div className="!p-6 !bg-rose-50 !border !border-rose-200 !rounded-2xl !not-prose !mb-8">
           <p className="text-sm text-rose-600 font-bold mb-3">⚠ IMPORTANT NOTICE</p>
-          <p className="text-sm text-slate-600 leading-relaxed">
+          <p className="text-sm text-[var(--ln-text-secondary)] leading-relaxed font-medium">
             Lurnava Academy is an <strong className="text-[var(--ln-navy-900)]">educational platform only</strong>.
             Nothing on this platform constitutes financial advice, investment advice, trading advice, or any
             other form of professional financial guidance.

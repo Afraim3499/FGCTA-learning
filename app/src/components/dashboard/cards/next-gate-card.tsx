@@ -11,15 +11,15 @@ interface NextGateCardProps {
 }
 
 export function NextGateCard({ missionStatus, testStatus, level }: NextGateCardProps) {
-  
+
   const StatusBadge = ({ status }: { status: string }) => {
     switch(status) {
       case "Passed":
         return <span className="text-[10px] px-2 py-1 rounded bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] font-bold">Passed</span>;
       case "Not Started":
-        return <span className="text-[10px] px-2 py-1 rounded bg-slate-100 text-slate-500 font-bold">Not Started</span>;
+        return <span className="text-[10px] px-2 py-1 rounded bg-slate-100 text-[var(--ln-text-secondary)] font-bold">Not Started</span>;
       default:
-        return <span className="text-[10px] px-2 py-1 rounded bg-slate-100 text-slate-400 font-bold flex items-center gap-1"><Lock className="w-2.5 h-2.5"/> Locked</span>;
+        return <span className="text-[10px] px-2 py-1 rounded bg-slate-100 text-[var(--ln-text-muted)] font-bold flex items-center gap-1"><Lock className="w-2.5 h-2.5"/> Locked</span>;
     }
   };
 
@@ -38,7 +38,7 @@ export function NextGateCard({ missionStatus, testStatus, level }: NextGateCardP
     <div className="bg-white rounded-3xl p-5 border border-[var(--ln-border)] shadow-sm flex flex-col h-full hover:shadow-md transition-all">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-bold text-[var(--ln-navy-900)]">Next Required Gate</h3>
-        <Lock className="w-4 h-4 text-slate-400" />
+        <Lock className="w-4 h-4 text-[var(--ln-text-muted)]" />
       </div>
 
       <div className="space-y-3 flex-1">
@@ -46,13 +46,13 @@ export function NextGateCard({ missionStatus, testStatus, level }: NextGateCardP
           <div className="flex items-center gap-3">
             <div className={cn(
               "w-8 h-8 rounded-full flex items-center justify-center border",
-              missionStatus === "Passed" ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 text-[var(--ln-teal-500)]" : "bg-white border-slate-200 text-slate-400"
+              missionStatus === "Passed" ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 text-[var(--ln-teal-500)]" : "bg-white border-slate-200 text-[var(--ln-text-muted)]"
             )}>
               <Target className="w-4 h-4" />
             </div>
             <div>
               <p className="text-sm font-bold text-[var(--ln-navy-900)]">{getMissionLabel(level)}</p>
-              {missionStatus === "Locked" && <p className="text-[10px] text-slate-500">Locked until modules complete</p>}
+              {missionStatus === "Locked" && <p className="text-[10px] text-[var(--ln-text-secondary)]">Locked until modules complete</p>}
             </div>
           </div>
           <StatusBadge status={missionStatus} />
@@ -63,13 +63,13 @@ export function NextGateCard({ missionStatus, testStatus, level }: NextGateCardP
             <div className="flex items-center gap-3">
               <div className={cn(
                 "w-8 h-8 rounded-full flex items-center justify-center border",
-                testStatus === "Passed" ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 text-[var(--ln-teal-500)]" : "bg-white border-slate-200 text-slate-400"
+                testStatus === "Passed" ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 text-[var(--ln-teal-500)]" : "bg-white border-slate-200 text-[var(--ln-text-muted)]"
               )}>
                 {testStatus === "Passed" ? <Unlock className="w-4 h-4" /> : <Lock className="w-4 h-4" />}
               </div>
               <div>
                 <p className="text-sm font-bold text-[var(--ln-navy-900)]">{getTestLabel(level)}</p>
-                {testStatus === "Locked" && <p className="text-[10px] text-slate-500">Locked until mission passed</p>}
+                {testStatus === "Locked" && <p className="text-[10px] text-[var(--ln-text-secondary)]">Locked until mission passed</p>}
               </div>
             </div>
             <StatusBadge status={testStatus} />

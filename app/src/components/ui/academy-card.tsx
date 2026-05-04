@@ -8,19 +8,27 @@ function cn(...inputs: ClassValue[]) {
 
 const AcademyCard = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { glass?: boolean }
->(({ className, glass = true, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-xl border border-border-default",
-      glass ? "bg-surface-primary/60 backdrop-blur-xl" : "bg-surface-primary",
-      "shadow-card",
-      className
-    )}
-    {...props}
-  />
-));
+  React.HTMLAttributes<HTMLDivElement> & { glass?: boolean; variant?: "default" | "soft" | "dark" }
+>(({ className, glass = false, variant = "default", ...props }, ref) => {
+  const variants = {
+    default: "bg-[var(--ln-surface)]",
+    soft: "bg-[var(--ln-surface-soft)]",
+    dark: "bg-[var(--ln-navy-950)] text-white",
+  };
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "rounded-3xl border border-[var(--ln-border)] shadow-sm transition-all duration-300",
+        variants[variant],
+        glass && "bg-white/70 backdrop-blur-xl border-white/20",
+        className
+      )}
+      {...props}
+    />
+  );
+});
 AcademyCard.displayName = "AcademyCard";
 
 const AcademyCardHeader = React.forwardRef<
@@ -29,7 +37,7 @@ const AcademyCardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    className={cn("flex flex-col space-y-1.5 p-6 md:p-8", className)}
     {...props}
   />
 ));
@@ -42,7 +50,7 @@ const AcademyCardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      "text-lg font-bold leading-none tracking-tight text-white",
+      "text-xl font-extrabold leading-none tracking-tight text-[var(--ln-navy-900)] uppercase",
       className
     )}
     {...props}
@@ -56,7 +64,7 @@ const AcademyCardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-text-secondary", className)}
+    className={cn("text-sm text-[var(--ln-text-muted)] font-medium leading-relaxed", className)}
     {...props}
   />
 ));

@@ -25,13 +25,13 @@ export function MissionDebrief({ result, moduleId, onRetry }: MissionDebriefProp
           "absolute -top-24 -left-24 w-64 h-64 blur-[100px] opacity-10",
           result.passed ? "bg-[var(--ln-teal-500)]" : "bg-rose-500"
         )} />
-        
+
         <div className="relative space-y-10 text-center">
           <div className="flex justify-center">
             <div className={cn(
               "w-24 h-24 rounded-[2rem] flex items-center justify-center shadow-xl",
-              result.passed 
-                ? "bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] shadow-[var(--ln-teal-500)]/10 border border-[var(--ln-teal-500)]/20" 
+              result.passed
+                ? "bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] shadow-[var(--ln-teal-500)]/10 border border-[var(--ln-teal-500)]/20"
                 : "bg-rose-50 text-rose-500 shadow-rose-500/10 border border-rose-100"
             )}>
               {result.passed ? <Trophy size={48} /> : <XCircle size={48} />}
@@ -48,18 +48,18 @@ export function MissionDebrief({ result, moduleId, onRetry }: MissionDebriefProp
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <div className="p-8 bg-slate-50 rounded-[2rem] border border-slate-100 space-y-1 shadow-inner">
-              <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest block">Mission Result</span>
+            <div className="p-8 bg-[var(--ln-bg-soft)] rounded-[2rem] border border-[var(--ln-border)] space-y-1 shadow-inner">
+              <span className="text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest block">Mission Result</span>
               <span className={cn(
                 "text-3xl font-extrabold",
-                result.passed ? "text-[var(--ln-teal-600)]" : "text-amber-500"
+                result.passed ? "text-[var(--ln-teal-600)]" : "text-amber-600"
               )}>
                 {result.score}%
               </span>
             </div>
-            <div className="p-8 bg-slate-50 rounded-[2rem] border border-slate-100 space-y-1 shadow-inner">
-              <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest block">XP Contribution</span>
-              <span className="text-3xl font-extrabold text-[var(--ln-teal-500)]">
+            <div className="p-8 bg-[var(--ln-bg-soft)] rounded-[2rem] border border-[var(--ln-border)] space-y-1 shadow-inner">
+              <span className="text-[10px] font-extrabold text-[var(--ln-text-muted)] uppercase tracking-widest block">XP Contribution</span>
+              <span className="text-3xl font-extrabold text-[var(--ln-teal-600)]">
                 +{result.xpAwarded}
               </span>
             </div>
@@ -81,11 +81,11 @@ export function MissionDebrief({ result, moduleId, onRetry }: MissionDebriefProp
                 Retry Mission <RotateCcw size={18} />
               </button>
             )}
-            
+
             {result.passed && (
               <button
                 onClick={onRetry}
-                className="w-full py-3 text-slate-400 hover:text-[var(--ln-navy-900)] text-[10px] font-extrabold uppercase tracking-widest transition-colors"
+                className="w-full py-3 text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)] text-[10px] font-extrabold uppercase tracking-widest transition-colors"
               >
                 Review Environment Again
               </button>

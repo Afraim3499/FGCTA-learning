@@ -36,7 +36,7 @@ function RegisterForm() {
       <form action={handleSubmit} className="space-y-4">
         <input type="hidden" name="marketTrack" value={track} />
         <div>
-          <label className="block text-sm font-medium text-slate-500 mb-1.5">
+          <label className="block text-sm font-medium text-[var(--ln-text-muted)] mb-1.5">
             Full Name
           </label>
           <input
@@ -49,7 +49,7 @@ function RegisterForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-slate-500 mb-1.5">
+          <label className="block text-sm font-medium text-[var(--ln-text-muted)] mb-1.5">
             Email Address
           </label>
           <input
@@ -62,7 +62,7 @@ function RegisterForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-slate-500 mb-1.5">
+          <label className="block text-sm font-medium text-[var(--ln-text-muted)] mb-1.5">
             Password
           </label>
           <input
@@ -91,7 +91,7 @@ function RegisterForm() {
       </form>
 
       <div className="mt-6 text-center">
-        <p className="text-sm text-slate-500 font-medium">
+        <p className="text-sm text-[var(--ln-text-muted)] font-medium">
           Already have an account?{" "}
           <Link
             href="/login"

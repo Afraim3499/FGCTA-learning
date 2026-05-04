@@ -50,7 +50,7 @@ export default async function JourneyPage({ params }: JourneyPageProps) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
         <h2 className="text-2xl font-extrabold text-white uppercase tracking-tighter">Mission Data Not Found</h2>
-        <p className="text-text-muted">The requested Practice data (Level {levelInt}, Module {moduleNumber}) is currently encrypted or unavailable.</p>
+        <p className="text-[var(--ln-text-muted)]">The requested Practice data (Level {levelInt}, Module {moduleNumber}) is currently encrypted or unavailable.</p>
         <AcademyButton variant="outline" onClick={() => redirect("/dashboard")}>Return to Dashboard</AcademyButton>
       </div>
     );
@@ -77,22 +77,22 @@ export default async function JourneyPage({ params }: JourneyPageProps) {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[var(--ln-border)] pb-8">
          <div className="space-y-4">
             <div className="flex items-center gap-3">
-               <DataBadge variant="outline" className="font-extrabold text-[9px] text-slate-400 uppercase tracking-widest">{assetClass.toUpperCase()}_SECTOR</DataBadge>
-               <DataBadge variant="profit" className="font-extrabold text-[9px] text-[var(--ln-teal-500)] uppercase tracking-widest">LEVEL_{levelInt}</DataBadge>
-               <DataBadge variant="outline" className="font-extrabold text-[9px] text-slate-400 uppercase tracking-widest">UNIT_{moduleNumber}</DataBadge>
+               <DataBadge variant="outline" className="font-extrabold text-[9px] text-[var(--ln-text-muted)] uppercase tracking-widest">{assetClass.toUpperCase()}_SECTOR</DataBadge>
+               <DataBadge variant="profit" className="font-extrabold text-[9px] text-[var(--ln-teal-600)] uppercase tracking-widest">LEVEL_{levelInt}</DataBadge>
+               <DataBadge variant="outline" className="font-extrabold text-[9px] text-[var(--ln-text-muted)] uppercase tracking-widest">UNIT_{moduleNumber}</DataBadge>
             </div>
             <div className="space-y-1">
-               <div className="text-[10px] font-extrabold text-[var(--ln-teal-500)] uppercase tracking-[0.4em]">Lesson Briefing</div>
+               <div className="text-[10px] font-extrabold text-[var(--ln-teal-600)] uppercase tracking-[0.4em]">Lesson Briefing</div>
                <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--ln-navy-900)] tracking-tighter uppercase">{module.title}</h1>
             </div>
          </div>
          <div className="flex gap-3">
             <div className="p-4 bg-white border border-[var(--ln-border)] rounded-2xl text-center min-w-[120px] shadow-sm">
-               <p className="text-[9px] font-extrabold text-slate-400 uppercase mb-1">XP Reward</p>
+               <p className="text-[9px] font-extrabold text-[var(--ln-text-muted)] uppercase mb-1">XP Reward</p>
                <p className="text-xl font-extrabold text-[var(--ln-navy-900)]">+500</p>
             </div>
             <div className="p-4 bg-white border border-[var(--ln-border)] rounded-2xl text-center min-w-[120px] shadow-sm">
-               <p className="text-[9px] font-extrabold text-slate-400 uppercase mb-1">Status</p>
+               <p className="text-[9px] font-extrabold text-[var(--ln-text-muted)] uppercase mb-1">Status</p>
                <p className="text-xl font-extrabold text-[var(--ln-teal-600)]">IN_PROGRESS</p>
             </div>
          </div>
@@ -103,14 +103,14 @@ export default async function JourneyPage({ params }: JourneyPageProps) {
          <div className="lg:col-span-4 space-y-8">
             {levelInt <= 2 && <AcademyInsight />}
             <div className="bg-white border border-[var(--ln-border)] rounded-[2.5rem] overflow-hidden shadow-sm">
-               <div className="bg-slate-50 border-b border-[var(--ln-border)] px-8 py-5">
+               <div className="bg-[var(--ln-bg-soft)] border-b border-[var(--ln-border)] px-8 py-5">
                   <div className="flex items-center gap-2 text-[var(--ln-teal-600)] text-[10px] font-extrabold tracking-widest uppercase">
                      <BookOpen size={16} />
                      Theoretical Background
                   </div>
                   <h4 className="text-lg font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight mt-1">Module Intelligence</h4>
                </div>
-               <div className="p-8 prose prose-slate prose-sm max-w-none prose-headings:text-[var(--ln-navy-900)] prose-headings:font-extrabold prose-headings:uppercase prose-headings:tracking-tighter prose-p:text-[var(--ln-text-secondary)] prose-strong:text-[var(--ln-navy-900)] prose-code:text-[var(--ln-teal-500)]">
+               <div className="p-8 prose prose-slate prose-sm max-w-none prose-headings:text-[var(--ln-navy-900)] prose-headings:font-extrabold prose-headings:uppercase prose-headings:tracking-tighter prose-p:text-[var(--ln-text-secondary)] prose-strong:text-[var(--ln-navy-900)] prose-code:text-[var(--ln-teal-600)]">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {adaptedContent}
                   </ReactMarkdown>
@@ -118,19 +118,19 @@ export default async function JourneyPage({ params }: JourneyPageProps) {
             </div>
 
             <div className="bg-white border border-[var(--ln-border)] rounded-[2.5rem] overflow-hidden shadow-sm">
-               <div className="bg-slate-50 border-b border-[var(--ln-border)] px-8 py-5">
+               <div className="bg-[var(--ln-bg-soft)] border-b border-[var(--ln-border)] px-8 py-5">
                   <div className="flex items-center gap-2 text-amber-500 text-[10px] font-extrabold tracking-widest uppercase">
                      <ShieldCheck size={16} />
                      Key Requirements
                   </div>
                </div>
                <div className="p-8 space-y-4">
-                  <div className="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                     <Zap size={16} className="text-[var(--ln-teal-500)] shrink-0 mt-0.5" />
+                  <div className="flex gap-4 items-start p-4 bg-[var(--ln-bg-soft)] rounded-2xl border border-slate-100">
+                     <Zap size={16} className="text-[var(--ln-teal-600)] shrink-0 mt-0.5" />
                      <p className="text-xs text-[var(--ln-text-secondary)] leading-relaxed font-medium">Complete the interactive practice with high logic consistency.</p>
                   </div>
-                  <div className="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                     <Zap size={16} className="text-[var(--ln-teal-500)] shrink-0 mt-0.5" />
+                  <div className="flex gap-4 items-start p-4 bg-[var(--ln-bg-soft)] rounded-2xl border border-slate-100">
+                     <Zap size={16} className="text-[var(--ln-teal-600)] shrink-0 mt-0.5" />
                      <p className="text-xs text-[var(--ln-text-secondary)] leading-relaxed font-medium">Identify market behavior patterns accurately within the session.</p>
                   </div>
                </div>
@@ -142,22 +142,22 @@ export default async function JourneyPage({ params }: JourneyPageProps) {
             <div className="relative group">
                <div className="absolute -inset-1 bg-gradient-to-r from-[var(--ln-teal-500)]/10 to-[var(--ln-navy-900)]/10 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition duration-1000" />
                <div className="relative h-full bg-white border border-[var(--ln-border)] rounded-[2.5rem] overflow-hidden shadow-sm">
-                  <div className="flex flex-row items-center justify-between border-b border-[var(--ln-border)] px-8 py-6 bg-slate-50">
+                  <div className="flex flex-row items-center justify-between border-b border-[var(--ln-border)] px-8 py-6 bg-[var(--ln-bg-soft)]">
                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-[var(--ln-teal-soft)] flex items-center justify-center text-[var(--ln-teal-500)]">
+                        <div className="w-10 h-10 rounded-xl bg-[var(--ln-teal-soft)] flex items-center justify-center text-[var(--ln-teal-600)]">
                            <Layout size={20} />
                         </div>
                         <div>
                            <h4 className="text-sm font-extrabold uppercase tracking-widest text-[var(--ln-navy-900)]">Interactive Practice Area</h4>
-                           <p className="text-[10px] text-slate-400 font-mono uppercase font-bold">Session: PRO_FLOW_V5_LIVE</p>
+                           <p className="text-[10px] text-[var(--ln-text-muted)] font-mono uppercase font-bold">Session: PRO_FLOW_V5_LIVE</p>
                         </div>
                      </div>
                      <div className="flex gap-2">
-                        <DataBadge variant="outline" className="text-slate-400">STABLE</DataBadge>
-                        <DataBadge variant="profit" className="text-[var(--ln-teal-500)]">SECURE</DataBadge>
+                        <DataBadge variant="outline" className="text-[var(--ln-text-muted)]">STABLE</DataBadge>
+                        <DataBadge variant="profit" className="text-[var(--ln-teal-600)]">SECURE</DataBadge>
                      </div>
                   </div>
-                  <div className="p-8 min-h-[500px] flex items-center justify-center bg-slate-50">
+                  <div className="p-8 min-h-[500px] flex items-center justify-center bg-[var(--ln-bg-soft)]">
                      {/* Dynamic PracticeEnvironment Loading based on Module Type */}
                      {module.interactiveTaskType === "A" && (
                         <ChartPractice 
@@ -182,7 +182,7 @@ export default async function JourneyPage({ params }: JourneyPageProps) {
                      )}
                      {!module.interactiveTaskType && (
                         <div className="text-center space-y-4">
-                           <p className="text-slate-400 italic font-medium">This module is purely theoretical. No practice session required.</p>
+                           <p className="text-[var(--ln-text-muted)] italic font-medium">This module is purely theoretical. No practice session required.</p>
                            <button className="px-8 py-3 bg-[var(--ln-teal-500)] text-white rounded-xl text-[10px] font-extrabold uppercase tracking-widest hover:bg-[var(--ln-teal-600)] transition-all">MARK AS COMPLETE</button>
                         </div>
                      )}

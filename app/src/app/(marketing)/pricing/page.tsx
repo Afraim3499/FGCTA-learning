@@ -14,7 +14,7 @@ const tiers = [
     market: "Gold",
     icon: Coins,
     price: 205,
-    color: "text-yellow-400",
+    color: "text-yellow-600",
     borderColor: "border-yellow-500/20",
     bgAccent: "bg-yellow-500/5",
     glowColor: "bg-yellow-500/10",
@@ -28,7 +28,7 @@ const tiers = [
     market: "Forex",
     icon: Globe,
     price: 220,
-    color: "text-blue-400",
+    color: "text-blue-600",
     borderColor: "border-blue-500/20",
     bgAccent: "bg-blue-500/5",
     glowColor: "bg-blue-500/10",
@@ -42,7 +42,7 @@ const tiers = [
     market: "Crypto",
     icon: Bitcoin,
     price: 245,
-    color: "text-amber-400",
+    color: "text-amber-600",
     borderColor: "border-amber-500/30",
     bgAccent: "bg-amber-500/5",
     glowColor: "bg-amber-500/15",
@@ -112,7 +112,7 @@ export default function PricingPage() {
           </div>
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter text-[var(--ln-navy-900)]">
             Choose Your Market.{" "}
-            <span className="text-[var(--ln-navy-900)] opacity-40">Get Everything.</span>
+            <span className="text-[var(--ln-text-dim)]">Get Everything.</span>
           </h1>
           <p className="text-lg text-[var(--ln-text-secondary)] max-w-xl mx-auto leading-relaxed">
             No hidden fees. No upsells. No subscriptions. One payment. Full access to your entire track.
@@ -125,7 +125,7 @@ export default function PricingPage() {
         <div className="p-4 bg-white border border-[var(--ln-border)] rounded-2xl shadow-sm">
           <div className="flex items-center gap-2 mb-3">
             <Tag size={14} className="text-[var(--ln-teal-500)]" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Have a referral code??</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)]">Have a referral code??</span>
           </div>
           <div className="flex gap-2">
             <input
@@ -192,13 +192,13 @@ export default function PricingPage() {
                       <span className="text-2xl font-bold text-[var(--ln-text-muted)] line-through">${tier.price}</span>
                     )}
                     <span className="text-5xl font-extrabold tracking-tighter text-[var(--ln-navy-900)]">${getPrice(tier.price)}</span>
-                    <span className="text-sm font-bold text-slate-500 uppercase">one-time</span>
+                    <span className="text-sm font-bold text-[var(--ln-text-muted)] uppercase">one-time</span>
                   </div>
                 </div>
 
                 {/* Exclusive modules */}
                 <div className="mb-6">
-                  <p className="text-[9px] font-bold uppercase tracking-widest text-slate-500 mb-3">
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)] mb-3">
                     {tier.exclusiveCount} Exclusive Modules
                   </p>
                   <div className="space-y-2">
@@ -254,7 +254,7 @@ export default function PricingPage() {
               <div className="w-5 h-5 rounded-full bg-[var(--ln-teal-soft)] flex items-center justify-center shrink-0 mt-0.5">
                 <Check size={10} className="text-[var(--ln-teal-500)]" />
               </div>
-              <span className="text-sm text-slate-600 font-medium">{feature}</span>
+              <span className="text-sm text-[var(--ln-text-secondary)] font-medium">{feature}</span>
             </div>
           ))}
         </div>
@@ -272,11 +272,11 @@ export default function PricingPage() {
           {comparisons.map((comp) => (
             <div key={comp.name} className="flex items-center gap-4 p-4 bg-white border border-[var(--ln-border)] rounded-xl">
               <div className="w-24 shrink-0">
-                <span className="text-sm font-bold text-slate-500">{comp.price}</span>
+                <span className="text-sm font-bold text-[var(--ln-text-muted)]">{comp.price}</span>
               </div>
               <div className="flex-1">
                 <span className="text-sm font-bold text-[var(--ln-navy-900)]">{comp.name}</span>
-                <span className="text-xs text-slate-500 ml-3">{comp.gap}</span>
+                <span className="text-xs text-[var(--ln-text-muted)] ml-3">{comp.gap}</span>
               </div>
             </div>
           ))}

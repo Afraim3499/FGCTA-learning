@@ -12,14 +12,14 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 function DataBadge({ className, variant = "default", ...props }: BadgeProps) {
   const variants = {
-    default: "bg-surface-tertiary text-text-secondary border-transparent",
-    forex: "bg-forex/10 text-forex border-forex/20",
-    crypto: "bg-crypto/10 text-crypto border-crypto/20",
-    gold: "bg-gold/10 text-gold border-gold/20",
-    multi: "bg-multi/10 text-multi border-multi/20",
-    profit: "bg-profit/10 text-profit border-profit/20 shadow-glow-profit",
-    loss: "bg-loss/10 text-loss border-loss/20 shadow-glow-loss",
-    outline: "bg-transparent border-border-default text-text-muted",
+    default: "bg-[var(--ln-bg-soft)] text-[var(--ln-text-secondary)] border-[var(--ln-border)]",
+    forex: "bg-sky-50 text-sky-700 border-sky-100",
+    crypto: "bg-amber-50 text-amber-700 border-amber-100",
+    gold: "bg-yellow-50 text-yellow-700 border-yellow-100",
+    multi: "bg-indigo-50 text-indigo-700 border-indigo-100",
+    profit: "bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] border-[var(--ln-teal-400)]/20",
+    loss: "bg-rose-50 text-rose-600 border-rose-100",
+    outline: "bg-transparent border-[var(--ln-border)] text-[var(--ln-text-muted)]",
   };
 
   return (

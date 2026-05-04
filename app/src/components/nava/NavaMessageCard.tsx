@@ -45,10 +45,10 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
         >
           {/* Desktop-only Peeking Nava Character */}
           <div className="hidden sm:block">
-            <NavaPoseImage 
-              pose={message.pose} 
-              attentionLevel="high" 
-              priority 
+            <NavaPoseImage
+              pose={message.pose}
+              attentionLevel="high"
+              priority
               className="z-20"
             />
           </div>
@@ -57,11 +57,11 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
             {/* Zone 1: Visual Stage (Mobile Image / Desktop Sidebar) */}
             <div className="w-full sm:w-[40%] h-48 sm:h-auto bg-gradient-to-br from-slate-50 to-teal-50/50 shrink-0 relative flex items-center justify-center overflow-hidden">
               <div className="sm:hidden w-full h-full scale-90 origin-bottom">
-                <NavaPoseImage 
-                  pose={message.pose} 
-                  attentionLevel="high" 
-                  forceBustOnMobile 
-                  priority 
+                <NavaPoseImage
+                  pose={message.pose}
+                  attentionLevel="high"
+                  forceBustOnMobile
+                  priority
                   className="scale-110"
                 />
               </div>
@@ -80,21 +80,21 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setShowSettings(!showSettings)}
                     className={cn(
-                      "p-2 text-slate-300 hover:text-slate-600 transition-colors rounded-full hover:bg-slate-50",
-                      showSettings && "bg-slate-50 text-slate-600"
+                      "p-2 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] transition-colors rounded-full hover:bg-[var(--ln-bg-soft)]",
+                      showSettings && "bg-[var(--ln-bg-soft)] text-[var(--ln-navy-900)]"
                     )}
                   >
                     <Settings size={20} />
                   </button>
                   {message.dismissible && (
-                    <button 
-                      onClick={() => onDismiss(message.id)} 
-                      className="p-2 text-slate-300 hover:text-slate-900 transition-colors rounded-full hover:bg-slate-50"
+                    <button
+                      onClick={() => onDismiss(message.id)}
+                      className="p-2 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] transition-colors rounded-full hover:bg-[var(--ln-bg-soft)]"
                       aria-label="Close"
                     >
                       <X size={24} />
@@ -112,20 +112,20 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
                     className="mb-8 p-4 bg-slate-50 rounded-[2rem] space-y-2 overflow-hidden"
                   >
                     <div className="flex items-center justify-between px-3 mb-2">
-                      <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">Guidance Preferences</p>
+                      <p className="text-[9px] font-black uppercase tracking-widest text-[var(--ln-text-muted)]">Guidance Preferences</p>
                       {userMode === 'quiet' && (
                         <span className="text-[8px] font-bold text-teal-600 uppercase tracking-tight">Nava is quieter for now</span>
                       )}
                     </div>
-                    <button 
+                    <button
                       onClick={() => { onHideTips?.(); setShowSettings(false); }}
-                      className="w-full flex items-center gap-3 px-4 py-3 text-xs font-bold text-slate-600 hover:text-[var(--ln-navy-900)] hover:bg-white rounded-2xl transition-all shadow-sm shadow-transparent hover:shadow-slate-200/50"
+                      className="w-full flex items-center gap-3 px-4 py-3 text-xs font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-white rounded-2xl transition-all shadow-sm shadow-transparent hover:shadow-slate-200/50"
                     >
                       <EyeOff size={16} /> Hide all non-critical tips for 48 hours
                     </button>
-                    <button 
+                    <button
                       onClick={() => { onMute?.(); setShowSettings(false); }}
-                      className="w-full flex items-center gap-3 px-4 py-3 text-xs font-bold text-slate-600 hover:text-red-600 hover:bg-white rounded-2xl transition-all shadow-sm shadow-transparent hover:shadow-red-100/50"
+                      className="w-full flex items-center gap-3 px-4 py-3 text-xs font-bold text-[var(--ln-text-secondary)] hover:text-red-600 hover:bg-white rounded-2xl transition-all shadow-sm shadow-transparent hover:shadow-red-100/50"
                     >
                       <MessageSquareOff size={16} /> Mute Nava guide completely
                     </button>
@@ -137,7 +137,7 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
                 <h2 className="text-2xl sm:text-5xl font-black text-slate-900 leading-[1.1] tracking-tight">
                   {message.title}
                 </h2>
-                <p className="text-sm sm:text-xl text-slate-500 leading-relaxed font-medium max-w-lg">
+                <p className="text-sm sm:text-xl text-[var(--ln-text-secondary)] leading-relaxed font-medium max-w-lg">
                   {message.body}
                 </p>
               </div>
@@ -161,10 +161,10 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
                     <ChevronRight size={22} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 )}
-                
-                <button 
+
+                <button
                   onClick={() => onDismiss(message.id)}
-                  className="text-slate-400 hover:text-slate-900 font-bold text-sm tracking-wide transition-colors py-2"
+                  className="text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)] font-bold text-sm tracking-wide transition-colors py-2"
                 >
                   Skip for now
                 </button>
@@ -178,7 +178,7 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
 
   // Medium & Low Attention Layouts (Side Cards)
   const isLow = message.attentionLevel === 'low';
-  
+
   return (
     <motion.div
       initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 30, scale: 0.98 }}
@@ -199,9 +199,9 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
           isLow ? 'w-20' : 'w-24 sm:w-32'
         )}>
           <div className="sm:scale-100 scale-90 origin-bottom">
-            <NavaPoseImage 
-              pose={message.pose} 
-              attentionLevel={message.attentionLevel} 
+            <NavaPoseImage
+              pose={message.pose}
+              attentionLevel={message.attentionLevel}
               className="-bottom-1"
             />
           </div>
@@ -219,13 +219,13 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
                 {message.title}
               </p>
             </div>
-            
+
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setShowSettings(!showSettings)}
                 className={cn(
-                  "p-1.5 text-slate-300 hover:text-slate-600 transition-colors rounded-lg hover:bg-slate-50",
-                  showSettings && "bg-slate-50 text-slate-600"
+                  "p-1.5 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] transition-colors rounded-lg hover:bg-[var(--ln-bg-soft)]",
+                  showSettings && "bg-[var(--ln-bg-soft)] text-[var(--ln-navy-900)]"
                 )}
                 title="Guidance Settings"
               >
@@ -234,7 +234,7 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
               {message.dismissible && (
                 <button
                   onClick={() => onDismiss(message.id)}
-                  className="p-1.5 text-slate-300 hover:text-slate-900 transition-colors rounded-lg hover:bg-slate-50"
+                  className="p-1.5 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] transition-colors rounded-lg hover:bg-[var(--ln-bg-soft)]"
                 >
                   <X size={16} />
                 </button>
@@ -251,20 +251,20 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
                 className="mb-4 space-y-1 overflow-hidden"
               >
                 <div className="flex items-center justify-between px-3 mb-2">
-                  <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">Settings</p>
+                  <p className="text-[9px] font-black uppercase tracking-widest text-[var(--ln-text-muted)]">Settings</p>
                   {userMode === 'quiet' && (
                     <span className="text-[8px] font-bold text-teal-600 uppercase tracking-tight">Quieter Mode Active</span>
                   )}
                 </div>
-                <button 
+                <button
                   onClick={() => { onHideTips?.(); setShowSettings(false); }}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-slate-500 hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all"
+                  className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-[var(--ln-bg-soft)] rounded-xl transition-all"
                 >
                   <EyeOff size={12} /> Hide tips for 48h
                 </button>
-                <button 
+                <button
                   onClick={() => { onMute?.(); setShowSettings(false); }}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
+                  className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-[var(--ln-text-secondary)] hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
                 >
                   <MessageSquareOff size={12} /> Mute Nava guide
                 </button>
@@ -272,7 +272,7 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
             )}
           </AnimatePresence>
 
-          <p className={`${isLow ? 'text-[11px]' : 'text-[13px]'} text-slate-500 mb-4 leading-relaxed font-medium`}>
+          <p className={`${isLow ? 'text-[11px]' : 'text-[13px]'} text-[var(--ln-text-secondary)] mb-4 leading-relaxed font-medium`}>
             {message.body}
           </p>
 
@@ -299,7 +299,7 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
           )}
         </div>
       </div>
-      
+
       {/* Attention Marker */}
       {message.attentionLevel === 'medium' && (
         <div className="absolute top-0 left-0 w-1 sm:w-1.5 h-full bg-teal-500" />

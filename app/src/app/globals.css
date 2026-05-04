@@ -10,12 +10,12 @@
   --color-surface-primary: #0A1128;
   --color-surface-secondary: #060B19;
   --color-surface-tertiary: #0F172A;
-  
+
   /* Brand & Actions - Lurnava Teal */
   --color-brand-400: #2DD4BF;
   --color-brand-500: #14B8A6;
   --color-brand-600: #0D9488;
-  
+
   /* Intent Colors (Institutional Signals) */
   --color-profit: #14B8A6; /* Using teal instead of harsh green where applicable */
   --color-loss: #EF4444; /* softer red */
@@ -29,7 +29,7 @@
   --color-accent-blue: #14B8A6; /* Actually teal now */
   --color-fail-red: #EF4444;
   --color-pass-green: #14B8A6; /* using teal for pass */
-  
+
   /* Market Track Colors */
   --color-forex: #38BDF8;
   --color-crypto: #F59E0B;
@@ -60,9 +60,9 @@
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  /* LURNAVA LIGHT THEME TOKENS */
+  /* LURNAVA LIGHT THEME TOKENS — HIGH CONTRAST HARDENING */
   --ln-bg: #F8FBFC;
-  --ln-bg-soft: #F3F7F8;
+  --ln-bg-soft: #F1F5F9;
   --ln-surface: #FFFFFF;
   --ln-surface-soft: #F8FAFC;
 
@@ -71,20 +71,22 @@
   --ln-navy-800: #0B2344;
   --ln-navy-700: #12345F;
 
-  --ln-text-primary: #071B36;
-  --ln-text-secondary: #475569;
-  --ln-text-muted: #64748B;
+  --ln-text-primary: #071B36;   /* Deep Navy - High Contrast */
+  --ln-text-secondary: #334155; /* Slate-700 - Body Copy */
+  --ln-text-muted: #475569;     /* Slate-600 - Meets AA on white */
+  --ln-text-dim: #64748B;       /* Slate-500 - Metadata only */
 
-  --ln-teal-500: #14B8A6;
-  --ln-teal-400: #2DD4BF;
-  --ln-teal-300: #5EEAD4;
-  --ln-teal-soft: #E6FFFB;
+  --ln-teal-600: #115E59;
+  --ln-teal-500: #0F766E; /* High contrast AA safe with white text */
+  --ln-teal-400: #14B8A6;
+  --ln-teal-soft: #F0FDFA;
 
   --ln-border: #E2E8F0;
-  --ln-border-soft: #EDF2F7;
+  --ln-border-soft: #F1F5F9;
 
-  --ln-warning: #F59E0B;
-  --ln-success: #14B8A6;
+  --ln-warning: #D97706; /* Darker amber for readability */
+  --ln-success: #0D9488; /* Teal-600 for high contrast */
+  --ln-error: #DC2626;   /* Red-600 */
 }
 
 /* ============================================
