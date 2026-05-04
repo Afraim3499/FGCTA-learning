@@ -366,7 +366,7 @@ async function main() {
       level: 8, moduleNumber: "8.1", title: "Cognitive Biases in Live Play",
       objective: "Removing the human element.",
       content: "# Psychology Mastery\n\nBecoming the machine.",
-      skillLevel: "institutional", orderIndex: 1
+      skillLevel: "advanced", orderIndex: 1
     }
   ];
 
@@ -410,7 +410,7 @@ async function main() {
       passThreshold: 80,
       timeLimitMin: 20,
       questions: [
-        { id: "q1_1", question: "What does the 'Casino Analogy' represent in market participation?", options: ["Trying to force a large outcome from one event.", "Maintaining a statistical edge over a large sample of independent events.", "Predicting the specific outcome of the next candle."], correctIndex: 1, explanation: "Professional participation relies on the law of large numbers." },
+        { id: "q1_1", question: "What does the 'Casino Analogy' represent in market participation?", options: ["Trying to force a large outcome from one event.", "Maintaining a statistical edge over a large sample of independent events.", "Expecting one event to be known in advance."], correctIndex: 1, explanation: "Professional participation relies on the law of large numbers." },
         { id: "q1_2", question: "In a zero-sum matching environment, what is primarily being transferred?", options: ["Intelligence", "Capital and Value", "Confidence"], correctIndex: 1, explanation: "Markets facilitate the transfer of value." },
         { id: "q1_3", question: "If a system has a 55% success rate, what is a statistically normal occurrence in the short term?", options: ["Guaranteed positive results every week.", "A series of consecutive unfavorable attempts.", "No chance of an unsuccessful attempt."], correctIndex: 1, explanation: "Probability allows for significant short-term variance." },
         { id: "q1_4", question: "What does an R-Multiple compare?", options: ["Planned exposure relative to the outcome", "Account size only", "Price-feed speed", "A method for increasing size after a setback"], correctIndex: 0, explanation: "R-Multiple defines the unit of exposure relative to the result." },
