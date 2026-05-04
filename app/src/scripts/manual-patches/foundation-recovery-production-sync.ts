@@ -9,9 +9,6 @@ import { Pool } from "pg";
  * 
  * Safety:
  * Idempotent. Uses upsert only. Does not delete, truncate, or mutate user/progress/attempt/XP/journal/payment/auth data.
- * 
- * Tables touched:
- * CourseModule, KnowledgeTest, TrainingScenario, ModuleScenarioLink.
  */
 
 const pool = new Pool({ 
@@ -141,15 +138,45 @@ async function main() {
         { id: "q3_11", question: "The underlying 'Engine' of a Fair Value Gap is:", options: ["Emotional overreaction only.", "A lack of two-way exchange during strong price delivery.", "A news label on the chart.", "A wider spread only."], correctIndex: 1, explanation: "FVGs are delivery failures." },
         { id: "q3_12", question: "A 'Mitigation Block' differs from a 'Breaker' primarily because:", options: ["It contains a significantly higher amount of volume.", "It does not require a boundary sweep of the previous high/low.", "It is only structurally valid on the daily chart."], correctIndex: 1, explanation: "Breakers are defined by the sweep of a previous extreme; Mitigations are not." },
         { id: "q3_13", question: "Time & Sales data helps identify:", options: ["The exact next chart movement.", "Aggressive participation hitting bid or ask.", "The content of future news.", "The final outcome of the current candle."], correctIndex: 1, explanation: "Data reveals aggressive participation in real-time." },
-        { id: "q3_14", question: "An 'Iceberg Order' is revealed when:", options: ["A level is tested repeatedly while movement through it remains limited.", "A very large candle body appears without any news event.", "Price moves too quickly for candles to form."], correctIndex: 0, explanation: "Icebergs absorb value at a fixed price." },
+        { id: "q3_14", question: "An 'Iceberg Order' is revealed when:", options: ["A level is tested repeatedly while movement through it remains limited.", "A very large candle body appeared without any news event.", "Price moves too quickly for candles to form."], correctIndex: 0, explanation: "Icebergs absorb value at a fixed price." },
         { id: "q3_15", question: "Price delivery is considered 'Balanced' only when:", options: ["Both sides of the spread have been offered at every price point in a range.", "The market is closed.", "There are an equal number of candles."], correctIndex: 0, explanation: "Balanced delivery ensures no visible delivery gaps are left behind." }
       ]
     }
   ];
 
   const scenarios = [
-    { slug: "level-3-final-gate", level: 3, title: "Level 3 Final Gate", passThreshold: 80, xpAward: 500, scenarioType: "structure_annotation", status: "active", marketTrack: "multi" },
-    { slug: "m2-level-2-map-review-v1", level: 2, title: "Level 2 Boundary Review", passThreshold: 80, xpAward: 250, scenarioType: "structure_annotation", status: "active", marketTrack: "multi" }
+    { 
+      slug: "level-3-final-gate", 
+      level: 3, 
+      title: "Level 3 Final Gate", 
+      scenarioType: "structure_annotation", 
+      status: "active", 
+      marketTrack: "multi",
+      instrument: "EURUSD",
+      timeframe: "4h",
+      candleSourceType: "generated",
+      prompt: "Annotate the major structural shift...",
+      expectedActions: [],
+      gradingRubric: {},
+      passThreshold: 80, 
+      xpAward: 500 
+    },
+    { 
+      slug: "m2-level-2-map-review-v1", 
+      level: 2, 
+      title: "Level 2 Boundary Review", 
+      scenarioType: "structure_annotation", 
+      status: "active", 
+      marketTrack: "multi",
+      instrument: "EURUSD",
+      timeframe: "4h",
+      candleSourceType: "generated",
+      prompt: "Annotate the external range boundaries...",
+      expectedActions: [],
+      gradingRubric: {},
+      passThreshold: 80, 
+      xpAward: 250 
+    }
   ];
 
   if (DRY_RUN) {
