@@ -20,7 +20,7 @@ export default async function TestPage({ params }: { params: Promise<{ levelId: 
   }
 
   return (
-    <div className="space-y-8 min-h-[calc(100vh-10rem)]">
+    <div className="space-y-8 min-h-[calc(100vh-10rem)] pb-12">
       <Link 
         href={`/course/${levelId}`} 
         className="inline-flex items-center text-sm text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] transition-colors group font-medium"

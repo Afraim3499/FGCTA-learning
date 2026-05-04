@@ -53,7 +53,7 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
   }
 
   return (
-    <div className="space-y-8 max-w-4xl mx-auto">
+    <div className="space-y-8 max-w-4xl mx-auto pb-16">
       {currentLevel.testUnlocked && <NavaTrigger messageId="knowledge_test_unlocked" />}
       <Link 
         href="/course" 

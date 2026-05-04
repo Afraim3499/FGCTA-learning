@@ -152,7 +152,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
     module.content;
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 pb-12">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <aside className="lg:col-span-3 space-y-6">
           <div className="space-y-3">

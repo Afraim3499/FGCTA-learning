@@ -51,7 +51,7 @@ export default async function PracticeEnvironmentPage({
   const initialChartData = await getChartData(initialInstrument, "15m");
 
   return (
-    <div className="space-y-10 pb-10">
+    <div className="space-y-10 pb-20">
       <section className="flex items-center justify-between">
         <div className="space-y-2">
           <h1 className="text-3xl font-extrabold text-[var(--ln-navy-900)] tracking-tight uppercase">

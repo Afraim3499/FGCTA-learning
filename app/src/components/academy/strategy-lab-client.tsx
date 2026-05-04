@@ -250,7 +250,7 @@ export function StrategyLabClient({
             </div>
           )}
 
-          <div className="flex-1 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
+          <div className="flex-1 overflow-y-auto pr-2 pb-12 space-y-3 custom-scrollbar">
             {search.trim() !== "" && filteredMissions.length > 0 && (
               <div className="space-y-3 px-1 mb-6">
                 <h3 className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest pl-2">Matching Missions</h3>
@@ -350,7 +350,7 @@ export function StrategyLabClient({
              </div>
            ) : (
              // DETAIL VIEW
-             <div className="flex-1 overflow-y-auto p-6 md:p-10 space-y-10 custom-scrollbar">
+             <div className="flex-1 overflow-y-auto p-6 md:p-10 pb-16 space-y-10 custom-scrollbar">
                 
                 {/* Mobile Back Button */}
                 <button 

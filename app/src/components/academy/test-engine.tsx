@@ -192,7 +192,7 @@ export function TestEngine({ level, test }: TestEngineProps) {
   const selectedAnswer = answers.find((a) => a.questionId === currentQuestion.id);
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-4xl mx-auto space-y-8 pb-20">
       {/* Test Header */}
       <div className="flex items-center justify-between px-6 py-4 bg-white border border-[var(--ln-border)] rounded-[2rem] shadow-sm">
         <div className="flex items-center gap-4">
