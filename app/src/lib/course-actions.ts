@@ -25,14 +25,7 @@ export async function getCourseLevels() {
     select: { id: true, level: true, moduleNumber: true },
   });
 
-  // Filter Level 1 to only 1.1-1.5 for students
-  const approvedL1 = ["1.1", "1.2", "1.3", "1.4", "1.5"];
-  const modules = allModules.filter((mod: any) => {
-    if (mod.level === 1) {
-      return approvedL1.includes(mod.moduleNumber);
-    }
-    return true;
-  });
+  const modules = allModules;
 
   // Fetch all completions for the current user
   const completions = await prisma.moduleCompletion.findMany({
@@ -117,11 +110,7 @@ export async function getModules(level: number) {
     },
   });
 
-  // Filter Level 1 to only 1.1-1.5 for students
-  const approvedL1 = ["1.1", "1.2", "1.3", "1.4", "1.5"];
-  const modules = level === 1 
-    ? rawModules.filter((m: any) => approvedL1.includes(m.moduleNumber))
-    : rawModules;
+  const modules = rawModules;
 
   const completions = await prisma.moduleCompletion.findMany({
     where: {
@@ -167,14 +156,7 @@ export async function getModuleContent(moduleId: string) {
     select: { isAdmin: true, marketTrack: true, progress: { select: { currentLevel: true } } },
   });
 
-  const approvedL1 = ["1.1", "1.2", "1.3", "1.4", "1.5"];
-
-  // Blocker 5: Legacy filtering - Reject non-approved Level 1 modules for students
-  if (module.level === 1 && !approvedL1.includes(module.moduleNumber)) {
-    if (!profile?.isAdmin) {
-      throw new Error("Access denied: This module is archived or not part of the active curriculum.");
-    }
-  }
+  // Blocker 5: Legacy filtering removed in Foundation Recovery MVP
 
   const userTrack = profile?.marketTrack || "forex";
   const trackCondition = userTrack === "multi" ? {} : { OR: [{ marketTrack: "core" }, { marketTrack: userTrack as any }] };
@@ -194,10 +176,7 @@ export async function getModuleContent(moduleId: string) {
     select: { id: true, moduleNumber: true },
   });
 
-  // Filter Level 1 for navigation
-  const allInLevel = module.level === 1
-    ? rawInLevel.filter((m: any) => approvedL1.includes(m.moduleNumber))
-    : rawInLevel;
+  const allInLevel = rawInLevel;
 
   const currentIndex = allInLevel.findIndex((m: any) => m.id === module.id);
   const prevModuleId = currentIndex > 0 ? allInLevel[currentIndex - 1].id : null;
@@ -278,7 +257,7 @@ export async function completeModule(
         taskResult: taskResult || null
       });
 
-      // 2. Add entry to XP ledger
+      // 2. Add record to XP ledger
       await tx.xPLedgerEntry.create({
         data: {
           userId: user.id,
@@ -322,11 +301,11 @@ export async function completeModule(
 function getLevelTitle(level: number): string {
   const titles: Record<number, string> = {
     0: "Market Foundations",
-    1: "Awakening",
-    2: "Mechanics",
-    3: "Order Flow",
+    1: "Market Basics",
+    2: "Market Mechanics",
+    3: "Structure & Imbalance",
     4: "Time & Price",
-    5: "Risk Mgmt",
+    5: "Exposure Mgmt",
     6: "Macro",
     7: "Synthesis",
     8: "Advanced Practice",

@@ -11,6 +11,9 @@ import { PointClickEngine, PointClickTaskResult } from "./interactive/point-clic
 import { ScenarioDecisionEngine, ScenarioTaskResult } from './interactive/scenario-decision-engine';
 import { MiniReplayEngine, MiniReplayTaskResult } from './interactive/mini-replay-engine';
 import { ChoiceBlockPractice } from './interactive/choice-block-practice';
+import { CoinFlipPracticeEnvironment } from './interactive/coin-flip-practice';
+import { MacroDashboard } from './interactive/macro-dashboard';
+import { OrderFlowDOM } from './interactive/order-flow-dom';
 import { ScenarioLauncher } from "./scenario-launcher";
 import { ChartScenarioModal } from "@/components/academy/chart-scenario";
 import { getModuleScenarios } from "@/lib/scenario-actions";
@@ -305,6 +308,18 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                     options={module.interactiveTaskData.options || []}
                     onPass={() => setTaskResult({ type: 'practice_complete', score: 100 } as any)}
                   />
+                )}
+
+                {module.interactiveTaskType === 'coin_flip_simulator' && (
+                  <CoinFlipPracticeEnvironment />
+                )}
+
+                {module.interactiveTaskType === 'macro_rags_to_riches' && (
+                  <MacroDashboard />
+                )}
+
+                {module.interactiveTaskType === 'tape_reading_basics' && (
+                  <OrderFlowDOM />
                 )}
 
                 {module.interactiveTaskType === 'scenario_link' && module.interactiveTaskData?.scenarioSlug && (
