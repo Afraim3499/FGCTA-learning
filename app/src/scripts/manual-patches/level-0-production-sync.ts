@@ -14,89 +14,89 @@ const MODULES = [
     content: `:::lesson-cards
 [
   {
-    "type": "visual_intro",
-    "title": "The Lurnava Learning Loop",
-    "visual": "learning-loop",
-    "label": "Visual First",
-    "body": "Lurnava is a structured system built on a three-part loop. Click each step in the diagram above to see how your skills are built. structured market reading is about **structured observation** and **repeated practice**, not emotional guessing."
+    "type": "concept",
+    "title": "Mission Brief: You Are Not Here for Tips",
+    "label": "Training Intent",
+    "body": "Welcome to the Academy. Most people enter the market looking for 'tips,' 'secret strategies,' or 'signals' that tell them when to click a button. This is the fastest route to failure. Imagine trying to learn medical diagnosis by watching 10-minute 'Top 5 Symptom Tips' videos. You might memorize words, but you will never develop the judgment to identify the underlying cause of an issue.\\n\\nLurnava is not a library of content; it is a **structured training system**. We are here to prevent the 'Random Learner' trap—the habit of consuming endless information without ever building a repeatable skill. You are not here to watch; you are here to be trained in **Structured Market Reading**. This requires moving past the desire for shortcuts and committing to an academy process of observation, simulation, and audit."
   },
   {
-    "type": "concept",
-    "title": "What Lurnava Teaches",
-    "label": "Concept",
-    "body": "Lurnava teaches you **Market Reading**. This is the ability to look at a chart and identify objective structural facts.\\n\\n- **Not signals**: No simple instructions to buy/sell.\\n- **Not prediction**: We don't guess the future.\\n- **Not copying**: You learn to read the language yourself."
+    "type": "visual_intro",
+    "title": "The Lurnava Training Loop",
+    "visual": "learning-loop",
+    "label": "Visual First",
+    "body": "To build judgment, you must follow a deliberate cycle. Theory alone is useless without application, and application is dangerous without review. Think of this as **Flight School**: You read the flight manual (Learn), you spend hours in the simulator (Practice), you pass your check-ride (Mission), and you debrief every single flight (Journal Review) to find your mistakes.\\n\\n1. **Learn**: Study one objective structural concept at a time.\\n2. **Practice**: Apply that concept in the Lab using historical data.\\n3. **Test / Mission**: Prove you can identify the concept under pressure.\\n4. **Journal Review**: Audit your logic. This is where the real learning happens. If you skip the review, you are just clicking buttons."
   },
   {
     "type": "comparison",
-    "title": "What We Do Not Teach",
-    "label": "Comparison",
+    "title": "Random Learner vs. Trained Learner",
+    "label": "Behavioral Shift",
     "comparison": {
       "left": {
-        "title": "Not Lurnava",
+        "title": "The Random Learner",
         "type": "negative",
-        "content": "- Follow a signal\\n- Guess direction\\n- Chase hype"
+        "content": "- Follows a random 'tip' from social media.\\n- Acts on an emotional reaction or price motion.\\n- Cannot explain exactly why they recorded a reading.\\n- Ignores the result if it doesn't fit their bias."
       },
       "right": {
-        "title": "Lurnava",
+        "title": "The Trained Learner",
         "type": "positive",
-        "content": "- Observe evidence\\n- Practice in simulation\\n- Review decisions"
+        "content": "- Identifies a specific structural concept.\\n- Verifies evidence against a checklist.\\n- Records the logic *before* seeing the outcome.\\n- Audits the decision regardless of the result."
       }
     }
   },
   {
     "type": "concept",
-    "title": "Your Tools",
+    "title": "The Cockpit: Your Training Instruments",
     "label": "The Ecosystem",
     "items": [
-      { "title": "Modules", "body": "Where you learn the core theory.", "icon": "modules" },
-      { "title": "Tasks", "body": "Small exercises to check understanding.", "icon": "tasks" },
-      { "title": "The Lab", "body": "Practice reading real historical data.", "icon": "lab" },
-      { "title": "Journal", "body": "Your personal record of every observation.", "icon": "journal" },
-      { "title": "Nava", "body": "AI assistant for logic review and context.", "icon": "nava" }
+      { "title": "Modules", "body": "Your Training Manual. This is the objective theory you will apply.", "icon": "modules" },
+      { "title": "Tasks", "body": "Instrument Checks. Small drills to ensure you understand the mechanics.", "icon": "tasks" },
+      { "title": "The Lab", "body": "The Flight Simulator. Practice reading real data without financial risk.", "icon": "lab" },
+      { "title": "Journal", "body": "The Black-Box Recorder. Your record of every decision and its logic.", "icon": "journal" },
+      { "title": "Nava", "body": "Co-Pilot. Your assistant for checklists and structural logic review.", "icon": "nava" }
     ]
   },
   {
     "type": "scenario",
-    "title": "Why You Should Not Rush",
-    "label": "Scenario",
+    "title": "One Hour of Bad Practice",
+    "label": "Simulation",
     "scenario": {
       "left": {
-        "title": "The Rusher",
-        "content": "Follows a random idea, gets one result, but cannot explain why it happened. When conditions change, they have no review process."
+        "title": "The Junk Practice",
+        "content": "A learner has 60 minutes. They open a chart, get excited by a fast move, and click 'Buy' 20 times to 'see what happens.' They close the laptop and learn nothing. This is entertainment, not training."
       },
       "right": {
-        "title": "The Lurnava Learner",
-        "content": "Knows exactly what evidence they were looking for. If the market does something unexpected, they record it, review it, and learn."
+        "title": "The Deliberate Practice",
+        "content": "A learner identifies one concept (e.g., Candle Rejection). They find 5 examples, record why they fit the rule, and write one review note on the 'Unclear' cases. They have improved their judgment."
       }
     }
   },
   {
     "type": "rule",
-    "title": "Decision Rule",
-    "label": "Logic",
-    "body": "> If you cannot explain what you observed, what evidence supports it, and what you will review later, you are not ready to move forward.\\n\\nCommit to the process of learning. If you find yourself looking for a simple shortcut, stop and return to the foundations."
+    "title": "The Three-Question Gate",
+    "label": "Decision Checkpoint",
+    "body": "Before you record any reading or take any action in the Lab, you must pass through the Three-Question Gate. This prevents impulsive guessing.\\n\\n1. **What did I observe?** (Name the specific concept)\\n2. **What evidence supports it?** (List the structural facts)\\n3. **What would make me review this?** (Identify the 'invalid' condition)\\n\\n**Pass Example**: 'I observe a candle rejection at a structural high. Evidence: long wick + previous rejection. If price breaks the wick, my reading is unclear.'\\n**Fail Example**: 'I think price is moving up because it looks fast and I want to see a result.' (No evidence, no gate pass)."
   },
   {
     "type": "practice",
-    "title": "Practice Check",
-    "label": "Interactive Task"
+    "title": "Training Drill: The Hype Trap",
+    "label": "Practical Drill"
   },
   {
     "type": "summary",
-    "title": "Module Summary",
-    "label": "Recap",
-    "body": "Lurnava is a skill-building platform. We teach you to read the market as a structured observer.\\n\\nSuccess comes from the **quality of your practice** and the **honesty of your reviews**."
+    "title": "Debrief: What You Are Being Trained For",
+    "label": "Final Review",
+    "body": "You are being trained to **explain your reading** with objective logic. You are not here to memorize tips or react to every movement on the screen. True skill comes from the ability to say: 'I observed X, supported by Y, and I will audit this based on Z.'\\n\\nCommit to the simulator. Commit to the journal. Commit to the loop.\\n\\n**Next**: We move from the 'How' to the 'What.' You will study what a market actually is: an interaction between buyers, sellers, and available orders."
   }
 ]
 :::`,
     interactiveTaskType: "choice_block",
     interactiveTaskData: {
-      question: "What is the correct Lurnava learning loop?",
+      question: "Scenario: You watch a 'short tip' video online, open the Lurnava Lab, and see something similar happening. What is the most disciplined training action?",
       options: [
-        "Follow a signal -> click buy -> check outcome -> repeat.",
-        "Learn concept -> complete practice -> take test/mission -> save review note.",
-        "Guess the direction -> wait for a result -> ignore the outcome -> continue.",
-        "Read the news -> follow the hype -> buy the dip -> hope for the best."
+        "Act immediately to see if the tip works with real-time motion.",
+        "Identify the core concept, check the structural context in the Lab, practice it deliberately in the simulator, and record a review note.",
+        "Wait for Nava to tell you exactly where to click so you don't make a mistake.",
+        "Search for more videos to see if other people agree with the tip before deciding."
       ],
       correctIndex: 1
     },
