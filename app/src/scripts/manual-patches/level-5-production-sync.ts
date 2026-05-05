@@ -102,8 +102,8 @@ async function main() {
     } else {
       await prisma.courseModule.upsert({
         where: { level_moduleNumber: { level: mod.level, moduleNumber: mod.moduleNumber } },
-        update: { ...mod, marketTrack: "core" },
-        create: { ...mod, marketTrack: "core" },
+        update: mod as any,
+        create: mod as any,
       });
       console.log(`  ✅ Module ${mod.moduleNumber} Sync Successfully.`);
     }
@@ -138,8 +138,8 @@ async function main() {
     if (mod510) {
       await prisma.moduleScenarioLink.upsert({
         where: { moduleId_scenarioId: { moduleId: mod510.id, scenarioId: scenario.id } },
-        update: { requiredForProgress: true, sortOrder: 1 },
-        create: { moduleId: mod510.id, scenarioId: scenario.id, requiredForProgress: true, sortOrder: 1 }
+        update: { requiredForProgress: true, sortOrder: 1 } as any,
+        create: { moduleId: mod510.id, scenarioId: scenario.id, requiredForProgress: true, sortOrder: 1 } as any
       });
       console.log(`  ✅ Link 5.10 -> Gate Sync Successfully.`);
     }
