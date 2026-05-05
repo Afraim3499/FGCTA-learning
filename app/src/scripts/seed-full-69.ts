@@ -20,54 +20,83 @@ async function main() {
     {
       level: 0, moduleNumber: "0.1", title: "What Lurnava Teaches: Reading, Practice, Review",
       objective: "Welcome to the Market Reading Foundations.",
-      content: `# What Lurnava Teaches: Reading, Practice, Review
-
-Welcome to Lurnava. This is not a typical trading course. Most people come to the markets looking for "signals"—simple instructions to buy or sell. Lurnava does not provide signals, nor does it teach you how to "predict" the future. Predicting is a guessing game, and guessing leads to inconsistency.
-
-Instead, Lurnava teaches you **Market Reading**. This is the ability to look at a chart and identify objective structural facts. It is like learning a language. Once you can read the language of the market, you don't need anyone to tell you what to do.
-
-### The Lurnava Method
-Our approach is built on a three-part loop: **Read, Practice, Review.**
-
-1. **Read**: You learn a specific structural concept.
-2. **Practice**: You immediately apply that concept in a simulation (The Lab).
-3. **Review**: You document what happened in your Journal and analyze your decision-making.
-
-:::skill-target
-Understand that professional participation is about structured observation and repeated practice, not emotional guessing or following "experts."
-:::
-
-### What We Do Not Teach
-It is important to be clear: Lurnava is not a "get rich quick" platform. We do not use hype, and we do not promise profits. In fact, we avoid the word "profit" because it focuses your mind on the result rather than the process.
-
-**What this means:**
-We focus on **Evidence**. Evidence is a piece of observable data on the chart that suggests a specific market state. For example, if price breaks a previous high, that is evidence of strength. We don't "believe" price is strong; we observe it.
-
-:::visual
-title: The Lurnava Learning Loop
-lookFor: ["1. Learn: Master a structural concept", "2. Practice: Apply it in the Lab simulation", "3. Review: Document facts in your Journal", "4. Refine: Improve your reading based on data"]
-:::
-
-### Why You Should Not Rush
-The biggest mistake beginners make is rushing to "trade." At Lurnava, we don't start with trading; we start with **Market Reading Foundations**. You wouldn't try to fly a plane before learning what the buttons do.
-
-**Simple Scenario:**
-Imagine a person who buys a "secret strategy" and starts clicking buttons. They might win once or twice by luck, but they have no idea *why* it happened. When they eventually lose, they get frustrated and quit.
-A Lurnava learner, however, knows exactly what evidence they were looking for. If the market does something unexpected, they record it, review it, and learn from it.
-
-### Your Tools
-- **Modules**: These lessons where you learn the theory.
-- **Interactive Tasks**: Small exercises inside the modules to check your understanding.
-- **The Lab**: A simulation environment where you can practice reading real historical data without risk.
-- **The Journal**: Your personal record of every observation and practice session.
-- **Nava**: Your AI assistant that helps you review your logic and provides context.
-
-:::decision-rule
-Commit to the process of learning. If you find yourself looking for a "magic signal," stop and return to the foundations of objective reading.
-:::
-
-:::summary
-Lurnava is a skill-building platform. We teach you to read the market as a professional observer. Success comes from the quality of your practice and the honesty of your reviews.
+      content: `:::lesson-cards
+[
+  {
+    "type": "visual_intro",
+    "title": "The Lurnava Learning Loop",
+    "visual": "learning-loop",
+    "label": "Visual First",
+    "body": "Lurnava is a structured system built on a three-part loop. Click each step in the diagram above to see how your skills are built. Professional market participation is about **structured observation** and **repeated practice**, not emotional guessing."
+  },
+  {
+    "type": "concept",
+    "title": "What Lurnava Teaches",
+    "label": "Concept",
+    "body": "Lurnava teaches you **Market Reading**. This is the ability to look at a chart and identify objective structural facts.\\n\\n- **Not signals**: No simple instructions to buy/sell.\\n- **Not prediction**: We don't guess the future.\\n- **Not copying**: You learn to read the language yourself."
+  },
+  {
+    "type": "comparison",
+    "title": "What We Do Not Teach",
+    "label": "Comparison",
+    "comparison": {
+      "left": {
+        "title": "Not Lurnava",
+        "type": "negative",
+        "content": "- Follow a signal\\n- Guess direction\\n- Chase hype"
+      },
+      "right": {
+        "title": "Lurnava",
+        "type": "positive",
+        "content": "- Observe evidence\\n- Practice in simulation\\n- Review decisions"
+      }
+    }
+  },
+  {
+    "type": "concept",
+    "title": "Your Tools",
+    "label": "The Ecosystem",
+    "items": [
+      { "title": "Modules", "body": "Where you learn the core theory.", "icon": "modules" },
+      { "title": "Tasks", "body": "Small exercises to check understanding.", "icon": "tasks" },
+      { "title": "The Lab", "body": "Practice reading real historical data.", "icon": "lab" },
+      { "title": "Journal", "body": "Your personal record of every observation.", "icon": "journal" },
+      { "title": "Nava", "body": "AI assistant for logic review and context.", "icon": "nava" }
+    ]
+  },
+  {
+    "type": "scenario",
+    "title": "Why You Should Not Rush",
+    "label": "Scenario",
+    "scenario": {
+      "left": {
+        "title": "The Rusher",
+        "content": "Buys a 'secret strategy', clicks buttons, wins once by luck, has no idea *why*. When they eventually lose, they get frustrated and quit."
+      },
+      "right": {
+        "title": "The Lurnava Learner",
+        "content": "Knows exactly what evidence they were looking for. If the market does something unexpected, they record it, review it, and learn."
+      }
+    }
+  },
+  {
+    "type": "rule",
+    "title": "Decision Rule",
+    "label": "Logic",
+    "body": "> If you cannot explain what you observed, what evidence supports it, and what you will review later, you are not ready to move forward.\\n\\nCommit to the process of learning. If you find yourself looking for a 'magic signal,' stop and return to the foundations."
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Lurnava is a skill-building platform. We teach you to read the market as a professional observer.\\n\\nSuccess comes from the **quality of your practice** and the **honesty of your reviews**."
+  }
+]
 :::`,
       interactiveTaskType: "choice_block",
       interactiveTaskData: {
@@ -85,51 +114,80 @@ Lurnava is a skill-building platform. We teach you to read the market as a profe
     {
       level: 0, moduleNumber: "0.2", title: "What a Market Really Is",
       objective: "Understanding the core of market interaction.",
-      content: `# What a Market Really Is
-
-To read a chart, you must first understand what you are actually looking at. A price chart is not just a bunch of lines or colored bars; it is a visual record of human and algorithmic interaction.
-
-At its simplest level, a market is a place where buyers and sellers meet to exchange things. In our case, they exchange financial instruments like currencies, stocks, or commodities.
-
-### The Meeting of Orders
-Every price movement you see is the result of an **Order Interaction**.
-- **Buyers** want to acquire an asset at the lowest possible price.
-- **Sellers** want to get rid of an asset at the highest possible price.
-
-When a buyer and a seller agree on a price, a transaction happens. If there are more people wanting to buy than there are people willing to sell at a certain price, the price must move higher to find new sellers. This is the law of supply and demand.
-
-### Key Technical Terms
-To participate like a professional, you need to understand three core concepts:
-
-1. **The Spread**: This is the small gap between the price buyers offer (**Bid**) and the price sellers ask (**Ask**).
-   *Beginner Example:* Imagine you want to buy a used car. You offer $5,000 (Bid), but the seller wants $5,500 (Ask). The $500 difference is the "spread." In financial markets, this gap is usually very small, but it always exists.
-
-2. **Liquidity**: This means the availability of orders waiting in the market.
-   *Simple Scenario:* If you want to sell 100 apples and there are 1,000 people waiting to buy apples, the market is "liquid." If you want to sell 100 apples but no one is there to buy, the market is "illiquid." Professional participants look for areas with high liquidity because it allows them to enter and exit easily.
-
-3. **Orders**: An order is simply an instruction to the market. A **Market Order** says "buy/sell right now at the best available price." A **Limit Order** says "buy/sell only if the price reaches this specific level."
-
-:::visual
-title: Market Order Matching
-lookFor: ["Sellers (Ask Prices) - Waiting above the current price", "The Spread - The gap between Bid and Ask", "Buyers (Bid Prices) - Waiting below the current price", "Transaction - Occurs when a buyer hits the Ask or a seller hits the Bid"]
-:::
-
-### What Price Movement Is Not
-Price does not move because of magic patterns or "luck." It moves because of **Intent**. Large amounts of capital (money) are being moved by participants with specific goals.
-
-**Common Beginner Mistake:**
-Thinking that a "pattern" like a triangle or a head-and-shoulders *causes* the market to move. It doesn't. The pattern is just a symptom of the underlying order interaction.
-
-:::trap
-**The "Magic Chart" Fallacy**: Believing the chart is a living entity that "wants" to go somewhere. The chart is just a mirror of supply and demand.
-:::
-
-### Wrong Approach vs Better Approach
-- **Wrong**: "The chart looks like it's going up, so I'll buy." (Emotional guessing)
-- **Better**: "I observe that buyers are consistently hitting the Ask price and pushing through seller levels. This is evidence of upward intent." (Objective observation)
-
-:::summary
-A market is a matching engine for buyers and sellers. Price moves to find the next available area of liquidity (orders). Your job is to observe where those orders are likely clustered.
+      content: `:::lesson-cards
+[
+  {
+    "type": "concept",
+    "title": "What a Market Really Is",
+    "label": "The Core",
+    "body": "To read a chart, you must first understand what you are actually looking at. A price chart is not just a bunch of lines; it is a **visual record of human and algorithmic interaction**.\\n\\nAt its simplest level, a market is a matching engine where buyers and sellers meet to exchange assets."
+  },
+  {
+    "type": "concept",
+    "title": "The Meeting of Orders",
+    "label": "Mechanics",
+    "body": "Every price movement is the result of an **Order Interaction**.\\n\\n- **Buyers** want the lowest price.\\n- **Sellers** want the highest price.\\n\\nWhen they agree, a transaction happens. If buyers are more aggressive than sellers at a specific price, the price must move higher to find new supply."
+  },
+  {
+    "type": "concept",
+    "title": "The Three Pillars",
+    "label": "Terminology",
+    "items": [
+      { "title": "The Spread", "body": "The gap between the Bid (Buy) and Ask (Sell) prices.", "icon": "spread" },
+      { "title": "Liquidity", "body": "The availability of orders waiting to be matched.", "icon": "liquidity" },
+      { "title": "Orders", "body": "Instructions like 'Market' (Now!) or 'Limit' (At this price).", "icon": "orders" }
+    ]
+  },
+  {
+    "type": "scenario",
+    "title": "Liquidity in Action",
+    "label": "Example",
+    "scenario": {
+      "left": {
+        "title": "Liquid Market",
+        "content": "You want to sell 100 items. There are 1,000 buyers waiting. You can exit easily at a fair price."
+      },
+      "right": {
+        "title": "Illiquid Market",
+        "content": "You want to sell 100 items. No one is buying. You have to lower your price significantly to find an exit."
+      }
+    }
+  },
+  {
+    "type": "rule",
+    "title": "The Intent Rule",
+    "label": "Logic",
+    "body": "> Price does not move because of magic patterns. It moves because of **Intent**.\\n\\nLarge amounts of capital are moved by participants with specific goals. Patterns are just the symptoms of that intent."
+  },
+  {
+    "type": "comparison",
+    "title": "How to Approach the Chart",
+    "label": "Mindset",
+    "comparison": {
+      "left": {
+        "title": "The Guesser",
+        "type": "negative",
+        "content": "'The chart looks like it's going up, so I'll buy.'"
+      },
+      "right": {
+        "title": "The Observer",
+        "type": "positive",
+        "content": "'I observe buyers hitting the Ask and pushing through seller levels. This is evidence of intent.'"
+      }
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "A market is a matching engine for buyers and sellers. Price moves to find the next available area of liquidity. Your job is to observe where those orders are likely to be."
+  }
+]
 :::`,
       interactiveTaskType: "choice_block",
       interactiveTaskData: {
@@ -147,52 +205,80 @@ A market is a matching engine for buyers and sellers. Price moves to find the ne
     {
       level: 0, moduleNumber: "0.3", title: "Candles Are Records, Not Signals",
       objective: "Learning to read price data without bias.",
-      content: `# Candles Are Records, Not Signals
-
-Most beginners look at a "candlestick chart" and see symbols that tell them to buy or sell. They see a "Pin Bar" or an "Engulfing Candle" and think it is a "signal." This is a dangerous mistake.
-
-A candle is not a signal. A candle is a **Record**. It is a visual summary of what happened to the price over a specific period.
-
-### The Anatomy of a Candle
-Every candle tells a four-part story:
-1. **Open**: Where the price started.
-2. **High**: The highest point reached.
-3. **Low**: The lowest point reached.
-4. **Close**: Where the price ended.
-
-The rectangular part of the candle is called the **Body**. It shows the distance between the Open and the Close. If the Close is higher than the Open, the body is usually green (or white), showing a bullish period. If the Close is lower, the body is red (or black), showing a bearish period.
-
-The thin lines above and below the body are called **Wicks** (or shadows). They represent the prices that were "tested" but rejected by the close of the period.
-
-### Context is King
-The most important rule in market reading is that **one candle alone is weak evidence.**
-
-**Simple Scenario:**
-Imagine you see a candle with a very long wick on top. This shows that the price went high but was pushed back down. Many beginners would see this and say, "That's a bearish signal! Sell now!"
-But what if the previous ten candles were all strongly bullish? In that **Context**, the long wick might just be a brief pause before the price continues higher.
-
-**What this does not mean:**
-A single candle does not "guarantee" a reversal. It only tells you what happened in that specific window of time.
-
-:::visual
-title: Candle Anatomy & Context
-lookFor: ["Body: The range between Open and Close", "Wicks: Prices that were rejected", "Context: The story told by the surrounding candles", "Evidence: Use candles to confirm a story, not to invent one"]
-:::
-
-### Common Beginner Mistake: Signal-Hunting
-Beginners spend hours memorizing names of candle patterns. They think if they find a "Morning Star," they have found a shortcut.
-Professionals don't care about the names. They care about the **Story**. They ask: "Who won this candle? Did the buyers hold their ground, or did the sellers displace them?"
-
-### Wrong Approach vs Better Approach
-- **Wrong**: "I see a Hammer candle. The book says a Hammer is a buy signal. I'm buying."
-- **Better**: "This candle rejected a previous low and closed back inside the range. This is one piece of evidence that sellers are losing control, but I need more structural context before forming a reading."
-
-:::decision-rule
-Treat every candle as a journal entry of price action. Use it to build a case of evidence, never as a standalone reason to act.
-:::
-
-:::summary
-Candles record the battle between buyers and sellers. The body shows commitment, and the wicks show rejection. To read them correctly, you must always look at the candles that came before them.
+      content: `:::lesson-cards
+[
+  {
+    "type": "visual_intro",
+    "title": "Candle Anatomy",
+    "visual": "candle-anatomy",
+    "label": "Visual First",
+    "body": "A candle is a **Record**, not a signal. It tells a four-part story: **Open, High, Low, and Close**. The body shows commitment, while the wicks show rejection."
+  },
+  {
+    "type": "concept",
+    "title": "Candles Are Records",
+    "label": "Concept",
+    "body": "Most beginners see symbols that tell them to buy or sell. A candle is actually just a **visual summary** of what happened to the price over a specific period. It does not tell the future by itself."
+  },
+  {
+    "type": "comparison",
+    "title": "Body vs Wick",
+    "label": "Comparison",
+    "comparison": {
+      "left": {
+        "title": "The Body",
+        "content": "Shows where price opened and closed. Represents **commitment** and the strength of the move during that period."
+      },
+      "right": {
+        "title": "The Wick",
+        "content": "Shows where price traveled but was **rejected**. Represents prices that were tested but not held."
+      }
+    }
+  },
+  {
+    "type": "scenario",
+    "title": "Context Changes the Reading",
+    "label": "Scenario",
+    "scenario": {
+      "left": {
+        "title": "Isolated Candle",
+        "content": "A long upper wick appears. Beginner says: 'Bearish signal! Sell now!'"
+      },
+      "right": {
+        "title": "Contextual Reading",
+        "content": "The previous ten candles were strongly bullish. The long wick might just be a brief pause. One candle alone is **weak evidence**."
+      }
+    }
+  },
+  {
+    "type": "comparison",
+    "title": "Common Beginner Mistake",
+    "label": "Comparison",
+    "comparison": {
+      "left": {
+        "title": "Wrong",
+        "type": "negative",
+        "content": "Treating a candle as a 'signal' or memorizing names like 'Morning Star' as a shortcut."
+      },
+      "right": {
+        "title": "Better",
+        "type": "positive",
+        "content": "Treating the candle as one piece of evidence inside a larger structural story. Asking: 'Who won this battle?'"
+      }
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Candles record the battle between buyers and sellers. To read them correctly, you must always look at the candles that came before them.\\n\\n**Context is King.**"
+  }
+]
 :::`,
       interactiveTaskType: "type_b_scenario",
       interactiveTaskData: {
@@ -207,53 +293,73 @@ Candles record the battle between buyers and sellers. The body shows commitment,
     {
       level: 0, moduleNumber: "0.4", title: "Timeframes Change the Story",
       objective: "Understanding the chart's zoom levels.",
-      content: `# Timeframes Change the Story
-
-In the previous module, we learned that a candle records price over a "specific period." That period is determined by your **Timeframe**.
-
-A timeframe is essentially the "zoom level" of your chart.
-- A **1-hour (H1) chart** means each candle represents one hour of time.
-- A **15-minute (m15) chart** means each candle represents fifteen minutes.
-- A **Daily (D1) chart** means each candle represents a full day.
-
-### The Multi-Layered Story
-The market is happening on all timeframes at once. Understanding how they interact is one of the most important skills in market reading.
-
-**Simple Scenario:**
-Imagine you are looking at a map.
-- On a **Global Map** (Higher Timeframe), you see that you are traveling North.
-- On a **City Map** (Lower Timeframe), you might be turning left, right, or even going South to avoid a one-way street.
-
-If you only look at the City Map, you might think you are lost. But if you look at the Global Map, you see that the small Southward turn is just a tiny part of a much larger Northward journey.
-
-### Higher vs. Lower Timeframes
-1. **Higher Timeframes (HTF)**: Provide the **Context**. They show the major "narrative" or direction. They are slower and carry more weight.
-2. **Lower Timeframes (LTF)**: Provide the **Detail**. They show the specific "movements" and entries. They are faster and more "noisy" (filled with minor ups and downs).
-
-:::skill-target
-Learn to "zoom out" to find the big story before you "zoom in" to see the details. Never form a reading based only on a lower timeframe.
-:::
-
-:::visual
-title: Timeframe Alignment
-lookFor: ["HTF Anchor: The Daily/4H direction", "MTF Context: The 1H structural area", "LTF Catalyst: The 15m/5m specific behavior", "Alignment: When all 'maps' point in the same direction"]
-:::
-
-### The Zoom-In Trap
-The most common beginner mistake is spending all day staring at a 1-minute or 5-minute chart.
-
-**Why this is a mistake:**
-Lower timeframes move very fast. They can show a "strong move" that is actually just a tiny, insignificant ripple inside a massive higher-timeframe wall. Beginners get excited by the ripple and forget about the wall.
-
-**What this does not mean:**
-"Lower timeframes are useless." They are very useful for seeing exactly where a move starts, but only if you already know the higher-timeframe direction.
-
-### Wrong Approach vs Better Approach
-- **Wrong**: "The 5-minute chart just showed a big green candle! I'm buying!" (Ignoring the fact that the 4-hour chart is in a massive downtrend).
-- **Better**: "The Daily chart is bullish. I will zoom in to the 15-minute chart to find an area where I can observe a structural shift in my favor."
-
-:::summary
-Timeframes are tools for perspective. The higher timeframe tells you *where* you are going, and the lower timeframe shows you *how* you are getting there. Always start with the big picture.
+      content: `:::lesson-cards
+[
+  {
+    "type": "concept",
+    "title": "Timeframes Change the Story",
+    "label": "Perspective",
+    "body": "A timeframe is essentially the **zoom level** of your chart.\\n\\n- **Daily (D1)**: One candle = one full day.\\n- **1-hour (H1)**: One candle = one hour.\\n- **15-minute (m15)**: One candle = fifteen minutes.\\n\\nThe market is happening on all timeframes at once. Understanding how they interact is a vital professional skill."
+  },
+  {
+    "type": "scenario",
+    "title": "The Map Analogy",
+    "label": "Visualization",
+    "scenario": {
+      "left": {
+        "title": "Global Map (HTF)",
+        "content": "You see that you are traveling North. This is the big picture direction."
+      },
+      "right": {
+        "title": "City Map (LTF)",
+        "content": "You might be turning South to avoid a one-way street. Without the global map, you think you are lost."
+      }
+    }
+  },
+  {
+    "type": "concept",
+    "title": "Context vs Detail",
+    "label": "The Relationship",
+    "items": [
+      { "title": "Higher (HTF)", "body": "Provide the Context. They show the major 'narrative'.", "icon": "htf" },
+      { "title": "Lower (LTF)", "body": "Provide the Detail. They show the specific 'movements'.", "icon": "ltf" }
+    ]
+  },
+  {
+    "type": "rule",
+    "title": "The Alignment Rule",
+    "label": "Logic",
+    "body": "> Never form a reading based only on a lower timeframe. Always 'zoom out' to find the big story before you 'zoom in' to see the details."
+  },
+  {
+    "type": "comparison",
+    "title": "The Zoom-In Trap",
+    "label": "Mistake",
+    "comparison": {
+      "left": {
+        "title": "Wrong",
+        "type": "negative",
+        "content": "'The 5-minute chart has a big green candle! I'm buying!' (Ignoring the 4-hour downtrend)."
+      },
+      "right": {
+        "title": "Better",
+        "type": "positive",
+        "content": "'The Daily chart is bullish. I will zoom in to find a structural shift in my favor on the 15-minute chart.'"
+      }
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Timeframes are tools for perspective. The higher timeframe tells you **where** you are going, and the lower timeframe shows you **how** you are getting there."
+  }
+]
 :::`,
       interactiveTaskType: "type_b_scenario",
       interactiveTaskData: {
@@ -268,54 +374,71 @@ Timeframes are tools for perspective. The higher timeframe tells you *where* you
     {
       level: 0, moduleNumber: "0.5", title: "Basic Structure: Swings, Ranges, Direction",
       objective: "Mapping the skeleton of the market.",
-      content: `# Basic Structure: Swings, Ranges, Direction
-
-If candles are the words, **Market Structure** is the grammar. It is the skeleton that holds everything together. Without structure, a chart is just a mess of random wiggles.
-
-Structure allows us to map the market objectively. There are three core components you must master: **Swings**, **Ranges**, and **Direction**.
-
-### 1. Swing Highs and Swing Lows
-A **Swing** is a turning point in price.
-- A **Swing High** is a peak. It is formed when price goes up, stops, and then moves down.
-- A **Swing Low** is a valley. It is formed when price goes down, stops, and then moves up.
-
-These points are our "anchors." They represent the extremes of a move where the market's intent shifted.
-
-### 2. The Range
-A **Range** is the distance between a Swing Low and a Swing High.
-Think of it as a "box" that price is currently playing inside.
-*Beginner Example:* If the highest price today was $100 (Swing High) and the lowest was $90 (Swing Low), the market is in a "$10 range." Until price breaks out of this box, it hasn't truly changed its structural story.
-
-### 3. Direction (The Narrative)
-By looking at how new Swings are formed, we can determine the **Directional Narrative**:
-- **Uptrend**: Price is making Higher Highs and Higher Lows. It is stepping up.
-- **Downtrend**: Price is making Lower Highs and Lower Lows. It is stepping down.
-- **Unclear / Ranging**: Price is stuck inside an old range, making messy highs and lows that don't go anywhere.
-
-:::skill-target
-Identify the major "anchors" (Swings) of the current move to define the "box" (Range) you are working in.
-:::
-
-:::visual
-title: Market Structure Map
-lookFor: ["Swing High: A confirmed peak", "Swing Low: A confirmed valley", "Dealing Range: The area between the two extremes", "Direction: The sequence of high/low steps"]
-:::
-
-### What Does Not Count
-A tiny "wiggle" on a 5-minute chart is not a "Major Swing High" if you are looking at a 1-hour story.
-**What this means:**
-Structure is relative to your timeframe. A "Major" swing is one that led to a significant move or broke a previous structural point.
-
-### Common Beginner Mistake: Over-Mapping
-Beginners try to label every single candle as a high or a low. This creates a messy chart and a confused mind.
-*Better Approach:* Only label the obvious "peaks" and "valleys" that stand out. If you have to squint to see it, it's probably not important.
-
-### Wrong Approach vs Better Approach
-- **Wrong**: "Price just went up 10 pips, so the trend is bullish." (Reactive thinking)
-- **Better**: "Price is still inside the range of yesterday's high and low. Until it breaks one of those anchors, the structural reading is Unclear/Sideways." (Proactive mapping)
-
-:::summary
-Market structure is the map of the market. By identifying Swing Highs and Swing Lows, you define the Range. By observing the sequence of these ranges, you determine the Direction.
+      content: `:::lesson-cards
+[
+  {
+    "type": "concept",
+    "title": "Basic Structure: Swings, Ranges, Direction",
+    "label": "The Grammar",
+    "body": "If candles are the words, **Market Structure** is the grammar. It is the skeleton that holds everything together. Without structure, a chart is just random wiggles.\\n\\nStructure allows us to map the market objectively using three components: **Swings**, **Ranges**, and **Direction**."
+  },
+  {
+    "type": "concept",
+    "title": "Swing Highs and Swing Lows",
+    "label": "Anchors",
+    "body": "A **Swing** is a turning point in price.\\n\\n- **Swing High**: A peak. Price moves up, stops, and moves down.\\n- **Swing Low**: A valley. Price moves down, stops, and moves up.\\n\\nThese points are your anchors. They represent where the market's intent shifted."
+  },
+  {
+    "type": "concept",
+    "title": "The Dealing Range",
+    "label": "The Box",
+    "body": "A **Range** is the distance between a Swing Low and a Swing High. Think of it as a 'box' that price is currently playing inside. Until price breaks out of this box, the structural story hasn't truly changed."
+  },
+  {
+    "type": "concept",
+    "title": "Directional Narrative",
+    "label": "The Trend",
+    "items": [
+      { "title": "Uptrend", "body": "Higher Highs and Higher Lows. Stepping up.", "icon": "trending-up" },
+      { "title": "Downtrend", "body": "Lower Highs and Lower Lows. Stepping down.", "icon": "trending-down" },
+      { "title": "Ranging", "body": "Stuck inside an old range. Messy moves.", "icon": "minus" }
+    ]
+  },
+  {
+    "type": "comparison",
+    "title": "What to Label",
+    "label": "Clarity",
+    "comparison": {
+      "left": {
+        "title": "Over-Mapping",
+        "type": "negative",
+        "content": "Trying to label every single wiggle. Creates a messy chart and a confused mind."
+      },
+      "right": {
+        "title": "Pro Mapping",
+        "type": "positive",
+        "content": "Only label obvious peaks and valleys. If you have to squint, it's not important."
+      }
+    }
+  },
+  {
+    "type": "rule",
+    "title": "The Structure Rule",
+    "label": "Logic",
+    "body": "> Identify the major anchors (Swings) to define the 'box' (Range). The sequence of these ranges determines the Direction. Always map before you act."
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Market structure is the map of the market. By identifying Swing Highs and Swing Lows, you define the Range. By observing the sequence of these ranges, you determine the Direction."
+  }
+]
 :::`,
       interactiveTaskType: "choice_block",
       interactiveTaskData: {
@@ -333,47 +456,76 @@ Market structure is the map of the market. By identifying Swing Highs and Swing 
     {
       level: 0, moduleNumber: "0.6", title: "Evidence vs Assumption",
       objective: "Building a disciplined reading process.",
-      content: `# Evidence vs Assumption
-
-The final foundation of market reading is the most important for your survival: **Discipline**.
-
-In the markets, there are two ways to think: **Assumption** and **Evidence**. Most retail participants act on assumption. Lurnava learners act on evidence.
-
-### What is Assumption?
-An assumption is believing something will happen *before* the market has actually done it. It is a form of prediction.
-- *Example*: "I think price is going to bounce here because it's a 'round number' like $1.1000."
-- *Why it is dangerous*: You are hoping. You are trying to be "smarter" than the market. If you are wrong, you have no logical reason for why you failed.
-
-### What is Evidence?
-Evidence is an observable chart behavior that has *already happened*.
-- *Example*: "I observe that price reached $1.1000 and then immediately showed a structural shift with strong displacement candles."
-- *Why it is powerful*: You are responding. You aren't guessing what *will* happen; you are observing what *is* happening.
-
-:::decision-rule
-Never form a reading based on what you "feel" or "hope" will happen. Only form a reading based on structural facts that are visible on the chart right now.
-:::
-
-### The "Unclear" Reading
-One of the most valuable phrases in market reading is: **"This is Unclear."**
-If the Evidence Stack is messy—for example, if the Daily chart is bullish but the 1-hour chart is bearish and the current range is narrow—the professional answer is not to guess. The answer is to mark it as **Unclear** and wait.
-
-### Review Conditions
-A **Review Condition** is a specific event that tells you your current reading is no longer valid.
-*Simple Scenario:* You have a bullish reading because price broke a high. Your review condition might be: "If price closes back below the Swing Low that started the move, my bullish reading is dead."
-
-Having a review condition prevents you from becoming emotionally "locked" into a single story. It gives you an objective reason to step back and re-audit.
-
-:::visual
-title: The Professional Decision Board
-lookFor: ["Evidence: Facts already on the chart", "Assumption: Guesses about the future (Avoid)", "Unclear: The state of waiting for more data", "Review Condition: The trigger for a new audit"]
-:::
-
-### Wrong Approach vs Better Approach
-- **Wrong**: "I'm buying here because I think it's cheap." (Assumption)
-- **Better**: "Price has reached a Discount area of the range and has printed a bullish structural shift. I have three pieces of evidence supporting a move higher. My review condition is a close below the new swing low." (Evidence-Based)
-
-:::summary
-Professional reading is about collecting evidence. If there isn't enough evidence, the reading is Unclear. Every plan must have a Review Condition to maintain objectivity.
+      content: `:::lesson-cards
+[
+  {
+    "type": "concept",
+    "title": "Evidence vs Assumption",
+    "label": "Discipline",
+    "body": "The final foundation of market reading is the most important for your survival: **Discipline**.\\n\\nIn the markets, there are two ways to think: **Assumption** and **Evidence**. Professional participants act only on evidence."
+  },
+  {
+    "type": "scenario",
+    "title": "Which Side Are You On?",
+    "label": "The Mindset",
+    "scenario": {
+      "left": {
+        "title": "The Assumer",
+        "content": "Believes something *will* happen before it has. 'I think price will bounce here because it's a round number.' (Hope-based)."
+      },
+      "right": {
+        "title": "The Observer",
+        "content": "Acts on what has *already* happened. 'I observe a structural shift after price reached the level.' (Fact-based)."
+      }
+    }
+  },
+  {
+    "type": "rule",
+    "title": "The Evidence Rule",
+    "label": "Logic",
+    "body": "> Never form a reading based on what you 'feel' or 'hope' will happen. Only form a reading based on structural facts visible on the chart right now."
+  },
+  {
+    "type": "concept",
+    "title": "The Power of 'Unclear'",
+    "label": "Objectivity",
+    "body": "One of the most valuable phrases in market reading is: **'This is Unclear.'**\\n\\nIf the Evidence Stack is messy or contradictory, the professional answer is to wait. Forcing a reading is a form of assumption."
+  },
+  {
+    "type": "concept",
+    "title": "The Review Condition",
+    "label": "Adaptability",
+    "body": "A **Review Condition** is a specific event that tells you your reading is no longer valid. It prevents you from becoming emotionally 'locked' into a single story and gives you an objective reason to re-audit."
+  },
+  {
+    "type": "comparison",
+    "title": "Forming a Plan",
+    "label": "The Process",
+    "comparison": {
+      "left": {
+        "title": "Wrong",
+        "type": "negative",
+        "content": "'I'm buying here because I think it's cheap.' (Assumption)."
+      },
+      "right": {
+        "title": "Better",
+        "type": "positive",
+        "content": "'Price printed a bullish shift in a discount area. I have three pieces of evidence. My review condition is a close below the swing low.' (Evidence-Based)."
+      }
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Professional reading is about collecting evidence. If there isn't enough evidence, the reading is Unclear. Every plan must have a Review Condition to maintain objectivity."
+  }
+]
 :::`,
       interactiveTaskType: "type_b_scenario",
       interactiveTaskData: {
@@ -389,45 +541,74 @@ Professional reading is about collecting evidence. If there isn't enough evidenc
     {
       level: 0, moduleNumber: "0.7", title: "Forex Is Relative Strength, Not One Asset Moving",
       objective: "Understand that a currency pair is a relationship between two economies.",
-      content: `# Forex Is Relative Strength, Not One Asset Moving
-
-When you enter the world of Forex (Foreign Exchange), the first thing you notice is that everything comes in pairs, like **EUR/USD** or **GBP/JPY**. Beginners often make the mistake of thinking they are buying "the Euro" or "the Yen" as if it were a single stock. In reality, you are participating in a **Relationship**.
-
-### The Tug-of-War
-Imagine a game of tug-of-war between two teams. One team is the Eurozone economy, and the other is the United States economy. The price you see on the chart is the center point of that rope.
-- If the Euro team pulls harder (EUR gets stronger), the price moves up.
-- If the U.S. team pulls harder (USD gets stronger), the price moves down.
-
-**What this means:**
-Price movement in Forex is **Relative**. A "rally" (upward move) in EUR/USD doesn't always mean Europe is doing great; it might just mean the U.S. is doing poorly. To read the market like a professional, you must always ask: "Which side of the pair is actually driving this move?"
-
-### Technical Terms: Base and Quote
-To navigate the Forex roadway, you must understand how pairs are structured:
-
-1. **Base Currency**: This is the first currency listed in the pair.
-   *Simple Example:* In **EUR/USD**, the **EUR** is the Base. Think of this as the "item" you are looking at.
-2. **Quote Currency**: This is the second currency listed.
-   *Simple Example:* In **EUR/USD**, the **USD** is the Quote. Think of this as the "money" you use to measure the item.
-
-If the price of EUR/USD is 1.1000, it means 1 Euro is worth 1.10 U.S. Dollars.
-
-:::visual
-title: The Currency Pair Relationship
-lookFor: ["Base Currency (The Item) - First in the pair", "Quote Currency (The Price) - Second in the pair", "Relative Strength - Price rises if Base strengthens OR Quote weakens", "The DXY - A special index that tracks the strength of the US Dollar alone"]
-:::
-
-### What Does Not Count
-A move in one currency pair does not guarantee a move in another, even if they share a currency. For example, EUR/USD might be going up while EUR/JPY is going down. This tells you the move is likely driven by the USD and JPY, not the EUR.
-
-### Common Beginner Mistake: Ignoring the Other Side
-Many beginners see a news headline about "Strong U.S. Jobs Data" and immediately expect EUR/USD to fall. They forget to check if there was even stronger news for the Euro at the same time. Professional participants look at the **DXY** (U.S. Dollar Index) to see how the Dollar is performing against *all* major currencies, not just one.
-
-### Wrong Approach vs Better Approach
-- **Wrong**: "I like the British Pound, so I'm going to buy GBP/USD." (Emotional bias toward one asset).
-- **Better**: "I observe that the US Dollar (DXY) is showing structural weakness, while the British Pound (GBP) is holding its range. GBP/USD is the most logical pair to observe for a potential upward shift." (Relative strength analysis).
-
-:::summary
-Forex is a market of relationships. Every price move is the result of one currency becoming stronger or weaker relative to another. Success comes from identifying which currency is the 'driver' of the move.
+      content: `:::lesson-cards
+[
+  {
+    "type": "concept",
+    "title": "Forex Is Relative Strength",
+    "label": "The Relationship",
+    "body": "In Forex, everything comes in pairs (like **EUR/USD**). You aren't just buying one asset; you are participating in a **Relationship** between two economies."
+  },
+  {
+    "type": "scenario",
+    "title": "The Tug-of-War",
+    "label": "Visualization",
+    "scenario": {
+      "left": {
+        "title": "Base Pulling (EUR)",
+        "content": "The Euro economy is pulling harder. Price moves up. EUR is stronger than USD."
+      },
+      "right": {
+        "title": "Quote Pulling (USD)",
+        "content": "The U.S. economy is pulling harder. Price moves down. USD is stronger than EUR."
+      }
+    }
+  },
+  {
+    "type": "concept",
+    "title": "Base and Quote",
+    "label": "Roadmap",
+    "body": "To navigate pairs, you must understand their structure:\\n\\n- **Base Currency**: The first one listed (The Item). In EUR/USD, it's EUR.\\n- **Quote Currency**: The second one listed (The Money). In EUR/USD, it's USD.\\n\\nIf EUR/USD is 1.1000, it means 1 Euro costs 1.10 U.S. Dollars."
+  },
+  {
+    "type": "concept",
+    "title": "Market Drivers",
+    "label": "The Ecosystem",
+    "items": [
+      { "title": "Relative Strength", "body": "Price rises if Base strengthens OR Quote weakens.", "icon": "strength" },
+      { "title": "The DXY", "body": "An index that tracks the USD against all majors.", "icon": "dxy" },
+      { "title": "Pair Correlation", "body": "Shared currencies don't mean shared moves.", "icon": "correlation" }
+    ]
+  },
+  {
+    "type": "comparison",
+    "title": "Analyzing a Pair",
+    "label": "Process",
+    "comparison": {
+      "left": {
+        "title": "The Bias",
+        "type": "negative",
+        "content": "'I like the British Pound, so I'm buying GBP/USD.' (Emotional bias)."
+      },
+      "right": {
+        "title": "The Analysis",
+        "type": "positive",
+        "content": "'DXY shows weakness while GBP holds its range. GBP/USD is the logical pair to observe.' (Relative strength)."
+      }
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Forex is a market of relationships. Success comes from identifying which side of the pair is the 'driver' of the move. Always check the other side."
+  }
+]
 :::`,
       interactiveTaskType: "choice_block",
       interactiveTaskData: {
@@ -445,42 +626,80 @@ Forex is a market of relationships. Every price move is the result of one curren
     {
       level: 0, moduleNumber: "0.8", title: "Forex Sessions and Liquidity Windows",
       objective: "Learn how the time of day changes market behavior.",
-      content: `# Forex Sessions and Liquidity Windows
-
-The Forex market is open 24 hours a day, 5 days a week. However, it does not move with the same intensity all the time. Because different parts of the world wake up and go to sleep at different times, the market goes through distinct "cycles" called **Sessions**.
-
-### The Three Major Sessions
-1. **The Asian Session (Tokyo)**: Usually the quietest. Price often stays in a narrow range.
-2. **The London Session**: Often the start of the "real" daily move. London is the world's largest Forex hub.
-3. **The New York Session**: High energy. When New York opens, many of the day's major decisions are finalized.
-
-**What this means:**
-The "personality" of the market changes depending on which session is active. A strategy that works during the busy London session might fail miserably during the quiet Asian session.
-
-### Technical Terms: Session and Spread
-1. **Session**: A specific window of time when a major financial center's banks are open.
-   *Beginner Example:* If you try to buy a coffee at 3 AM, the shop is closed. If you try to trade the Australian Dollar at 3 PM in New York, the Australian banks are closed. The market is still "open," but there are fewer participants.
-2. **Spread**: The difference between the buy price and the sell price.
-   *Simple Scenario:* During busy sessions, the spread is very small (cheap to trade). During quiet times or when a session is just opening, the spread can get much wider (more expensive).
-
-:::visual
-title: The 24-Hour Forex Cycle
-lookFor: ["Asian Session - Low volatility, often ranging", "London Open - Injection of volume and new trends", "The Overlap - When London and NY are both open (Highest activity)", "NY Close - Market slows down as the day ends"]
-:::
-
-### What to Observe: The Overlap
-The most important window for many participants is the **London/New York Overlap**. This is a 4-hour window where the two largest financial centers are both active. This is where you see the most "Liquidity"—meaning there are thousands of orders being matched every second.
-
-### Common Beginner Mistake: Over-Trading Quiet Hours
-Beginners often get frustrated when the market doesn't move. They might enter a practice trade during the late Asian session and wonder why nothing is happening for 6 hours.
-*Better Approach:* Focus your practice on the first 2-3 hours of a major session. This is when the most "Evidence" is generated.
-
-### Wrong Approach vs Better Approach
-- **Wrong**: "I have some free time at 8 PM on a Tuesday, so I'll start trading now." (Ignoring the session context).
-- **Better**: "I observe that the London session is opening. I will check for structural shifts now because I know this is a high-liquidity window where real intent is revealed."
-
-:::summary
-Time is just as important as price. Use sessions to provide context for your readings. High-volume sessions provide the most reliable evidence, while quiet sessions often lead to false moves.
+      content: `:::lesson-cards
+[
+  {
+    "type": "concept",
+    "title": "Sessions and Liquidity Windows",
+    "label": "Timing",
+    "body": "The Forex market is open 24 hours a day, but it doesn't move with the same intensity all the time. Market behavior changes in distinct cycles called **Sessions**, based on which major financial centers are awake."
+  },
+  {
+    "type": "concept",
+    "title": "The Three Major Sessions",
+    "label": "The Cycle",
+    "items": [
+      { "title": "Asian (Tokyo)", "body": "Usually the quietest. Narrow ranges.", "icon": "asian" },
+      { "title": "London", "body": "World's largest hub. The 'real' move often starts here.", "icon": "london" },
+      { "title": "New York", "body": "High energy. Major decisions are finalized.", "icon": "new-york" }
+    ]
+  },
+  {
+    "type": "concept",
+    "title": "The Liquidity Overlap",
+    "label": "Peak Activity",
+    "body": "The most important window is the **London/New York Overlap**. This is a 4-hour window where the two largest centers are both active, creating the highest liquidity and the most reliable evidence."
+  },
+  {
+    "type": "scenario",
+    "title": "Session Personality",
+    "label": "Observation",
+    "scenario": {
+      "left": {
+        "title": "Quiet Hours",
+        "content": "Price moves slowly in a tiny range. Spreads are wider. Evidence is noisy and unreliable."
+      },
+      "right": {
+        "title": "Active Hours",
+        "content": "Injection of volume. New trends form. Spreads are tight. Real intent is revealed."
+      }
+    }
+  },
+  {
+    "type": "rule",
+    "title": "The Timing Rule",
+    "label": "Logic",
+    "body": "> Focus your practice on the first 2-3 hours of a major session. High-volume sessions provide the most reliable evidence. Respect the clock."
+  },
+  {
+    "type": "comparison",
+    "title": "Approaching the Day",
+    "label": "Strategy",
+    "comparison": {
+      "left": {
+        "title": "Wrong",
+        "type": "negative",
+        "content": "'I have free time now at 8 PM, so I'll trade now.' (Ignoring session context)."
+      },
+      "right": {
+        "title": "Better",
+        "type": "positive",
+        "content": "'London is opening. I'll check for shifts because I know real intent is revealed now.' (Respecting the window)."
+      }
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Time is just as important as price. High-volume sessions provide the most reliable evidence, while quiet sessions often lead to false moves."
+  }
+]
 :::`,
       interactiveTaskType: "type_b_scenario",
       interactiveTaskData: {
@@ -495,39 +714,74 @@ Time is just as important as price. Use sessions to provide context for your rea
     {
       level: 0, moduleNumber: "0.9", title: "Gold Is Not Just Another Currency Pair",
       objective: "Understanding the unique drivers of the Gold market.",
-      content: `# Gold Is Not Just Another Currency Pair
-
-In your trading terminal, Gold is usually listed as **XAU/USD**. While it looks like a currency pair, Gold behaves very differently. In the financial world, Gold is a **Commodity** and a **Safe-Haven Asset**.
-
-### The Multi-Driver Asset
-Unlike Forex, where you mostly compare two economies, Gold is influenced by three "Gold’s Key Context Drivers":
-1. **The US Dollar**: Since Gold is priced in Dollars (USD), if the Dollar gets stronger, Gold usually gets cheaper (and vice versa).
-2. **Interest Rates**: Gold doesn't pay you interest. If bank interest rates go up, people might sell Gold to put money in the bank. If rates go down, Gold becomes more attractive.
-3. **market uncertainty**: When the world is in crisis (wars, economic crashes), people run to Gold because it is a physical asset that has held value for thousands of years.
-
-**What this means:**
-Gold can move violently even if nothing is happening in the currency markets. It responds to market uncertainty and "inflation" in a way that the Euro or Yen does not.
-
-:::visual
-title: The Gold Context Triangle
-lookFor: ["USD Strength - When the Dollar rises, Gold often falls", "Interest Rates - Higher rates make Gold less attractive", "Uncertainty - Crisis events often cause sudden Gold rallies", "Physical Supply - Mines and central bank reserves"]
-:::
-
-### Why This Roadway Is Different
-Gold is often much more "Volatile" than Forex. This means the price can move much further and much faster in a single minute. For a beginner, this is both an opportunity and a major risk.
-
-**Technical Term: Volatility**
-Volatility is the "speed" and "distance" of price movement.
-*Beginner Example:* Imagine a car. A calm Forex pair is like a family sedan driving at 40 mph. Gold is like a sports car that can go from 0 to 100 mph in seconds. You need better "brakes" (risk management) to drive the sports car.
-
-### What Does Not Count
-A "Gold Signal" from a social media guru that ignores the US Dollar or Interest Rates is not a valid reading. If someone says "Buy Gold because it's cheap," but the U.S. government just raised interest rates to 10%, that "cheap" Gold is likely going to get much cheaper.
-
-### Common Beginner Mistake: Underestimating the Speed
-Beginners often use the same position size on Gold that they use on a slow Forex pair like EUR/GBP. Because Gold moves so much faster, they end up losing their practice balance much quicker than they expected.
-
-:::summary
-Gold is a unique asset driven by the Dollar, interest rates, and market uncertainty. It is highly volatile and requires a higher level of respect for structural boundaries than most currency pairs.
+      content: `:::lesson-cards
+[
+  {
+    "type": "concept",
+    "title": "Gold Is Not Just Another Pair",
+    "label": "Safe-Haven",
+    "body": "In your terminal, Gold is listed as **XAU/USD**. While it looks like a currency pair, Gold behaves very differently. It is a physical commodity that has held value for thousands of years."
+  },
+  {
+    "type": "concept",
+    "title": "Key Context Drivers",
+    "label": "The Trio",
+    "items": [
+      { "title": "The US Dollar", "body": "If the Dollar strengthens, Gold usually gets cheaper.", "icon": "usd" },
+      { "title": "Interest Rates", "body": "Higher rates make non-yielding Gold less attractive.", "icon": "rates" },
+      { "title": "Uncertainty", "body": "Crisis events often cause sudden runs to Gold.", "icon": "crisis" }
+    ]
+  },
+  {
+    "type": "scenario",
+    "title": "Understanding Volatility",
+    "label": "The Sports Car",
+    "scenario": {
+      "left": {
+        "title": "Forex (Sedan)",
+        "content": "A family car driving at 40 mph. Calm, predictable movements."
+      },
+      "right": {
+        "title": "Gold (Sports Car)",
+        "content": "Can go from 0 to 100 mph in seconds. Requires much better brakes (risk management)."
+      }
+    }
+  },
+  {
+    "type": "rule",
+    "title": "The Respect Rule",
+    "label": "Logic",
+    "body": "> Gold is highly volatile. Never use the same position size on Gold that you use on slow Forex pairs. Respect the speed of the asset."
+  },
+  {
+    "type": "comparison",
+    "title": "Analyzing Gold",
+    "label": "Context",
+    "comparison": {
+      "left": {
+        "title": "Guru Logic",
+        "type": "negative",
+        "content": "'Buy Gold because it's cheap!' (Ignoring interest rates and USD strength)."
+      },
+      "right": {
+        "title": "Professional Logic",
+        "type": "positive",
+        "content": "'Dollar is weak and market uncertainty is rising. Gold structural shift is confirmed.' (Multi-driver analysis)."
+      }
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Gold is a unique asset driven by the Dollar, rates, and global uncertainty. It requires a higher level of respect for risk than most currency pairs."
+  }
+]
 :::`,
       interactiveTaskType: "choice_block",
       interactiveTaskData: {
@@ -763,9 +1017,7 @@ You are documenting the **Evidence Stack** you saw before the result happened. T
 2. **Review Condition**: A specific price level or event that tells you your original idea is no longer valid.
    *Simple Scenario:* "I am bullish as long as price stays above $1.1000. If it closes below that, I must re-audit the chart."
 
-:::visual
-title: Weak Note vs. Strong Note
-lookFor: ["Weak: 'I think it's going up. Buying.' (No reason, no context)", "Strong: 'H4 Trend: Bullish. M15: Just broke a swing high. Evidence: 2. Entry at 1.1050. Review Condition: Close below 1.1010.'", "Weak: 'Lost the trade. Market is weird.'", "Strong: 'Result: Loss. Reason: I entered during a low-liquidity window (Asia). Lesson: Wait for London for better evidence.'"]
+:::note-comparison
 :::
 
 ### What Does Not Count

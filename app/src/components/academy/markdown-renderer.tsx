@@ -10,11 +10,47 @@ import {
   Gavel, Scale, XCircle, PlayCircle, ClipboardCheck,
   ChevronDown, ChevronUp, MapPin, Info, ArrowRight
 } from "lucide-react";
+import { LearningLoop, CandleDiagram, NoteComparison } from "./AcademyVisuals";
+import { LessonCardFlow } from "./LessonCardFlow";
+
+const markdownComponents = {
+  h1: ({ className, ...props }: any) => (
+    <h1 className={cn("text-3xl font-extrabold text-[var(--ln-navy-900)] mb-6 border-b border-slate-100 pb-4 tracking-tight", className)} {...props} />
+  ),
+  h2: ({ className, ...props }: any) => (
+    <h2 className={cn("text-2xl font-bold text-[var(--ln-navy-900)] mt-12 mb-4 tracking-tight", className)} {...props} />
+  ),
+  h3: ({ className, ...props }: any) => (
+    <h3 className={cn("text-xl font-bold text-[var(--ln-navy-900)] mt-10 mb-3 tracking-tight", className)} {...props} />
+  ),
+  p: ({ className, ...props }: any) => (
+    <p className={cn("text-[var(--ln-text-secondary)] leading-relaxed mb-6 font-medium", className)} {...props} />
+  ),
+  ul: ({ className, ...props }: any) => (
+    <ul className={cn("list-disc list-inside space-y-3 mb-8 text-[var(--ln-text-secondary)] font-medium", className)} {...props} />
+  ),
+  li: ({ className, ...props }: any) => (
+    <li className={cn("marker:text-[var(--ln-teal-500)]", className)} {...props} />
+  ),
+  blockquote: ({ className, ...props }: any) => (
+    <blockquote className={cn("border-l-4 border-[var(--ln-teal-500)] bg-[var(--ln-teal-soft)] p-6 rounded-r-2xl italic my-8 font-medium", className)} {...props} />
+  ),
+  strong: ({ className, ...props }: any) => (
+    <strong className={cn("text-[var(--ln-navy-900)] font-extrabold", className)} {...props} />
+  ),
+  code: ({ className, ...props }: any) => (
+    <code className={cn("bg-slate-100 px-1.5 py-0.5 rounded text-sm text-[var(--ln-teal-600)] font-mono font-bold", className)} {...props} />
+  ),
+};
 
 interface LessonBlockProps {
   type: string;
   content: string;
   onLaunchScenario?: () => void;
+  interactiveTaskType?: string | null;
+  interactiveTaskData?: any;
+  onComplete?: () => void;
+  onNextModule?: () => void;
 }
 
 const BLOCK_CONFIG: Record<string, { icon: any; label: string; color: string; bgColor: string; borderColor: string }> = {
@@ -118,7 +154,15 @@ const BLOCK_CONFIG: Record<string, { icon: any; label: string; color: string; bg
   }
 };
 
-const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, content: string, onLaunchScenario?: () => void }) => {
+const LessonBlock = ({ 
+  type, 
+  content, 
+  onLaunchScenario,
+  interactiveTaskType,
+  interactiveTaskData,
+  onComplete,
+  onNextModule
+}: LessonBlockProps) => {
   const [isRevealed, setIsRevealed] = useState(false);
   const [choiceSelected, setChoiceSelected] = useState<number | null>(null);
   const [identifyStatus, setIdentifyStatus] = useState<{ x: number; y: number; success: boolean | null } | null>(null);
@@ -156,6 +200,36 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
   };
 
   const config = BLOCK_CONFIG[type] || { icon: Info, label: type.toUpperCase(), color: 'text-slate-500', bgColor: 'bg-slate-50', borderColor: 'border-slate-200' };
+
+  if (type === 'learning-loop') {
+    return <LearningLoop />;
+  }
+
+  if (type === 'candle-diagram') {
+    return <CandleDiagram />;
+  }
+
+  if (type === 'note-comparison') {
+    return <NoteComparison />;
+  }
+
+  if (type === 'lesson-cards') {
+    try {
+      const cards = JSON.parse(content);
+      return (
+        <LessonCardFlow 
+          cards={cards} 
+          interactiveTaskType={interactiveTaskType}
+          interactiveTaskData={interactiveTaskData}
+          onComplete={onComplete}
+          onNextModule={onNextModule}
+        />
+      );
+    } catch (e) {
+      console.error("Failed to parse lesson cards JSON:", e);
+      return <div className="p-4 bg-rose-50 text-rose-500 border border-rose-100 rounded-xl">Error loading lesson cards: Invalid JSON structure</div>;
+    }
+  }
 
   if (type === 'visual') {
     const meta = parseMetadata(content);
@@ -356,7 +430,12 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
                   "absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 flex items-center justify-center animate-in zoom-in duration-200 shadow-lg",
                   identifyStatus.success ? "bg-emerald-500/20 border-emerald-500" : "bg-rose-500/20 border-rose-500"
                 )}
-                style={{ left: `${identifyStatus.x}%`, top: `${identifyStatus.y}%` }}
+                style={{ 
+                  "--mark-x": `${identifyStatus.x}%`, 
+                  "--mark-y": `${identifyStatus.y}%`,
+                  left: "var(--mark-x)",
+                  top: "var(--mark-y)"
+                } as React.CSSProperties}
               >
                 {identifyStatus.success ? <CheckCircle2 size={16} className="text-emerald-600" /> : <XCircle size={16} className="text-rose-600" />}
               </div>
@@ -488,17 +567,29 @@ interface MarkdownRendererProps {
   content: string;
   className?: string;
   onLaunchScenario?: () => void;
+  interactiveTaskType?: string | null;
+  interactiveTaskData?: any;
+  onComplete?: () => void;
+  onNextModule?: () => void;
 }
 
-export function MarkdownRenderer({ content, className, onLaunchScenario }: MarkdownRendererProps) {
+export function MarkdownRenderer({ 
+  content, 
+  className, 
+  onLaunchScenario,
+  interactiveTaskType,
+  interactiveTaskData,
+  onComplete,
+  onNextModule
+}: MarkdownRendererProps) {
   // Parse content for ::: blocks
-  const parts = content.split(/(:::[a-z-]+\s*[\r\n]+[\s\S]*?[\r\n]+\s*:::)/g);
+  const parts = content.split(/(:::[a-z-]+\s*[\r\n]*[\s\S]*?[\r\n]*\s*:::)/g);
 
   return (
     <div className={cn("markdown-content max-w-none", className)}>
       {parts.map((part, index) => {
         if (part.startsWith(":::")) {
-          const match = part.match(/:::([a-z-]+)\s*[\r\n]+([\s\S]*?)[\r\n]+\s*:::/);
+          const match = part.match(/:::([a-z-]+)\s*[\r\n]*([\s\S]*?)[\r\n]*\s*:::/);
           if (match) {
             return (
               <LessonBlock 
@@ -506,6 +597,10 @@ export function MarkdownRenderer({ content, className, onLaunchScenario }: Markd
                 type={match[1]} 
                 content={match[2]} 
                 onLaunchScenario={onLaunchScenario}
+                interactiveTaskType={interactiveTaskType}
+                interactiveTaskData={interactiveTaskData}
+                onComplete={onComplete}
+                onNextModule={onNextModule}
               />
             );
           }
@@ -517,35 +612,7 @@ export function MarkdownRenderer({ content, className, onLaunchScenario }: Markd
           <ReactMarkdown 
             key={index}
             remarkPlugins={[remarkGfm]}
-            components={{
-              h1: ({ className, ...props }) => (
-                <h1 className={cn("text-3xl font-extrabold text-[var(--ln-navy-900)] mb-6 border-b border-slate-100 pb-4 tracking-tight", className)} {...props} />
-              ),
-              h2: ({ className, ...props }) => (
-                <h2 className={cn("text-2xl font-bold text-[var(--ln-navy-900)] mt-12 mb-4 tracking-tight", className)} {...props} />
-              ),
-              h3: ({ className, ...props }) => (
-                <h3 className={cn("text-xl font-bold text-[var(--ln-navy-900)] mt-10 mb-3 tracking-tight", className)} {...props} />
-              ),
-              p: ({ className, ...props }) => (
-                <p className={cn("text-[var(--ln-text-secondary)] leading-relaxed mb-6 font-medium", className)} {...props} />
-              ),
-              ul: ({ className, ...props }) => (
-                <ul className={cn("list-disc list-inside space-y-3 mb-8 text-[var(--ln-text-secondary)] font-medium", className)} {...props} />
-              ),
-              li: ({ className, ...props }) => (
-                <li className={cn("marker:text-[var(--ln-teal-500)]", className)} {...props} />
-              ),
-              blockquote: ({ className, ...props }) => (
-                <blockquote className={cn("border-l-4 border-[var(--ln-teal-500)] bg-[var(--ln-teal-soft)] p-6 rounded-r-2xl italic my-8 font-medium", className)} {...props} />
-              ),
-              strong: ({ className, ...props }) => (
-                <strong className={cn("text-[var(--ln-navy-900)] font-extrabold", className)} {...props} />
-              ),
-              code: ({ className, ...props }) => (
-                <code className={cn("bg-slate-100 px-1.5 py-0.5 rounded text-sm text-[var(--ln-teal-600)] font-mono font-bold", className)} {...props} />
-              ),
-            }}
+            components={markdownComponents}
           >
             {part}
           </ReactMarkdown>

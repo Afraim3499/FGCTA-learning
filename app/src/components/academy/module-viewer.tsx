@@ -254,10 +254,14 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
             <MarkdownRenderer
               content={currentContent || "Lesson content is currently being prepared."}
               onLaunchScenario={handleAutoLaunch}
+              interactiveTaskType={module.interactiveTaskType}
+              interactiveTaskData={module.interactiveTaskData}
+              onComplete={handleComplete}
+              onNextModule={module.nextModuleId ? () => handleProceed(`/course/module/${module.nextModuleId}`) : undefined}
             />
           </div>
 
-          {module.interactiveTaskType && (
+          {module.interactiveTaskType && !currentContent?.includes(':::lesson-cards') && (
             <div className="mt-12 pt-12 border-t border-[var(--ln-border)]">
               <div className="flex items-center gap-3 mb-6">
                 <span className="px-3 py-1 rounded-full bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] text-[10px] font-extrabold uppercase tracking-widest">Practice Exercise</span>
@@ -306,6 +310,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                   <ChoiceBlockPractice
                     question={module.interactiveTaskData.question}
                     options={module.interactiveTaskData.options || []}
+                    correctIndex={module.interactiveTaskData.correctIndex}
                     onPass={() => setTaskResult({ type: 'practice_complete', score: 100 } as any)}
                   />
                 )}

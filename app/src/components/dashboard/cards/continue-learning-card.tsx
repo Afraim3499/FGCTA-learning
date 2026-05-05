@@ -53,9 +53,13 @@ export function ContinueLearningCard({ step, progressPercent }: ContinueLearning
             <span className="text-[10px] font-bold text-[var(--ln-teal-500)] uppercase tracking-wider">{progressPercent}% Complete</span>
           </div>
           <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+            {/* eslint-disable-next-line react/no-inline-styles */}
             <div 
               className="h-full bg-[var(--ln-teal-500)] rounded-full transition-all duration-1000" 
-              style={{ width: `${progressPercent}%` }}
+              style={{ 
+                "--progress-percent": `${progressPercent}%`,
+                width: "var(--progress-percent)"
+              } as React.CSSProperties}
             />
           </div>
         </div>

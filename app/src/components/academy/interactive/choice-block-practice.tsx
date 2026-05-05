@@ -13,7 +13,8 @@ interface ChoiceOption {
 
 interface ChoiceBlockPracticeProps {
   question: string;
-  options: ChoiceOption[];
+  options: ChoiceOption[] | string[];
+  correctIndex?: number;
   onPass: () => void;
 }
 
@@ -25,14 +26,14 @@ interface ChoiceBlockPracticeProps {
  * - Shows feedback on selection
  * - Calls onPass() when correct answer is selected
  */
-export function ChoiceBlockPractice({ question, options: rawOptions, onPass }: ChoiceBlockPracticeProps) {
-  const options: ChoiceOption[] = rawOptions.map((opt: any, index) => {
+export function ChoiceBlockPractice({ question, options: rawOptions, correctIndex, onPass }: ChoiceBlockPracticeProps) {
+  const options: ChoiceOption[] = (rawOptions as any[]).map((opt: any, index) => {
     if (typeof opt === 'string') {
       return {
         id: String.fromCharCode(65 + index), // A, B, C...
         text: opt,
-        isCorrect: false, // Will be overridden or ignored if using legacy index-based check elsewhere, but here we expect the seed to provide correct structure
-        feedback: "Incorrect. Review the lesson content."
+        isCorrect: correctIndex === index,
+        feedback: correctIndex === index ? "Correct! Well done." : "Incorrect. Review the lesson content."
       };
     }
     return opt;

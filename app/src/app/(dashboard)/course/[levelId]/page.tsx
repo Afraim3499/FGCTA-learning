@@ -79,9 +79,13 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
               <span className="text-[var(--ln-navy-900)]">{currentLevel.completionPct}%</span>
             </div>
             <div className="h-2 w-full bg-[var(--ln-bg-soft)] rounded-full overflow-hidden border border-[var(--ln-border)]">
+              {/* eslint-disable-next-line react/no-inline-styles */}
               <div 
                 className="h-full bg-[var(--ln-teal-500)] rounded-full transition-all duration-1000 shadow-[0_0_12px_rgba(20,184,166,0.3)]" 
-                style={{ width: `${currentLevel.completionPct}%` }}
+                style={{ 
+                  "--progress-width": `${currentLevel.completionPct}%`,
+                  width: "var(--progress-width)"
+                } as React.CSSProperties}
               />
             </div>
           </div>

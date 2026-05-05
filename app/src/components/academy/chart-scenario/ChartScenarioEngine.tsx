@@ -296,6 +296,7 @@ export function ChartScenarioEngine({ scenario, moduleId, onClose, onPass }: Cha
                               <button 
                                 onClick={() => removeElement(tool.label)}
                                 className="text-slate-300 hover:text-rose-500 transition-colors opacity-0 group-hover:opacity-100"
+                                title="Remove element"
                               >
                                 <Trash2 size={12} />
                               </button>

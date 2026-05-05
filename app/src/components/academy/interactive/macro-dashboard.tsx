@@ -63,6 +63,7 @@ export function MacroDashboard() {
                 value={dxyValue}
                 onChange={(e) => setDxyValue(Number(e.target.value))}
                 className="w-full accent-accent-blue"
+                title="DXY Index Adjustment"
               />
               <div className="flex justify-between text-[8px] font-mono text-text-muted uppercase">
                 <span>Dovish (100)</span>
@@ -91,6 +92,7 @@ export function MacroDashboard() {
                 value={yieldValue}
                 onChange={(e) => setYieldValue(Number(e.target.value))}
                 className="w-full accent-pass-green"
+                title="US10Y Yield Adjustment"
               />
               <div className="flex justify-between text-[8px] font-mono text-text-muted uppercase">
                 <span>Liquidity (3%)</span>
@@ -123,7 +125,10 @@ export function MacroDashboard() {
                     "h-full rounded-full transition-all duration-500",
                     goldPrice > 2050 ? "bg-pass-green shadow-glow-profit" : "bg-fail-red shadow-glow-loss"
                   )}
-                  style={{ width: `${Math.abs(((goldPrice - 1800) / (2300 - 1800)) * 100)}%` }}
+                  style={{ 
+                    "--gold-progress": `${Math.abs(((goldPrice - 1800) / (2300 - 1800)) * 100)}%`,
+                    width: "var(--gold-progress)"
+                  } as React.CSSProperties}
                 />
               </div>
             </div>

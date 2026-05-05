@@ -457,6 +457,7 @@ export function StrategyLabClient({
                  <button 
                    onClick={() => { setIsPracticing(false); setViewingAnalysis(null); resetPracticeState(); }}
                    className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
+                   title="Close"
                  >
                    <X size={24} />
                  </button>
