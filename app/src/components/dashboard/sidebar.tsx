@@ -102,7 +102,7 @@ export function Sidebar() {
 
           <div className="flex justify-between items-center px-2">
             {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day, i) => (
-              <div key={day} className="flex flex-col items-center gap-1.5 flex-1 opacity-100">
+              <div key={`${day}-${i}`} className="flex flex-col items-center gap-1.5 flex-1 opacity-100">
                 <div className={cn("w-full h-1.5 rounded-full transition-all", i < 4 ? "bg-[var(--ln-teal-500)]" : "bg-[var(--ln-border)]")} />
                 <span className="text-[8px] font-bold text-[var(--ln-text-dim)] uppercase tracking-tighter">{day}</span>
               </div>

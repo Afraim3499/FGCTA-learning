@@ -326,9 +326,9 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                   <div className="text-center space-y-4">
                     <p className="text-[10px] font-extrabold text-amber-500 uppercase tracking-widest">Practical Mission Required</p>
                     <p className="text-sm text-[var(--ln-text-secondary)] font-medium">
-                      Launch the <strong className="text-[var(--ln-navy-900)]">Knowledge Test</strong> from the sidebar to complete this module.
+                      Launch the <strong className="text-[var(--ln-navy-900)]">{module.interactiveTaskData.missionTitle || "Synthesis Mission"}</strong> from the sidebar to complete this module.
                     </p>
-                    <p className="text-[10px] text-[var(--ln-text-muted)] font-bold uppercase">Pass threshold: {module.interactiveTaskData.passThreshold}% · Knowledge Review</p>
+                    <p className="text-[10px] text-[var(--ln-text-muted)] font-bold uppercase">Pass threshold: {module.interactiveTaskData.passThreshold}% · Practical Skill Verification</p>
                   </div>
                 )}
               </div>

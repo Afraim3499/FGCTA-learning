@@ -358,26 +358,101 @@ async function main() {
     // ============================================
     {
       level: 5, moduleNumber: "5.1", title: "Evidence Stack Framework",
-      objective: "Learn to collect objective structural clues into a cohesive case for scenario observation.",
-      content: "# The Evidence Stack\n\nIn Level 5, we transition from identifying isolated structures to building a complete case for chart observation. In Levels 2 through 4, you learned to identify individual components: Market Structure Shifts, Fair Value Gaps, Order Blocks, Premium and Discount zones, and session-based delivery windows. Each of those was a single clue. Level 5 teaches you to combine multiple clues into a unified reading called an Evidence Stack.\n\nAn Evidence Stack is not a checklist that tells you what to do. It is an objective collection of structural observations that, when aligned, create a scenario worth observing in simulation. The stack itself does not produce an instruction. It produces a reading.\n\n### Why it Matters\nA single structural clue can appear anywhere on any chart at any time. An MSS on the 1-minute chart inside a 4-hour consolidation is not the same quality of clue as an MSS on the 4-hour chart that violates a Weekly anchor. The Evidence Stack framework forces you to weigh each clue by its timeframe origin, its structural context, and whether it aligns with or contradicts other clues already in the stack.\n\nWithout this framework, learners tend to act on the first clue they see. This produces inconsistent readings and poor journal review quality over time.\n\n### What to Observe\n- Alignment of HTF structural anchors (Is the Daily or Weekly narrative clear?).\n- Presence of delivery gaps (FVG/Voids) in the direction of the HTF reading.\n- Interaction with major boundaries (BSL/SSL) that would change the narrative if violated.\n- Session context (Is the current session window historically associated with delivery?).\n- Displacement quality (Was the move that created the clue strong and sustained, or weak and immediately retraced?).\n\n### What Does Not Count as Evidence\n- Intuition, gut feelings, or emotional reactions to recent candles.\n- Isolated candles without structural context (a single large candle is not an evidence stack).\n- News headlines without observable price displacement on the chart.\n- Indicators or oscillators that are not part of the structural curriculum.\n- Other learners' opinions or readings shared in group discussions.\n\n### Common Mistake\nThe most common mistake is confirmation bias within the stack itself. A learner identifies one bullish clue and then unconsciously filters all subsequent observations to support that initial reading. A genuine evidence stack includes both supporting and conflicting clues. If the Daily chart shows a bearish MSS but the 4-hour chart has a bullish FVG, both observations belong in the stack. The conflict is the information.\n\n### Example Scenario\nImagine the EUR/USD Daily chart has completed a bearish MSS, violating the previous swing low with displacement. On the 1-hour chart, price is currently retracing upward into a Fair Value Gap left behind during the Daily displacement. Your evidence stack would include: (1) Daily bearish MSS — strong clue, (2) 1H FVG acting as a potential area to observe — supporting clue, (3) price is currently in a Premium zone relative to the recent dealing range — contextual alignment. All three clues align. This is a stacked reading.\n\nNow consider: if the 4-hour chart showed a bullish Order Block that has not yet been violated, that is a conflicting clue. It belongs in the stack too. The stack is not about building a case for one direction. It is about collecting all observable evidence.\n\n### Wrong Reading vs Better Reading\n- **Wrong**: 'I see one FVG on the 15-minute chart, so my scenario is bearish.' (Single clue, no HTF context, no conflict check.)\n- **Better**: 'The Daily MSS is bearish. The 1H has a FVG aligned with that narrative. However, a 4H OB below has not been violated, which is conflicting. My primary reading is bearish, but I note the conflict.' (Multiple timeframes, aligned and conflicting clues, no instruction generated.)\n\n### Practice Instruction\nOpen a simulation chart. Before forming any reading, write down every structural clue you can identify across at least two timeframes. Label each clue as 'supporting' or 'conflicting' relative to the HTF narrative. Do not form a scenario until you have at least three observations recorded.\n\n### Journal Review Prompt\nAfter your simulation session, review your evidence stack and ask: 'Did I record conflicting evidence, or did I only collect clues that supported my initial impression?' If you only recorded supporting evidence, flag this session for bias review.\n\n### Summary\nThe Evidence Stack is the foundation of Level 5. Every subsequent module builds on this framework. A scenario plan without a stack is just an opinion. A stack without conflict acknowledgment is just confirmation bias in a structured format.",
+      objective: "Transition from identifying isolated components to building a unified, weighted reading of the market environment.",
+      content: `# 5.1 — Evidence Stack Framework
+
+:::skill-target
+Master the ability to unify isolated structural clues into a single, weighted Evidence Stack.
+:::
+
+### The Shift to Professional Synthesis
+In previous levels, you learned how to find individual tools: a Market Structure Shift, a Fair Value Gap, or an Order Block. However, in simulation, these tools often provide conflicting signals. A professional participant does not react to a single clue; they build an **Evidence Stack**.
+
+:::visual
+title: The Evidence Ladder
+image: /images/academy/level5/5.1_stack.png
+caption: Layering high-probability clues to find the path of highest structural alignment.
+lookFor: ["HTF Directional Narrative", "Intermediate MSS Quality", "Price Delivery (FVG/OB)", "Session Liquidity Context"]
+:::
+
+### What Counts as Evidence?
+Not all clues are weighted equally. The "Stack" follows a hierarchy of significance:
+1. **The Anchor**: High-Timeframe structure (Daily/4H).
+2. **The Catalyst**: A clear Market Structure Shift with displacement.
+3. **The Vehicle**: The specific entry array (FVG, Order Block) being respected.
+4. **The Timing**: Interaction occurring during a high-volume session window.
+
+:::decision-rule
+If your stack contains less than three layers of alignment, the environment is considered "Low Certainty." The professional decision is to observe, not participate.
+:::
+
+### The "Conflict" Filter
+When you find a Bullish FVG but the Daily structure is Bearish, you have **Structural Conflict**. In Level 5, we do not "guess" which will win. We identify the conflict, document it in the journal, and wait for one side to be invalidated.
+
+:::trap
+**The Single-Clue Fallacy**: Assuming a "Perfect FVG" will hold even when the HTF Evidence Stack is pointing in the opposite direction.
+:::
+
+### Journal Review Prompt
+After your simulation session, review your evidence stack and ask: 'Did I record conflicting evidence, or did I only collect clues that supported my initial impression?' If you only recorded supporting evidence, flag this session for bias review.`,
       interactiveTaskType: "choice_block",
       interactiveTaskData: {
         question: "A learner identifies a bearish MSS on the Daily chart and a bullish Order Block on the 4-hour chart. How should these be handled in the Evidence Stack?",
         options: [
-          "Ignore the Order Block because the Daily MSS is more important.",
-          "Record both observations in the stack — the MSS as a supporting clue and the OB as a conflicting clue.",
-          "Wait until one of them disappears before building the stack.",
-          "Choose whichever clue appeared most recently."
-        ],
-        correctIndex: 1,
-        feedback: "Correct. A complete evidence stack includes both supporting and conflicting structural observations across timeframes."
+          { id: "A", text: "Ignore the Order Block because the Daily MSS is more important.", isCorrect: false, feedback: "Incorrect. The stack must account for all relevant structural clues, even conflicting ones." },
+          { id: "B", text: "Record both observations in the stack — the MSS as a supporting clue and the OB as a conflicting clue.", isCorrect: true, feedback: "Correct. A complete evidence stack includes both supporting and conflicting structural observations across timeframes." },
+          { id: "C", text: "Wait until one of them disappears before building the stack.", isCorrect: false, feedback: "Waiting removes the ability to plan for alternative outcomes during the session." },
+          { id: "D", text: "Choose whichever clue appeared most recently.", isCorrect: false, feedback: "Recency is not a weighting factor in a disciplined evidence stack." }
+        ]
       },
       skillLevel: "advanced", orderIndex: 1
     },
     {
       level: 5, moduleNumber: "5.2", title: "Primary vs Alternative Scenario",
       objective: "Build two-way branching logic to maintain objectivity and prevent narrative lock.",
-      content: "# Thinking in Branches\n\nEvery scenario plan must contain two paths: a Primary Scenario and an Alternative Scenario. This is not optional. A plan with only one expected outcome is not a scenario plan — it is a prediction. And predictions, by definition, assume certainty where none exists.\n\n### Concept Explanation\n- **Primary Scenario**: The current strongest reading based on the evidence stack. This is the path that has the most aligned structural clues across timeframes.\n- **Alternative Scenario**: The path that becomes valid if a specific structural anchor is violated, making the primary reading no longer valid.\n\nBoth scenarios must be defined before the session begins. Writing them down is not a suggestion — it is a requirement. If you cannot articulate both paths clearly, the reading is not ready.\n\n### Why it Matters\nWithout an alternative scenario, learners fall into 'narrative lock' — the psychological state where they refuse to accept that their reading is incorrect, even as the chart provides clear evidence of structural change. Narrative lock leads to ignoring invalidation, extending timelines, and rationalizing contradictory evidence. It is one of the most damaging patterns in simulation review.\n\nBranching logic forces the mind to pre-commit to objectivity. When you have already written 'If price violates X with displacement, my alternative scenario is Y,' the emotional resistance to accepting the alternative is significantly reduced.\n\n### What to Observe\n- The specific structural anchor that separates the primary from the alternative. This must be a concrete level, not a vague area.\n- Whether the alternative scenario has its own evidence (even if weaker than the primary). Alternatives are not random — they are structurally grounded.\n- The displacement quality required to trigger the switch. A wick through a level is not the same as a full body close with a delivery gap.\n\n### What Does Not Count\n- 'I think it might also go the other way' is not an alternative scenario. It must be specific and anchored.\n- Emotional hedging ('I'll just wait and see') is not branching logic.\n- Copying another learner's alternative scenario without understanding the structural basis.\n\n### Common Mistake\nDefining the alternative scenario but never actually switching to it when the evidence triggers the change. This is narrative lock disguised as preparation. The alternative exists to be activated when the conditions are met — not to sit unused in the journal.\n\n### Full Example\n**Chart**: EUR/USD 1-hour. Daily chart has a bearish MSS. Price is retracing into a 1H Fair Value Gap at 1.0965.\n\n**Primary Scenario**: Price reaches the 1H FVG at 1.0965, fails to close above it with displacement, and continues the bearish Daily narrative. The area to observe is the FVG itself and the reaction candles. If price creates a new bearish delivery gap from this zone, the primary reading is supported.\n\n**Alternative Scenario**: Price reaches the 1H FVG at 1.0965, closes above it with a full-body displacement candle, and creates a new bullish FVG above. This would violate the bearish retracement thesis and indicate that the 1H structure is shifting. If this happens, the Daily bearish narrative must be re-evaluated — the MSS may have been a false break of the previous swing.\n\n**Invalidation for Primary**: A 1H candle body closes above 1.0975 with displacement.\n**Invalidation for Alternative**: Price returns below 1.0950 after the initial displacement above, indicating the bullish move was a sweep.\n\n**Journal Entry**: Write both scenarios and their invalidation levels before the session. After the session, record which scenario activated and whether you followed the plan.\n\n### Wrong Reading vs Better Reading\n- **Wrong**: 'My scenario is bearish because the Daily MSS is clear.' (No alternative, no invalidation, no branching.)\n- **Better**: 'Primary: bearish continuation from the 1H FVG. Alternative: bullish shift if price closes above 1.0975 with displacement. I will observe both and record which activates.' (Branched, specific, anchored.)\n\n### Practice Instruction\nIn your next simulation session, write both scenarios in full before you begin observing. Include the exact structural level that separates them. After the session, check: did the primary or alternative activate? Did you follow the correct branch? If you stayed on the primary after the alternative conditions were met, flag this as narrative lock.\n\n### Journal Review Prompt\n'Did I define both scenarios with specific structural anchors? When the alternative conditions were met, did I switch, or did I hold the primary? What was my emotional state during the switch point?'\n\n### Summary\nBranching logic is the structural defense against narrative lock. Every session must begin with two written scenarios. The quality of your planning is measured not by whether the primary scenario played out, but by whether you followed the correct branch when conditions changed.",
+      content: `# 5.2 — Primary vs Alternative Scenario
+
+:::skill-target
+Develop the discipline to 'branch' your thinking by preparing for both your expected outcome and its logical invalidation.
+:::
+
+### Thinking in Branches
+A "Scenario" is not a prediction. It is a logical "If/Then" statement. If you only have one plan, you are emotionally committed to a single outcome. A professional participant always carries two: the **Primary Scenario** and the **Alternative Scenario**.
+
+:::visual
+title: Branching Logic Map
+image: /images/academy/level5/5.2_branching.png
+caption: Preparing for market delivery in both directions to remain objective during the session.
+lookFor: ["Primary Execution Logic", "Invalidation Trigger Point", "Alternative Narrative Pivot", "Neutral Observation Criteria"]
+:::
+
+### The Primary Scenario (The 'A' Plan)
+This is the path with the most Evidence Stack alignment.
+*   **Trigger**: Price interacts with a specific array (e.g., 1H FVG).
+*   **Behavior**: Price shows immediate displacement in the narrative direction.
+*   **Objective**: Price reaches the identified liquidity pool.
+
+:::decision-rule
+Before every session, you must be able to state: "If price closes below [Level X], my Primary Bullish Scenario is dead, and I will pivot to Neutral or Bearish."
+:::
+
+### The Alternative Scenario (The 'B' Plan)
+This is what happens if your Primary Scenario is **invalidated**.
+*   **Trigger**: Price closes through your invalidation anchor.
+*   **New Logic**: The rejection of your plan confirms a move in the opposite direction or a transition to a "Sideways/Unclear" state.
+
+:::visual-compare
+title: Scenario Bias Check
+caption: Compare how you feel when price reaches your area vs. how you should react.
+leftImage: /images/academy/level5/5.2_branching.png
+leftLabel: OBJECTIVE BRANCHING
+rightImage: /images/academy/level5/5.2_lock.png
+rightLabel: NARRATIVE LOCK (TRAP)
+:::
+
+:::trap
+**Narrative Lock**: Entering a session so convinced that price 'must' go up that you ignore the structural clues telling you the Alternative Scenario is currently active.
+:::`,
       interactiveTaskType: "type_b_scenario",
       interactiveTaskData: {
         contextPrompt: "You have built an evidence stack supporting a bearish scenario from a 1H FVG at 1.0965. The Daily MSS is bearish. You need to define your Alternative Scenario. Which of the following is the strongest alternative?",
@@ -392,11 +467,51 @@ async function main() {
     {
       level: 5, moduleNumber: "5.3", title: "Invalidation and Review Conditions",
       objective: "Define the exact structural conditions under which a scenario is no longer valid.",
-      content: "# When a Scenario Ends\n\nA scenario plan is only as useful as its invalidation conditions. If you have not defined the specific structural event that makes your current reading no longer valid, you do not have a plan — you have a hope. Invalidation is not about being 'wrong.' It is about recognizing that the structural conditions that supported your reading have objectively changed.\n\n### Concept Explanation\nInvalidation conditions are pre-defined structural checkpoints written into the scenario plan before the observation session begins. They answer the question: 'What specific event on the chart would cause me to update or abandon this reading?'\n\nThere are two categories of invalidation:\n\n**Structure-Based Invalidation**: A specific structural anchor is violated with displacement. For example, if your bullish scenario is built on the premise that a certain swing low holds, then a candle body closing below that swing low with a delivery gap is a structure-based invalidation.\n\n**Time-Based Invalidation**: The scenario has a time window. If the expected structural interaction does not occur within the defined session window, the scenario is marked 'Expired — No Interaction' in the journal. This is not a failure. It is an objective observation that the conditions did not materialize.\n\n### Why it Matters\nWithout pre-defined invalidation, learners enter a dangerous loop: they keep waiting for their scenario to play out, reinterpreting every candle as 'almost there.' This leads to extended observation sessions with no structural basis, which degrades review quality and reinforces subjective pattern-matching.\n\nPre-defined invalidation creates a clean decision point. When the condition is met, the scenario ends. There is no ambiguity, no negotiation, and no emotional override.\n\n### What to Observe\n- The structural anchor that supports the current scenario. If this anchor is a swing low, the invalidation is the violation of that swing low with displacement.\n- The session window for the scenario. If the scenario is built around London Open delivery, and no interaction occurs by the end of the London session, the scenario is time-expired.\n- The quality of the violation. A wick through a level is not the same as a body close through a level with a new delivery gap. Only displacement counts.\n\n### What Does Not Count\n- Moving the invalidation point after the session starts. This is called 'giving it more room' and it is the most common form of plan abandonment disguised as flexibility.\n- Emotional invalidation ('I feel like this is not working'). Feelings are not structural events.\n- Partial violations without displacement. A wick through a level that immediately recovers is not invalidation — it may be a sweep.\n\n### Common Mistake\nThe most dangerous mistake is redefining invalidation in real time. A learner sets their invalidation at a swing low. Price approaches that level. Instead of observing the interaction objectively, they move the invalidation lower, reasoning that 'the real support is a bit further down.' This is not adaptation — it is narrative protection. True adaptation happens when you switch to your pre-defined alternative scenario, not when you extend the boundaries of your current one.\n\n### Example Scenario\n**Structure-Based**: Your bullish scenario is anchored by the swing low at 1.0830. Your invalidation condition is: 'If a 1H candle body closes below 1.0825 with displacement and creates a bearish FVG, the bullish reading is no longer valid.' During the session, price wicks to 1.0828 but closes back above 1.0835 — this is NOT invalidation (no body close, no displacement). Later, a candle closes at 1.0820 with a clear bearish delivery gap — this IS invalidation. The scenario is over.\n\n**Time-Based**: Your scenario is built around a New York AM delivery window (8:30–11:00 EST). By 11:15, price has not reached your area to observe. You record: 'Time-expired. No interaction. Scenario archived.' This is a clean, objective outcome.\n\n### Wrong Reading vs Better Reading\n- **Wrong**: 'Price went past my level but I think it will come back, so I am keeping the scenario.' (Invalidation ignored, narrative protection active.)\n- **Better**: 'Price closed below my structural anchor with displacement. The bullish scenario is no longer valid. Switching to the pre-defined alternative and recording the invalidation in the journal.' (Clean, objective, pre-defined.)\n\n### Practice Instruction\nFor your next simulation session, write the invalidation condition in a single sentence before you begin. It must include: (1) the specific structural level, (2) the candle behavior required (body close with displacement), and (3) what you will do when it triggers (switch to alternative or archive the scenario). After the session, review whether the condition was met and whether you followed the plan.\n\n### Journal Review Prompt\n'Did I define my invalidation before the session? Was it specific (level + candle behavior)? If the condition was met, did I follow the plan or did I adjust the invalidation to keep the scenario alive?'\n\n### Summary\nInvalidation is not failure. It is the most objective part of the scenario planning process. A scenario that is cleanly invalidated and properly archived produces better learning data than a scenario that was vaguely right for unclear reasons. Define the end before you begin.",
+      content: `# 5.3 — Invalidation and Review Conditions
+
+:::skill-target
+Learn to identify the exact structural point where a scenario 'dies' and requires an immediate audit.
+:::
+
+### The 'Kill-Switch' for Logic
+Every Evidence Stack has a foundation. If that foundation is broken, the entire stack collapses. We call this the **Invalidation Anchor**. Without an invalidation point, you are not planning; you are guessing.
+
+:::visual
+title: Invalidation Anchor Visual
+image: /images/academy/level5/5.3_invalidation.png
+caption: Identifying the specific swing level that protects your structural narrative.
+lookFor: ["Protected Swing High/Low", "Price Displacement Point", "Validation of MSS", "Point of No Return"]
+:::
+
+### Two Types of Invalidation
+1.  **Structure-Based Invalidation**: A specific structural anchor is violated with displacement. For example, if your bullish scenario is built on the premise that a certain swing low holds, then a candle body closing below that swing low with a delivery gap is a structure-based invalidation.
+2.  **Time-Based Invalidation**: The scenario has a time window. If the expected structural interaction does not occur within the defined session window, the scenario is marked 'Expired'.
+
+:::decision-rule
+If price reaches your Invalidation Anchor, the session logic is VOID. Do not re-enter based on the old plan. You must perform a full Review Audit before forming a new scenario.
+:::
+
+:::trap
+**Anchor-Dragging**: Moving your invalidation point further away because you 'feel' price is just doing a deeper retracement. This is the fastest way to lose discipline.
+:::`,
       interactiveTaskType: "type_a_point_click",
       interactiveTaskData: {
         prompt: "Identify the structural anchor that would serve as the logical invalidation point for a bullish scenario built from the recent Fair Value Gap. Look for the swing low that anchored the expansion.",
-        validationZones: [{ label: "Invalidation Point", timeStart: "2024-01-15", timeEnd: "2024-01-16", priceMin: 1.0820, priceMax: 1.0840 }],
+        chartData: [
+          { time: '2024-01-10', open: 1.0810, high: 1.0840, low: 1.0805, close: 1.0835 },
+          { time: '2024-01-11', open: 1.0835, high: 1.0860, low: 1.0830, close: 1.0855 },
+          { time: '2024-01-12', open: 1.0855, high: 1.0880, low: 1.0850, close: 1.0870 },
+          { time: '2024-01-15', open: 1.0870, high: 1.0875, low: 1.0825, close: 1.0830 },
+          { time: '2024-01-16', open: 1.0830, high: 1.0850, low: 1.0815, close: 1.0840 },
+          { time: '2024-01-17', open: 1.0840, high: 1.0890, low: 1.0835, close: 1.0885 }
+        ],
+        validationZones: {
+          primary: [{ time: "2024-01-15", priceMin: 1.0820, priceMax: 1.0840 }]
+        },
+        hints: {
+          light: "Look for the lowest point of the retracement before the final upward move.",
+          guided: "Identify the candle on 2024-01-15 near the 1.0830 level."
+        },
         rationale: "The swing low that anchored the bullish expansion is the structural foundation of the scenario. If this level is violated with displacement, the bullish reading is no longer valid."
       },
       skillLevel: "advanced", orderIndex: 3
@@ -404,13 +519,40 @@ async function main() {
     {
       level: 5, moduleNumber: "5.4", title: "Context Alignment Across Timeframes",
       objective: "Synthesize HTF narrative with LTF structural evidence to build aligned scenario plans.",
-      content: "# Timeframe Alignment\n\nEvery scenario plan exists within a hierarchy. The Higher Timeframe (HTF) provides the narrative. The Lower Timeframe (LTF) provides the evidence. A scenario built on LTF evidence alone, without HTF context, is structurally incomplete. A scenario built on HTF narrative alone, without LTF confirmation evidence, is premature.\n\nThis module teaches you to read the HTF narrative first, then look for LTF evidence that either aligns with it or conflicts with it. Alignment does not mean certainty. It means the structural clues across timeframes are pointing in the same direction, which produces higher-quality readings for simulation observation.\n\n### Concept Explanation\n- **HTF Narrative**: The structural story told by the Daily or Weekly chart. Is the current dealing range expanding bearish? Has a major MSS occurred? Is price in Premium or Discount?\n- **LTF Evidence**: The structural clues on the 1H or 15m chart that either support or contradict the HTF narrative. A 15m bullish FVG inside a Daily bearish expansion is a counter-narrative clue.\n- **Aligned Reading**: When both HTF and LTF clues point in the same direction. For example, a Daily bearish MSS combined with a 1H bearish FVG forming at a Premium zone.\n- **Counter-Narrative Reading**: When LTF clues point against the HTF narrative. These readings are less aligned and require stronger structural evidence before they are considered for observation.\n\n### Why it Matters\nLTF charts contain enormous amounts of structural noise. A 1-minute MSS can occur dozens of times within a single 4-hour candle. Without HTF context, every one of those shifts looks meaningful. With HTF context, most of them are internal retracements within a larger committed move.\n\nAlignment does not guarantee outcomes. It provides a filter. An aligned reading produces cleaner journal entries because the structural logic is coherent across timeframes. A counter-narrative reading requires the learner to document why they believe the LTF evidence is strong enough to override the HTF commitment — and this documentation itself improves review quality.\n\n### What to Observe\n- Whether the HTF narrative is clear. If the Daily chart is in the middle of a consolidation with no recent MSS, there may not be a clear HTF narrative to align with. This is an 'unclear area' (covered in Module 5.5).\n- Whether the LTF clue was created by displacement or by slow, grinding movement. Displacement clues carry more weight.\n- The location of the LTF clue relative to HTF Premium/Discount. A bearish 1H FVG forming in a Daily Premium zone is aligned. A bearish 1H FVG forming in a Daily Discount zone is counter-narrative.\n\n### What Does Not Count\n- Assuming that any LTF move in the direction of the HTF narrative is automatically valid. The LTF move must have its own structural basis (MSS, FVG, OB interaction).\n- Using only one timeframe. A scenario plan without at least two timeframes reviewed is structurally incomplete.\n- Ignoring counter-narrative clues because they are inconvenient. Counter-narrative clues belong in the evidence stack as conflicting observations.\n\n### Common Mistake\nThe most common alignment error is timeframe mismatch: building a 1-minute scenario plan based on a Weekly chart narrative without any intermediate confirmation. The Weekly chart says bearish, so the learner assumes every 1-minute dip is a continuation. This skips the 4H, 1H, and 15m entirely. Alignment requires stepping through timeframes methodically, not jumping from the highest to the lowest.\n\n### Example Scenario\n**HTF (Daily)**: Bearish MSS completed. Price is retracing into a Daily FVG in the Premium zone.\n**LTF (1H)**: Price has reached the Daily FVG. On the 1H, a bearish MSS has just occurred with displacement, creating a new 1H FVG.\n**Reading**: The 1H bearish MSS aligns with the Daily bearish narrative. The 1H FVG is the area to observe for continuation. This is an aligned, two-timeframe reading.\n\n**Counter-Example**: Same Daily chart (bearish MSS), but on the 1H, price has created a bullish MSS with displacement from a Discount zone. The 1H is now structurally bullish, conflicting with the Daily bearish narrative. This is a counter-narrative reading. It belongs in the evidence stack as a conflict, and the learner should document: 'LTF is currently opposing HTF. Waiting for further evidence before forming a scenario.'\n\n### Wrong Reading vs Better Reading\n- **Wrong**: 'The Daily is bearish, so I will mark every 15m dip as a continuation.' (No LTF structural basis, no alignment verification.)\n- **Better**: 'The Daily MSS is bearish. I am waiting for a 1H structural shift that aligns with this narrative before building a scenario. Currently, the 1H shows no MSS, so I have no aligned LTF evidence yet.' (Methodical, patient, structurally grounded.)\n\n### Practice Instruction\nOpen a simulation chart on the Daily timeframe. Identify the current narrative (bullish MSS, bearish MSS, or unclear). Then switch to the 1H chart and document whether the 1H structure aligns with, opposes, or is neutral to the Daily reading. Record this in your journal before forming any scenario.\n\n### Journal Review Prompt\n'Did I verify HTF alignment before building my LTF scenario? If I took a counter-narrative reading, did I document the stronger evidence I required? Did I skip any intermediate timeframes?'\n\n### Summary\nAlignment is a filter, not an instruction. An aligned reading across timeframes produces cleaner scenarios, cleaner invalidation points, and better journal review data. Counter-narrative readings are not forbidden, but they require stronger evidence and explicit documentation.",
+      content: `# 5.4 — Context Alignment Across Timeframes
+
+:::skill-target
+Standardize how you 'zoom out' to find the Anchor and 'zoom in' to find the Catalyst.
+:::
+
+### The Multi-Timeframe Filter
+In Level 5, we stop looking at charts as isolated patterns. Every 15-minute candle is a tiny fragment of a 4-hour story. **Context Alignment** is the process of ensuring your small-scale plan is supported by the large-scale environment.
+
+:::visual
+title: Timeframe Alignment Flow
+image: /images/academy/level5/5.4_alignment.png
+caption: How directional narrative flows from higher timeframes into execution timeframes.
+lookFor: ["Weekly/Daily Narrative Anchor", "4H/1H Structural Phase", "15m/5m Execution Catalyst", "Alignment vs Divergence"]
+:::
+
+### The Roles
+*   **High Timeframe (HTF - Daily/Weekly)**: Defines the **Narrative**. Are we in a retracement or an expansion?
+*   **Medium Timeframe (MTF - 4H/1H)**: Defines the **Scenario Area**. Where should we look for a reaction?
+*   **Low Timeframe (LTF - 15m/5m/1m)**: Defines the **Catalyst**. Is the reaction actually happening?
+
+:::decision-rule
+Never take an LTF Catalyst that is trading directly *into* an HTF Invalidation zone. The HTF always has more weight in the Evidence Stack.
+:::
+
+:::trap
+**The Zoom-In Bias**: Spending 90% of your time on the 1-minute chart and losing track of the 4-hour supply zone you are currently trapped inside.
+:::`,
       interactiveTaskType: "type_b_scenario",
       interactiveTaskData: {
         contextPrompt: "The Daily chart has completed a bearish MSS. On the 1-hour chart, price is retracing upward but has not created a bullish MSS — the retracement is a slow grind with no displacement. What is the most aligned reading?",
         options: [
-          { id: "opt1", text: "The 1H retracement has no structural shift (no MSS, no displacement). The Daily bearish narrative remains the primary context. I will observe the retracement for signs of failure at a bearish anchor.", grade: "best", feedback: "Correct. The absence of an LTF structural shift means the HTF narrative is still dominant. Observing for failure evidence is the aligned approach.", rationale: "Slow retracements without displacement are internal noise until a structural shift occurs." },
-          { id: "opt2", text: "The 1H is moving upward, so the bearish Daily narrative may be changing. I will build a bullish scenario from the 1H move.", grade: "acceptable", feedback: "This is a counter-narrative reading built on price movement alone, not structural evidence. It requires much stronger documentation.", rationale: "Directional movement without structural shift (MSS/FVG) is not evidence of narrative change." }
+          { id: "opt1", text: "The 1H retracement has no structural shift (no MSS, no displacement). The Daily bearish narrative remains the primary context. I will observe the retracement for signs of failure at a bearish anchor.", grade: "best", feedback: "Correct. The absence of an LTF structural shift means the HTF narrative is still dominant.", rationale: "Slow retracements without displacement are internal noise until a structural shift occurs." },
+          { id: "opt2", text: "The 1H is moving upward, so the bearish Daily narrative may be changing. I will build a bullish scenario from the 1H move.", grade: "poor", feedback: "This is a counter-narrative reading built on price movement alone, not structural evidence.", rationale: "Directional movement without structural shift (MSS/FVG) is not evidence of narrative change." }
         ]
       },
       skillLevel: "advanced", orderIndex: 4
@@ -418,31 +560,85 @@ async function main() {
     {
       level: 5, moduleNumber: "5.5", title: "Structural Conflict and Unclear Areas",
       objective: "Identify when the evidence stack is too conflicted to form a valid scenario plan.",
-      content: "# The No-Scenario Reading\n\nNot every chart session produces a scenario. This is not a failure — it is an objective observation. If the evidence stack contains deep structural conflict across timeframes, and no clear boundary interaction is resolving that conflict, the correct reading is: 'No Scenario — Unclear Structure.'\n\nThis module teaches you to identify unclear areas and to treat them as valid outcomes of the scenario planning process, not as missed opportunities.\n\n### Concept Explanation\nAn unclear area exists when the structural evidence is genuinely ambiguous. This is different from a learner being confused. Confusion is a knowledge gap. An unclear area is a structural condition where the chart itself has not committed to a direction.\n\nCommon structural conditions that produce unclear areas:\n- **Opposing MSS on adjacent timeframes**: The Daily has a bullish MSS, but the 4H has just completed a bearish MSS. Neither has been invalidated yet.\n- **Consolidation without boundary interaction**: Price is ranging within a narrow zone, and neither the range high nor the range low has been swept or violated.\n- **Mixed displacement quality**: The most recent move had strong displacement in one direction, but it occurred entirely within a larger opposing structure.\n- **Session transition**: A structural reading from the London session is being tested during a low-participation Asian session. The structural quality during low-participation windows is inherently less reliable.\n\n### Why it Matters\nForcing a scenario on unclear structure usually creates poor review quality. The learner ends up rationalizing the reading after the fact, writing journal entries like 'I should have seen it' or 'The clue was there but I missed it.' These entries are not useful because the structure was genuinely ambiguous at the time of observation.\n\nRecording 'No Scenario — Unclear Structure' is a legitimate and valuable journal entry. Over time, reviewing these entries reveals patterns: certain sessions, certain instruments, and certain structural conditions consistently produce unclear readings. This awareness improves future session selection.\n\n### What to Observe\n- Whether opposing MSS events exist on adjacent timeframes without resolution.\n- Whether price is inside a tight consolidation with no boundary interaction.\n- Whether recent displacement has been immediately countered by equal displacement in the opposite direction.\n- Whether the current session window has historically low participation for the instrument.\n\n### What Does Not Count\n- Personal uncertainty. Feeling unsure does not make the chart unclear. The chart may be structurally clear, and the learner may simply need to review Level 4 concepts.\n- Complexity. A chart with many structural elements is not necessarily unclear. It may simply require more careful stacking.\n- Single conflicting clues. One bearish candle inside a bullish expansion is not a structural conflict. It is internal noise.\n\n### Common Mistake\nThe most common mistake is treating unclear areas as challenges to overcome rather than information to record. A learner sees the conflict, recognizes the ambiguity, and then forces a scenario anyway, reasoning that 'I need to practice making decisions.' In simulation, forcing a scenario on unclear structure teaches nothing except how to rationalize poor reads.\n\n### Example Scenario\n**Chart**: GBP/USD 1-hour. The Daily chart completed a bullish MSS two days ago. Since then, the 4H has created a bearish MSS that has not been invalidated. The 1H is ranging between 1.2650 and 1.2690 with no FVGs formed and no boundary swept.\n\n**Reading**: The Daily says bullish. The 4H says bearish. Neither has been invalidated. The 1H is consolidating without committing. This is an unclear area. The correct journal entry is: 'No Scenario — Opposing MSS on Daily (bullish) and 4H (bearish). 1H consolidating without boundary interaction. Will revisit when one side is invalidated.'\n\n### Wrong Reading vs Better Reading\n- **Wrong**: 'The chart is messy but I think the Daily bullish reading will eventually win, so my scenario is bullish.' (Forcing a read on genuine conflict.)\n- **Better**: 'Daily and 4H are in structural conflict. No scenario at this time. I will revisit when one MSS is invalidated by the other.' (Objective, documented, patient.)\n\n### Practice Instruction\nIn your next three simulation sessions, actively look for at least one unclear area. When you find one, resist the urge to form a scenario. Instead, write the full conflict description in your journal: what the HTF says, what the LTF says, and why neither has been resolved. Review these entries weekly to identify patterns in when and where unclear areas tend to form.\n\n### Journal Review Prompt\n'Did I record any No-Scenario readings this week? If not, did every session genuinely have a clear reading, or did I force scenarios on conflicted structure? When I did record unclear areas, what resolved them — and could I have predicted the resolution?'\n\n### Summary\nThe ability to identify and record unclear areas is a mark of maturity in scenario planning. It separates structured observation from impulsive interpretation. Not every session produces a scenario, and that is valuable data.",
+      content: `# 5.5 — Structural Conflict and Unclear Areas
+
+:::skill-target
+Learn to identify the 'No-Scenario Reading' — when the market is too messy to plan a high-probability path.
+:::
+
+### The Value of 'I Don't Know'
+One of the most expensive habits in trading is the belief that every chart must have a scenario. A professional participant's most powerful tool is the ability to say: **"This structure is conflicted; I will wait."**
+
+:::visual
+title: Clear vs Conflicted Structure
+image: /images/academy/level5/5.5_conflict.png
+caption: Identifying when the Evidence Stack is too fragmented to support a disciplined plan.
+lookFor: ["Clean Trending Expansion", "Opposing MSS Shifts", "Overlapping FVG Zones", "Consolidation Range Highs/Lows"]
+:::
+
+### Signs of Structural Conflict
+- **Opposing MSS on adjacent timeframes**: The Daily has a bullish MSS, but the 4H has just completed a bearish MSS.
+- **Consolidation without boundary interaction**: Price is ranging within a narrow zone.
+- **Mixed displacement quality**: The most recent move had strong displacement in one direction, but it occurred entirely within a larger opposing structure.
+
+:::decision-rule
+If you cannot identify a Primary Scenario with at least 70% confidence based on the Evidence Stack, the chart is **Unclear**. Your scenario for the session is "Observe only."
+:::
+
+:::trap
+**Over-Searching**: If you have to squint or change timeframes 5 times to 'find' a reason to enter, the setup doesn't exist. High-probability scenarios are usually obvious.
+:::`,
       interactiveTaskType: "choice_block",
       interactiveTaskData: {
-        question: "The Daily chart has a bullish MSS. The 4-hour chart has just completed a bearish MSS that has not been invalidated. The 1-hour chart is consolidating with no boundary interaction. What is the correct reading?",
+        question: "The Daily chart has a bullish MSS. The 4-hour chart has just completed a bearish MSS. The 1-hour chart is consolidating with no boundary interaction. What is the correct reading?",
         options: [
-          "Build a bullish scenario because the Daily timeframe has more authority.",
-          "Build a bearish scenario because the 4-hour MSS is more recent.",
-          "Record 'No Scenario — Structural Conflict' and wait for one MSS to be invalidated before building a plan.",
-          "Build both a bullish and bearish scenario simultaneously and observe which one plays out."
-        ],
-        correctIndex: 2,
-        feedback: "Correct. When adjacent timeframes have opposing MSS events with no resolution, the chart is structurally unclear. Recording the conflict and waiting is the objective approach."
+          { id: "A", text: "Build a bullish scenario because the Daily timeframe has more authority.", isCorrect: false, feedback: "HTF authority does not negate MTF structural shifts. This is conflict, not clarity." },
+          { id: "B", text: "Build a bearish scenario because the 4-hour MSS is more recent.", isCorrect: false, feedback: "Recency does not resolve timeframe conflict." },
+          { id: "C", text: "Record 'No Scenario — Structural Conflict' and wait for one MSS to be invalidated before building a plan.", isCorrect: true, feedback: "Correct. When adjacent timeframes have opposing MSS events with no resolution, the chart is structurally unclear." },
+          { id: "D", text: "Build both a bullish and bearish scenario simultaneously and observe which one plays out.", isCorrect: false, feedback: "Building two opposing plans on the same timeframe in a conflicted environment leads to over-trading." }
+        ]
       },
       skillLevel: "advanced", orderIndex: 5
     },
     {
       level: 5, moduleNumber: "5.6", title: "Confirmation vs Assumption",
       objective: "Distinguish between acting on structural evidence and acting before the chart provides observable proof.",
-      content: "# Evidence Before Expectation\n\nOne of the most critical distinctions in scenario planning is the difference between Confirmation and Assumption. Both involve identifying an area of interest on the chart. The difference is timing: Assumption acts before price provides observable evidence at the area. Confirmation waits until the chart delivers new structural proof.\n\nThis module teaches you to recognize when you are building a scenario based on what you expect to happen versus what has actually been delivered.\n\n### Concept Explanation\n\n| | Assumption | Confirmation |\n|---|---|---|\n| **When** | Before price reaches the area or before any structural reaction | After price has interacted with the area and produced new structural evidence |\n| **Based On** | Expectation that the area 'should' work based on historical or theoretical significance | Observable structural change (MSS, new FVG, displacement) that occurred at the area |\n| **Scenario Quality** | Speculative — no delivery proof exists | Evidence-based — new structural data supports the reading |\n| **Journal Value** | Low — outcomes cannot be attributed to structural logic | High — the reading was anchored to observable events |\n\n### Why it Matters\nAssumption-based scenarios are the primary source of narrative lock. When you commit to a reading before evidence exists, you become emotionally invested in the area 'working.' Every candle that moves toward your area feels like validation, even though no structural event has occurred. When the area fails — when price displaces through it without reaction — the emotional response is significantly stronger than if you had waited for confirmation.\n\nConfirmation-based scenarios carry less emotional weight because the commitment happens after the evidence. You are not hoping the area works — you are observing that it has already produced a structural reaction, and you are planning around that reaction.\n\n### What to Observe\n- Has price actually reached the area of interest, or are you planning around an area that is still 20+ pips away?\n- Has the area produced a reaction candle, an MSS, or a new FVG? If yes, you have confirmation evidence. If no, you are still in assumption territory.\n- Is your scenario anchored to an observable event ('Price created a 1m MSS at the OB') or to an expectation ('The OB should hold because it is a strong level')?\n\n### What Does Not Count\n- Price approaching an area is not confirmation. Proximity is not evidence.\n- A single wick reaction without a structural shift is not confirmation. It may be a sweep.\n- Another learner saying 'This area is very strong' is not confirmation. Only the chart provides evidence.\n\n### Common Mistake\nThe most common mistake is treating the identification of an Order Block or FVG as confirmation itself. Identifying a zone is step one — it creates an area to observe. Confirmation only occurs when price reaches that area and delivers a structural reaction. The zone is a hypothesis. The reaction is the evidence.\n\nAnother common mistake is 'pre-confirmation' — writing the scenario as if confirmation has already occurred before the session starts. Statements like 'When price reaches the OB, it will reverse' are assumption statements. The corrected version is: 'If price reaches the OB and delivers a 1m MSS with displacement, the primary scenario is supported.'\n\n### Example Scenario\n**Assumption-Based**: 'Price is 15 pips away from a 4H Order Block. My scenario is that price will reverse from this OB. I am building my plan now.' — This is assumption. Price has not reached the area. No structural reaction has occurred. The scenario is built entirely on expectation.\n\n**Confirmation-Based**: 'Price has reached the 4H Order Block. On the 1-minute chart, a Market Structure Shift has occurred with displacement, creating a new FVG. My scenario is that this structural shift represents a genuine reaction from the OB. My area to observe is the new 1m FVG. My invalidation is the violation of the swing low created by the 1m MSS.' — This is confirmation. The scenario is anchored to observable structural events that have already occurred.\n\n### Wrong Reading vs Better Reading\n- **Wrong**: 'The Order Block is at 1.0940. My scenario is bearish from this level.' (No price interaction, no structural reaction, pure assumption.)\n- **Better**: 'Price reached 1.0940 and delivered a 1m MSS with a bearish FVG. The OB has produced observable evidence. My scenario is bearish with invalidation at 1.0948.' (Structural reaction observed, scenario anchored to delivered evidence.)\n\n### Practice Instruction\nIn your next simulation session, identify an area of interest before the session begins. When the session starts, do NOT build a scenario until price has reached the area and produced a structural reaction. Record the time gap between identifying the area and receiving confirmation evidence. If no confirmation occurs during the session, record: 'Area identified but no structural reaction delivered. No scenario formed.'\n\n### Journal Review Prompt\n'Did I build my scenario before or after price produced structural evidence at my area of interest? If I built it before, what assumption was I making? If I waited for confirmation, what specific structural event triggered my scenario?'\n\n### Summary\nThe discipline of waiting for the chart to provide observable evidence before building a scenario separates structured analysis from speculation. Zones are hypotheses. Reactions are evidence. Build your scenarios on evidence, not expectation.",
+      content: `# 5.6 — Confirmation vs Assumption
+
+:::skill-target
+Differentiate between 'Predicting what price will do' and 'Responding to what price has done'.
+:::
+
+### The Reactivity Principle
+Level 5 teaches you to be a **Reactive Observer**, not a Predictor. An **Assumption** is taking a trade because price reached a level. **Confirmation** is taking a trade because price reached a level AND showed a structural shift.
+
+:::visual-compare
+title: Assumption vs Confirmation
+caption: The visual difference between 'Hoping' a level holds and 'Verifying' it holds.
+leftImage: /images/academy/level5/5.6_confirmation.png
+leftLabel: CONFIRMATION (REACTION)
+rightImage: /images/academy/level5/5.6_confirmation.png
+rightLabel: ASSUMPTION (PREDICTION)
+:::
+
+:::decision-rule
+Confirmation usually requires a lower-timeframe shift (e.g., 5m or 1m) occurring *inside* a higher-timeframe area (e.g., 1H or 4H).
+:::
+
+### The Risk of Assumption
+When you assume, you are betting that the "Anchor" will hold before any "Catalyst" appears. If the anchor fails, you take a full loss.
+*   **Assumption**: "I'm buying here because it's a 4H FVG."
+*   **Confirmation**: "I'm buying here because price hit the 4H FVG and then printed a 5m Bullish MSS."
+
+:::trap
+**Bottom Fishing**: Trying to catch the exact low of a retracement before any MSS occurs. This is an assumption that usually leads to being 'run over' by the trend.
+:::`,
       interactiveTaskType: "type_b_scenario",
       interactiveTaskData: {
         contextPrompt: "You have identified a bullish Order Block at 1.0940 from the 4-hour chart. Price is currently at 1.0955, moving downward toward the OB. You want to build a bullish scenario. What is the correct approach?",
         options: [
-          { id: "opt1", text: "Wait for price to reach the OB. If a 1-minute MSS occurs with displacement at or near 1.0940, the OB has produced observable evidence. Build the scenario from the confirmed reaction, not from the expectation.", grade: "best", feedback: "Correct. Confirmation requires waiting for structural evidence at the area, not planning around the expectation that the area will hold.", rationale: "Scenarios built on delivered evidence produce better journal review data and reduce emotional attachment." },
-          { id: "opt2", text: "Build the bullish scenario now because the OB is very clear and price is almost there. Waiting might mean missing the move.", grade: "poor", feedback: "This is assumption-based planning. The OB has not yet produced any structural reaction. Building the scenario before evidence exists creates emotional attachment to an untested hypothesis.", rationale: "Identifying a zone is not the same as confirming a reaction. Proximity is not evidence." }
+          { id: "opt1", text: "Wait for price to reach the OB. If a 1-minute MSS occurs with displacement at or near 1.0940, build the scenario from the confirmed reaction.", grade: "best", feedback: "Correct. Confirmation requires waiting for structural evidence at the area.", rationale: "Scenarios built on delivered evidence produce better journal review data and reduce emotional attachment." },
+          { id: "opt2", text: "Build the bullish scenario now because the OB is very clear and price is almost there.", grade: "poor", feedback: "This is assumption-based planning. The OB has not yet produced any structural reaction.", rationale: "Identifying a zone is not the same as confirming a reaction." }
         ]
       },
       skillLevel: "advanced", orderIndex: 6
@@ -450,13 +646,40 @@ async function main() {
     {
       level: 5, moduleNumber: "5.7", title: "Scenario Review Under Pressure",
       objective: "Adapt scenario plans systematically as new structural evidence arrives during simulation.",
-      content: "# Real-Time Adaptation\n\nA scenario plan is not a static document. It is a living framework that must be reviewed as each new candle closes. The question that governs every candle is: 'Does this new evidence support, weaken, or invalidate my current reading?'\n\nThis module teaches you to review your scenario plan in real time without abandoning it prematurely and without clinging to it past its structural validity.\n\n### Concept Explanation\nReal-time adaptation sits between two extremes:\n- **Over-Adapting**: Changing the scenario with every candle. This produces erratic readings and useless journal data. If every candle triggers a review, the learner is reacting to noise, not structure.\n- **Under-Adapting**: Refusing to update the scenario even when clear structural evidence contradicts it. This is narrative lock (Module 5.2).\n\nThe correct approach is to review only at structural checkpoints — moments when a candle creates a new MSS, a new FVG, violates an anchor, or sweeps a boundary. Between these events, the scenario remains unchanged.\n\n### Why it Matters\nSimulation sessions are designed to test the learner's ability to observe and update. If the plan never changes, the learner is not practicing adaptation — they are practicing stubbornness. If the plan changes every 30 seconds, the learner is not practicing discipline — they are practicing panic. The goal is measured, evidence-based review at structural checkpoints.\n\n### Candle-by-Candle Review Example\nImagine you are in a bullish scenario observation. Your evidence stack supports a bullish reading from a 1H OB. You are watching the 1-minute chart for confirmation:\n\n**Candle 1-5**: Price is slowly approaching the OB. No structural event. No review needed. Scenario unchanged.\n**Candle 6**: Price touches the OB zone. A wick forms but no MSS. This is not confirmation. Scenario unchanged, but you note: 'Price has reached the area. Awaiting structural reaction.'\n**Candle 7-8**: A 1-minute MSS occurs with displacement. A new FVG forms. This IS a structural checkpoint. Review: 'Confirmation evidence delivered. Updating scenario: bullish reading is now active. Invalidation is the swing low of the MSS at 1.0938.'\n**Candle 9-12**: Price moves upward, respecting the new FVG. No new structural events. No review needed.\n**Candle 13**: Price reverses sharply, creating a bearish FVG that violates the bullish FVG. This IS a structural checkpoint. Review: 'Bearish displacement through my confirmation zone. The bullish reading is weakened. If the MSS swing low at 1.0938 is violated, the scenario is invalidated.'\n**Candle 14**: Price closes below 1.0938 with a delivery gap. Invalidation condition met. Review: 'Bullish scenario invalidated. Switching to pre-defined alternative. Recording in journal.'\n\nNotice: only four of the fourteen candles triggered a review. The rest were noise.\n\n### What to Observe\n- New FVGs forming in the opposite direction of your scenario. These are structural warnings.\n- Violation of the swing that anchors your confirmation. This is invalidation.\n- Sweeps of boundaries that were part of your evidence stack. These change the structural landscape.\n- Time expiration. If your session window has passed with no further development, archive the scenario.\n\n### What Does Not Count\n- Candle color alone. A red candle in a bullish scenario is not a review trigger unless it creates a structural event.\n- Emotional discomfort. Feeling nervous is not a structural checkpoint.\n- Other learners updating their readings. Your scenario is independent.\n\n### Common Mistake\nThe most common mistake is premature adaptation — changing the scenario after a single opposing candle that has no structural significance. A bullish scenario is not invalidated by one bearish candle. It is invalidated by a bearish structural event (MSS with displacement, violation of the anchoring swing). Learning to distinguish between noise and structure is the core skill of this module.\n\n### Wrong Reading vs Better Reading\n- **Wrong**: 'A red candle appeared. I am switching to bearish.' (Noise reaction, not structural review.)\n- **Better**: 'A bearish FVG has formed through my confirmation zone. This is a structural checkpoint. Reviewing the scenario: if the anchoring swing is violated, the scenario is invalidated.' (Structured, checkpoint-based, calm.)\n\n### Practice Instruction\nDuring your next simulation session, keep a running log with two columns: 'Candle Number' and 'Structural Event (if any).' Only write in the second column when a genuine structural event occurs (MSS, FVG, boundary sweep, anchor violation). After the session, count how many candles had no structural event. This ratio tells you how much of the session was noise.\n\n### Journal Review Prompt\n'How many times did I update my scenario during this session? Was each update triggered by a structural event, or by emotional discomfort? If I updated more than three times, was the chart genuinely volatile, or was I over-adapting?'\n\n### Summary\nReal-time adaptation is not about reacting to every candle. It is about identifying the structural checkpoints that genuinely change the reading and ignoring the noise between them. The fewer unnecessary updates, the better the review quality.",
+      content: `# 5.7 — Scenario Review Under Pressure
+
+:::skill-target
+Maintain objectivity when price action moves faster than your emotional processing.
+:::
+
+### The Fog of War
+In a live simulation session, price action can be chaotic. Your brain will naturally try to ignore clues that contradict your bias. **Real-Time Review** is the practice of stepping back every 5–15 minutes to re-evaluate your Evidence Stack.
+
+:::visual
+title: Scenario Review Timeline
+image: /images/academy/level5/5.7_timeline.png
+caption: A step-by-step workflow for auditing your plan as new candles print.
+lookFor: ["Planned Interaction Area", "Real-Time Structural Reaction", "Validity Check", "Decision Confirmation/Pivot"]
+:::
+
+### The 3-Step Mid-Session Audit
+1.  **Check the Anchor**: Is the HTF narrative still valid, or did DXY just have a major shift?
+2.  **Check the Invalidation**: Is price closer to my profit target or my Invalidation Anchor?
+3.  **Check the Quality**: Is the displacement strong, or is this "lazy" price action?
+
+:::decision-rule
+If at any point during the session you feel "Confused" or "Anxious," your scenario is officially **Broken**. The only professional move is to exit or go neutral until clarity returns.
+:::
+
+:::trap
+**Hope-Based Holding**: Staying in a plan because you 'need' the win, even though the structural clues (like a counter-MSS) have already invalidated your logic.
+:::`,
       interactiveTaskType: "type_b_scenario",
       interactiveTaskData: {
         contextPrompt: "Your bullish scenario is confirmed from a 1H Order Block. On the 1-minute chart, price made a new high but immediately displaced downward, creating a bearish FVG that violates your confirmation zone. The swing low of your MSS at 1.0938 has NOT been violated yet. What do you do?",
         options: [
-          { id: "opt1", text: "The bearish FVG through my confirmation zone is a structural warning. The scenario is weakened but not yet invalidated — the MSS swing low at 1.0938 still holds. I note the warning in my journal and watch for the swing low violation.", grade: "best", feedback: "Correct. This is a measured response at a structural checkpoint. The scenario is weakened, not abandoned, because the invalidation condition has not been fully met.", rationale: "Adaptation requires distinguishing between warning signs and full invalidation. The bearish FVG is a warning; the swing low violation would be invalidation." },
-          { id: "opt2", text: "The high was broken so the bullish scenario is working. I ignore the bearish FVG.", grade: "poor", feedback: "A new high followed by immediate bearish displacement is a classic boundary sweep pattern. Ignoring the bearish FVG is refusing to acknowledge conflicting evidence.", rationale: "New highs without sustain, followed by displacement, are structural warnings that must be recorded." }
+          { id: "opt1", text: "The bearish FVG through my confirmation zone is a structural warning. I note the warning in my journal and watch for the swing low violation.", grade: "best", feedback: "Correct. This is a measured response at a structural checkpoint.", rationale: "Adaptation requires distinguishing between warning signs and full invalidation." },
+          { id: "opt2", text: "The high was broken so the bullish scenario is working. I ignore the bearish FVG.", grade: "poor", feedback: "A new high followed by immediate bearish displacement is a classic boundary sweep pattern.", rationale: "New highs without sustain, followed by displacement, are structural warnings." }
         ]
       },
       skillLevel: "advanced", orderIndex: 7
@@ -464,33 +687,116 @@ async function main() {
     {
       level: 5, moduleNumber: "5.8", title: "Intermarket Context as Supporting Evidence",
       objective: "Use DXY and cross-asset correlation as secondary supporting context in scenario planning.",
-      content: "# Intermarket Context\n\nIn Forex, most major currency pairs are quoted against the US Dollar. This means the structural narrative of the US Dollar Index (DXY) is relevant context for any USD-denominated scenario plan. If your EUR/USD scenario is bullish (expecting EUR strength), a bearish DXY narrative (expecting USD weakness) provides supporting intermarket context.\n\nThis module teaches you to incorporate DXY analysis as secondary supporting evidence — not as a standalone decision tool.\n\n### Important Warning\nIntermarket context is supporting evidence only. It does not replace primary chart analysis. A bearish DXY narrative does not automatically make a EUR/USD bullish scenario valid. The EUR/USD chart must have its own structural basis (evidence stack, alignment, confirmation). DXY context adds weight to an existing reading. It does not create one.\n\n### Concept Explanation\n- **Positive Correlation**: When two assets tend to move in the same direction. Example: EUR/USD and GBP/USD often move similarly because both are USD pairs.\n- **Negative Correlation**: When two assets tend to move in opposite directions. Example: EUR/USD and DXY are negatively correlated because a stronger Dollar weakens the Euro relative to it.\n- **Correlation Breakdown**: When normally correlated assets diverge. This is a signal of structural conflict in the intermarket environment.\n\n### Why it Matters\nWhen your EUR/USD scenario is bullish and DXY structure is simultaneously bearish, both instruments are telling the same story from opposite perspectives. This alignment adds confidence to the reading — not certainty, but supporting context.\n\nWhen your EUR/USD scenario is bullish but DXY structure is also bullish, something is structurally conflicted. Both instruments should not be strong simultaneously in the same session. This divergence should be recorded in the evidence stack as an intermarket conflict — similar to an unclear area.\n\n### What to Observe\n- Whether DXY has a clear structural narrative (bullish or bearish MSS on the HTF chart).\n- Whether that narrative aligns with or contradicts your primary pair's scenario.\n- Whether any recent correlation breakdown has occurred (both assets moving in the same direction when they normally move opposite).\n- Session-specific correlation patterns. DXY and EUR/USD may correlate strongly during London and New York sessions but weakly during the Asian session.\n\n### What Does Not Count\n- Using DXY as the primary basis for a scenario. DXY is context, not evidence.\n- Assuming correlation is always active. Correlation is a tendency, not a rule. It can and does break down.\n- Checking DXY after building the scenario to 'confirm' a predetermined reading. This is confirmation bias. Check DXY as part of the evidence stack, not as a validation step after the plan is made.\n\n### Common Mistake\nThe most common mistake is treating intermarket alignment as instruction. A learner sees that DXY is bearish and immediately writes a bullish EUR/USD scenario, even if the EUR/USD chart has no structural basis. DXY is a secondary lens. The primary chart must stand on its own structural evidence first.\n\nAnother mistake is ignoring intermarket conflict. If DXY and EUR/USD are both bullish simultaneously, many learners simply ignore the conflict and proceed. This conflict should be documented in the evidence stack and may warrant a 'No Scenario' reading until it resolves.\n\n### Example Scenario\n**Primary**: EUR/USD 1H chart has a bullish evidence stack. Daily MSS bullish. 1H FVG aligned. Price in Discount. Confirmation delivered via 1m MSS at OB.\n**Intermarket Check**: DXY Daily chart has a bearish MSS. DXY is retracing into a FVG in Premium.\n**Reading**: Intermarket context is aligned. DXY bearish supports EUR/USD bullish. This adds weight to the primary reading. Journal note: 'Intermarket aligned — DXY bearish supports primary bullish EUR/USD scenario.'\n\n**Conflict Example**: Same EUR/USD bullish evidence stack, but DXY is also showing a bullish MSS with displacement. EUR strength and USD strength simultaneously is a structural conflict. Journal note: 'Intermarket conflict — DXY bullish contradicts EUR/USD bullish scenario. Reducing conviction. May warrant unclear area classification.'\n\n### Wrong Reading vs Better Reading\n- **Wrong**: 'DXY is bearish, so EUR/USD must be bullish. Building bullish scenario now.' (DXY as primary evidence, no EUR/USD chart analysis.)\n- **Better**: 'EUR/USD bullish evidence stack is complete. Checking DXY: bearish MSS on Daily, aligned with my reading. Recording as supporting context, not primary evidence.' (DXY as secondary lens, primary chart analyzed first.)\n\n### Practice Instruction\nBefore your next simulation session, open the DXY chart alongside your primary pair. Complete your evidence stack on the primary pair first. Then check DXY structure. Record whether the intermarket context is aligned, conflicting, or unclear. Never build a scenario from DXY alone.\n\n### Journal Review Prompt\n'Did I check intermarket context before or after forming my scenario? If after, was I looking for confirmation of a predetermined reading? If before, did I give DXY too much weight relative to the primary chart?'\n\n### Summary\nIntermarket context is a supporting layer, not a primary evidence source. When aligned, it adds weight. When conflicting, it raises a flag. When unclear, it does not change the primary reading. The primary chart always comes first.",
+      content: `# 5.8 — Intermarket Context as Supporting Evidence
+
+:::skill-target
+Use the Dollar Index (DXY) as a 'Truth Filter' for your currency scenarios.
+:::
+
+### The Inverse Mirror
+For Forex participants, the Dollar Index (DXY) is the "Global Anchor." If you are planning a Bullish Scenario on EUR/USD, you MUST see a Bearish Evidence Stack on DXY. If they are both moving in the same direction, you have **Intermarket Conflict**.
+
+:::visual
+title: Intermarket Correlation Visual
+image: /images/academy/level5/5.8_intermarket.png
+caption: Using DXY as a secondary verification tool for your primary pair.
+lookFor: ["DXY Inverse Alignment", "Correlation Strength", "Divergence Warning Signs", "Global Narrative Support"]
+:::
+
+:::decision-rule
+Intermarket context is **Supporting Evidence**, not a Primary Catalyst. Never take a trade *only* because DXY looks good if the primary pair's structure is conflicted.
+:::
+
+### SMT Divergence (Advanced Clue)
+Sometimes one pair makes a new high while its correlated pair (e.g., GBP/USD) fails to. This "crack" in correlation is a powerful signal of institutional manipulation.
+
+:::trap
+**The DXY-Only Trap**: Entering a trade on EUR/USD because DXY hit a level, even though EUR/USD hasn't printed an MSS yet. This is an assumption.
+:::`,
       interactiveTaskType: "macro_rags_to_riches",
       skillLevel: "advanced", orderIndex: 8
     },
     {
       level: 5, moduleNumber: "5.9", title: "Journal-Based Decision Review",
       objective: "Use structured post-session auditing to identify bias patterns and improve scenario objectivity over time.",
-      content: "# The Post-Session Audit\n\nThe journal is where learning actually happens. The simulation session itself is data collection. The journal review is where that data becomes insight. Without structured post-session review, simulation sessions produce experience but not improvement. A learner can complete hundreds of sessions and repeat the same mistakes if they never systematically review their decision-making process.\n\nThis module teaches you to conduct a structured post-session audit using a repeatable review template.\n\n### Why it Matters\nThe human mind is remarkably good at rewriting history. After a session, you will naturally remember the moments where your reading was correct and minimize the moments where you ignored evidence, moved invalidation, or clung to a narrative. The journal prevents this selective memory by recording the raw decisions as they happened.\n\nOver time, journal reviews reveal patterns that are invisible in individual sessions. You may discover that you consistently ignore invalidation during the New York session, or that your evidence stacks are weaker on Fridays, or that you over-adapt during volatile Asian sessions. These patterns are the real curriculum of Level 5.\n\n### The Review Template\nAfter every simulation session, complete the following template in your journal:\n\n**1. Initial Reading**: What was your HTF narrative at the start of the session? Was it clear, or did you start with an unclear area?\n\n**2. Evidence Stack**: List every structural clue you identified. Label each as 'supporting' or 'conflicting.' Were there at least three observations before you formed a scenario?\n\n**3. Primary Scenario**: What was your primary reading? Was it written down before the session, or did you form it after price started moving?\n\n**4. Alternative Scenario**: Did you define an alternative? Was it specific and structurally anchored, or vague?\n\n**5. Invalidation Condition**: What was your pre-defined invalidation? Was it structure-based, time-based, or both?\n\n**6. Confirmation vs Assumption**: Did you wait for confirmation evidence, or did you build the scenario before price interacted with your area?\n\n**7. Review Conditions Met**: During the session, did any structural checkpoints occur? How did you respond to each one?\n\n**8. What Changed**: If you updated the scenario, what triggered the change? Was it a structural event or an emotional reaction?\n\n**9. Outcome**: What was the structural outcome? Did the primary scenario play out, did the alternative activate, or was the scenario invalidated/expired?\n\n**10. What Was Learned**: What specific insight does this session provide about your process? Is there a pattern emerging across multiple sessions?\n\n### What to Observe During Review\n- Whether your evidence stack was genuinely objective or showed confirmation bias.\n- Whether your invalidation condition was respected or moved.\n- Whether you switched to the alternative when conditions were met, or held the primary past its validity.\n- Whether your adaptation during the session was triggered by structure or emotion.\n- The ratio of structural checkpoints to noise candles (from Module 5.7).\n\n### What Does Not Count\n- Recording only outcomes. 'The scenario worked' or 'the scenario did not work' without process analysis is not a review.\n- Blaming external factors. 'The market was manipulated' or 'the spread widened' are not process insights.\n- Reviewing only sessions where the scenario did not play out. Successful sessions also contain process data — you may have been right for the wrong reasons.\n\n### Common Mistake\nThe most common mistake is abandoning the journal after the first few sessions because 'the readings are straightforward.' If every session feels straightforward, the learner is either not pushing into sufficiently complex structural environments or is not reviewing with enough honesty. A genuinely useful journal review should occasionally reveal uncomfortable truths about bias and process shortcuts.\n\nAnother common mistake is writing the journal entry days after the session. Memory degrades rapidly. The review should be completed immediately after the session ends, while the raw observations are still fresh.\n\n### Example Journal Entry\n**Session**: EUR/USD, London Open, 2024-01-22\n**HTF Narrative**: Daily bearish MSS. Clear.\n**Evidence Stack**: (1) Daily MSS bearish — supporting. (2) 1H FVG at 1.0965 in Premium — supporting. (3) 4H OB at 1.0920 not yet violated — conflicting. Three clues recorded.\n**Primary Scenario**: Bearish continuation from 1H FVG.\n**Alternative**: Bullish shift if 1H closes above 1.0975 with displacement.\n**Invalidation**: 1H body close above 1.0975 with displacement.\n**Confirmation**: Waited for 1m MSS at FVG. Confirmation delivered at 08:47.\n**Review Conditions**: Bearish FVG formed at 09:15 — supporting. No opposing checkpoints.\n**Outcome**: Primary scenario supported. Price continued bearish.\n**What Was Learned**: I correctly waited for confirmation and did not pre-commit. However, I did not check DXY until after forming the scenario. Next session, I will check DXY as part of the evidence stack.\n\n### Practice Instruction\nComplete the full 10-point review template for your next three simulation sessions. After the third review, read all three entries together and look for patterns. Are you consistently skipping any of the ten points? That skip is your current blind spot.\n\n### Journal Review Prompt (Meta-Review)\n'Am I completing the full template, or am I skipping sections that feel uncomfortable? Which section do I spend the least time on? That section likely contains my primary process weakness.'\n\n### Summary\nThe journal is not a record of what happened. It is a structured audit of how you made decisions. The template provides a repeatable framework that exposes bias, rewards discipline, and turns every session — regardless of outcome — into a learning event.",
+      content: `# 5.9 — Journal-Based Decision Review
+
+:::skill-target
+Standardize your post-session audit to identify emotional bias vs. logical errors.
+:::
+
+### The 'L5' Audit Template
+A professional's growth happens in the journal, not the chart. The goal of a Level 5 Review is to determine if your **Process** was correct, regardless of whether the simulated outcome was a "win" or "loss."
+
+:::visual
+title: The Professional Audit Template
+image: /images/academy/level5/5.9_journal.png
+caption: A structured 10-point checklist for objective session review.
+lookFor: ["Evidence Weighting Accuracy", "Scenario Branching Clarity", "Invalidation Discipline", "Emotional State Audit"]
+:::
+
+### The Audit Questions
+1. Did I identify a Primary and Alternative scenario *before* price reached the area?
+2. Did my Evidence Stack have at least 3 layers of alignment?
+3. Did I wait for Confirmation, or did I act on Assumption?
+4. If price hit my Invalidation Anchor, did I stop trading immediately?
+
+:::decision-rule
+A "Good Trade" is any trade where the Scenario Planning Map was followed perfectly. A "Bad Trade" is any trade where the process was skipped, even if it resulted in profit.
+:::
+
+:::trap
+**Outcome Bias**: Judging your performance based on simulation P&L rather than the quality of your Evidence Stack and Scenario discipline.
+:::`,
       interactiveTaskType: "choice_block",
       interactiveTaskData: {
         question: "A learner completes a simulation session and writes in their journal: 'The scenario worked. Good session.' What is the primary problem with this entry?",
         options: [
-          "It is too short to be a proper entry.",
-          "It records only the outcome without any process analysis — no evidence stack review, no confirmation check, no invalidation audit.",
-          "It should include the exact price levels reached.",
-          "It should compare the result to the previous session."
-        ],
-        correctIndex: 1,
-        feedback: "Correct. A journal entry that only records outcomes provides no insight into the decision-making process. The review template exists to audit how the scenario was built, reviewed, and adapted — not just whether it played out."
+          { id: "A", text: "It is too short to be a proper entry.", isCorrect: false, feedback: "Length is secondary to content quality." },
+          { id: "B", text: "It records only the outcome without any process analysis — no evidence stack review, no confirmation check, no invalidation audit.", isCorrect: true, feedback: "Correct. A journal entry that only records outcomes provides no insight into the decision-making process." },
+          { id: "C", text: "It should include the exact price levels reached.", isCorrect: false, feedback: "Price levels are data, but process analysis is the learning engine." },
+          { id: "D", text: "It should compare the result to the previous session.", isCorrect: false, feedback: "Historical comparison is useful, but current process audit is critical." }
+        ]
       },
       skillLevel: "advanced", orderIndex: 9
     },
     {
       level: 5, moduleNumber: "5.10", title: "Scenario Planning Map",
       objective: "Synthesize all Level 5 concepts into a complete scenario planning workflow and complete the capstone mission.",
-      content: "# The Final Synthesis\n\nThis is the capstone module of Level 5. Everything you have learned — evidence stacking, branching logic, invalidation, timeframe alignment, unclear areas, confirmation, real-time adaptation, intermarket context, and journal review — comes together here into a single, repeatable workflow called the Scenario Planning Map.\n\nThe Scenario Planning Map is not a prediction tool. It is a structured observation framework that ensures every simulation session is approached with discipline, objectivity, and documented reasoning.\n\n### The Complete Workflow\nBefore every simulation session, complete the following Scenario Planning Map:\n\n**Step 1 — HTF Narrative Check** (Module 5.4)\nOpen the Daily chart. Identify the current structural narrative: bullish MSS, bearish MSS, or unclear. If unclear, record 'No HTF Narrative' and consider whether a scenario is viable.\n\n**Step 2 — Evidence Stack** (Module 5.1)\nSwitch to the 1H chart. Identify all structural clues: FVGs, OBs, boundaries, Premium/Discount location. Label each clue as 'supporting' or 'conflicting' relative to the HTF narrative. Record at least three observations.\n\n**Step 3 — Structural Conflict Check** (Module 5.5)\nReview the evidence stack for deep conflicts. If opposing MSS events exist on adjacent timeframes without resolution, record 'No Scenario — Structural Conflict' and stop.\n\n**Step 4 — Primary Scenario** (Module 5.2)\nIf the stack is aligned, define the Primary Scenario. This is the current strongest reading based on the evidence. Include: the direction, the area to observe, and the expected structural behavior at that area.\n\n**Step 5 — Alternative Scenario** (Module 5.2)\nDefine the Alternative Scenario. Include: the specific structural anchor that separates the primary from the alternative, and the displacement condition required to switch.\n\n**Step 6 — Invalidation Conditions** (Module 5.3)\nWrite the invalidation condition for the Primary Scenario. Include the structural level, the candle behavior required (body close with displacement), and the time window.\n\n**Step 7 — Intermarket Context** (Module 5.8)\nCheck DXY (or the relevant correlated instrument). Record whether the intermarket context is aligned, conflicting, or unclear. Adjust conviction accordingly — do not change the scenario.\n\n**Step 8 — Wait for Confirmation** (Module 5.6)\nDo not commit to the scenario until price reaches the area of interest and delivers a structural reaction. Record the confirmation event or 'No Confirmation Delivered.'\n\n**Step 9 — Real-Time Adaptation** (Module 5.7)\nDuring the session, review only at structural checkpoints. Record each checkpoint and your response. Distinguish between warnings and full invalidation.\n\n**Step 10 — Post-Session Journal Review** (Module 5.9)\nComplete the full 10-point review template. Identify what was learned and whether any process shortcuts were taken.\n\n### The Capstone Mission\nThe Level 5 Gate mission asks you to identify a single Review Area on a chart — the structural zone where evidence should be observed before updating the scenario reading. This mission validates one critical skill: can you identify the correct area to observe based on structural context?\n\nThe mission validates a single zone, not the complete Scenario Planning Map. However, the zone selection itself requires the full workflow: you must read the HTF narrative, stack the LTF evidence, identify alignment, and choose the area where confirmation or invalidation will occur. The zone is the output of the entire process.\n\n### What the Zone Represents\nThe Review Area is not a place where you expect price to reverse. It is not a point where price 'should' stop. It is the structural zone where, based on the evidence stack and timeframe alignment, the chart will provide the next piece of meaningful structural evidence — the evidence that either supports or invalidates the current reading.\n\n### Wrong Reading vs Better Reading\n- **Wrong**: 'I am placing the zone where I think price will reverse.' (Assumption-based, outcome-focused.)\n- **Better**: 'I am placing the zone at the structural anchor where the next delivery interaction will provide evidence for or against the current reading.' (Process-based, observation-focused.)\n\n### Pre-Mission Journal Note\nBefore attempting the capstone mission, write the following in your journal:\n1. What is the HTF narrative on this chart?\n2. What evidence supports a scenario? What evidence conflicts?\n3. Where is the structural zone where the next meaningful interaction will occur?\n4. What would confirmation look like at this zone?\n5. What would invalidation look like at this zone?\n\nThen attempt the mission. After completing it (regardless of result), return to your journal and review whether your zone selection matched the structural logic you documented.\n\n### Practice Instruction\nBefore the mission, run through the complete 10-step Scenario Planning Map on a practice chart. Write the full map in your journal. Then compare your process to the Level 5 curriculum modules. Are you skipping any steps? Are any steps weaker than others? Use this self-assessment to identify which modules to revisit before attempting the gate.\n\n### Journal Review Prompt\n'Did I complete the full Scenario Planning Map before selecting my Review Area? Did the zone selection follow logically from my evidence stack, or did I place it based on intuition? After the mission, was my zone structurally justified?'\n\n### Summary\nThe Scenario Planning Map is the culmination of Level 5. It is not a formula that produces outcomes. It is a structured observation process that produces objective, reviewable, and repeatable scenario plans. Master this workflow, and every simulation session becomes a deliberate learning event — not a guess.",
+      content: `# 5.10 — Scenario Planning Map
+
+:::skill-target
+Synthesize all Level 5 components into a repeatable, session-ready workflow.
+:::
+
+### The Unified Workflow
+Everything you have learned — evidence stacking, branching logic, invalidation, timeframe alignment, unclear areas, confirmation, real-time adaptation, intermarket context, and journal review — comes together here.
+
+:::visual
+title: Scenario Planning Map
+image: /images/academy/level5/5.10_map.png
+caption: The complete circular workflow for professional market participation.
+lookFor: ["HTF Narrative Anchor", "Evidence Stack Weights", "Scenario Branching", "Active Execution & Audit"]
+:::
+
+:::visual
+title: The 10-Step Scenario Checklist
+lookFor: ["1. Zoom Out: HTF Narrative Anchor", "2. Filter: Scan for Structural Conflict", "3. Stack: Build Evidence Stack (3+ layers)", "4. Branch: Define Primary/Alternative Scenarios", "5. Anchor: Mark Invalidation Level", "6. Verify: Check Intermarket (DXY) alignment", "7. Wait: Let price enter Scenario Area", "8. Confirm: Look for LTF Catalyst (MSS)", "9. Audit: Monitor for Lazy Delivery", "10. Review: Post-Session Journal Audit"]
+:::
+
+:::decision-rule
+If Step 1 through Step 6 are not complete, you have no business performing Step 7.
+:::
+
+:::summary
+Level 5 is about moving from "What is the chart doing?" to "How am I logically responding to the chart?" You are now a **Strategic Planner**, capable of maintaining objectivity in any simulated environment.
+:::`,
       interactiveTaskType: "scenario_link",
+      interactiveTaskData: {
+        scenarioSlug: "level-5-scenario-planning-gate",
+        missionTitle: "Level 5 Synthesis Mission",
+        passThreshold: 85
+      },
       skillLevel: "advanced", orderIndex: 10
     }
   ];

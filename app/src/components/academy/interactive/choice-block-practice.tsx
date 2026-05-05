@@ -25,7 +25,19 @@ interface ChoiceBlockPracticeProps {
  * - Shows feedback on selection
  * - Calls onPass() when correct answer is selected
  */
-export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPracticeProps) {
+export function ChoiceBlockPractice({ question, options: rawOptions, onPass }: ChoiceBlockPracticeProps) {
+  const options: ChoiceOption[] = rawOptions.map((opt: any, index) => {
+    if (typeof opt === 'string') {
+      return {
+        id: String.fromCharCode(65 + index), // A, B, C...
+        text: opt,
+        isCorrect: false, // Will be overridden or ignored if using legacy index-based check elsewhere, but here we expect the seed to provide correct structure
+        feedback: "Incorrect. Review the lesson content."
+      };
+    }
+    return opt;
+  });
+
   const [selected, setSelected] = useState<string | null>(null);
   const [hasAnswered, setHasAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -64,7 +76,7 @@ export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPr
         </div>
 
         {/* Question */}
-        <p className="text-sm font-extrabold text-[var(--ln-navy-900)] leading-relaxed uppercase tracking-tight">
+        <p className="text-base font-extrabold text-[var(--ln-navy-900)] leading-relaxed uppercase tracking-tight">
           {question}
         </p>
 
@@ -80,37 +92,37 @@ export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPr
                 onClick={() => handleSelect(option)}
                 disabled={hasAnswered && isCorrect}
                 className={cn(
-                  "w-full text-left p-4 rounded-xl border text-xs font-medium transition-all duration-200",
+                  "w-full text-left p-4 rounded-xl border text-xs font-bold transition-all duration-200",
                   !hasAnswered
-                    ? "border-[var(--ln-border)] bg-white hover:bg-[var(--ln-bg-soft)] hover:border-[var(--ln-teal-500)]/40 text-[var(--ln-text-secondary)] cursor-pointer"
+                    ? "border-[var(--ln-border)] bg-white hover:bg-slate-50 hover:border-[var(--ln-teal-500)]/40 text-[var(--ln-navy-900)] cursor-pointer shadow-sm"
                     : isSelected && option.isCorrect
-                    ? "border-teal-500 bg-teal-50 text-teal-700 cursor-default shadow-sm"
+                    ? "border-[var(--ln-teal-500)] bg-[var(--ln-teal-soft)] text-[var(--ln-teal-700)] cursor-default shadow-md"
                     : isSelected && !option.isCorrect
-                    ? "border-rose-500 bg-rose-50 text-rose-700 cursor-default shadow-sm"
-                    : "border-[var(--ln-border)] bg-[var(--ln-bg-soft)] text-[var(--ln-text-muted)] cursor-not-allowed"
+                    ? "border-rose-500 bg-rose-50 text-rose-700 cursor-default shadow-md"
+                    : "border-[var(--ln-border)] bg-slate-50 text-[var(--ln-navy-900)] cursor-not-allowed"
                 )}
               >
                 <div className="flex items-start gap-3">
                   <span
                     className={cn(
-                      "mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border text-[8px] font-bold",
+                      "mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border text-[8px] font-extrabold",
                       !hasAnswered
-                        ? "border-[var(--ln-border)] text-[var(--ln-text-muted)]"
+                        ? "border-[var(--ln-border)] text-[var(--ln-navy-900)]"
                         : isSelected && option.isCorrect
-                        ? "border-teal-500 bg-teal-500/10 text-teal-600"
+                        ? "border-[var(--ln-teal-500)] bg-[var(--ln-teal-500)]/10 text-[var(--ln-teal-600)]"
                         : isSelected && !option.isCorrect
                         ? "border-rose-500 bg-rose-500/10 text-rose-600"
-                        : "border-[var(--ln-border)] text-[var(--ln-text-dim)]"
+                        : "border-[var(--ln-border)] text-[var(--ln-navy-900)]"
                     )}
                   >
-                    {option.id.toUpperCase()}
+                    {String(option.id).toUpperCase()}
                   </span>
                   <div className="flex-1 space-y-1">
-                    <span className="font-bold">{option.text}</span>
+                    <span className="font-extrabold leading-snug">{option.text}</span>
                     {showResult && (
                       <p className={cn(
-                        "text-[10px] leading-relaxed mt-1 font-medium",
-                        option.isCorrect ? "text-teal-700" : "text-rose-700"
+                        "text-[10px] leading-relaxed mt-1 font-bold",
+                        option.isCorrect ? "text-[var(--ln-teal-700)]" : "text-rose-700"
                       )}>
                         {option.feedback}
                       </p>
@@ -118,7 +130,7 @@ export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPr
                   </div>
                   {showResult && (
                     option.isCorrect
-                      ? <CheckCircle2 className="w-4 h-4 shrink-0 text-teal-600 mt-0.5" />
+                      ? <CheckCircle2 className="w-4 h-4 shrink-0 text-[var(--ln-teal-600)] mt-0.5" />
                       : <XCircle className="w-4 h-4 shrink-0 text-rose-600 mt-0.5" />
                   )}
                 </div>
@@ -130,28 +142,28 @@ export function ChoiceBlockPractice({ question, options, onPass }: ChoiceBlockPr
         {/* Result State */}
         {hasAnswered && (
           <div className={cn(
-            "flex items-center justify-between p-4 rounded-xl border shadow-sm",
+            "flex items-center justify-between p-4 rounded-xl border shadow-md",
             isCorrect
-              ? "bg-teal-50 border-teal-200"
+              ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/20"
               : "bg-rose-50 border-rose-200"
           )}>
             <div className="flex items-center gap-2">
               {isCorrect ? (
                 <>
-                  <CheckCircle2 className="w-4 h-4 text-teal-600" />
-                  <span className="text-xs font-bold text-teal-700">Correct! Module unlocked.</span>
+                  <CheckCircle2 className="w-4 h-4 text-[var(--ln-teal-600)]" />
+                  <span className="text-xs font-extrabold text-[var(--ln-teal-700)]">Correct! Module unlocked.</span>
                 </>
               ) : (
                 <>
                   <XCircle className="w-4 h-4 text-rose-600" />
-                  <span className="text-xs font-bold text-rose-700">Not quite. Review the lesson and try again.</span>
+                  <span className="text-xs font-extrabold text-rose-700">Not quite. Review the lesson and try again.</span>
                 </>
               )}
             </div>
             {!isCorrect && (
               <button
                 onClick={handleRetry}
-                className="flex items-center gap-1 text-[10px] font-bold text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)] transition-colors uppercase tracking-widest"
+                className="flex items-center gap-1 text-[10px] font-extrabold text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)] transition-colors uppercase tracking-widest border-b border-transparent hover:border-[var(--ln-navy-900)]"
               >
                 <RefreshCw className="w-3 h-3" />
                 Retry

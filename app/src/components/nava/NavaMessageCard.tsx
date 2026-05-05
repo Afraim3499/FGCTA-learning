@@ -178,6 +178,7 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
 
   // Medium & Low Attention Layouts (Side Cards)
   const isLow = message.attentionLevel === 'low';
+  const [isMinimized, setIsMinimized] = React.useState(false);
 
   return (
     <motion.div
@@ -188,17 +189,20 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
       className={cn(
         "fixed z-50 bg-white rounded-2xl shadow-[0_15px_50px_rgba(8,26,54,0.12)] border border-slate-100 overflow-hidden flex flex-col sm:flex-row transition-all",
         message.attentionLevel === 'medium' ? 'bottom-20 sm:bottom-24' : 'bottom-4 sm:bottom-6',
-        isLow ? 'max-w-[300px]' : 'max-w-md',
-        "right-4 left-4 sm:left-auto sm:right-6 w-auto sm:w-full"
+        isMinimized ? 'max-w-[120px] sm:max-w-[150px]' : (isLow ? 'max-w-[300px]' : 'max-w-md'),
+        "right-4 left-auto w-auto sm:right-6"
       )}
     >
       <div className="flex">
         {/* Nava Character Container */}
-        <div className={cn(
-          "bg-gradient-to-b from-slate-50 to-white flex items-end justify-center overflow-hidden border-r border-slate-50 shrink-0",
-          isLow ? 'w-20' : 'w-24 sm:w-32'
-        )}>
-          <div className="sm:scale-100 scale-90 origin-bottom">
+        <div 
+          onClick={() => isMinimized && setIsMinimized(false)}
+          className={cn(
+            "bg-gradient-to-b from-slate-50 to-white flex items-end justify-center overflow-hidden border-r border-slate-50 shrink-0 transition-all",
+            isMinimized ? 'w-12 sm:w-16 cursor-pointer' : (isLow ? 'w-20' : 'w-24 sm:w-32')
+          )}
+        >
+          <div className={cn("origin-bottom transition-transform", isMinimized ? "scale-75" : "sm:scale-100 scale-90")}>
             <NavaPoseImage
               pose={message.pose}
               attentionLevel={message.attentionLevel}
@@ -207,101 +211,110 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
           </div>
         </div>
 
-        <div className={`flex-1 ${isLow ? 'p-4' : 'p-5 sm:p-7'} relative`}>
-          <div className="flex items-start justify-between mb-3">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <h4 className="text-[9px] font-black uppercase tracking-widest text-teal-600">
-                  Nava Guide
-                </h4>
-              </div>
-              <p className={`${isLow ? 'text-xs' : 'text-[15px]'} font-extrabold text-[var(--ln-navy-900)] leading-tight tracking-tight`}>
-                {message.title}
-              </p>
-            </div>
-
-            <div className="flex items-center gap-1">
-              <button
-                onClick={() => setShowSettings(!showSettings)}
-                className={cn(
-                  "p-1.5 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] transition-colors rounded-lg hover:bg-[var(--ln-bg-soft)]",
-                  showSettings && "bg-[var(--ln-bg-soft)] text-[var(--ln-navy-900)]"
-                )}
-                title="Guidance Settings"
-              >
-                <Settings size={14} />
-              </button>
-              {message.dismissible && (
-                <button
-                  onClick={() => onDismiss(message.id)}
-                  className="p-1.5 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] transition-colors rounded-lg hover:bg-[var(--ln-bg-soft)]"
-                >
-                  <X size={16} />
-                </button>
-              )}
-            </div>
-          </div>
-
-          <AnimatePresence>
-            {showSettings && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="mb-4 space-y-1 overflow-hidden"
-              >
-                <div className="flex items-center justify-between px-3 mb-2">
-                  <p className="text-[9px] font-black uppercase tracking-widest text-[var(--ln-text-muted)]">Settings</p>
-                  {userMode === 'quiet' && (
-                    <span className="text-[8px] font-bold text-teal-600 uppercase tracking-tight">Quieter Mode Active</span>
-                  )}
+        {!isMinimized && (
+          <div className={`flex-1 ${isLow ? 'p-4' : 'p-5 sm:p-7'} relative`}>
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <h4 className="text-[9px] font-black uppercase tracking-widest text-teal-600">
+                    Nava Guide
+                  </h4>
                 </div>
-                <button
-                  onClick={() => { onHideTips?.(); setShowSettings(false); }}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-[var(--ln-bg-soft)] rounded-xl transition-all"
-                >
-                  <EyeOff size={12} /> Hide tips for 48h
-                </button>
-                <button
-                  onClick={() => { onMute?.(); setShowSettings(false); }}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-[var(--ln-text-secondary)] hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
-                >
-                  <MessageSquareOff size={12} /> Mute Nava guide
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                <p className={`${isLow ? 'text-xs' : 'text-[15px]'} font-extrabold text-[var(--ln-navy-900)] leading-tight tracking-tight`}>
+                  {message.title}
+                </p>
+              </div>
 
-          <p className={`${isLow ? 'text-[11px]' : 'text-[13px]'} text-[var(--ln-text-secondary)] mb-4 leading-relaxed font-medium`}>
-            {message.body}
-          </p>
-
-          {message.ctaLabel && !isLow && (
-            <div className="flex items-center gap-3">
-              {message.ctaHref ? (
-                <Link
-                  href={message.ctaHref}
-                  className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 bg-[var(--ln-navy-900)] text-white text-[11px] font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-[var(--ln-navy-900)]/10 active:scale-95"
-                >
-                  {message.ctaLabel}
-                  <ChevronRight size={14} />
-                </Link>
-              ) : (
+              <div className="flex items-center gap-1">
                 <button
-                  onClick={() => onDismiss(message.id)}
-                  className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 bg-[var(--ln-navy-900)] text-white text-[11px] font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-[var(--ln-navy-900)]/10 active:scale-95"
+                  onClick={() => setIsMinimized(true)}
+                  className="p-1.5 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] transition-colors rounded-lg hover:bg-[var(--ln-bg-soft)]"
+                  title="Minimize"
                 >
-                  {message.ctaLabel}
-                  <ChevronRight size={14} />
+                  <ChevronRight size={16} className="rotate-90 sm:rotate-0" />
                 </button>
-              )}
+                <button
+                  onClick={() => setShowSettings(!showSettings)}
+                  className={cn(
+                    "p-1.5 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] transition-colors rounded-lg hover:bg-[var(--ln-bg-soft)]",
+                    showSettings && "bg-[var(--ln-bg-soft)] text-[var(--ln-navy-900)]"
+                  )}
+                  title="Guidance Settings"
+                >
+                  <Settings size={14} />
+                </button>
+                {message.dismissible && (
+                  <button
+                    onClick={() => onDismiss(message.id)}
+                    className="p-1.5 text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] transition-colors rounded-lg hover:bg-[var(--ln-bg-soft)]"
+                  >
+                    <X size={16} />
+                  </button>
+                )}
+              </div>
             </div>
-          )}
-        </div>
+
+            <AnimatePresence>
+              {showSettings && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mb-4 space-y-1 overflow-hidden"
+                >
+                  <div className="flex items-center justify-between px-3 mb-2">
+                    <p className="text-[9px] font-black uppercase tracking-widest text-[var(--ln-text-muted)]">Settings</p>
+                    {userMode === 'quiet' && (
+                      <span className="text-[8px] font-bold text-teal-600 uppercase tracking-tight">Quieter Mode Active</span>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => { onHideTips?.(); setShowSettings(false); }}
+                    className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-[var(--ln-bg-soft)] rounded-xl transition-all"
+                  >
+                    <EyeOff size={12} /> Hide tips for 48h
+                  </button>
+                  <button
+                    onClick={() => { onMute?.(); setShowSettings(false); }}
+                    className="w-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold text-[var(--ln-text-secondary)] hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
+                  >
+                    <MessageSquareOff size={12} /> Mute Nava guide
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <p className={`${isLow ? 'text-[11px]' : 'text-[13px]'} text-[var(--ln-text-secondary)] mb-4 leading-relaxed font-medium`}>
+              {message.body}
+            </p>
+
+            {message.ctaLabel && !isLow && (
+              <div className="flex items-center gap-3">
+                {message.ctaHref ? (
+                  <Link
+                    href={message.ctaHref}
+                    className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 bg-[var(--ln-navy-900)] text-white text-[11px] font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-[var(--ln-navy-900)]/10 active:scale-95"
+                  >
+                    {message.ctaLabel}
+                    <ChevronRight size={14} />
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => onDismiss(message.id)}
+                    className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 bg-[var(--ln-navy-900)] text-white text-[11px] font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-[var(--ln-navy-900)]/10 active:scale-95"
+                  >
+                    {message.ctaLabel}
+                    <ChevronRight size={14} />
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Attention Marker */}
-      {message.attentionLevel === 'medium' && (
+      {message.attentionLevel === 'medium' && !isMinimized && (
         <div className="absolute top-0 left-0 w-1 sm:w-1.5 h-full bg-teal-500" />
       )}
     </motion.div>

@@ -124,7 +124,7 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
   const [identifyStatus, setIdentifyStatus] = useState<{ x: number; y: number; success: boolean | null } | null>(null);
 
   const parseMetadata = (rawContent: string) => {
-    const lines = rawContent.split('\n');
+    const lines = rawContent.split(/\r?\n/);
     const metadata: Record<string, any> = {};
     let currentKey = '';
     let currentVal = '';
@@ -165,30 +165,27 @@ const LessonBlock = ({ type, content, onLaunchScenario }: { type: string, conten
           <div className="w-1 h-5 bg-[var(--ln-teal-500)] rounded-full" />
           <h3 className="text-lg font-bold text-[var(--ln-navy-900)] tracking-tight">{meta.title}</h3>
         </div>
-        <div className="group rounded-2xl border border-[var(--ln-border)] bg-white shadow-md">
-          <div className="relative bg-slate-50/50 p-2 rounded-t-2xl">
-            {meta.image ? (
+        
+        {meta.image && (
+          <div className="group rounded-2xl border border-[var(--ln-border)] bg-white shadow-md">
+            <div className="relative bg-slate-50/50 p-2 rounded-t-2xl">
               <img 
                 src={meta.image} 
                 alt={meta.title || "Visual content"} 
                 className="w-full h-auto object-contain rounded-xl"
               />
-            ) : (
-              <div className="aspect-video bg-slate-50 flex flex-col items-center justify-center text-slate-300 gap-2">
-                <AlertCircle className="w-8 h-8 opacity-20" />
-                <span className="text-[10px] font-bold uppercase tracking-widest opacity-30">Image Reference Missing</span>
+            </div>
+            {meta.caption && (
+              <div className="p-4 bg-slate-50/50 border-t border-[var(--ln-border)]">
+                <p className="text-xs text-[var(--ln-text-secondary)] italic leading-relaxed">
+                  <span className="text-[var(--ln-teal-500)] font-bold not-italic mr-2">Context:</span>
+                  {meta.caption}
+                </p>
               </div>
             )}
           </div>
-          {meta.caption && (
-            <div className="p-4 bg-slate-50/50 border-t border-[var(--ln-border)]">
-              <p className="text-xs text-[var(--ln-text-secondary)] italic leading-relaxed">
-                <span className="text-[var(--ln-teal-500)] font-bold not-italic mr-2">Context:</span>
-                {meta.caption}
-              </p>
-            </div>
-          )}
-        </div>
+        )}
+
         {meta.lookFor && (
           <div className="bg-slate-50 border-l-4 border-amber-500/50 p-6 rounded-r-2xl">
             <span className="text-[10px] font-extrabold text-amber-600 uppercase tracking-widest block mb-4">Observation Points</span>
@@ -495,13 +492,13 @@ interface MarkdownRendererProps {
 
 export function MarkdownRenderer({ content, className, onLaunchScenario }: MarkdownRendererProps) {
   // Parse content for ::: blocks
-  const parts = content.split(/(:::[a-z-]+\n[\s\S]*?\n:::)/g);
+  const parts = content.split(/(:::[a-z-]+\s*[\r\n]+[\s\S]*?[\r\n]+\s*:::)/g);
 
   return (
     <div className={cn("markdown-content max-w-none", className)}>
       {parts.map((part, index) => {
         if (part.startsWith(":::")) {
-          const match = part.match(/:::([a-z-]+)\n([\s\S]*?)\n:::/);
+          const match = part.match(/:::([a-z-]+)\s*[\r\n]+([\s\S]*?)[\r\n]+\s*:::/);
           if (match) {
             return (
               <LessonBlock 

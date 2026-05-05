@@ -110,8 +110,10 @@ export function PointClickEngine({
       wickDownColor: "#ef4444",
     });
 
-    series.setData(chartData);
-    chart.timeScale().fitContent();
+    series.setData(chartData || []);
+    if (chartData && chartData.length > 0) {
+      chart.timeScale().fitContent();
+    }
     
     const markers = createSeriesMarkers(series, []);
 

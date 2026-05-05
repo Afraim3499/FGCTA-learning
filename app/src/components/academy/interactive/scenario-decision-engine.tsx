@@ -75,21 +75,21 @@ export function ScenarioDecisionEngine({
 
   return (
     <div className={cn(
-      "rounded-[2rem] border bg-[var(--color-surface)] overflow-hidden flex flex-col transition-all duration-500 shadow-2xl",
+      "rounded-[2.5rem] border bg-white overflow-hidden flex flex-col transition-all duration-500 shadow-xl",
       status === "failed" ? "border-amber-500/30 shadow-amber-500/5" : 
-      status === "passed" ? "border-emerald-500/30 shadow-emerald-500/5" : 
-      "border-[var(--color-border)]"
+      status === "passed" ? "border-[var(--ln-teal-500)]/30 shadow-[var(--ln-teal-500)]/5" : 
+      "border-[var(--ln-border)]"
     )}>
       {/* Header / Briefing */}
-      <div className="p-8 border-b border-[var(--color-border)] bg-[var(--color-surface-hover)]/50 backdrop-blur-sm relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+      <div className="p-8 border-b border-[var(--ln-border)] bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none text-[var(--ln-navy-900)]">
             <Target size={120} />
         </div>
-        <div className="flex items-center gap-3 mb-4 text-[var(--color-brand-400)] text-[10px] font-bold tracking-[0.3em] uppercase">
+        <div className="flex items-center gap-3 mb-4 text-[var(--ln-teal-500)] text-[10px] font-extrabold tracking-[0.3em] uppercase">
           <Target className="w-4 h-4" />
           Interactive Scenario Method
         </div>
-        <p className="text-white text-lg font-medium leading-relaxed max-w-2xl">{contextPrompt}</p>
+        <p className="text-[var(--ln-navy-900)] text-lg font-extrabold leading-relaxed max-w-2xl uppercase tracking-tight">{contextPrompt}</p>
       </div>
 
       {/* Options Matrix */}
@@ -98,16 +98,16 @@ export function ScenarioDecisionEngine({
           const isSelected = selectedOptionId === option.id;
           const isCorrect = option.grade === "best" || option.grade === "acceptable";
           
-          let optionStateClass = "bg-white/[0.02] border-white/5 hover:bg-white/[0.05] hover:border-white/10";
+          let optionStateClass = "bg-white border-[var(--ln-border)] hover:bg-slate-50 hover:border-[var(--ln-teal-500)]/40";
           
           if (isSelected) {
             if (isCorrect) {
-              optionStateClass = "bg-emerald-500/10 border-emerald-500/30 text-emerald-400 ring-1 ring-emerald-500/20";
+              optionStateClass = "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)] text-[var(--ln-teal-600)] ring-1 ring-[var(--ln-teal-500)]/20 shadow-md";
             } else {
-              optionStateClass = "bg-amber-500/10 border-amber-500/30 text-amber-400 ring-1 ring-amber-500/20";
+              optionStateClass = "bg-amber-50 border-amber-500 text-amber-700 ring-1 ring-amber-500/20 shadow-md";
             }
           } else if (status === "passed") {
-            optionStateClass = "opacity-40 cursor-not-allowed border-transparent";
+            optionStateClass = "opacity-40 cursor-not-allowed border-transparent bg-slate-50";
           }
 
           return (
@@ -122,9 +122,9 @@ export function ScenarioDecisionEngine({
             >
               <div className={cn(
                   "w-6 h-6 rounded-lg border flex items-center justify-center shrink-0 mt-0.5 transition-all",
-                  isSelected && isCorrect ? "bg-emerald-500 border-emerald-400 text-white" :
-                  isSelected && !isCorrect ? "bg-amber-500 border-amber-400 text-white" :
-                  "bg-white/5 border-white/10 text-slate-500 group-hover:border-white/30"
+                  isSelected && isCorrect ? "bg-[var(--ln-teal-500)] border-[var(--ln-teal-600)] text-white" :
+                  isSelected && !isCorrect ? "bg-amber-500 border-amber-600 text-white" :
+                  "bg-slate-100 border-[var(--ln-border)] text-[var(--ln-navy-900)] group-hover:border-[var(--ln-teal-500)]/30 group-hover:text-[var(--ln-teal-500)]"
               )}>
                 {isSelected && isCorrect ? (
                   <CheckCircle2 size={14} />
@@ -135,8 +135,8 @@ export function ScenarioDecisionEngine({
                 )}
               </div>
               <span className={cn(
-                "text-sm font-semibold leading-relaxed",
-                isSelected ? "" : "text-slate-300 group-hover:text-white"
+                "text-sm font-bold leading-relaxed",
+                isSelected ? "" : "text-[var(--ln-navy-900)] group-hover:text-[var(--ln-navy-900)]"
               )}>
                 {option.text}
               </span>
@@ -149,26 +149,26 @@ export function ScenarioDecisionEngine({
       {(feedback || rationale) && (
         <div className={cn(
           "mx-8 mb-8 p-8 rounded-3xl border animate-in slide-in-from-bottom-4 duration-500",
-          status === "passed" ? "bg-emerald-500/5 border-emerald-500/10" : "bg-amber-500/5 border-amber-500/10"
+          status === "passed" ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/20" : "bg-amber-50 border-amber-200"
         )}>
           <div className="flex flex-col gap-6">
             <div className="flex items-start gap-4">
                 <div className={cn(
                     "p-3 rounded-2xl",
-                    status === "passed" ? "bg-emerald-500/10 text-emerald-500" : "bg-amber-500/10 text-amber-500"
+                    status === "passed" ? "bg-[var(--ln-teal-500)]/10 text-[var(--ln-teal-500)]" : "bg-amber-100 text-amber-600"
                 )}>
                     {status === "passed" ? <CheckCircle2 size={24} /> : <Lightbulb size={24} />}
                 </div>
                 <div className="space-y-1">
                     <p className={cn(
-                        "text-[10px] font-bold uppercase tracking-[0.2em]",
-                        status === "passed" ? "text-emerald-500" : "text-amber-500"
+                        "text-[10px] font-extrabold uppercase tracking-[0.2em]",
+                        status === "passed" ? "text-[var(--ln-teal-500)]" : "text-amber-600"
                     )}>
                         {status === "passed" ? "Logic Verified" : "Practice Analysis"}
                     </p>
                     <p className={cn(
-                        "text-base font-bold",
-                        status === "passed" ? "text-emerald-400" : "text-amber-200"
+                        "text-base font-extrabold tracking-tight",
+                        status === "passed" ? "text-[var(--ln-teal-600)]" : "text-amber-900"
                     )}>
                         {feedback}
                     </p>
@@ -176,9 +176,9 @@ export function ScenarioDecisionEngine({
             </div>
 
             {rationale && (
-                <div className="space-y-3 pt-6 border-t border-white/5">
-                    <h5 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">The Academy Rationale</h5>
-                    <p className="text-sm text-slate-400 leading-relaxed italic">
+                <div className="space-y-3 pt-6 border-t border-[var(--ln-border)]">
+                    <h5 className="text-[10px] font-extrabold text-[var(--ln-text-dim)] uppercase tracking-widest">The Academy Rationale</h5>
+                    <p className="text-sm text-[var(--ln-text-secondary)] leading-relaxed italic font-medium">
                         {rationale}
                     </p>
                 </div>
@@ -186,7 +186,7 @@ export function ScenarioDecisionEngine({
 
             {status !== "passed" && attempts > 0 && (
                 <div className="flex items-center justify-between pt-4">
-                    <span className="text-[9px] font-bold text-amber-500/50 uppercase tracking-widest">Attempt {attempts} Locked</span>
+                    <span className="text-[9px] font-extrabold text-amber-600/50 uppercase tracking-widest">Attempt {attempts} Locked</span>
                     <button 
                         onClick={() => {
                             setSelectedOptionId(null);
@@ -194,7 +194,7 @@ export function ScenarioDecisionEngine({
                             setFeedback(null);
                             setRationale(null);
                         }}
-                        className="text-[10px] font-bold text-white hover:text-[var(--color-brand-400)] transition-colors uppercase tracking-widest"
+                        className="text-[10px] font-extrabold text-[var(--ln-navy-900)] hover:text-[var(--ln-teal-500)] transition-colors uppercase tracking-widest border-b border-transparent hover:border-[var(--ln-teal-500)]"
                     >
                         Reset Method & Try Again
                     </button>
