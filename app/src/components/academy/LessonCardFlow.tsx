@@ -1,13 +1,13 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  CheckCircle2, 
-  Target, 
-  Lightbulb, 
+import {
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle2,
+  Target,
+  Lightbulb,
   AlertCircle,
   HelpCircle,
   ArrowRight,
@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { LearningLoop, CandleDiagram, NoteComparison } from "./AcademyVisuals";
 import { ChoiceBlockPractice } from "./interactive/choice-block-practice";
+import { ScenarioDecisionEngine } from "./interactive/scenario-decision-engine";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -77,9 +78,9 @@ const markdownComponents = {
   ),
 };
 
-export function LessonCardFlow({ 
-  cards, 
-  interactiveTaskType, 
+export function LessonCardFlow({
+  cards,
+  interactiveTaskType,
   interactiveTaskData,
   onComplete,
   onNextModule
@@ -154,7 +155,34 @@ export function LessonCardFlow({
             />
             {practicePassed && (
                <div className="flex justify-center mt-8">
-                 <button 
+                 <button
+                  onClick={handleNext}
+                  className="px-8 py-4 bg-[var(--ln-teal-500)] text-white rounded-2xl font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all"
+                 >
+                   Continue to Summary <ArrowRight size={18} />
+                 </button>
+               </div>
+            )}
+          </div>
+        );
+      }
+
+      if (interactiveTaskType === 'type_b_scenario' && interactiveTaskData?.options) {
+        return (
+          <div className="space-y-8">
+            <ScenarioDecisionEngine
+              taskId="flow_task"
+              moduleId="flow"
+              contextPrompt={interactiveTaskData.contextPrompt}
+              options={interactiveTaskData.options}
+              onPass={() => {
+                setPracticePassed(true);
+                if (onComplete) onComplete();
+              }}
+            />
+            {practicePassed && (
+               <div className="flex justify-center mt-8">
+                 <button
                   onClick={handleNext}
                   className="px-8 py-4 bg-[var(--ln-teal-500)] text-white rounded-2xl font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all"
                  >
@@ -181,7 +209,7 @@ export function LessonCardFlow({
             </div>
           </div>
           {onNextModule && (
-            <button 
+            <button
               onClick={onNextModule}
               className="px-10 py-4 bg-[var(--ln-teal-500)] text-white rounded-2xl font-extrabold uppercase tracking-widest flex items-center gap-2 mx-auto shadow-xl shadow-[var(--ln-teal-500)]/20 hover:scale-105 transition-all"
             >
@@ -279,7 +307,7 @@ export function LessonCardFlow({
 
         {/* Standard Content */}
         <div className="prose prose-slate max-w-none">
-          <ReactMarkdown 
+          <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={markdownComponents}
           >
@@ -313,9 +341,9 @@ export function LessonCardFlow({
         {/* Progress Bar */}
         <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
           {/* eslint-disable-next-line react/no-inline-styles */}
-          <div 
+          <div
             className="h-full bg-[var(--ln-teal-500)] transition-all duration-500 ease-out shadow-[0_0_8px_rgba(20,184,166,0.3)]"
-            style={{ 
+            style={{
               "--progress-width": `${((currentIndex + 1) / totalCards) * 100}%`,
               width: "var(--progress-width)"
             } as React.CSSProperties}
@@ -340,8 +368,8 @@ export function LessonCardFlow({
             disabled={currentIndex === 0}
             className={cn(
               "flex items-center gap-2 px-6 py-3 rounded-2xl text-[10px] font-extrabold uppercase tracking-widest transition-all",
-              currentIndex === 0 
-                ? "opacity-0 pointer-events-none" 
+              currentIndex === 0
+                ? "opacity-0 pointer-events-none"
                 : "text-slate-400 hover:text-[var(--ln-navy-900)] hover:bg-slate-50"
             )}
           >
@@ -350,12 +378,12 @@ export function LessonCardFlow({
 
           <div className="flex items-center gap-2">
             {cards.map((_, i) => (
-               <div 
-                key={i} 
+               <div
+                key={i}
                 className={cn(
                   "w-1.5 h-1.5 rounded-full transition-all duration-300",
                   i === currentIndex ? "w-4 bg-[var(--ln-teal-500)]" : "bg-slate-200"
-                )} 
+                )}
                />
             ))}
           </div>

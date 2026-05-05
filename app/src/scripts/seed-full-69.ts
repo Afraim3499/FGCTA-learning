@@ -27,7 +27,7 @@ async function main() {
     "title": "The Lurnava Learning Loop",
     "visual": "learning-loop",
     "label": "Visual First",
-    "body": "Lurnava is a structured system built on a three-part loop. Click each step in the diagram above to see how your skills are built. Professional market participation is about **structured observation** and **repeated practice**, not emotional guessing."
+    "body": "Lurnava is a structured system built on a three-part loop. Click each step in the diagram above to see how your skills are built. structured market reading is about **structured observation** and **repeated practice**, not emotional guessing."
   },
   {
     "type": "concept",
@@ -71,7 +71,7 @@ async function main() {
     "scenario": {
       "left": {
         "title": "The Rusher",
-        "content": "Buys a 'secret strategy', clicks buttons, wins once by luck, has no idea *why*. When they eventually lose, they get frustrated and quit."
+        "content": "Follows a random idea, gets one result, but cannot explain why it happened. When conditions change, they have no review process."
       },
       "right": {
         "title": "The Lurnava Learner",
@@ -83,7 +83,7 @@ async function main() {
     "type": "rule",
     "title": "Decision Rule",
     "label": "Logic",
-    "body": "> If you cannot explain what you observed, what evidence supports it, and what you will review later, you are not ready to move forward.\\n\\nCommit to the process of learning. If you find yourself looking for a 'magic signal,' stop and return to the foundations."
+    "body": "> If you cannot explain what you observed, what evidence supports it, and what you will review later, you are not ready to move forward.\\n\\nCommit to the process of learning. If you find yourself looking for a simple shortcut, stop and return to the foundations."
   },
   {
     "type": "practice",
@@ -94,7 +94,7 @@ async function main() {
     "type": "summary",
     "title": "Module Summary",
     "label": "Recap",
-    "body": "Lurnava is a skill-building platform. We teach you to read the market as a professional observer.\\n\\nSuccess comes from the **quality of your practice** and the **honesty of your reviews**."
+    "body": "Lurnava is a skill-building platform. We teach you to read the market as a structured observer.\\n\\nSuccess comes from the **quality of your practice** and the **honesty of your reviews**."
   }
 ]
 :::`,
@@ -102,9 +102,9 @@ async function main() {
       interactiveTaskData: {
         question: "What is the correct Lurnava learning loop?",
         options: [
-          "Follow a signal -> click buy -> check profit -> repeat.",
+          "Follow a signal -> click buy -> check outcome -> repeat.",
           "Learn concept -> complete practice -> take test/mission -> save review note.",
-          "Guess the direction -> wait for the win -> ignore the loss -> continue.",
+          "Guess the direction -> wait for a result -> ignore the outcome -> continue.",
           "Read the news -> follow the hype -> buy the dip -> hope for the best."
         ],
         correctIndex: 1
@@ -145,11 +145,11 @@ async function main() {
     "scenario": {
       "left": {
         "title": "Liquid Market",
-        "content": "You want to sell 100 items. There are 1,000 buyers waiting. You can exit easily at a fair price."
+        "content": "There are many orders waiting to be matched. A buyer can easily find an seller."
       },
       "right": {
         "title": "Illiquid Market",
-        "content": "You want to sell 100 items. No one is buying. You have to lower your price significantly to find an exit."
+        "content": "There are few orders waiting. A buyer must move the price significantly to find a seller."
       }
     }
   },
@@ -242,7 +242,7 @@ async function main() {
     "scenario": {
       "left": {
         "title": "Isolated Candle",
-        "content": "A long upper wick appears. Beginner says: 'Bearish signal! Sell now!'"
+        "content": "A long upper wick appears. A learner might form a quick conclusion about direction."
       },
       "right": {
         "title": "Contextual Reading",
@@ -258,12 +258,12 @@ async function main() {
       "left": {
         "title": "Wrong",
         "type": "negative",
-        "content": "Treating a candle as a 'signal' or memorizing names like 'Morning Star' as a shortcut."
+        "content": "Treating a candle as a 'signal' or memorizing names as a shortcut."
       },
       "right": {
         "title": "Better",
         "type": "positive",
-        "content": "Treating the candle as one piece of evidence inside a larger structural story. Asking: 'Who won this battle?'"
+        "content": "Treating the candle as one piece of evidence inside a larger structural story. Asking: 'What did this candle actually record?'"
       }
     }
   },
@@ -276,7 +276,7 @@ async function main() {
     "type": "summary",
     "title": "Module Summary",
     "label": "Recap",
-    "body": "Candles record the battle between buyers and sellers. To read them correctly, you must always look at the candles that came before them.\\n\\n**Context is King.**"
+    "body": "Candles record the battle between buyers and sellers. To read them correctly, you must always look at the candles that came before them.\\n\\n**Context changes the reading.**"
   }
 ]
 :::`,

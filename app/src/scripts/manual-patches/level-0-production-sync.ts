@@ -11,14 +11,91 @@ const MODULES = [
   {
     level: 0, moduleNumber: "0.1", title: "What Lurnava Teaches: Reading, Practice, Review",
     objective: "Welcome to the Market Reading Foundations.",
-    content: `# What Lurnava Teaches: Reading, Practice, Review\n\nWelcome to Lurnava. This is not a typical trading course. Most people come to the markets looking for \"signals\"—simple instructions to buy or sell. Lurnava does not provide signals, nor does it teach you how to \"predict\" the future. Predicting is a guessing game, and guessing leads to inconsistency.\n\nInstead, Lurnava teaches you **Market Reading**. This is the ability to look at a chart and identify objective structural facts. It is like learning a language. Once you can read the language of the market, you don't need anyone to tell you what to do.\n\n### The Lurnava Method\nOur approach is built on a three-part loop: **Read, Practice, Review.**\n\n1. **Read**: You learn a specific structural concept.\n2. **Practice**: You immediately apply that concept in a simulation (The Lab).\n3. **Review**: You document what happened in your Journal and analyze your decision-making.\n\n:::skill-target\nUnderstand that professional participation is about structured observation and repeated practice, not emotional guessing or following \"experts.\"\n:::\n\n### What We Do Not Teach\nIt is important to be clear: Lurnava is not a \"get rich quick\" platform. We do not use hype, and we do not promise profits. In fact, we avoid the word \"profit\" because it focuses your mind on the result rather than the process.\n\n**What this means:**\nWe focus on **Evidence**. Evidence is a piece of observable data on the chart that suggests a specific market state. For example, if price breaks a previous high, that is evidence of strength. We don't \"believe\" price is strong; we observe it.\n\n:::learning-loop\n:::\n\n### Why You Should Not Rush\nThe biggest mistake beginners make is rushing to \"trade.\" At Lurnava, we don't start with trading; we start with **Market Reading Foundations**. You wouldn't try to fly a plane before learning what the buttons do.\n\n**Simple Scenario:**\nImagine a person who buys a \"secret strategy\" and starts clicking buttons. They might win once or twice by luck, but they have no idea *why* it happened. When they eventually lose, they get frustrated and quit.\nA Lurnava learner, however, knows exactly what evidence they were looking for. If the market does something unexpected, they record it, review it, and learn from it.\n\n### Your Tools\n- **Modules**: These lessons where you learn the theory.\n- **Interactive Tasks**: Small exercises inside the modules to check your understanding.\n- **The Lab**: A simulation environment where you can practice reading real historical data without risk.\n- **The Journal**: Your personal record of every observation and practice session.\n- **Nava**: Your AI assistant that helps you review your logic and provides context.\n\n:::decision-rule\nCommit to the process of learning. If you find yourself looking for a \"magic signal,\" stop and return to the foundations of objective reading.\n:::\n\n:::summary\nLurnava is a skill-building platform. We teach you to read the market as a professional observer. Success comes from the quality of your practice and the honesty of your reviews.\n:::`,
+    content: `:::lesson-cards
+[
+  {
+    "type": "visual_intro",
+    "title": "The Lurnava Learning Loop",
+    "visual": "learning-loop",
+    "label": "Visual First",
+    "body": "Lurnava is a structured system built on a three-part loop. Click each step in the diagram above to see how your skills are built. structured market reading is about **structured observation** and **repeated practice**, not emotional guessing."
+  },
+  {
+    "type": "concept",
+    "title": "What Lurnava Teaches",
+    "label": "Concept",
+    "body": "Lurnava teaches you **Market Reading**. This is the ability to look at a chart and identify objective structural facts.\\n\\n- **Not signals**: No simple instructions to buy/sell.\\n- **Not prediction**: We don't guess the future.\\n- **Not copying**: You learn to read the language yourself."
+  },
+  {
+    "type": "comparison",
+    "title": "What We Do Not Teach",
+    "label": "Comparison",
+    "comparison": {
+      "left": {
+        "title": "Not Lurnava",
+        "type": "negative",
+        "content": "- Follow a signal\\n- Guess direction\\n- Chase hype"
+      },
+      "right": {
+        "title": "Lurnava",
+        "type": "positive",
+        "content": "- Observe evidence\\n- Practice in simulation\\n- Review decisions"
+      }
+    }
+  },
+  {
+    "type": "concept",
+    "title": "Your Tools",
+    "label": "The Ecosystem",
+    "items": [
+      { "title": "Modules", "body": "Where you learn the core theory.", "icon": "modules" },
+      { "title": "Tasks", "body": "Small exercises to check understanding.", "icon": "tasks" },
+      { "title": "The Lab", "body": "Practice reading real historical data.", "icon": "lab" },
+      { "title": "Journal", "body": "Your personal record of every observation.", "icon": "journal" },
+      { "title": "Nava", "body": "AI assistant for logic review and context.", "icon": "nava" }
+    ]
+  },
+  {
+    "type": "scenario",
+    "title": "Why You Should Not Rush",
+    "label": "Scenario",
+    "scenario": {
+      "left": {
+        "title": "The Rusher",
+        "content": "Follows a random idea, gets one result, but cannot explain why it happened. When conditions change, they have no review process."
+      },
+      "right": {
+        "title": "The Lurnava Learner",
+        "content": "Knows exactly what evidence they were looking for. If the market does something unexpected, they record it, review it, and learn."
+      }
+    }
+  },
+  {
+    "type": "rule",
+    "title": "Decision Rule",
+    "label": "Logic",
+    "body": "> If you cannot explain what you observed, what evidence supports it, and what you will review later, you are not ready to move forward.\\n\\nCommit to the process of learning. If you find yourself looking for a simple shortcut, stop and return to the foundations."
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Lurnava is a skill-building platform. We teach you to read the market as a structured observer.\\n\\nSuccess comes from the **quality of your practice** and the **honesty of your reviews**."
+  }
+]
+:::`,
     interactiveTaskType: "choice_block",
     interactiveTaskData: {
       question: "What is the correct Lurnava learning loop?",
       options: [
-        "Follow a signal -> click buy -> check profit -> repeat.",
+        "Follow a signal -> click buy -> check outcome -> repeat.",
         "Learn concept -> complete practice -> take test/mission -> save review note.",
-        "Guess the direction -> wait for the win -> ignore the loss -> continue.",
+        "Guess the direction -> wait for a result -> ignore the outcome -> continue.",
         "Read the news -> follow the hype -> buy the dip -> hope for the best."
       ],
       correctIndex: 1
@@ -45,7 +122,81 @@ const MODULES = [
   {
     level: 0, moduleNumber: "0.3", title: "Candles Are Records, Not Signals",
     objective: "Learning to read price data without bias.",
-    content: `# Candles Are Records, Not Signals\n\nMost beginners look at a \"candlestick chart\" and see symbols that tell them to buy or sell. They see a \"Pin Bar\" or an \"Engulfing Candle\" and think it is a \"signal.\" This is a dangerous mistake.\n\nA candle is not a signal. A candle is a **Record**. It is a visual summary of what happened to the price over a specific period.\n\n### The Anatomy of a Candle\nEvery candle tells a four-part story:\n1. **Open**: Where the price started.\n2. **High**: The highest point reached.\n3. **Low**: The lowest point reached.\n4. **Close**: Where the price ended.\n\nThe rectangular part of the candle is called the **Body**. It shows the distance between the Open and the Close. If the Close is higher than the Open, the body is usually green (or white), showing a bullish period. If the Close is lower, the body is red (or black), showing a bearish period.\n\nTHE thin lines above and below the body are called **Wicks** (or shadows). They represent the prices that were \"tested\" but rejected by the close of the period.\n\n### Context is King\nThe most important rule in market reading is that **one candle alone is weak evidence.**\n\n**Simple Scenario:**\nImagine you see a candle with a very long wick on top. This shows that the price went high but was pushed back down. Many beginners would see this and say, \"That's a bearish signal! Sell now!\"\nBut what if the previous ten candles were all strongly bullish? In that **Context**, the long wick might just be a brief pause before the price continues higher.\n\n**What this does not mean:**\nA single candle does not \"guarantee\" a reversal. It only tells you what happened in that specific window of time.\n\n:::candle-diagram\n:::\n\n### Common Beginner Mistake: Signal-Hunting\nBeginners spend hours memorizing names of candle patterns. They think if they find a \"Morning Star,\" they have found a shortcut.\nProfessionals don't care about the names. They care about the **Story**. They ask: \"Who won this candle? Did the buyers hold their ground, or did the sellers displace them?\"\n\n### Wrong Approach vs Better Approach\n- **Wrong**: \"I see a Hammer candle. The book says a Hammer is a buy signal. I'm buying.\"\n- **Better**: \"This candle rejected a previous low and closed back inside the range. This is one piece of evidence that sellers are losing control, but I need more structural context before forming a reading.\"\n\n:::decision-rule\nTreat every candle as a journal entry of price action. Use it to build a case of evidence, never as a standalone reason to act.\n:::\n\n:::summary\nCandles record the battle between buyers and sellers. The body shows commitment, and the wicks show rejection. To read them correctly, you must always look at the candles that came before them.\n:::`,
+    content: `:::lesson-cards
+[
+  {
+    "type": "visual_intro",
+    "title": "Candle Anatomy",
+    "visual": "candle-anatomy",
+    "label": "Visual First",
+    "body": "A candle is a **Record**, not a signal. It tells a four-part story: **Open, High, Low, and Close**. The body shows commitment, while the wicks show rejection."
+  },
+  {
+    "type": "concept",
+    "title": "Candles Are Records",
+    "label": "Concept",
+    "body": "Most beginners see symbols that tell them to buy or sell. A candle is actually just a **visual summary** of what happened to the price over a specific period. It does not tell the future by itself."
+  },
+  {
+    "type": "comparison",
+    "title": "Body vs Wick",
+    "label": "Comparison",
+    "comparison": {
+      "left": {
+        "title": "The Body",
+        "content": "Shows where price opened and closed. Represents **commitment** and the strength of the move during that period."
+      },
+      "right": {
+        "title": "The Wick",
+        "content": "Shows where price traveled but was **rejected**. Represents prices that were tested but not held."
+      }
+    }
+  },
+  {
+    "type": "scenario",
+    "title": "Context Changes the Reading",
+    "label": "Scenario",
+    "scenario": {
+      "left": {
+        "title": "Isolated Candle",
+        "content": "A long upper wick appears. A learner might form a quick conclusion about direction."
+      },
+      "right": {
+        "title": "Contextual Reading",
+        "content": "The previous ten candles were strongly bullish. The long wick might just be a brief pause. One candle alone is **weak evidence**."
+      }
+    }
+  },
+  {
+    "type": "comparison",
+    "title": "Common Beginner Mistake",
+    "label": "Comparison",
+    "comparison": {
+      "left": {
+        "title": "Wrong",
+        "type": "negative",
+        "content": "Treating a candle as a 'signal' or memorizing names as a shortcut."
+      },
+      "right": {
+        "title": "Better",
+        "type": "positive",
+        "content": "Treating the candle as one piece of evidence inside a larger structural story. Asking: 'What did this candle actually record?'"
+      }
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Practice Check",
+    "label": "Interactive Task"
+  },
+  {
+    "type": "summary",
+    "title": "Module Summary",
+    "label": "Recap",
+    "body": "Candles record the battle between buyers and sellers. To read them correctly, you must always look at the candles that came before them.\\n\\n**Context changes the reading.**"
+  }
+]
+:::`,
     interactiveTaskType: "type_b_scenario",
     interactiveTaskData: {
       contextPrompt: "You see a red candle with a long wick at the bottom appearing after a series of strong red candles. How should you read this?",
