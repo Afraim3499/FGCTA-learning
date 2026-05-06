@@ -25,77 +25,99 @@ async function main() {
   {
     "type": "mission_brief",
     "title": "Mission Brief: You Are Not Here for Tips",
+    "visualKey": "academy-path",
     "label": "Training Intent",
-    "body": "Welcome to the Academy. Most people enter the market looking for 'tips,' 'secret strategies,' or 'signals' that tell them when to click a button. This is the fastest route to failure. Imagine a learner who watches three videos in one night. Each video says something different. The learner opens the chart with confidence, but cannot explain what evidence they are actually looking for. That is not learning; that is borrowed conviction.\\n\\nLurnava is not a library of content; it is a **structured training system**. We are here to prevent the 'Random Learner' trap—the habit of consuming endless information without ever building a repeatable skill. You are not here to watch; you are here to be trained in **Structured Market Reading**. This requires moving past the desire for shortcuts and committing to an academy process of observation, simulation, and audit."
+    "body": "Welcome to the Academy. Most people enter the market looking for 'tips,' 'secret strategies,' or 'signals' that tell them when to click a button. This is the fastest route to failure. Imagine a foundation-stage learner who spends an entire evening watching short, high-energy trading content online. One video explains a candle pattern; another talks about a liquidity concept; a third mentions crypto funding. The learner feels informed, productive, and confident. However, as soon as they open a live price chart, they realize they cannot explain what evidence they are actually looking for. Their confidence was not built on skill; it was **borrowed conviction** from a screen.\\n\\nLurnava is not a library of content; it is a **structured training system**. We are here to prevent the 'Random Learner' trap—the habit of consuming endless information without ever building a repeatable process. You are not here to watch; you are here to be trained in **Structured Market Reading**. This requires moving past the desire for shortcuts and committing to an academy process of observation, simulation, and audit. This module prevents the most common failure in early-stage development: having a head full of facts but no system to apply them. You are here to stop guessing and start reading."
   },
   {
     "type": "visual_intro",
     "title": "The Lurnava Training Loop",
-    "visual": "learning-loop",
+    "visualKey": "learning-loop",
     "label": "Visual First",
-    "body": "To build judgment, you must follow a deliberate cycle. Theory alone is useless without application, and application is dangerous without review. Think of this as **Flight School**: You read the flight manual (Learn), you spend hours in the simulator (Practice), you pass your check-ride (Mission), and you debrief every single flight (Journal Review) to find your mistakes.\\n\\n1. **Learn**: Study one objective structural concept at a time.\\n2. **Practice**: Apply that concept in the Lab using historical data.\\n3. **Test / Mission**: Prove you can identify the concept under pressure.\\n4. **Journal Review**: Audit your logic. This is where the real learning happens. If you skip the review, you are just clicking buttons."
+    "body": "To build judgment, you must follow a deliberate cycle. Theory alone is useless without application, and application is dangerous without review. Think of this as **Flight School**: You read the flight manual (Learn), you spend hours in the simulator (Practice), you pass your check-ride (Mission), and you debrief every single flight (Journal Review) to find your mistakes. If a pilot only read books but never used a simulator, they would be a danger to themselves and others. Market reading is no different.\\n\\n1. **Learn**: Study one objective structural concept at a time. Do not move on until the mechanism is clear.\\n2. **Practice**: Apply that concept in the Lab using historical data. This is your controlled environment where mistakes cost nothing but teach everything.\\n3. **Test / Mission**: Prove you can identify the concept under pressure. This is your 'check-ride'—a practical exam to ensure the theory has become a skill.\\n4. **Journal Review**: Audit your logic. This is where the real learning happens. If you skip the review, you are just clicking buttons and hoping for a result. Reviewing your reasoning creates the data needed to improve your future readings."
   },
   {
     "type": "comparison",
     "title": "Random Learner vs. Trained Learner",
+    "visualKey": "learner-profiles",
     "label": "Behavioral Shift",
+    "body": "The difference between a struggling learner and a developing market reader is not talent or luck. The difference is whether the learner has a repeatable process that creates a feedback loop. One path leads to confusion; the other leads to clarity.",
     "comparison": {
       "left": {
         "title": "The Random Learner",
         "type": "negative",
-        "content": "- Watches scattered content daily.\\n- Changes method every few days.\\n- Reacts to emotional reactions or price motion.\\n- Cannot explain decisions or write notes.\\n- Blames the market when confused."
+        "content": "- Consumes scattered content daily without a plan.\\n- Changes their method every few days looking for a 'secret.'\\n- Reacts to fast price motion or emotional impulses.\\n- Cannot explain the specific evidence behind a decision.\\n- Avoids taking notes because it feels like 'work.'\\n- Feels active but cannot measure any real improvement."
       },
       "right": {
         "title": "The Lurnava Learner",
         "type": "positive",
-        "content": "- Studies one concept at a time.\\n- Observes structure and evidence facts.\\n- Practices in a controlled environment.\\n- Records the logic before each reading.\\n- Reviews mistakes and unclear moments."
+        "content": "- Studies one specific concept until it is mastered.\\n- Observes defined structural conditions on the chart.\\n- Practices deliberately in a controlled simulation.\\n- Writes down the reasoning for every reading.\\n- Reviews mistakes and unclear moments systematically.\\n- Builds a repeatable process that leads to skill."
       }
     }
   },
   {
     "type": "concept",
     "title": "The Cockpit: Your Training Instruments",
+    "visualKey": "training-cockpit",
     "label": "The Ecosystem",
+    "body": "A cockpit is not valuable because it has many buttons. It is valuable because every instrument tells the pilot something specific about their environment. Lurnava works the same way—each feature is a training instrument designed to build your judgment.",
     "items": [
-      { "title": "Modules", "body": "Training Manual. The objective theory you will apply.", "icon": "modules" },
-      { "title": "Tasks", "body": "Instrument Checks. Small drills to ensure mechanical understanding.", "icon": "tasks" },
-      { "title": "The Lab", "body": "Flight Simulator. Practice reading real data for future execution.", "icon": "lab" },
-      { "title": "Scenarios", "body": "Case-File Learning. Study specific historical scenario study files.", "icon": "book" },
-      { "title": "Journal", "body": "Black-Box Recorder. Your record of every decision and its logic.", "icon": "journal" },
-      { "title": "Nava", "body": "Co-Pilot. Assistant for checklists and structural logic review.", "icon": "nava" }
+      { "title": "Modules", "body": "Training Manual. These provide the language and concepts you will apply. They are the foundation, but the true training happens in application.", "icon": "modules" },
+      { "title": "Tasks", "body": "Instrument Checks. Small drills to ensure you understand the mechanical side of a concept before you try to read it in a complex chart.", "icon": "tasks" },
+      { "title": "The Lab", "body": "Practice Simulator. Your environment for controlled practice. Use the Lab to study historical data and build your visual recognition.", "icon": "lab" },
+      { "title": "Scenarios", "body": "Case-File Learning. Study curated historical situations to understand what evidence mattered and what you should review in your own readings.", "icon": "book" },
+      { "title": "Journal", "body": "Black-Box Recorder. The most important tool. It stores your reasoning and logic. Without this record, you cannot see patterns in your own thinking.", "icon": "journal" },
+      { "title": "Nava", "body": "Checklist Assistant. Your co-pilot for reviewing logic. Nava can help you verify your evidence, but it cannot replace your own judgment.", "icon": "nava" }
     ]
   },
   {
     "type": "scenario",
     "title": "One Hour of Bad Practice",
+    "visualKey": "practice-timeline",
     "label": "Simulation",
+    "body": "Imagine you have 60 minutes after a long day of work or class. You are tired, but you want to make progress. You open a chart, price is moving quickly, and you feel an internal pressure to 'do something' to prove you are learning.",
     "scenario": {
       "left": {
         "title": "The Junk Practice",
-        "content": "A learner has 60 minutes. They open a chart, get excited by a fast move, and record 20 random clicks to 'see what happens.' They close the laptop with no notes. Active, but learned nothing."
+        "content": "You jump between different charts and assets. You try three different ideas you saw in videos earlier. You record 20 random actions to 'see what happens.' You close the laptop with no notes and no clear reason for any action. You were busy, but you learned nothing."
       },
       "right": {
         "title": "The Deliberate Practice",
-        "content": "A learner chooses one concept. They find 5 examples, record one reason for each, and mark one review condition. They did less, but improved their judgment."
+        "content": "You choose one concept. You find one specific situation. You write down one clear reason for your reading. You mark a condition that would make you review the note. You save one journal entry. You did less, but you actually improved your judgment."
       }
     }
   },
   {
     "type": "rule",
     "title": "The Three-Question Gate",
+    "visualKey": "decision-gate",
     "label": "Decision Checkpoint",
-    "body": "Before you record any reading or take any action in the Lab, you must pass through the Three-Question Gate. This prevents impulsive guessing.\\n\\n1. **What did I observe?** (Name the specific concept)\\n2. **What evidence supports it?** (List the structural facts)\\n3. **What would make me review this?** (Identify the 'invalid' condition)\\n\\n**Pass Example**: 'I observed price moving inside a range. Evidence: recent highs and lows are not breaking. I will review if price closes outside the range.'\\n**Fail Example**: 'I think price is moving up because it looks fast and I want to see a result.' (No evidence, no gate pass)."
+    "body": "A 'reading' is your current interpretation of what the chart is showing. To prevent impulsive guessing, you must pass every reading through the Three-Question Gate.\\n\\n1. **What did I observe?** (Name the specific structural concept you are seeing).\\n2. **What evidence supports it?** (List the objective facts on the chart, not your feelings).\\n3. **What would make me review this reading?** (Define the 'invalid' condition where the reading no longer makes sense).\\n\\n**Pass Example**: 'I observed price moving inside a range. Evidence: recent highs and lows are not breaking clearly. I will review if price closes outside the range and holds.'\\n**Fail Example**: 'The chart looks strong and the move is fast, so I want to see what happens next.' (No observation, no evidence, no review condition)."
   },
   {
     "type": "practice",
     "title": "Training Drill: The Hype Trap",
-    "label": "Practical Drill"
+    "visualKey": "hype-trap-path",
+    "label": "Practical Drill",
+    "body": "A developing market reader must learn to distinguish between external hype and internal evidence. This drill tests your ability to stay disciplined when tempted by shortcuts.",
+    "taskData": {
+      "type": "choice_block",
+      "question": "Scenario: You watch a short online video claiming a specific candle pattern works well. Later, you open the Lab and see a similar-looking candle. Because the video is fresh in your memory, you feel tempted to use the idea immediately. What is the correct Lurnava response?",
+      "options": [
+        "Apply the pattern immediately because the candle looks similar and you want to see a win.",
+        "Change timeframes repeatedly until the idea appears correct so you can justify the action.",
+        "Identify the actual concept, check the chart context for evidence, practice it deliberately in the simulator, and write a review note.",
+        "Skip the journal entry and the reasoning because this is only a practice session."
+      ],
+      "correctIndex": 2
+    }
   },
   {
     "type": "summary",
     "title": "Debrief: What You Are Being Trained For",
+    "visualKey": "orientation-debrief",
     "label": "Final Review",
-    "body": "You are being trained to **explain your reading** with objective logic. You are not here to memorize tips or react to every movement on the screen. True skill comes from clarity, not just confidence.\\n\\nCommit to the simulator. Commit to the journal. Commit to the loop.\\n\\n**Next**: We move from the 'How' to the 'What.' You will study what a market actually is: an interaction between buyers, sellers, and available orders."
+    "body": "You are being trained to **explain your reading** with objective logic. You are not here to memorize 'magic' tips or react to every flickering movement on the screen. True skill in this academy comes from clarity and a repeatable process, not just confidence or speed. \\n\\nEvery reading you record and every journal entry you save is data that helps you understand your own thinking patterns. Commit to the simulator. Commit to the journal. Commit to the loop. This discipline is what separates the trained learner from the random guesser.\\n\\n**Next**: We move from the 'How' to the 'What.' In Module 0.2, you will study what a market actually is: an interaction between buyers, sellers, available orders, and the resulting price."
   }
 ]
 :::`,
@@ -103,35 +125,49 @@ async function main() {
 [
   {
     "type": "mission_brief",
-    "title": "Forex Brief: You Are Reading a Relationship",
+    "title": "Forex Brief: Reading a Relationship",
     "label": "Roadway Context",
-    "body": "In the Forex roadway, you are never reading one asset moving alone. Every chart is a relationship between two currencies. EUR/USD is not just 'EUR moving'; it is EUR compared against USD. A beginner sees EUR/USD rising and assumes 'EUR is strong,' but maybe USD is simply weakening faster. Without understanding this relationship, you are misreading the map. Your training here focuses on reading this interaction between base and quote currencies."
+    "body": "In the Forex roadway, every chart is a relationship between two currencies. You are never reading one asset alone.\\n\\n**Base Currency**: The first currency in a pair (e.g., EUR in EUR/USD). It is the 'Main Item' you are observing.\\n**Quote Currency**: The second currency in a pair (e.g., USD in EUR/USD). It is the 'Measuring Stick' used to price the base.\\n\\n**Scoreboard Analogy**: A currency pair is like a scoreboard comparing two teams. If EUR/USD rises, it doesn't always mean the Euro (base) is strong; it might mean the Dollar (quote) is weakening. Your training focuses on reading this interaction."
   },
   {
-    "type": "visual_intro",
-    "title": "Forex Training Loop Example",
-    "label": "Workflow",
-    "body": "How the Lurnava loop applies to Forex training:\\n\\n1. **Learn**: Study the base/quote relationship and session drivers.\\n2. **Practice**: Inspect two currency pairs involving USD to compare behavior.\\n3. **Test / Mission**: Identify whether movement is base strength or quote weakness.\\n4. **Journal**: Record what made the relationship reading clear or unclear. This builds the habit of checking the other side of the pair."
+    "type": "concept",
+    "title": "Forex Training Instruments",
+    "label": "Terminology",
+    "items": [
+      { "title": "Session Drivers", "body": "The active geographic markets (London, New York, Tokyo). Like 'Shop Hours,' the busiest time is when these major markets overlap.", "icon": "target" },
+      { "title": "USD Context", "body": "The 'Global Weather.' If the Dollar is weakening everywhere, it affects all pairs. You must check this background condition.", "icon": "lightbulb" }
+    ]
   },
   {
     "type": "scenario",
-    "title": "Common Forex Beginner Failure",
+    "title": "The 'One-Sided' Mistake",
     "label": "Mistake Pattern",
     "scenario": {
       "left": {
         "title": "Isolated Reading",
-        "content": "A learner sees GBP/USD moving fast during the London session and assumes the pair is 'strong' without checking session context or broader USD behavior."
+        "content": "A learner sees GBP/USD moving fast and assumes GBP is 'strong' without checking if the Dollar is weakening across the whole market."
       },
       "right": {
         "title": "Contextual Reading",
-        "content": "A learner checks if other USD pairs are moving similarly. They identify that the move is driven by USD weakness, making their reading more accurate."
+        "content": "A learner checks other USD pairs. They identify that the move is driven by USD weakness, making their reading of GBP more accurate."
       }
     }
   },
   {
     "type": "practice",
     "title": "Forex Mini Drill: The Quote Factor",
-    "label": "Practical Drill"
+    "label": "Practical Drill",
+    "taskData": {
+      "type": "choice_block",
+      "question": "Scenario: EUR/USD rises sharply while the US Dollar (USD) appears weak across several other pairs. What is the better beginner reading?",
+      "options": [
+        "The Euro (EUR) must be the only strong currency in the market right now.",
+        "The move may be partly explained by broader USD weakness rather than just EUR strength.",
+        "Ignore the Dollar context and follow the candle direction immediately.",
+        "The quote currency has no impact on the price movement of the pair."
+      ],
+      "correctIndex": 1
+    }
   }
 ]
 :::`,
@@ -139,35 +175,49 @@ async function main() {
 [
   {
     "type": "mission_brief",
-    "title": "Gold Brief: Speed Is Not Clarity",
+    "title": "Gold Brief: Speed vs. Clarity",
     "label": "Roadway Context",
-    "body": "Gold (XAU/USD) is known for its sharp, fast movements. However, speed does not automatically create a clear reading. A beginner often sees a fast Gold candle and feels a sense of urgency to act. But urgency is not evidence. Gold can move sharply due to USD pressure, interest rate expectations, or thin liquidity. Your training in this track focuses on filtering through the noise to find structural clarity."
+    "body": "Gold (**XAU/USD**) is known for its speed, but urgency is not evidence. To read Gold, you must understand its unique drivers.\\n\\n**Liquidity**: The 'Busy Market' factor. It describes how many orders are available. Gold can be fast but 'thin' (low orders), leading to noisy moves.\\n**Wick**: The thin lines above/below a candle. Like 'Footprints in the Sand,' they show where price went before being pushed back.\\n\\n**Seesaw Analogy**: Gold often acts as a seesaw against the Dollar. When the Dollar gets heavier (stronger), the Gold price often drops."
   },
   {
-    "type": "visual_intro",
-    "title": "Gold Training Loop Example",
-    "label": "Workflow",
-    "body": "How the Lurnava loop applies to Gold training:\\n\\n1. **Learn**: Study Gold context drivers like USD and rate uncertainty.\\n2. **Practice**: Compare Gold movement with broader market sentiment.\\n3. **Test / Mission**: Identify whether the chart condition is clear or noisy.\\n4. **Journal**: Note whether the reading was based on structural evidence or just a reaction to price speed."
+    "type": "concept",
+    "title": "Gold Context Drivers",
+    "label": "Terminology",
+    "items": [
+      { "title": "Volatility", "body": "The speed and size of price drops and climbs. Gold is like a high-speed rollercoaster compared to stable currencies.", "icon": "zap" },
+      { "title": "Cash Expectations", "body": "The market's view on holding cash vs. Gold. If cash pays high interest, people often sell Gold to hold Dollars instead.", "icon": "scale" }
+    ]
   },
   {
     "type": "scenario",
-    "title": "Common Gold Beginner Failure",
+    "title": "The 'Urgency' Trap",
     "label": "Mistake Pattern",
     "scenario": {
       "left": {
         "title": "Reaction to Speed",
-        "content": "A learner opens XAU/USD, sees a long wick, and immediately assumes a reversal because 'Gold moves fast.' They act on speed alone."
+        "content": "A learner sees a long wick form quickly on Gold and assumes an immediate reversal because the move was so fast."
       },
       "right": {
         "title": "Waiting for Structure",
-        "content": "A learner recognizes the volatility but waits for structure to confirm the reading. They recognize that speed without structure is just noise."
+        "content": "A learner recognizes the volatility but waits for structural evidence to confirm if the 'footprint' (wick) is actually a clue."
       }
     }
   },
   {
     "type": "practice",
     "title": "Gold Mini Drill: Noise vs. Clue",
-    "label": "Practical Drill"
+    "label": "Practical Drill",
+    "taskData": {
+      "type": "choice_block",
+      "question": "Scenario: Gold makes a large candle with long wicks in both directions during a highly volatile period. What is the better beginner response?",
+      "options": [
+        "Big movement means high clarity, so act as fast as the market moves.",
+        "The long wicks alone are a guaranteed signal that price will reverse soon.",
+        "Classify the condition as noisy or unclear until structure gives better evidence.",
+        "Skip the review process because Gold is too fast for journal notes."
+      ],
+      "correctIndex": 2
+    }
   }
 ]
 :::`,
@@ -175,35 +225,49 @@ async function main() {
 [
   {
     "type": "mission_brief",
-    "title": "Crypto Brief: 24/7 Does Not Mean Always Clear",
+    "title": "Crypto Brief: Mechanics Over Hype",
     "label": "Roadway Context",
-    "body": "Crypto trades 24 hours a day, 7 days a week, but not every hour has useful training quality. A beginner might open BTC on a weekend, see a sudden move, and assume it's a clean lesson. However, weekend liquidity and exchange behavior can be highly unreliable. Your crypto training focuses on distinguishing between broad market movement and isolated exchange-specific noise."
+    "body": "Crypto (**BTC**) trades 24/7, but not every hour is useful for training. You must distinguish between broad moves and exchange noise.\\n\\n**Spot**: Buying the actual asset. Like 'Buying a Car,' you own the title and the keys.\\n**Perpetual**: A contract following the price. Like 'Renting a Car,' you drive it but don't own it.\\n\\n**The Sun Analogy**: BTC is the Sun of the crypto market. When it moves, the other planets (altcoins) usually follow its pull."
   },
   {
-    "type": "visual_intro",
-    "title": "Crypto Training Loop Example",
-    "label": "Workflow",
-    "body": "How the Lurnava loop applies to Crypto training:\\n\\n1. **Learn**: Study spot, perpetual, and funding mechanics.\\n2. **Practice**: Inspect whether movement is broad across assets or exchange-specific.\\n3. **Test / Mission**: Classify the clue as spot-driven, perp-driven, or unclear.\\n4. **Journal**: Record what made the move trustworthy or questionable based on market mechanics."
+    "type": "concept",
+    "title": "Crypto Market Mechanics",
+    "label": "Terminology",
+    "items": [
+      { "title": "Funding", "body": "A balancing payment between traders. High funding shows pressure in the rental (perpetual) market.", "icon": "scale" },
+      { "title": "Exchange Noise", "body": "A 'Local Rumor.' A move that happens on only one exchange but isn't confirmed by the rest of the market.", "icon": "alert" }
+    ]
   },
   {
     "type": "scenario",
-    "title": "Common Crypto Beginner Failure",
+    "title": "The 'Social' Fallacy",
     "label": "Mistake Pattern",
     "scenario": {
       "left": {
         "title": "Social Hype Reading",
-        "content": "A learner sees social media hype around a coin, opens a chart, and sees fast movement. They mistake public excitement for structural evidence."
+        "content": "A learner sees excitement online, opens a chart, and mistakes public emotion for structural evidence."
       },
       "right": {
         "title": "Mechanic-First Reading",
-        "content": "A learner checks if the chart structure and market mechanics (like funding or spot volume) support the move before forming a reading."
+        "content": "A learner checks if the chart structure and funding mechanics support the move before forming a reading."
       }
     }
   },
   {
     "type": "practice",
     "title": "Crypto Mini Drill: Hype Filtering",
-    "label": "Practical Drill"
+    "label": "Practical Drill",
+    "taskData": {
+      "type": "choice_block",
+      "question": "Scenario: BTC moves sharply while funding is very high and social media hype is peaking. What is the better beginner response?",
+      "options": [
+        "Everyone is excited, so the move is guaranteed to continue for days.",
+        "Funding alone gives a direct instruction to buy immediately.",
+        "Treat the funding and public reaction as supporting context to review carefully, not as a direct instruction.",
+        "Ignore the market mechanics and follow the public reaction to stay with the crowd."
+      ],
+      "correctIndex": 2
+    }
   }
 ]
 :::`,
