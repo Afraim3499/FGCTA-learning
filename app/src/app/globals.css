@@ -121,6 +121,22 @@ body {
   background: var(--color-border-hover);
 }
 
+/* Custom Scrollbar for inner components */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--ln-border);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--ln-text-dim);
+}
+
 /* Focus ring */
 *:focus-visible {
   outline: 2px solid var(--color-brand-500);

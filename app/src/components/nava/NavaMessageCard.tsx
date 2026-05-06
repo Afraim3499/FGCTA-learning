@@ -10,6 +10,7 @@ import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
 import { NavaPoseImage } from './NavaPoseImage';
+import { usePathname } from 'next/navigation';
 
 interface NavaMessageCardProps {
   message: NavaMessage;
@@ -30,6 +31,9 @@ const VARIANTS = {
 export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDismiss, onHideTips, onMute, userMode }) => {
   const shouldReduceMotion = useReducedMotion();
   const [showSettings, setShowSettings] = React.useState(false);
+  const pathname = usePathname();
+  // Auto-minimize on lesson workspace pages to prevent content overlap
+  const isLessonPage = pathname?.startsWith('/course/module/');
   const config = VARIANTS[message.variant] || VARIANTS.tip;
 
   // High Attention Layout (Cinematic / Full Overlay)
@@ -178,7 +182,8 @@ export const NavaMessageCard: React.FC<NavaMessageCardProps> = ({ message, onDis
 
   // Medium & Low Attention Layouts (Side Cards)
   const isLow = message.attentionLevel === 'low';
-  const [isMinimized, setIsMinimized] = React.useState(false);
+  // Auto-minimize on lesson workspace pages so Nava doesn't block the stage
+  const [isMinimized, setIsMinimized] = React.useState(isLessonPage || false);
 
   return (
     <motion.div

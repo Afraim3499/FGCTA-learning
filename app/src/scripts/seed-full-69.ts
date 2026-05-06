@@ -25,9 +25,31 @@ async function main() {
   {
     "type": "mission_brief",
     "title": "Mission Brief: You Are Not Here for Tips",
-    "visualKey": "academy-path",
     "label": "Training Intent",
-    "body": "Welcome to the Academy. Most people enter the market looking for 'tips,' 'secret strategies,' or 'signals' that tell them when to click a button. This is the fastest route to failure. Imagine a foundation-stage learner who spends an entire evening watching short, high-energy trading content online. One video explains a candle pattern; another talks about a liquidity concept; a third mentions crypto funding. The learner feels informed, productive, and confident. However, as soon as they open a live price chart, they realize they cannot explain what evidence they are actually looking for. Their confidence was not built on skill; it was **borrowed conviction** from a screen.\\n\\nLurnava is not a library of content; it is a **structured training system**. We are here to prevent the 'Random Learner' trap—the habit of consuming endless information without ever building a repeatable process. You are not here to watch; you are here to be trained in **Structured Market Reading**. This requires moving past the desire for shortcuts and committing to an academy process of observation, simulation, and audit. This module prevents the most common failure in early-stage development: having a head full of facts but no system to apply them. You are here to stop guessing and start reading."
+    "body": "Welcome to the Academy. Most people enter the market looking for 'tips,' 'secret strategies,' or 'signals' that tell them when to click a button. This is the fastest route to failure. Imagine a foundation-stage learner who spends an entire evening watching short, high-energy trading content online. One video explains a candle pattern; another talks about a liquidity concept; a third mentions crypto funding. The learner feels informed, productive, and confident. However, as soon as they open a live price chart, they realize they cannot explain what evidence they are actually looking for. Their confidence was not built on skill; it was borrowed conviction from a screen.\\n\\nLurnava is not a library of content; it is a structured training system. We are here to prevent the 'Random Learner' trap—the habit of consuming endless information without ever building a repeatable process. You are not here to watch; you are here to be trained in Structured Market Reading. This requires moving past the desire for shortcuts and committing to an academy process of observation, simulation, and audit. This module prevents the most common failure in early-stage development: having a head full of facts but no system to apply them. You are here to stop guessing and start reading.",
+    "context": {
+      "keyTerms": ["Borrowed conviction", "Structured training system", "Market reading", "Training path"],
+      "whyThisMatters": "Many learners feel productive after watching content, but they still cannot explain what they are seeing when a live chart opens. Lurnava trains the learner to build a repeatable process instead of collecting disconnected ideas.",
+      "realLifeExample": "A learner watches one video about candles, another about liquidity, and another about crypto funding. They feel informed, but when the chart opens, they cannot name the evidence they are looking for.",
+      "commonMistake": "Thinking “I have seen this before” means “I understand this.” Recognition without explanation is not skill.",
+      "quickNote": "If you cannot explain the reading, do not trust the feeling.",
+      "comparison": {
+        "left": {
+          "title": "The Random Learner",
+          "subtitle": "Busy Activity, No Skill",
+          "type": "negative",
+          "items": ["Scattered Videos", "Conflicting Tips", "Emotional Hype", "Constant Strategy Hopping"],
+          "description": "The learner feels informed, but cannot explain what evidence they are looking for when the chart opens."
+        },
+        "right": {
+          "title": "The Lurnava Path",
+          "subtitle": "Structured Skill Building",
+          "type": "positive",
+          "items": ["One Concept", "Deliberate Practice", "Mission Check-ride", "Review Audit"],
+          "description": "Every session adds a repeatable brick to the foundation. Confidence comes from evidence, not emotion."
+        }
+      }
+    }
   },
   {
     "type": "visual_intro",

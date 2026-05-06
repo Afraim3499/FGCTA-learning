@@ -26,6 +26,21 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
 
   const userTrack = userProgress?.user.marketTrack || "forex";
 
+  // Lesson-card modules use the V2 Workspace Shell which has its own
+  // module title, breadcrumb, and stepper inside the left rail.
+  // Skip the outer header/breadcrumb wrapper for these to maximize canvas space.
+  const isLessonCardModule = module.content?.includes(":::lesson-cards");
+
+  if (isLessonCardModule) {
+    return (
+      // Full-bleed lesson workspace — padding handled by the workspace shell itself
+      <div className="h-full px-4 sm:px-6 lg:px-8 py-6">
+        <ModuleViewer module={module} userTrack={userTrack} />
+      </div>
+    );
+  }
+
+  // ── Legacy layout for non-lesson-card modules (Level 1–5 etc.) ──
   return (
     <div className="space-y-8">
       <Link 

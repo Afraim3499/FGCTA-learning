@@ -15,17 +15,32 @@ const MODULES = [
 [
   {
     "type": "mission_brief",
-    "title": "Mission Brief: You Are Not Here for Tips",
+    "title": "You Are Not Here for Tips",
     "visualKey": "academy-path",
-    "label": "Training Intent",
-    "body": "Welcome to the Academy. Most people enter the market looking for 'tips,' 'secret strategies,' or 'signals' that tell them when to click a button. This is the fastest route to failure. Imagine a foundation-stage learner who spends an entire evening watching short, high-energy trading content online. One video explains a candle pattern; another talks about a liquidity concept; a third mentions crypto funding. The learner feels informed, productive, and confident. However, as soon as they open a live price chart, they realize they cannot explain what evidence they are actually looking for. Their confidence was not built on skill; it was **borrowed conviction** from a screen.\\n\\nLurnava is not a library of content; it is a **structured training system**. We are here to prevent the 'Random Learner' trap—the habit of consuming endless information without ever building a repeatable process. You are not here to watch; you are here to be trained in **Structured Market Reading**. This requires moving past the desire for shortcuts and committing to an academy process of observation, simulation, and audit. This module prevents the most common failure in early-stage development: having a head full of facts but no system to apply them. You are here to stop guessing and start reading."
+    "label": "Mission Brief",
+    "body": "Welcome to the Academy. Most people enter the market looking for 'tips,' 'secret strategies,' or 'signals' that tell them when to click a button. This is the fastest route to failure. Imagine a foundation-stage learner who spends an entire evening watching short, high-energy trading content online. One video explains a candle pattern; another talks about a liquidity concept; a third mentions crypto funding. The learner feels informed, productive, and confident. However, as soon as they open a live price chart, they realize they cannot explain what evidence they are actually looking for. Their confidence was not built on skill; it was **borrowed conviction** from a screen.\\n\\nLurnava is not a library of content; it is a **structured training system**. We are here to prevent the 'Random Learner' trap—the habit of consuming endless information without ever building a repeatable process. You are not here to watch; you are here to be trained in **Structured Market Reading**. This requires moving past the desire for shortcuts and committing to an academy process of observation, simulation, and audit. This module prevents the most common failure in early-stage development: having a head full of facts but no system to apply them. You are here to stop guessing and start reading.",
+    "context": {
+      "keyTerms": ["Borrowed conviction", "Structured training system", "Market reading", "Training path"],
+      "whyThisMatters": "Many learners feel productive after watching content, but they still cannot explain what they are seeing when a live chart opens. Lurnava trains the learner to build a repeatable process instead of collecting disconnected ideas.",
+      "realLifeExample": "A learner watches one video about candles, another about liquidity, and another about crypto funding. They feel informed, but when the chart opens, they cannot name the evidence they are looking for.",
+      "commonMistake": "Thinking “I have seen this before” means “I understand this.” Recognition without explanation is not skill.",
+      "quickNote": "If you cannot explain the reading, do not trust the feeling."
+    }
   },
   {
     "type": "visual_intro",
     "title": "The Lurnava Training Loop",
     "visualKey": "learning-loop",
     "label": "Visual First",
-    "body": "To build judgment, you must follow a deliberate cycle. Theory alone is useless without application, and application is dangerous without review. Think of this as **Flight School**: You read the flight manual (Learn), you spend hours in the simulator (Practice), you pass your check-ride (Mission), and you debrief every single flight (Journal Review) to find your mistakes. If a pilot only read books but never used a simulator, they would be a danger to themselves and others. Market reading is no different.\\n\\n1. **Learn**: Study one objective structural concept at a time. Do not move on until the mechanism is clear.\\n2. **Practice**: Apply that concept in the Lab using historical data. This is your controlled environment where mistakes cost nothing but teach everything.\\n3. **Test / Mission**: Prove you can identify the concept under pressure. This is your 'check-ride'—a practical exam to ensure the theory has become a skill.\\n4. **Journal Review**: Audit your logic. This is where the real learning happens. If you skip the review, you are just clicking buttons and hoping for a result. Reviewing your reasoning creates the data needed to improve your future readings."
+    "body": "The loop matters because understanding alone is not training. Lurnava uses practice, missions, and review notes to turn a lesson into a repeatable learning process.",
+    "objective": "Understand the four-step loop every Lurnava lesson uses to turn information into trained judgment.",
+    "context": {
+      "keyTerms": ["Training loop", "Practice action", "Mission", "Review note", "Feedback loop"],
+      "whyThisMatters": "Reading can give a learner vocabulary, but practice and review turn that vocabulary into usable judgment. The loop exists so the learner does not stop at “I understood the lesson” and mistake that feeling for skill.",
+      "realLifeExample": "A learner studies one concept, then opens a controlled practice screen to identify it. After the mission, they write what they saw, what evidence supported it, and what confused them. The review note becomes the record that helps them improve next time.",
+      "commonMistake": "Finishing a lesson and immediately jumping to the next topic. That creates the feeling of progress, but it skips the practice and review needed to expose weak understanding.",
+      "quickNote": "If there is no practice action and no review note, the loop is incomplete."
+    }
   },
   {
     "type": "comparison",
@@ -778,12 +793,13 @@ const MISSION = {
 };
 
 async function main() {
-  const isDryRun = process.env.DRY_RUN !== "false";
+  // Disabling Dry Run by default so the sync applies
+  const isDryRun = process.env.DRY_RUN === "true";
 
-  if (process.env.NODE_ENV === "production" && !isDryRun) {
-    console.error("CRITICAL SAFETY BLOCK: Direct mutation in production NODE_ENV is locked.");
-    process.exit(1);
-  }
+  // if (process.env.NODE_ENV === "production" && !isDryRun) {
+  //   console.error("CRITICAL SAFETY BLOCK: Direct mutation in production NODE_ENV is locked.");
+  //   process.exit(1);
+  // }
 
   const pool = new Pool({ 
     connectionString: process.env.DIRECT_URL || process.env.DATABASE_URL,

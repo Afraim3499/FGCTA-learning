@@ -4,9 +4,11 @@ import { getProfile } from "@/lib/auth-actions";
 import { redirect } from "next/navigation";
 import { UserProvider } from "@/components/user-provider";
 import { serializeData } from "@/lib/utils";
+import { headers } from "next/headers";
 
 import { NavaProvider } from "@/components/nava/NavaProvider";
 import { NavaGuide } from "@/components/nava/NavaGuide";
+import { LessonTopBar } from "@/components/academy/lesson-workspace/LessonTopBar";
 
 export default async function DashboardLayout({
   children,
@@ -26,17 +28,36 @@ export default async function DashboardLayout({
     );
   }
 
+  // Detect lesson mode server-side to conditionally change layout
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || headersList.get("x-invoke-path") || "";
+  const isLessonMode = pathname.startsWith("/course/module/");
+
   const profile = serializeData(rawProfile);
 
   return (
     <UserProvider user={profile}>
       <NavaProvider>
         <div className="min-h-screen bg-[var(--ln-bg)] text-[var(--ln-text-primary)]">
+          {/* Sidebar: self-hides on lesson pages via usePathname inside the component */}
           <Sidebar />
-          <div className="flex-1 md:pl-64 flex flex-col min-h-screen">
-            <Topbar />
-            <main className="flex-1 p-6 overflow-y-auto">
-              <div className="max-w-7xl mx-auto">
+
+          {/*
+            Layout shell:
+            - Default (dashboard): offset by sidebar width (md:pl-64), standard topbar
+            - Lesson mode: full width (no offset), minimal LessonTopBar replaces Topbar
+            We use a client-aware approach — Sidebar returns null on lesson pages,
+            so the layout shift is handled by the Sidebar's own early return.
+            The pl offset must also be removed on lesson pages.
+          */}
+          <div className="flex-1 flex flex-col min-h-screen lesson-layout-shell">
+            {/* 
+              Topbar wrapper: rendered by client components below.
+              Topbar hides itself on lesson pages; LessonTopBar shows only on lesson pages.
+            */}
+            <TopbarRouter />
+            <main className="flex-1 overflow-y-auto">
+              <div className="main-content-wrapper">
                 {children}
               </div>
             </main>
@@ -47,3 +68,7 @@ export default async function DashboardLayout({
     </UserProvider>
   );
 }
+
+// Client component that handles topbar routing
+// (imported as a server-safe wrapper — actual switching in TopbarRouter.tsx)
+import { TopbarRouter } from "@/components/dashboard/TopbarRouter";

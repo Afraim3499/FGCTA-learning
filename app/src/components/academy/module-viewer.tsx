@@ -18,6 +18,7 @@ import { ScenarioLauncher } from "./scenario-launcher";
 import { ChartScenarioModal } from "@/components/academy/chart-scenario";
 import { getModuleScenarios } from "@/lib/scenario-actions";
 import { useNava } from "@/hooks/useNava";
+import { LessonWorkspaceShell } from "./lesson-workspace/LessonWorkspaceShell";
 
 type TaskResultType = PointClickTaskResult | ScenarioTaskResult | MiniReplayTaskResult;
 
@@ -151,6 +152,65 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
     activeTab === "gold" ? module.goldAdaptation :
     module.content;
 
+  // ── V2 Workspace Detection ──
+  // If the core content uses :::lesson-cards, render the new three-column workspace
+  const isLessonCardContent = module.content?.includes(':::lesson-cards');
+
+  if (isLessonCardContent) {
+    // Parse cards from each track
+    const parseCards = (raw?: string | null) => {
+      if (!raw) return null;
+      const match = raw.match(/:::lesson-cards\s*\n([\s\S]*?)\n\s*:::/);
+      if (!match) return null;
+      try { return JSON.parse(match[1]); } catch { return null; }
+    };
+
+    const coreCards = parseCards(module.content) || [];
+
+    // Build active cards based on current tab
+    const activeCards =
+      activeTab === "forex" ? (parseCards(module.forexAdaptation) || coreCards) :
+      activeTab === "crypto" ? (parseCards(module.cryptoAdaptation) || coreCards) :
+      activeTab === "gold" ? (parseCards(module.goldAdaptation) || coreCards) :
+      coreCards;
+
+    return (
+      <div className="h-full">
+        <LessonWorkspaceShell
+          moduleTitle={module.title}
+          moduleNumber={module.moduleNumber}
+          level={module.level}
+          cards={activeCards}
+          tracks={tabs.map(t => ({ id: t.id, label: t.label, available: t.available }))}
+          activeTrack={activeTab}
+          onTrackChange={(track) => setActiveTab(track as Tab)}
+          userTrack={userTrack}
+          interactiveTaskType={module.interactiveTaskType}
+          interactiveTaskData={module.interactiveTaskData}
+          onComplete={handleComplete}
+          onNextModule={module.nextModuleId ? () => handleProceed(`/course/module/${module.nextModuleId}`) : undefined}
+        />
+        {activeChartScenario && (
+          <ChartScenarioModal
+            scenario={{
+              id:            activeChartScenario.id,
+              slug:          activeChartScenario.slug,
+              title:         activeChartScenario.title,
+              prompt:        activeChartScenario.prompt,
+              candleData:    activeChartScenario.candleData ?? [],
+              passThreshold: activeChartScenario.passThreshold ?? 70,
+              metadata:      activeChartScenario.metadata ?? {},
+            }}
+            moduleId={module.id}
+            onClose={handleChartClose}
+            onPass={handleChartPass}
+          />
+        )}
+      </div>
+    );
+  }
+
+  // ── Legacy Layout (for non-lesson-card modules) ──
   return (
     <div className="space-y-12 pb-12">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

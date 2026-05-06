@@ -31,52 +31,81 @@ import {
  */
 export const AcademyPath = () => {
   return (
-    <div className="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-      {/* Random Side */}
-      <div className="p-8 rounded-[2.5rem] bg-rose-50/20 border border-rose-100 flex flex-col items-center text-center space-y-6 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <TrendingUp size={200} className="rotate-12 translate-x-20" />
+    <div className="my-2 flex flex-col gap-4 relative max-w-4xl mx-auto">
+      {/* Background connector line */}
+      <div className="absolute left-[38px] md:left-[52px] top-6 bottom-6 w-0.5 bg-slate-100 -z-10 hidden md:block" />
+
+      {/* Random Side (Row 1) */}
+      <div className="flex flex-col md:flex-row gap-4 relative">
+        <div className="flex flex-col items-center shrink-0 w-full md:w-[104px]">
+          <div className="p-3 rounded-[1.25rem] bg-rose-50 text-rose-400 shadow-sm border border-rose-100 z-10">
+            <XCircle size={28} />
+          </div>
         </div>
-        <div className="p-4 rounded-2xl bg-rose-100/50 text-rose-500">
-          <XCircle size={32} />
-        </div>
-        <div className="space-y-2">
-          <h4 className="text-sm font-extrabold uppercase tracking-widest text-rose-600">The Random Learner</h4>
-          <p className="text-[10px] font-bold text-rose-400 uppercase tracking-tight italic italic">"Busy Activity, No Skill"</p>
-        </div>
-        <div className="flex flex-wrap justify-center gap-2">
-          {["Scattered Videos", "Conflicting Tips", "Emotional Hype", "Constant Strategy Hopping"].map((item, i) => (
-            <span key={i} className="px-3 py-1.5 rounded-full bg-rose-100/30 border border-rose-100 text-[10px] font-bold text-rose-500">
-              {item}
+        
+        <div className="flex-1 bg-white p-4 md:p-5 rounded-[1.5rem] border border-rose-100 shadow-sm space-y-3 relative">
+          <div className="absolute top-1/2 -left-[13px] -translate-y-1/2 w-3 h-3 rotate-45 border-l border-b border-rose-100 bg-white hidden md:block" />
+          
+          <div className="space-y-0.5">
+            <h4 className="text-sm font-extrabold uppercase tracking-widest text-rose-500">The Random Learner</h4>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tight italic">"Busy Activity, No Skill"</p>
+          </div>
+          
+          <div className="flex flex-wrap items-center gap-1.5">
+            {["Scattered Videos", "Conflicting Tips", "Emotional Hype"].map((item, i) => (
+              <React.Fragment key={i}>
+                <span className="px-2.5 py-1 rounded-[1rem] bg-slate-50 border border-slate-100 text-[10px] font-bold text-slate-500">
+                  {item}
+                </span>
+                {i < 2 && <ChevronRight size={14} className="text-rose-300 shrink-0" />}
+              </React.Fragment>
+            ))}
+            <ChevronRight size={14} className="text-rose-300 shrink-0 mx-0.5" />
+            <span className="px-3 py-1.5 rounded-xl bg-rose-50 border border-rose-100 text-[10px] font-extrabold text-rose-600 uppercase tracking-tight">
+              Confusion
             </span>
-          ))}
-        </div>
-        <div className="p-4 rounded-2xl bg-white/50 border border-rose-100 text-xs text-rose-700 font-medium leading-relaxed">
-          The learner feels informed, but cannot explain what evidence they are looking for when the chart opens.
+          </div>
+
+          <div className="pt-3 border-t border-slate-50 text-[11px] text-slate-500 font-medium leading-relaxed">
+            The learner feels informed, but cannot explain what evidence they are looking for when the chart opens.
+          </div>
         </div>
       </div>
 
-      {/* Structured Side */}
-      <div className="p-8 rounded-[2.5rem] bg-teal-50/20 border border-teal-100 flex flex-col items-center text-center space-y-6 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <ClipboardCheck size={200} className="-rotate-12 -translate-x-20" />
+      {/* Structured Side (Row 2) */}
+      <div className="flex flex-col md:flex-row gap-4 relative">
+        <div className="flex flex-col items-center shrink-0 w-full md:w-[104px]">
+          <div className="p-3 rounded-[1.25rem] bg-[var(--ln-teal-soft)] text-[var(--ln-teal-500)] shadow-sm border border-emerald-100 z-10">
+            <CheckCircle2 size={28} />
+          </div>
         </div>
-        <div className="p-4 rounded-2xl bg-teal-100/50 text-teal-500">
-          <CheckCircle2 size={32} />
-        </div>
-        <div className="space-y-2">
-          <h4 className="text-sm font-extrabold uppercase tracking-widest text-teal-600">The Lurnava Path</h4>
-          <p className="text-[10px] font-bold text-teal-400 uppercase tracking-tight">"Structured Skill Building"</p>
-        </div>
-        <div className="flex flex-wrap justify-center gap-2">
-          {["One Concept", "Deliberate Practice", "Mission Check-ride", "Review Audit"].map((item, i) => (
-            <span key={i} className="px-3 py-1.5 rounded-full bg-teal-100/30 border border-teal-100 text-[10px] font-bold text-teal-500">
-              {item}
+        
+        <div className="flex-1 bg-white p-4 md:p-5 rounded-[1.5rem] border border-emerald-100 shadow-lg shadow-emerald-500/5 space-y-3 relative">
+          <div className="absolute top-1/2 -left-[13px] -translate-y-1/2 w-3 h-3 rotate-45 border-l border-b border-emerald-100 bg-white hidden md:block" />
+          
+          <div className="space-y-0.5">
+            <h4 className="text-sm font-extrabold uppercase tracking-widest text-[var(--ln-teal-500)]">The Lurnava Path</h4>
+            <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-tight italic">"Structured Skill Building"</p>
+          </div>
+          
+          <div className="flex flex-wrap items-center gap-1.5">
+            {["One Concept", "Deliberate Practice", "Mission Check-ride"].map((item, i) => (
+              <React.Fragment key={i}>
+                <span className="px-2.5 py-1 rounded-[1rem] bg-slate-50 border border-slate-100 text-[10px] font-bold text-slate-500">
+                  {item}
+                </span>
+                {i < 2 && <ChevronRight size={14} className="text-emerald-300 shrink-0" />}
+              </React.Fragment>
+            ))}
+            <ChevronRight size={14} className="text-emerald-300 shrink-0 mx-0.5" />
+            <span className="px-3 py-1.5 rounded-xl bg-emerald-50 border border-emerald-100 text-[10px] font-extrabold text-emerald-600 uppercase tracking-tight shadow-sm">
+              Clarity
             </span>
-          ))}
-        </div>
-        <div className="p-4 rounded-2xl bg-white/50 border border-teal-100 text-xs text-teal-700 font-medium leading-relaxed">
-          Every session adds a repeatable brick to the foundation. Confidence comes from evidence, not emotion.
+          </div>
+
+          <div className="pt-3 border-t border-slate-50 text-[11px] text-slate-600 font-bold leading-relaxed">
+            Every session adds a repeatable brick to the foundation. Confidence comes from evidence, not emotion.
+          </div>
         </div>
       </div>
     </div>
@@ -94,8 +123,10 @@ export const LearningLoop = () => {
     {
       title: "Learn",
       icon: BookOpen,
-      desc: "Study one specific objective structural concept. This is where you understand the 'What' and 'Why' before moving to simulation.",
-      skipped: "Skipping leads to guessing. You act on feelings because you have no rules to follow.",
+      what: "You study one concept and understand the language before applying it.",
+      why: "Without a clear concept, every chart movement feels random.",
+      skipped: "You start copying shapes without knowing what they mean.",
+      action: "Name the concept in your own words before moving to practice.",
       color: "text-blue-500",
       bgColor: "bg-blue-50",
       borderColor: "border-blue-200"
@@ -103,26 +134,32 @@ export const LearningLoop = () => {
     {
       title: "Practice",
       icon: MapPin,
-      desc: "Apply the concept in the Lab simulator. This is controlled repetition using historical data to build your visual recognition.",
-      skipped: "Without practice, you only have intellectual knowledge. You will hesitate or panic in the real market.",
+      what: "You apply the concept in a controlled training environment.",
+      why: "Practice reveals whether you can recognize the idea outside the lesson text.",
+      skipped: "The concept stays theoretical and may feel clear only because the explanation was easy to read.",
+      action: "Complete one focused practice action using the concept you just studied.",
       color: "text-teal-500",
       bgColor: "bg-teal-50",
       borderColor: "border-teal-200"
     },
     {
-      title: "Test / Mission",
+      title: "Mission",
       icon: Target,
-      desc: "Your 'Check-ride.' A practical mission to prove you can identify and explain the concept under simulator pressure.",
-      skipped: "Without a test, you are self-marking. You might be practicing a mistake and not knowing it.",
+      what: "You prove recognition under a slightly more demanding condition.",
+      why: "A mission checks whether the learner can stay structured when the screen feels less guided.",
+      skipped: "The learner may think they understand, but never test that understanding under pressure.",
+      action: "Complete the mission and pay attention to what felt clear or unclear.",
       color: "text-purple-500",
       bgColor: "bg-purple-50",
       borderColor: "border-purple-200"
     },
     {
-      title: "Journal Review",
+      title: "Review",
       icon: ClipboardCheck,
-      desc: "Audit your performance. Document your reasoning and review your decisions. This is where skill is actually cemented.",
-      skipped: "No review means no learning. You will repeat the same errors for years without seeing the pattern.",
+      what: "You write what you saw, what evidence supported it, and what confused you.",
+      why: "Review turns practice into learning data.",
+      skipped: "The same mistake can repeat because the learner has no record of their reasoning.",
+      action: "Save a review note before treating the session as complete.",
       color: "text-amber-500",
       bgColor: "bg-amber-50",
       borderColor: "border-amber-200"
@@ -130,13 +167,9 @@ export const LearningLoop = () => {
   ];
 
   return (
-    <div className="my-12 py-8 px-4 bg-slate-50/50 rounded-[2.5rem] border border-slate-100 shadow-sm">
-      <div className="text-center mb-10">
-        <h3 className="text-xl font-extrabold text-[var(--ln-navy-900)] tracking-tight uppercase tracking-widest">Training Loop</h3>
-        <p className="text-xs text-slate-500 font-medium mt-1 italic italic italic">The engine of your skill development</p>
-      </div>
-
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto space-y-6">
+      {/* Interactive Loop */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-3">
         {steps.map((step, i) => {
           const Icon = step.icon;
           const isActive = activeStep === i;
@@ -146,27 +179,33 @@ export const LearningLoop = () => {
               <button
                 onClick={() => setActiveStep(i)}
                 className={cn(
-                  "relative flex flex-col items-center gap-3 p-6 rounded-3xl border-2 transition-all duration-300 w-full md:w-1/4",
+                  "relative flex flex-col items-center gap-2 p-4 rounded-[1.5rem] border-2 transition-all duration-500 w-full md:w-1/4 group",
                   isActive 
-                    ? cn("scale-110 shadow-xl z-10 bg-white", step.borderColor)
-                    : "bg-white/50 border-transparent grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-white"
+                    ? cn("scale-105 shadow-xl bg-white", step.borderColor)
+                    : "bg-white/40 border-transparent opacity-60 hover:opacity-100 hover:bg-white/80 hover:shadow-lg"
                 )}
               >
-                <div className={cn("p-4 rounded-2xl shadow-inner", step.bgColor, step.color)}>
-                  <Icon size={24} />
+                <div className={cn(
+                  "p-3 rounded-xl transition-transform duration-500 group-hover:scale-110",
+                  isActive ? cn("shadow-inner", step.bgColor, step.color) : "bg-slate-100 text-slate-400"
+                )}>
+                  <Icon size={20} />
                 </div>
-                <span className={cn("text-[10px] font-extrabold uppercase tracking-widest", step.color)}>
+                <span className={cn(
+                  "text-[9px] font-extrabold uppercase tracking-widest transition-colors",
+                  isActive ? step.color : "text-slate-400"
+                )}>
                   {step.title}
                 </span>
                 
                 {isActive && (
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-b-2 border-r-2 rotate-45 border-[inherit]" />
+                  <div className={cn("absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-b-2 border-r-2 rotate-45", step.borderColor)} />
                 )}
               </button>
               
               {i < steps.length - 1 && (
                 <div className="hidden md:flex text-slate-200">
-                  <ChevronRight size={20} strokeWidth={3} />
+                  <ChevronRight size={18} strokeWidth={3} />
                 </div>
               )}
             </React.Fragment>
@@ -174,26 +213,53 @@ export const LearningLoop = () => {
         })}
       </div>
 
-      <div className="mt-12 max-w-2xl mx-auto grid grid-cols-1 gap-4">
-        <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-md">
-          <h4 className={cn("text-lg font-bold tracking-tight mb-4 flex items-center gap-2", steps[activeStep].color)}>
-            <div className={cn("p-2 rounded-lg", steps[activeStep].bgColor)}>
-              {React.createElement(steps[activeStep].icon, { size: 18 })}
+      {/* Detail Panel */}
+      <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="bg-white rounded-[2rem] border border-slate-100 shadow-xl overflow-hidden">
+          <div className={cn("px-6 py-3 border-b flex items-center justify-between", steps[activeStep].bgColor, steps[activeStep].borderColor.replace("border-", "border-b-"))}>
+             <div className="flex items-center gap-2.5">
+                <div className={cn("p-1.5 rounded-lg bg-white", steps[activeStep].color)}>
+                  {React.createElement(steps[activeStep].icon, { size: 14 })}
+                </div>
+                <span className={cn("text-[10px] font-extrabold uppercase tracking-widest", steps[activeStep].color)}>
+                  Phase Detail: {steps[activeStep].title}
+                </span>
+             </div>
+             <div className="px-2.5 py-1 rounded-full bg-white/50 text-[9px] font-bold text-slate-500 uppercase tracking-tight">
+               Step {activeStep + 1} of 4
+             </div>
+          </div>
+          
+          <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">What happens here</h5>
+                <p className="text-sm font-bold text-[var(--ln-navy-900)] leading-relaxed">
+                  {steps[activeStep].what}
+                </p>
+              </div>
+              <div className="space-y-2">
+                <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Why it matters</h5>
+                <p className="text-sm font-medium text-slate-600 leading-relaxed">
+                  {steps[activeStep].why}
+                </p>
+              </div>
             </div>
-            Step {activeStep + 1}: {steps[activeStep].title}
-          </h4>
-          <p className="text-sm text-slate-600 leading-relaxed font-medium">
-            {steps[activeStep].desc}
-          </p>
-        </div>
-
-        <div className="p-6 bg-rose-50/30 rounded-3xl border border-rose-100">
-          <h5 className="text-[10px] font-extrabold text-rose-500 uppercase tracking-widest mb-2 flex items-center gap-2">
-            <XCircle size={14} /> If You Skip This:
-          </h5>
-          <p className="text-xs text-rose-700 font-medium italic">
-            {steps[activeStep].skipped}
-          </p>
+            <div className="space-y-6">
+              <div className="p-5 rounded-2xl bg-rose-50/50 border border-rose-100 space-y-2">
+                <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-rose-500">If skipped</h5>
+                <p className="text-sm font-medium text-rose-700 leading-relaxed">
+                  {steps[activeStep].skipped}
+                </p>
+              </div>
+              <div className="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-100 space-y-2">
+                <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-600">Learner Action</h5>
+                <p className="text-sm font-bold text-emerald-900 leading-relaxed italic">
+                  {steps[activeStep].action}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -217,7 +283,7 @@ export const TrainingCockpit = () => {
   ];
 
   return (
-    <div className="my-12 p-8 bg-slate-900 rounded-[2.5rem] border border-slate-800 shadow-2xl relative overflow-hidden">
+    <div className="my-6 p-8 bg-slate-900 rounded-[2.5rem] border border-slate-800 shadow-2xl relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none grid grid-cols-6 gap-4">
         {Array.from({ length: 24 }).map((_, i) => (
@@ -292,7 +358,7 @@ export const TrainingCockpit = () => {
  */
 export const PracticeTimeline = () => {
   return (
-    <div className="my-12 space-y-10">
+    <div className="my-6 space-y-10">
       <div className="text-center">
         <h3 className="text-sm font-extrabold text-slate-900 uppercase tracking-[0.2em]">60 Minutes of Practice</h3>
         <p className="text-[10px] text-slate-400 font-bold mt-1 uppercase">Activity vs Outcome</p>
@@ -354,7 +420,7 @@ export const PracticeTimeline = () => {
  */
 export const DecisionGate = () => {
   return (
-    <div className="my-12 p-8 bg-white rounded-[2.5rem] border border-slate-200 shadow-xl space-y-10 relative overflow-hidden">
+    <div className="my-6 p-8 bg-white rounded-[2.5rem] border border-slate-200 shadow-xl space-y-10 relative overflow-hidden">
       <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none rotate-12">
         <Target size={160} />
       </div>
@@ -410,7 +476,7 @@ export const DecisionGate = () => {
  */
 export const CandleDiagram = () => {
   return (
-    <div className="my-12 p-8 md:p-12 bg-white rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col lg:flex-row items-center gap-12 overflow-hidden">
+    <div className="my-6 p-8 md:p-12 bg-white rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col lg:flex-row items-center gap-12 overflow-hidden">
       <div className="relative w-48 h-80 shrink-0">
         {/* Upper Wick */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-20 bg-slate-300 rounded-full" />
@@ -471,7 +537,7 @@ export const CandleDiagram = () => {
  */
 export const NoteComparison = () => {
   return (
-    <div className="my-12 space-y-8">
+    <div className="my-6 space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Weak Note */}
         <div className="relative group p-8 rounded-[2rem] border border-rose-100 bg-white shadow-sm hover:shadow-md transition-all">
@@ -547,7 +613,7 @@ export const NoteComparison = () => {
  */
 export const LearnerProfiles = () => {
   return (
-    <div className="my-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="my-6 grid grid-cols-1 md:grid-cols-3 gap-6">
       {[
         { title: "The Gambler", trait: "High Emotion", focus: "Quick Wins", risk: "Account Ruin", color: "rose" },
         { title: "The Student", trait: "High Effort", focus: "Information", risk: "Analysis Paralysis", color: "amber" },
@@ -599,7 +665,7 @@ export const LearnerProfiles = () => {
  */
 export const HypeTrapPath = () => {
   return (
-    <div className="my-12 p-10 rounded-[3rem] bg-slate-900 text-white relative overflow-hidden shadow-2xl">
+    <div className="my-6 p-10 rounded-[3rem] bg-slate-900 text-white relative overflow-hidden shadow-2xl">
       <div className="absolute top-0 right-0 p-10 opacity-10">
         <Zap size={120} />
       </div>
@@ -652,7 +718,7 @@ export const HypeTrapPath = () => {
  */
 export const OrientationDebrief = () => {
   return (
-    <div className="my-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="my-6 grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="p-10 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm space-y-8">
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-teal-500 flex items-center justify-center text-white shadow-lg shadow-teal-500/20">

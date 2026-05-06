@@ -91,8 +91,15 @@ export function LessonCardFlow({
   const [practicePassed, setPracticePassed] = useState(false);
 
   const totalCards = cards.length;
-  const currentCard = cards[currentIndex];
-  const isLast = currentIndex === totalCards - 1;
+  // Guard: clamp index to valid range to prevent mobile crash
+  const safeIndex = Math.max(0, Math.min(currentIndex, totalCards - 1));
+  const currentCard = cards[safeIndex];
+  const isLast = safeIndex === totalCards - 1;
+
+  // Early return if cards array is empty or card is undefined
+  if (!currentCard || totalCards === 0) {
+    return <div className="p-12 text-center text-slate-400 font-medium">Loading lesson content...</div>;
+  }
 
   const handleNext = () => {
     if (currentIndex < totalCards - 1) {
@@ -220,11 +227,18 @@ export function LessonCardFlow({
     if (currentCard.type === "summary") {
       return (
         <div className="space-y-10 text-center py-12">
-          <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle2 className="w-10 h-10 text-emerald-500" />
-          </div>
+          {/* Render visualKey for summary cards (e.g. orientation-debrief) */}
+          {(currentCard.visualKey || currentCard.visual) ? (
+            <div className="w-full">
+              {renderVisual(currentCard.visualKey || currentCard.visual)}
+            </div>
+          ) : (
+            <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="w-10 h-10 text-emerald-500" />
+            </div>
+          )}
           <div className="space-y-4">
-            <h2 className="text-3xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">Module Complete</h2>
+            <h2 className="text-3xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">{currentCard.title || "Module Complete"}</h2>
             <div className="prose prose-slate max-w-none">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{currentCard.body || ""}</ReactMarkdown>
             </div>

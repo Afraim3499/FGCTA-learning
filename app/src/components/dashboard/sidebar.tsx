@@ -32,6 +32,11 @@ export function Sidebar() {
   const user = useUser();
   const progress = user?.progress;
 
+  // Focus Mode: hide the full sidebar entirely while inside a learning module.
+  // The LessonTopBar (hamburger) replaces it in the layout.
+  const isLessonMode = pathname?.startsWith('/course/module/');
+  if (isLessonMode) return null;
+
   // Calculate XP threshold for current level progress bar
   const xpTotal = progress?.xpTotal || 0;
   const thresholds = [0, 500, 1500, 4000, 10000, 25000];
