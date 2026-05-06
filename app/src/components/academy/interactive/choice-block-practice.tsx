@@ -143,33 +143,65 @@ export function ChoiceBlockPractice({ question, options: rawOptions, correctInde
         {/* Result State */}
         {hasAnswered && (
           <div className={cn(
-            "flex items-center justify-between p-4 rounded-xl border shadow-md",
+            "p-6 rounded-3xl border animate-in slide-in-from-top-2 duration-500 shadow-xl relative overflow-hidden",
             isCorrect
-              ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/20"
-              : "bg-rose-50 border-rose-200"
+              ? "bg-emerald-50/50 border-emerald-100"
+              : "bg-rose-50/50 border-rose-100"
           )}>
-            <div className="flex items-center gap-2">
-              {isCorrect ? (
-                <>
-                  <CheckCircle2 className="w-4 h-4 text-[var(--ln-teal-600)]" />
-                  <span className="text-xs font-extrabold text-[var(--ln-teal-700)]">Correct! Module unlocked.</span>
-                </>
-              ) : (
-                <>
-                  <XCircle className="w-4 h-4 text-rose-600" />
-                  <span className="text-xs font-extrabold text-rose-700">Not quite. Review the lesson and try again.</span>
-                </>
+            {/* Background Accent */}
+            <div className={cn(
+              "absolute top-0 right-0 p-4 opacity-[0.03] pointer-events-none",
+              isCorrect ? "text-emerald-500" : "text-rose-500"
+            )}>
+              {isCorrect ? <CheckCircle2 size={120} /> : <XCircle size={120} />}
+            </div>
+
+            <div className="relative z-10 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className={cn(
+                  "w-10 h-10 rounded-2xl flex items-center justify-center shadow-lg",
+                  isCorrect ? "bg-emerald-500 text-white shadow-emerald-500/20" : "bg-rose-500 text-white shadow-rose-500/20"
+                )}>
+                  {isCorrect ? <CheckCircle2 size={20} /> : <XCircle size={20} />}
+                </div>
+                <div>
+                  <h4 className={cn(
+                    "text-[10px] font-black uppercase tracking-[0.2em]",
+                    isCorrect ? "text-emerald-600" : "text-rose-600"
+                  )}>
+                    {isCorrect ? "Academy Logic Confirmed" : "Training Correction"}
+                  </h4>
+                  <p className="text-sm font-black text-slate-900 uppercase">
+                    {isCorrect ? "Valid Decision" : "Scenario Trap Detected"}
+                  </p>
+                </div>
+              </div>
+
+              <div className="pl-1 space-y-3">
+                <div className={cn(
+                  "text-xs font-bold leading-relaxed prose-sm",
+                  isCorrect ? "text-slate-800" : "text-rose-700"
+                )}>
+                  {options.find(o => o.id === selected)?.feedback.split('\\n').map((line, i) => (
+                    <p key={i} className={cn(line.startsWith('**') ? "mt-4 pt-4 border-t border-emerald-100 font-black uppercase tracking-widest text-[9px]" : "")}>
+                      {line.replace(/\*\*/g, '')}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {!isCorrect && (
+                <div className="pt-2">
+                  <button
+                    onClick={handleRetry}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-rose-200 text-[10px] font-black text-rose-600 uppercase tracking-widest hover:bg-rose-50 transition-all shadow-sm active:scale-95"
+                  >
+                    <RefreshCw className="w-3.5 h-3.5" />
+                    Reset & Try Again
+                  </button>
+                </div>
               )}
             </div>
-            {!isCorrect && (
-              <button
-                onClick={handleRetry}
-                className="flex items-center gap-1 text-[10px] font-extrabold text-[var(--ln-text-muted)] hover:text-[var(--ln-navy-900)] transition-colors uppercase tracking-widest border-b border-transparent hover:border-[var(--ln-navy-900)]"
-              >
-                <RefreshCw className="w-3 h-3" />
-                Retry
-              </button>
-            )}
           </div>
         )}
       </div>

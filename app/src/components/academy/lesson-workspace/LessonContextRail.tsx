@@ -122,15 +122,25 @@ export function LessonContextRail({
           borderColor="border-slate-200"
           defaultOpen={true}
         >
-          <div className="flex flex-wrap gap-2">
-            {context.keyTerms.map((term, i) => (
-              <span
-                key={i}
-                className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[var(--ln-navy-900)] shadow-sm"
-              >
-                {term}
-              </span>
-            ))}
+          <div className="space-y-3">
+            {context.keyTerms.map((item, i) => {
+              const isObject = typeof item !== "string";
+              const term = isObject ? (item as any).term : item;
+              const definition = isObject ? (item as any).definition : null;
+
+              return (
+                <div key={i} className="space-y-1">
+                  <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[var(--ln-navy-900)] shadow-sm w-fit">
+                    {term}
+                  </div>
+                  {definition && (
+                    <p className="text-[11px] text-slate-500 font-medium leading-relaxed pl-1">
+                      {definition}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </AccordionItem>
       )}

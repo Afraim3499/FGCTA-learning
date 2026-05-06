@@ -43,79 +43,129 @@ const MODULES = [
     }
   },
   {
-    "type": "comparison",
-    "title": "Random Learner vs. Trained Learner",
+    "type": "visual_intro",
+    "title": "Activity Is Not the Same as Training",
     "visualKey": "learner-profiles",
     "label": "Behavioral Shift",
     "body": "The difference between a struggling learner and a developing market reader is not talent or luck. The difference is whether the learner has a repeatable process that creates a feedback loop. One path leads to confusion; the other leads to clarity.",
-    "comparison": {
-      "left": {
-        "title": "The Random Learner",
-        "type": "negative",
-        "content": "- Consumes scattered content daily without a plan.\\n- Changes their method every few days looking for a 'secret.'\\n- Reacts to fast price motion or emotional impulses.\\n- Cannot explain the specific evidence behind a decision.\\n- Avoids taking notes because it feels like 'work.'\\n- Feels active but cannot measure any real improvement."
-      },
-      "right": {
-        "title": "The Lurnava Learner",
-        "type": "positive",
-        "content": "- Studies one specific concept until it is mastered.\\n- Observes defined structural conditions on the chart.\\n- Practices deliberately in a controlled simulation.\\n- Writes down the reasoning for every reading.\\n- Reviews mistakes and unclear moments systematically.\\n- Builds a repeatable process that leads to skill."
-      }
+    "context": {
+      "keyTerms": ["Random learner", "Trained learner", "Feedback loop", "Evidence", "Review habit"],
+      "whyThisMatters": "Many learners confuse activity with progress. A person can watch, click, and switch methods every day without building a repeatable process.",
+      "realLifeExample": "A learner practices for one week but changes strategy every two days. At the end of the week, they have spent time, but they cannot say what improved.",
+      "commonMistake": "Thinking effort alone creates progress. Effort only becomes useful when it creates feedback.",
+      "quickNote": "If your practice leaves no record, it leaves no lesson."
     }
   },
   {
-    "type": "concept",
+    "type": "visual_intro",
     "title": "The Cockpit: Your Training Instruments",
     "visualKey": "training-cockpit",
     "label": "The Ecosystem",
-    "body": "A cockpit is not valuable because it has many buttons. It is valuable because every instrument tells the pilot something specific about their environment. Lurnava works the same way—each feature is a training instrument designed to build your judgment.",
-    "items": [
-      { "title": "Modules", "body": "Training Manual. These provide the language and concepts you will apply. They are the foundation, but the true training happens in application.", "icon": "modules" },
-      { "title": "Tasks", "body": "Instrument Checks. Small drills to ensure you understand the mechanical side of a concept before you try to read it in a complex chart.", "icon": "tasks" },
-      { "title": "The Lab", "body": "Practice Simulator. Your environment for controlled practice. Use the Lab to study historical data and build your visual recognition.", "icon": "lab" },
-      { "title": "Scenarios", "body": "Case-File Learning. Study curated historical situations to understand what evidence mattered and what you should review in your own readings.", "icon": "book" },
-      { "title": "Journal", "body": "Black-Box Recorder. The most important tool. It stores your reasoning and logic. Without this record, you cannot see patterns in your own thinking.", "icon": "journal" },
-      { "title": "Nava", "body": "Checklist Assistant. Your co-pilot for reviewing logic. Nava can help you verify your evidence, but it cannot replace your own judgment.", "icon": "nava" }
-    ]
-  },
-  {
-    "type": "scenario",
-    "title": "One Hour of Bad Practice",
-    "visualKey": "practice-timeline",
-    "label": "Simulation",
-    "body": "Imagine you have 60 minutes after a long day of work or class. You are tired, but you want to make progress. You open a chart, price is moving quickly, and you feel an internal pressure to 'do something' to prove you are learning.",
-    "scenario": {
-      "left": {
-        "title": "The Junk Practice",
-        "content": "You jump between different charts and assets. You try three different ideas you saw in videos earlier. You record 20 random actions to 'see what happens.' You close the laptop with no notes and no clear reason for any action. You were busy, but you learned nothing."
-      },
-      "right": {
-        "title": "The Deliberate Practice",
-        "content": "You choose one concept. You find one specific situation. You write down one clear reason for your reading. You mark a condition that would make you review the note. You save one journal entry. You did less, but you actually improved your judgment."
-      }
+    "body": "A cockpit is useful because every instrument answers a specific question. Lurnava works the same way: each tool helps the learner observe, practice, record, or review.",
+    "items": [],
+    "context": {
+      "keyTerms": [
+        { "term": "Training instrument", "definition": "A tool that helps you perform one part of the learning process." },
+        { "term": "Controlled practice", "definition": "A guided exercise where you focus on one concept instead of clicking randomly." },
+        { "term": "Historical scenario", "definition": "A past market situation selected for study and evidence review." },
+        { "term": "Journal review", "definition": "Looking back at your own reasoning to find repeated mistakes." },
+        { "term": "Checklist assistant", "definition": "Support that asks better questions without replacing your judgment." }
+      ],
+      "whyThisMatters": "A learner can use every tool on the platform and still learn poorly if each tool is used randomly. The system matters because every tool has one job: help you learn, check, practice, study, record, or review.",
+      "realLifeExample": "A learner studies one lesson about market structure, completes a task to check the idea, practices the same concept in a controlled chart exercise, studies one historical case, then writes what evidence was clear and what still felt unclear.",
+      "commonMistake": "Treating the Lab like a place to click around, or treating Nava like someone who should decide for you.",
+      "quickNote": "Every tool should make your reasoning clearer. If it does not, you are using it passively."
     }
   },
   {
-    "type": "rule",
+    "type": "visual_intro",
+    "title": "One Hour of Bad Practice",
+    "visualKey": "practice-timeline",
+    "label": "Practice Discipline",
+    "body": "The difference is not time. The difference is structure. A useful session leaves behind a clear reason, a review note, and one thing to improve next time.",
+    "items": [],
+    "context": {
+      "keyTerms": [
+        { "term": "Junk practice", "definition": "Busy action without a clear learning purpose." },
+        { "term": "Deliberate practice", "definition": "Focused work on one concept, one situation, and one review note." },
+        { "term": "Practice action", "definition": "A controlled exercise performed for learning, not guessing." },
+        { "term": "Review condition", "definition": "The specific thing that would make the learner re-check their reading." },
+        { "term": "Learning record", "definition": "The written trace of what the learner saw, thought, and needs to review." }
+      ],
+      "whyThisMatters": "A learner can spend one hour clicking through charts and still produce no learning. Practice becomes valuable only when it creates a record that can be reviewed.",
+      "realLifeExample": "After work, a learner has one hour. The rushed learner jumps between charts to feel productive. The trained learner chooses one concept, studies one situation, writes one reason, and saves one note.",
+      "commonMistake": "Measuring practice by how many actions were taken instead of how clearly the learner can explain what they practiced.",
+      "quickNote": "If the session leaves no note, no reason, and no review condition, it was activity — not training."
+    }
+  },
+  {
+    "type": "visual_intro",
     "title": "The Three-Question Gate",
     "visualKey": "decision-gate",
     "label": "Decision Checkpoint",
-    "body": "A 'reading' is your current interpretation of what the chart is showing. To prevent impulsive guessing, you must pass every reading through the Three-Question Gate.\\n\\n1. **What did I observe?** (Name the specific structural concept you are seeing).\\n2. **What evidence supports it?** (List the objective facts on the chart, not your feelings).\\n3. **What would make me review this reading?** (Define the 'invalid' condition where the reading no longer makes sense).\\n\\n**Pass Example**: 'I observed price moving inside a range. Evidence: recent highs and lows are not breaking clearly. I will review if price closes outside the range and holds.'\\n**Fail Example**: 'The chart looks strong and the move is fast, so I want to see what happens next.' (No observation, no evidence, no review condition)."
+    "body": "A reading is not ready until it can pass all three questions. If one answer is missing, mark the reading as unclear.",
+    "context": {
+      "keyTerms": [
+        { "term": "Reading", "definition": "Your current interpretation of what the chart is showing." },
+        { "term": "Evidence", "definition": "Observable facts on the chart, not feelings or guesses." },
+        { "term": "Review condition", "definition": "The specific condition that would make you re-check your reading." },
+        { "term": "Weak logic", "definition": "A reading based on emotion, speed, or vague confidence." },
+        { "term": "Valid reading", "definition": "A reading supported by observation, evidence, and a review condition." }
+      ],
+      "whyThisMatters": "Most poor readings fail before the chart does anything. They fail because the learner cannot explain what they observed, what evidence supports it, or what would make the idea invalid.",
+      "realLifeExample": "A learner sees price moving fast and wants to call it strong. The gate forces them to slow down and ask whether structure actually changed or whether they are only reacting to motion.",
+      "commonMistake": "Treating a strong feeling as evidence. Speed, excitement, and confidence are not enough to pass the gate.",
+      "quickNote": "If you cannot answer the three questions, the correct label is unclear."
+    }
   },
   {
     "type": "practice",
     "title": "Training Drill: The Hype Trap",
     "visualKey": "hype-trap-path",
     "label": "Practical Drill",
-    "body": "A developing market reader must learn to distinguish between external hype and internal evidence. This drill tests your ability to stay disciplined when tempted by shortcuts.",
+    "body": "Scenario: You watch a short online video claiming a specific candle pattern works well. Later, you open the Lab and see a similar-looking candle. Because the video is fresh in your memory, you feel tempted to use the idea immediately.",
     "taskData": {
       "type": "choice_block",
-      "question": "Scenario: You watch a short online video claiming a specific candle pattern works well. Later, you open the Lab and see a similar-looking candle. Because the video is fresh in your memory, you feel tempted to use the idea immediately. What is the correct Lurnava response?",
+      "question": "What is the correct Lurnava response?",
       "options": [
-        "Apply the pattern immediately because the candle looks similar and you want to see a win.",
-        "Change timeframes repeatedly until the idea appears correct so you can justify the action.",
-        "Identify the actual concept, check the chart context for evidence, practice it deliberately in the simulator, and write a review note.",
-        "Skip the journal entry and the reasoning because this is only a practice session."
+        {
+          "id": "A",
+          "text": "Apply the pattern immediately because the candle looks similar and you want to see a win.",
+          "isCorrect": false,
+          "feedback": "Not correct. This is impulse driven by familiarity, not evidence. A similar-looking candle is not enough to justify action. Lurnava requires context and reasoning, not visual resemblance alone."
+        },
+        {
+          "id": "B",
+          "text": "Change timeframes repeatedly until the idea appears correct so you can justify the action.",
+          "isCorrect": false,
+          "feedback": "Not correct. Changing timeframes until the idea looks valid is a form of self-justification. This is not analysis. It is a bias-driven attempt to force confirmation."
+        },
+        {
+          "id": "C",
+          "text": "Identify the actual concept, check the chart context for evidence, practice it deliberately in the simulator, and write a review note.",
+          "isCorrect": true,
+          "feedback": "Correct. A Lurnava learner does not act because something 'looks familiar.' They identify the concept, check context, verify evidence, practice deliberately, and record reasoning. That is how skill is built.\\n\\n**Lurnava Principle**: Recognition is not enough. Evidence must confirm the reading."
+        },
+        {
+          "id": "D",
+          "text": "Skip the journal entry and the reasoning because this is only a practice session.",
+          "isCorrect": false,
+          "feedback": "Not correct. Practice without recording reasoning weakens the learning loop. In Lurnava, deliberate practice must produce reviewable logic, not just activity."
+        }
+      ]
+    },
+    "context": {
+      "keyTerms": [
+        { "term": "Hype trap", "definition": "A psychological state where urgency and familiarity replace objective analysis." },
+        { "term": "Context", "definition": "The broader chart environment surrounding a specific signal." },
+        { "term": "Evidence", "definition": "The objective facts required to validate a reading." },
+        { "term": "Deliberate practice", "definition": "Focused training on a specific concept with a review note." },
+        { "term": "Review note", "definition": "The recorded logic used to audit a decision later." }
       ],
-      "correctIndex": 2
+      "whyThisMatters": "Many learners mistake familiarity for proof. Seeing a chart that looks similar to a recent video idea can create false confidence. Lurnava trains the learner to slow down, verify context, and act only through structure.",
+      "realLifeExample": "A learner watches a video about a candle setup in the morning. At night, they open the Lab, see a vaguely similar candle, and feel convinced they found the same idea. Without checking market structure or evidence, they are tempted to act too quickly.",
+      "commonMistake": "Using a remembered idea before verifying whether the concept, context, and evidence are actually present on the chart.",
+      "quickNote": "Similarity is not validity. A chart can look familiar without confirming the same reading."
     }
   },
   {
@@ -130,49 +180,102 @@ const MODULES = [
     forexAdaptation: `:::lesson-cards
 [
   {
-    "type": "mission_brief",
+    "type": "visual_intro",
     "title": "Forex Brief: Reading a Relationship",
+    "visualKey": "forex-relationship",
     "label": "Roadway Context",
-    "body": "In the Forex roadway, every chart is a relationship between two currencies. You are never reading one asset alone.\\n\\n**Base Currency**: The first currency in a pair (e.g., EUR in EUR/USD). It is the 'Main Item' you are observing.\\n**Quote Currency**: The second currency in a pair (e.g., USD in EUR/USD). It is the 'Measuring Stick' used to price the base.\\n\\n**Scoreboard Analogy**: A currency pair is like a scoreboard comparing two teams. If EUR/USD rises, it doesn't always mean the Euro (base) is strong; it might mean the Dollar (quote) is weakening. Your training focuses on reading this interaction."
-  },
-  {
-    "type": "concept",
-    "title": "Forex Training Instruments",
-    "label": "Terminology",
-    "items": [
-      { "title": "Session Drivers", "body": "The active geographic markets (London, New York, Tokyo). Like 'Shop Hours,' the busiest time is when these major markets overlap.", "icon": "target" },
-      { "title": "USD Context", "body": "The 'Global Weather.' If the Dollar is weakening everywhere, it affects all pairs. You must check this background condition.", "icon": "lightbulb" }
-    ]
-  },
-  {
-    "type": "scenario",
-    "title": "The 'One-Sided' Mistake",
-    "label": "Mistake Pattern",
-    "scenario": {
-      "left": {
-        "title": "Isolated Reading",
-        "content": "A learner sees GBP/USD moving fast and assumes GBP is 'strong' without checking if the Dollar is weakening across the whole market."
-      },
-      "right": {
-        "title": "Contextual Reading",
-        "content": "A learner checks other USD pairs. They identify that the move is driven by USD weakness, making their reading of GBP more accurate."
-      }
+    "body": "In Forex, a chart is a comparison. EUR/USD does not show Euro alone; it shows Euro priced against the US Dollar. Before reading the move, identify both sides of the pair.",
+    "context": {
+      "keyTerms": [
+        { "term": "Currency Pair", "definition": "Two currencies compared against each other." },
+        { "term": "Base Currency", "definition": "The first currency in the pair. In EUR/USD, EUR is the base." },
+        { "term": "Quote Currency", "definition": "The second currency in the pair. In EUR/USD, USD is the quote." },
+        { "term": "Relationship Reading", "definition": "Reading how both sides of the pair may be affecting movement." },
+        { "term": "USD Context", "definition": "Checking whether the US Dollar is broadly strong or weak across related pairs." }
+      ],
+      "whyThisMatters": "A learner may look at EUR/USD rising and assume Euro is strong. That may be true, but the move may also come from Dollar weakness. Forex readings become clearer when the learner checks both sides of the pair.",
+      "realLifeExample": "EUR/USD rises during a session. A rushed learner says, 'Euro is strong.' A trained learner checks whether USD is also weakening against other currencies before forming a stronger reading.",
+      "commonMistake": "Reading a Forex pair like one single asset. A pair always has two sides.",
+      "quickNote": "Before reading a Forex chart, name the base and the quote."
     }
   },
   {
+    "type": "visual_intro",
+    "title": "Forex Training Instruments",
+    "visualKey": "forex-instruments",
+    "label": "Roadway Tools",
+    "body": "A Forex reading starts before the candle. First identify the pair, then check the broader environment around it. This prevents the learner from blaming every move on only one side of the pair.",
+    "context": {
+      "keyTerms": [
+        { "term": "Pair Identity", "definition": "Knowing which currency is the base and which is the quote." },
+        { "term": "USD Context", "definition": "Checking whether the US Dollar is broadly strong, weak, or mixed across related pairs." },
+        { "term": "Session Context", "definition": "The major time window currently active, such as Asia, London, or New York." },
+        { "term": "Spread", "definition": "The gap between the price buyers offer and sellers ask." },
+        { "term": "Activity Window", "definition": "A period where enough market participation exists to make movement easier to interpret." }
+      ],
+      "whyThisMatters": "A Forex pair can move for more than one reason. Without checking the pair identity, USD background, session, and activity level, a learner may explain the move too quickly and miss the actual driver.",
+      "realLifeExample": "EUR/USD rises during the London session. Instead of immediately saying 'Euro is strong,' a trained learner checks whether USD is weakening across other pairs and whether the session has enough activity to make the movement meaningful.",
+      "commonMistake": "Reading the candle first and the environment later. In Forex, the environment often explains why the candle looks the way it does.",
+      "quickNote": "Before reading a Forex move, identify the pair and check the environment."
+    }
+  },
+
+  {
+    "type": "visual_intro",
+    "title": "The One-Sided Mistake",
+    "visualKey": "forex-context-comparison",
+    "label": "Mistake Pattern",
+    "body": "A fast move in one Forex pair is only the first clue. Before blaming the base currency, check whether the quote currency is moving broadly across related pairs.",
+    "context": {
+      "keyTerms": [
+        { "term": "Isolated reading", "definition": "Judging one pair without checking related market context." },
+        { "term": "Contextual reading", "definition": "Reading the pair together with related pairs, session context, and currency background." },
+        { "term": "Related pairs", "definition": "Other pairs that can help reveal whether one currency is broadly strong or weak." },
+        { "term": "USD weakness", "definition": "A condition where the US Dollar is weakening across several pairs, not just one chart." },
+        { "term": "One-sided mistake", "definition": "Explaining a pair’s movement by looking at only one side of the relationship." }
+      ],
+      "whyThisMatters": "Forex pairs have two sides. A learner who reads only the base currency may miss that the quote currency is driving the move. Context prevents quick but weak explanations.",
+      "realLifeExample": "GBP/USD rises during London. A rushed learner says GBP is strong. A trained learner checks EUR/USD, AUD/USD, and USD/JPY to see whether USD weakness is part of the explanation.",
+      "commonMistake": "Seeing a large candle and immediately assigning the move to the first currency in the pair.",
+      "quickNote": "One pair gives a clue. Related pairs give context."
+    }
+  },
+
+  {
     "type": "practice",
     "title": "Forex Mini Drill: The Quote Factor",
+    "visualKey": "forex-mini-drill",
     "label": "Practical Drill",
+    "body": "EUR/USD rises sharply. At the same time, USD appears weak across several other pairs. What is the better Forex reading?",
     "taskData": {
       "type": "choice_block",
-      "question": "Scenario: EUR/USD rises sharply while the US Dollar (USD) appears weak across several other pairs. What is the better beginner reading?",
+      "question": "What is the better Forex reading?",
       "options": [
-        "The Euro (EUR) must be the only strong currency in the market right now.",
-        "The move may be partly explained by broader USD weakness rather than just EUR strength.",
-        "Ignore the Dollar context and follow the candle direction immediately.",
+        "EUR must be strong because EUR/USD is rising.",
+        "The move may be partly explained by broader USD weakness, so USD context should be treated as supporting evidence.",
+        "Ignore USD context and judge the move from the EUR/USD candle alone.",
         "The quote currency has no impact on the price movement of the pair."
       ],
-      "correctIndex": 1
+      "correctIndex": 1,
+      "feedback": {
+        "1": "Correct. EUR/USD is a relationship between EUR and USD. If USD is weakening broadly, the rise may not be only about EUR strength. The stronger reading is to treat USD context as supporting evidence and avoid explaining the move from one side only.",
+        "0": "Not quite. EUR may be strong, but EUR/USD can also rise because USD is weak. A Forex reading must check both sides of the pair.",
+        "2": "Not quite. The candle is only one clue. Ignoring USD context creates a one-sided reading.",
+        "3": "Not correct. The quote currency directly matters because the pair shows the base currency priced against the quote currency."
+      }
+    },
+    "context": {
+      "keyTerms": [
+        { "term": "Quote factor", "definition": "The influence of the second currency in a pair." },
+        { "term": "Supporting evidence", "definition": "Context that helps explain a move but does not give an instruction by itself." },
+        { "term": "Related pairs", "definition": "Other Forex pairs used to check whether a currency is broadly strong or weak." },
+        { "term": "One-sided reading", "definition": "Explaining a pair by looking at only one currency." },
+        { "term": "USD context", "definition": "The broader condition of the US Dollar across related pairs." }
+      ],
+      "whyThisMatters": "A Forex pair can move because the base currency changes, the quote currency changes, or both. The quote factor prevents the learner from blaming every move on the first currency in the pair.",
+      "realLifeExample": "EUR/USD rises sharply. A rushed learner says “Euro is strong.” A stronger learner checks whether USD is also weakening against GBP, AUD, or JPY before forming a cleaner reading.",
+      "commonMistake": "Assuming the first currency caused the move just because it appears first in the pair name.",
+      "quickNote": "A rising pair is not always base strength. Sometimes it is quote weakness."
     }
   }
 ]

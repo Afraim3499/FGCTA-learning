@@ -9,6 +9,8 @@ import {
   ClipboardCheck, 
   ChevronRight,
   TrendingUp,
+  TrendingDown,
+  Globe,
   ArrowUp,
   ArrowDown,
   Info,
@@ -19,10 +21,15 @@ import {
   MessageSquare,
   Lightbulb,
   AlertCircle,
+  ShieldCheck,
   ShieldAlert,
   Gavel,
   Scale,
-  Layers
+  Layers,
+  Clock,
+  Activity,
+  Layout,
+  Search
 } from "lucide-react";
 
 /**
@@ -267,148 +274,208 @@ export const LearningLoop = () => {
 };
 
 /**
- * 0.1 - Training Cockpit
- * Interactive System Map
+ * 0.1 - System Map (The Cockpit)
+ * Connected visual of training instruments
  */
-export const TrainingCockpit = () => {
-  const [activeItem, setActiveItem] = useState<number>(0);
-
+export const SystemMap = () => {
   const instruments = [
-    { title: "Modules", role: "Structured Manual", prevents: "Terminology confusion", guide: "Read and understand one concept at a time before moving to the simulator.", icon: <BookOpen size={20} /> },
-    { title: "Tasks", role: "Instrument Check", prevents: "Mental lazy shortcuts", guide: "Use these to prove you understand the mechanics of a single rule.", icon: <Zap size={20} /> },
-    { title: "The Lab", role: "Simulator", prevents: "Financial risk while learning", guide: "Practice reading real historical data without the pressure of live execution.", icon: <MapPin size={20} /> },
-    { title: "Scenarios", role: "Case-File Study", prevents: "Generic chart reading", guide: "Study curated historical situations to see how rules were applied correctly.", icon: <BookOpen size={20} /> },
-    { title: "Journal", "role": "Black-Box Recorder", prevents: "Memory bias and recurring errors", guide: "Record your logic for every reading. This is where your data lives.", icon: <ClipboardCheck size={20} /> },
-    { title: "Nava", "role": "Checklist Assistant", prevents: "Impulsive decision gaps", guide: "Use Nava to verify your structural evidence and pass the 3-question gate.", icon: <MessageSquare size={20} /> }
+    { id: "learn", title: "Modules", phase: "01 Learn", role: "Learn the concept, terms, and examples before applying them.", icon: <BookOpen size={18} />, color: "blue" },
+    { id: "check", title: "Tasks", phase: "02 Check", role: "Check whether you understand the mechanism behind the concept.", icon: <Zap size={18} />, color: "amber" },
+    { id: "practice", title: "Lab", phase: "03 Practice", role: "Apply one concept inside a controlled chart exercise.", icon: <MapPin size={18} />, color: "teal" },
+    { id: "study", title: "Scenarios", phase: "04 Study", role: "Study historical market case files and identify what evidence mattered.", icon: <Layers size={18} />, color: "purple" },
+    { id: "record", title: "Journal", phase: "05 Record", role: "Record your reading, evidence, and review condition.", icon: <ClipboardCheck size={18} />, color: "indigo" },
+    { id: "review", title: "Nava", phase: "06 Review", role: "Ask better questions; final judgment stays with you.", icon: <MessageSquare size={18} />, color: "emerald" }
   ];
 
   return (
-    <div className="my-6 p-8 bg-slate-900 rounded-[2.5rem] border border-slate-800 shadow-2xl relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none grid grid-cols-6 gap-4">
-        {Array.from({ length: 24 }).map((_, i) => (
-          <div key={i} className="border-r border-b border-white/20" />
-        ))}
+    <div className="my-2 p-6 md:p-10 bg-slate-900 rounded-[3rem] border border-slate-800 shadow-2xl relative overflow-hidden max-w-5xl mx-auto">
+      {/* HUD Background elements */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-teal-500/20 via-transparent to-transparent" />
+        <div className="h-full w-full grid grid-cols-8 gap-4 p-8">
+          {Array.from({ length: 64 }).map((_, i) => (
+            <div key={i} className="border-r border-b border-white/10" />
+          ))}
+        </div>
       </div>
 
-      <div className="relative z-10 space-y-10">
-        <div className="text-center">
-          <h3 className="text-lg font-extrabold text-white uppercase tracking-[0.2em]">Academy Instrument Panel</h3>
-          <p className="text-[10px] text-slate-400 font-bold mt-2 uppercase">Lurnava Training System v1.0</p>
+      <div className="relative z-10 flex flex-col items-center">
+        {/* Central Hub */}
+        <div className="mb-12 relative">
+          <div className="w-24 h-24 rounded-full bg-teal-500/10 border-2 border-teal-500/30 flex items-center justify-center animate-pulse">
+            <div className="w-16 h-16 rounded-full bg-teal-500/20 border border-teal-500/50 flex items-center justify-center">
+              <Target className="text-teal-400" size={32} />
+            </div>
+          </div>
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.2em]">
+            Training Session
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {/* Circular Instruments Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full relative">
+          {/* Connecting Lines (Visual only for layout) */}
+          <div className="absolute inset-0 pointer-events-none opacity-20 hidden lg:block">
+            <svg className="w-full h-full" viewBox="0 0 800 200">
+              <path d="M150,100 L400,100 M400,100 L650,100" stroke="white" strokeWidth="1" fill="none" strokeDasharray="4 4" />
+            </svg>
+          </div>
+
           {instruments.map((item, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveItem(i)}
-              className={cn(
-                "p-4 rounded-2xl border-2 transition-all text-left group",
-                activeItem === i
-                  ? "bg-teal-500/10 border-teal-500/50 text-white shadow-[0_0_15px_rgba(20,184,166,0.2)]"
-                  : "bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300"
-              )}
+            <div
+              key={item.id}
+              className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group relative overflow-hidden"
             >
               <div className={cn(
-                "mb-3 p-2 rounded-lg w-fit",
-                activeItem === i ? "bg-teal-500 text-white" : "bg-slate-700 text-slate-500 group-hover:bg-slate-600 group-hover:text-slate-300"
+                "mb-4 p-2.5 rounded-xl w-fit transition-all",
+                item.color === 'blue' ? "bg-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white" :
+                item.color === 'amber' ? "bg-amber-500/20 text-amber-400 group-hover:bg-amber-500 group-hover:text-white" :
+                item.color === 'teal' ? "bg-teal-500/20 text-teal-400 group-hover:bg-teal-500 group-hover:text-white" :
+                item.color === 'purple' ? "bg-purple-500/20 text-purple-400 group-hover:bg-purple-500 group-hover:text-white" :
+                item.color === 'indigo' ? "bg-indigo-500/20 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white" :
+                "bg-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white"
               )}>
                 {item.icon}
               </div>
-              <span className="text-xs font-extrabold uppercase tracking-tight">{item.title}</span>
-            </button>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-[10px] font-extrabold text-white uppercase tracking-wider">
+                    <span className="text-teal-400 mr-2">{item.phase}</span>
+                    <span className="opacity-40 mx-1">—</span>
+                    <span className="ml-2">{item.title}</span>
+                  </h4>
+                  <ChevronRight size={14} className="text-white/20 group-hover:translate-x-1 transition-transform" />
+                </div>
+                <p className="text-[10px] text-slate-400 font-medium leading-relaxed group-hover:text-slate-300 transition-colors">
+                  {item.role}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
 
-        <div className="p-8 bg-slate-800/80 rounded-[2rem] border border-slate-700 space-y-6">
-          <div className="flex items-center justify-between">
-             <div className="space-y-1">
-               <span className="text-[10px] font-extrabold text-teal-400 uppercase tracking-widest">Instrument Role</span>
-               <h4 className="text-xl font-extrabold text-white uppercase">{instruments[activeItem].title}: {instruments[activeItem].role}</h4>
-             </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-2">
-              <span className="text-[9px] font-extrabold text-rose-400 uppercase tracking-widest flex items-center gap-2">
-                <XCircle size={12} /> Prevents Failure
-              </span>
-              <p className="text-sm text-slate-300 font-medium leading-relaxed">
-                {instruments[activeItem].prevents}
-              </p>
-            </div>
-            <div className="space-y-2">
-              <span className="text-[9px] font-extrabold text-teal-400 uppercase tracking-widest flex items-center gap-2">
-                <CheckCircle2 size={12} /> Usage Guide
-              </span>
-              <p className="text-sm text-slate-300 font-medium leading-relaxed italic">
-                {instruments[activeItem].guide}
-              </p>
-            </div>
-          </div>
+        {/* Bottom Flow Connector */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3 px-4 py-3 rounded-full bg-white/5 border border-white/10">
+          {["Learn", "Check", "Practice", "Study", "Record", "Review"].map((step, i) => (
+            <React.Fragment key={step}>
+              <span className="text-[10px] font-extrabold text-teal-400 uppercase tracking-widest">{step}</span>
+              {i < 5 && <ChevronRight size={14} className="text-white/20" />}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
+
 /**
- * 0.1 - Practice Timeline
- * Comparison of Busy vs Deliberate Practice
+ * 0.1 - Practice Timeline (One Hour of Bad Practice)
+ * Comparative timeline of practice quality
  */
 export const PracticeTimeline = () => {
+  const leftTimeline = [
+    { time: "00–10", task: "Opens chart and jumps ideas" },
+    { time: "10–20", task: "Watches candles without a plan" },
+    { time: "20–35", task: "Clicks because movement feels fast" },
+    { time: "35–50", task: "Switches method after uncertainty" },
+    { time: "50–60", task: "Closes with no note or review condition" }
+  ];
+
+  const rightTimeline = [
+    { time: "00–10", task: "Chooses one concept" },
+    { time: "10–25", task: "Studies one clear situation" },
+    { time: "25–40", task: "Completes one focused drill" },
+    { time: "40–55", task: "Writes one review note" },
+    { time: "55–60", task: "Defines what to review next" }
+  ];
+
   return (
-    <div className="my-6 space-y-10">
-      <div className="text-center">
-        <h3 className="text-sm font-extrabold text-slate-900 uppercase tracking-[0.2em]">60 Minutes of Practice</h3>
-        <p className="text-[10px] text-slate-400 font-bold mt-1 uppercase">Activity vs Outcome</p>
-      </div>
-
-      <div className="space-y-4">
-        {/* Bad Timeline */}
-        <div className="space-y-2">
-          <div className="flex justify-between items-center px-4">
-             <span className="text-[10px] font-extrabold text-rose-500 uppercase tracking-widest flex items-center gap-2">
-               <XCircle size={12} /> Junk Practice
-             </span>
-             <span className="text-[10px] text-slate-400 font-bold">14 Actions Recorded</span>
+    <div className="my-2 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto w-full">
+      {/* Left: Junk Practice */}
+      <div className="p-6 rounded-[2.5rem] bg-rose-50/30 border border-rose-100 flex flex-col h-full">
+        <div className="mb-6 space-y-1">
+          <div className="flex items-center gap-2">
+            <XCircle className="text-rose-500" size={18} />
+            <span className="text-[10px] font-extrabold text-rose-500 uppercase tracking-widest">Junk Practice</span>
           </div>
-          <div className="h-6 w-full bg-slate-100 rounded-full overflow-hidden flex border border-slate-200">
-            <div className="h-full w-1/6 bg-rose-200 border-r border-rose-300/30" />
-            <div className="h-full w-1/12 bg-rose-300 border-r border-rose-300/30" />
-            <div className="h-full w-1/4 bg-rose-200 border-r border-rose-300/30" />
-            <div className="h-full w-1/6 bg-rose-400 border-r border-rose-300/30" />
-            <div className="h-full w-1/12 bg-rose-200 border-r border-rose-300/30" />
-            <div className="h-full w-1/4 bg-rose-300" />
-          </div>
-          <p className="text-[10px] text-rose-600/70 font-medium px-4 italic">High activity, random asset jumps, no reasoning. Results in zero skill data.</p>
+          <h4 className="text-sm font-bold text-slate-800">High Activity. Low Learning.</h4>
         </div>
 
-        <div className="py-2 flex justify-center">
-           <div className="h-8 w-px bg-slate-200" />
+        <div className="flex-1 space-y-4">
+          <div className="grid grid-cols-2 gap-2 mb-6">
+            <div className="p-3 rounded-2xl bg-white border border-rose-100">
+              <div className="text-[9px] font-extrabold text-slate-400 uppercase">Actions</div>
+              <div className="text-xl font-black text-rose-500">14</div>
+            </div>
+            <div className="p-3 rounded-2xl bg-white border border-rose-100">
+              <div className="text-[9px] font-extrabold text-slate-400 uppercase">Review Notes</div>
+              <div className="text-xl font-black text-slate-300">0</div>
+            </div>
+          </div>
+
+          <div className="space-y-3 relative">
+            <div className="absolute left-[11px] top-0 bottom-0 w-[2px] bg-rose-100/50" />
+            {leftTimeline.map((step, i) => (
+              <div key={i} className="flex gap-4 relative">
+                <div className="w-6 h-6 rounded-full bg-white border-2 border-rose-200 flex items-center justify-center shrink-0 z-10">
+                  <div className="w-1.5 h-1.5 rounded-full bg-rose-400" />
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-[9px] font-extrabold text-rose-400 uppercase tracking-tighter">{step.time}</div>
+                  <div className="text-[11px] text-slate-600 font-bold">{step.task}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Good Timeline */}
-        <div className="space-y-2">
-          <div className="flex justify-between items-center px-4">
-             <span className="text-[10px] font-extrabold text-teal-500 uppercase tracking-widest flex items-center gap-2">
-               <CheckCircle2 size={12} /> Deliberate Practice
-             </span>
-             <span className="text-[10px] text-slate-400 font-bold uppercase">1 Lesson Extracted</span>
-          </div>
-          <div className="h-6 w-full bg-slate-100 rounded-full overflow-hidden flex border border-slate-200">
-            <div className="h-full w-[45%] bg-slate-200 border-r border-white/50" />
-            <div className="h-full w-[10%] bg-teal-500 border-r border-white/50 shadow-[0_0_10px_rgba(20,184,166,0.3)]" />
-            <div className="h-full w-[45%] bg-slate-200" />
-          </div>
-          <p className="text-[10px] text-teal-600/70 font-medium px-4 italic">Focused study of one concept. One clear journal note. High quality learning data.</p>
+        <div className="mt-8 p-3 rounded-xl bg-rose-500/10 border border-rose-200 text-[10px] font-bold text-rose-600 text-center uppercase tracking-wider">
+          Outcome: No useful learning record
         </div>
       </div>
 
-      <div className="p-6 rounded-2xl bg-teal-50 border border-teal-100 text-center">
-         <p className="text-xs text-teal-800 font-bold leading-relaxed">
-           "Do not measure practice by the number of actions. Measure it by the clarity of your reasoning."
-         </p>
+      {/* Right: Deliberate Practice */}
+      <div className="p-6 rounded-[2.5rem] bg-emerald-50/30 border border-emerald-100 flex flex-col h-full shadow-sm">
+        <div className="mb-6 space-y-1">
+          <div className="flex items-center gap-2">
+            <CheckCircle2 className="text-emerald-500" size={18} />
+            <span className="text-[10px] font-extrabold text-emerald-500 uppercase tracking-widest">Deliberate Practice</span>
+          </div>
+          <h4 className="text-sm font-bold text-slate-800">Less Activity. More Learning.</h4>
+        </div>
+
+        <div className="flex-1 space-y-4">
+          <div className="grid grid-cols-2 gap-2 mb-6">
+            <div className="p-3 rounded-2xl bg-white border border-emerald-100">
+              <div className="text-[9px] font-extrabold text-slate-400 uppercase">Focus</div>
+              <div className="text-xl font-black text-emerald-500">1 Concept</div>
+            </div>
+            <div className="p-3 rounded-2xl bg-white border border-emerald-100">
+              <div className="text-[9px] font-extrabold text-slate-400 uppercase">Review Notes</div>
+              <div className="text-xl font-black text-emerald-500">1</div>
+            </div>
+          </div>
+
+          <div className="space-y-3 relative">
+            <div className="absolute left-[11px] top-0 bottom-0 w-[2px] bg-emerald-100/50" />
+            {rightTimeline.map((step, i) => (
+              <div key={i} className="flex gap-4 relative">
+                <div className="w-6 h-6 rounded-full bg-white border-2 border-emerald-200 flex items-center justify-center shrink-0 z-10">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-[9px] font-extrabold text-emerald-400 uppercase tracking-tighter">{step.time}</div>
+                  <div className="text-[11px] text-slate-800 font-bold">{step.task}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 p-3 rounded-xl bg-emerald-500 text-white shadow-lg shadow-emerald-500/20 text-[10px] font-bold text-center uppercase tracking-wider">
+          Outcome: 1 Clear Review Note Created
+        </div>
       </div>
     </div>
   );
@@ -419,51 +486,108 @@ export const PracticeTimeline = () => {
  * Coded Checkpoint Panel
  */
 export const DecisionGate = () => {
+  const questions = [
+    { 
+      num: "01", 
+      title: "Observation", 
+      desc: "What did I observe?", 
+      detail: "Identify the specific structural concept.",
+      color: "blue"
+    },
+    { 
+      num: "02", 
+      title: "Evidence", 
+      desc: "What objective facts support it?", 
+      detail: "List the facts, not your feelings.",
+      color: "amber"
+    },
+    { 
+      num: "03", 
+      title: "Review Condition", 
+      desc: "What would make me re-check this?", 
+      detail: "Define the point of invalidation.",
+      color: "purple"
+    }
+  ];
+
   return (
-    <div className="my-6 p-8 bg-white rounded-[2.5rem] border border-slate-200 shadow-xl space-y-10 relative overflow-hidden">
-      <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none rotate-12">
-        <Target size={160} />
-      </div>
-
+    <div className="my-2 space-y-8 max-w-5xl mx-auto w-full">
       <div className="text-center space-y-2">
-        <h3 className="text-xl font-extrabold text-[var(--ln-navy-900)] tracking-tight uppercase">The Three-Question Gate</h3>
-        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Mental Checkpoint Protocol</p>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[10px] font-extrabold text-slate-500 uppercase tracking-widest">
+          System Checkpoint
+        </div>
+        <h3 className="text-xl font-black text-slate-900 uppercase">Can this reading pass the gate?</h3>
       </div>
 
-      <div className="space-y-4">
-        {[
-          { q: "What did I observe?", desc: "Name the specific structural concept you are seeing." },
-          { q: "What evidence supports it?", desc: "List the objective facts on the chart, not your feelings." },
-          { q: "What would make me review this?", desc: "Define the condition where the reading no longer makes sense." }
-        ].map((item, i) => (
-          <div key={i} className="flex items-start gap-5 p-5 rounded-2xl bg-slate-50 border border-slate-100">
-            <div className="w-8 h-8 rounded-full bg-[var(--ln-navy-900)] text-white flex items-center justify-center shrink-0 font-bold text-xs">
-              {i + 1}
+      {/* The Three Questions */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {questions.map((q, i) => (
+          <div key={i} className="group p-6 rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+            <div className={cn(
+              "w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black mb-4",
+              q.color === "blue" ? "bg-blue-50 text-blue-600" :
+              q.color === "amber" ? "bg-amber-50 text-amber-600" :
+              "bg-purple-50 text-purple-600"
+            )}>
+              {q.num}
             </div>
-            <div className="space-y-1">
-              <h4 className="text-sm font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">{item.q}</h4>
-              <p className="text-xs text-slate-500 font-medium leading-relaxed">{item.desc}</p>
-            </div>
+            <h4 className="text-sm font-black text-slate-900 uppercase tracking-tight mb-1">{q.title}</h4>
+            <p className="text-xs text-slate-800 font-bold mb-2">{q.desc}</p>
+            <p className="text-[10px] text-slate-400 font-medium leading-relaxed">{q.detail}</p>
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="p-6 rounded-[2rem] bg-rose-50/50 border border-rose-100 space-y-3">
-          <div className="flex items-center gap-2 text-[10px] font-extrabold text-rose-500 uppercase tracking-widest">
-            <XCircle size={14} /> Weak Logic (Reject)
+      {/* Outcomes */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+        {/* Reject Panel */}
+        <div className="p-8 rounded-[2.5rem] bg-rose-50/50 border border-rose-100 flex flex-col gap-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-500/20">
+                <XCircle size={20} />
+              </div>
+              <div>
+                <span className="text-[9px] font-extrabold text-rose-500 uppercase tracking-widest block">Outcome: Reject</span>
+                <h4 className="text-base font-black text-slate-900 uppercase">Weak Logic</h4>
+              </div>
+            </div>
           </div>
-          <p className="text-xs text-rose-700 font-mono italic leading-relaxed">
-            "It looks strong, price is moving fast, I think it's going to go."
-          </p>
+          
+          <div className="space-y-3">
+            <div className="p-4 rounded-2xl bg-white/60 border border-rose-100 text-xs font-bold text-slate-600 italic">
+              "It looks strong... I feel like it may go... The chart is moving fast."
+            </div>
+            <div className="flex items-center gap-2 text-[10px] font-bold text-rose-600">
+              <AlertCircle size={14} />
+              No observation. No evidence. No review condition.
+            </div>
+          </div>
         </div>
-        <div className="p-6 rounded-[2rem] bg-emerald-50/50 border border-emerald-100 space-y-3">
-          <div className="flex items-center gap-2 text-[10px] font-extrabold text-emerald-500 uppercase tracking-widest">
-            <CheckCircle2 size={14} /> Valid Reading (Pass)
+
+        {/* Pass Panel */}
+        <div className="p-8 rounded-[2.5rem] bg-emerald-50/50 border border-emerald-100 flex flex-col gap-6 shadow-sm">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                <CheckCircle2 size={20} />
+              </div>
+              <div>
+                <span className="text-[9px] font-extrabold text-emerald-500 uppercase tracking-widest block">Outcome: Pass</span>
+                <h4 className="text-base font-black text-slate-900 uppercase">Valid Reading</h4>
+              </div>
+            </div>
           </div>
-          <p className="text-xs text-emerald-700 font-mono italic leading-relaxed">
-            "Observed a range. Evidence: Highs not breaking. Review if price closes outside range."
-          </p>
+          
+          <div className="space-y-3">
+            <div className="p-4 rounded-2xl bg-white border border-emerald-100 text-xs font-bold text-slate-800 italic">
+              "I observed price moving in a range. Recent highs and lows are holding. I will review if price closes outside and holds."
+            </div>
+            <div className="flex items-center gap-2 text-[10px] font-bold text-emerald-600">
+              <CheckCircle2 size={14} />
+              Observation + Evidence + Review Condition.
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -608,53 +732,101 @@ export const NoteComparison = () => {
   );
 };
 /**
- * 0.1 - Learner Profiles
- * Comparison of different learner personas
+ * 0.1 - Behavior Flow
+ * Comparison of Random vs Trained learning behaviors
  */
-export const LearnerProfiles = () => {
+export const BehaviorFlow = () => {
+  const leftSteps = [
+    { label: "Consumes content", desc: "Scattered videos & tips" },
+    { label: "Gets excited", desc: "Emotional hype" },
+    { label: "Changes method", desc: "Searching for 'secrets'" },
+    { label: "Acts without evidence", desc: "Reactive guessing" },
+    { label: "Avoids review", desc: "No record of logic" },
+    { label: "Repeats confusion", desc: "The cycle restarts" }
+  ];
+
+  const rightSteps = [
+    { label: "Studies one concept", desc: "Focused manual study" },
+    { label: "Observes one condition", desc: "Finding structural facts" },
+    { label: "Practices deliberately", desc: "Controlled simulation" },
+    { label: "Records reasoning", desc: "Journal entry data" },
+    { label: "Reviews weak points", desc: "Logic audit" },
+    { label: "Improves next session", desc: "Repeatable skill" }
+  ];
+
   return (
-    <div className="my-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-      {[
-        { title: "The Gambler", trait: "High Emotion", focus: "Quick Wins", risk: "Account Ruin", color: "rose" },
-        { title: "The Student", trait: "High Effort", focus: "Information", risk: "Analysis Paralysis", color: "amber" },
-        { title: "The Reader", trait: "High Discipline", focus: "Evidence", risk: "Market Noise", color: "teal" }
-      ].map((p, i) => (
-        <div key={i} className={cn(
-          "p-8 rounded-[2.5rem] border flex flex-col items-center text-center space-y-4 shadow-sm",
-          p.color === 'rose' ? "bg-rose-50/20 border-rose-100" :
-          p.color === 'amber' ? "bg-amber-50/20 border-amber-100" :
-          "bg-teal-50/20 border-teal-100"
-        )}>
-          <div className={cn(
-            "w-12 h-12 rounded-2xl flex items-center justify-center mb-2",
-            p.color === 'rose' ? "bg-rose-100 text-rose-500" :
-            p.color === 'amber' ? "bg-amber-100 text-amber-500" :
-            "bg-teal-100 text-teal-500"
-          )}>
-            <Info size={24} />
+    <div className="my-2 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+      {/* Random Path */}
+      <div className="relative p-6 rounded-[2.5rem] bg-rose-50/30 border border-rose-100 flex flex-col space-y-4">
+        <div className="flex items-center gap-3 mb-2 px-2">
+          <div className="p-2 rounded-xl bg-rose-100 text-rose-500">
+            <XCircle size={18} />
           </div>
-          <h4 className={cn(
-            "text-sm font-extrabold uppercase tracking-widest",
-            p.color === 'rose' ? "text-rose-600" :
-            p.color === 'amber' ? "text-amber-600" :
-            "text-teal-600"
-          )}>{p.title}</h4>
-          <div className="space-y-1">
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Core Trait</p>
-            <p className="text-xs font-bold text-slate-700">{p.trait}</p>
-          </div>
-          <div className="pt-4 w-full border-t border-slate-100 space-y-2">
-            <div className="flex justify-between text-[9px] font-bold uppercase tracking-widest text-slate-400">
-              <span>Focus</span>
-              <span className="text-slate-600">{p.focus}</span>
-            </div>
-            <div className="flex justify-between text-[9px] font-bold uppercase tracking-widest text-slate-400">
-              <span>Primary Risk</span>
-              <span className="text-rose-500">{p.risk}</span>
-            </div>
+          <div className="space-y-0.5">
+            <h4 className="text-[11px] font-extrabold uppercase tracking-widest text-rose-600">Random Learner Loop</h4>
+            <p className="text-[9px] font-bold text-rose-400 uppercase tracking-tight">Reactive Behavior</p>
           </div>
         </div>
-      ))}
+
+        <div className="space-y-2 relative">
+          {leftSteps.map((step, i) => (
+            <div key={i} className="flex items-start gap-3 group">
+              <div className="flex flex-col items-center">
+                <div className="w-5 h-5 rounded-full bg-rose-100 border border-rose-200 flex items-center justify-center text-[9px] font-extrabold text-rose-500 z-10 group-hover:bg-rose-200 transition-colors">
+                  {i + 1}
+                </div>
+                {i < leftSteps.length - 1 && <div className="w-0.5 h-6 bg-rose-100 -mt-1 -mb-1" />}
+              </div>
+              <div className="space-y-0.5 pt-0.5">
+                <p className="text-[11px] font-bold text-slate-700 leading-none">{step.label}</p>
+                <p className="text-[9px] font-medium text-slate-400">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-auto pt-4 border-t border-rose-100/50">
+          <div className="p-3 rounded-2xl bg-rose-50/50 border border-rose-100 text-center">
+            <p className="text-[10px] font-extrabold text-rose-600 uppercase tracking-tight">Outcome: Feels active, but cannot measure improvement.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Trained Path */}
+      <div className="relative p-6 rounded-[2.5rem] bg-emerald-50/30 border border-emerald-100 flex flex-col space-y-4 shadow-sm ring-1 ring-emerald-500/5">
+        <div className="flex items-center gap-3 mb-2 px-2">
+          <div className="p-2 rounded-xl bg-emerald-100 text-emerald-500">
+            <CheckCircle2 size={18} />
+          </div>
+          <div className="space-y-0.5">
+            <h4 className="text-[11px] font-extrabold uppercase tracking-widest text-emerald-600">Lurnava Learner Loop</h4>
+            <p className="text-[9px] font-bold text-emerald-400 uppercase tracking-tight">Trained Behavior</p>
+          </div>
+        </div>
+
+        <div className="space-y-2 relative">
+          {rightSteps.map((step, i) => (
+            <div key={i} className="flex items-start gap-3 group">
+              <div className="flex flex-col items-center">
+                <div className="w-5 h-5 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center text-[9px] font-extrabold text-emerald-500 z-10 group-hover:bg-emerald-200 transition-colors">
+                  {i + 1}
+                </div>
+                {i < rightSteps.length - 1 && <div className="w-0.5 h-6 bg-emerald-100 -mt-1 -mb-1" />}
+              </div>
+              <div className="space-y-0.5 pt-0.5">
+                <p className="text-[11px] font-bold text-[var(--ln-navy-900)] leading-none">{step.label}</p>
+                <p className="text-[9px] font-medium text-slate-500">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-auto pt-4 border-t border-emerald-100/50">
+          <div className="p-3 rounded-2xl bg-emerald-100/50 border border-emerald-200 text-center">
+            <p className="text-[10px] font-extrabold text-emerald-700 uppercase tracking-tight">Outcome: Builds repeatable judgment.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -663,50 +835,51 @@ export const LearnerProfiles = () => {
  * 0.1 - Hype Trap Path
  * Decision flow for avoiding hype
  */
+/**
+ * 0.1 - Hype Trap Path
+ * Decision flow for avoiding hype
+ */
 export const HypeTrapPath = () => {
-  return (
-    <div className="my-6 p-10 rounded-[3rem] bg-slate-900 text-white relative overflow-hidden shadow-2xl">
-      <div className="absolute top-0 right-0 p-10 opacity-10">
-        <Zap size={120} />
-      </div>
-      <div className="relative z-10 space-y-8">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-rose-500 flex items-center justify-center shadow-lg shadow-rose-500/20">
-            <AlertCircle size={24} />
-          </div>
-          <div>
-            <h4 className="text-lg font-extrabold uppercase tracking-tight">The Hype Trap Warning</h4>
-            <p className="text-xs text-slate-400 font-medium">Emotional Impulse vs. Academy Logic</p>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 rounded-[2rem] bg-white/5 border border-white/10 space-y-4">
-            <div className="flex items-center gap-2 text-[10px] font-extrabold text-rose-400 uppercase tracking-widest">
-              <XCircle size={14} /> The Hype Trigger
-            </div>
-            <p className="text-sm text-slate-300 font-medium leading-relaxed">
-              You see a fast move or a viral tip. Your brain screams "Don't miss out!"
-            </p>
-          </div>
-          <div className="p-6 rounded-[2rem] bg-emerald-500/10 border border-emerald-500/20 space-y-4">
-            <div className="flex items-center gap-2 text-[10px] font-extrabold text-emerald-400 uppercase tracking-widest">
-              <CheckCircle2 size={14} /> The Academy Filter
-            </div>
-            <p className="text-sm text-slate-100 font-bold leading-relaxed">
-              Stop. Filter the noise. Is there objective structural evidence?
-            </p>
-          </div>
-        </div>
+  const steps = [
+    { title: "Trigger", desc: "Watched online video / tip", color: "blue" },
+    { title: "Observation", desc: "Similar-looking chart appears", color: "amber" },
+    { title: "Risk", desc: "Emotional urgency / confidence", color: "rose" },
+    { title: "Decision", desc: "Lurnava Verification Gate", color: "teal" }
+  ];
 
-        <div className="flex justify-center">
-          <div className="flex flex-col items-center space-y-2">
-            <div className="w-px h-8 bg-gradient-to-b from-white/0 to-white/20" />
-            <div className="px-6 py-2 rounded-full bg-white text-slate-900 text-[10px] font-extrabold uppercase tracking-widest">
-              Result: Skill Preservation
-            </div>
-          </div>
+  return (
+    <div className="my-2 space-y-6 max-w-4xl mx-auto w-full">
+      {/* Central Illustration Area */}
+      <div className="relative group p-1 bg-slate-100 rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-inner">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-rose-500/5 pointer-events-none" />
+        <img 
+          src="/hype_trap_scenario_visual.png" 
+          alt="Hype Trap Scenario" 
+          className="w-full h-auto rounded-[2.4rem] object-cover mix-blend-multiply opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+        />
+        
+        {/* Overlay Badges */}
+        <div className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/90 border border-white shadow-sm backdrop-blur-md">
+          <AlertCircle size={14} className="text-rose-500" />
+          <span className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Urgency Trap</span>
         </div>
+      </div>
+
+      {/* 4-Step Flow */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {steps.map((step, i) => (
+          <div key={i} className="relative group p-4 rounded-2xl bg-white border border-slate-100 shadow-sm transition-all hover:shadow-md">
+            <div className={`w-8 h-8 rounded-lg mb-3 flex items-center justify-center text-xs font-black
+              ${step.color === 'blue' ? 'bg-blue-50 text-blue-600' : 
+                step.color === 'amber' ? 'bg-amber-50 text-amber-600' : 
+                step.color === 'rose' ? 'bg-rose-50 text-rose-600' : 
+                'bg-teal-50 text-teal-600'}`}>
+              0{i + 1}
+            </div>
+            <h5 className="text-[10px] font-black text-slate-900 uppercase tracking-tight mb-1">{step.title}</h5>
+            <p className="text-[10px] text-slate-500 font-bold leading-tight">{step.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -753,3 +926,410 @@ export const OrientationDebrief = () => {
     </div>
   );
 };
+
+/**
+ * 0.1 - Forex Relationship
+ * Visualizing Base vs Quote interaction
+ */
+export const ForexRelationship = () => {
+  return (
+    <div className="my-2 space-y-10 max-w-4xl mx-auto w-full text-left">
+      {/* The Core Relationship */}
+      <div className="relative p-10 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden text-center">
+        <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none rotate-12">
+          <Globe size={160} />
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 relative z-10">
+          {/* Base */}
+          <div className="space-y-4">
+            <div className="w-32 h-32 rounded-[2.5rem] bg-slate-900 text-white flex flex-col items-center justify-center shadow-2xl border-4 border-slate-800">
+              <span className="text-3xl font-black tracking-tighter">EUR</span>
+              <span className="text-[10px] font-bold opacity-50 uppercase tracking-widest mt-1 italic">Base</span>
+            </div>
+            <div className="text-center">
+              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">The Item</div>
+              <p className="text-[11px] text-slate-800 font-bold leading-tight">Euro being priced</p>
+            </div>
+          </div>
+
+          {/* Separator / Divider */}
+          <div className="hidden md:flex flex-col items-center gap-2">
+            <div className="h-10 w-px bg-slate-200" />
+            <div className="text-xl font-black text-slate-300">/</div>
+            <div className="h-10 w-px bg-slate-200" />
+          </div>
+          <div className="md:hidden text-2xl font-black text-slate-200 my-2">/</div>
+
+          {/* Quote */}
+          <div className="space-y-4">
+            <div className="w-32 h-32 rounded-[2.5rem] bg-white text-slate-900 flex flex-col items-center justify-center shadow-xl border-4 border-slate-100">
+              <span className="text-3xl font-black tracking-tighter">USD</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 italic">Quote</span>
+            </div>
+            <div className="text-center">
+              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">The Measuring Stick</div>
+              <p className="text-[11px] text-slate-800 font-bold leading-tight">Dollar measuring it</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* The 3 Drivers for a Rise */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-3 px-4">
+          <div className="h-px flex-1 bg-slate-100" />
+          <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Why EUR/USD Rises</h4>
+          <div className="h-px flex-1 bg-slate-100" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            { title: "EUR Strengthens", desc: "Base gets stronger", icon: <TrendingUp className="text-emerald-500" size={16} /> },
+            { title: "USD Weakens", desc: "Quote gets weaker", icon: <TrendingDown className="text-rose-500" size={16} /> },
+            { title: "Dual Force", desc: "Both happen together", icon: <Zap className="text-amber-500" size={16} /> }
+          ].map((item, i) => (
+            <div key={i} className="p-5 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center gap-4">
+              <div className="w-8 h-8 rounded-xl bg-slate-50 flex items-center justify-center shrink-0">
+                {item.icon}
+              </div>
+              <div className="space-y-0.5 text-left">
+                <h5 className="text-xs font-black text-slate-900 uppercase tracking-tight">{item.title}</h5>
+                <p className="text-[10px] text-slate-500 font-bold">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Warning Box */}
+      <div className="p-6 rounded-[2rem] bg-amber-50/50 border border-amber-100 flex items-start gap-4 shadow-sm">
+        <div className="w-10 h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/20">
+          <AlertCircle size={20} />
+        </div>
+        <div className="space-y-1 text-left">
+          <h4 className="text-[10px] font-black text-amber-600 uppercase tracking-widest">Crucial Warning</h4>
+          <p className="text-xs text-slate-800 font-bold leading-relaxed">
+            A rising chart does not automatically prove the Base Currency (EUR) is strong. It may simply be the result of a collapsing Quote Currency (USD).
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+/**
+ * 0.1 - Forex Training Instruments
+ * Visualizing the pre-reading checklist
+ */
+export const ForexInstrumentPanel = () => {
+  const instruments = [
+    {
+      id: "pair",
+      title: "Pair Identity",
+      desc: "Base vs. Quote",
+      details: "Identifying which is the item and which is the stick.",
+      icon: <Globe size={18} className="text-slate-600" />,
+      color: "border-slate-200",
+      accent: "bg-slate-50"
+    },
+    {
+      id: "usd",
+      title: "USD Context",
+      desc: "The Global Weather",
+      details: "Is the Dollar strong, weak, or mixed across the market?",
+      icon: <Zap size={18} className="text-amber-500" />,
+      color: "border-amber-200",
+      accent: "bg-amber-50/30"
+    },
+    {
+      id: "session",
+      title: "Session Context",
+      desc: "Active Window",
+      details: "Major markets (LDN, NY, TYO) currently active.",
+      icon: <Clock size={18} className="text-emerald-500" />,
+      color: "border-emerald-200",
+      accent: "bg-emerald-50/30"
+    },
+    {
+      id: "spread",
+      title: "Spread / Activity",
+      desc: "Reading Quality",
+      details: "Is there enough participation for a clean reading?",
+      icon: <Activity size={18} className="text-blue-500" />,
+      color: "border-blue-200",
+      accent: "bg-blue-50/30"
+    }
+  ];
+
+  return (
+    <div className="my-2 space-y-8 max-w-5xl mx-auto w-full text-left pb-10">
+      <div className="relative p-8 bg-slate-50/30 rounded-[3rem] border border-slate-100/50">
+        
+        {/* Connection Lines Layout */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none">
+          <svg className="w-full h-full opacity-20" viewBox="0 0 800 600" fill="none">
+            <path d="M200 150 L400 300 M600 150 L400 300 M200 450 L400 300 M600 450 L400 300" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" className="text-slate-400" />
+          </svg>
+        </div>
+
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+          
+          {/* Left Column Tools */}
+          <div className="space-y-8 order-2 lg:order-1">
+            {[instruments[0], instruments[2]].map((item, i) => (
+              <div key={item.id} className={cn("p-6 rounded-[2.5rem] bg-white border-2 shadow-xl transition-all hover:-translate-y-1", item.color)}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={cn("w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 border border-slate-100", item.accent)}>
+                    {item.icon}
+                  </div>
+                  <div className="space-y-0.5">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Tool {item.id === "pair" ? "1" : "3"}</h4>
+                    <h3 className="text-xs font-black text-slate-900 uppercase">{item.title}</h3>
+                  </div>
+                </div>
+                <div className="space-y-1.5">
+                  <div className="text-[11px] font-bold text-slate-800">{item.desc}</div>
+                  <p className="text-[10px] text-slate-500 font-bold leading-relaxed">{item.details}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Center Column: The Pair */}
+          <div className="flex flex-col items-center justify-center order-1 lg:order-2">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-slate-900 to-slate-800 rounded-[3.5rem] blur-2xl opacity-10 group-hover:opacity-20 transition duration-1000" />
+              <div className="relative w-52 h-52 rounded-[3.5rem] bg-slate-900 text-white flex flex-col items-center justify-center shadow-2xl border-4 border-slate-800 scale-105">
+                <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-1 italic">Active Pair</div>
+                <span className="text-5xl font-black tracking-tighter">EUR/USD</span>
+                <div className="mt-4 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest">Live Feed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column Tools */}
+          <div className="space-y-8 order-3">
+            {[instruments[1], instruments[3]].map((item, i) => (
+              <div key={item.id} className={cn("p-6 rounded-[2.5rem] bg-white border-2 shadow-xl transition-all hover:-translate-y-1", item.color)}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={cn("w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 border border-slate-100", item.accent)}>
+                    {item.icon}
+                  </div>
+                  <div className="space-y-0.5">
+                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Tool {item.id === "usd" ? "2" : "4"}</h4>
+                    <h3 className="text-xs font-black text-slate-900 uppercase">{item.title}</h3>
+                  </div>
+                </div>
+                <div className="space-y-1.5">
+                  <div className="text-[11px] font-bold text-slate-800">{item.desc}</div>
+                  <p className="text-[10px] text-slate-500 font-bold leading-relaxed">{item.details}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Protocol Footer */}
+      <div className="flex items-center gap-5 px-6 py-6 bg-slate-900 rounded-[2.5rem] shadow-xl text-white">
+        <div className="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20">
+          <ShieldCheck size={24} />
+        </div>
+        <div className="flex-1 space-y-0.5">
+          <h4 className="text-[10px] font-black text-emerald-400 uppercase tracking-[0.2em]">Verification Protocol</h4>
+          <h3 className="text-sm font-black text-white uppercase tracking-tight">The Forex Pre-Reading Checklist</h3>
+        </div>
+        <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/10 rounded-xl border border-white/10">
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+          <span className="text-[10px] font-bold uppercase tracking-widest">V2 Standard</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/**
+ * 0.1 - The One-Sided Mistake
+ * Visualizing isolated vs contextual reading
+ */
+export const ForexContextComparison = () => {
+  return (
+    <div className="my-2 space-y-10 max-w-5xl mx-auto w-full text-left pb-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        
+        {/* Left: Isolated Reading */}
+        <div className="flex flex-col h-full bg-rose-50/30 rounded-[3rem] border border-rose-100/50 p-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-2xl bg-rose-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-rose-500/20">
+              <XCircle size={24} />
+            </div>
+            <div>
+              <h4 className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Mistake Pattern</h4>
+              <h3 className="text-sm font-black text-slate-900 uppercase">Isolated Reading</h3>
+            </div>
+          </div>
+
+          <div className="flex-1 flex flex-col justify-center items-center py-10 space-y-8">
+            {/* The Single Pair */}
+            <div className="w-full max-w-[240px] p-6 rounded-[2.5rem] bg-white border-2 border-slate-200 shadow-xl flex flex-col items-center">
+              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Single Data Point</div>
+              <div className="text-3xl font-black text-slate-900 tracking-tighter mb-2">GBP/USD</div>
+              <div className="flex items-center gap-2 text-emerald-500">
+                <TrendingUp size={24} />
+                <span className="text-sm font-black uppercase">Rising Fast</span>
+              </div>
+            </div>
+
+            <div className="space-y-4 text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-rose-500/10 text-rose-600 border border-rose-200">
+                <span className="text-[11px] font-black uppercase italic">"GBP is strong!"</span>
+              </div>
+              <p className="text-[11px] text-slate-500 font-bold max-w-[200px]">
+                Problem: No other pairs checked. Assumption made on 50% of the data.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Contextual Reading */}
+        <div className="flex flex-col h-full bg-emerald-50/30 rounded-[3rem] border border-emerald-100/50 p-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20">
+              <CheckCircle2 size={24} />
+            </div>
+            <div>
+              <h4 className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Professional Logic</h4>
+              <h3 className="text-sm font-black text-slate-900 uppercase">Contextual Reading</h3>
+            </div>
+          </div>
+
+          <div className="flex-1 space-y-6">
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { pair: "GBP/USD", dir: "up", color: "text-emerald-500" },
+                { pair: "EUR/USD", dir: "up", color: "text-emerald-500" },
+                { pair: "AUD/USD", dir: "up", color: "text-emerald-500" },
+                { pair: "USD/JPY", dir: "down", color: "text-rose-500" }
+              ].map((item, i) => (
+                <div key={i} className="p-4 rounded-2xl bg-white border border-slate-100 shadow-sm flex flex-col items-center gap-1">
+                  <span className="text-xs font-black text-slate-900">{item.pair}</span>
+                  {item.dir === "up" ? <TrendingUp size={16} className={item.color} /> : <TrendingDown size={16} className={item.color} />}
+                </div>
+              ))}
+            </div>
+
+            <div className="p-6 rounded-[2rem] bg-white border-2 border-emerald-100 shadow-xl space-y-3">
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Environment Conclusion</h4>
+              </div>
+              <div className="text-xs font-black text-slate-900 uppercase leading-tight tracking-tight">
+                USD may be broadly weakening across several pairs.
+              </div>
+              <div className="h-px bg-slate-50 w-full" />
+              <div className="text-[11px] text-emerald-600 font-extrabold italic leading-relaxed">
+                Better Reading: "Check both sides before concluding GBP strength."
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="p-6 rounded-[2rem] bg-slate-900 text-white flex items-start gap-5 shadow-xl">
+        <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/20">
+          <Info size={24} />
+        </div>
+        <div className="space-y-1">
+          <h4 className="text-[10px] font-black text-amber-400 uppercase tracking-widest">The Core Lesson</h4>
+          <p className="text-xs text-slate-300 font-bold leading-relaxed">
+            A fast move in one Forex pair is only the first clue. Before blaming the base currency, check whether the quote currency is moving broadly across related pairs.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/**
+ * 0.1 - Forex Mini Drill: The Quote Factor
+ * Compact scenario board for the drill
+ */
+export const ForexMiniDrillBoard = () => {
+  return (
+    <div className="my-2 space-y-6 max-w-4xl mx-auto w-full text-left pb-4">
+      <div className="p-8 bg-slate-50/50 rounded-[3rem] border border-slate-100 flex flex-col gap-8">
+        
+        {/* Header Strip */}
+        <div className="flex items-center justify-between px-2">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 shadow-sm">
+              <Layout size={20} />
+            </div>
+            <div className="space-y-0.5">
+              <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Training Lab</h4>
+              <h3 className="text-xs font-black text-slate-900 uppercase">Market Context Board</h3>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[9px] font-black uppercase tracking-widest">Active Feed</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+          
+          {/* Primary Pair (Focus) */}
+          <div className="md:col-span-5 flex flex-col justify-center p-8 rounded-[2.5rem] bg-slate-900 text-white shadow-xl border-4 border-slate-800">
+            <div className="space-y-1 mb-4">
+              <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest italic">Primary Pair</div>
+              <div className="text-4xl font-black tracking-tighter">EUR/USD</div>
+            </div>
+            <div className="flex items-center gap-2 text-emerald-400">
+              <TrendingUp size={28} />
+              <span className="text-sm font-black uppercase tracking-tight">Rising Sharply</span>
+            </div>
+          </div>
+
+          {/* Related Pairs Grid */}
+          <div className="md:col-span-7 grid grid-cols-2 gap-4">
+            {[
+              { pair: "GBP/USD", dir: "up", label: "Rising" },
+              { pair: "AUD/USD", dir: "up", label: "Rising" },
+              { pair: "USD/JPY", dir: "down", label: "Falling" },
+              { pair: "USD/CHF", dir: "down", label: "Falling" }
+            ].map((item, i) => (
+              <div key={i} className="p-5 rounded-2xl bg-white border border-slate-100 flex items-center justify-between shadow-sm">
+                <div className="space-y-0.5">
+                  <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Related</div>
+                  <span className="text-xs font-black text-slate-900">{item.pair}</span>
+                </div>
+                <div className={cn("p-2 rounded-xl bg-slate-50 border border-slate-100", item.dir === "up" ? "text-emerald-500" : "text-rose-500")}>
+                  {item.dir === "up" ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Conclusion Strip */}
+        <div className="p-5 rounded-[2rem] bg-white border-2 border-emerald-100 flex items-center gap-5 shadow-sm">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20">
+            <Search size={24} />
+          </div>
+          <div className="space-y-0.5">
+            <h4 className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">System Conclusion</h4>
+            <p className="text-xs text-slate-900 font-extrabold leading-tight tracking-tight uppercase">
+              USD appears weak across several related pairs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+

@@ -28,11 +28,15 @@ import {
   CandleDiagram,
   NoteComparison,
   AcademyPath,
-  TrainingCockpit,
+  SystemMap,
   PracticeTimeline,
   DecisionGate,
-  LearnerProfiles,
+  BehaviorFlow,
   HypeTrapPath,
+  ForexRelationship,
+  ForexInstrumentPanel,
+  ForexContextComparison,
+  ForexMiniDrillBoard,
   OrientationDebrief,
 } from "../AcademyVisuals";
 import { ChoiceBlockPractice } from "../interactive/choice-block-practice";
@@ -169,15 +173,23 @@ export function LessonStage({
       case "academy-path":
         return <AcademyPath />;
       case "training-cockpit":
-        return <TrainingCockpit />;
+        return <SystemMap />;
       case "practice-timeline":
         return <PracticeTimeline />;
       case "decision-gate":
         return <DecisionGate />;
       case "learner-profiles":
-        return <LearnerProfiles />;
+        return <BehaviorFlow />;
       case "hype-trap-path":
         return <HypeTrapPath />;
+      case "forex-relationship":
+        return <ForexRelationship />;
+      case "forex-instruments":
+        return <ForexInstrumentPanel />;
+      case "forex-context-comparison":
+        return <ForexContextComparison />;
+      case "forex-mini-drill":
+        return <ForexMiniDrillBoard />;
       case "orientation-debrief":
         return <OrientationDebrief />;
       default:
@@ -224,10 +236,50 @@ export function LessonStage({
   const renderPractice = () => {
     const activeTaskType = card.taskData?.type || interactiveTaskType;
     const activeTaskData = card.taskData || interactiveTaskData;
+    const hasVisual = card.visualKey || card.visual;
+    const hasBody = !!card.body;
 
     if (activeTaskType === "choice_block" && activeTaskData?.question) {
       return (
-        <div className="space-y-8">
+        <div className="space-y-10">
+          {/* Top Section: Visual + Body */}
+          {(hasVisual || hasBody) && (
+            <div className="space-y-6">
+              {hasVisual && (
+                <div className={cn(
+                  "w-full bg-slate-50/50 rounded-[2.5rem] p-4 border border-slate-100 flex items-center justify-center overflow-hidden",
+                  (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill") ? "" : "max-h-[40vh]"
+                )}>
+                  <div className={cn(
+                    "w-full flex justify-center",
+                    (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill") ? "" : "max-h-full"
+                  )}>
+                    {renderVisual(card.visualKey || card.visual)}
+                  </div>
+                </div>
+              )}
+              {hasBody && (
+                <div className="max-w-4xl mx-auto pt-2">
+                  <div className="prose prose-slate max-w-none">
+                    <ReactMarkdown
+                      components={{
+                        strong: ({ node, ...props }) => (
+                          <span className="font-black text-slate-900" {...props} />
+                        ),
+                        p: ({ node, ...props }) => (
+                          <p className="text-sm font-bold text-slate-600 leading-relaxed" {...props} />
+                        ),
+                      }}
+                    >
+                      {card.body}
+                    </ReactMarkdown>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Interaction Section */}
           <ChoiceBlockPractice
             question={activeTaskData.question}
             options={activeTaskData.options || []}
@@ -323,7 +375,21 @@ export function LessonStage({
   const renderContent = () => {
     const hasVisual = card.visualKey || card.visual;
     const hasBody = !!card.body;
-    const isSpecialLayout = card.type === "comparison" || card.type === "scenario" || !!card.items || card.visualKey === "academy-path" || card.visualKey === "learning-loop";
+    const isSpecialLayout = 
+      card.type === "comparison" || 
+      card.type === "scenario" || 
+      !!card.items || 
+      card.visualKey === "academy-path" || 
+      card.visualKey === "learning-loop" || 
+      card.visualKey === "learner-profiles" || 
+      card.visualKey === "training-cockpit" ||
+      card.visualKey === "practice-timeline" ||
+      card.visualKey === "decision-gate" ||
+      card.visualKey === "hype-trap-path" ||
+      card.visualKey === "forex-relationship" ||
+      card.visualKey === "forex-instruments" ||
+      card.visualKey === "forex-context-comparison" ||
+      card.visualKey === "forex-mini-drill";
 
     return (
       <div className="space-y-5">
@@ -352,19 +418,19 @@ export function LessonStage({
             {hasVisual && (
               <div className={cn(
                 "w-full bg-slate-50/50 rounded-[2rem] p-2 md:p-4 border border-slate-100 flex items-center justify-center overflow-hidden",
-                (card.visualKey === "academy-path" || card.visualKey === "learning-loop") ? "" : "max-h-[40vh]"
+                (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "learner-profiles" || card.visualKey === "training-cockpit" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill") ? "" : "max-h-[40vh]"
               )}>
                 <div className={cn(
                   "w-full flex justify-center",
-                  (card.visualKey === "academy-path" || card.visualKey === "learning-loop") ? "" : "max-h-full"
+                  (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill") ? "" : "max-h-full"
                 )}>
                   {renderVisual(card.visualKey || card.visual)}
                 </div>
               </div>
             )}
 
-            {/* Special bypass for visuals that need body below them (like academy-path, learning-loop) */}
-            {(card.visualKey === "academy-path" || card.visualKey === "learning-loop") && hasBody && (
+            {/* Special bypass for visuals that need body below them */}
+            {(card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "learner-profiles" || card.visualKey === "training-cockpit" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill") && hasBody && (
               <div className="max-w-4xl mx-auto pt-2">
                 <div className="prose prose-slate max-w-none">
                   <ReactMarkdown
@@ -524,7 +590,7 @@ export function LessonStage({
         <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
           <div
             className="h-full bg-[var(--ln-teal-500)] transition-all duration-700 ease-out shadow-[0_0_12px_rgba(20,184,166,0.3)]"
-            style={{ width: `${((cardIndex + 1) / totalCards) * 100}%` }}
+            style={{ width: `${((cardIndex + 1) / totalCards) * 100}%` } as any}
           />
         </div>
 
