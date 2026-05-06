@@ -169,7 +169,6 @@ export function LessonContextRail({
           color="text-blue-600"
           bgColor="bg-blue-50/50"
           borderColor="border-blue-200"
-          defaultOpen={true}
         >
           <p className="text-sm font-medium text-slate-600 leading-relaxed">
             {context.realLifeExample}

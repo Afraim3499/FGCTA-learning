@@ -56,7 +56,14 @@ async function main() {
     "title": "The Lurnava Training Loop",
     "visualKey": "learning-loop",
     "label": "Visual First",
-    "body": "To build judgment, you must follow a deliberate cycle. Theory alone is useless without application, and application is dangerous without review. Think of this as **Flight School**: You read the flight manual (Learn), you spend hours in the simulator (Practice), you pass your check-ride (Mission), and you debrief every single flight (Journal Review) to find your mistakes. If a pilot only read books but never used a simulator, they would be a danger to themselves and others. Market reading is no different.\\n\\n1. **Learn**: Study one objective structural concept at a time. Do not move on until the mechanism is clear.\\n2. **Practice**: Apply that concept in the Lab using historical data. This is your controlled environment where mistakes cost nothing but teach everything.\\n3. **Test / Mission**: Prove you can identify the concept under pressure. This is your 'check-ride'—a practical exam to ensure the theory has become a skill.\\n4. **Journal Review**: Audit your logic. This is where the real learning happens. If you skip the review, you are just clicking buttons and hoping for a result. Reviewing your reasoning creates the data needed to improve your future readings."
+    "body": "The loop matters because understanding alone is not training. Lurnava uses practice, missions, and review notes to turn a lesson into a repeatable learning process.",
+    "context": {
+      "keyTerms": ["Training loop", "Practice action", "Mission", "Review note", "Feedback loop"],
+      "whyThisMatters": "Reading can give a learner vocabulary, but practice and review turn that vocabulary into usable judgment. The loop exists so the learner does not stop at “I understood the lesson” and mistake that feeling for skill.",
+      "realLifeExample": "A learner studies one concept, then opens a controlled practice screen to identify it. After the mission, they write what they saw, what evidence supported it, and what confused them. The review note becomes the record that helps them improve next time.",
+      "commonMistake": "Finishing a lesson and immediately jumping to the next topic. That creates the feeling of progress, but it skips the practice and review needed to expose weak understanding.",
+      "quickNote": "If there is no practice action and no review note, the loop is incomplete."
+    }
   },
   {
     "type": "visual_intro",
@@ -349,49 +356,102 @@ async function main() {
       cryptoAdaptation: `:::lesson-cards
 [
   {
-    "type": "mission_brief",
+    "type": "visual_intro",
     "title": "Crypto Brief: Mechanics Over Hype",
+    "visualKey": "crypto-mechanics",
     "label": "Roadway Context",
-    "body": "Crypto (**BTC**) trades 24/7, but not every hour is useful for training. You must distinguish between broad moves and exchange noise.\\n\\n**Spot**: Buying the actual asset. Like 'Buying a Car,' you own the title and the keys.\\n**Perpetual**: A contract following the price. Like 'Renting a Car,' you drive it but don't own it.\\n\\n**The Sun Analogy**: BTC is the Sun of the crypto market. When it moves, the other planets (altcoins) usually follow its pull."
+    "body": "Crypto trades all day, but not every move is clean. Before trusting a crypto chart, check whether the move is supported by spot activity, perpetual mechanics, BTC context, and exchange conditions.",
+    "context": {
+      "keyTerms": [
+        { "term": "Spot", "definition": "Buying or holding the actual crypto asset. If you buy BTC on spot, you hold BTC." },
+        { "term": "Perpetual", "definition": "A derivative contract that follows the asset price without owning the asset. Affected by leverage and funding." },
+        { "term": "Funding", "definition": "A periodic payment mechanism showing pressure between long and short positions." },
+        { "term": "Liquidation pressure", "definition": "Forced closing of leveraged positions when traders cannot maintain margin." },
+        { "term": "BTC context", "definition": "The influence Bitcoin often has on the broader crypto market as a reference asset." },
+        { "term": "Exchange noise", "definition": "Movement that may appear strong in one place or thin condition but is not broadly supported." }
+      ],
+      "whyThisMatters": "Crypto can move because of real buying, leveraged contract pressure, BTC-wide movement, or thin exchange conditions. If a learner only looks at the candle, they may confuse hype or mechanical pressure with clean market evidence.",
+      "realLifeExample": "BTC moves sharply during a low-liquidity period, and several altcoins follow. A rushed learner assumes every coin is independently strong. A trained learner first checks BTC context, market breadth, and whether the move is supported beyond one noisy chart.",
+      "commonMistake": "Treating every fast crypto move as meaningful without checking whether it is broad, supported, and mechanically clean.",
+      "quickNote": "In crypto, speed is not proof. Check the mechanics behind the move."
+    }
   },
   {
     "type": "concept",
     "title": "Crypto Market Mechanics",
-    "label": "Terminology",
+    "label": "Market Mechanics",
+    "body": "Crypto moves can come from actual buying, contract pressure, forced exits, BTC-wide movement, or thin exchange conditions. Before trusting a fast move, check what may be driving it.",
     "items": [
-      { "title": "Funding", "body": "A balancing payment between traders. High funding shows pressure in the rental (perpetual) market.", "icon": "scale" },
-      { "title": "Exchange Noise", "body": "A 'Local Rumor.' A move that happens on only one exchange but isn't confirmed by the rest of the market.", "icon": "alert" }
-    ]
+      { "title": "Spot", "body": "Actual asset buying/selling. The foundational driver of price.", "icon": "check" },
+      { "title": "Perpetuals", "body": "Derivative contracts that track price without owning the asset.", "icon": "layers" },
+      { "title": "Funding", "body": "Periodic payment pressure between long and short positions.", "icon": "scale" },
+      { "title": "Liquidation Pressure", "body": "Forced exits from leveraged positions due to margin failure.", "icon": "zap" },
+      { "title": "BTC Context", "body": "Bitcoin's broad influence on the flow of the wider market.", "icon": "target" },
+      { "title": "Exchange Noise", "body": "Movements that appear strong but lack broad market support.", "icon": "alert" }
+    ],
+    "context": {
+      "keyTerms": [
+        { "term": "Spot", "definition": "Buying or holding the actual crypto asset." },
+        { "term": "Perpetual", "definition": "A derivative contract that tracks the asset price without owning the asset." },
+        { "term": "Funding", "definition": "A periodic payment between long and short positions in perpetual markets." },
+        { "term": "Leverage", "definition": "Using borrowed exposure to control a larger position than the account balance alone." },
+        { "term": "Liquidation pressure", "definition": "Forced closing of leveraged positions when traders cannot maintain margin." },
+        { "term": "Exchange noise", "definition": "Movement that may appear strong in one place or thin condition but is not broadly supported." }
+      ],
+      "whyThisMatters": "Crypto can move because of spot demand, leveraged contract pressure, forced liquidations, BTC-wide movement, or thin liquidity. If a learner only looks at the candle, they may confuse mechanical pressure with clean market evidence.",
+      "realLifeExample": "BTC moves sharply and altcoins follow. At the same time, perpetual funding is stretched and leveraged traders are crowded on one side. A trained learner does not call the move clean immediately; they first check whether the movement is broad, supported, or driven by pressure.",
+      "commonMistake": "Treating every fast crypto move as meaningful without checking whether it is supported by spot activity, BTC context, and market mechanics.",
+      "quickNote": "In crypto, speed is not proof. Check the mechanics behind the move."
+    }
   },
   {
-    "type": "scenario",
-    "title": "The 'Social' Fallacy",
+    "type": "visual_intro",
+    "title": "The Social Hype Fallacy",
+    "visualKey": "hype-trap-path",
     "label": "Mistake Pattern",
-    "scenario": {
-      "left": {
-        "title": "Social Hype Reading",
-        "content": "A learner sees excitement online, opens a chart, and mistakes public emotion for structural evidence."
-      },
-      "right": {
-        "title": "Mechanic-First Reading",
-        "content": "A learner checks if the chart structure and funding mechanics support the move before forming a reading."
-      }
+    "body": "Crypto hype can make a weak idea feel urgent. A Lurnava learner checks whether the move is structurally supported before trusting it.",
+    "context": {
+      "keyTerms": [
+        { "term": "Social hype", "definition": "Public excitement around a coin, setup, or move." },
+        { "term": "Public emotion", "definition": "The visible reaction of traders online, often driven by fear, greed, or attention." },
+        { "term": "Mechanic-first reading", "definition": "Checking structure, funding, BTC context, and liquidity before trusting the move." },
+        { "term": "Market evidence", "definition": "Observable facts that support a reading, not opinions or excitement." },
+        { "term": "Hype fallacy", "definition": "Mistaking attention or emotion for actual market confirmation." }
+      ],
+      "whyThisMatters": "Crypto moves can attract attention very quickly. When public excitement rises, learners may feel late, pressured, or overly confident. That emotional pressure can make weak evidence feel stronger than it is.",
+      "realLifeExample": "A coin starts trending online. Posts, comments, and videos all say the move is strong. A rushed learner opens the chart and wants to believe it immediately. A trained learner first checks whether structure, BTC context, and funding conditions support the move.",
+      "commonMistake": "Thinking that a move is valid because many people are talking about it.",
+      "quickNote": "Attention is not evidence. Hype must be tested against structure and mechanics."
     }
   },
   {
     "type": "practice",
     "title": "Crypto Mini Drill: Hype Filtering",
+    "visualKey": "crypto-hype-filtering-drill",
     "label": "Practical Drill",
+    "body": "Scenario: BTC moves sharply while funding is very high and public hype is rising. The chart looks active, but the environment may be crowded and emotionally charged.",
     "taskData": {
       "type": "choice_block",
-      "question": "Scenario: BTC moves sharply while funding is very high and social media hype is peaking. What is the better beginner response?",
+      "question": "What is the disciplined crypto reading?",
       "options": [
-        "Everyone is excited, so the move is guaranteed to continue for days.",
-        "Funding alone gives a direct instruction to buy immediately.",
-        "Treat the funding and public reaction as supporting context to review carefully, not as a direct instruction.",
-        "Ignore the market mechanics and follow the public reaction to stay with the crowd."
+        { "id": "a", "text": "Public excitement means the move is guaranteed to continue.", "isCorrect": false, "feedback": "Not correct. Public excitement does not guarantee continuation. Hype can increase risk because many learners may already be emotionally committed to the move." },
+        { "id": "b", "text": "Funding alone tells the learner exactly what to do next.", "isCorrect": false, "feedback": "Not correct. Funding is context, not a command. It can show pressure between market participants, but the learner still needs structure and evidence." },
+        { "id": "c", "text": "Treat funding and public reaction as supporting context to review carefully, not as a direct instruction.", "isCorrect": true, "feedback": "Correct. High funding and public excitement can reveal pressure, crowding, or emotional conditions, but they do not give a direct instruction. A Lurnava learner treats them as supporting context and checks whether chart structure and market mechanics confirm the reading. \\n\\nLurnava Principle: Context helps you review. It does not replace evidence." },
+        { "id": "d", "text": "Ignore market mechanics and trust the crowd reaction because many people agree.", "isCorrect": false, "feedback": "Not correct. Crowd reaction can be noisy. A Lurnava learner checks mechanics before trusting public emotion." }
+      ]
+    },
+    "context": {
+      "keyTerms": [
+        { "term": "Funding", "definition": "A periodic payment between long and short positions in perpetual markets." },
+        { "term": "Public reaction", "definition": "Visible excitement, fear, or attention from traders online." },
+        { "term": "Supporting context", "definition": "Information that helps explain conditions but does not give a direct instruction." },
+        { "term": "Crowded condition", "definition": "A situation where many participants may be positioned or emotionally leaning the same way." },
+        { "term": "Hype filtering", "definition": "Separating market evidence from public excitement." }
       ],
-      "correctIndex": 2
+      "whyThisMatters": "Crypto often moves with speed, leverage, and public emotion at the same time. If a learner treats funding or hype as an instruction, they may react to pressure instead of reading the market.",
+      "realLifeExample": "BTC moves quickly and social feeds become loud. Funding is also high, showing pressure in perpetual markets. A rushed learner treats the excitement as confirmation. A trained learner slows down and asks whether the move is supported by structure, liquidity, and broader context.",
+      "commonMistake": "Treating public excitement or high funding as proof that the move must continue.",
+      "quickNote": "Funding and hype are context, not commands."
     }
   }
 ]

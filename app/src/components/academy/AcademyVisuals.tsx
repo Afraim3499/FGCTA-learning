@@ -8,6 +8,7 @@ import {
   Target, 
   ClipboardCheck, 
   ChevronRight,
+  ChevronLeft,
   TrendingUp,
   TrendingDown,
   Globe,
@@ -174,9 +175,9 @@ export const LearningLoop = () => {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Interactive Loop */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-2.5">
         {steps.map((step, i) => {
           const Icon = step.icon;
           const isActive = activeStep === i;
@@ -186,17 +187,17 @@ export const LearningLoop = () => {
               <button
                 onClick={() => setActiveStep(i)}
                 className={cn(
-                  "relative flex flex-col items-center gap-2 p-4 rounded-[1.5rem] border-2 transition-all duration-500 w-full md:w-1/4 group",
+                  "relative flex flex-col items-center gap-1.5 p-3 rounded-[1.25rem] border-2 transition-all duration-500 w-full md:w-1/4 group",
                   isActive 
                     ? cn("scale-105 shadow-xl bg-white", step.borderColor)
                     : "bg-white/40 border-transparent opacity-60 hover:opacity-100 hover:bg-white/80 hover:shadow-lg"
                 )}
               >
                 <div className={cn(
-                  "p-3 rounded-xl transition-transform duration-500 group-hover:scale-110",
+                  "p-2.5 rounded-xl transition-transform duration-500 group-hover:scale-110",
                   isActive ? cn("shadow-inner", step.bgColor, step.color) : "bg-slate-100 text-slate-400"
                 )}>
-                  <Icon size={20} />
+                  <Icon size={18} />
                 </div>
                 <span className={cn(
                   "text-[9px] font-extrabold uppercase tracking-widest transition-colors",
@@ -212,7 +213,7 @@ export const LearningLoop = () => {
               
               {i < steps.length - 1 && (
                 <div className="hidden md:flex text-slate-200">
-                  <ChevronRight size={18} strokeWidth={3} />
+                  <ChevronRight size={16} strokeWidth={3} />
                 </div>
               )}
             </React.Fragment>
@@ -221,47 +222,47 @@ export const LearningLoop = () => {
       </div>
 
       {/* Detail Panel */}
-      <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-        <div className="bg-white rounded-[2rem] border border-slate-100 shadow-xl overflow-hidden">
-          <div className={cn("px-6 py-3 border-b flex items-center justify-between", steps[activeStep].bgColor, steps[activeStep].borderColor.replace("border-", "border-b-"))}>
-             <div className="flex items-center gap-2.5">
+      <div className="animate-in fade-in slide-in-from-bottom-2 duration-500">
+        <div className="bg-white rounded-[1.5rem] border border-slate-100 shadow-xl overflow-hidden">
+          <div className={cn("px-5 py-2.5 border-b flex items-center justify-between", steps[activeStep].bgColor, steps[activeStep].borderColor.replace("border-", "border-b-"))}>
+             <div className="flex items-center gap-2">
                 <div className={cn("p-1.5 rounded-lg bg-white", steps[activeStep].color)}>
-                  {React.createElement(steps[activeStep].icon, { size: 14 })}
+                  {React.createElement(steps[activeStep].icon, { size: 12 })}
                 </div>
-                <span className={cn("text-[10px] font-extrabold uppercase tracking-widest", steps[activeStep].color)}>
+                <span className={cn("text-[9px] font-extrabold uppercase tracking-widest", steps[activeStep].color)}>
                   Phase Detail: {steps[activeStep].title}
                 </span>
              </div>
-             <div className="px-2.5 py-1 rounded-full bg-white/50 text-[9px] font-bold text-slate-500 uppercase tracking-tight">
+             <div className="px-2 py-0.5 rounded-full bg-white/50 text-[8px] font-bold text-slate-500 uppercase tracking-tight">
                Step {activeStep + 1} of 4
              </div>
           </div>
           
-          <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">What happens here</h5>
-                <p className="text-sm font-bold text-[var(--ln-navy-900)] leading-relaxed">
+          <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="space-y-4">
+              <div className="space-y-1.5">
+                <h5 className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">What happens here</h5>
+                <p className="text-[13px] font-bold text-[var(--ln-navy-900)] leading-relaxed">
                   {steps[activeStep].what}
                 </p>
               </div>
-              <div className="space-y-2">
-                <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Why it matters</h5>
-                <p className="text-sm font-medium text-slate-600 leading-relaxed">
+              <div className="space-y-1.5">
+                <h5 className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">Why it matters</h5>
+                <p className="text-[13px] font-medium text-slate-600 leading-relaxed">
                   {steps[activeStep].why}
                 </p>
               </div>
             </div>
-            <div className="space-y-6">
-              <div className="p-5 rounded-2xl bg-rose-50/50 border border-rose-100 space-y-2">
-                <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-rose-500">If skipped</h5>
-                <p className="text-sm font-medium text-rose-700 leading-relaxed">
+            <div className="space-y-4">
+              <div className="p-4 rounded-xl bg-rose-50/50 border border-rose-100 space-y-1.5">
+                <h5 className="text-[9px] font-extrabold uppercase tracking-widest text-rose-500">If skipped</h5>
+                <p className="text-[12px] font-medium text-rose-700 leading-relaxed">
                   {steps[activeStep].skipped}
                 </p>
               </div>
-              <div className="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-100 space-y-2">
-                <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-600">Learner Action</h5>
-                <p className="text-sm font-bold text-emerald-900 leading-relaxed italic">
+              <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 space-y-1.5">
+                <h5 className="text-[9px] font-extrabold uppercase tracking-widest text-emerald-600">Learner Action</h5>
+                <p className="text-[13px] font-bold text-emerald-900 leading-relaxed italic">
                   {steps[activeStep].action}
                 </p>
               </div>
@@ -835,55 +836,6 @@ export const BehaviorFlow = () => {
  * 0.1 - Hype Trap Path
  * Decision flow for avoiding hype
  */
-/**
- * 0.1 - Hype Trap Path
- * Decision flow for avoiding hype
- */
-export const HypeTrapPath = () => {
-  const steps = [
-    { title: "Trigger", desc: "Watched online video / tip", color: "blue" },
-    { title: "Observation", desc: "Similar-looking chart appears", color: "amber" },
-    { title: "Risk", desc: "Emotional urgency / confidence", color: "rose" },
-    { title: "Decision", desc: "Lurnava Verification Gate", color: "teal" }
-  ];
-
-  return (
-    <div className="my-2 space-y-6 max-w-4xl mx-auto w-full">
-      {/* Central Illustration Area */}
-      <div className="relative group p-1 bg-slate-100 rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-inner">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-rose-500/5 pointer-events-none" />
-        <img 
-          src="/hype_trap_scenario_visual.png" 
-          alt="Hype Trap Scenario" 
-          className="w-full h-auto rounded-[2.4rem] object-cover mix-blend-multiply opacity-90 group-hover:opacity-100 transition-opacity duration-700"
-        />
-        
-        {/* Overlay Badges */}
-        <div className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/90 border border-white shadow-sm backdrop-blur-md">
-          <AlertCircle size={14} className="text-rose-500" />
-          <span className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Urgency Trap</span>
-        </div>
-      </div>
-
-      {/* 4-Step Flow */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {steps.map((step, i) => (
-          <div key={i} className="relative group p-4 rounded-2xl bg-white border border-slate-100 shadow-sm transition-all hover:shadow-md">
-            <div className={`w-8 h-8 rounded-lg mb-3 flex items-center justify-center text-xs font-black
-              ${step.color === 'blue' ? 'bg-blue-50 text-blue-600' : 
-                step.color === 'amber' ? 'bg-amber-50 text-amber-600' : 
-                step.color === 'rose' ? 'bg-rose-50 text-rose-600' : 
-                'bg-teal-50 text-teal-600'}`}>
-              0{i + 1}
-            </div>
-            <h5 className="text-[10px] font-black text-slate-900 uppercase tracking-tight mb-1">{step.title}</h5>
-            <p className="text-[10px] text-slate-500 font-bold leading-tight">{step.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 /**
  * 0.1 - Orientation Debrief
@@ -1332,4 +1284,377 @@ export const ForexMiniDrillBoard = () => {
   );
 };
 
+/**
+ * 0.1 - Crypto Mechanics Map
+ * Visualizing core crypto market pillars
+ */
+export const CryptoMechanicsMap = () => {
+  const pillars = [
+    {
+      id: "spot",
+      title: "Spot Market",
+      tag: "Asset Ownership",
+      desc: "Buying/holding actual assets. Base market driver.",
+      icon: CheckCircle2,
+      color: "text-emerald-500",
+      bgColor: "bg-emerald-50",
+      borderColor: "border-emerald-100"
+    },
+    {
+      id: "perps",
+      title: "Perpetual Market",
+      tag: "Price Exposure",
+      desc: "Derivative contracts affected by leverage and funding.",
+      icon: Activity,
+      color: "text-amber-500",
+      bgColor: "bg-amber-50",
+      borderColor: "border-amber-100"
+    },
+    {
+      id: "btc",
+      title: "BTC Context",
+      tag: "Market Reference",
+      desc: "Bitcoin's broad influence on market sentiment and flow.",
+      icon: Zap,
+      color: "text-orange-500",
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-100"
+    },
+    {
+      id: "noise",
+      title: "Exchange Noise",
+      tag: "Breadth Check",
+      desc: "Differentiating broad moves from isolated exchange noise.",
+      icon: AlertCircle,
+      color: "text-rose-500",
+      bgColor: "bg-rose-50",
+      borderColor: "border-rose-100"
+    }
+  ];
 
+  return (
+    <div className="max-w-4xl mx-auto space-y-8 py-4">
+      <div className="relative">
+        {/* Central Node */}
+        <div className="flex justify-center mb-12">
+          <div className="px-8 py-4 rounded-[2rem] bg-[var(--ln-navy-900)] text-white shadow-xl shadow-navy-900/20 border border-white/10 z-10">
+            <h3 className="text-sm font-black uppercase tracking-[0.2em] mb-1">Crypto Market</h3>
+            <div className="text-[10px] font-bold text-white/50 uppercase tracking-widest">Mechanical Pillars</div>
+          </div>
+          
+          {/* Connector lines (Desktop) */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-0.5 bg-slate-100 -z-10 hidden md:block" />
+        </div>
+
+        {/* Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {pillars.map((pillar, i) => (
+            <div 
+              key={pillar.id}
+              className={cn(
+                "p-6 rounded-[2.5rem] bg-white border-2 transition-all duration-500 shadow-sm hover:shadow-xl hover:-translate-y-1",
+                pillar.borderColor
+              )}
+            >
+              <div className={cn("p-3 rounded-2xl w-fit mb-6", pillar.bgColor, pillar.color)}>
+                <pillar.icon size={20} />
+              </div>
+              
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <div className={cn("text-[9px] font-black uppercase tracking-widest", pillar.color)}>
+                    {pillar.tag}
+                  </div>
+                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-tight leading-none">
+                    {pillar.title}
+                  </h4>
+                </div>
+                
+                <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
+                  {pillar.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Synthesis Note */}
+      <div className="p-6 rounded-[2rem] bg-slate-50 border border-slate-100 flex flex-col md:flex-row items-center gap-6">
+        <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-sm text-slate-400">
+          <ShieldCheck size={24} />
+        </div>
+        <div className="space-y-1 text-center md:text-left">
+          <h5 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Training Standard</h5>
+          <p className="text-xs text-slate-600 font-extrabold leading-tight uppercase tracking-tight">
+            Before reading crypto price, name the mechanical driver. Is it Spot, Perpetual, BTC Context, or Exchange Noise?
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/**
+ * 0.1 - Hype Trap Path
+ * Compact 3-row comparison matrix for reading paths
+ */
+export const HypeTrapPath = () => {
+  return (
+    <div className="max-w-4xl mx-auto py-4">
+      <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-xl overflow-hidden">
+        {/* Header Strip */}
+        <div className="grid grid-cols-2 border-b border-slate-50">
+          <div className="bg-rose-50/30 py-4 flex flex-col items-center border-r border-slate-50">
+            <div className="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-[9px] font-black uppercase tracking-widest mb-1">Trap Path</div>
+            <h4 className="text-xs font-black text-slate-900 uppercase tracking-tight">Hype-First</h4>
+          </div>
+          <div className="bg-emerald-50/30 py-4 flex flex-col items-center">
+            <div className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 text-[9px] font-black uppercase tracking-widest mb-1">Pro Path</div>
+            <h4 className="text-xs font-black text-slate-900 uppercase tracking-tight">Mechanic-First</h4>
+          </div>
+        </div>
+
+        {/* Matrix Rows */}
+        <div className="divide-y divide-slate-50">
+          {/* Row 1: Input */}
+          <div className="grid grid-cols-2 group">
+            <div className="p-6 bg-rose-50/10 border-r border-slate-50 flex items-center gap-4 group-hover:bg-rose-50/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-white border border-rose-100 flex items-center justify-center text-rose-500 shrink-0 shadow-sm">
+                <MessageSquare size={18} />
+              </div>
+              <div className="space-y-0.5">
+                <div className="text-[9px] font-black text-rose-400 uppercase tracking-widest leading-none">Input</div>
+                <div className="text-[11px] font-black text-slate-900 uppercase">Online Excitement</div>
+              </div>
+            </div>
+            <div className="p-6 bg-emerald-50/10 flex items-center gap-4 group-hover:bg-emerald-50/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-white border border-emerald-100 flex items-center justify-center text-emerald-500 shrink-0 shadow-sm">
+                <Layout size={18} />
+              </div>
+              <div className="space-y-0.5">
+                <div className="text-[9px] font-black text-emerald-400 uppercase tracking-widest leading-none">Input</div>
+                <div className="text-[11px] font-black text-slate-900 uppercase leading-tight">Structure + BTC Context</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2: Process */}
+          <div className="grid grid-cols-2 group">
+            <div className="p-6 bg-rose-50/10 border-r border-slate-50 flex items-center gap-4 group-hover:bg-rose-50/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-white border border-rose-100 flex items-center justify-center text-rose-500 shrink-0 shadow-sm">
+                <Zap size={18} />
+              </div>
+              <div className="space-y-0.5">
+                <div className="text-[9px] font-black text-rose-400 uppercase tracking-widest leading-none">Process</div>
+                <div className="text-[11px] font-black text-slate-900 uppercase leading-tight">Public Emotion → Urgency</div>
+              </div>
+            </div>
+            <div className="p-6 bg-emerald-50/10 flex items-center gap-4 group-hover:bg-emerald-50/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-white border border-emerald-100 flex items-center justify-center text-emerald-500 shrink-0 shadow-sm">
+                <Scale size={18} />
+              </div>
+              <div className="space-y-0.5">
+                <div className="text-[9px] font-black text-emerald-400 uppercase tracking-widest leading-none">Process</div>
+                <div className="text-[11px] font-black text-slate-900 uppercase leading-tight">Funding / Leverage / Liquidity</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 3: Conclusion */}
+          <div className="grid grid-cols-2 group">
+            <div className="p-6 bg-rose-50/10 border-r border-slate-50 flex items-center gap-4 group-hover:bg-rose-50/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-rose-100 border border-rose-200 flex items-center justify-center text-rose-600 shrink-0 shadow-sm">
+                <XCircle size={18} />
+              </div>
+              <div className="space-y-0.5">
+                <div className="text-[9px] font-black text-rose-500 uppercase tracking-widest leading-none">Conclusion</div>
+                <div className="text-[11px] font-black text-slate-900 uppercase">"This must be real"</div>
+              </div>
+            </div>
+            <div className="p-6 bg-emerald-50/10 flex items-center gap-4 group-hover:bg-emerald-50/20 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 shadow-sm">
+                <CheckCircle2 size={18} />
+              </div>
+              <div className="space-y-0.5">
+                <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest leading-none">Conclusion</div>
+                <div className="text-[11px] font-black text-slate-900 uppercase">"Is this supported?"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Final Bottom Outcome Band */}
+        <div className="grid grid-cols-2 bg-[var(--ln-navy-900)] text-white">
+          <div className="p-5 flex flex-col items-center text-center border-r border-white/5 bg-rose-500/10">
+            <div className="text-[9px] font-black text-rose-400 uppercase tracking-[0.2em] mb-1">Outcome</div>
+            <div className="text-[10px] font-bold uppercase tracking-tight leading-tight">Emotion Mistaken for Evidence</div>
+          </div>
+          <div className="p-5 flex flex-col items-center text-center bg-emerald-500/10">
+            <div className="text-[9px] font-black text-emerald-400 uppercase tracking-[0.2em] mb-1">Outcome</div>
+            <div className="text-[10px] font-bold uppercase tracking-tight leading-tight">Evidence Checked Before Confidence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/**
+ * 0.1 - Crypto Drill Board
+ * Practical decision visual for crypto scenarios
+ */
+export const CryptoDrillBoard = () => {
+  return (
+    <div className="max-w-2xl mx-auto py-6">
+      <div className="bg-slate-900 rounded-[2.5rem] p-8 shadow-2xl border border-white/5 relative overflow-hidden">
+        {/* Ambient Glow */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[100px] -mr-32 -mt-32" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-500/10 blur-[100px] -ml-32 -mb-32" />
+
+        <div className="relative space-y-8">
+          {/* Market Conditions Section */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-[9px] font-black uppercase tracking-widest text-white/60">
+                Market Conditions
+              </div>
+              <div className="h-px bg-white/10 grow" />
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4 transition-all hover:bg-white/10">
+                <TrendingUp className="text-orange-400" size={18} />
+                <div className="text-[10px] font-black text-white/90 uppercase">BTC Sharp Move</div>
+              </div>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4 transition-all hover:bg-white/10">
+                <Scale className="text-rose-400" size={18} />
+                <div className="text-[10px] font-black text-white/90 uppercase">Funding High</div>
+              </div>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4 transition-all hover:bg-white/10">
+                <MessageSquare className="text-blue-400" size={18} />
+                <div className="text-[10px] font-black text-white/90 uppercase">Social Hype</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Decision Point */}
+          <div className="flex flex-col items-center py-4">
+            <ArrowDown className="text-white/20 mb-4 animate-bounce" size={24} />
+            <div className="px-8 py-3 rounded-2xl bg-white text-slate-900 shadow-xl shadow-white/10">
+              <h4 className="text-[11px] font-black uppercase tracking-widest">Decision Point</h4>
+            </div>
+          </div>
+
+          {/* Paths Section */}
+          <div className="grid grid-cols-2 gap-6 pt-4">
+            {/* Weak Path */}
+            <div className="p-5 rounded-2xl bg-rose-500/5 border border-rose-500/20 space-y-4">
+              <div className="flex items-center gap-2">
+                <XCircle className="text-rose-500" size={16} />
+                <div className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Instruction</div>
+              </div>
+              <p className="text-[10px] font-bold text-rose-200/60 leading-tight uppercase tracking-tight">
+                Treating noise as a direct command to react.
+              </p>
+            </div>
+
+            {/* Disciplined Path */}
+            <div className="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-4">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="text-emerald-500" size={16} />
+                <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Context</div>
+              </div>
+              <p className="text-[10px] font-bold text-emerald-200/60 leading-tight uppercase tracking-tight">
+                Review structure and mechanics before deciding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+/**
+ * 0.1 - Crypto Hype Filtering Drill
+ * Redesigned V2 visual for Card 4 practical drill.
+ * Light-mode premium training board.
+ */
+export const CryptoHypeFilteringDrill = () => {
+  return (
+    <div className="w-full max-w-2xl mx-auto py-2">
+      <div className="bg-white rounded-[2.5rem] p-8 border border-slate-200 shadow-xl relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-full -mr-16 -mt-16" />
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-slate-50 rounded-full -ml-12 -mb-12" />
+
+        <div className="relative space-y-8">
+          {/* Header Section */}
+          <div className="flex items-center justify-between">
+            <div className="space-y-1">
+              <div className="text-[10px] font-black text-amber-500 uppercase tracking-widest flex items-center gap-2">
+                <AlertCircle size={12} />
+                Market Condition Audit
+              </div>
+              <h4 className="text-sm font-black text-slate-900 uppercase tracking-tight">Active Crypto Environment</h4>
+            </div>
+            <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100">
+              <Scale size={20} className="text-slate-400" />
+            </div>
+          </div>
+
+          {/* Condition Matrix */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {[
+              { label: "BTC Sharp Move", icon: TrendingUp, color: "text-orange-500", bg: "bg-orange-50" },
+              { label: "Funding High", icon: Activity, color: "text-rose-500", bg: "bg-rose-50" },
+              { label: "Social Hype", icon: MessageSquare, color: "text-blue-500", bg: "bg-blue-50" }
+            ].map((item, i) => (
+              <div key={i} className={cn("p-4 rounded-2xl border border-transparent flex items-center gap-3 transition-all", item.bg)}>
+                <item.icon size={16} className={item.color} />
+                <span className="text-[10px] font-black text-slate-900 uppercase leading-none">{item.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Decision Point */}
+          <div className="flex flex-col items-center py-2 relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full h-px bg-slate-100" />
+            </div>
+            <div className="relative px-6 py-2 rounded-full bg-slate-900 text-white text-[9px] font-black uppercase tracking-[0.2em] shadow-lg">
+              Decision Point
+            </div>
+          </div>
+
+          {/* Path Comparison */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-[2rem] border border-rose-100 bg-rose-50/30 space-y-3 relative group">
+              <div className="flex items-center gap-2">
+                <XCircle className="text-rose-400" size={16} />
+                <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Weak Response</span>
+              </div>
+              <p className="text-[11px] font-bold text-slate-600 leading-snug uppercase tracking-tight">
+                Treating hype/funding as a <span className="text-rose-600">Direct Instruction</span>.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-[2rem] border border-emerald-100 bg-emerald-50/30 space-y-3 relative group">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="text-emerald-400" size={16} />
+                <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Disciplined Response</span>
+              </div>
+              <p className="text-[11px] font-bold text-slate-600 leading-snug uppercase tracking-tight">
+                Treating hype/funding as <span className="text-emerald-600">Supporting Context</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

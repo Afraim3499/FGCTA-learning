@@ -38,6 +38,8 @@ import {
   ForexContextComparison,
   ForexMiniDrillBoard,
   OrientationDebrief,
+  CryptoMechanicsMap,
+  CryptoHypeFilteringDrill,
 } from "../AcademyVisuals";
 import { ChoiceBlockPractice } from "../interactive/choice-block-practice";
 import { ScenarioDecisionEngine } from "../interactive/scenario-decision-engine";
@@ -192,6 +194,10 @@ export function LessonStage({
         return <ForexMiniDrillBoard />;
       case "orientation-debrief":
         return <OrientationDebrief />;
+      case "crypto-mechanics":
+        return <CryptoMechanicsMap />;
+      case "crypto-hype-filtering-drill":
+        return <CryptoHypeFilteringDrill />;
       default:
         return null;
     }
@@ -248,11 +254,11 @@ export function LessonStage({
               {hasVisual && (
                 <div className={cn(
                   "w-full bg-slate-50/50 rounded-[2.5rem] p-4 border border-slate-100 flex items-center justify-center overflow-hidden",
-                  (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill") ? "" : "max-h-[40vh]"
+                  (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill") ? "" : "max-h-[40vh]"
                 )}>
                   <div className={cn(
                     "w-full flex justify-center",
-                    (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill") ? "" : "max-h-full"
+                    (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill") ? "" : "max-h-full"
                   )}>
                     {renderVisual(card.visualKey || card.visual)}
                   </div>
@@ -386,6 +392,7 @@ export function LessonStage({
       card.visualKey === "practice-timeline" ||
       card.visualKey === "decision-gate" ||
       card.visualKey === "hype-trap-path" ||
+      card.visualKey === "crypto-mechanics" ||
       card.visualKey === "forex-relationship" ||
       card.visualKey === "forex-instruments" ||
       card.visualKey === "forex-context-comparison" ||
@@ -418,11 +425,11 @@ export function LessonStage({
             {hasVisual && (
               <div className={cn(
                 "w-full bg-slate-50/50 rounded-[2rem] p-2 md:p-4 border border-slate-100 flex items-center justify-center overflow-hidden",
-                (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "learner-profiles" || card.visualKey === "training-cockpit" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill") ? "" : "max-h-[40vh]"
+                (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "learner-profiles" || card.visualKey === "training-cockpit" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill") ? "" : "max-h-[40vh]"
               )}>
                 <div className={cn(
                   "w-full flex justify-center",
-                  (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill") ? "" : "max-h-full"
+                  (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill") ? "" : "max-h-full"
                 )}>
                   {renderVisual(card.visualKey || card.visual)}
                 </div>
@@ -430,7 +437,7 @@ export function LessonStage({
             )}
 
             {/* Special bypass for visuals that need body below them */}
-            {(card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "learner-profiles" || card.visualKey === "training-cockpit" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill") && hasBody && (
+            {(card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics") && hasBody && (
               <div className="max-w-4xl mx-auto pt-2">
                 <div className="prose prose-slate max-w-none">
                   <ReactMarkdown

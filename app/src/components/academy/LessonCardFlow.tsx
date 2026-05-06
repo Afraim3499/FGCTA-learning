@@ -23,7 +23,7 @@ import {
   MessageSquare,
   Info as InfoIcon
 } from "lucide-react";
-import { LearningLoop, CandleDiagram, NoteComparison, AcademyPath, SystemMap, PracticeTimeline, DecisionGate, BehaviorFlow, HypeTrapPath, OrientationDebrief } from "./AcademyVisuals";
+import { LearningLoop, CandleDiagram, NoteComparison, AcademyPath, SystemMap, PracticeTimeline, DecisionGate, BehaviorFlow, HypeTrapPath, OrientationDebrief, CryptoMechanicsMap } from "./AcademyVisuals";
 import { ChoiceBlockPractice } from "./interactive/choice-block-practice";
 import { ScenarioDecisionEngine } from "./interactive/scenario-decision-engine";
 import ReactMarkdown from "react-markdown";
@@ -139,6 +139,8 @@ export function LessonCardFlow({
         return <HypeTrapPath />;
       case "orientation-debrief":
         return <OrientationDebrief />;
+      case "crypto-mechanics":
+        return <CryptoMechanicsMap />;
       default:
         return null;
     }
