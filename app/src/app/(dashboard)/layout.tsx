@@ -1,4 +1,5 @@
 import { Sidebar } from "@/components/dashboard/sidebar";
+import { TopbarRouter } from "@/components/dashboard/TopbarRouter";
 import { Topbar } from "@/components/dashboard/topbar";
 import { getProfile } from "@/lib/auth-actions";
 import { redirect } from "next/navigation";
@@ -68,7 +69,3 @@ export default async function DashboardLayout({
     </UserProvider>
   );
 }
-
-// Client component that handles topbar routing
-// (imported as a server-safe wrapper — actual switching in TopbarRouter.tsx)
-import { TopbarRouter } from "@/components/dashboard/TopbarRouter";
