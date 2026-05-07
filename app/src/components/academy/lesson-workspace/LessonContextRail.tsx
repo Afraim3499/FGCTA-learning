@@ -13,20 +13,18 @@ import {
 } from "lucide-react";
 
 interface ContextData {
-  keyTerms?: string[];
+  keyTerms?: Array<string | { term: string; definition: string }>;
   whyThisMatters?: string;
   realLifeExample?: string;
   commonMistake?: string;
   quickNote?: string;
-  comparison?: {
-    left: { title: string; subtitle: string; items: string[]; description: string; type: "negative" | "positive" };
-    right: { title: string; subtitle: string; items: string[]; description: string; type: "negative" | "positive" };
-  };
+  defaultExpanded?: string[];
 }
 
 interface LessonContextRailProps {
   context?: ContextData;
   objective?: string;
+  cardType?: string;
 }
 
 interface AccordionItemProps {
@@ -36,7 +34,8 @@ interface AccordionItemProps {
   bgColor: string;
   borderColor: string;
   children: React.ReactNode;
-  defaultOpen?: boolean;
+  isOpen: boolean;
+  onToggle: () => void;
 }
 
 function AccordionItem({
@@ -46,10 +45,9 @@ function AccordionItem({
   bgColor,
   borderColor,
   children,
-  defaultOpen = false,
+  isOpen,
+  onToggle,
 }: AccordionItemProps) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-
   return (
     <div
       className={cn(
@@ -59,7 +57,7 @@ function AccordionItem({
       )}
     >
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="w-full flex items-center justify-between gap-3 p-4 text-left"
       >
         <div className="flex items-center gap-3 min-w-0">
@@ -93,10 +91,68 @@ function AccordionItem({
 export function LessonContextRail({
   context,
   objective,
+  cardType,
 }: LessonContextRailProps) {
+  const [activeTermIdx, setActiveTermIdx] = useState<number | null>(null);
+  
+  // Local state for accordions to allow manual toggle after initial auto-expansion
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
+  const [hasInitialized, setHasInitialized] = useState(false);
+
+  // Initialize expanded sections based on card type or context override
+  React.useEffect(() => {
+    if (!context && !objective) return;
+
+    const initialOpen: Record<string, boolean> = {};
+
+    if (context?.defaultExpanded) {
+      context.defaultExpanded.forEach(section => {
+        initialOpen[section] = true;
+      });
+    } else if (cardType) {
+      // Standard expansion rules based on card type
+      const type = cardType.toLowerCase();
+      if (["concept", "visual_intro", "brief", "mechanics", "driver"].includes(type)) {
+        initialOpen.keyTerms = true;
+        initialOpen.whyThisMatters = true;
+      } else if (["mistake", "pattern", "mistake_pattern"].includes(type)) {
+        initialOpen.keyTerms = true;
+        initialOpen.whyThisMatters = true;
+        initialOpen.commonMistake = true;
+      } else if (["practice", "drill", "task", "practical"].includes(type)) {
+        initialOpen.keyTerms = true;
+        initialOpen.quickNote = true;
+      } else if (["summary", "debrief"].includes(type)) {
+        initialOpen.keyTerms = true;
+        initialOpen.quickNote = true;
+      }
+    } else {
+      // Default fallback
+      initialOpen.keyTerms = true;
+      initialOpen.whyThisMatters = true;
+    }
+
+    setOpenSections(initialOpen);
+    setHasInitialized(true);
+
+    // Auto-select first key term if section is open and terms exist
+    if (initialOpen.keyTerms && context?.keyTerms?.length) {
+      setActiveTermIdx(0);
+    } else {
+      setActiveTermIdx(null);
+    }
+  }, [context, cardType, objective]);
+
   if (!context && !objective) {
     return null;
   }
+
+  const toggleSection = (section: string) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
 
   return (
     <aside className="space-y-3 lg:sticky lg:top-6 self-start">
@@ -120,27 +176,53 @@ export function LessonContextRail({
           color="text-slate-700"
           bgColor="bg-slate-50"
           borderColor="border-slate-200"
-          defaultOpen={true}
+          isOpen={!!openSections.keyTerms}
+          onToggle={() => toggleSection("keyTerms")}
         >
-          <div className="space-y-3">
-            {context.keyTerms.map((item, i) => {
-              const isObject = typeof item !== "string";
-              const term = isObject ? (item as any).term : item;
-              const definition = isObject ? (item as any).definition : null;
-
-              return (
-                <div key={i} className="space-y-1">
-                  <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[var(--ln-navy-900)] shadow-sm w-fit">
+          <div className="space-y-4">
+            <div className="flex flex-wrap gap-2">
+              {context.keyTerms.map((item, i) => {
+                const term = typeof item === "string" ? item : item.term;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      if (activeTermIdx === i) setActiveTermIdx(null);
+                      else setActiveTermIdx(i);
+                    }}
+                    className={cn(
+                      "px-2.5 py-1 rounded-lg text-[10px] font-bold border transition-all",
+                      activeTermIdx === i
+                        ? "bg-[var(--ln-navy-900)] text-white border-[var(--ln-navy-900)] shadow-sm"
+                        : "bg-white text-slate-500 border-slate-200 hover:border-slate-300"
+                    )}
+                  >
                     {term}
-                  </div>
-                  {definition && (
-                    <p className="text-[11px] text-slate-500 font-medium leading-relaxed pl-1">
-                      {definition}
-                    </p>
-                  )}
-                </div>
-              );
-            })}
+                  </button>
+                );
+              })}
+            </div>
+
+            {activeTermIdx !== null && context.keyTerms[activeTermIdx] && (
+              <div className="p-3 rounded-xl bg-white border border-slate-200 animate-in fade-in zoom-in-95 duration-200">
+                <h5 className="text-[10px] font-black uppercase tracking-widest text-[var(--ln-navy-900)] mb-1">
+                  {typeof context.keyTerms[activeTermIdx] === "string" 
+                    ? context.keyTerms[activeTermIdx] as string
+                    : (context.keyTerms[activeTermIdx] as any).term}
+                </h5>
+                <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
+                  {typeof context.keyTerms[activeTermIdx] === "string"
+                    ? "Concept vocabulary for this lesson."
+                    : (context.keyTerms[activeTermIdx] as any).definition}
+                </p>
+              </div>
+            )}
+            
+            {activeTermIdx === null && (
+              <p className="text-[10px] text-slate-400 font-medium italic">
+                Select a term to see its definition.
+              </p>
+            )}
           </div>
         </AccordionItem>
       )}
@@ -153,7 +235,8 @@ export function LessonContextRail({
           color="text-amber-600"
           bgColor="bg-amber-50/50"
           borderColor="border-amber-200"
-          defaultOpen={true}
+          isOpen={!!openSections.whyThisMatters}
+          onToggle={() => toggleSection("whyThisMatters")}
         >
           <p className="text-sm font-medium text-slate-600 leading-relaxed">
             {context.whyThisMatters}
@@ -169,6 +252,8 @@ export function LessonContextRail({
           color="text-blue-600"
           bgColor="bg-blue-50/50"
           borderColor="border-blue-200"
+          isOpen={!!openSections.realLifeExample}
+          onToggle={() => toggleSection("realLifeExample")}
         >
           <p className="text-sm font-medium text-slate-600 leading-relaxed">
             {context.realLifeExample}
@@ -184,6 +269,8 @@ export function LessonContextRail({
           color="text-rose-600"
           bgColor="bg-rose-50/50"
           borderColor="border-rose-200"
+          isOpen={!!openSections.commonMistake}
+          onToggle={() => toggleSection("commonMistake")}
         >
           <p className="text-sm font-medium text-slate-600 leading-relaxed">
             {context.commonMistake}
@@ -199,6 +286,8 @@ export function LessonContextRail({
           color="text-teal-600"
           bgColor="bg-teal-50/50"
           borderColor="border-teal-200"
+          isOpen={!!openSections.quickNote}
+          onToggle={() => toggleSection("quickNote")}
         >
           <p className="text-sm font-medium text-slate-600 leading-relaxed">
             {context.quickNote}

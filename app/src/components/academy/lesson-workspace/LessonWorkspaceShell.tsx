@@ -67,6 +67,13 @@ export function LessonWorkspaceShell({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [mobileContextOpen, setMobileContextOpen] = useState(false);
+  const [practicePassed, setPracticePassed] = useState(false);
+  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
+
+  // Reset practicePassed when currentIndex changes
+  React.useEffect(() => {
+    setPracticePassed(false);
+  }, [currentIndex]);
 
   // Safety clamp
   const safeIndex = Math.max(0, Math.min(currentIndex, cards.length - 1));
@@ -103,11 +110,9 @@ export function LessonWorkspaceShell({
   );
 
   const handleNext = useCallback(() => {
-    if (currentIndex < cards.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [currentIndex, cards.length]);
+    setCurrentIndex((prev) => prev + 1);
+    window.scrollTo(0, 0);
+  }, []);
 
   const handlePrev = useCallback(() => {
     if (currentIndex > 0) {
@@ -120,9 +125,20 @@ export function LessonWorkspaceShell({
     (track: string) => {
       onTrackChange(track);
       setCurrentIndex(0);
+      setPracticePassed(false);
     },
     [onTrackChange]
   );
+
+  const handleComplete = useCallback(() => {
+    setPracticePassed(true);
+    setCompletedSteps((prev) => {
+      const next = new Set(prev);
+      next.add(currentIndex);
+      return next;
+    });
+    if (onComplete) onComplete();
+  }, [currentIndex, onComplete]);
 
   return (
     <div className="relative h-full flex flex-col min-h-0 pb-4">
@@ -186,9 +202,10 @@ export function LessonWorkspaceShell({
               card={currentCard}
               cardIndex={safeIndex}
               totalCards={cards.length}
+              practicePassed={practicePassed}
               onNext={handleNext}
               onPrev={handlePrev}
-              onComplete={onComplete}
+              onComplete={handleComplete}
               onNextModule={onNextModule}
               interactiveTaskType={interactiveTaskType}
               interactiveTaskData={interactiveTaskData}
@@ -203,6 +220,7 @@ export function LessonWorkspaceShell({
             <LessonContextRail
               context={currentCard.context}
               objective={currentCard.objective}
+              cardType={currentCard.type}
             />
           </div>
         </main>
@@ -212,6 +230,7 @@ export function LessonWorkspaceShell({
           <LessonContextRail
             context={currentCard.context}
             objective={currentCard.objective}
+            cardType={currentCard.type}
           />
         </div>
       </div>

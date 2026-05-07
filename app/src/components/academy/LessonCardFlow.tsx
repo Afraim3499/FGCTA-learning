@@ -23,7 +23,7 @@ import {
   MessageSquare,
   Info as InfoIcon
 } from "lucide-react";
-import { LearningLoop, CandleDiagram, NoteComparison, AcademyPath, SystemMap, PracticeTimeline, DecisionGate, BehaviorFlow, HypeTrapPath, OrientationDebrief, CryptoMechanicsMap } from "./AcademyVisuals";
+import { LearningLoop, CandleDiagram, NoteComparison, AcademyPath, SystemMap, PracticeTimeline, DecisionGate, BehaviorFlow, HypeTrapPath, OrientationDebrief, CryptoMechanicsMap, GoldReadingMap, GoldContextDriverMap, GoldUrgencyTrapVisual, GoldNoiseDecisionBoard } from "./AcademyVisuals";
 import { ChoiceBlockPractice } from "./interactive/choice-block-practice";
 import { ScenarioDecisionEngine } from "./interactive/scenario-decision-engine";
 import ReactMarkdown from "react-markdown";
@@ -141,6 +141,14 @@ export function LessonCardFlow({
         return <OrientationDebrief />;
       case "crypto-mechanics":
         return <CryptoMechanicsMap />;
+      case "gold-reading-map":
+        return <GoldReadingMap />;
+      case "gold-driver-map":
+        return <GoldContextDriverMap />;
+      case "gold-urgency-trap":
+        return <GoldUrgencyTrapVisual />;
+      case "gold-noise-decision":
+        return <GoldNoiseDecisionBoard />;
       default:
         return null;
     }
@@ -178,6 +186,8 @@ export function LessonCardFlow({
               question={activeTaskData.question}
               options={activeTaskData.options || []}
               correctIndex={activeTaskData.correctIndex}
+              correctId={activeTaskData.correctId}
+              feedback={activeTaskData.feedback}
               onPass={() => {
                 setPracticePassed(true);
                 if (onComplete) onComplete();

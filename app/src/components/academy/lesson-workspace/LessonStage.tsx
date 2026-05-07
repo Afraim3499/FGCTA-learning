@@ -40,6 +40,30 @@ import {
   OrientationDebrief,
   CryptoMechanicsMap,
   CryptoHypeFilteringDrill,
+  GoldReadingMap,
+  GoldContextDriverMap,
+  GoldUrgencyTrapVisual,
+  GoldNoiseDecisionBoard,
+  MarketMechanismVisual,
+  OrderMatchingVisual,
+  MicrostructureBoardVisual,
+  LiquidityComparisonVisual,
+  IntentLogicBoardVisual,
+  MindsetComparisonVisual,
+  TransactionMechanismMiniVisual,
+  MarketMechanismRecapVisual,
+  ForexNetworkVisual,
+  ForexQuotePanelVisual,
+  ForexSessionLiquidityVisual,
+  ForexQuoteQualityDrillVisual,
+  CryptoVenueMapVisual,
+  CryptoMarketEnginesVisual,
+  CryptoLiquidityFragmentationVisual,
+  CryptoVenueNoiseDrillVisual,
+  GoldMarketMapVisual,
+  GoldOTCBilateralVisual,
+  GoldFuturesMechanicsVisual,
+  GoldMarketLayerDrillVisual,
 } from "../AcademyVisuals";
 import { ChoiceBlockPractice } from "../interactive/choice-block-practice";
 import { ScenarioDecisionEngine } from "../interactive/scenario-decision-engine";
@@ -88,6 +112,7 @@ interface LessonStageProps {
   card: CardData;
   cardIndex: number;
   totalCards: number;
+  practicePassed?: boolean;
   onNext: () => void;
   onPrev: () => void;
   onComplete?: () => void;
@@ -134,26 +159,45 @@ const markdownComponents = {
     />
   ),
   ul: ({ className, ...props }: any) => (
-    <ul className={cn("list-none space-y-3 mb-8", className)} {...props} />
+    <ul className={cn("list-none space-y-4 mb-8", className)} {...props} />
   ),
-  li: ({ className, ...props }: any) => (
-    <li
-      className={cn(
-        "flex items-start gap-3 text-sm text-slate-600 font-medium",
-        className
-      )}
-      {...props}
-    >
-      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--ln-teal-500)] shrink-0" />
-      {props.children}
-    </li>
-  ),
+  li: ({ className, children, ...props }: any) => {
+    // Check if children contain a checkbox (task list)
+    const hasCheckbox = React.Children.toArray(children).some(
+      (child: any) => child?.props?.type === "checkbox"
+    );
+
+    if (hasCheckbox) {
+      return (
+        <li className={cn("flex items-start gap-4 text-sm text-slate-700 font-bold", className)} {...props}>
+          <div className="mt-0.5 flex-shrink-0">
+            <CheckCircle2 size={16} className="text-[var(--ln-teal-500)]" />
+          </div>
+          <div className="flex-1">{children.filter((c: any) => c?.props?.type !== "checkbox")}</div>
+        </li>
+      );
+    }
+
+    return (
+      <li
+        className={cn(
+          "flex items-start gap-3 text-sm text-slate-600 font-medium",
+          className
+        )}
+        {...props}
+      >
+        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--ln-teal-500)] shrink-0" />
+        {children}
+      </li>
+    );
+  },
 };
 
 export function LessonStage({
   card,
   cardIndex,
   totalCards,
+  practicePassed = false,
   onNext,
   onPrev,
   onComplete,
@@ -161,7 +205,6 @@ export function LessonStage({
   interactiveTaskType,
   interactiveTaskData,
 }: LessonStageProps) {
-  const [practicePassed, setPracticePassed] = useState(false);
   const isLast = cardIndex === totalCards - 1;
 
   const renderVisual = (name?: string) => {
@@ -198,6 +241,54 @@ export function LessonStage({
         return <CryptoMechanicsMap />;
       case "crypto-hype-filtering-drill":
         return <CryptoHypeFilteringDrill />;
+      case "gold-reading-map":
+        return <GoldReadingMap />;
+      case "gold-driver-map":
+        return <GoldContextDriverMap />;
+      case "gold-urgency-trap":
+        return <GoldUrgencyTrapVisual />;
+      case "gold-noise-decision":
+        return <GoldNoiseDecisionBoard />;
+      case "market-mechanism":
+        return <MarketMechanismVisual />;
+      case "order-matching":
+        return <OrderMatchingVisual />;
+      case "microstructure-board":
+        return <MicrostructureBoardVisual />;
+      case "liquidity-comparison":
+        return <LiquidityComparisonVisual />;
+      case "intent-logic":
+        return <IntentLogicBoardVisual />;
+      case "mindset-comparison":
+        return <MindsetComparisonVisual />;
+      case "transaction-mechanism":
+        return <TransactionMechanismMiniVisual />;
+      case "market-mechanism-recap":
+        return <MarketMechanismRecapVisual />;
+      case "forex-network":
+        return <ForexNetworkVisual />;
+      case "forex-quote-panel":
+        return <ForexQuotePanelVisual />;
+      case "forex-session-liquidity":
+        return <ForexSessionLiquidityVisual />;
+      case "forex-quote-quality-drill":
+        return <ForexQuoteQualityDrillVisual />;
+      case "crypto-venue-map":
+        return <CryptoVenueMapVisual />;
+      case "crypto-market-engines":
+        return <CryptoMarketEnginesVisual />;
+      case "crypto-liquidity-fragmentation":
+        return <CryptoLiquidityFragmentationVisual />;
+      case "crypto-venue-noise-drill":
+        return <CryptoVenueNoiseDrillVisual />;
+      case "gold-market-map":
+        return <GoldMarketMapVisual />;
+      case "gold-otc-bilateral":
+        return <GoldOTCBilateralVisual />;
+      case "gold-futures-mechanics":
+        return <GoldFuturesMechanicsVisual />;
+      case "gold-market-layer-drill":
+        return <GoldMarketLayerDrillVisual />;
       default:
         return null;
     }
@@ -254,11 +345,11 @@ export function LessonStage({
               {hasVisual && (
                 <div className={cn(
                   "w-full bg-slate-50/50 rounded-[2.5rem] p-4 border border-slate-100 flex items-center justify-center overflow-hidden",
-                  (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill") ? "" : "max-h-[40vh]"
+                  (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill" || card.visualKey === "forex-network" || card.visualKey === "forex-quote-panel" || card.visualKey === "forex-session-liquidity" || card.visualKey === "forex-quote-quality-drill" || card.visualKey === "crypto-venue-map" || card.visualKey === "crypto-market-engines" || card.visualKey === "crypto-liquidity-fragmentation" || card.visualKey === "crypto-venue-noise-drill" || card.visualKey === "gold-market-map" || card.visualKey === "gold-otc-bilateral" || card.visualKey === "gold-futures-mechanics" || card.visualKey === "gold-market-layer-drill") ? "" : "max-h-[40vh]"
                 )}>
                   <div className={cn(
                     "w-full flex justify-center",
-                    (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill") ? "" : "max-h-full"
+                    (card.visualKey === "hype-trap-path" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill" || card.visualKey === "forex-network" || card.visualKey === "forex-quote-panel" || card.visualKey === "forex-session-liquidity" || card.visualKey === "forex-quote-quality-drill" || card.visualKey === "crypto-venue-map" || card.visualKey === "crypto-market-engines" || card.visualKey === "crypto-liquidity-fragmentation" || card.visualKey === "crypto-venue-noise-drill" || card.visualKey === "gold-market-map" || card.visualKey === "gold-otc-bilateral" || card.visualKey === "gold-futures-mechanics" || card.visualKey === "gold-market-layer-drill") ? "" : "max-h-full"
                   )}>
                     {renderVisual(card.visualKey || card.visual)}
                   </div>
@@ -287,19 +378,21 @@ export function LessonStage({
 
           {/* Interaction Section */}
           <ChoiceBlockPractice
+            key={card.title || cardIndex}
             question={activeTaskData.question}
             options={activeTaskData.options || []}
             correctIndex={activeTaskData.correctIndex}
+            correctId={activeTaskData.correctId}
+            feedback={activeTaskData.feedback}
             onPass={() => {
-              setPracticePassed(true);
               onComplete?.();
             }}
           />
           {practicePassed && (
-            <div className="flex justify-center mt-8">
+            <div className="flex justify-center mt-8 relative z-30">
               <button
-                onClick={onNext}
-                className="px-8 py-4 bg-[var(--ln-teal-500)] text-white rounded-2xl font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all"
+                onClick={() => onNext()}
+                className="px-8 py-4 bg-[var(--ln-teal-500)] text-white rounded-2xl font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all cursor-pointer"
               >
                 Continue to Summary <ArrowRight size={18} />
               </button>
@@ -321,15 +414,14 @@ export function LessonStage({
             contextPrompt={interactiveTaskData.contextPrompt}
             options={interactiveTaskData.options}
             onPass={() => {
-              setPracticePassed(true);
               onComplete?.();
             }}
           />
           {practicePassed && (
-            <div className="flex justify-center mt-8">
+            <div className="flex justify-center mt-8 relative z-30">
               <button
-                onClick={onNext}
-                className="px-8 py-4 bg-[var(--ln-teal-500)] text-white rounded-2xl font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all"
+                onClick={() => onNext()}
+                className="px-8 py-4 bg-[var(--ln-teal-500)] text-white rounded-2xl font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all cursor-pointer"
               >
                 Continue to Summary <ArrowRight size={18} />
               </button>
@@ -348,31 +440,51 @@ export function LessonStage({
 
   // ── Summary card ───────────────────────────────────
   const renderSummary = () => (
-    <div className="space-y-10 text-center py-12">
-      {card.visualKey || card.visual ? (
-        <div className="w-full">{renderVisual(card.visualKey || card.visual)}</div>
-      ) : (
-        <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 className="w-10 h-10 text-emerald-500" />
-        </div>
-      )}
-      <div className="space-y-4">
-        <h2 className="text-3xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">
+    <div className="flex flex-col items-center py-6 min-h-full">
+      {/* Module Completion Visual Header */}
+      <div className="mb-10 w-full max-w-5xl">
+        {card.visualKey || card.visual ? (
+          <div className="w-full">{renderVisual(card.visualKey || card.visual)}</div>
+        ) : (
+          <div className="w-24 h-24 bg-emerald-50 rounded-full flex items-center justify-center mx-auto">
+            <CheckCircle2 className="w-12 h-12 text-emerald-500" />
+          </div>
+        )}
+      </div>
+
+      <div className="max-w-4xl w-full text-center mb-12">
+        <h2 className="text-3xl md:text-5xl font-black text-[var(--ln-navy-900)] uppercase tracking-tight leading-tight mb-8">
           {card.title || "Module Complete"}
         </h2>
-        <div className="prose prose-slate max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {card.body || ""}
-          </ReactMarkdown>
+        
+        <div className="prose prose-slate max-w-none text-left bg-slate-50/50 rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-sm relative overflow-hidden">
+          <div className="absolute -top-6 -right-6 p-10 opacity-[0.03] text-slate-900 pointer-events-none">
+            <CheckCircle2 size={240} />
+          </div>
+          
+          <div className="relative z-10">
+            <ReactMarkdown 
+              remarkPlugins={[remarkGfm]}
+              components={markdownComponents}
+            >
+              {card.body || ""}
+            </ReactMarkdown>
+          </div>
         </div>
       </div>
+
       {onNextModule && (
-        <button
-          onClick={onNextModule}
-          className="px-10 py-4 bg-[var(--ln-teal-500)] text-white rounded-2xl font-extrabold uppercase tracking-widest flex items-center gap-2 mx-auto shadow-xl shadow-[var(--ln-teal-500)]/20 hover:scale-105 transition-all"
-        >
-          Advance to Next Lesson <ArrowRight size={20} />
-        </button>
+        <div className="pb-10">
+          <button
+            onClick={onNextModule}
+            className="px-12 py-6 bg-[var(--ln-teal-600)] text-white rounded-[2rem] font-black uppercase tracking-[0.2em] flex items-center gap-4 shadow-2xl shadow-[var(--ln-teal-500)]/30 hover:scale-105 hover:bg-[var(--ln-teal-500)] transition-all animate-in fade-in slide-in-from-bottom-6 duration-1000 group"
+          >
+            Advance to Next Lesson 
+            <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform">
+              <ArrowRight size={20} />
+            </div>
+          </button>
+        </div>
       )}
     </div>
   );
@@ -396,7 +508,31 @@ export function LessonStage({
       card.visualKey === "forex-relationship" ||
       card.visualKey === "forex-instruments" ||
       card.visualKey === "forex-context-comparison" ||
-      card.visualKey === "forex-mini-drill";
+      card.visualKey === "forex-mini-drill" ||
+      card.visualKey === "gold-reading-map" ||
+      card.visualKey === "gold-driver-map" ||
+      card.visualKey === "gold-urgency-trap" ||
+      card.visualKey === "gold-noise-decision" ||
+      card.visualKey === "market-mechanism" ||
+      card.visualKey === "order-matching" ||
+      card.visualKey === "microstructure-board" ||
+      card.visualKey === "liquidity-comparison" ||
+      card.visualKey === "intent-logic" ||
+      card.visualKey === "mindset-comparison" ||
+      card.visualKey === "transaction-mechanism" ||
+      card.visualKey === "market-mechanism-recap" ||
+      card.visualKey === "forex-network" ||
+      card.visualKey === "forex-quote-panel" ||
+      card.visualKey === "forex-session-liquidity" ||
+      card.visualKey === "forex-quote-quality-drill" ||
+      card.visualKey === "crypto-venue-map" ||
+      card.visualKey === "crypto-market-engines" ||
+      card.visualKey === "crypto-liquidity-fragmentation" ||
+      card.visualKey === "crypto-venue-noise-drill" ||
+      card.visualKey === "gold-market-map" ||
+      card.visualKey === "gold-otc-bilateral" ||
+      card.visualKey === "gold-futures-mechanics" ||
+      card.visualKey === "gold-market-layer-drill";
 
     return (
       <div className="space-y-5">
@@ -424,28 +560,14 @@ export function LessonStage({
             {/* Visual First (if stacked) */}
             {hasVisual && (
               <div className={cn(
-                "w-full bg-slate-50/50 rounded-[2rem] p-2 md:p-4 border border-slate-100 flex items-center justify-center overflow-hidden",
-                (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "learner-profiles" || card.visualKey === "training-cockpit" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill") ? "" : "max-h-[40vh]"
+                "w-full bg-slate-50/50 rounded-[2rem] p-2 md:p-8 border border-slate-100 flex items-center justify-center",
+                (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "learner-profiles" || card.visualKey === "training-cockpit" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill" || card.visualKey === "gold-reading-map" || card.visualKey === "gold-driver-map" || card.visualKey === "gold-urgency-trap" || card.visualKey === "gold-noise-decision" || card.visualKey === "market-mechanism" || card.visualKey === "order-matching" || card.visualKey === "microstructure-board" || card.visualKey === "liquidity-comparison" || card.visualKey === "intent-logic" || card.visualKey === "mindset-comparison" || card.visualKey === "transaction-mechanism" || card.visualKey === "market-mechanism-recap" || card.visualKey === "forex-network" || card.visualKey === "forex-quote-panel" || card.visualKey === "forex-session-liquidity" || card.visualKey === "forex-quote-quality-drill" || card.visualKey === "crypto-venue-map" || card.visualKey === "crypto-market-engines" || card.visualKey === "crypto-liquidity-fragmentation" || card.visualKey === "crypto-venue-noise-drill" || card.visualKey === "gold-market-map" || card.visualKey === "gold-otc-bilateral" || card.visualKey === "gold-futures-mechanics" || card.visualKey === "gold-market-layer-drill") ? "" : "max-h-[40vh] overflow-hidden"
               )}>
                 <div className={cn(
                   "w-full flex justify-center",
-                  (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill") ? "" : "max-h-full"
+                  (card.visualKey === "academy-path" || card.visualKey === "learning-loop" || card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics" || card.visualKey === "crypto-hype-filtering-drill" || card.visualKey === "gold-reading-map" || card.visualKey === "gold-driver-map" || card.visualKey === "gold-urgency-trap" || card.visualKey === "gold-noise-decision" || card.visualKey === "market-mechanism" || card.visualKey === "order-matching" || card.visualKey === "microstructure-board" || card.visualKey === "liquidity-comparison" || card.visualKey === "intent-logic" || card.visualKey === "mindset-comparison" || card.visualKey === "transaction-mechanism" || card.visualKey === "market-mechanism-recap" || card.visualKey === "forex-network" || card.visualKey === "forex-quote-panel" || card.visualKey === "forex-session-liquidity" || card.visualKey === "forex-quote-quality-drill" || card.visualKey === "crypto-venue-map" || card.visualKey === "crypto-market-engines" || card.visualKey === "crypto-liquidity-fragmentation" || card.visualKey === "crypto-venue-noise-drill" || card.visualKey === "gold-market-map" || card.visualKey === "gold-otc-bilateral" || card.visualKey === "gold-futures-mechanics" || card.visualKey === "gold-market-layer-drill") ? "" : "max-h-full"
                 )}>
                   {renderVisual(card.visualKey || card.visual)}
-                </div>
-              </div>
-            )}
-
-            {/* Special bypass for visuals that need body below them */}
-            {(card.visualKey === "practice-timeline" || card.visualKey === "decision-gate" || card.visualKey === "hype-trap-path" || card.visualKey === "forex-relationship" || card.visualKey === "forex-instruments" || card.visualKey === "forex-context-comparison" || card.visualKey === "forex-mini-drill" || card.visualKey === "crypto-mechanics") && hasBody && (
-              <div className="max-w-4xl mx-auto pt-2">
-                <div className="prose prose-slate max-w-none">
-                  <ReactMarkdown
-                    remarkPlugins={[remarkGfm]}
-                    components={markdownComponents}
-                  >
-                    {card.body || ""}
-                  </ReactMarkdown>
                 </div>
               </div>
             )}
@@ -572,9 +694,9 @@ export function LessonStage({
               </div>
             )}
 
-            {/* Body text (if stacked and no side-by-side) */}
-            {hasBody && !hasVisual && (
-              <div className="max-w-3xl">
+            {/* Body text (if stacked) */}
+            {hasBody && (
+              <div className={cn("mx-auto", isSpecialLayout ? "max-w-4xl" : "max-w-3xl")}>
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={markdownComponents}

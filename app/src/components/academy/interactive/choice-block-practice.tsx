@@ -15,6 +15,8 @@ interface ChoiceBlockPracticeProps {
   question: string;
   options: ChoiceOption[] | string[];
   correctIndex?: number;
+  correctId?: string;
+  feedback?: Record<string, string>;
   onPass: () => void;
 }
 
@@ -26,7 +28,14 @@ interface ChoiceBlockPracticeProps {
  * - Shows feedback on selection
  * - Calls onPass() when correct answer is selected
  */
-export function ChoiceBlockPractice({ question, options: rawOptions, correctIndex, onPass }: ChoiceBlockPracticeProps) {
+export function ChoiceBlockPractice({ 
+  question, 
+  options: rawOptions, 
+  correctIndex, 
+  correctId,
+  feedback: feedbackMap,
+  onPass 
+}: ChoiceBlockPracticeProps) {
   const options: ChoiceOption[] = (rawOptions as any[]).map((opt: any, index) => {
     if (typeof opt === 'string') {
       return {
@@ -36,7 +45,15 @@ export function ChoiceBlockPractice({ question, options: rawOptions, correctInde
         feedback: correctIndex === index ? "Correct! Well done." : "Incorrect. Review the lesson content."
       };
     }
-    return opt;
+    
+    // If it's already an object but missing isCorrect/feedback, fill them from props
+    const id = opt.id || String.fromCharCode(65 + index);
+    return {
+      ...opt,
+      id,
+      isCorrect: opt.isCorrect !== undefined ? opt.isCorrect : (correctId ? id === correctId : correctIndex === index),
+      feedback: opt.feedback || (feedbackMap ? feedbackMap[id] : (correctIndex === index ? "Correct! Well done." : "Incorrect. Review the lesson content."))
+    };
   });
 
   const [selected, setSelected] = useState<string | null>(null);
@@ -182,11 +199,11 @@ export function ChoiceBlockPractice({ question, options: rawOptions, correctInde
                   "text-xs font-bold leading-relaxed prose-sm",
                   isCorrect ? "text-slate-800" : "text-rose-700"
                 )}>
-                  {options.find(o => o.id === selected)?.feedback.split('\\n').map((line, i) => (
+                  {options.find(o => o.id === selected)?.feedback?.split('\\n').map((line, i) => (
                     <p key={i} className={cn(line.startsWith('**') ? "mt-4 pt-4 border-t border-emerald-100 font-black uppercase tracking-widest text-[9px]" : "")}>
                       {line.replace(/\*\*/g, '')}
                     </p>
-                  ))}
+                  )) || <p>Correct! Well done.</p>}
                 </div>
               </div>
 

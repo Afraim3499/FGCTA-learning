@@ -306,49 +306,101 @@ async function main() {
       goldAdaptation: `:::lesson-cards
 [
   {
-    "type": "mission_brief",
+    "type": "visual_intro",
     "title": "Gold Brief: Speed vs. Clarity",
+    "visualKey": "gold-reading-map",
     "label": "Roadway Context",
-    "body": "Gold (**XAU/USD**) is known for its speed, but urgency is not evidence. To read Gold, you must understand its unique drivers.\\n\\n**Liquidity**: The 'Busy Market' factor. It describes how many orders are available. Gold can be fast but 'thin' (low orders), leading to noisy moves.\\n**Wick**: The thin lines above/below a candle. Like 'Footprints in the Sand,' they show where price went before being pushed back.\\n\\n**Seesaw Analogy**: Gold often acts as a seesaw against the Dollar. When the Dollar gets heavier (stronger), the Gold price often drops."
+    "body": "Gold can move quickly, but speed alone does not make a reading reliable. A Lurnava learner checks whether the move has structure, liquidity, wick context, and supporting Dollar/rate background.",
+    "context": {
+      "keyTerms": [
+        { "term": "XAU/USD", "definition": "Gold priced against the US Dollar." },
+        { "term": "Liquidity", "definition": "How much active buying and selling is available. Thin liquidity can make movement noisy." },
+        { "term": "Wick", "definition": "The thin part of a candle showing where price traveled before being pushed back." },
+        { "term": "Dollar context", "definition": "The broader strength or weakness of the US Dollar." },
+        { "term": "Rate pressure", "definition": "Interest-rate expectations that can influence Gold demand and pricing." },
+        { "term": "Speed vs clarity", "definition": "The difference between fast movement and reliable evidence." }
+      ],
+      "whyThisMatters": "Gold often moves faster than learners expect. If a learner treats every spike as meaningful, they may confuse noise with evidence. The goal is not to react to speed, but to decide whether the move is structurally clear.",
+      "realLifeExample": "Gold spikes upward quickly during a news-sensitive period, then leaves a long wick. A rushed learner thinks the move is strong. A trained learner checks whether the structure actually changed or whether price only rejected quickly in noisy conditions.",
+      "commonMistake": "Thinking fast movement means clear direction. In Gold, speed can be noise unless structure and context support it.",
+      "quickNote": "Fast is not the same as clear."
+    }
   },
   {
-    "type": "concept",
+    "type": "visual_intro",
     "title": "Gold Context Drivers",
-    "label": "Terminology",
-    "items": [
-      { "title": "Volatility", "body": "The speed and size of price drops and climbs. Gold is like a high-speed rollercoaster compared to stable currencies.", "icon": "zap" },
-      { "title": "Cash Expectations", "body": "The market's view on holding cash vs. Gold. If cash pays high interest, people often sell Gold to hold Dollars instead.", "icon": "scale" }
-    ]
+    "visualKey": "gold-driver-map",
+    "label": "Context Drivers",
+    "body": "Gold can move quickly, but speed alone does not make a reading. A Lurnava learner checks the background drivers first, then decides whether the chart is showing structure or only noise.",
+    "context": {
+      "keyTerms": [
+        { "term": "Volatility", "definition": "How quickly and widely price moves." },
+        { "term": "USD Context", "definition": "The broader strength or weakness of the US Dollar." },
+        { "term": "Rate Expectations", "definition": "Market expectations about interest rates and the attractiveness of holding cash or interest-paying assets." },
+        { "term": "Market Uncertainty", "definition": "Periods where fear, risk, or instability can increase attention on Gold." },
+        { "term": "Liquidity", "definition": "How much active buying and selling is available. Thin liquidity can make Gold movement noisy." },
+        { "term": "Wick Rejection", "definition": "When price moves into an area but is pushed back before the candle closes." }
+      ],
+      "whyThisMatters": "Gold often reacts quickly to background conditions. If a learner reads only the candle, they may mistake a fast move for a clear move. Context drivers help separate meaningful pressure from temporary noise.",
+      "realLifeExample": "Gold jumps during a news-sensitive period while the Dollar is weakening. A rushed learner reacts to the spike. A trained learner checks whether the move is supported by USD context, rate expectations, liquidity, and whether the candle holds or rejects.",
+      "commonMistake": "Treating Gold like a normal slow-moving chart. Gold can move fast, reject quickly, and punish readings that ignore context.",
+      "quickNote": "In Gold, context comes before confidence."
+    }
   },
   {
-    "type": "scenario",
+    "type": "visual_intro",
     "title": "The 'Urgency' Trap",
+    "visualKey": "gold-urgency-trap",
     "label": "Mistake Pattern",
-    "scenario": {
-      "left": {
-        "title": "Reaction to Speed",
-        "content": "A learner sees a long wick form quickly on Gold and assumes an immediate reversal because the move was so fast."
-      },
-      "right": {
-        "title": "Waiting for Structure",
-        "content": "A learner recognizes the volatility but waits for structural evidence to confirm if the 'footprint' (wick) is actually a clue."
-      }
+    "body": "Gold often moves quickly and leaves dramatic wicks. A rushed learner treats that urgency as proof. A trained learner treats the wick as a clue and waits for structural confirmation before forming a reading.",
+    "context": {
+      "keyTerms": [
+        { "term": "Wick", "definition": "The thin line above or below a candle showing where price travelled before pulling back." },
+        { "term": "Volatility", "definition": "How quickly and sharply price moves." },
+        { "term": "Structural evidence", "definition": "Observable chart conditions supporting a reading." },
+        { "term": "Urgency trap", "definition": "Mistaking fast movement for proof." }
+      ],
+      "whyThisMatters": "Gold can move so fast that the learner feels forced to react immediately. That pressure often creates weak readings. Speed increases emotion, not certainty.",
+      "realLifeExample": "Gold spikes quickly and leaves a long upper wick. A rushed learner instantly assumes reversal. A trained learner waits to see whether structure actually confirms weakness.",
+      "commonMistake": "Treating a dramatic wick as a direct instruction instead of a possible clue.",
+      "quickNote": "Fast does not mean clear. A wick can suggest something, but it must be validated."
     }
   },
   {
     "type": "practice",
     "title": "Gold Mini Drill: Noise vs. Clue",
+    "visualKey": "gold-noise-decision",
     "label": "Practical Drill",
+    "body": "Gold forms a large candle with long wicks in both directions during a highly volatile period. The move looks dramatic, but the candle also shows rejection on both sides.",
     "taskData": {
       "type": "choice_block",
-      "question": "Scenario: Gold makes a large candle with long wicks in both directions during a highly volatile period. What is the better beginner response?",
+      "question": "What is the disciplined Gold reading?",
       "options": [
-        "Big movement means high clarity, so act as fast as the market moves.",
-        "The long wicks alone are a guaranteed signal that price will reverse soon.",
-        "Classify the condition as noisy or unclear until structure gives better evidence.",
-        "Skip the review process because Gold is too fast for journal notes."
+        { "id": "a", "text": "Big movement means high clarity, so the reading should be trusted immediately." },
+        { "id": "b", "text": "The long wicks alone are a guaranteed signal that price will reverse soon." },
+        { "id": "c", "text": "Classify the condition as noisy or unclear until structure provides stronger evidence." },
+        { "id": "d", "text": "Skip the review note because Gold moves too fast to record reasoning." }
       ],
-      "correctIndex": 2
+      "correctId": "c",
+      "feedback": {
+        "c": "Correct. A large Gold candle with long wicks in both directions can show volatility, rejection, or unclear pressure. A Lurnava learner does not force a reading from drama alone. They classify the condition as noisy or unclear until structure gives stronger evidence.\\n\\n**Lurnava Principle:** When the chart is unclear, 'unclear' is a valid reading.",
+        "a": "Not correct. Big movement does not automatically mean high clarity. In Gold, speed can create emotional pressure and make noisy movement look important.",
+        "b": "Not correct. A long wick can be a clue, but it is not a guaranteed reversal signal. The learner still needs structure and confirmation.",
+        "d": "Not correct. Fast markets make review more important, not less important. If the learner does not record reasoning, the session leaves no learning record."
+      }
+    },
+    "context": {
+      "keyTerms": [
+        { "term": "Noisy condition", "definition": "A market condition where movement is active but not clear enough to form a strong reading." },
+        { "term": "Wick", "definition": "The thin part of a candle showing where price traveled before being pushed back." },
+        { "term": "Volatility", "definition": "How quickly and sharply price moves." },
+        { "term": "Structural evidence", "definition": "Observable chart behavior that supports a reading." },
+        { "term": "Unclear reading", "definition": "An honest label used when the chart does not provide enough evidence yet." }
+      ],
+      "whyThisMatters": "Gold can move dramatically and still be unclear. A learner who treats every large candle as a signal may confuse activity with evidence. Learning to label noise honestly prevents forced readings.",
+      "realLifeExample": "Gold creates a large candle with long wicks above and below. A rushed learner tries to decide direction immediately. A trained learner recognizes that both sides were rejected and waits for structure before forming a stronger reading.",
+      "commonMistake": "Thinking that a dramatic candle must contain a clear answer.",
+      "quickNote": "Noisy is a valid label. You do not need to force a reading."
     }
   }
 ]
@@ -475,89 +527,444 @@ async function main() {
       content: `:::lesson-cards
 [
   {
-    "type": "concept",
+    "type": "visual_intro",
     "title": "What a Market Really Is",
     "label": "The Core",
-    "body": "To read a chart, you must first understand what you are actually looking at. A price chart is not just a bunch of lines; it is a **visual record of human and algorithmic interaction**.\\n\\nAt its simplest level, a market is a matching engine where buyers and sellers meet to exchange assets."
-  },
-  {
-    "type": "concept",
-    "title": "The Meeting of Orders",
-    "label": "Mechanics",
-    "body": "Every price movement is the result of an **Order Interaction**.\\n\\n- **Buyers** want the lowest price.\\n- **Sellers** want the highest price.\\n\\nWhen they agree, a transaction happens. If buyers are more aggressive than sellers at a specific price, the price must move higher to find new supply."
-  },
-  {
-    "type": "concept",
-    "title": "The Three Pillars",
-    "label": "Terminology",
-    "items": [
-      { "title": "The Spread", "body": "The gap between the Bid (Buy) and Ask (Sell) prices.", "icon": "spread" },
-      { "title": "Liquidity", "body": "The availability of orders waiting to be matched.", "icon": "liquidity" },
-      { "title": "Orders", "body": "Instructions like 'Market' (Now!) or 'Limit' (At this price).", "icon": "orders" }
-    ]
-  },
-  {
-    "type": "scenario",
-    "title": "Liquidity in Action",
-    "label": "Example",
-    "scenario": {
-      "left": {
-        "title": "Liquid Market",
-        "content": "There are many orders waiting to be matched. A buyer can easily find an seller."
-      },
-      "right": {
-        "title": "Illiquid Market",
-        "content": "There are few orders waiting. A buyer must move the price significantly to find a seller."
-      }
+    "visualKey": "market-mechanism",
+    "body": "A market is not a prediction machine. It is a place where buy orders and sell orders meet. The chart records those interactions after they happen.",
+    "context": {
+      "keyTerms": [
+        { "term": "Market", "definition": "A place or system where buyers and sellers exchange assets." },
+        { "term": "Buyer", "definition": "A participant willing to pay a price to receive an asset." },
+        { "term": "Seller", "definition": "A participant willing to accept a price to give up an asset." },
+        { "term": "Order", "definition": "An instruction to buy or sell under certain conditions." },
+        { "term": "Matching engine", "definition": "The system that matches compatible buy and sell orders." },
+        { "term": "Transaction", "definition": "The completed exchange between a buyer and a seller." },
+        { "term": "Price chart", "definition": "A visual record of completed market interactions over time." }
+      ],
+      "whyThisMatters": "Many learners treat a chart like a signal machine. But a chart is a record of transactions. If the learner understands that every candle comes from buyers, sellers, orders, and matching, the chart becomes easier to read as behavior instead of mystery.",
+      "realLifeExample": "In a marketplace, one person wants to buy a phone and another wants to sell it. When they agree on a price, a transaction happens. Financial markets work differently in scale and speed, but the basic idea is still buyers and sellers meeting through orders.",
+      "commonMistake": "Thinking the chart tells the future. The chart records what already happened; the learner’s job is to read the behavior and context behind that record.",
+      "quickNote": "A chart is not magic. It is a record of interaction."
     }
   },
   {
-    "type": "rule",
-    "title": "The Intent Rule",
-    "label": "Logic",
-    "body": "> Price does not move because of magic patterns. It moves because of **Intent**.\\n\\nLarge amounts of capital are moved by participants with specific goals. Patterns are just the symptoms of that intent."
+    "type": "visual_intro",
+    "title": "The Meeting of Orders",
+    "label": "Mechanics",
+    "visualKey": "order-matching",
+    "body": "Price changes when orders meet at new levels. A chart does not move by magic; it updates because transactions are happening between buyers and sellers.",
+    "context": {
+      "keyTerms": [
+        { "term": "Bid", "definition": "The price a buyer is willing to pay." },
+        { "term": "Ask", "definition": "The price a seller is willing to accept." },
+        { "term": "Spread", "definition": "The gap between the best bid and the best ask." },
+        { "term": "Order", "definition": "An instruction to buy or sell under certain conditions." },
+        { "term": "Transaction", "definition": "A completed exchange between a buyer and a seller." },
+        { "term": "Aggressive buyer", "definition": "A buyer willing to accept the seller’s price to get filled sooner." },
+        { "term": "Aggressive seller", "definition": "A seller willing to accept the buyer’s price to sell sooner." },
+        { "term": "Liquidity", "definition": "Available orders in the market that can absorb buying or selling." }
+      ],
+      "whyThisMatters": "Many learners look at price movement as if it appears by itself. In reality, price updates because orders are being matched. Understanding this helps the learner read candles as records of buyer-seller interaction, not random motion.",
+      "realLifeExample": "A seller is willing to sell at 100.10. A buyer wants the asset now and accepts that price. A transaction happens at 100.10, and the chart records the result. If buyers keep accepting higher asks, price may print higher.",
+      "commonMistake": "Thinking price moves because a candle “wants” to go somewhere. Candles only record transactions that already happened.",
+      "quickNote": "Price moves when orders meet."
+    }
   },
   {
-    "type": "comparison",
+    "type": "visual_intro",
+    "title": "The Three Pillars",
+    "label": "Market Mechanics",
+    "visualKey": "microstructure-board",
+    "body": "Orders are the instructions. Liquidity is the available order depth. Spread is the gap between the best buyer and seller prices. Together, they shape how clean or noisy a market can feel.",
+    "context": {
+      "keyTerms": [
+        { "term": "Bid", "definition": "The price a buyer is willing to pay." },
+        { "term": "Ask", "definition": "The price a seller is willing to accept." },
+        { "term": "Spread", "definition": "The gap between the best bid and the best ask." },
+        { "term": "Liquidity", "definition": "Available orders that can absorb buying or selling." },
+        { "term": "Market Order", "definition": "An order that prioritizes getting filled now." },
+        { "term": "Limit Order", "definition": "An order that sets a specific price condition." },
+        { "term": "Order Book", "definition": "A list of buy and sell orders waiting in the market." }
+      ],
+      "whyThisMatters": "A chart can look confusing if the learner does not understand what sits behind price movement. Spread, liquidity, and orders explain why some moves look clean while others look noisy, jumpy, or hard to read.",
+      "realLifeExample": "If there are many buy and sell orders near the current price, movement may appear smoother. If there are few available orders, price may jump more easily because there is less liquidity to absorb activity.",
+      "commonMistake": "Thinking price moves smoothly just because the chart line looks continuous. Under the chart, price is moving through available orders.",
+      "quickNote": "Spread, liquidity, and orders are the market’s working parts."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "Liquidity in Action",
+    "label": "Example",
+    "visualKey": "liquidity-comparison",
+    "body": "Liquidity affects how far price must travel to complete transactions. A market with more nearby orders can absorb activity more smoothly; a thin market may move sharply from the same action.",
+    "context": {
+      "keyTerms": [
+        { "term": "Liquidity", "definition": "The availability of orders that can absorb buying or selling action." },
+        { "term": "Illiquid Market", "definition": "A market with few available orders and large gaps between prices." },
+        { "term": "Order Depth", "definition": "The volume of orders stacked at various price levels." },
+        { "term": "Matching", "definition": "The process of pairing a buyer with a seller." },
+        { "term": "Slippage", "definition": "The difference between the expected price and the actual execution price." },
+        { "term": "Price Movement", "definition": "The result of orders consuming liquidity across different levels." }
+      ],
+      "whyThisMatters": "Understanding liquidity explains why the same action can cause different results. In a dense (liquid) market, price is stable. In a sparse (illiquid) market, price is volatile and can jump unexpectedly.",
+      "realLifeExample": "Buying a common item at a large supermarket (liquid) vs. a rare collectible at a small auction (illiquid). In the supermarket, the price doesn't change because you bought one. In the auction, your bid can move the price significantly.",
+      "commonMistake": "Expecting price to move with the same 'weight' in every market. Different assets have different liquidity depths.",
+      "quickNote": "Same buy order. Different order depth. Different price movement."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "The Intent Rule",
+    "label": "Logic",
+    "visualKey": "intent-logic",
+    "body": "A pattern is not the cause. It is the visible result of orders and pressure. A Lurnava learner studies the behavior behind the pattern, not the shape alone.",
+    "context": {
+      "keyTerms": [
+        { "term": "Intent", "definition": "The visible purpose behind market activity, shown through buying, selling, defending, or exiting." },
+        { "term": "Pattern", "definition": "A shape on the chart formed after price has moved." },
+        { "term": "Pressure", "definition": "The effect created when one side becomes more aggressive or persistent." },
+        { "term": "Participant", "definition": "A buyer, seller, algorithm, or institution interacting with the market." },
+        { "term": "Symptom", "definition": "A visible sign of something deeper happening underneath." },
+        { "term": "Order flow", "definition": "The movement and matching of buy and sell orders over time." }
+      ],
+      "whyThisMatters": "Many learners memorize chart patterns as if the shape itself controls price. This creates shallow reading. Lurnava trains the learner to ask what behavior may have created the pattern.",
+      "realLifeExample": "A chart forms a breakout shape. A rushed learner sees the shape and assumes the move is valid. A trained learner asks whether buyers actually showed pressure, or whether sellers were simply absent.",
+      "commonMistake": "Thinking a pattern is powerful by itself, without checking the market behavior that formed it.",
+      "quickNote": "The shape is the symptom. The behavior is the lesson."
+    }
+  },
+  {
+    "type": "visual_intro",
     "title": "How to Approach the Chart",
     "label": "Mindset",
-    "comparison": {
-      "left": {
-        "title": "The Guesser",
-        "type": "negative",
-        "content": "'The chart looks like it's going up, so I'll buy.'"
-      },
-      "right": {
-        "title": "The Observer",
-        "type": "positive",
-        "content": "'I observe buyers hitting the Ask and pushing through seller levels. This is evidence of intent.'"
-      }
+    "visualKey": "mindset-comparison",
+    "body": "Do not “guess” based on what the chart looks like. Observe what buyers, sellers, and pressure are actually doing.",
+    "context": {
+      "keyTerms": [
+        { "term": "Observation", "definition": "The act of gathering evidence from market behavior before forming a conclusion." },
+        { "term": "Guessing", "definition": "Forming an opinion based on chart appearance without underlying evidence." },
+        { "term": "Evidence", "definition": "Visible signs of market pressure, such as buyers hitting the Ask or sellers being absorbed." },
+        { "term": "Buy pressure", "definition": "The result of buyers being more aggressive than sellers at a specific level." },
+        { "term": "Ask", "definition": "The price level where sellers are waiting to be matched." },
+        { "term": "Intent", "definition": "The visible purpose behind price movement." }
+      ],
+      "whyThisMatters": "Many beginners form opinions from chart appearance alone. Lurnava trains the learner to build conclusions from visible market behavior.",
+      "realLifeExample": "A chart rises quickly. A guesser buys because the move “looks strong.” An observer checks whether buyers are actually pressing through seller levels or whether the move is weak and unsupported.",
+      "commonMistake": "Mistaking visual direction for confirmed evidence.",
+      "quickNote": "Appearance is not proof. Read behavior, pressure, and intent."
     }
   },
   {
     "type": "practice",
     "title": "Practice Check",
-    "label": "Interactive Task"
+    "label": "Interactive Task",
+    "visualKey": "transaction-mechanism",
+    "body": "A buyer is willing to pay a price, and a seller is willing to accept that price. What has to happen for this to become a market transaction?",
+    "taskData": {
+      "type": "choice_block",
+      "question": "Which explanation is correct?",
+      "options": [
+        { "id": "A", "text": "A transaction happens when the chart forms a special pattern.", "isCorrect": false, "feedback": "Not correct. A pattern does not create a transaction. Patterns appear after price has moved; transactions come from matched buy and sell orders." },
+        { "id": "B", "text": "A transaction happens when compatible buy and sell orders are matched at a price.", "isCorrect": true, "feedback": "Correct. A transaction happens when compatible buy and sell orders are matched at a price. The chart then records that completed exchange." },
+        { "id": "C", "text": "A transaction happens when the computer randomly decides price should move.", "isCorrect": false, "feedback": "Not correct. The computer does not randomly decide that price should move. A matching engine connects compatible orders. Price updates because transactions happen." },
+        { "id": "D", "text": "A transaction happens automatically every few seconds regardless of orders.", "isCorrect": false, "feedback": "Not correct. Transactions do not happen automatically just because time passes. They happen when orders are matched." }
+      ]
+    },
+    "context": {
+      "keyTerms": [
+        { "term": "Transaction", "definition": "A completed exchange between buyer and seller through matched orders." },
+        { "term": "Matched order", "definition": "A buy order and sell order that can execute at a compatible price." },
+        { "term": "Buyer", "definition": "A participant willing to pay for an asset." },
+        { "term": "Seller", "definition": "A participant willing to give up an asset for a price." },
+        { "term": "Chart record", "definition": "The visual record of completed market interactions." }
+      ],
+      "whyThisMatters": "If a learner thinks transactions happen because of patterns, randomness, or time, the chart feels mysterious. Understanding matched orders makes price movement easier to read as market behavior.",
+      "commonMistake": "Thinking the chart creates transactions. The chart only records transactions after they happen.",
+      "quickNote": "No matched orders, no transaction."
+    }
   },
   {
     "type": "summary",
-    "title": "Module Summary",
-    "label": "Recap",
-    "body": "A market is a matching engine for buyers and sellers. Price moves to find the next available area of liquidity. Your job is to observe where those orders are likely to be."
+    "title": "Module Debrief: The Machine Behind the Chart",
+    "label": "Module Debrief",
+    "visualKey": "market-mechanism-recap",
+    "body": "You now understand that a market is not a signal machine. It is a system of participants, orders, matching, transactions, liquidity, and visible chart records.\\n\\n### You should now be able to explain:\\n\\n* [x] What a market really is\\n* [x] How buyers and sellers create transactions\\n* [x] Why bid, ask, spread, orders, and liquidity matter\\n* [x] Why price can move differently in liquid and illiquid conditions\\n* [x] Why patterns are symptoms of behavior, not magic causes\\n* [x] How an observer approaches a chart differently from a guesser\\n\\n**Next: Candles.** Now that you understand that charts record transactions, the next module shows how those transactions become candle bodies, wicks, and market structure.",
+    "context": {
+      "keyTerms": [
+        { "term": "Matching system", "definition": "The mechanism that connects buyers and sellers." },
+        { "term": "Visual record", "definition": "What you see on the chart (candles, patterns)." },
+        { "term": "Synthesis", "definition": "Combining individual concepts into a complete mental model." }
+      ],
+      "whyThisMatters": "The chart is the record. The market is the machine underneath. Mastery comes from reading the machine.",
+      "quickNote": "You are no longer reading shapes. You are reading behavior."
+    }
   }
 ]
 :::`,
       interactiveTaskType: "choice_block",
       interactiveTaskData: {
-        question: "Which of the following is the best explanation of a market transaction?",
+        question: "Which explanation is correct?",
         options: [
-          "A transaction happens when the chart forms a special pattern like a triangle.",
-          "A transaction happens when a buyer and a seller agree on a price and an order is matched.",
-          "A transaction happens when the computer decides it is time for the price to move.",
-          "A transaction happens automatically every few seconds regardless of orders."
-        ],
-        correctIndex: 1
+          { "id": "A", "text": "A transaction happens when the chart forms a special pattern.", "isCorrect": false, "feedback": "Not correct. A pattern does not create a transaction. Patterns appear after price has moved; transactions come from matched buy and sell orders." },
+          { "id": "B", "text": "A transaction happens when compatible buy and sell orders are matched at a price.", "isCorrect": true, "feedback": "Correct. A transaction happens when compatible buy and sell orders are matched at a price. The chart then records that completed exchange." },
+          { "id": "C", "text": "A transaction happens when the computer randomly decides price should move.", "isCorrect": false, "feedback": "Not correct. The computer does not randomly decide that price should move. A matching engine connects compatible orders. Price updates because transactions happen." },
+          { "id": "D", "text": "A transaction happens automatically every few seconds regardless of orders.", "isCorrect": false, "feedback": "Not correct. Transactions do not happen automatically just because time passes. They happen when orders are matched." }
+        ]
       },
+      forexAdaptation: `:::lesson-cards
+[
+  {
+    "type": "visual_intro",
+    "title": "Forex Is a Quote Network, Not One Central Exchange",
+    "label": "Market Structure",
+    "visualKey": "forex-network",
+    "body": "Forex is decentralized. You are not looking at one universal central exchange order book; you are looking at a feed generated by a network of providers, brokers, and aggregators.",
+    "context": {
+      "keyTerms": [
+        { "term": "Decentralized", "definition": "A market with no single central location or exchange." },
+        { "term": "Liquidity Provider", "definition": "Large banks and institutions that provide the underlying price quotes." },
+        { "term": "Broker / Aggregator", "definition": "The entity that connects you to the liquidity network." },
+        { "term": "Quote Feed", "definition": "The stream of prices shown on your chart." }
+      ],
+      "whyThisMatters": "Retail learners often think there is one 'true' price. In Forex, the quote you see depends on your provider's network. Understanding this helps you focus on behavior over tiny price discrepancies.",
+      "realLifeExample": "Buying a currency at a local airport vs. an online bank. The underlying asset is the same, but the network and fees create different quotes.",
+      "commonMistake": "Thinking every chart for the same pair must look exactly the same at all times.",
+      "quickNote": "Forex is a network, not a building."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "Bid, Ask, and Spread in Forex",
+    "label": "Quote Mechanics",
+    "visualKey": "forex-quote-panel",
+    "body": "Forex is read through quoted bid/ask prices. Before reading candle movement, you must understand the cost of interaction: the spread.",
+    "context": {
+      "keyTerms": [
+        { "term": "Bid", "definition": "The price where you can sell (hitting the buyer's level)." },
+        { "term": "Ask", "definition": "The price where you can buy (hitting the seller's level)." },
+        { "term": "Spread", "definition": "The difference between Bid and Ask, usually measured in pips." },
+        { "term": "Pip", "definition": "The smallest price move in a Forex pair." }
+      ],
+      "whyThisMatters": "The spread is your immediate cost. If the spread is wide, a move on the chart might not represent clean intent—it might just be a shift in the quote gap.",
+      "realLifeExample": "Buying a house at the listed price (Ask) but knowing you could only sell it immediately for less (Bid). The difference is the spread.",
+      "commonMistake": "Ignoring the spread when reading small candle movements.",
+      "quickNote": "You buy at the Ask and sell at the Bid."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "Session Liquidity Changes the Quality of the Quote",
+    "label": "Liquidity Conditions",
+    "visualKey": "forex-session-liquidity",
+    "body": "Forex market quality changes across sessions. Active overlaps provide the cleanest quotes; quiet sessions can be noisy and expensive.",
+    "context": {
+      "keyTerms": [
+        { "term": "Session Overlap", "definition": "When two major markets (like London and NY) are open at once." },
+        { "term": "Market Quality", "definition": "How reliable and clean the price movement feels based on liquidity." },
+        { "term": "Thin Market", "definition": "A period with low volume where small orders can cause larger jumps." }
+      ],
+      "whyThisMatters": "A candle in the middle of the London session has more 'weight' than the same sized candle during a quiet holiday or late-night period. Context changes the reading.",
+      "realLifeExample": "Driving in peak hour traffic (high liquidity, tight moves) vs. a quiet country road at night (low liquidity, sudden turns).",
+      "commonMistake": "Treating all sessions as equally valid for market reading.",
+      "quickNote": "Active sessions provide cleaner evidence."
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Forex Mini Drill: Clean Quote or Weak Reading?",
+    "label": "Practical Drill",
+    "visualKey": "forex-quote-quality-drill",
+    "body": "You see EUR/USD move slightly upward on the chart. However, you notice the spread has widened and it is currently a low-liquidity quiet period. What is the disciplined Forex reading?",
+    "taskData": {
+      "type": "choice_block",
+      "question": "What is the disciplined Forex reading?",
+      "options": [
+        { "id": "A", "text": "The candle moved up, so buyers are clearly in control.", "isCorrect": false, "feedback": "Not correct. In low-liquidity periods with wide spreads, small moves can happen without real buyer intent. The candle alone is not enough evidence." },
+        { "id": "B", "text": "Treat the move carefully; the quote condition and liquidity are weak.", "isCorrect": true, "feedback": "Correct. Discipline requires checking the quote quality. If liquidity is low and spread is wide, a move is weak evidence." },
+        { "id": "C", "text": "The widened spread is a buy signal because it shows urgency.", "isCorrect": false, "feedback": "Not correct. A widened spread is usually a sign of lower liquidity and higher risk, not a signal to act." },
+        { "id": "D", "text": "Buy immediately because quiet sessions are easier to predict.", "isCorrect": false, "feedback": "Not correct. Quiet sessions are often noisier and more unpredictable due to thin order depth." }
+      ]
+    },
+    "context": {
+      "keyTerms": [
+        { "term": "Disciplined reading", "definition": "Filtering market evidence based on liquidity and quote quality." },
+        { "term": "Weak condition", "definition": "A state where chart movement is unreliable due to thin liquidity or wide spread." }
+      ],
+      "whyThisMatters": "The 'Chart Guesser' reacts to every candle. The 'Market Reader' filters candles through quote quality and session context.",
+      "quickNote": "Filter the record through the condition."
+    }
+  }
+]
+:::`,
+      cryptoAdaptation: `:::lesson-cards
+[
+  {
+    "type": "visual_intro",
+    "title": "Crypto Is a Fragmented Market",
+    "label": "Market Structure",
+    "visualKey": "crypto-venue-map",
+    "body": "Crypto does not usually behave like one single clean centralized market. The same asset can trade across multiple exchanges, pairs, venues, and derivatives markets.",
+    "context": {
+      "keyTerms": [
+        { "term": "Venue", "definition": "A specific location where an asset is traded (e.g., Binance, Uniswap)." },
+        { "term": "Fragmented Liquidity", "definition": "When the total buying/selling power for an asset is split across different locations." },
+        { "term": "Index Price", "definition": "A weighted average price calculated from multiple exchange feeds." }
+      ],
+      "whyThisMatters": "A move that looks strong on one exchange may be weaker, delayed, or unsupported elsewhere. You must understand the source of the price before reading the movement.",
+      "realLifeExample": "A token moves sharply on one exchange, but other venues show lower activity. A trained learner checks whether the move is broad or venue-specific.",
+      "commonMistake": "Thinking one crypto chart always represents the whole crypto market.",
+      "quickNote": "In crypto, first ask: which market am I actually seeing?"
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "Order Book vs. Liquidity Pool",
+    "label": "Market Mechanics",
+    "visualKey": "crypto-market-engines",
+    "body": "On a centralized exchange, price comes from an order book. On a decentralized exchange, price may come from a liquidity pool (AMM). Both show a chart, but the mechanics behind them are different.",
+    "context": {
+      "keyTerms": [
+        { "term": "Order Book", "definition": "A list of buy and sell orders organized by price level." },
+        { "term": "Liquidity Pool", "definition": "A smart contract containing a pair of tokens that allows for decentralized swapping." },
+        { "term": "AMM", "definition": "Automated Market Maker; the algorithm that determines price in a liquidity pool." },
+        { "term": "Price Impact", "definition": "How much a single trade changes the price in a pool." }
+      ],
+      "whyThisMatters": "CEX and DEX markets react differently to orders. A small-cap token might move sharply on a DEX due to thin pool reserves, even if the 'broad market' hasn't changed.",
+      "realLifeExample": "Swapping tokens on Uniswap (DEX) vs. placing a limit order on Coinbase (CEX). One hits a pool; the other hits an order book.",
+      "commonMistake": "Reading a DEX pool move like a deep centralized exchange order book.",
+      "quickNote": "Same chart shape, different market engine."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "Liquidity Fragmentation and Price Impact",
+    "label": "Liquidity Conditions",
+    "visualKey": "crypto-liquidity-fragmentation",
+    "body": "Crypto liquidity is split across venues. The same buying or selling action may look calm in one market and dramatic in another because the available depth is different.",
+    "context": {
+      "keyTerms": [
+        { "term": "Market Depth", "definition": "The amount of orders available at nearby price levels." },
+        { "term": "Slippage", "definition": "The difference between the expected price and the price where the trade actually executes." },
+        { "term": "Thin Liquidity", "definition": "A state where small orders can cause large price jumps." }
+      ],
+      "whyThisMatters": "Crypto moves can look dramatic when liquidity is thin. A learner must ask whether the move shows broad participation or simply a weak liquidity environment.",
+      "realLifeExample": "A token jumps 8% on a low-liquidity exchange after a $10k order, while a Tier-1 exchange barely moves. The sharpest chart isn't always the cleanest evidence.",
+      "commonMistake": "Assuming the biggest move is the most meaningful move.",
+      "quickNote": "Thin liquidity can exaggerate movement."
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Crypto Mini Drill: Broad Move or Venue Noise?",
+    "label": "Practical Drill",
+    "visualKey": "crypto-venue-noise-drill",
+    "body": "A crypto token moves +9% on Exchange A, but only +2% on Exchange B. Other venues show high slippage and mixed feeds. What is the disciplined crypto reading?",
+    "taskData": {
+      "type": "choice_block",
+      "question": "What is the disciplined crypto reading?",
+      "options": [
+        { "id": "A", "text": "The largest move is automatically the strongest evidence.", "isCorrect": false, "feedback": "Not correct. The largest move may come from the weakest liquidity, not the strongest evidence." },
+        { "id": "B", "text": "Treat the move as broad confirmation because one chart moved sharply.", "isCorrect": false, "feedback": "Not correct. One venue moving sharply does not prove broad confirmation. Crypto liquidity can be fragmented." },
+        { "id": "C", "text": "Treat the move carefully; it may be venue-specific noise driven by thin liquidity.", "isCorrect": true, "feedback": "Correct. A sharp move on one venue can be useful context, but it is not automatically broad market evidence. A Lurnava learner checks whether other venues and liquidity conditions support the move." },
+        { "id": "D", "text": "Ignore liquidity and only follow the chart with the biggest candle.", "isCorrect": false, "feedback": "Not correct. Ignoring liquidity can turn a noisy venue-specific move into a false reading." }
+      ]
+    },
+    "context": {
+      "keyTerms": [
+        { "term": "Venue Noise", "definition": "Price movement that is specific to one exchange and not reflective of the broader market." },
+        { "term": "Broad Confirmation", "definition": "When multiple venues and market types show the same evidence." }
+      ],
+      "whyThisMatters": "The strongest-looking move is not always the cleanest move. A disciplined reading checks whether the move is supported across venues.",
+      "quickNote": "Broad evidence beats dramatic noise."
+    }
+  }
+]
+:::`,
+      goldAdaptation: `:::lesson-cards
+[
+  {
+    "type": "visual_intro",
+    "title": "Gold Is More Than One Chart",
+    "label": "Market Structure",
+    "visualKey": "gold-market-map",
+    "body": "XAU/USD is only one visible window. The gold market underneath is multi-layered, consisting of London OTC spot, COMEX futures, benchmark auctions, and physical bullion.",
+    "context": {
+      "keyTerms": [
+        { "term": "London OTC", "definition": "The primary spot market for gold, where trading is bilateral." },
+        { "term": "Benchmark Price", "definition": "The global reference price set during daily LBMA auctions." },
+        { "term": "Futures Market", "definition": "A standardized exchange where contracts for future delivery are traded." }
+      ],
+      "whyThisMatters": "Gold can appear as one simple chart, but the market underneath is layered. Missing the source of the move (spot, futures, or benchmark) can lead to a shallow reading.",
+      "realLifeExample": "A fast XAU/USD candle appears during a macro event. A trained learner asks if futures activity, spot liquidity, or benchmark timing is influencing the price.",
+      "commonMistake": "Thinking XAU/USD is the entire gold market.",
+      "quickNote": "Gold is one asset, but not one simple market."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "London OTC: Where Gold Trades Bilaterally",
+    "label": "OTC Mechanics",
+    "visualKey": "gold-otc-bilateral",
+    "body": "A major part of gold trading happens OTC: direct counterparty-to-counterparty trading. In the 'Loco London' market, bullion settles through London accounts rather than a public exchange.",
+    "context": {
+      "keyTerms": [
+        { "term": "Loco London", "definition": "Gold bullion physically held in London vaults to underpin OTC trading activity." },
+        { "term": "Allocated Account", "definition": "An account where the customer owns specific physical bars." },
+        { "term": "Unallocated Account", "definition": "The standard settlement method where the customer has a general entitlement to metal." }
+      ],
+      "whyThisMatters": "Gold is not always a transparent public order book. Bilateral OTC trades can move the market without the retail learner seeing the orders themselves.",
+      "realLifeExample": "A large institution settles a massive gold swap directly with a dealer. The move appears on the chart, but the 'matching' happened privately.",
+      "commonMistake": "Imagining London gold trading as one transparent public order book.",
+      "quickNote": "OTC Gold is negotiated privately, not displayed publicly."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "COMEX Futures: The Paper Contract Layer",
+    "label": "Futures Mechanics",
+    "visualKey": "gold-futures-mechanics",
+    "body": "COMEX Gold futures (GC) are standardized exchange-traded contracts. While they aren't physical gold, they are a primary engine for price discovery and risk management.",
+    "context": {
+      "keyTerms": [
+        { "term": "Futures Contract", "definition": "A standardized agreement to buy or sell gold at a future date." },
+        { "term": "Standardized", "definition": "Contracts with fixed sizes and quality rules for easy trading." },
+        { "term": "Price Discovery", "definition": "The process by which market participants arrive at a price through exchange trading." }
+      ],
+      "whyThisMatters": "XAU/USD often reacts to futures activity because futures concentrate large institutional expectations. If futures are moving fast, the retail quote will follow.",
+      "realLifeExample": "During a macro shock, futures volume spikes. A rushed learner sees a fast candle; a trained learner knows futures positioning is driving the speed.",
+      "commonMistake": "Thinking Gold futures and physical gold are the same thing.",
+      "quickNote": "Futures are contracts; physical is metal. Both move the chart."
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Gold Mini Drill: Which Market Layer Is Moving?",
+    "label": "Practical Drill",
+    "visualKey": "gold-market-layer-drill",
+    "body": "Gold moves sharply near a major session window. You see a fast candle on XAU/USD. You haven't checked futures activity, spot liquidity, or benchmark timing. What is the disciplined Gold reading?",
+    "taskData": {
+      "type": "choice_block",
+      "question": "What is the disciplined Gold reading?",
+      "options": [
+        { "id": "A", "text": "Treat the candle as complete evidence because Gold moved fast.", "isCorrect": false, "feedback": "Not correct. Speed is not complete evidence. A fast Gold candle may come from several market layers (futures, spot, or benchmark)." },
+        { "id": "B", "text": "Assume the move is purely physical gold demand without checking other layers.", "isCorrect": false, "feedback": "Not correct. Gold movement is not always purely physical. Futures, OTC activity, and benchmarks all shape the visible price." },
+        { "id": "C", "text": "Classify the move as incomplete until you check the market layer behind it.", "isCorrect": true, "feedback": "Correct. Gold moves through connected layers: OTC spot, futures, benchmarks, and retail quotes. A Lurnava learner verifies the source before trusting the move." },
+        { "id": "D", "text": "Ignore market structure because Gold is only about candle direction.", "isCorrect": false, "feedback": "Not correct. Market structure matters because the chart is only a visible record of deeper activity." }
+      ]
+    },
+    "context": {
+      "keyTerms": [
+        { "term": "Market Layer", "definition": "The specific segment of the gold market (spot, futures, etc.) driving the price." },
+        { "term": "Incomplete Evidence", "definition": "Market data that lacks the structural context needed for a reliable reading." }
+      ],
+      "whyThisMatters": "A Lurnava learner checks the market layer to avoid being trapped by noisy quote conditions or single-layer spikes.",
+      "quickNote": "Identify the market layer before trusting the move."
+    }
+  }
+]
+:::`,
       skillLevel: "beginner", orderIndex: 2
     },
     {

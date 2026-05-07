@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { MarkdownRenderer } from "./markdown-renderer";
 import { completeModule } from "@/lib/course-actions";
 import { CheckCircle2, Layout, Globe, Bitcoin, Target, Loader2, ArrowLeft, ArrowRight, ArrowUpRight, FlaskConical, ExternalLink, Lightbulb, AlertCircle } from "lucide-react";
@@ -153,30 +153,55 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
     module.content;
 
   // ── V2 Workspace Detection ──
-  // If the core content uses :::lesson-cards, render the new three-column workspace
-  const isLessonCardContent = module.content?.includes(':::lesson-cards');
+  // Check if any available content uses the lesson-card format
+  const isLessonCardContent = 
+    module.content?.includes(':::lesson-cards') || 
+    module.forexAdaptation?.includes(':::lesson-cards') || 
+    module.cryptoAdaptation?.includes(':::lesson-cards') || 
+    module.goldAdaptation?.includes(':::lesson-cards');
 
   if (isLessonCardContent) {
     // Parse cards from each track
     const parseCards = (raw?: string | null) => {
-      if (!raw) return null;
-      const match = raw.match(/:::lesson-cards\s*\n([\s\S]*?)\n\s*:::/);
-      if (!match) return null;
-      try { return JSON.parse(match[1]); } catch { return null; }
+      if (!raw || !raw.includes(':::lesson-cards')) return null;
+      try {
+        // Find the JSON array inside the directive
+        const start = raw.indexOf('[');
+        const end = raw.lastIndexOf(']');
+        if (start !== -1 && end !== -1) {
+          const jsonStr = raw.substring(start, end + 1).trim();
+          return JSON.parse(jsonStr);
+        }
+        return null;
+      } catch (error) {
+        console.error("Failed to parse lesson cards:", error);
+        return null;
+      }
     };
 
     const coreCards = parseCards(module.content) || [];
 
     // Build active cards based on current tab
-    const activeCards =
-      activeTab === "forex" ? (parseCards(module.forexAdaptation) || coreCards) :
-      activeTab === "crypto" ? (parseCards(module.cryptoAdaptation) || coreCards) :
-      activeTab === "gold" ? (parseCards(module.goldAdaptation) || coreCards) :
-      coreCards;
+    const activeCards = useMemo(() => {
+      let cards = coreCards;
+      if (activeTab === "forex" && module.forexAdaptation) cards = parseCards(module.forexAdaptation) || coreCards;
+      else if (activeTab === "crypto" && module.cryptoAdaptation) cards = parseCards(module.cryptoAdaptation) || coreCards;
+      else if (activeTab === "gold" && module.goldAdaptation) cards = parseCards(module.goldAdaptation) || coreCards;
+
+      // If we are in a journey track and it doesn't end with a summary, append the core summary
+      if (activeTab !== "core" && cards.length > 0 && cards[cards.length - 1].type !== "summary") {
+        const coreSummary = coreCards.find((c: any) => c.type === "summary");
+        if (coreSummary) {
+          cards = [...cards, coreSummary];
+        }
+      }
+      return cards;
+    }, [activeTab, module.forexAdaptation, module.cryptoAdaptation, module.goldAdaptation, coreCards]);
 
     return (
       <div className="h-full">
         <LessonWorkspaceShell
+          key={activeTab}
           moduleTitle={module.title}
           moduleNumber={module.moduleNumber}
           level={module.level}
