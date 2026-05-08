@@ -54,6 +54,17 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "candle-recap-map": dynamic(() => import("./visuals/core/module-0-3").then(m => m.CandleRecapMap), { loading: VisualLoading }),
   "candle-diagram": dynamic(() => import("./visuals/core/module-0-3").then(m => m.CandleDiagram), { loading: VisualLoading }),
 
+  // Core 0.4 Timeframes
+  "time-compression-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeCompressionBoard), { loading: VisualLoading }),
+  "timeframe-comparison-windows": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeComparisonWindows), { loading: VisualLoading }),
+  "candle-weight-timeframe": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CandleWeightTimeframe), { loading: VisualLoading }),
+  "htf-ltf-roles": dynamic(() => import("./visuals/core/module-0-4").then(m => m.HtfLtfRoles), { loading: VisualLoading }),
+  "timeframe-conflict-radar": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeConflictRadar), { loading: VisualLoading }),
+  "top-down-reading-flow": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TopDownReadingFlow), { loading: VisualLoading }),
+  "timeframe-decision-scenario": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeDecisionScenario), { loading: VisualLoading }),
+  "timeframe-debrief-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeDebriefBoard), { loading: VisualLoading }),
+
+
   // --- FOREX MODULES ---
   
   // Forex 0.2

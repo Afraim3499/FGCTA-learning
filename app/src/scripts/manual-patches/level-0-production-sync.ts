@@ -1384,13 +1384,161 @@ const MODULES = [
   {
     level: 0, moduleNumber: "0.4", title: "Timeframes Change the Story",
     objective: "Understanding the chart's zoom levels.",
-    content: `# Timeframes Change the Story\n\nIn the previous module, we learned that a candle records price over a \"specific period.\" That period is determined by your **Timeframe**.\n\nA timeframe is essentially the \"zoom level\" of your chart.\n- A **1-hour (H1) chart** means each candle represents one hour of time.\n- A **15-minute (m15) chart** means each candle represents fifteen minutes.\n- A **Daily (D1) chart** means each candle represents a full day.\n\n### The Multi-Layered Story\nThe market is happening on all timeframes at once. Understanding how they interact is one of the most important skills in market reading.\n\n**Simple Scenario:**\nImagine you are looking at a map.\n- On a **Global Map** (Higher Timeframe), you see that you are traveling North.\n- On a **City Map** (Lower Timeframe), you might be turning left, right, or even going South to avoid a one-way street.\n\nIf you only look at the City Map, you might think you are lost. But if you look at the Global Map, you see that the small Southward turn is just a tiny part of a much larger Northward journey.\n\n### Higher vs. Lower Timeframes\n1. **Higher Timeframes (HTF)**: Provide the **Context**. They show the major \"narrative\" or direction. They are slower and carry more weight.\n2. **Lower Timeframes (LTF)**: Provide the **Detail**. They show the specific \"movements\" and entries. They are faster and more \"noisy\" (filled with minor ups and downs).\n\n:::skill-target\nLearn to \"zoom out\" to find the big story before you \"zoom in\" to see the details. Never form a reading based only on a lower timeframe.\n:::\n\n:::visual\ntitle: Timeframe Alignment\nlookFor: [\"HTF Anchor: The Daily/4H direction\", \"MTF Context: The 1H structural area\", \"LTF Catalyst: The 15m/5m specific behavior\", \"Alignment: When all 'maps' point in the same direction\"]\n:::\n\n### The Zoom-In Trap\nThe most common beginner mistake is spending all day staring at a 1-minute or 5-minute chart.\n\n**Why this is a mistake:**\nLower timeframes move very fast. They can show a \"strong move\" that is actually just a tiny, insignificant ripple inside a massive higher-timeframe wall. Beginners get excited by the ripple and forget about the wall.\n\n**What this does not mean:**\n\"Lower timeframes are useless.\" They are very useful for seeing exactly where a move starts, but only if you already know the higher-timeframe direction.\n\n### Wrong Approach vs Better Approach\n- **Wrong**: \"The 5-minute chart just showed a big green candle! I'm buying!\" (Ignoring the fact that the 4-hour chart is in a massive downtrend).\n- **Better**: \"The Daily chart is bullish. I will zoom in to the 15-minute chart to find an area where I can observe a structural shift in my favor.\"\n\n:::summary\nTimeframes are tools for perspective. The higher timeframe tells you *where* you are going, and the lower timeframe shows you *how* you are getting there. Always start with the big picture.\n:::`,
-    interactiveTaskType: "type_b_scenario",
+    content: `:::lesson-cards
+[
+  {
+    "type": "mission_brief",
+    "title": "The Time Compression Engine",
+    "label": "Core Foundation",
+    "visualKey": "time-compression-board",
+    "body": "A timeframe is the amount of time represented by one candle. Whether it is a 1-minute, 1-hour, or 1-day candle, the market itself does not change because you changed the chart setting. What changes is the **compression** of activity into one unit.\\n\\nSmaller timeframes (lower) show more detail; larger timeframes (higher) show more compression and more context. A timeframe change is a shift in perspective, not a change in market reality.",
+    "context": {
+      "whyThisMatters": "Without knowing your timeframe, you cannot know what your record actually means. It is the first step to filtering noise.",
+      "keyTerms": [
+        { "term": "Timeframe", "definition": "The time duration summarized by one candle." },
+        { "term": "Compression", "definition": "Aggregating many small movements into one higher-level record." },
+        { "term": "Aggregation", "definition": "The process of combining data to reveal larger patterns." }
+      ],
+      "realLifeExample": "Watching a match live (LTF) vs. watching a 10-minute highlight summary (HTF).",
+      "commonMistake": "Thinking a candle has one fixed meaning no matter what timeframe it is on.",
+      "quickNote": "Changing timeframe changes the context, not the market."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "One Market, Different Windows",
+    "label": "Telescopic View",
+    "visualKey": "timeframe-comparison-windows",
+    "body": "The market is one continuous flow, but different timeframes present different 'layers' of that flow. A move that looks like a dramatic breakout on a 5-minute chart might be minor noise inside a 4-hour range.\\n\\nUnderstanding these layers prevents you from overreacting to moves that only look big because you are too zoomed in. Professionals use larger windows to find the story and smaller windows to find the detail.",
+    "context": {
+      "whyThisMatters": "If you only read one small timeframe, you may misunderstand the importance of a move.",
+      "keyTerms": [
+        { "term": "Context", "definition": "The bigger situation around a move." },
+        { "term": "Detail", "definition": "The smaller movements inside a move." },
+        { "term": "Noise", "definition": "Movement that feels important but changes little in the bigger picture." }
+      ],
+      "realLifeExample": "Looking at a street from ground level vs. from an airplane.",
+      "commonMistake": "Calling every lower-timeframe push a 'trend' without checking the higher chart.",
+      "quickNote": "A strong move on one timeframe can still be weak inside a bigger structure."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "The Weight of the Record",
+    "label": "Evidence Gravity",
+    "visualKey": "candle-weight-timeframe",
+    "body": "A candle body and wick always record price behavior, but their **weight** depends on the timeframe they belong to. A long wick on a 1-minute chart records a brief reaction; a long wick on a Daily chart records rejection across an entire trading day.\\n\\nThe bigger the timeframe, the more activity is summarized, and the more 'gravity' or significance the record carries in your Evidence Stack.",
+    "context": {
+      "whyThisMatters": "Without timeframe context, learners overreact to small candles and underread important larger ones.",
+      "keyTerms": [
+        { "term": "Weight", "definition": "The relative importance of a price record based on time volume." },
+        { "term": "Narrative", "definition": "The larger story being told by higher-timeframe candles." }
+      ],
+      "realLifeExample": "A 1-minute upper wick is a whisper. A daily upper wick is a shout.",
+      "commonMistake": "Treating every pin-like candle as equally meaningful.",
+      "quickNote": "Timeframe gives the candle its weight."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "Compass vs. Microscope",
+    "label": "Chart Roles",
+    "visualKey": "htf-ltf-roles",
+    "body": "Higher and lower timeframes have different jobs. The **Higher Timeframe (HTF)** is your Compass: it answers 'Where am I?'. The **Lower Timeframe (LTF)** is your Microscope: it answers 'What is happening now?'.\\n\\nThe disciplined approach is to read from the Compass (context) down toward the Microscope (detail). Never let the Microscope's noise overrule the Compass's direction.",
+    "context": {
+      "whyThisMatters": "Without role clarity, learners let the noisiest chart control their reading.",
+      "keyTerms": [
+        { "term": "HTF (Compass)", "definition": "A broader chart used for context and narrative." },
+        { "term": "LTF (Microscope)", "definition": "A smaller chart used for detail and reaction." },
+        { "term": "Anchor", "definition": "The chart you rely on most for your main reading." }
+      ],
+      "realLifeExample": "Using a global map (Compass) to find your city and a street map (Microscope) to find your house.",
+      "commonMistake": "Starting from the Microscope and trying to justify it with the Compass afterward.",
+      "quickNote": "The Compass gives location. The Microscope gives behavior."
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "Signal Conflict Radar",
+    "label": "Interference Logic",
+    "visualKey": "timeframe-conflict-radar",
+    "body": "A market can look bullish on a lower timeframe while looking weak on a higher timeframe. This is **Timeframe Conflict**. It is not an error; it is the market moving at different speeds across different layers.\\n\\nConflict should reduce your confidence. When your radar shows disagreement, it is a signal to slow down. One of the most professional readings is recognizing when the story is not clear enough yet.",
+    "context": {
+      "whyThisMatters": "Conflict is the leading cause of emotional confusion and impulsive decisions.",
+      "keyTerms": [
+        { "term": "Conflict", "definition": "When timeframes suggest opposing immediate messages." },
+        { "term": "Clarity", "definition": "When multiple layers of evidence align." }
+      ],
+      "realLifeExample": "A 5-minute chart pumping while the 4-hour chart is at a massive ceiling.",
+      "commonMistake": "Thinking lower-timeframe excitement cancels higher-timeframe warnings.",
+      "quickNote": "Conflict often means 'not ready,' not 'wrong.'"
+    }
+  },
+  {
+    "type": "visual_intro",
+    "title": "The Top-Down Architecture",
+    "label": "Workflow",
+    "visualKey": "top-down-reading-flow",
+    "body": "Disciplined reading follows a **Top-Down** architecture. You begin by locating yourself on a broader timeframe (Narrative), move to your working chart (Structure), and finally use a lower timeframe for specific detail (Behavior).\\n\\nThis workflow ensures your reading is anchored in context. If behavior on the detail layer doesn't support the narrative on the anchor layer, the reading quality drops.",
+    "context": {
+      "whyThisMatters": "Most weak reading begins from the bottom up—reacting to noise first.",
+      "keyTerms": [
+        { "term": "Top-Down", "definition": "Starting from context before looking at detail." },
+        { "term": "Alignment", "definition": "When Narrative, Structure, and Behavior all support the same story." }
+      ],
+      "realLifeExample": "Checking the forecast before choosing your clothes for a specific walk.",
+      "commonMistake": "Becoming emotionally attached to a 1m move and ignoring the 4H trend.",
+      "quickNote": "Good reading is a process, not a guess."
+    }
+  },
+  {
+    "type": "practice",
+    "title": "Multi-Feed Diagnostic Drill",
+    "label": "Practice",
+    "visualKey": "timeframe-decision-scenario",
+    "body": "Observe the diagnostic feed. The 4-hour chart shows price at a critical resistance wall. The 1-hour chart is neutral/sideways. The 5-minute chart is showing an active bullish pump.\\n\\n**Which reading shows the most discipline?**",
+    "taskData": {
+      "type": "choice_block",
+      "question": "Which reading is most disciplined?",
+      "options": [
+        { "id": "A", "text": "The 5m is pumping, so the move is clearly bullish. I'm buying.", "isCorrect": false, "feedback": "Not correct. You are letting the 'Microscope' overrule the 'Compass'. The 4H resistance is a critical warning." },
+        { "id": "B", "text": "The detail is active, but the broader context is conflicting. I'll label this 'Mixed' and wait for alignment.", "isCorrect": true, "feedback": "Correct. You correctly identified conflict and prioritized HTF context over LTF excitement." },
+        { "id": "C", "text": "The 1-hour chart is irrelevant because the 5-minute is more recent.", "isCorrect": false, "feedback": "Not correct. All layers matter. The 1H neutral state adds to the evidence that the pump is unsupported." }
+      ]
+    },
+    "context": {
+      "whyThisMatters": "Mastery means filtering mixed information without forcing a conclusion.",
+      "keyTerms": [
+        { "term": "Mixed Reading", "definition": "When evidence layers are not aligned." },
+        { "term": "Discipline", "definition": "The ability to say 'unclear' when data is conflicting." }
+      ],
+      "quickNote": "When in conflict, wait for alignment."
+    }
+  },
+  {
+    "type": "summary",
+    "title": "Timeframe Mastery Secured",
+    "label": "Module Debrief",
+    "visualKey": "timeframe-debrief-board",
+    "body": "You have mastered the foundational layer of timeframe logic. You now read the market as a multi-layered story, understand the roles of context and detail, and possess a repeatable top-down workflow.\\n\\nYou are now ready to move from time awareness into **Structure Awareness**. We will learn how to map the 'skeleton' of the market inside these timeframe layers.",
+    "context": {
+      "whyThisMatters": "Perspective is the foundation of professional market reading.",
+      "keyTerms": [
+        { "term": "Foundation", "definition": "The core skills required for advanced reading." },
+        { "term": "Structure", "definition": "The next layer of the market roadway." }
+      ],
+      "quickNote": "Next: Basic Structure (Swings, Ranges, and Direction)."
+    }
+  }
+]
+:::`,
+    interactiveTaskType: "choice_block",
     interactiveTaskData: {
-      contextPrompt: "The 4-hour chart is in a clear downtrend with lower highs and lower lows. You zoom into the 5-minute chart and see a very strong green candle. What is the most disciplined reading?",
+      question: "Which reading is most disciplined?",
       options: [
-        { id: "opt1", text: "The trend has reversed on the 5-minute chart, so I should look for buys.", grade: "poor", feedback: "A single candle on a lower timeframe cannot reverse a higher-timeframe narrative.", rationale: "LTF moves are often just noise or small retracements inside an HTF move." },
-        { id: "opt2", text: "The green candle is likely a minor retracement inside the 4-hour downtrend. I will wait for evidence that the 4-hour direction is resuming.", grade: "best", feedback: "Correct. You are prioritizing higher-timeframe context.", rationale: "Successful reading requires aligning the detail of the LTF with the context of the HTF." }
+        { "id": "A", "text": "The 5m is green, so the market is clearly bullish and I should buy.", "isCorrect": false, "feedback": "Not correct. You are ignoring the higher-timeframe resistance and the mixed signal on the 1-hour chart." },
+        { "id": "B", "text": "The lower timeframe is active, but the bigger context is limiting clarity. I should classify this as 'Mixed' or 'Unclear'.", "isCorrect": true, "feedback": "Correct. You correctly prioritized HTF context over LTF excitement. Alignment is missing." },
+        { "id": "C", "text": "The 1-hour chart is irrelevant because the 5-minute is more recent.", "isCorrect": false, "feedback": "Not correct. All timeframes are happening at once. The 1-hour chart provides necessary intermediate context." }
       ]
     },
     skillLevel: "beginner", orderIndex: 4
