@@ -184,9 +184,44 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
     // Build active cards based on current tab
     const activeCards = useMemo(() => {
       let cards = coreCards;
-      if (activeTab === "forex" && module.forexAdaptation) cards = parseCards(module.forexAdaptation) || coreCards;
-      else if (activeTab === "crypto" && module.cryptoAdaptation) cards = parseCards(module.cryptoAdaptation) || coreCards;
-      else if (activeTab === "gold" && module.goldAdaptation) cards = parseCards(module.goldAdaptation) || coreCards;
+      if (activeTab === "forex") {
+        const parsed = module.forexAdaptation ? parseCards(module.forexAdaptation) : null;
+        if (parsed && parsed.length > 0) {
+          cards = parsed;
+        } else {
+          // No V2 cards for this track — show migration placeholder instead of silent Core fallback
+          return [{
+            type: "visual_intro",
+            title: "Forex Roadway Not Yet Available",
+            label: "Coming Soon",
+            body: "This module's Forex adaptation has not been migrated to the V2 card-based learning format yet. The content is being developed and will be available soon.\n\nPlease switch to the **Core Concept** track to continue learning this module.",
+          }];
+        }
+      } else if (activeTab === "crypto") {
+        const parsed = module.cryptoAdaptation ? parseCards(module.cryptoAdaptation) : null;
+        if (parsed && parsed.length > 0) {
+          cards = parsed;
+        } else {
+          return [{
+            type: "visual_intro",
+            title: "Crypto Roadway Not Yet Available",
+            label: "Coming Soon",
+            body: "This module's Crypto adaptation has not been migrated to the V2 card-based learning format yet. The content is being developed and will be available soon.\n\nPlease switch to the **Core Concept** track to continue learning this module.",
+          }];
+        }
+      } else if (activeTab === "gold") {
+        const parsed = module.goldAdaptation ? parseCards(module.goldAdaptation) : null;
+        if (parsed && parsed.length > 0) {
+          cards = parsed;
+        } else {
+          return [{
+            type: "visual_intro",
+            title: "Gold Roadway Not Yet Available",
+            label: "Coming Soon",
+            body: "This module's Gold adaptation has not been migrated to the V2 card-based learning format yet. The content is being developed and will be available soon.\n\nPlease switch to the **Core Concept** track to continue learning this module.",
+          }];
+        }
+      }
 
       // If we are in a journey track and it doesn't end with a summary, append the core summary
       if (activeTab !== "core" && cards.length > 0 && cards[cards.length - 1].type !== "summary") {

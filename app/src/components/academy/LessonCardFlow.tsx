@@ -23,7 +23,7 @@ import {
   MessageSquare,
   Info as InfoIcon
 } from "lucide-react";
-import { LearningLoop, CandleDiagram, NoteComparison, AcademyPath, SystemMap, PracticeTimeline, DecisionGate, BehaviorFlow, HypeTrapPath, OrientationDebrief, CryptoMechanicsMap, GoldReadingMap, GoldContextDriverMap, GoldUrgencyTrapVisual, GoldNoiseDecisionBoard } from "./AcademyVisuals";
+import { VISUAL_REGISTRY } from "./visual-registry";
 import { ChoiceBlockPractice } from "./interactive/choice-block-practice";
 import { ScenarioDecisionEngine } from "./interactive/scenario-decision-engine";
 import ReactMarkdown from "react-markdown";
@@ -118,40 +118,31 @@ export function LessonCardFlow({
   };
 
   const renderVisual = (name?: string) => {
-    switch (name) {
-      case "learning-loop":
-        return <LearningLoop />;
-      case "candle-anatomy":
-        return <CandleDiagram />;
-      case "note-comparison":
-        return <NoteComparison />;
-      case "academy-path":
-        return <AcademyPath />;
-      case "training-cockpit":
-        return <SystemMap />;
-      case "practice-timeline":
-        return <PracticeTimeline />;
-      case "decision-gate":
-        return <DecisionGate />;
-      case "learner-profiles":
-        return <BehaviorFlow />;
-      case "hype-trap-path":
-        return <HypeTrapPath />;
-      case "orientation-debrief":
-        return <OrientationDebrief />;
-      case "crypto-mechanics":
-        return <CryptoMechanicsMap />;
-      case "gold-reading-map":
-        return <GoldReadingMap />;
-      case "gold-driver-map":
-        return <GoldContextDriverMap />;
-      case "gold-urgency-trap":
-        return <GoldUrgencyTrapVisual />;
-      case "gold-noise-decision":
-        return <GoldNoiseDecisionBoard />;
-      default:
-        return null;
+    if (!name) return null;
+
+    // Direct registry check
+    const RegistryComponent = VISUAL_REGISTRY[name];
+    if (RegistryComponent) {
+      return <RegistryComponent />;
     }
+
+    // Legacy mapping support
+    const legacyMap: Record<string, string> = {
+      "candle-anatomy": "candle-diagram", // Note: LessonCardFlow specifically used CandleDiagram for this key
+      "training-cockpit": "system-map",
+      "learner-profiles": "behavior-flow",
+      "gold-driver-map": "gold-context-driver-map",
+      "gold-urgency-trap": "gold-urgency-trap-visual",
+      "gold-noise-decision": "gold-noise-decision-board"
+    };
+
+    const mappedName = legacyMap[name];
+    if (mappedName && VISUAL_REGISTRY[mappedName]) {
+      const MappedComponent = VISUAL_REGISTRY[mappedName];
+      return <MappedComponent />;
+    }
+
+    return null;
   };
 
   const renderIcon = (name?: string) => {

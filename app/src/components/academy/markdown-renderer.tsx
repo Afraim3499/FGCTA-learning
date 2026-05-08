@@ -10,7 +10,7 @@ import {
   Gavel, Scale, XCircle, PlayCircle, ClipboardCheck,
   ChevronDown, ChevronUp, MapPin, Info, ArrowRight
 } from "lucide-react";
-import { LearningLoop, CandleDiagram, NoteComparison } from "./AcademyVisuals";
+import { VISUAL_REGISTRY } from "./visual-registry";
 import { LessonCardFlow } from "./LessonCardFlow";
 
 const markdownComponents = {
@@ -202,15 +202,18 @@ const LessonBlock = ({
   const config = BLOCK_CONFIG[type] || { icon: Info, label: type.toUpperCase(), color: 'text-slate-500', bgColor: 'bg-slate-50', borderColor: 'border-slate-200' };
 
   if (type === 'learning-loop') {
-    return <LearningLoop />;
+    const Component = VISUAL_REGISTRY['learning-loop'];
+    return Component ? <Component /> : null;
   }
 
   if (type === 'candle-diagram') {
-    return <CandleDiagram />;
+    const Component = VISUAL_REGISTRY['candle-diagram'];
+    return Component ? <Component /> : null;
   }
 
   if (type === 'note-comparison') {
-    return <NoteComparison />;
+    const Component = VISUAL_REGISTRY['note-comparison'];
+    return Component ? <Component /> : null;
   }
 
   if (type === 'lesson-cards') {
