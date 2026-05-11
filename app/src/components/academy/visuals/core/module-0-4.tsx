@@ -964,3 +964,144 @@ export const ForexHandoffOverlapBoard = () => {
     </InstitutionalFrame>
   );
 };
+  );
+};
+
+/**
+ * Forex Adaptation: 4. Same Candle, Different Session Meaning
+ * Visualizing how 'Evidence Weight' shifts for the same shape across sessions.
+ */
+export const ForexCandleWeightBoard = () => {
+  const [activeContext, setActiveContext] = useState("Active");
+
+  const contexts = {
+    Quiet: {
+      label: "Quiet Period",
+      weight: 30,
+      quality: "THIN / WEAK",
+      color: "text-slate-400",
+      bg: "bg-slate-50",
+      border: "border-slate-100",
+      icon: <Wind size={20} />,
+      desc: "Low participation makes this move easy to reverse. It is 'Thin' evidence that requires much more confirmation."
+    },
+    Active: {
+      label: "Active Session",
+      weight: 85,
+      quality: "HIGH / USEFUL",
+      color: "text-teal-600",
+      bg: "bg-teal-50",
+      border: "border-teal-200",
+      icon: <Target size={20} />,
+      desc: "Supported by institutional volume. This candle carries meaningful weight and can be used to anchor a reading."
+    },
+    News: {
+      label: "News Window",
+      weight: 50,
+      quality: "UNSTABLE / NOISY",
+      color: "text-rose-600",
+      bg: "bg-rose-50",
+      border: "border-rose-200",
+      icon: <AlertOctagon size={20} />,
+      desc: "Fast movement but no structural integrity. Often represents a 'stop hunt' or knee-jerk reaction rather than trend intent."
+    }
+  };
+
+  const current = contexts[activeContext as keyof typeof contexts];
+
+  return (
+    <InstitutionalFrame label="Evidence Weight Diagnostic" id="FX-WEIGHT-0.4">
+      <div className="w-full max-w-4xl flex flex-col gap-10">
+        <div className="bg-white border-2 border-slate-100 rounded-[3rem] p-12 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-slate-100" />
+          
+          <div className="grid grid-cols-[1.2fr_auto_1fr] gap-16 items-center">
+            {/* The Consistent Shape */}
+            <div className="flex flex-col items-center gap-8">
+               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Constant: Candle Shape</span>
+               <div className="p-10 bg-slate-50 border border-slate-100 rounded-[2rem] relative group">
+                  <div className="w-[4px] h-32 bg-slate-200" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-20 bg-teal-500 border-2 border-teal-600 shadow-lg shadow-teal-500/20" />
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#071B36] rounded-lg text-[8px] font-black text-white uppercase tracking-widest">
+                     Bullish 15m
+                  </div>
+               </div>
+               <p className="text-[11px] font-bold text-slate-400 text-center max-w-[180px] leading-relaxed italic">
+                 “This shape looks the same in every session, but its value is not constant.”
+               </p>
+            </div>
+
+            {/* Transition Arrow */}
+            <div className="flex flex-col items-center gap-2">
+               <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
+                  <ArrowRight size={20} />
+               </div>
+               <span className="text-[9px] font-black text-slate-300 uppercase tracking-tighter">Applied Context</span>
+            </div>
+
+            {/* The Weight Result */}
+            <div className="flex flex-col gap-8">
+               <div className="flex flex-col gap-4">
+                  {Object.entries(contexts).map(([key, data]) => (
+                    <button
+                      key={key}
+                      onClick={() => setActiveContext(key)}
+                      className={cn(
+                        "px-6 py-4 rounded-2xl border-2 transition-all flex items-center justify-between group",
+                        activeContext === key 
+                          ? `${data.bg} ${data.border} shadow-md` 
+                          : "bg-white border-slate-50 opacity-40 hover:opacity-100 hover:bg-slate-50"
+                      )}
+                    >
+                      <div className="flex items-center gap-4">
+                         <div className={cn("transition-transform group-hover:scale-110", activeContext === key ? data.color : "text-slate-300")}>
+                           {data.icon}
+                         </div>
+                         <span className={cn("text-xs font-black uppercase tracking-tight", activeContext === key ? "text-[#071B36]" : "text-slate-400")}>
+                           {data.label}
+                         </span>
+                      </div>
+                      <ChevronRight size={14} className={cn("transition-transform", activeContext === key ? data.color : "text-slate-200")} />
+                    </button>
+                  ))}
+               </div>
+
+               <div className="p-8 bg-[#071B36] rounded-[2rem] shadow-2xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 blur-[60px]" />
+                  <div className="flex flex-col gap-6 relative z-10">
+                     <div className="flex flex-col">
+                        <span className="text-[9px] font-black text-teal-400/60 uppercase tracking-widest leading-none">Diagnostic Result</span>
+                        <span className="text-xl font-black text-white uppercase italic tracking-tighter mt-1">{current.quality}</span>
+                     </div>
+
+                     <div className="flex flex-col gap-2">
+                        <div className="flex items-center justify-between">
+                           <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Evidence Weight</span>
+                           <span className="text-[9px] font-mono text-teal-400">{current.weight}%</span>
+                        </div>
+                        <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                           <motion.div 
+                              initial={{ width: 0 }}
+                              animate={{ width: `${current.weight}%` }}
+                              className={cn("h-full", activeContext === "News" ? "bg-rose-500" : "bg-teal-500")} 
+                           />
+                        </div>
+                     </div>
+
+                     <p className="text-[10px] text-slate-400 leading-relaxed font-bold">
+                        {current.desc}
+                     </p>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <MentorInsight 
+          text="Memorizing candle shapes is a beginner's game. Judging the quality of the environment that created them is the professional's edge. A candle is only as strong as the hands that pulled the trigger."
+          analogy="A footprint in wet mud (Active Session) tells you exactly where someone went. A footprint in dry sand (Quiet Period) disappears the moment you look away."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};

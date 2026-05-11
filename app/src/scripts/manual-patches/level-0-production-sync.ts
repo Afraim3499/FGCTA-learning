@@ -1642,6 +1642,26 @@ const MODULES = [
       "commonMistake": "Assuming every session overlap move is automatically clean.",
       "quickNote": "Overlap can increase activity. It does not guarantee clarity."
     }
+  },
+  {
+    "type": "visual_intro",
+    "title": "Same Candle, Different Session Meaning",
+    "visualKey": "forex-candle-weight-board",
+    "label": "Candle Quality",
+    "body": "A Forex candle gains meaning from the environment that produced it. The same candle shape can be weak, useful, or unstable depending on session activity, liquidity, and news pressure. Candle shape alone is not enough.",
+    "context": {
+      "keyTerms": [
+        { "term": "Evidence Weight", "definition": "The relative importance of a candle after considering timeframe and context." },
+        { "term": "Candle Quality", "definition": "How useful a candle is as market evidence." },
+        { "term": "Thin Movement", "definition": "Movement formed in a weaker or less active environment." },
+        { "term": "Active Session Candle", "definition": "A candle formed during stronger market participation." },
+        { "term": "Unstable Candle", "definition": "A candle formed in conditions where movement may be fast but not clean." }
+      ],
+      "whyThisMatters": "Forex learners often memorize candle shapes. This card teaches them to judge the quality of the candle, not just the appearance.",
+      "realLifeExample": "A strong-looking candle during London may matter more than the same shape printed during a quiet period. But if the candle forms during news, it may be unstable instead of clean.",
+      "commonMistake": "Thinking the same candle shape has the same meaning in every trading hour.",
+      "quickNote": "The candle shape is only part of the reading. The session gives it weight."
+    }
   }
 ]
 :::`,
