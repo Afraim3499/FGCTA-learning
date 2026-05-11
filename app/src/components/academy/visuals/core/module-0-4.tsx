@@ -957,8 +957,8 @@ export const ForexHandoffOverlapBoard = () => {
         </div>
 
         <MentorInsight 
-          text="Session handoffs and overlaps can change how a timeframe behaves. A candle formed during an overlap may carry more participation than one formed during a quiet period. But activity alone is not enough."
-          analogy="Strong activity can create useful evidence or unstable movement depending on context. Don't mistake a crowded room for a coordinated plan."
+          text="Think of an overlap like a high-speed highway. The speed (activity) is great for reaching your destination, but if you don't have a map (structure), you're just going nowhere fast. Activity is the fuel; structure is the steering wheel."
+          analogy="A crowded room is loud, but it isn't always organized. Don't mistake the noise of a session open for a coordinated institutional plan. Wait for the 'Adults' to show their hand through structure."
         />
       </div>
     </InstitutionalFrame>
