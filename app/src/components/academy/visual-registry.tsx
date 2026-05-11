@@ -63,6 +63,8 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "top-down-reading-workflow": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TopDownReadingWorkflow), { loading: VisualLoading }),
   "timeframe-decision-scenario": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeDecisionScenario), { loading: VisualLoading }),
   "timeframe-debrief-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeDebriefBoard), { loading: VisualLoading }),
+  "forex-session-timeframe-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexSessionTimeframeBoard), { loading: VisualLoading }),
+  "forex-trading-rhythm-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexTradingRhythmBoard), { loading: VisualLoading }),
 
 
   // --- FOREX MODULES ---
