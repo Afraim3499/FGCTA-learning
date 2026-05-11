@@ -23,6 +23,10 @@ import {
   ArrowRight,
   TrendingUp,
   Fingerprint,
+  Wind,
+  Target,
+  AlertOctagon,
+  ChevronRight,
   ShieldAlert,
   Database,
   Globe,
@@ -962,8 +966,6 @@ export const ForexHandoffOverlapBoard = () => {
         />
       </div>
     </InstitutionalFrame>
-  );
-};
   );
 };
 
