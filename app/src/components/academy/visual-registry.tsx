@@ -57,10 +57,10 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   // Core 0.4 Timeframes
   "time-compression-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeCompressionBoard), { loading: VisualLoading }),
   "timeframe-comparison-windows": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeComparisonWindows), { loading: VisualLoading }),
-  "candle-weight-timeframe": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CandleWeightTimeframe), { loading: VisualLoading }),
+  "timeframe-weight-ladder": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeWeightLadder), { loading: VisualLoading }),
   "htf-ltf-roles": dynamic(() => import("./visuals/core/module-0-4").then(m => m.HtfLtfRoles), { loading: VisualLoading }),
-  "timeframe-conflict-radar": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeConflictRadar), { loading: VisualLoading }),
-  "top-down-reading-flow": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TopDownReadingFlow), { loading: VisualLoading }),
+  "timeframe-conflict-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeConflictBoard), { loading: VisualLoading }),
+  "top-down-reading-workflow": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TopDownReadingWorkflow), { loading: VisualLoading }),
   "timeframe-decision-scenario": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeDecisionScenario), { loading: VisualLoading }),
   "timeframe-debrief-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeDebriefBoard), { loading: VisualLoading }),
 
