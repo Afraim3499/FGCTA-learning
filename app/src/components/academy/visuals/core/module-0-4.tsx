@@ -799,3 +799,168 @@ export const ForexSessionTimeframeBoard = () => {
     </InstitutionalFrame>
   );
 };
+
+/**
+ * Forex Adaptation: 3. Session Handoffs and Overlaps
+ * Visualizing the 'Activity vs Clarity' diagnostic during major transitions.
+ */
+export const ForexHandoffOverlapBoard = () => {
+  const [activeWindow, setActiveWindow] = useState("Overlap");
+
+  const windows = {
+    Handoff: {
+      label: "Asia / London Handoff",
+      time: "07:00 - 09:00",
+      activity: "Rising",
+      clarity: "Low (Unstable)",
+      color: "text-amber-600",
+      bg: "bg-amber-50",
+      border: "border-amber-200",
+      icon: <Workflow size={20} />,
+      desc: "Order books are shifting. Volume is returning, but direction is often deceptive as institutional desks come online."
+    },
+    Overlap: {
+      label: "London / NY Overlap",
+      time: "13:00 - 16:00",
+      activity: "Extreme",
+      clarity: "High (If Aligned)",
+      color: "text-teal-600",
+      bg: "bg-teal-50",
+      border: "border-teal-200",
+      icon: <Zap size={20} />,
+      desc: "Maximum participation. Cleanest moves often happen here, but volatility spikes can hunt retail liquidity."
+    },
+    LateNY: {
+      label: "Late New York",
+      time: "18:00 - 21:00",
+      activity: "Fading",
+      clarity: "Low (Noisy)",
+      color: "text-slate-400",
+      bg: "bg-slate-50",
+      border: "border-slate-200",
+      icon: <Clock size={20} />,
+      desc: "Closing rotations. Participation drops. Spreads can widen. Movement is often technical noise without follow-through."
+    }
+  };
+
+  const current = windows[activeWindow as keyof typeof windows];
+
+  return (
+    <InstitutionalFrame label="Liquidity Window Diagnostic" id="FX-WINDOW-0.4">
+      <div className="w-full max-w-4xl flex flex-col gap-10">
+        {/* Window Selector */}
+        <div className="grid grid-cols-3 gap-6">
+          {Object.entries(windows).map(([key, data]) => (
+            <button
+              key={key}
+              onClick={() => setActiveWindow(key)}
+              className={cn(
+                "group p-6 rounded-[2rem] border-2 transition-all flex flex-col gap-4 text-left relative overflow-hidden",
+                activeWindow === key 
+                  ? `${data.bg} ${data.border} shadow-xl scale-[1.02]` 
+                  : "bg-white border-slate-100 opacity-60 hover:opacity-100"
+              )}
+            >
+              <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110", activeWindow === key ? data.color : "text-slate-300")}>
+                {data.icon}
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Context Window</span>
+                <span className={cn("text-sm font-black uppercase tracking-tight leading-none mt-1", activeWindow === key ? "text-[#071B36]" : "text-slate-400")}>
+                  {data.label}
+                </span>
+                <span className="text-[9px] font-mono mt-2 text-slate-400">{data.time}</span>
+              </div>
+              {activeWindow === key && (
+                <motion.div 
+                  layoutId="active-indicator"
+                  className="absolute bottom-0 left-0 h-1 w-full bg-teal-500" 
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Diagnostic Panel */}
+        <div className="bg-white border-2 border-slate-100 rounded-[3rem] p-10 flex flex-col gap-10 shadow-sm relative overflow-hidden">
+           <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
+           
+           <div className="grid grid-cols-[1fr_auto_1fr] gap-12 items-center relative z-10">
+              {/* Participation Visual */}
+              <div className="flex flex-col gap-6">
+                 <div className="flex items-center justify-between px-2">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest italic">Participation Graph</span>
+                    <div className="px-2 py-0.5 bg-teal-50 border border-teal-100 rounded text-[8px] font-black text-teal-600 uppercase tracking-widest">Live Audit</div>
+                 </div>
+                 <div className="h-48 bg-slate-50 border border-slate-100 rounded-[2rem] p-6 flex items-end gap-2 relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-10 bg-[repeating-linear-gradient(90deg,transparent,transparent_19px,white_1px,white_20px)]" />
+                    {[...Array(12)].map((_, i) => (
+                      <motion.div 
+                        key={i}
+                        initial={{ height: 0 }}
+                        animate={{ 
+                          height: `${(i === 5 || i === 6) && activeWindow === "Overlap" ? 90 : 
+                                    i > 4 && i < 8 && activeWindow === "Handoff" ? 50 : 
+                                    i > 8 && activeWindow === "LateNY" ? 20 : 
+                                    Math.random() * 40 + 10}%` 
+                        }}
+                        className={cn(
+                          "flex-1 rounded-t-lg transition-colors",
+                          (i === 5 || i === 6) && activeWindow === "Overlap" ? "bg-teal-500" : 
+                          i > 4 && i < 8 && activeWindow === "Handoff" ? "bg-amber-400" :
+                          "bg-slate-200"
+                        )}
+                      />
+                    ))}
+                 </div>
+              </div>
+
+              {/* Central Formula */}
+              <div className="flex flex-col items-center gap-4">
+                 <div className="w-px h-12 bg-slate-200" />
+                 <div className="w-14 h-14 rounded-full bg-[#071B36] flex items-center justify-center shadow-2xl">
+                    <Radar size={24} className="text-teal-400" />
+                 </div>
+                 <div className="w-px h-12 bg-slate-200" />
+              </div>
+
+              {/* Status readout */}
+              <div className="flex flex-col gap-8">
+                 <div className="flex flex-col gap-2">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Diagnostic Result</span>
+                    <div className={cn("px-6 py-4 rounded-2xl border-2 shadow-sm flex flex-col gap-1 transition-all duration-500", current.bg, current.border)}>
+                       <span className={cn("text-[10px] font-black uppercase tracking-tighter", current.color)}>Activity: {current.activity}</span>
+                       <span className="text-base font-black text-[#071B36] uppercase italic tracking-tighter leading-tight">Clarity: {current.clarity}</span>
+                    </div>
+                 </div>
+                 
+                 <div className="p-6 bg-slate-50 border border-slate-100 rounded-2xl">
+                    <p className="text-[11px] font-bold text-slate-500 leading-relaxed italic">
+                      “{current.desc}”
+                    </p>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="w-full p-6 bg-amber-50 border border-amber-100 rounded-[2rem] flex items-center gap-6 group">
+           <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:rotate-12 transition-transform">
+              <AlertTriangle size={24} strokeWidth={2.5} />
+           </div>
+           <div className="flex flex-col flex-1">
+              <span className="text-[11px] font-black text-[#B45309] uppercase tracking-widest">The Activity Fallacy</span>
+              <span className="text-xs font-bold text-amber-700 uppercase tracking-tight">Activity increases movement, but it does not guarantee structural clarity.</span>
+           </div>
+           <div className="px-4 py-2 bg-[#071B36] rounded-full">
+              <span className="text-[8px] font-black text-white uppercase tracking-widest">Verify Structure First</span>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="Session handoffs and overlaps can change how a timeframe behaves. A candle formed during an overlap may carry more participation than one formed during a quiet period. But activity alone is not enough."
+          analogy="Strong activity can create useful evidence or unstable movement depending on context. Don't mistake a crowded room for a coordinated plan."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};

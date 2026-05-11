@@ -65,6 +65,7 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "timeframe-debrief-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeDebriefBoard), { loading: VisualLoading }),
   "forex-session-timeframe-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexSessionTimeframeBoard), { loading: VisualLoading }),
   "forex-trading-rhythm-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexTradingRhythmBoard), { loading: VisualLoading }),
+  "forex-handoff-overlap-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexHandoffOverlapBoard), { loading: VisualLoading }),
 
 
   // --- FOREX MODULES ---

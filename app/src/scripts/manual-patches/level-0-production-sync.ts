@@ -1622,6 +1622,26 @@ const MODULES = [
       "commonMistake": "Thinking the market is equally active just because Forex is open.",
       "quickNote": "Forex is open for long hours, but activity comes in waves."
     }
+  },
+  {
+    "type": "visual_intro",
+    "title": "Session Handoffs and Overlaps",
+    "visualKey": "forex-handoff-overlap-board",
+    "label": "Liquidity Windows",
+    "body": "Session handoffs and overlaps can change how a timeframe behaves. A candle formed during an overlap may carry more participation than one formed during a quiet period. But activity alone is not enough. The learner still needs structure, context, and close-location review.",
+    "context": {
+      "keyTerms": [
+        { "term": "Session Handoff", "definition": "A transition period where one major trading region becomes less active and another becomes more active." },
+        { "term": "Overlap", "definition": "A time window where two major sessions are active at the same time." },
+        { "term": "Liquidity Window", "definition": "A period where market participation may be stronger." },
+        { "term": "Activity Spike", "definition": "A sudden increase in price movement or participation." },
+        { "term": "Clean Movement", "definition": "Movement that is easier to read because it has structure and follow-through." }
+      ],
+      "whyThisMatters": "Many Forex learners get excited when movement increases. But stronger activity can create useful evidence or unstable movement depending on context.",
+      "realLifeExample": "London opens and EUR/USD starts moving faster. A trained learner does not call direction immediately. They check whether the move is breaking structure or only reacting to fresh activity.",
+      "commonMistake": "Assuming every session overlap move is automatically clean.",
+      "quickNote": "Overlap can increase activity. It does not guarantee clarity."
+    }
   }
 ]
 :::`,
