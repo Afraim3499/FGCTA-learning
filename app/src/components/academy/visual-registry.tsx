@@ -54,6 +54,21 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "candle-recap-map": dynamic(() => import("./visuals/core/module-0-3").then(m => m.CandleRecapMap), { loading: VisualLoading }),
   "candle-diagram": dynamic(() => import("./visuals/core/module-0-3").then(m => m.CandleDiagram), { loading: VisualLoading }),
 
+  // Core 0.4 Timeframes
+  "time-compression-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeCompressionBoard), { loading: VisualLoading }),
+  "timeframe-comparison-windows": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeComparisonWindows), { loading: VisualLoading }),
+  "timeframe-weight-ladder": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeWeightLadder), { loading: VisualLoading }),
+  "htf-ltf-roles": dynamic(() => import("./visuals/core/module-0-4").then(m => m.HtfLtfRoles), { loading: VisualLoading }),
+  "timeframe-conflict-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeConflictBoard), { loading: VisualLoading }),
+  "top-down-reading-workflow": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TopDownReadingWorkflow), { loading: VisualLoading }),
+  "timeframe-decision-scenario": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeDecisionScenario), { loading: VisualLoading }),
+  "timeframe-debrief-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframeDebriefBoard), { loading: VisualLoading }),
+  "forex-session-timeframe-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexSessionTimeframeBoard), { loading: VisualLoading }),
+  "forex-trading-rhythm-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexTradingRhythmBoard), { loading: VisualLoading }),
+  "forex-handoff-overlap-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexHandoffOverlapBoard), { loading: VisualLoading }),
+  "forex-candle-weight-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexCandleWeightBoard), { loading: VisualLoading }),
+
+
   // --- FOREX MODULES ---
   
   // Forex 0.2

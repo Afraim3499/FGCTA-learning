@@ -1,4 +1,5 @@
 import { PrismaClient, AssetType } from "@prisma/client";
+/// <reference types="node" />
 
 const prisma = new PrismaClient();
 
