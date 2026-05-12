@@ -177,4 +177,12 @@ Before accepting a card, answer:
 6. Is this better than free generic content?
 7. Does every sentence have a reason to exist?
 
-If any answer is no, the card needs revision.
+
+## Coding & Architecture Standards
+
+For technical implementation rules, file structures, and technical debt tracking, refer to:
+[Curriculum Architecture Standards](file:///c:/trading%20course/app/src/content/level-0/ARCHITECTURE.md)
+
+1. **Split Content**: Every module track must have its own `.ts` file.
+2. **Split Visuals**: Every module track must have its own `.tsx` file (0.5+).
+3. **Dynamic Registry**: Use dynamic imports to keep the main bundle light.

@@ -67,6 +67,13 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "forex-trading-rhythm-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexTradingRhythmBoard), { loading: VisualLoading }),
   "forex-handoff-overlap-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexHandoffOverlapBoard), { loading: VisualLoading }),
   "forex-candle-weight-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexCandleWeightBoard), { loading: VisualLoading }),
+  "forex-news-distortion-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexNewsDistortionBoard), { loading: VisualLoading }),
+  "forex-location-context-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexLocationContextBoard), { loading: VisualLoading }),
+  "forex-behavior-lens-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexBehaviorLensBoard), { loading: VisualLoading }),
+  "forex-conflict-resolver": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexConflictResolver), { loading: VisualLoading }),
+  "forex-top-down-workflow": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexTopDownWorkflow), { loading: VisualLoading }),
+  "forex-timeframe-drill": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexTimeframeDrill), { loading: VisualLoading }),
+  "forex-roadway-debrief": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexRoadwayDebrief), { loading: VisualLoading }),
 
 
   // --- FOREX MODULES ---
@@ -125,6 +132,31 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "two-candle-engines-board": dynamic(() => import("./visuals/crypto/module-0-3").then(m => m.TwoCandleEnginesBoard), { loading: VisualLoading }),
   "wick-source-diagnostic-board": dynamic(() => import("./visuals/crypto/module-0-3").then(m => m.WickSourceDiagnosticBoard), { loading: VisualLoading }),
   "crypto-candle-decision-board": dynamic(() => import("./visuals/crypto/module-0-3").then(m => m.CryptoCandleDecisionBoard), { loading: VisualLoading }),
+  
+  // Crypto 0.4
+  "crypto-continuous-market-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoContinuousMarketBoard), { loading: VisualLoading }),
+  "crypto-activity-cycle-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoActivityCycleBoard), { loading: VisualLoading }),
+  "crypto-candle-quality-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoCandleQualityBoard), { loading: VisualLoading }),
+  "crypto-btc-context-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoBtcContextBoard), { loading: VisualLoading }),
+  "crypto-spot-perp-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoSpotPerpBoard), { loading: VisualLoading }),
+  "crypto-liquidity-risk-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoLiquidityRiskBoard), { loading: VisualLoading }),
+  "crypto-event-pressure-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoEventPressureBoard), { loading: VisualLoading }),
+  "crypto-reading-stack-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoReadingStackBoard), { loading: VisualLoading }),
+  "crypto-conflict-drill-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoConflictDrillBoard), { loading: VisualLoading }),
+  "crypto-roadway-debrief": dynamic(() => import("./visuals/core/module-0-4").then(m => m.CryptoRoadwayDebrief), { loading: VisualLoading }),
+  "gold-volatility-record-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldVolatilityRecordBoard), { loading: VisualLoading }),
+  "gold-market-rhythm-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldMarketRhythmBoard), { loading: VisualLoading }),
+  "gold-window-comparison-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldWindowComparisonBoard), { loading: VisualLoading }),
+  "gold-event-distortion-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldEventDistortionBoard), { loading: VisualLoading }),
+  "gold-participation-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldParticipationBoard), { loading: VisualLoading }),
+  "gold-location-context-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldLocationContextBoard), { loading: VisualLoading }),
+  "gold-local-behavior-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldLocalBehaviorBoard), { loading: VisualLoading }),
+  "gold-reading-stack-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldReadingStackBoard), { loading: VisualLoading }),
+  "gold-conflict-drill-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldConflictDrillBoard), { loading: VisualLoading }),
+  "gold-roadway-debrief": dynamic(() => import("./visuals/core/module-0-4").then(m => m.GoldRoadwayDebrief), { loading: VisualLoading }),
+  "forex-reading-stack-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexReadingStackBoard), { loading: VisualLoading }),
+  "timeframe-personality-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframePersonalityBoard), { loading: VisualLoading }),
+  "evidence-audit-checklist-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.EvidenceAuditChecklistBoard), { loading: VisualLoading }),
 
   // --- ALIASES (Backward Compatibility) ---
   // These keys ensure that legacy data in the database still renders correctly 

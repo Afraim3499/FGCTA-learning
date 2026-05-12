@@ -1,7 +1,9 @@
 import { PrismaClient, AssetType } from "@prisma/client";
-/// <reference types="node" />
+import { Pool } from "pg";
+import { PrismaPg } from "@prisma/adapter-pg";
+import dotenv from "dotenv";
 
-const prisma = new PrismaClient();
+dotenv.config();
 
 const strategies = [
   // CRYPTO TREND
@@ -58,22 +60,30 @@ const strategies = [
 ];
 
 async function main() {
-  console.log("Seeding strategies...");
-  for (const s of strategies) {
-    await prisma.strategy.upsert({
-      where: { assetClass_name: { assetClass: s.assetClass, name: s.name } },
-      update: s,
-      create: s,
-    });
+  const pool = new Pool({ 
+    connectionString: process.env.DIRECT_URL || process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+  });
+  const adapter = new PrismaPg(pool);
+  const prisma = new PrismaClient({ adapter });
+
+  try {
+    console.log("Seeding strategies...");
+    for (const s of strategies) {
+      await prisma.strategy.upsert({
+        where: { assetClass_name: { assetClass: s.assetClass, name: s.name } },
+        update: s,
+        create: s,
+      });
+    }
+    console.log("Strategies seeded successfully.");
+  } catch (error) {
+    console.error("Seeding failed:", error);
+    process.exit(1);
+  } finally {
+    await prisma.$disconnect();
+    await pool.end();
   }
-  console.log("Strategies seeded successfully.");
 }
 
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+main();

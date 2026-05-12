@@ -23,17 +23,28 @@ import {
   ArrowRight,
   TrendingUp,
   Fingerprint,
+  Shuffle,
   Wind,
   Target,
   AlertOctagon,
   ChevronRight,
   ShieldAlert,
+  ShieldCheck,
   Database,
   Globe,
   Sun,
   Moon,
   Coffee,
-  Clock
+  Clock,
+  Map,
+  MapPin,
+  ArrowRightCircle,
+  ClipboardList,
+  Timer,
+  RotateCcw,
+  Shield,
+  Check,
+  ClipboardCheck
 } from "lucide-react";
 
 /**
@@ -1102,6 +1113,2985 @@ export const ForexCandleWeightBoard = () => {
         <MentorInsight 
           text="Memorizing candle shapes is a beginner's game. Judging the quality of the environment that created them is the professional's edge. A candle is only as strong as the hands that pulled the trigger."
           analogy="A footprint in wet mud (Active Session) tells you exactly where someone went. A footprint in dry sand (Quiet Period) disappears the moment you look away."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Forex Adaptation: 5. News Windows Distort Timeframe Reading
+ * Visualizing the contrast between clean session movement and unstable news volatility.
+ */
+export const ForexNewsDistortionBoard = () => {
+  return (
+    <InstitutionalFrame label="Event Volatility Diagnostic" id="FX-NEWS-0.4">
+      <div className="w-full max-w-4xl flex flex-col gap-10">
+        <div className="grid grid-cols-2 gap-10">
+          {/* Normal Candle Section */}
+          <div className="flex flex-col gap-4">
+             <div className="flex items-center gap-3 mb-2">
+                <div className="w-2 h-2 rounded-full bg-teal-500" />
+                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Normal Session Flow</span>
+             </div>
+             <div className="p-10 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col items-center justify-center min-h-[300px] relative overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[length:20px_100%]" />
+                
+                <div className="flex flex-col items-center gap-1 relative z-10">
+                   <div className="w-[2px] h-12 bg-slate-200" />
+                   <div className="w-8 h-20 bg-teal-500 border-2 border-teal-600 shadow-md" />
+                   <div className="w-[2px] h-8 bg-slate-200" />
+                </div>
+                
+                <div className="mt-8 px-4 py-2 bg-teal-50 border border-teal-100 rounded-xl">
+                   <span className="text-[9px] font-black text-teal-700 uppercase">Stable Spread</span>
+                </div>
+             </div>
+          </div>
+
+          {/* News Candle Section */}
+          <div className="flex flex-col gap-4">
+             <div className="flex items-center gap-3 mb-2">
+                <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest">News Window Volatility</span>
+             </div>
+             <div className="p-10 bg-slate-900 border-2 border-slate-800 rounded-[3rem] shadow-2xl flex flex-col items-center justify-center min-h-[300px] relative overflow-hidden">
+                <div className="absolute inset-0 bg-rose-500/5" />
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[length:15px_15px]" />
+                
+                <div className="flex flex-col items-center gap-1 relative z-10">
+                   <div className="w-[4px] h-32 bg-rose-500/40" />
+                   <div className="w-12 h-32 bg-rose-500 border-2 border-rose-400 shadow-[0_0_30px_rgba(244,63,94,0.3)] relative">
+                      {/* Distortion effects */}
+                      <div className="absolute -inset-2 border border-rose-500/20 animate-ping rounded-sm" />
+                      <div className="absolute top-1/2 -left-12 -translate-y-1/2 flex flex-col gap-1">
+                         <div className="w-8 h-[1px] bg-rose-500/50" />
+                         <span className="text-[7px] font-black text-rose-400 uppercase">Slippage</span>
+                      </div>
+                   </div>
+                   <div className="w-[4px] h-24 bg-rose-500/40" />
+                </div>
+
+                <div className="mt-8 px-4 py-2 bg-rose-500/20 border border-rose-500/40 rounded-xl flex items-center gap-2">
+                   <AlertTriangle size={12} className="text-rose-400" />
+                   <span className="text-[9px] font-black text-rose-400 uppercase tracking-tighter">Fast Repricing / Spread Expansion</span>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                 <ShieldCheck size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-1">Institutional Rule</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight">Large movement during news does not automatically equal clean evidence.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="Economic news is like a storm hitting a ship. The ship might move fast, but it is the storm steering, not the captain. We wait for the wind to settle (Follow-Through) before we trust the new direction."
+          analogy="A loud megaphone (News) makes a voice louder, but not necessarily clearer."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Forex Adaptation: 6. Higher-Timeframe Location in Forex
+ * Visualizing the nesting of local movement inside higher-timeframe boundaries.
+ */
+export const ForexLocationContextBoard = () => {
+  return (
+    <InstitutionalFrame label="Location Context Diagnostic" id="FX-LOCATION-0.4">
+      <div className="w-full max-w-4xl flex flex-col gap-10">
+        <div className="relative p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm overflow-hidden min-h-[400px] flex items-center justify-center">
+           {/* Background Grid */}
+           <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:40px_40px]" />
+           
+           {/* HTF Resistance Zone */}
+           <div className="absolute top-12 left-8 right-8 h-20 bg-rose-500/5 border-y-2 border-rose-500/20 flex items-center justify-center">
+              <div className="flex flex-col items-center gap-1">
+                 <span className="text-[10px] font-black text-rose-500 uppercase tracking-[0.4em]">4H Resistance Area (Major Zone)</span>
+                 <span className="text-[8px] font-bold text-rose-400 uppercase">Institutional Supply</span>
+              </div>
+           </div>
+
+           {/* LTF Movement */}
+           <div className="relative z-10 mt-20 flex flex-col items-center">
+              <div className="flex items-end gap-2">
+                 {[12, 16, 24, 32, 28, 40].map((h, i) => (
+                    <motion.div 
+                       key={i}
+                       initial={{ height: 0 }}
+                       animate={{ height: h * 2 }}
+                       className={cn(
+                         "w-6 rounded-sm border",
+                         i === 5 ? "bg-teal-500 border-teal-600 shadow-lg" : "bg-slate-100 border-slate-200"
+                       )}
+                    >
+                       {i === 5 && (
+                          <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex flex-col items-center whitespace-nowrap">
+                             <div className="px-2 py-1 bg-[#071B36] rounded text-[8px] font-black text-white">Active Push</div>
+                             <div className="w-px h-4 bg-[#071B36]" />
+                          </div>
+                       )}
+                    </motion.div>
+                 ))}
+              </div>
+              
+              <div className="mt-12 flex flex-col items-center gap-4 text-center">
+                 <div className="px-6 py-2 bg-slate-50 border border-slate-200 rounded-full flex items-center gap-3">
+                    <Map size={14} className="text-slate-400" />
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Local 15m Momentum</span>
+                 </div>
+                 <p className="text-[11px] font-bold text-slate-400 max-w-[280px]">
+                    "The push looks strong, but it is moving into the <span className="text-rose-500">4H Ceiling</span>."
+                 </p>
+              </div>
+           </div>
+
+           {/* Side Labels */}
+           <div className="absolute left-8 bottom-8 flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                 <div className="w-1.5 h-1.5 rounded-full bg-rose-500/30" />
+                 <span className="text-[8px] font-black text-slate-300 uppercase tracking-widest">HTF Boundaries</span>
+              </div>
+              <div className="flex items-center gap-2">
+                 <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                 <span className="text-[8px] font-black text-slate-300 uppercase tracking-widest">LTF Participation</span>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] flex items-center justify-between border-b-4 border-teal-500 shadow-2xl">
+           <div className="flex items-center gap-8">
+              <div className="w-14 h-14 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                 <Target size={28} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.3em] mb-1">Audit Mastery</span>
+                 <h4 className="text-xl font-bold text-white uppercase tracking-tighter">Location comes before reaction.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="In Forex, price is always 'somewhere' in a bigger story. A car driving at 100mph (Reaction) is great, but if it is 5 feet away from a cliff (Location), the speed doesn't matter. Always check the cliff first."
+          analogy="A hiker looking at their boots (LTF) to see if they're moving, while ignoring the mountain peak (HTF) they're walking into."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Forex Adaptation: 7. Lower-Timeframe Session Behavior
+ * Visualizing the "Lens" metaphor for observing behavior within context.
+ */
+export const ForexBehaviorLensBoard = () => {
+  return (
+    <InstitutionalFrame label="Behavior Lens Diagnostic" id="FX-BEHAVIOR-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="grid grid-cols-[0.4fr_0.6fr] gap-10 items-center">
+           {/* HTF Context (The Map) */}
+           <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                 <Globe size={14} className="text-slate-400" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">HTF Context (The Map)</span>
+              </div>
+              <div className="p-8 bg-slate-50 border-2 border-slate-100 rounded-[2.5rem] relative h-[350px] flex items-center justify-center overflow-hidden">
+                 <div className="absolute top-10 left-4 right-4 h-12 bg-rose-500/10 border-y border-rose-500/20 flex items-center justify-center">
+                    <span className="text-[8px] font-black text-rose-500 uppercase tracking-widest">4H Resistance Zone</span>
+                 </div>
+                 <div className="w-px h-full bg-slate-200 absolute left-1/2" />
+                 <div className="w-4 h-4 rounded-full bg-[#071B36] relative z-10 shadow-lg border-2 border-white" />
+                 <div className="absolute bottom-10 text-[9px] font-bold text-slate-400 uppercase tracking-tighter italic">"Price is here"</div>
+              </div>
+           </div>
+
+           {/* LTF Behavior (The Lens) */}
+           <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                 <Search size={14} className="text-teal-500" />
+                 <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest">LTF Behavior (The Lens)</span>
+              </div>
+              <div className="p-8 bg-[#071B36] border-[4px] border-slate-800 rounded-[3rem] shadow-2xl relative min-h-[350px] grid grid-cols-2 gap-6">
+                 {[
+                   { label: "Fast Push", icon: <Zap size={14}/>, color: "text-teal-400", bg: "bg-teal-400/10" },
+                   { label: "Slowing", icon: <Activity size={14}/>, color: "text-amber-400", bg: "bg-amber-400/10" },
+                   { label: "Rejection", icon: <ShieldAlert size={14}/>, color: "text-rose-400", bg: "bg-rose-400/10" },
+                   { label: "Break Attempt", icon: <Target size={14}/>, color: "text-blue-400", bg: "bg-blue-400/10" }
+                 ].map((item, i) => (
+                   <div key={i} className={cn("p-6 rounded-2xl border border-white/5 flex flex-col gap-3", item.bg)}>
+                      <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center bg-white/5", item.color)}>
+                         {item.icon}
+                      </div>
+                      <span className={cn("text-[10px] font-black uppercase tracking-tight", item.color)}>{item.label}</span>
+                      <div className="flex gap-1 h-8 items-end">
+                         {[1,2,3,4].map(j => (
+                           <div key={j} className="flex-1 bg-white/10 rounded-sm" style={{ height: Math.random() * 100 + "%" }} />
+                         ))}
+                      </div>
+                   </div>
+                 ))}
+                 
+                 <div className="absolute inset-0 pointer-events-none border-[20px] border-[#071B36] rounded-[2.5rem] opacity-50 shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]" />
+              </div>
+           </div>
+        </div>
+
+        <div className="flex flex-col gap-6 p-8 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-xl bg-slate-50 text-[#071B36] flex items-center justify-center">
+                 <Scale size={24} />
+              </div>
+              <p className="text-sm font-bold text-slate-500 leading-relaxed">
+                 <span className="text-[#071B36] font-black uppercase tracking-tighter italic">Behavior refined, not invented.</span> Lower timeframes should explain how price is interacting with the map, not create a brand new map.
+              </p>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A magnifying glass (LTF) is useless if you don't know where you are on the world map (HTF). Use the map to find the destination, and the glass to watch your step."
+          analogy="A biologist using a microscope to study a cell, but needing the anatomical chart to know which organ the cell belongs to."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Forex Adaptation: 8. Resolving the Session vs. Timeframe Trap
+ * Visualizing how HTF 'Structural Gravity' overrides Session 'Noise'.
+ */
+export const ForexConflictResolver = () => {
+  return (
+    <InstitutionalFrame label="Session Conflict Diagnostic" id="FX-CONFLICT-0.4">
+      <div className="w-full max-w-4xl flex flex-col gap-10">
+        <div className="grid grid-cols-[1.2fr_0.8fr] gap-10">
+          {/* Scenario Board */}
+          <div className="flex flex-col gap-6">
+            <div className="p-8 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+               <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:100%_20px]" />
+               
+               <div className="flex flex-col gap-8 relative z-10">
+                  {/* HTF Resistance */}
+                  <div className="relative">
+                    <div className="absolute -left-4 right-0 h-4 bg-rose-500/10 border-y border-rose-500/20 flex items-center justify-center">
+                       <span className="text-[8px] font-black text-rose-500 uppercase tracking-[0.4em]">4H Bearish Wall (NY Session)</span>
+                    </div>
+                    <div className="h-20" />
+                  </div>
+
+                  {/* London Push */}
+                  <div className="flex flex-col items-center">
+                     <div className="flex items-center gap-10">
+                        <div className="flex flex-col items-center">
+                           <div className="w-[3px] h-24 bg-slate-200" />
+                           <div className="w-10 h-16 bg-teal-500 border-2 border-teal-600 shadow-lg relative">
+                              <div className="absolute -right-12 top-0 px-2 py-0.5 bg-[#071B36] rounded text-[8px] font-black text-white">15m</div>
+                           </div>
+                           <div className="w-[3px] h-8 bg-slate-200" />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                           <div className="flex items-center gap-3 px-4 py-2 bg-teal-50 border border-teal-100 rounded-xl">
+                              <Zap size={14} className="text-teal-600" />
+                              <span className="text-[10px] font-black text-teal-700 uppercase">London Open Push</span>
+                           </div>
+                           <p className="text-[10px] font-bold text-slate-500 max-w-[140px] leading-relaxed">
+                             "The move looks fast and strong, but it is moving into a Wall."
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+
+          {/* Logic Panel */}
+          <div className="flex flex-col gap-6">
+             <div className="p-8 bg-[#071B36] rounded-[3rem] border-[4px] border-slate-800 shadow-2xl flex flex-col items-center text-center gap-6">
+                <div className="w-16 h-16 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-500">
+                   <ShieldAlert size={32} />
+                </div>
+                <div className="flex flex-col gap-2">
+                   <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest leading-none">Diagnostic Result</span>
+                   <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter">Mixed Reading</h4>
+                </div>
+                <div className="w-full h-px bg-white/10" />
+                <p className="text-[11px] font-bold text-slate-400 uppercase leading-relaxed">
+                  Session momentum (London) is hitting HTF Resistance (NY). <span className="text-teal-400">Professional choice: Wait for alignment.</span>
+                </p>
+             </div>
+             
+             <div className="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-4">
+                <Scale size={20} className="text-slate-400" />
+                <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">HTF Wall {">"} Session Hype</span>
+             </div>
+          </div>
+        </div>
+
+        <MentorInsight 
+          text="In Forex, sessions are powerful but Timeframes are absolute. A London rally into a 4H New York wall is like a car driving into a brick wall. The car is moving fast, but the wall doesn't care."
+          analogy="A speedboat (Session) hitting a glacier (HTF). The speedboat is loud and fast, but the glacier isn't moving."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Forex Adaptation: 6. The Forex Evidence Stack Workflow
+ * The step-by-step sequence for a clinical Forex audit.
+ */
+export const ForexTopDownWorkflow = () => {
+  return (
+    <InstitutionalFrame label="Forex Audit Workflow" id="FX-WORKFLOW-0.4">
+      <div className="w-full max-w-2xl flex flex-col gap-10">
+        <div className="relative flex flex-col gap-4">
+          <div className="absolute left-[31px] top-8 bottom-8 w-px bg-slate-200" />
+          
+          {[
+            { 
+              step: "01", 
+              label: "The Boss Audit", 
+              tf: "Daily / 4H", 
+              desc: "Identify the dominant session bias and major structural walls.",
+              icon: <Fingerprint size={18} />,
+              color: "bg-[#071B36]"
+            },
+            { 
+              step: "02", 
+              label: "The Roadway Audit", 
+              tf: "1H / 15m", 
+              desc: "Identify the current session's sequence of highs and lows.",
+              icon: <MapPin size={18} />,
+              color: "bg-teal-600"
+            },
+            { 
+              step: "03", 
+              label: "The Participation Audit", 
+              tf: "Session Window", 
+              desc: "Judge whether the move has real liquidity or is just technical noise.",
+              icon: <Zap size={18} />,
+              color: "bg-blue-600"
+            },
+            { 
+              step: "04", 
+              label: "The Evidence Stack", 
+              tf: "Alignment", 
+              desc: "Only proceed if the layers support the same directional story.",
+              icon: <CheckCircle size={18} />,
+              color: "bg-emerald-600"
+            }
+          ].map((item, i) => (
+            <div key={item.step} className="flex items-center gap-8 group">
+               <div className={cn(
+                 "w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-lg relative z-10 transition-transform group-hover:scale-110",
+                 item.color
+               )}>
+                  <span className="text-sm font-black italic">{item.step}</span>
+               </div>
+               
+               <div className="flex-1 p-6 bg-white border border-slate-100 rounded-[2rem] shadow-sm flex items-center justify-between group-hover:border-teal-500 transition-all">
+                  <div className="flex flex-col">
+                     <div className="flex items-center gap-2 mb-1">
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{item.tf}</span>
+                        <div className="w-1 h-1 bg-slate-200 rounded-full" />
+                        <span className="text-[9px] font-bold text-teal-600 uppercase tracking-tight">{item.label}</span>
+                     </div>
+                     <p className="text-[11px] font-bold text-[#071B36] leading-tight max-w-[300px]">
+                        {item.desc}
+                     </p>
+                  </div>
+                  <div className="text-slate-200 group-hover:text-teal-500 transition-colors">
+                     {item.icon}
+                  </div>
+               </div>
+            </div>
+          ))}
+        </div>
+
+        <MentorInsight 
+          text="Starting on the 1-minute chart in Forex is like looking at a blade of grass to predict the weather. Start with the atmosphere (HTF), then the garden (1H), then the leaf (15m)."
+          analogy="A general doesn't look at a single soldier to plan a war. They look at the map (HTF), then the division (1H), then the squad (Detail)."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Forex Adaptation: 7. Forex Timeframe Practice Scenario
+ */
+export const ForexTimeframeDrill = () => {
+  return (
+    <InstitutionalFrame label="Forex Audit Case Study" id="FX-DRILL-0.4">
+      <div className="w-full max-w-4xl flex flex-col gap-10">
+        <div className="grid grid-cols-3 gap-6">
+           {[
+             { tf: "4H", label: "NARRATIVE", state: "BEARISH WALL", context: "NY SUPPLY ZONE", color: "text-rose-600", bg: "bg-rose-50", border: "border-rose-100", icon: <ShieldAlert size={14}/> },
+             { tf: "1H", label: "STRUCTURE", state: "RANGING", context: "ASIA CONSOLIDATION", color: "text-slate-400", bg: "bg-slate-50", border: "border-slate-100", icon: <Clock size={14}/> },
+             { tf: "15m", label: "DETAIL", state: "BULLISH PUSH", context: "LONDON OPEN", color: "text-teal-600", bg: "bg-teal-50", border: "border-teal-100", icon: <Zap size={14}/> }
+           ].map(item => (
+             <div key={item.tf} className={cn("p-8 rounded-[2.5rem] border-2 shadow-sm flex flex-col gap-6 relative overflow-hidden", item.bg, item.border)}>
+                <div className="flex items-center justify-between">
+                   <div className="px-3 py-1 bg-white border border-slate-200 rounded-lg shadow-sm">
+                      <span className="text-xs font-black text-[#071B36]">{item.tf}</span>
+                   </div>
+                   <div className={cn("p-2 rounded-lg bg-white shadow-sm", item.color)}>
+                      {item.icon}
+                   </div>
+                </div>
+                <div className="flex flex-col gap-1">
+                   <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{item.label} LAYER</span>
+                   <h5 className={cn("text-base font-black uppercase tracking-tighter leading-none", item.color)}>{item.state}</h5>
+                   <span className="text-[8px] font-mono text-slate-400 uppercase mt-2">{item.context}</span>
+                </div>
+             </div>
+           ))}
+        </div>
+
+        <div className="bg-[#071B36] rounded-[3rem] p-10 flex items-center justify-between shadow-2xl relative overflow-hidden">
+           <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(white_1.5px,transparent_1.5px)] bg-[length:20px_20px]" />
+           <div className="flex items-center gap-8 relative z-10">
+              <div className="w-16 h-16 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                 <Target size={32} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.4em] mb-2">Audit Scenario Question</span>
+                 <h4 className="text-xl font-black text-white uppercase italic tracking-tight">What is the disciplined reading?</h4>
+              </div>
+           </div>
+        </div>
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Forex Adaptation: 9. Forex Debrief: Time, Session, Structure
+ * Final summary of the 7-step Forex Audit Process.
+ */
+export const ForexRoadwayDebrief = () => {
+  return (
+    <InstitutionalFrame label="Roadway Competency Verified" id="FX-RECAP-0.4" status="COMPLETE">
+      <div className="w-full max-w-4xl flex flex-col gap-10">
+        <div className="flex flex-col items-center gap-6 text-center">
+           <div className="w-20 h-20 rounded-[2.5rem] bg-teal-500/10 border-2 border-teal-500/30 flex items-center justify-center text-teal-500 shadow-xl">
+              <CheckCircle size={48} strokeWidth={2.5} />
+           </div>
+           <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-black text-teal-600 uppercase tracking-[0.5em]">Roadway Complete</span>
+              <h2 className="text-4xl font-black text-[#071B36] uppercase italic tracking-tighter">The Forex Auditor</h2>
+           </div>
+        </div>
+
+        <div className="p-10 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           <div className="absolute top-0 right-0 p-8 opacity-[0.05]">
+              <Workflow size={120} />
+           </div>
+           
+           <div className="flex flex-col gap-8 relative z-10">
+              <div className="flex items-center gap-4">
+                 <div className="w-8 h-8 rounded-lg bg-[#071B36] text-white flex items-center justify-center">
+                    <Activity size={16} />
+                 </div>
+                 <h3 className="text-sm font-black text-[#071B36] uppercase tracking-widest">Your Repeatable Audit Process</h3>
+              </div>
+
+              <div className="grid grid-cols-2 gap-y-4 gap-x-12">
+                 {[
+                   { step: "01", label: "Identify Pair", desc: "Currency context & behavior" },
+                   { step: "02", label: "Select Timeframe", desc: "Time compression weight" },
+                   { step: "03", label: "Verify Session", desc: "Participation environment" },
+                   { step: "04", label: "HTF Location", desc: "Nesting inside the Boss" },
+                   { step: "05", label: "WT Structure", desc: "The current roadway" },
+                   { step: "06", label: "LTF Behavior", desc: "The local reaction lens" },
+                   { step: "07", label: "Reading Quality", desc: "Clear, Mixed, or Unclear" }
+                 ].map((item, i) => (
+                   <div key={i} className="flex items-start gap-4 p-4 hover:bg-slate-50 rounded-2xl transition-colors group">
+                      <span className="text-xs font-black text-slate-300 group-hover:text-teal-500 transition-colors">{item.step}</span>
+                      <div className="flex flex-col gap-0.5">
+                         <span className="text-[11px] font-black text-[#071B36] uppercase tracking-tight">{item.label}</span>
+                         <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">{item.desc}</span>
+                      </div>
+                   </div>
+                 ))}
+              </div>
+           </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6">
+           <div className="p-8 bg-[#071B36] rounded-[2.5rem] flex flex-col gap-4 border-b-4 border-teal-500 shadow-xl">
+              <div className="flex items-center gap-3">
+                 <Zap size={14} className="text-teal-400" />
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest">New Competency</span>
+              </div>
+              <p className="text-sm font-bold text-white leading-relaxed">
+                 You no longer react to candle shapes. You audit <span className="text-teal-400">Time, Session, and Structure</span> together.
+              </p>
+           </div>
+
+           <div className="p-8 bg-slate-50 border-2 border-slate-100 rounded-[2.5rem] flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                 <ArrowRightCircle size={14} className="text-slate-400" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Bridge to Next</span>
+              </div>
+              <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter">Structure Reading</h4>
+              <p className="text-[11px] font-bold text-slate-500 uppercase leading-snug">
+                 Mapping the market skeleton: Swing Points and Trends.
+              </p>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="Leaving a module with session names is a hobby. Leaving with a process is a career. You have graduated from 'reactive trader' to 'disciplined evidence auditor'."
+          analogy="A pilot who doesn't just know the names of the buttons, but follows the pre-flight checklist every single time."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 1. Crypto Timeframes Run 24/7
+ * Visualizing the 24/7 timeline vs. varying market quality.
+ */
+export const CryptoContinuousMarketBoard = () => {
+  return (
+    <InstitutionalFrame label="Continuous Market Diagnostic" id="CRYPTO-CONTINUOUS-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="relative p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm overflow-hidden min-h-[450px]">
+           {/* Background Grid */}
+           <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:40px_40px]" />
+           
+           <div className="flex flex-col gap-12 relative z-10">
+              <div className="flex items-center justify-between">
+                 <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Continuous Market Structure</span>
+                    <h4 className="text-2xl font-black text-[#071B36] uppercase italic tracking-tighter">The 24/7 Crypto Timeline</h4>
+                 </div>
+                 <div className="flex items-center gap-2 px-4 py-2 bg-slate-900 rounded-xl">
+                    <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                    <span className="text-[10px] font-black text-white uppercase tracking-widest">Live Market Engine</span>
+                 </div>
+              </div>
+
+              {/* Timeline Visualization */}
+              <div className="relative flex flex-col gap-8">
+                 <div className="absolute left-0 right-0 h-px bg-slate-200 top-[60px]" />
+                 
+                 <div className="grid grid-cols-4 gap-4">
+                    {[
+                      { label: "Active Cycle", color: "bg-teal-500", icon: <TrendingUp size={12}/>, desc: "High Participation", quality: "HIGH" },
+                      { label: "Quiet Window", color: "bg-slate-300", icon: <Moon size={12}/>, desc: "Low Volatility", quality: "LOW" },
+                      { label: "Weekend", color: "bg-amber-500", icon: <Sun size={12}/>, desc: "Thin Liquidity", quality: "UNSTABLE" },
+                      { label: "Event Spike", color: "bg-rose-500", icon: <Zap size={12}/>, desc: "News Driven", quality: "DISTORTED" }
+                    ].map((item, i) => (
+                      <div key={i} className="flex flex-col gap-4">
+                         <div className="h-10 flex items-center justify-center">
+                            <div className={cn("px-3 py-1 rounded-full text-[8px] font-black uppercase text-white shadow-sm", item.color)}>
+                               {item.label}
+                            </div>
+                         </div>
+                         
+                         <div className="p-6 bg-slate-50 border-2 border-slate-100 rounded-[2rem] flex flex-col items-center gap-6 group hover:border-teal-500 transition-all duration-500">
+                            <div className="flex gap-1 h-12 items-end">
+                               {[1,2,3,4,5].map(j => (
+                                 <motion.div 
+                                    key={j}
+                                    initial={{ height: 0 }}
+                                    animate={{ height: Math.random() * 100 + "%" }}
+                                    className={cn("w-1.5 rounded-t-sm", item.color, "opacity-40 group-hover:opacity-100 transition-opacity")}
+                                 />
+                               ))}
+                            </div>
+                            
+                            <div className="flex flex-col items-center text-center gap-1">
+                               <span className="text-[9px] font-black text-[#071B36] uppercase">{item.desc}</span>
+                               <div className="flex items-center gap-2">
+                                  <span className="text-[8px] font-black text-slate-300 uppercase tracking-widest">Quality:</span>
+                                  <span className={cn("text-[8px] font-black uppercase tracking-widest", 
+                                    item.quality === "HIGH" ? "text-teal-600" : 
+                                    item.quality === "LOW" ? "text-slate-400" : "text-rose-500"
+                                  )}>{item.quality}</span>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                    ))}
+                 </div>
+              </div>
+
+              <div className="p-8 bg-[#071B36] rounded-[2.5rem] flex items-center justify-between border-b-4 border-teal-500 shadow-2xl">
+                 <div className="flex items-center gap-8">
+                    <div className="w-14 h-14 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                       <Clock size={28} />
+                    </div>
+                    <div className="flex flex-col">
+                       <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.3em] mb-1">Timeframe Logic</span>
+                       <h4 className="text-xl font-bold text-white uppercase tracking-tighter italic">Crypto never sleeps, but candle quality still changes.</h4>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="In traditional markets, the clock tells you when to trade. In Crypto, the environment tells you when to trade. A candle printed at 3 AM on a Saturday is a record, but it is not the same kind of record as one printed during a global activity cycle."
+          analogy="A 24-hour restaurant (Crypto) that stays open all night, but the quality of service changes depending on whether it's the lunch rush or the 4 AM skeleton crew."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 2. The Crypto Day Has Activity Cycles
+ * Visualizing the rhythmic changes in participation across a 24-hour cycle.
+ */
+export const CryptoActivityCycleBoard = () => {
+  return (
+    <InstitutionalFrame label="Activity Rhythm Diagnostic" id="CRYPTO-RHYTHM-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="relative p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm overflow-hidden min-h-[450px]">
+           {/* Background Grid */}
+           <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:40px_40px]" />
+           
+           <div className="flex flex-col gap-12 relative z-10">
+              <div className="flex items-center justify-between">
+                 <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Participation Rhythm</span>
+                    <h4 className="text-2xl font-black text-[#071B36] uppercase italic tracking-tighter">Crypto Activity Cycles</h4>
+                 </div>
+                 <div className="flex items-center gap-3 px-5 py-2 bg-slate-50 border border-slate-100 rounded-full">
+                    <Activity size={14} className="text-slate-400" />
+                    <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest italic">Rhythm is not a Clock</span>
+                 </div>
+              </div>
+
+              {/* Activity Waveform */}
+              <div className="relative h-48 flex items-end gap-1.5 px-4">
+                 {/* Timeline axis */}
+                 <div className="absolute bottom-0 left-0 right-0 h-px bg-slate-100" />
+                 
+                 {Array.from({ length: 48 }).map((_, i) => {
+                    const activity = 20 + Math.sin(i * 0.3) * 30 + (i > 16 && i < 36 ? 30 : 0) + (i > 40 ? 40 : 0);
+                    const isUS = i >= 20 && i <= 34;
+                    const isAsia = i >= 0 && i <= 16;
+                    const isEurope = i >= 12 && i <= 26;
+                    
+                    return (
+                       <motion.div 
+                          key={i}
+                          initial={{ height: 0 }}
+                          animate={{ height: `${Math.min(activity, 100)}%` }}
+                          className={cn(
+                            "flex-1 rounded-t-sm transition-all duration-500",
+                            isUS ? "bg-teal-500/40 hover:bg-teal-500" : 
+                            isEurope ? "bg-blue-500/30 hover:bg-blue-500" :
+                            isAsia ? "bg-amber-500/30 hover:bg-amber-500" : "bg-slate-200 hover:bg-slate-400"
+                          )}
+                       />
+                    );
+                 })}
+
+                 {/* Region Labels */}
+                 <div className="absolute top-0 left-0 right-0 flex justify-between px-8">
+                    <div className="flex flex-col items-center gap-2">
+                       <span className="text-[7px] font-black text-slate-300 uppercase">Asia Cycle</span>
+                       <div className="w-px h-4 bg-slate-100" />
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                       <span className="text-[7px] font-black text-slate-300 uppercase">Europe Cycle</span>
+                       <div className="w-px h-4 bg-slate-100" />
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                       <span className="text-[7px] font-black text-teal-500 uppercase">US/Overlap Cycle</span>
+                       <div className="w-px h-4 bg-teal-500/20" />
+                    </div>
+                 </div>
+              </div>
+
+              {/* Marker Cards */}
+              <div className="grid grid-cols-3 gap-6">
+                 {[
+                   { label: "Quiet Windows", desc: "Tends to occur between major regional handoffs.", icon: <Moon size={14}/>, color: "text-slate-400" },
+                   { label: "Funding Time", desc: "Mechanical markers that can influence positioning.", icon: <Database size={14}/>, color: "text-blue-500" },
+                   { label: "Event Window", desc: "Often causes sudden, unaligned participation spikes.", icon: <Zap size={14}/>, color: "text-rose-500" }
+                 ].map((item, i) => (
+                   <div key={i} className="p-6 bg-slate-50 border border-slate-100 rounded-[2rem] flex flex-col gap-3">
+                      <div className={cn("flex items-center gap-2", item.color)}>
+                         {item.icon}
+                         <span className="text-[9px] font-black uppercase tracking-widest">{item.label}</span>
+                      </div>
+                      <p className="text-[10px] font-bold text-slate-500 leading-snug">
+                         {item.desc}
+                      </p>
+                   </div>
+                 ))}
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                 <Radar size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-1">Rhythm Awareness</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight">Crypto is always open, but participation is not always equal.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="Don't look for a rigid clock in Crypto. Look for participation waves. A move that happens when the major venues are active has different weight than a move that happens in a quiet window."
+          analogy="The ocean is always there, but surfers wait for the tide to bring the right waves. In Crypto, you are waiting for participation waves."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 3. Same Candle, Different Market Condition
+ * Visualizing how context changes the "weight" of identical candle shapes.
+ */
+export const CryptoCandleQualityBoard = () => {
+  const [activeTab, setActiveTab] = useState("spot");
+
+  const conditions = {
+    spot: {
+      label: "Strong Spot Demand",
+      desc: "Clean participation across venues. High integrity.",
+      quality: "HIGH",
+      color: "text-teal-500",
+      bg: "bg-teal-50",
+      border: "border-teal-200",
+      icon: <Layers size={14}/>
+    },
+    thin: {
+      label: "Thin Liquidity",
+      desc: "Exaggerated movement due to limited order book depth.",
+      quality: "LOW",
+      color: "text-slate-400",
+      bg: "bg-slate-50",
+      border: "border-slate-200",
+      icon: <Wind size={14}/>
+    },
+    perp: {
+      label: "Perp-Driven Pressure",
+      desc: "Leverage & liquidations distort the structural signal.",
+      quality: "MIXED",
+      color: "text-blue-500",
+      bg: "bg-blue-50",
+      border: "border-blue-200",
+      icon: <Database size={14}/>
+    },
+    event: {
+      label: "Event Spike",
+      desc: "Fast, news-driven volatility. Often unstable.",
+      quality: "UNSTABLE",
+      color: "text-rose-500",
+      bg: "bg-rose-50",
+      border: "border-rose-200",
+      icon: <Zap size={14}/>
+    }
+  };
+
+  const current = conditions[activeTab as keyof typeof conditions];
+
+  return (
+    <InstitutionalFrame label="Candle Quality Diagnostic" id="CRYPTO-QUALITY-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="grid grid-cols-[0.4fr_0.6fr] gap-10">
+           {/* Constant Side: The Shape */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <Box size={14} className="text-slate-400" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Constant: The Shape</span>
+              </div>
+              <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col items-center justify-center min-h-[300px]">
+                 <div className="flex flex-col items-center gap-1">
+                    <div className="w-[3px] h-12 bg-slate-200" />
+                    <div className="w-10 h-24 bg-teal-500 border-2 border-teal-600 shadow-lg" />
+                    <div className="w-[3px] h-8 bg-slate-200" />
+                 </div>
+                 <span className="mt-8 text-[10px] font-black text-[#071B36] uppercase">15m Bullish Candle</span>
+              </div>
+           </div>
+
+           {/* Variable Side: The Condition */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <Maximize2 size={14} className="text-teal-500" />
+                 <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest">Variable: The Condition</span>
+              </div>
+              <div className="flex flex-col gap-6">
+                 <div className="grid grid-cols-2 gap-4">
+                    {Object.entries(conditions).map(([key, data]) => (
+                      <button 
+                         key={key}
+                         onClick={() => setActiveTab(key)}
+                         className={cn(
+                           "p-4 rounded-2xl border-2 transition-all flex items-center gap-4 text-left",
+                           activeTab === key ? `${data.bg} ${data.border} shadow-md` : "bg-white border-slate-50 opacity-50 hover:opacity-100"
+                         )}
+                      >
+                         <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center bg-white shadow-sm", activeTab === key ? data.color : "text-slate-300")}>
+                            {data.icon}
+                         </div>
+                         <div className="flex flex-col">
+                            <span className={cn("text-[9px] font-black uppercase tracking-tight", activeTab === key ? "text-[#071B36]" : "text-slate-400")}>{data.label}</span>
+                         </div>
+                      </button>
+                    ))}
+                 </div>
+
+                 <div className="p-8 bg-[#071B36] rounded-[3rem] shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 blur-[60px]" />
+                    <div className="flex flex-col gap-4 relative z-10">
+                       <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest">Reading Quality</span>
+                          <span className={cn("text-xs font-black uppercase italic tracking-tighter", current.color)}>{current.quality}</span>
+                       </div>
+                       <div className="h-px w-full bg-white/10" />
+                       <p className="text-xs font-bold text-slate-300 leading-relaxed">
+                          {current.desc}
+                       </p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="In Crypto, the same signal can be a masterpiece or a hallucination. The shape tells you 'what' happened, but the condition tells you 'why' it happened. Professional learners read the 'why' first."
+          analogy="The same loud bang can be a celebratory firework (Spot Demand) or a flat tire (Thin Liquidity). You have to check the context to know whether to cheer or pull over."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 4. BTC Context Changes Timeframe Reading
+ * Visualizing the relationship between Altcoin movement and BTC context.
+ */
+export const CryptoBtcContextBoard = () => {
+  const [activeScenario, setActiveScenario] = useState("aligned");
+
+  const scenarios = {
+    aligned: {
+      label: "Aligned Movement",
+      btc: "BULLISH",
+      alt: "BULLISH",
+      quality: "HIGH (BROAD SUPPORT)",
+      color: "text-teal-500",
+      desc: "Move is supported by market-wide participation. High conviction reading."
+    },
+    caution: {
+      label: "Divergent Risk",
+      btc: "WEAK / BEARISH",
+      alt: "BULLISH",
+      quality: "LOW (CAUTION)",
+      color: "text-amber-500",
+      desc: "Altcoin strength may be a temporary anomaly or 'exit liquidity' trap."
+    },
+    isolated: {
+      label: "Isolated Spike",
+      btc: "FLAT / STABLE",
+      alt: "SPIKE",
+      quality: "MIXED (CHECK CATALYST)",
+      color: "text-blue-500",
+      desc: "Move is likely asset-specific (news/listing). Requires extra validation."
+    }
+  };
+
+  const current = scenarios[activeScenario as keyof typeof scenarios];
+
+  return (
+    <InstitutionalFrame label="Market Context Diagnostic" id="CRYPTO-BTC-CONTEXT-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="grid grid-cols-[1fr_auto_1fr] gap-8 items-center bg-white border-2 border-slate-100 rounded-[3rem] p-12 shadow-sm relative overflow-hidden">
+           <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:100%_40px]" />
+           
+           {/* BTC Context */}
+           <div className="flex flex-col items-center gap-6 relative z-10">
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">BTC Context</span>
+              <div className="p-8 bg-slate-900 border-2 border-slate-800 rounded-[2rem] w-full flex flex-col items-center justify-center min-h-[200px] shadow-2xl relative overflow-hidden">
+                 <div className="absolute top-0 right-0 p-4 opacity-10">
+                    <Fingerprint size={80} className="text-white" />
+                 </div>
+                 <div className="flex flex-col items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500 mb-2">
+                       <span className="font-black text-sm">₿</span>
+                    </div>
+                    <span className={cn("text-xl font-black italic tracking-tighter uppercase", 
+                       current.btc === "BULLISH" ? "text-teal-400" : 
+                       current.btc === "WEAK / BEARISH" ? "text-rose-400" : "text-slate-400"
+                    )}>{current.btc}</span>
+                    <span className="text-[8px] font-black text-white/40 uppercase tracking-[0.3em]">1H / 4H Record</span>
+                 </div>
+              </div>
+           </div>
+
+           {/* Relationship */}
+           <div className="flex flex-col items-center gap-2 relative z-10">
+              <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-300">
+                 <Activity size={20} />
+              </div>
+              <div className="w-px h-12 bg-slate-100" />
+           </div>
+
+           {/* Altcoin Reading */}
+           <div className="flex flex-col items-center gap-6 relative z-10">
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Altcoin Reading</span>
+              <div className="p-8 bg-white border border-slate-100 rounded-[2rem] w-full flex flex-col items-center justify-center min-h-[200px] shadow-sm relative group overflow-hidden">
+                 <div className="absolute inset-0 bg-slate-50/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                 <div className="flex flex-col items-center gap-1 relative z-10">
+                    <div className="w-[2px] h-8 bg-slate-200" />
+                    <motion.div 
+                       key={activeScenario}
+                       initial={{ height: 0 }}
+                       animate={{ height: current.alt === "SPIKE" ? 100 : 64 }}
+                       className={cn("w-10 border-2 shadow-lg", 
+                          current.alt === "BULLISH" ? "bg-teal-500 border-teal-600" : 
+                          current.alt === "SPIKE" ? "bg-blue-500 border-blue-600 animate-pulse" : "bg-teal-500 border-teal-600"
+                       )}
+                    />
+                    <div className="w-[2px] h-4 bg-slate-200" />
+                 </div>
+                 <div className="mt-4 flex flex-col items-center">
+                    <span className="text-[10px] font-black text-[#071B36] uppercase tracking-tighter italic">Asset Detail</span>
+                    <span className="text-[8px] font-bold text-slate-400 uppercase">15m Candle</span>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        {/* Diagnostic Panel */}
+        <div className="grid grid-cols-[0.4fr_0.6fr] gap-10">
+           <div className="flex flex-col gap-4">
+              {Object.entries(scenarios).map(([key, data]) => (
+                <button
+                  key={key}
+                  onClick={() => setActiveScenario(key)}
+                  className={cn(
+                    "px-6 py-4 rounded-2xl border-2 transition-all text-left group",
+                    activeScenario === key ? "bg-white border-[#071B36] shadow-lg" : "bg-slate-50 border-transparent opacity-50 hover:opacity-100"
+                  )}
+                >
+                   <span className={cn("text-[10px] font-black uppercase tracking-widest", activeScenario === key ? "text-[#071B36]" : "text-slate-400")}>
+                      {data.label}
+                   </span>
+                </button>
+              ))}
+           </div>
+
+           <div className="p-10 bg-[#071B36] rounded-[3rem] shadow-2xl flex flex-col gap-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 opacity-10">
+                 <Compass size={120} className="text-teal-400" />
+              </div>
+              <div className="flex flex-col gap-1 relative z-10">
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.4em]">Audit Quality</span>
+                 <h4 className={cn("text-2xl font-black uppercase italic tracking-tighter", current.color)}>
+                    {current.quality}
+                 </h4>
+              </div>
+              <div className="h-px w-full bg-white/10 relative z-10" />
+              <p className="text-sm font-bold text-slate-400 leading-relaxed relative z-10">
+                 {current.desc}
+              </p>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="In Crypto, BTC is the 'Ocean' and Altcoins are 'Boats'. When the tide rises (BTC Context), all boats rise. If you see a boat rising while the tide is falling, it might just be a wave hitting a rock. Don't confuse a wave for a trend."
+          analogy="A general checking the global battlefield status (BTC) before trusting a small victory reported by a single squad (Altcoin)."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 5. Spot vs Perp Timeframe Behavior
+ * Visualizing the different "Engines" behind Spot and Perpetual candles.
+ */
+export const CryptoSpotPerpBoard = () => {
+  return (
+    <InstitutionalFrame label="Market Engine Diagnostic" id="CRYPTO-SPOT-PERP-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="grid grid-cols-2 gap-10">
+           {/* Spot Engine */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-2 h-2 rounded-full bg-teal-500" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Spot Market Engine</span>
+              </div>
+              <div className="p-10 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col gap-8 relative overflow-hidden">
+                 <div className="absolute top-0 right-0 p-8 opacity-[0.03]">
+                    <Database size={100} />
+                 </div>
+                 
+                 <div className="flex flex-col items-center gap-1 relative z-10">
+                    <div className="w-[2px] h-8 bg-slate-200" />
+                    <div className="w-10 h-20 bg-teal-500 border-2 border-teal-600 shadow-lg" />
+                    <div className="w-[2px] h-6 bg-slate-200" />
+                 </div>
+
+                 <div className="flex flex-col gap-4 relative z-10">
+                    {[
+                      { label: "Asset Trades", desc: "Actual ownership transfer" },
+                      { label: "Spot Volume", desc: "Exchange liquidity flow" },
+                      { label: "Ownership", desc: "Non-leveraged accumulation" }
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 px-4 py-3 bg-slate-50 rounded-xl border border-slate-100">
+                         <CheckCircle size={12} className="text-teal-500" />
+                         <div className="flex flex-col">
+                            <span className="text-[9px] font-black text-[#071B36] uppercase">{item.label}</span>
+                            <span className="text-[8px] font-bold text-slate-400 uppercase tracking-tighter">{item.desc}</span>
+                         </div>
+                      </div>
+                    ))}
+                 </div>
+              </div>
+           </div>
+
+           {/* Perp Engine */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-2 h-2 rounded-full bg-blue-500" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Perp Market Engine</span>
+              </div>
+              <div className="p-10 bg-[#071B36] border-2 border-slate-800 rounded-[3rem] shadow-2xl flex flex-col gap-8 relative overflow-hidden">
+                 <div className="absolute top-0 right-0 p-8 opacity-[0.05]">
+                    <Cpu size={100} className="text-blue-400" />
+                 </div>
+                 
+                 <div className="flex flex-col items-center gap-1 relative z-10">
+                    <div className="w-[2px] h-10 bg-blue-400/20" />
+                    <div className="w-12 h-24 bg-blue-600 border-2 border-blue-400 shadow-[0_0_20px_rgba(37,99,235,0.2)] relative">
+                       <div className="absolute -inset-1 border border-blue-400/20 animate-pulse rounded-sm" />
+                    </div>
+                    <div className="w-[2px] h-12 bg-blue-400/20" />
+                 </div>
+
+                 <div className="flex flex-col gap-4 relative z-10">
+                    {[
+                      { label: "Contract exposure", desc: "Synthetic positioning" },
+                      { label: "Leverage pressure", desc: "Borrowed volatility" },
+                      { label: "Liquidation risk", desc: "Forced candle extension" }
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 px-4 py-3 bg-white/5 rounded-xl border border-white/5">
+                         <Zap size={12} className="text-blue-400" />
+                         <div className="flex flex-col">
+                            <span className="text-[9px] font-black text-white uppercase">{item.label}</span>
+                            <span className="text-[8px] font-bold text-slate-500 uppercase tracking-tighter">{item.desc}</span>
+                         </div>
+                      </div>
+                    ))}
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-50 border-2 border-slate-100 rounded-[2.5rem] flex items-center justify-between shadow-sm">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#071B36]">
+                 <Workflow size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Structural Audit</span>
+                 <h4 className="text-lg font-bold text-[#071B36] uppercase tracking-tight">Same timeframe. Different market engine.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A spot candle is a record of people buying the car (Asset Ownership). A perp candle is a record of people betting on the car's speed (Contract Exposure). They can look identical on the track, but one is fueled by ownership and the other is fueled by leverage."
+          analogy="Reading a spot chart is like looking at the sales floor of a dealership. Reading a perp chart is like looking at the betting board at the race track."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 6. Weekend and Thin-Liquidity Timeframes
+ * Visualizing the contrast between deep (Weekday) and thin (Weekend) liquidity.
+ */
+export const CryptoLiquidityRiskBoard = () => {
+  return (
+    <InstitutionalFrame label="Liquidity Depth Diagnostic" id="CRYPTO-LIQUIDITY-RISK-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="grid grid-cols-2 gap-10">
+           {/* Deep Liquidity (Weekday) */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-2 h-2 rounded-full bg-teal-500" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Active Participation (Weekday)</span>
+              </div>
+              <div className="p-10 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col gap-8 relative overflow-hidden">
+                 <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[length:15px_100%]" />
+                 
+                 <div className="flex flex-col items-center gap-1 relative z-10">
+                    <div className="w-[1.5px] h-6 bg-slate-200" />
+                    <div className="w-12 h-24 bg-teal-500 border-2 border-teal-600 shadow-md" />
+                    <div className="w-[1.5px] h-4 bg-slate-200" />
+                 </div>
+
+                 <div className="flex flex-col gap-3 relative z-10">
+                    <div className="flex items-center justify-between px-4 py-2 bg-slate-50 rounded-lg">
+                       <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Order Depth</span>
+                       <span className="text-[9px] font-black text-teal-600 uppercase">DEEP</span>
+                    </div>
+                    <div className="flex items-center justify-between px-4 py-2 bg-slate-50 rounded-lg">
+                       <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Wick Noise</span>
+                       <span className="text-[9px] font-black text-teal-600 uppercase">LOW</span>
+                    </div>
+                    <div className="p-4 bg-teal-50 border border-teal-100 rounded-xl text-center">
+                       <span className="text-[9px] font-bold text-teal-700 uppercase leading-none">Move requires high volume to sustain</span>
+                    </div>
+                 </div>
+              </div>
+           </div>
+
+           {/* Thin Liquidity (Weekend) */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-2 h-2 rounded-full bg-rose-500" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Thin Liquidity (Weekend)</span>
+              </div>
+              <div className="p-10 bg-slate-50 border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col gap-8 relative overflow-hidden">
+                 <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[length:40px_100%]" />
+                 
+                 <div className="flex flex-col items-center gap-1 relative z-10">
+                    <div className="w-[1.5px] h-16 bg-rose-500/40" />
+                    <div className="w-12 h-32 bg-rose-100 border-2 border-rose-200 shadow-sm relative">
+                       <div className="absolute -top-4 -left-4 -right-4 -bottom-4 border border-rose-500/10 rounded animate-pulse" />
+                    </div>
+                    <div className="w-[1.5px] h-12 bg-rose-500/40" />
+                 </div>
+
+                 <div className="flex flex-col gap-3 relative z-10">
+                    <div className="flex items-center justify-between px-4 py-2 bg-rose-50 rounded-lg">
+                       <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Order Depth</span>
+                       <span className="text-[9px] font-black text-rose-500 uppercase">THIN</span>
+                    </div>
+                    <div className="flex items-center justify-between px-4 py-2 bg-rose-50 rounded-lg">
+                       <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Wick Noise</span>
+                       <span className="text-[9px] font-black text-rose-500 uppercase">HIGH</span>
+                    </div>
+                    <div className="p-4 bg-rose-500/10 border border-rose-500/20 rounded-xl text-center">
+                       <span className="text-[9px] font-bold text-rose-700 uppercase leading-none">Price travels far with low volume</span>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400">
+                 <Wind size={28} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-rose-400 uppercase tracking-[0.3em] mb-1">Execution Risk</span>
+                 <h4 className="text-xl font-bold text-white uppercase tracking-tight">Thin liquidity can make candles look stronger than they are.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A weekend breakout is like running across a field of tall grass (Thin Liquidity). It looks like you're going fast, but as soon as the grass gets thicker (Weekday Liquidity), your speed might drop to zero. Always check the ground before you run."
+          analogy="A small engine (Low Participation) in a light car (Thin Liquidity) reaching high speeds, but struggling as soon as the car gets loaded (High Participation)."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 7. News, Listings, and Event Candles
+ * Visualizing the instability of event-driven volatility.
+ */
+export const CryptoEventPressureBoard = () => {
+  return (
+    <InstitutionalFrame label="Event Pressure Diagnostic" id="CRYPTO-EVENT-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="grid grid-cols-2 gap-10">
+           {/* Normal Condition */}
+           <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3 mb-2">
+                 <div className="w-2 h-2 rounded-full bg-teal-500" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Normal Participation</span>
+              </div>
+              <div className="p-10 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col items-center justify-center min-h-[350px] relative overflow-hidden">
+                 <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[length:20px_100%]" />
+                 
+                 <div className="flex flex-col items-center gap-1 relative z-10">
+                    <div className="w-[1.5px] h-8 bg-slate-200" />
+                    <div className="w-10 h-24 bg-teal-500 border-2 border-teal-600 shadow-md" />
+                    <div className="w-[1.5px] h-6 bg-slate-200" />
+                 </div>
+                 
+                 <div className="mt-8 px-4 py-2 bg-teal-50 border border-teal-100 rounded-xl">
+                    <span className="text-[9px] font-black text-teal-700 uppercase">Steady Flow</span>
+                 </div>
+              </div>
+           </div>
+
+           {/* Event Condition */}
+           <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3 mb-2">
+                 <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                 <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Event Volatility (News/Listing)</span>
+              </div>
+              <div className="p-10 bg-slate-900 border-2 border-slate-800 rounded-[3rem] shadow-2xl flex flex-col items-center justify-center min-h-[350px] relative overflow-hidden">
+                 <div className="absolute inset-0 bg-rose-500/5" />
+                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[length:15px_15px]" />
+                 
+                 <div className="flex flex-col items-center gap-1 relative z-10">
+                    <div className="w-[3px] h-32 bg-rose-500/40" />
+                    <div className="w-14 h-32 bg-rose-500 border-2 border-rose-400 shadow-[0_0_30px_rgba(244,63,94,0.4)] relative">
+                       <div className="absolute -inset-2 border border-rose-500/20 animate-ping rounded-sm" />
+                       <div className="absolute -right-16 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                          <AlertTriangle size={14} className="text-rose-400 mb-1" />
+                          <span className="text-[7px] font-black text-rose-400 uppercase whitespace-nowrap">Liquidation Spike</span>
+                       </div>
+                    </div>
+                    <div className="w-[3px] h-16 bg-rose-500/40" />
+                 </div>
+
+                 <div className="mt-8 flex flex-col items-center gap-2">
+                    <div className="px-4 py-2 bg-rose-500/20 border border-rose-500/40 rounded-xl flex items-center gap-2">
+                       <Zap size={12} className="text-rose-400" />
+                       <span className="text-[9px] font-black text-rose-400 uppercase tracking-tighter">Emotional Repricing</span>
+                    </div>
+                    <span className="text-[8px] font-bold text-slate-500 uppercase italic">"Uncertain Close"</span>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400">
+                 <AlertOctagon size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest mb-1">Audit Rule</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight">Event candles are loud before they are clear.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A crypto event candle is like a megaphone (News) in a dark room. It makes everyone jump, but it doesn't turn the lights on. You wait for the lights (Follow-Through) before you decide which way the room is actually moving."
+          analogy="A crowd running because someone shouted 'Free Food'. The first person there might get lucky, but half the crowd is just running because the other half is running (FOMO)."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 8. Multi-Timeframe Crypto Reading Process
+ * Visualizing the "Audit Stack" for professional crypto reading.
+ */
+export const CryptoReadingStackBoard = () => {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const steps = [
+    { title: "HTF Structure", icon: <Layers size={14}/>, desc: "Where is the asset in the broader market map?" },
+    { title: "BTC Context", icon: <Zap size={14}/>, desc: "Is the broader market (BTC/ETH) supporting or pressuring?" },
+    { title: "Venue / Market Check", icon: <Database size={14}/>, desc: "Spot demand or Perp pressure? Check liquidity sources." },
+    { title: "Working Timeframe", icon: <Clock size={14}/>, desc: "What is the current structure on the focus chart?" },
+    { title: "Lower-Timeframe Detail", icon: <Search size={14}/>, desc: "Observe behavior: Is it slowing, expanding, or rejecting?" },
+    { title: "Reading Quality", icon: <ShieldCheck size={14}/>, desc: "Final Audit: Is the evidence Clear, Mixed, or Unclear?" }
+  ];
+
+  return (
+    <InstitutionalFrame label="Crypto Audit Workflow" id="CRYPTO-STACK-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="relative p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm overflow-hidden">
+           {/* Background Grid */}
+           <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:30px_30px]" />
+           
+           <div className="grid grid-cols-[0.5fr_0.5fr] gap-12 relative z-10">
+              {/* Stack Visualization */}
+              <div className="flex flex-col gap-3">
+                 {steps.map((step, i) => (
+                    <motion.div 
+                       key={i}
+                       onMouseEnter={() => setActiveStep(i)}
+                       className={cn(
+                          "p-4 rounded-2xl border-2 transition-all cursor-pointer flex items-center gap-4",
+                          activeStep === i ? "bg-[#071B36] border-[#071B36] text-white shadow-xl translate-x-4" : "bg-white border-slate-100 text-slate-400 grayscale opacity-60"
+                       )}
+                    >
+                       <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center bg-white/10", activeStep === i ? "text-teal-400" : "text-slate-300")}>
+                          {step.icon}
+                       </div>
+                       <span className="text-[10px] font-black uppercase tracking-widest">{step.title}</span>
+                       {activeStep === i && <ArrowRight size={14} className="ml-auto text-teal-400" />}
+                    </motion.div>
+                 ))}
+              </div>
+
+              {/* Detail Panel */}
+              <div className="flex flex-col justify-center">
+                 <div className="p-10 bg-slate-50 border border-slate-100 rounded-[3rem] relative overflow-hidden min-h-[300px] flex flex-col justify-center">
+                    <div className="absolute top-0 right-0 p-8 opacity-[0.03]">
+                       {steps[activeStep].icon}
+                    </div>
+                    <div className="flex flex-col gap-4 relative z-10">
+                       <span className="text-[10px] font-black text-teal-600 uppercase tracking-[0.4em]">Step 0{activeStep + 1}</span>
+                       <h4 className="text-2xl font-black text-[#071B36] uppercase italic tracking-tighter">
+                          {steps[activeStep].title}
+                       </h4>
+                       <div className="h-px w-16 bg-[#071B36]/10" />
+                       <p className="text-sm font-bold text-slate-500 leading-relaxed max-w-xs">
+                          {steps[activeStep].desc}
+                       </p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-teal-500 rounded-[2.5rem] flex items-center justify-between border-b-8 border-teal-600 shadow-2xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-white border border-teal-400 flex items-center justify-center text-teal-600">
+                 <ClipboardList size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-white/60 uppercase tracking-widest mb-1">Professional Process</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight">Read the market layer before reacting to the candle.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A professional crypto reading is like a medical scan. You don't just look at the bruise (The Candle). You look at the patient's history (HTF), the global environment (BTC), and the diagnostic source (Venue) before you decide what is actually happening."
+          analogy="Building a house: You don't start with the paint color. You start with the foundation, the structure, and the plumbing before the final finish matters."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 9. Crypto Timeframe Conflict Drill
+ * Visualizing a "Mixed Evidence" stack for active decision practice.
+ */
+export const CryptoConflictDrillBoard = () => {
+  return (
+    <InstitutionalFrame label="Evidence Audit Drill" id="CRYPTO-DRILL-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           {/* Background Decoration */}
+           <div className="absolute top-0 right-0 p-12 opacity-[0.03]">
+              <Search size={150} />
+           </div>
+
+           <div className="flex flex-col gap-8 relative z-10">
+              <div className="flex flex-col gap-2">
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Scenario Audit</span>
+                 <h4 className="text-2xl font-black text-[#071B36] uppercase italic tracking-tighter">Diagnostic Evidence Stack</h4>
+              </div>
+
+              {/* Evidence Layers */}
+              <div className="grid grid-cols-1 gap-3">
+                 {[
+                   { label: "4H Structure", val: "Under Resistance", status: "NEGATIVE", icon: <MapPin size={12}/>, color: "text-rose-500" },
+                   { label: "BTC Context", val: "Flat / Not Confirming", status: "NEUTRAL", icon: <Activity size={12}/>, color: "text-slate-400" },
+                   { label: "Spot Demand", val: "Weaker / Not Lead", status: "NEGATIVE", icon: <Database size={12}/>, color: "text-rose-500" },
+                   { label: "Perp 15m", val: "Strong Bullish Candle", status: "POSITIVE", icon: <Zap size={12}/>, color: "text-teal-500" },
+                   { label: "Liquidity", val: "Thin / Weekend", status: "UNSTABLE", icon: <Wind size={12}/>, color: "text-amber-500" }
+                 ].map((layer, i) => (
+                   <div key={i} className="flex items-center gap-6 p-4 bg-slate-50 border border-slate-100 rounded-2xl group hover:bg-white hover:shadow-md transition-all">
+                      <div className={cn("w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center", layer.color)}>
+                         {layer.icon}
+                      </div>
+                      <div className="flex flex-col">
+                         <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{layer.label}</span>
+                         <span className="text-xs font-bold text-[#071B36]">{layer.val}</span>
+                      </div>
+                      <div className="ml-auto flex items-center gap-3">
+                         <div className={cn("px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest border", 
+                            layer.status === "POSITIVE" ? "bg-teal-50 border-teal-200 text-teal-600" :
+                            layer.status === "NEGATIVE" ? "bg-rose-50 border-rose-200 text-rose-600" :
+                            layer.status === "NEUTRAL" ? "bg-slate-100 border-slate-200 text-slate-500" : "bg-amber-50 border-amber-200 text-amber-600"
+                         )}>
+                            {layer.status}
+                         </div>
+                      </div>
+                   </div>
+                 ))}
+              </div>
+
+              {/* Conflict Analysis */}
+              <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between shadow-2xl mt-4">
+                 <div className="flex items-center gap-6">
+                    <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
+                       <Scale size={24} />
+                    </div>
+                    <div className="flex flex-col">
+                       <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest mb-1">Conclusion Required</span>
+                       <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Diagnostic Result: Mixed Evidence</h4>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="In Crypto, active movement is not an invitation. It is a request for an audit. If the stack is mixed, the reading is not 'Clearly Bullish'—it is 'Wait and See'. Chasing a perp candle while BTC and Spot are asleep is how most retail liquidity is taken."
+          analogy="A building with a beautiful coat of paint (15m Perp Candle) but the foundation is cracked (HTF) and the electrical isn't connected (BTC/Spot). Do you move in?"
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Crypto Adaptation: 10. Crypto Debrief: Time, Venue, Liquidity, Alignment
+ * Final summary of the 8-Step Clinical Crypto Audit process.
+ */
+export const CryptoRoadwayDebrief = () => {
+  const auditSteps = [
+    { label: "Asset", val: "Identity Check", icon: <Fingerprint size={12}/> },
+    { label: "Timeframe", val: "Duration Check", icon: <Clock size={12}/> },
+    { label: "Venue / Type", val: "Spot vs Perp", icon: <Database size={12}/> },
+    { label: "BTC Context", val: "Market Tide", icon: <Activity size={12}/> },
+    { label: "Liquidity", val: "Depth Check", icon: <Wind size={12}/> },
+    { label: "HTF Structure", val: "Location Check", icon: <Map size={12}/> },
+    { label: "LTF Behavior", val: "Local Detail", icon: <Search size={12}/> },
+    { label: "Reading Quality", val: "Final Audit", icon: <ShieldCheck size={12}/> }
+  ];
+
+  return (
+    <InstitutionalFrame label="Clinical Crypto Audit" id="CRYPTO-DEBRIEF-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           {/* Background Grid */}
+           <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:40px_40px]" />
+           
+           <div className="flex flex-col gap-10 relative z-10">
+              <div className="flex items-center justify-between">
+                 <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Process Finalization</span>
+                    <h4 className="text-3xl font-black text-[#071B36] uppercase italic tracking-tighter">8-Step Clinical Crypto Audit</h4>
+                 </div>
+                 <div className="flex items-center gap-4 px-6 py-3 bg-teal-500 rounded-2xl shadow-lg shadow-teal-500/20">
+                    <ShieldCheck size={20} className="text-white" />
+                    <span className="text-xs font-black text-white uppercase tracking-widest italic">Standard Verified</span>
+                 </div>
+              </div>
+
+              {/* Audit Grid */}
+              <div className="grid grid-cols-4 gap-4">
+                 {auditSteps.map((step, i) => (
+                    <div key={i} className="p-6 bg-slate-50 border border-slate-100 rounded-[2rem] flex flex-col gap-3 group hover:bg-[#071B36] transition-all duration-300">
+                       <div className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-400 group-hover:text-teal-400 group-hover:bg-white/10 transition-colors">
+                          {step.icon}
+                       </div>
+                       <div className="flex flex-col">
+                          <span className="text-[8px] font-black text-slate-400 uppercase tracking-[0.2em] group-hover:text-white/40">{step.label}</span>
+                          <span className="text-[10px] font-bold text-[#071B36] group-hover:text-white">{step.val}</span>
+                       </div>
+                    </div>
+                 ))}
+              </div>
+
+              {/* Summary Statement */}
+              <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+                 <div className="flex flex-col gap-1">
+                    <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.4em]">Professional Shift</span>
+                    <p className="text-white font-bold text-lg uppercase tracking-tight max-w-2xl leading-tight italic">
+                       You are no longer reading crypto candles as isolated shapes. You now understand that every candle must be checked against venue, liquidity, BTC context, and broader structure.
+                    </p>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-8">
+           <div className="p-8 bg-slate-50 border border-slate-100 rounded-[2.5rem] flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#071B36]">
+                 <Compass size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Coming Next</span>
+                 <h4 className="text-lg font-bold text-[#071B36] uppercase tracking-tight">Module 0.5: Structure Reading</h4>
+              </div>
+              <ArrowRightCircle size={24} className="ml-auto text-teal-500" />
+           </div>
+
+           <div className="p-8 bg-slate-50 border border-slate-100 rounded-[2.5rem] flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#071B36]">
+                 <RotateCcw size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Roadway Mastery</span>
+                 <h4 className="text-lg font-bold text-[#071B36] uppercase tracking-tight">Crypto Adaptation Complete</h4>
+              </div>
+              <CheckCircle size={24} className="ml-auto text-teal-500" />
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="The crypto market is designed to trigger your emotions through fast, constant movement. The Audit Stack is your shield. It turns a loud, emotional candle into a clinical, data-driven reading. Do not enter the market without it."
+          analogy="A pilot using a pre-flight checklist. It doesn't matter if they have flown 1,000 times—the checklist ensures that every layer of safety is verified before they leave the ground."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 1. Gold Timeframes Are Volatility Records
+ * Visualizing the "Quality" of a Gold candle based on its volatility environment.
+ */
+export const GoldVolatilityRecordBoard = () => {
+  const [activeEnv, setActiveEnv] = useState("calm");
+
+  const environments = {
+    calm: {
+      label: "Calm Condition",
+      desc: "Slow movement, normal depth. Reading is stable.",
+      quality: "HIGH",
+      color: "text-teal-500",
+      bg: "bg-teal-50",
+      border: "border-teal-200",
+      icon: <Wind size={14}/>
+    },
+    active: {
+      label: "Active Window",
+      desc: "Increased participation, clean momentum. Strong evidence.",
+      quality: "HIGH",
+      color: "text-blue-500",
+      bg: "bg-blue-50",
+      border: "border-blue-200",
+      icon: <Activity size={14}/>
+    },
+    volatile: {
+      label: "Volatile Spike",
+      desc: "Fast, erratic movement. Higher risk of noise.",
+      quality: "MIXED",
+      color: "text-amber-500",
+      bg: "bg-amber-50",
+      border: "border-amber-200",
+      icon: <Zap size={14}/>
+    },
+    event: {
+      label: "Event Reaction",
+      desc: "Sudden repricing, thin liquidity, extreme speed.",
+      quality: "UNSTABLE",
+      color: "text-rose-500",
+      bg: "bg-rose-50",
+      border: "border-rose-200",
+      icon: <AlertTriangle size={14}/>
+    }
+  };
+
+  const current = environments[activeEnv as keyof typeof environments];
+
+  return (
+    <InstitutionalFrame label="Gold Volatility Diagnostic" id="GOLD-VOL-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="relative p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm overflow-hidden">
+           {/* Background Decoration */}
+           <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:50px_50px]" />
+           
+           <div className="grid grid-cols-[0.4fr_0.6fr] gap-12 relative z-10">
+              {/* The Candle */}
+              <div className="flex flex-col items-center justify-center p-12 bg-slate-50 border border-slate-100 rounded-[2.5rem]">
+                 <div className="flex flex-col items-center gap-1">
+                    <div className="w-[2px] h-12 bg-slate-200" />
+                    <motion.div 
+                       key={activeEnv}
+                       initial={{ scaleY: 0.8 }}
+                       animate={{ scaleY: activeEnv === "event" ? 1.4 : 1 }}
+                       className={cn("w-12 h-28 border-2 shadow-lg transition-colors duration-500", 
+                          activeEnv === "event" ? "bg-rose-500 border-rose-600" : "bg-teal-500 border-teal-600"
+                       )}
+                    />
+                    <div className="w-[2px] h-8 bg-slate-200" />
+                 </div>
+                 <div className="mt-8 flex flex-col items-center">
+                    <span className="text-[10px] font-black text-[#071B36] uppercase tracking-widest italic">XAU/USD Record</span>
+                    <span className="text-[8px] font-bold text-slate-400 uppercase tracking-tighter">15m Duration</span>
+                 </div>
+              </div>
+
+              {/* The Audit */}
+              <div className="flex flex-col gap-6">
+                 <div className="grid grid-cols-2 gap-4">
+                    {Object.entries(environments).map(([key, env]) => (
+                      <button 
+                         key={key}
+                         onClick={() => setActiveEnv(key)}
+                         className={cn(
+                           "p-4 rounded-2xl border-2 transition-all flex items-center gap-4 text-left",
+                           activeEnv === key ? `${env.bg} ${env.border} shadow-md` : "bg-white border-transparent opacity-50 hover:opacity-100"
+                         )}
+                      >
+                         <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center", activeEnv === key ? "bg-white text-slate-900" : "bg-slate-50 text-slate-400")}>
+                            {env.icon}
+                         </div>
+                         <span className={cn("text-[9px] font-black uppercase tracking-tight", activeEnv === key ? "text-[#071B36]" : "text-slate-400")}>{env.label}</span>
+                      </button>
+                    ))}
+                 </div>
+
+                 <div className="p-8 bg-[#071B36] rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-8 opacity-10">
+                       <Shield size={80} className="text-teal-400" />
+                    </div>
+                    <div className="flex flex-col gap-4 relative z-10">
+                       <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.3em]">Reading Quality</span>
+                          <span className={cn("text-xs font-black uppercase tracking-tighter italic", current.color)}>{current.quality}</span>
+                       </div>
+                       <div className="h-px w-full bg-white/10" />
+                       <p className="text-xs font-bold text-slate-300 leading-relaxed">
+                          {current.desc}
+                       </p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-l-8 border-amber-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
+                 <Radar size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest mb-1">XAU/USD Foundation</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Gold candles are records of time plus volatility.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="In Gold, size can be a lie. A large candle in a quiet window might just be a single bank moving a position. A large candle after US data is a collective market repricing. You have to check the 'engine' of volatility before you trust the shape."
+          analogy="The difference between a car going fast on a highway (Active Momentum) and a car spinning its tires in the mud (Unstable Volatility). They both look fast to a radar gun, but only one is actually moving the car forward."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 2. Gold Does Not Move Equally All Day
+ * Visualizing the rhythmic quality of Gold across the trading day.
+ */
+export const GoldMarketRhythmBoard = () => {
+  return (
+    <InstitutionalFrame label="Gold Market Rhythm Audit" id="GOLD-RHYTHM-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           {/* Background Grid */}
+           <div className="absolute inset-0 opacity-[0.01] bg-[radial-gradient(#000_1px,transparent_1px)] bg-[length:20px_20px]" />
+           
+           <div className="flex flex-col gap-12 relative z-10">
+              <div className="flex items-center justify-between">
+                 <div className="flex flex-col gap-1">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Participation Map</span>
+                    <h4 className="text-2xl font-black text-[#071B36] uppercase italic tracking-tighter">XAU/USD Activity Cycles</h4>
+                 </div>
+                 <div className="px-6 py-3 bg-amber-500 rounded-2xl shadow-lg shadow-amber-500/20 flex items-center gap-3">
+                    <Clock size={18} className="text-white" />
+                    <span className="text-xs font-black text-white uppercase tracking-widest">Global Flow</span>
+                 </div>
+              </div>
+
+              {/* Rhythm Visualization */}
+              <div className="relative h-48 flex items-end gap-1 px-4 border-b-2 border-slate-100 pb-1">
+                 {/* Asia - Quieter */}
+                 <div className="flex-1 flex flex-col gap-2">
+                    <div className="h-12 bg-slate-100 rounded-t-xl hover:bg-slate-200 transition-colors relative group">
+                       <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-[#071B36] text-white text-[8px] font-black px-2 py-1 rounded">ASIA: THINNER</div>
+                    </div>
+                    <span className="text-[8px] font-black text-slate-300 uppercase text-center">Asia</span>
+                 </div>
+                 {/* Pre-London */}
+                 <div className="flex-1 flex flex-col gap-2">
+                    <div className="h-16 bg-slate-100 rounded-t-xl hover:bg-slate-200 transition-colors" />
+                 </div>
+                 {/* London Start */}
+                 <div className="flex-1 flex flex-col gap-2">
+                    <div className="h-28 bg-blue-400/40 rounded-t-xl hover:bg-blue-400 transition-colors relative group border-t-2 border-blue-500">
+                       <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-[#071B36] text-white text-[8px] font-black px-2 py-1 rounded">LONDON: POSITIONING</div>
+                    </div>
+                    <span className="text-[8px] font-black text-blue-500 uppercase text-center">LDN</span>
+                 </div>
+                 {/* London Mid */}
+                 <div className="flex-1 flex flex-col gap-2">
+                    <div className="h-24 bg-blue-400/30 rounded-t-xl hover:bg-blue-400 transition-colors" />
+                 </div>
+                 {/* NY Open / Overlap */}
+                 <div className="flex-[1.5] flex flex-col gap-2">
+                    <div className="h-40 bg-amber-500/40 rounded-t-xl hover:bg-amber-500 transition-colors relative group border-t-2 border-amber-600 shadow-[0_-10px_20px_-10px_rgba(245,158,11,0.3)]">
+                       <div className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-slate-900 text-white text-[8px] font-black px-3 py-2 rounded-lg flex flex-col items-center gap-1 shadow-xl">
+                          <span>NY: PEAK PARTICIPATION</span>
+                          <span className="text-amber-400 text-[6px]">DATA + FUTURES</span>
+                       </div>
+                    </div>
+                    <span className="text-[8px] font-black text-amber-600 uppercase text-center tracking-tighter">NY OVERLAP</span>
+                 </div>
+                 {/* NY Late */}
+                 <div className="flex-1 flex flex-col gap-2">
+                    <div className="h-20 bg-amber-500/20 rounded-t-xl hover:bg-amber-500 transition-colors" />
+                 </div>
+                 {/* Post-NY / Slowing */}
+                 <div className="flex-1 flex flex-col gap-2">
+                    <div className="h-10 bg-slate-100 rounded-t-xl hover:bg-slate-200 transition-colors" />
+                    <span className="text-[8px] font-black text-slate-300 uppercase text-center">Closing</span>
+                 </div>
+              </div>
+
+              {/* Diagnostic Table */}
+              <div className="grid grid-cols-3 gap-6">
+                 {[
+                    { label: "Quiet Windows", risk: "LOW VOL", participation: "ASIA / LATE NY", desc: "Moves can be thinner and slower." },
+                    { label: "Active Windows", risk: "HIGH VOL", participation: "LDN / NY OVERLAP", desc: "Professional participation and clean trends." },
+                    { label: "Event Windows", risk: "EXTREME", participation: "US DATA / MACRO", desc: "Fast repricing. Reading is unstable." }
+                 ].map((item, i) => (
+                    <div key={i} className="flex flex-col gap-2 p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-white hover:shadow-xl transition-all">
+                       <span className="text-[10px] font-black text-[#071B36] uppercase tracking-widest">{item.label}</span>
+                       <div className="flex items-center gap-2">
+                          <div className={cn("px-2 py-0.5 rounded text-[7px] font-black uppercase", 
+                             item.risk === "LOW VOL" ? "bg-slate-200 text-slate-500" :
+                             item.risk === "HIGH VOL" ? "bg-teal-500 text-white" : "bg-rose-500 text-white animate-pulse"
+                          )}>{item.risk}</div>
+                       </div>
+                       <p className="text-[10px] font-bold text-slate-500 leading-tight mt-2">{item.desc}</p>
+                    </div>
+                 ))}
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
+                 <Timer size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest mb-1">Execution Rule</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Gold’s clock does not move equally.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A Gold candle at 3 AM Asia is not the same as a Gold candle at 8:30 AM New York. The 15-minute clock is the same, but the participation engine is different. Always check whether you are reading the 'Main Event' or just the 'Pre-Show'."
+          analogy="The difference between a party starting (Asia), the music getting louder (London), and the dance floor being packed (NY Overlap). You can dance at any time, but the energy (Quality) is not the same."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 3. Same Candle, Different Gold Window
+ * Visualizing how context changes the weight of the same candle shape.
+ */
+export const GoldWindowComparisonBoard = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const scenarios = [
+    {
+      title: "Quiet Window",
+      condition: "Thin Liquidity",
+      weight: "WEAK",
+      desc: "Price moves easily with low participation. High noise risk.",
+      color: "text-slate-400",
+      bg: "bg-slate-50",
+      border: "border-slate-200",
+      icon: <Wind size={18}/>
+    },
+    {
+      title: "Active Window",
+      condition: "High Participation",
+      weight: "USEFUL",
+      desc: "Movement backed by clean flow and professional volume.",
+      color: "text-teal-500",
+      bg: "bg-teal-50",
+      border: "border-teal-200",
+      icon: <Activity size={18}/>
+    },
+    {
+      title: "News / Event",
+      condition: "Fast Volatility",
+      weight: "UNSTABLE",
+      desc: "Emotional repricing. Candle may not hold its shape.",
+      color: "text-rose-500",
+      bg: "bg-rose-50",
+      border: "border-rose-200",
+      icon: <Zap size={18}/>
+    },
+    {
+      title: "Major Level",
+      condition: "Structural Context",
+      weight: "SIGNIFICANT",
+      desc: "Candle interacts with high-timeframe supply or demand.",
+      color: "text-amber-500",
+      bg: "bg-amber-50",
+      border: "border-amber-200",
+      icon: <Target size={18}/>
+    }
+  ];
+
+  return (
+    <InstitutionalFrame label="Evidence Weight Diagnostic" id="GOLD-WEIGHT-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           <div className="grid grid-cols-[0.4fr_0.6fr] gap-12 relative z-10">
+              {/* Central Candle (Fixed Shape) */}
+              <div className="flex flex-col items-center justify-center p-12 bg-slate-50 border border-slate-100 rounded-[2.5rem] relative">
+                 <div className="absolute top-6 left-6 flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-slate-300" />
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest italic">Fixed Record</span>
+                 </div>
+                 
+                 <div className="flex flex-col items-center gap-1">
+                    <div className="w-[2px] h-20 bg-slate-300" />
+                    <div className="w-12 h-16 bg-[#071B36] border-2 border-slate-700 shadow-xl" />
+                    <div className="w-[2px] h-8 bg-slate-300" />
+                 </div>
+
+                 <div className="mt-8 flex flex-col items-center">
+                    <span className="text-[9px] font-black text-[#071B36] uppercase tracking-[0.2em]">Long Upper Wick</span>
+                    <span className="text-[8px] font-bold text-slate-400 uppercase italic">"The Rejection Shape"</span>
+                 </div>
+              </div>
+
+              {/* Variable Contexts */}
+              <div className="flex flex-col gap-4">
+                 <div className="grid grid-cols-2 gap-3">
+                    {scenarios.map((s, i) => (
+                       <button 
+                          key={i}
+                          onClick={() => setActiveTab(i)}
+                          className={cn(
+                             "p-6 rounded-2xl border-2 transition-all text-left flex flex-col gap-2",
+                             activeTab === i ? `${s.bg} ${s.border} shadow-md` : "bg-white border-transparent opacity-40 hover:opacity-80"
+                          )}
+                       >
+                          <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center mb-1", activeTab === i ? "bg-white shadow-sm" : "bg-slate-50")}>
+                             {s.icon}
+                          </div>
+                          <span className="text-[10px] font-black text-[#071B36] uppercase tracking-tight leading-none">{s.title}</span>
+                          <span className={cn("text-[8px] font-black uppercase tracking-widest", s.color)}>{s.weight} WEIGHT</span>
+                       </button>
+                    ))}
+                 </div>
+
+                 <div className="mt-4 p-8 bg-[#071B36] rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-8 opacity-10">
+                       <Scale size={60} className="text-teal-400" />
+                    </div>
+                    <div className="flex flex-col gap-3 relative z-10">
+                       <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.4em]">Audit Interpretation</span>
+                       <h4 className="text-xl font-black text-white uppercase italic tracking-tighter">{scenarios[activeTab].condition}</h4>
+                       <p className="text-sm font-bold text-slate-300 leading-relaxed max-w-sm">
+                          {scenarios[activeTab].desc}
+                       </p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-b-4 border-amber-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
+                 <Workflow size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest mb-1">Evidence Law</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Same Gold candle. Different window. Different reading.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A 'Rejection Wick' during a quiet Asia session might just be a lack of interest. The same wick during the London/NY overlap at a major structure level is a high-confidence signal of order absorption. The shape is just the cover; the context is the story."
+          analogy="A red light (The Candle) in an empty parking lot (Quiet Window) vs. a red light at a busy intersection (Active Window). They look identical, but ignoring one has much higher consequences than the other."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 4. Macro News Can Distort Gold Timeframes
+ * Visualizing the instability and "Fake Clarity" of news-driven Gold volatility.
+ */
+export const GoldEventDistortionBoard = () => {
+  return (
+    <InstitutionalFrame label="Gold Event Distortion Audit" id="GOLD-EVENT-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="grid grid-cols-2 gap-10">
+           {/* Normal Participation */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-2 h-2 rounded-full bg-teal-500" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Normal Participation</span>
+              </div>
+              <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col items-center justify-center min-h-[400px] relative overflow-hidden">
+                 <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[length:20px_100%]" />
+                 
+                 <div className="flex flex-col items-center gap-1 relative z-10">
+                    <div className="w-[1.5px] h-10 bg-slate-200" />
+                    <div className="w-12 h-24 bg-teal-500 border-2 border-teal-600 shadow-md" />
+                    <div className="w-[1.5px] h-6 bg-slate-200" />
+                 </div>
+
+                 <div className="mt-8 px-4 py-2 bg-teal-50 border border-teal-100 rounded-xl">
+                    <span className="text-[9px] font-black text-teal-700 uppercase">Balanced Flow</span>
+                 </div>
+              </div>
+           </div>
+
+           {/* Macro Event Volatility */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                 <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Macro Event Window (Data/Rates)</span>
+              </div>
+              <div className="p-12 bg-[#071B36] border-2 border-slate-800 rounded-[3rem] shadow-2xl flex flex-col items-center justify-center min-h-[400px] relative overflow-hidden">
+                 <div className="absolute inset-0 bg-rose-500/5" />
+                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[length:20px_20px]" />
+                 
+                 <div className="flex flex-col items-center gap-1 relative z-10">
+                    <div className="w-[3px] h-32 bg-rose-500/40" />
+                    <div className="w-14 h-48 bg-rose-500 border-2 border-rose-400 shadow-[0_0_40px_rgba(244,63,94,0.4)] relative">
+                       <div className="absolute -inset-4 border border-rose-500/10 animate-ping rounded-sm" />
+                       <div className="absolute -right-20 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                          <ShieldAlert size={16} className="text-rose-400 mb-1" />
+                          <span className="text-[7px] font-black text-rose-400 uppercase whitespace-nowrap tracking-[0.2em]">Extreme Spread</span>
+                       </div>
+                    </div>
+                    <div className="w-[3px] h-24 bg-rose-500/40" />
+                 </div>
+
+                 <div className="mt-10 flex flex-col items-center gap-2">
+                    <div className="px-4 py-2 bg-rose-500/20 border border-rose-500/40 rounded-xl flex items-center gap-2">
+                       <Zap size={14} className="text-rose-400" />
+                       <span className="text-[9px] font-black text-rose-400 uppercase tracking-tighter italic">Macro Distortion</span>
+                    </div>
+                    <span className="text-[8px] font-bold text-slate-500 uppercase italic">"Loud but Unclear"</span>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-b-4 border-rose-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400">
+                 <ShieldAlert size={28} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest mb-1">XAU/USD Law</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">A loud Gold candle is not automatically a clear Gold candle.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="Macro news in Gold is like an explosion. It creates massive energy (Volatility), but also smoke and debris (Spread/Distortion). The disciplined learner doesn't try to read the chart while the smoke is still thick. You wait for the air to clear (Structure/Close) before calling direction."
+          analogy="The difference between a plane flying at 30,000 feet (Normal Participation) and a plane in a hurricane (News Event). The pilot doesn't try to look at the ground; they trust the instruments and wait for the storm to pass."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 5. London, New York, and Futures Participation
+ * Visualizing the "Evidence Weight" increase through professional participation layers.
+ */
+export const GoldParticipationBoard = () => {
+  const [activeLayer, setActiveLayer] = useState<number | null>(null);
+
+  const layers = [
+    { 
+      label: "Retail XAU/USD", 
+      val: "Visible Surface", 
+      desc: "The candle you see on your chart. It is the record of all underlying forces.", 
+      icon: <Eye size={12}/>,
+      color: "bg-slate-100 text-slate-500 border-slate-200"
+    },
+    { 
+      label: "London Activity", 
+      val: "Positioning Layer", 
+      desc: "Initial professional participation, liquidity building, and trend initiation.", 
+      icon: <Globe size={12}/>,
+      color: "bg-blue-50 text-blue-600 border-blue-200"
+    },
+    { 
+      label: "NY / Futures", 
+      val: "Volume Engine", 
+      desc: "US Data, Rate expectations, and heavy futures contract participation.", 
+      icon: <Activity size={12}/>,
+      color: "bg-amber-50 text-amber-600 border-amber-200"
+    },
+    { 
+      label: "Macro Attention", 
+      val: "Weight Multiplier", 
+      desc: "USD Index, Treasury Yields, and global risk sentiment alignment.", 
+      icon: <ShieldCheck size={12}/>,
+      color: "bg-teal-50 text-teal-600 border-teal-200"
+    }
+  ];
+
+  return (
+    <InstitutionalFrame label="Participation Weight Audit" id="GOLD-PART-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           {/* Background Grid */}
+           <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:40px_40px]" />
+           
+           <div className="flex flex-col gap-12 relative z-10">
+              <div className="flex items-center justify-between">
+                 <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Evidence Depth</span>
+                    <h4 className="text-3xl font-black text-[#071B36] uppercase italic tracking-tighter">XAU/USD Participation Stack</h4>
+                 </div>
+                 <div className="flex items-center gap-3 px-6 py-3 bg-[#071B36] rounded-2xl">
+                    <Layers size={18} className="text-teal-400" />
+                    <span className="text-xs font-black text-white uppercase tracking-widest">Weight Layered</span>
+                 </div>
+              </div>
+
+              {/* Stack Visualization */}
+              <div className="flex flex-col-reverse gap-3 max-w-2xl mx-auto w-full">
+                 {layers.map((layer, i) => (
+                    <motion.button
+                       key={i}
+                       onMouseEnter={() => setActiveLayer(i)}
+                       onMouseLeave={() => setActiveLayer(null)}
+                       className={cn(
+                          "w-full p-6 rounded-2xl border-2 transition-all flex items-center justify-between group",
+                          activeLayer === i ? `${layer.color} shadow-lg -translate-y-1` : "bg-white border-slate-100 hover:border-slate-200"
+                       )}
+                    >
+                       <div className="flex items-center gap-6">
+                          <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center transition-colors", 
+                             activeLayer === i ? "bg-white shadow-sm" : "bg-slate-50 text-slate-400"
+                          )}>
+                             {layer.icon}
+                          </div>
+                          <div className="flex flex-col text-left">
+                             <span className={cn("text-[8px] font-black uppercase tracking-[0.2em]", activeLayer === i ? "" : "text-slate-400")}>{layer.label}</span>
+                             <span className={cn("text-xs font-bold uppercase", activeLayer === i ? "" : "text-[#071B36]")}>{layer.val}</span>
+                          </div>
+                       </div>
+                       <div className={cn("text-[9px] font-black uppercase italic transition-all", activeLayer === i ? "opacity-100" : "opacity-0")}>
+                          + Layered Evidence
+                       </div>
+                    </motion.button>
+                 ))}
+              </div>
+
+              {/* Dynamic Insight */}
+              <AnimatePresence mode="wait">
+                 {activeLayer !== null ? (
+                    <motion.div 
+                       initial={{ opacity: 0, y: 10 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       exit={{ opacity: 0, y: -10 }}
+                       className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-200 text-center"
+                    >
+                       <p className="text-sm font-bold text-slate-600 leading-relaxed max-w-xl mx-auto">
+                          {layers[activeLayer].desc}
+                       </p>
+                    </motion.div>
+                 ) : (
+                    <div className="p-8 border border-dashed border-slate-200 rounded-[2.5rem] text-center">
+                       <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest italic">Hover over layers to audit participation depth</span>
+                    </div>
+                 )}
+              </AnimatePresence>
+           </div>
+        </div>
+
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                 <ShieldCheck size={28} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-1">Diagnostic Rule</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Participation adds weight, not certainty.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="Retail traders look at the candle. Professional traders look at the participation stack that built the candle. When London, New York, and Futures participation are aligned, the candle carries 'Evidence Weight'. But even then, weight is not a guarantee—it is just higher-quality probability."
+          analogy="The difference between one person shouting in a quiet room (Asia/Retail) and a stadium full of people cheering (NY/Macro). The 'Volume' is different, but they could still both be cheering for the wrong thing."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 6. Higher-Timeframe Gold Location Comes First
+ * Visualizing the "Location over Reaction" rule for Gold.
+ */
+export const GoldLocationContextBoard = () => {
+  const [showHTF, setShowHTF] = useState(false);
+
+  return (
+    <InstitutionalFrame label="Gold Location Audit" id="GOLD-LOC-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           {/* Background Grid */}
+           <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:40px_40px]" />
+           
+           <div className="flex flex-col gap-10 relative z-10">
+              <div className="flex items-center justify-between">
+                 <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Structural Hierarchy</span>
+                    <h4 className="text-3xl font-black text-[#071B36] uppercase italic tracking-tighter">Location vs. Reaction</h4>
+                 </div>
+                 <button 
+                    onClick={() => setShowHTF(!showHTF)}
+                    className={cn(
+                       "flex items-center gap-4 px-6 py-3 rounded-2xl shadow-lg transition-all",
+                       showHTF ? "bg-[#071B36] text-white shadow-[#071B36]/20" : "bg-amber-500 text-white shadow-amber-500/20"
+                    )}
+                 >
+                    <Layers size={20} />
+                    <span className="text-xs font-black uppercase tracking-widest">{showHTF ? "Hide HTF Context" : "View HTF Context"}</span>
+                 </button>
+              </div>
+
+              <div className="grid grid-cols-1 gap-8">
+                 {/* The Chart Comparison */}
+                 <div className="p-12 bg-slate-50 border border-slate-100 rounded-[2.5rem] relative min-h-[400px] flex items-center justify-center overflow-hidden">
+                    {/* HTF Layer (Invisible/Visible) */}
+                    <AnimatePresence>
+                       {showHTF && (
+                          <motion.div 
+                             initial={{ opacity: 0 }}
+                             animate={{ opacity: 1 }}
+                             exit={{ opacity: 0 }}
+                             className="absolute inset-0 flex flex-col justify-between"
+                          >
+                             {/* Major Supply Zone */}
+                             <div className="h-24 bg-rose-500/5 border-b-2 border-dashed border-rose-500/20 flex items-center px-12">
+                                <div className="flex flex-col">
+                                   <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest leading-none mb-1">HTF Supply</span>
+                                   <span className="text-[8px] font-bold text-slate-400 uppercase">Previous Rejection Zone</span>
+                                </div>
+                             </div>
+                             {/* Major Demand Zone */}
+                             <div className="h-24 bg-teal-500/5 border-t-2 border-dashed border-teal-500/20" />
+                          </motion.div>
+                       )}
+                    </AnimatePresence>
+
+                    {/* LTF Movement */}
+                    <div className="flex flex-col items-center gap-2 relative z-20">
+                       <div className="flex flex-col items-center gap-1">
+                          <div className="w-[2px] h-12 bg-slate-200" />
+                          <motion.div 
+                             animate={{ y: showHTF ? -80 : 0 }}
+                             className={cn("w-14 h-32 border-2 shadow-2xl transition-all duration-700", 
+                                showHTF ? "bg-white border-rose-500 opacity-60" : "bg-teal-500 border-teal-600"
+                             )}
+                          />
+                          <div className="w-[2px] h-8 bg-slate-200" />
+                       </div>
+                       <div className="mt-4 flex flex-col items-center text-center">
+                          <span className="text-[10px] font-black text-[#071B36] uppercase tracking-[0.2em]">Local 15m Momentum</span>
+                          <span className={cn("text-[8px] font-bold uppercase transition-colors", showHTF ? "text-rose-500" : "text-slate-400")}>
+                             {showHTF ? "Blocked by Supply" : "Looks Strong Alone"}
+                          </span>
+                       </div>
+                    </div>
+
+                    {/* Status Badge */}
+                    <div className="absolute bottom-8 right-8">
+                       <div className={cn("px-6 py-3 rounded-xl border-2 flex items-center gap-3 transition-all", 
+                          showHTF ? "bg-rose-50 border-rose-200 text-rose-600" : "bg-teal-50 border-teal-200 text-teal-600"
+                       )}>
+                          {showHTF ? <ShieldAlert size={16}/> : <Target size={16}/>}
+                          <span className="text-[10px] font-black uppercase tracking-widest">
+                             {showHTF ? "Context-Limited" : "Incomplete Reading"}
+                          </span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-l-8 border-amber-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
+                 <MapPin size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest mb-1">Strategic Anchor</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">In Gold, location comes before reaction.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="Gold's volatility creates 'Reaction Heat'. A 15-minute candle can look incredibly bullish in isolation, but if that move is simply traveling into a 4-hour wall, the 'Reaction' is low-quality. You must first ask 'Where am I?' (Location) before you ask 'What is price doing?' (Reaction)."
+          analogy="A sprinter running as fast as they can (LTF Momentum) directly into a brick wall (HTF Supply). The speed doesn't matter if they have no room to run."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 7. Lower-Timeframe Gold Behavior: Wicks, Sweeps, and Reaction
+ * Visualizing the "Behavior Lens" vs "Location Anchor" rule.
+ */
+export const GoldLocalBehaviorBoard = () => {
+  const [activeBehavior, setActiveBehavior] = useState("sweep");
+
+  const behaviors = {
+    sweep: {
+      label: "Liquidity Sweep",
+      desc: "Fast move beyond a high/low that immediately returns. Shows absorption.",
+      impact: "REJECTION",
+      icon: <Target size={14}/>
+    },
+    failed: {
+      label: "Failed Breakout",
+      desc: "Candle closes above a level but subsequent candles fail to hold.",
+      impact: "TRAP RISK",
+      icon: <ShieldAlert size={14}/>
+    },
+    slowing: {
+      label: "Slowing Candles",
+      desc: "Momentum decreases as price approaches a known HTF level.",
+      impact: "FRICTION",
+      icon: <Wind size={14}/>
+    },
+    expansion: {
+      label: "Fast Expansion",
+      desc: "Violent price travel. Loud, emotional, and often unstable.",
+      impact: "VOLATILITY",
+      icon: <Zap size={14}/>
+    }
+  };
+
+  const current = behaviors[activeBehavior as keyof typeof behaviors];
+
+  return (
+    <InstitutionalFrame label="Gold Behavior Lens" id="GOLD-BEH-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="grid grid-cols-[0.35fr_0.65fr] gap-10">
+           {/* HTF Location (The Anchor) */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-2 h-2 rounded-full bg-[#071B36]" />
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">HTF Anchor (Location)</span>
+              </div>
+              <div className="p-10 bg-[#071B36] border-2 border-slate-800 rounded-[3rem] shadow-xl flex flex-col justify-between min-h-[400px]">
+                 <div className="h-16 border-b-2 border-dashed border-white/10 flex items-center px-4">
+                    <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest italic">4H Resistance Area</span>
+                 </div>
+                 <div className="flex-1 flex flex-col items-center justify-center relative">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-[0.05]">
+                       <Compass size={160} className="text-white" />
+                    </div>
+                    <div className="flex flex-col items-center text-center relative z-10 px-6 gap-3">
+                       <Map size={32} className="text-teal-400" />
+                       <p className="text-[10px] font-bold text-white uppercase leading-tight italic">
+                          "I am at a high-timeframe supply zone. I am watching for local behavior."
+                       </p>
+                    </div>
+                 </div>
+                 <div className="h-12 bg-white/5 rounded-2xl flex items-center justify-center">
+                    <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Location Fixed</span>
+                 </div>
+              </div>
+           </div>
+
+           {/* LTF Behavior (The Lens) */}
+           <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                 <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest">LTF Lens (Behavior)</span>
+              </div>
+              <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col gap-10 min-h-[400px]">
+                 {/* Behavior Options */}
+                 <div className="grid grid-cols-2 gap-3">
+                    {Object.entries(behaviors).map(([key, b]) => (
+                       <button 
+                          key={key}
+                          onClick={() => setActiveBehavior(key)}
+                          className={cn(
+                             "p-4 rounded-2xl border-2 transition-all flex items-center gap-4 text-left",
+                             activeBehavior === key ? "bg-amber-50 border-amber-200 shadow-sm" : "bg-white border-transparent opacity-50"
+                          )}
+                       >
+                          <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center", activeBehavior === key ? "bg-white text-amber-600" : "bg-slate-50")}>
+                             {b.icon}
+                          </div>
+                          <span className="text-[9px] font-black uppercase text-[#071B36] tracking-tight">{b.label}</span>
+                       </button>
+                    ))}
+                 </div>
+
+                 {/* Visualization */}
+                 <div className="flex-1 p-8 bg-slate-50 border border-slate-100 rounded-[2.5rem] flex flex-col gap-6 justify-center relative">
+                    <div className="flex flex-col gap-1">
+                       <span className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em]">Local Impact</span>
+                       <h4 className="text-xl font-black text-[#071B36] uppercase italic tracking-tighter">{current.impact}</h4>
+                    </div>
+                    <p className="text-xs font-bold text-slate-500 leading-relaxed max-w-sm italic">
+                       "{current.desc}"
+                    </p>
+                    <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-[0.03]">
+                       <Search size={100} className="text-[#071B36]" />
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-b-4 border-amber-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
+                 <Search size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest mb-1">Evidence Process</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Use small Gold charts to observe behavior, not to invent the whole story.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A lower-timeframe sweep or failed break in Gold is only meaningful because of where it happens. If price is in the middle of nowhere, a 5-minute wick is just noise. If price is at a 4-hour level, that same 5-minute wick is clinical behavior. Context is the frame; detail is the picture."
+          analogy="Using a microscope (LTF) to look at a slide. The microscope shows you detail you can't see with your eyes, but you must first know what you put on the slide (HTF Location) before the detail makes any sense."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 8. Multi-Timeframe Gold Reading Process
+ * Visualizing the clinical 6-step Gold audit stack.
+ */
+export const GoldReadingStackBoard = () => {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const steps = [
+    { 
+      label: "HTF Location", 
+      icon: <MapPin size={18}/>, 
+      desc: "Where is Gold in the broader structure? (Levels/Ranges)",
+      color: "border-slate-200 text-slate-400 bg-slate-50"
+    },
+    { 
+      label: "Market Window", 
+      icon: <Clock size={18}/>, 
+      desc: "Timing and condition: Asia, London, NY, or Quiet/Active?",
+      color: "border-blue-200 text-blue-500 bg-blue-50"
+    },
+    { 
+      label: "Macro Context", 
+      icon: <Zap size={18}/>, 
+      desc: "USD Index, Treasury Yields, Rates, or News pressure?",
+      color: "border-rose-200 text-rose-500 bg-rose-50"
+    },
+    { 
+      label: "Working Structure", 
+      icon: <Layers size={18}/>, 
+      desc: "The current structural environment (1H/15m trend/range).",
+      color: "border-teal-200 text-teal-500 bg-teal-50"
+    },
+    { 
+      label: "LTF Behavior", 
+      icon: <Search size={18}/>, 
+      desc: "Local reaction at levels (Sweeps, Rejections, Momentum).",
+      color: "border-amber-200 text-amber-500 bg-amber-50"
+    },
+    { 
+      label: "Reading Quality", 
+      icon: <ShieldCheck size={18}/>, 
+      desc: "Clinical result: Clear, Mixed, or Unclear evidence.",
+      color: "border-emerald-200 text-emerald-500 bg-emerald-50"
+    }
+  ];
+
+  return (
+    <InstitutionalFrame label="Clinical Gold Audit" id="GOLD-STACK-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           <div className="grid grid-cols-[0.4fr_0.6fr] gap-12 relative z-10">
+              {/* Stack Steps */}
+              <div className="flex flex-col gap-3">
+                 {steps.map((s, i) => (
+                    <button
+                       key={i}
+                       onClick={() => setActiveStep(i)}
+                       className={cn(
+                          "w-full p-5 rounded-2xl border-2 transition-all flex items-center gap-4 text-left group",
+                          activeStep === i ? `${s.color} shadow-md` : "bg-white border-transparent opacity-40 hover:opacity-100"
+                       )}
+                    >
+                       <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center transition-colors", 
+                          activeStep === i ? "bg-white shadow-sm" : "bg-slate-50")}>
+                          {s.icon}
+                       </div>
+                       <div className="flex flex-col">
+                          <span className="text-[10px] font-black uppercase tracking-tight leading-none mb-1">Step {i + 1}</span>
+                          <span className="text-xs font-bold uppercase tracking-tight">{s.label}</span>
+                       </div>
+                       {activeStep === i && (
+                          <div className="ml-auto">
+                             <ArrowRight size={14} className="animate-pulse" />
+                          </div>
+                       )}
+                    </button>
+                 ))}
+              </div>
+
+              {/* Detailed Output */}
+              <div className="flex flex-col gap-8 h-full">
+                 <div className="flex-1 p-10 bg-[#071B36] rounded-[2.5rem] shadow-2xl relative overflow-hidden flex flex-col justify-center">
+                    <div className="absolute top-0 right-0 p-10 opacity-10">
+                       <ClipboardList size={100} className="text-teal-400" />
+                    </div>
+                    
+                    <div className="flex flex-col gap-4 relative z-10">
+                       <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-teal-400" />
+                          <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.4em]">Audit Directive</span>
+                       </div>
+                       <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter leading-tight">
+                          {steps[activeStep].label}
+                       </h4>
+                       <p className="text-base font-bold text-slate-300 leading-relaxed max-w-sm">
+                          {steps[activeStep].desc}
+                       </p>
+                    </div>
+
+                    <div className="mt-10 pt-8 border-t border-white/10">
+                       <div className="flex items-center gap-3 text-slate-500">
+                          <Shield size={14} />
+                          <span className="text-[9px] font-black uppercase tracking-widest italic">Verification Required</span>
+                       </div>
+                    </div>
+                 </div>
+
+                 <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 flex items-center gap-4">
+                    <div className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-amber-500">
+                       <AlertTriangle size={14} />
+                    </div>
+                    <span className="text-[9px] font-bold text-slate-500 uppercase tracking-tight">
+                       Do not skip layers. A fast 15m candle is the <span className="text-[#071B36] font-black italic">result</span>, not the starting point.
+                    </span>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-b-4 border-teal-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                 <ClipboardList size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-1">Evidence Law</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Read Gold from context into behavior, not from speed into emotion.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="In Gold, the 'Noise' is louder than most other markets. If you start your reading at the 15-minute or 5-minute candle, you are immediately reacting to noise. By moving top-down through Location, Timing, Macro, and Structure, you filter out the noise and find the clinical evidence."
+          analogy="A court trial. You don't start with a single witness shouting (The LTF Candle). You start with the crime scene (Location), the timeline (Market Window), the motive (Macro Context), and the forensics (Structure). Only then do you listen to the witness (Behavior)."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 9. Gold Timeframe Conflict Drill
+ * A diagnostic practice board testing alignment vs. speed.
+ */
+export const GoldConflictDrillBoard = () => {
+  return (
+    <InstitutionalFrame label="Gold Alignment Drill" id="GOLD-DRILL-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           <div className="grid grid-cols-[0.55fr_0.45fr] gap-12 relative z-10">
+              {/* Evidence Stack */}
+              <div className="flex flex-col gap-4">
+                 <div className="flex items-center gap-3 mb-4">
+                    <Search size={20} className="text-amber-500" />
+                    <span className="text-xs font-black text-[#071B36] uppercase tracking-widest">Evidence Audit</span>
+                 </div>
+                 
+                 <div className="p-6 bg-rose-50 border border-rose-100 rounded-2xl flex items-center justify-between">
+                    <div className="flex flex-col">
+                       <span className="text-[9px] font-black text-rose-500 uppercase tracking-widest leading-none mb-1">4H Chart</span>
+                       <span className="text-xs font-bold text-[#071B36] uppercase tracking-tight italic">Near Rejection Zone</span>
+                    </div>
+                    <ShieldAlert size={16} className="text-rose-400" />
+                 </div>
+
+                 <div className="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center justify-between">
+                    <div className="flex flex-col">
+                       <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">1H Chart</span>
+                       <span className="text-xs font-bold text-[#071B36] uppercase tracking-tight italic">Sideways / Mixed Range</span>
+                    </div>
+                    <Activity size={16} className="text-slate-400" />
+                 </div>
+
+                 <div className="p-6 bg-teal-50 border border-teal-100 rounded-2xl flex items-center justify-between">
+                    <div className="flex flex-col">
+                       <span className="text-[9px] font-black text-teal-600 uppercase tracking-widest leading-none mb-1">15m Chart</span>
+                       <span className="text-xs font-bold text-[#071B36] uppercase tracking-tight italic">Bullish Momentum Candle</span>
+                    </div>
+                    <Zap size={16} className="text-teal-500" />
+                 </div>
+
+                 <div className="p-6 bg-amber-50 border border-amber-100 rounded-2xl flex items-center justify-between">
+                    <div className="flex flex-col">
+                       <span className="text-[9px] font-black text-amber-600 uppercase tracking-widest leading-none mb-1">Close Behavior</span>
+                       <span className="text-xs font-bold text-[#071B36] uppercase tracking-tight italic">Weak Close / Imperfect</span>
+                    </div>
+                    <Crosshair size={16} className="text-amber-500" />
+                 </div>
+              </div>
+
+              {/* The Reading */}
+              <div className="flex flex-col gap-6">
+                 <div className="p-10 bg-[#071B36] rounded-[2.5rem] shadow-2xl flex-1 flex flex-col justify-center text-center relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[length:30px_30px]" />
+                    
+                    <div className="flex flex-col gap-4 relative z-10">
+                       <span className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em]">Clinical Verdict</span>
+                       <h4 className="text-3xl font-black text-white uppercase italic tracking-tighter">MIXED READING</h4>
+                       <div className="w-12 h-1 bg-amber-500 mx-auto rounded-full" />
+                       <p className="text-sm font-bold text-slate-400 leading-relaxed italic">
+                          "Lower-timeframe speed is active, but not supported by location."
+                       </p>
+                    </div>
+                 </div>
+
+                 <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-rose-500">
+                       <AlertOctagon size={20} />
+                    </div>
+                    <span className="text-[10px] font-black text-slate-500 uppercase leading-tight">
+                       Speed without <span className="text-[#071B36]">structural alignment</span> is high-risk evidence in Gold.
+                    </span>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-b-4 border-amber-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
+                 <Scale size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest mb-1">Diagnostic Rule</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Fast does not always mean aligned.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="This is the most common emotional trap in Gold. You see a green 15-minute candle during New York and you want to call direction. But the clinical audit shows that the 'Wall' (4H rejection) is still there. In Gold, you don't bet against the wall just because the runner is fast."
+          analogy="A fast car approaching a closed gate. The speed is impressive, but it doesn't mean the gate is open. You wait to see the gate open (Structural Break) before you call it a clear path."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Gold Adaptation: 10. Gold Debrief: Time, Volatility, Context, Alignment
+ * Final synthesis of the Gold Timeframe Reading process.
+ */
+export const GoldRoadwayDebrief = () => {
+  const steps = [
+    { label: "Asset", val: "XAU/USD", icon: <Target size={14}/> },
+    { label: "Timeframe", val: "Candle Duration", icon: <Clock size={14}/> },
+    { label: "Market Window", val: "Timing & Condition", icon: <Timer size={14}/> },
+    { label: "Volatility", val: "Movement Quality", icon: <Activity size={14}/> },
+    { label: "Macro Context", val: "USD / Rates / News", icon: <Zap size={14}/> },
+    { label: "HTF Location", val: "Structural Anchor", icon: <MapPin size={14}/> },
+    { label: "LTF Behavior", val: "Local Reaction", icon: <Search size={14}/> },
+    { label: "Reading Quality", val: "Clinical Verdict", icon: <ShieldCheck size={14}/> }
+  ];
+
+  return (
+    <InstitutionalFrame label="XAU/USD Roadway Debrief" id="GOLD-DEBRIEF-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           <div className="flex flex-col gap-12 relative z-10">
+              <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
+                 <div className="w-16 h-16 rounded-[2rem] bg-[#071B36] flex items-center justify-center text-teal-400 mb-6 shadow-xl">
+                    <Fingerprint size={32} />
+                 </div>
+                 <h4 className="text-4xl font-black text-[#071B36] uppercase italic tracking-tighter leading-none mb-4">
+                    The 8-Step Gold Audit
+                 </h4>
+                 <p className="text-base font-bold text-slate-400 leading-relaxed">
+                    You have graduated from reading isolated fast moves. You now possess a clinical process for auditing Gold evidence across time and context.
+                 </p>
+              </div>
+
+              <div className="grid grid-cols-4 gap-4">
+                 {steps.map((s, i) => (
+                    <div key={i} className="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex flex-col gap-3">
+                       <div className="flex items-center gap-2">
+                          <div className="text-[#071B36]">{s.icon}</div>
+                          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none italic">Step {i + 1}</span>
+                       </div>
+                       <div className="flex flex-col">
+                          <span className="text-[10px] font-black text-[#071B36] uppercase tracking-tight leading-none mb-1">{s.label}</span>
+                          <span className="text-[9px] font-bold text-slate-500 uppercase tracking-tight">{s.val}</span>
+                       </div>
+                    </div>
+                 ))}
+              </div>
+           </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6">
+           <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center gap-6 border-b-4 border-teal-500 shadow-xl">
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                 <Compass size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-1">Final Law</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Context anchors Reaction.</h4>
+              </div>
+           </div>
+
+           <div className="p-8 bg-[#071B36] rounded-[2.5rem] flex items-center justify-between border-b-4 border-amber-500 shadow-xl group cursor-pointer">
+              <div className="flex items-center gap-6">
+                 <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
+                    <ArrowRightCircle size={24} />
+                 </div>
+                 <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest mb-1">Bridge Forward</span>
+                    <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Next: Structure Reading</h4>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="Gold is one of the most emotional markets in the world because of its speed. By applying this 8-step audit, you are removing the emotion and replacing it with a clinical diagnostic. You are no longer a passenger in Gold's volatility; you are the auditor of its evidence."
+          analogy="A professional pilot. They don't just 'fly' (Trade). They follow a checklist before every move. Even if the plane is fast and the sky is clear, they audit the instruments. You are now a professional pilot of XAU/USD evidence."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Forex Adaptation: 8. Multi-Timeframe Forex Reading Process
+ * Visualizing the clinical 6-step Forex audit stack.
+ */
+export const ForexReadingStackBoard = () => {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const steps = [
+    { 
+      label: "HTF Location", 
+      icon: <MapPin size={18}/>, 
+      desc: "Identify the broader 'Wall' or 'Gap' on the 4H/Daily chart.",
+      color: "border-slate-200 text-slate-400 bg-slate-50"
+    },
+    { 
+      label: "Session Timing", 
+      icon: <Clock size={18}/>, 
+      desc: "Is it London, NY, Asia, or an Overlap? Determine participation quality.",
+      color: "border-blue-200 text-blue-500 bg-blue-50"
+    },
+    { 
+      label: "Event Pressure", 
+      icon: <Zap size={18}/>, 
+      desc: "Check for high-impact news (NFP, CPI, Rates) that could distort price.",
+      color: "border-rose-200 text-rose-500 bg-rose-50"
+    },
+    { 
+      label: "Working Structure", 
+      icon: <Layers size={18}/>, 
+      desc: "The current 1H/15m structural environment and trend flow.",
+      color: "border-teal-200 text-teal-500 bg-teal-50"
+    },
+    { 
+      label: "Local Behavior", 
+      icon: <Search size={18}/>, 
+      desc: "Detailed reaction at levels (Wicks, Sweeps, Friction) on LTF.",
+      color: "border-amber-200 text-amber-500 bg-amber-50"
+    },
+    { 
+      label: "Reading Quality", 
+      icon: <ShieldCheck size={18}/>, 
+      desc: "The final verdict: Is the evidence aligned or in conflict?",
+      color: "border-emerald-200 text-emerald-500 bg-emerald-50"
+    }
+  ];
+
+  return (
+    <InstitutionalFrame label="Clinical Forex Audit" id="FOREX-STACK-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm relative overflow-hidden">
+           <div className="grid grid-cols-[0.4fr_0.6fr] gap-12 relative z-10">
+              {/* Stack Steps */}
+              <div className="flex flex-col gap-3">
+                 {steps.map((s, i) => (
+                    <button
+                       key={i}
+                       onClick={() => setActiveStep(i)}
+                       className={cn(
+                          "w-full p-5 rounded-2xl border-2 transition-all flex items-center gap-4 text-left group",
+                          activeStep === i ? `${s.color} shadow-md` : "bg-white border-transparent opacity-40 hover:opacity-100"
+                       )}
+                    >
+                       <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center transition-colors", 
+                          activeStep === i ? "bg-white shadow-sm" : "bg-slate-50")}>
+                          {s.icon}
+                       </div>
+                       <div className="flex flex-col">
+                          <span className="text-[10px] font-black uppercase tracking-tight leading-none mb-1">Step {i + 1}</span>
+                          <span className="text-xs font-bold uppercase tracking-tight">{s.label}</span>
+                       </div>
+                    </button>
+                 ))}
+              </div>
+
+              {/* Detailed Output */}
+              <div className="flex flex-col gap-8 h-full">
+                 <div className="flex-1 p-10 bg-[#071B36] rounded-[2.5rem] shadow-2xl relative overflow-hidden flex flex-col justify-center">
+                    <div className="absolute top-0 right-0 p-10 opacity-10">
+                       <Globe size={100} className="text-blue-400" />
+                    </div>
+                    
+                    <div className="flex flex-col gap-4 relative z-10">
+                       <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-blue-400" />
+                          <span className="text-[10px] font-black text-blue-400 uppercase tracking-[0.4em]">Audit Directive</span>
+                       </div>
+                       <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter leading-tight">
+                          {steps[activeStep].label}
+                       </h4>
+                       <p className="text-base font-bold text-slate-300 leading-relaxed max-w-sm">
+                          {steps[activeStep].desc}
+                       </p>
+                    </div>
+                 </div>
+
+                 <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 flex items-center gap-4">
+                    <div className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-blue-500">
+                       <Compass size={14} />
+                    </div>
+                    <span className="text-[9px] font-bold text-slate-500 uppercase tracking-tight">
+                       Forex reading is a top-down audit. Never start with the <span className="text-[#071B36] font-black italic">local reaction</span>.
+                    </span>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-b-4 border-blue-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400">
+                 <ClipboardList size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-1">Evidence Process</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Read Forex from session into behavior, not from speed into emotion.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="In Forex, time is your greatest tool. By auditing the market from HTF Location down to Local Behavior, you avoid the trap of 'Session Noise.' You are looking for a story that makes sense across all layers before you accept the evidence as clean."
+          analogy="A professional investigator. You don't just look at the footprint (LTF Wick). You look at the building (HTF Location), the time of day (Session), the weather (News), and the witness statements (Structure). Only then do you draw a conclusion."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Core Expansion: 6. Timeframe Personality: Trend vs. Range
+ * Teaching that different timeframes can hold different 'States' simultaneously.
+ */
+export const TimeframePersonalityBoard = () => {
+  return (
+    <InstitutionalFrame label="Timeframe Personality" id="CORE-PERS-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="grid grid-cols-2 gap-8">
+           <div className="p-10 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-500">
+                    <TrendingUp size={20} />
+                 </div>
+                 <span className="text-sm font-black text-[#071B36] uppercase tracking-tight italic">HTF Personality</span>
+              </div>
+              <div className="flex-1 p-8 bg-[#071B36] rounded-3xl flex flex-col justify-center text-center">
+                 <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter leading-none mb-3">CLEAN TREND</h4>
+                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Macro Direction</p>
+              </div>
+              <p className="text-xs font-bold text-slate-500 leading-relaxed italic text-center">
+                 "The Higher Timeframe is the Boss. It defines the current market route."
+              </p>
+           </div>
+
+           <div className="p-10 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                 <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-500">
+                    <Shuffle size={20} />
+                 </div>
+                 <span className="text-sm font-black text-[#071B36] uppercase tracking-tight italic">LTF Personality</span>
+              </div>
+              <div className="flex-1 p-8 bg-slate-50 rounded-3xl flex flex-col justify-center text-center border-2 border-dashed border-slate-200">
+                 <h4 className="text-2xl font-black text-[#071B36] uppercase italic tracking-tighter leading-none mb-3">MESSY RANGE</h4>
+                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Local Friction</p>
+              </div>
+              <p className="text-xs font-bold text-slate-500 leading-relaxed italic text-center">
+                 "The Lower Timeframe can be noisy or range-bound even inside a trend."
+              </p>
+           </div>
+        </div>
+
+        <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-b-4 border-blue-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400">
+                 <Fingerprint size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-1">Structural Law</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">Respect the Boss (HTF), but observe the detail (LTF).</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A timeframe is not just a clock; it's a personality. The 4-hour chart might be a calm, disciplined marathon runner (Trending), while the 5-minute chart is a panicked sprinter trapped in a small room (Ranging). You must identify the personality of each layer before you trust the evidence."
+          analogy="A big ship (HTF) moving steadily across the ocean. On the deck, people are running back and forth in a chaotic game (LTF). The chaos on deck doesn't change the direction of the ship."
+        />
+      </div>
+    </InstitutionalFrame>
+  );
+};
+
+/**
+ * Core Expansion: 7. The Evidence Audit Checklist
+ * A visual checklist for students to verify their stack.
+ */
+export const EvidenceAuditChecklistBoard = () => {
+  const [checks, setChecks] = useState([false, false, false, false]);
+
+  const toggleCheck = (idx: number) => {
+    const newChecks = [...checks];
+    newChecks[idx] = !newChecks[idx];
+    setChecks(newChecks);
+  };
+
+  const items = [
+    { label: "HTF Location Identified", desc: "Is price at a major wall or in a clear gap?" },
+    { label: "Narrative Alignment Check", desc: "Do the 4H and 1H agree on direction?" },
+    { label: "LTF Behavior Audit", desc: "Is the local reaction clean or messy?" },
+    { label: "Evidence Weight Balance", desc: "Does the weight of 'Truth' outweigh the 'Noise'?" }
+  ];
+
+  const allChecked = checks.every(c => c);
+
+  return (
+    <InstitutionalFrame label="Evidence Audit Checklist" id="CORE-AUDIT-0.4">
+      <div className="w-full max-w-5xl flex flex-col gap-10">
+        <div className="p-12 bg-white border-2 border-slate-100 rounded-[3rem] shadow-sm flex flex-col gap-8">
+           <div className="flex items-center justify-between">
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-blue-500 uppercase tracking-[0.4em] mb-1">Pre-Analysis Checklist</span>
+                 <h4 className="text-2xl font-black text-[#071B36] uppercase italic tracking-tighter">Clinical Audit</h4>
+              </div>
+              <div className={cn(
+                 "px-6 py-2 rounded-full border-2 transition-all text-[10px] font-black uppercase tracking-widest",
+                 allChecked ? "bg-emerald-50 border-emerald-200 text-emerald-600" : "bg-slate-50 border-slate-200 text-slate-400"
+              )}>
+                 {allChecked ? "Audit Complete" : "Verification Pending"}
+              </div>
+           </div>
+
+           <div className="grid grid-cols-2 gap-4">
+              {items.map((item, i) => (
+                 <button
+                    key={i}
+                    onClick={() => toggleCheck(i)}
+                    className={cn(
+                       "p-6 rounded-2xl border-2 transition-all flex flex-col text-left gap-2",
+                       checks[i] ? "bg-blue-50 border-blue-200 shadow-sm" : "bg-white border-slate-100 opacity-60 hover:opacity-100"
+                    )}
+                 >
+                    <div className="flex items-center justify-between w-full">
+                       <span className="text-xs font-black text-[#071B36] uppercase tracking-tight">{item.label}</span>
+                       <div className={cn(
+                          "w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all",
+                          checks[i] ? "bg-[#071B36] border-[#071B36] text-white" : "bg-white border-slate-200"
+                       )}>
+                          {checks[i] && <Check size={12} strokeWidth={4} />}
+                       </div>
+                    </div>
+                    <p className="text-[10px] font-bold text-slate-500 leading-tight italic">
+                       {item.desc}
+                    </p>
+                 </button>
+              ))}
+           </div>
+        </div>
+
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] flex items-center justify-between border-b-4 border-teal-500 shadow-xl">
+           <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                 <ClipboardCheck size={24} />
+              </div>
+              <div className="flex flex-col">
+                 <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-1">Process Standard</span>
+                 <h4 className="text-lg font-bold text-white uppercase tracking-tight italic">The audit must be clinical before the reading is clean.</h4>
+              </div>
+           </div>
+        </div>
+
+        <MentorInsight 
+          text="A professional doesn't trust their gut; they trust their process. By manually auditing each layer of evidence, you remove the emotional urge to trade and replace it with the logical discipline of a risk manager. If you can't check every box, you don't have a reading."
+          analogy="A surgeon before an operation. They check the patient's identity, the site of the surgery, and the equipment. They don't skip the checklist just because they feel 'confident.'"
         />
       </div>
     </InstitutionalFrame>
