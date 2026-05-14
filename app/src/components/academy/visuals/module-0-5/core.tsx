@@ -164,8 +164,8 @@ export const StructureSkeletonIntro = () => {
                <div className="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-transparent rounded-full blur-3xl" />
                <div className="flex gap-1 items-end relative h-24">
                   {[30, 50, 40, 70, 60, 90, 80].map((h, i) => (
-                    <motion.div key={i} initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ delay: i * 0.1, duration: 1 }} className="w-4 bg-slate-800 rounded-t-sm border-x border-t border-slate-700 relative">
-                       {i % 2 === 0 && h > 50 && <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-teal-500 rounded-full border-2 border-slate-900" />}
+                    <motion.div key={`bar-${i}`} initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ delay: i * 0.1, duration: 1 }} className="w-4 bg-slate-800 rounded-t-sm border-x border-t border-slate-700 relative">
+                       {i % 2 === 0 && h > 50 && <div key={`dot-${i}`} className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-teal-500 rounded-full border-2 border-slate-900" />}
                     </motion.div>
                   ))}
                </div>
@@ -362,8 +362,8 @@ export const ImpulsePullbackVisual = () => {
                   <motion.path key="outcome-path" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 300 150 L 500 0" fill="none" stroke="#0D9488" strokeWidth="6" strokeDasharray="8 4" strokeLinecap="round" />
                 )}
               </AnimatePresence>
-              <text x="100" y="130" transform="rotate(-45, 100, 130)" className="text-[10px] font-black fill-teal-600 uppercase tracking-widest">The Impulse</text>
-              {(phase === 'pullback' || phase === 'outcome') && <text x="250" y="90" transform="rotate(45, 250, 90)" className="text-[10px] font-black fill-slate-400 uppercase tracking-widest">The Pullback</text>}
+              <text key="impulse-label" x="100" y="130" transform="rotate(-45, 100, 130)" className="text-[10px] font-black fill-teal-600 uppercase tracking-widest">The Impulse</text>
+              {(phase === 'pullback' || phase === 'outcome') && <text key="pullback-label" x="250" y="90" transform="rotate(45, 250, 90)" className="text-[10px] font-black fill-slate-400 uppercase tracking-widest">The Pullback</text>}
            </svg>
         </div>
         <MentorInsight text="The market has to breathe. An impulse is a shout; a pullback is a breath in. Don't panic when the market breathes; only panic if it stops moving entirely." analogy="Running a sprint. You can't run at 100% forever. You have to slow down to catch your breath (pullback) before you can sprint again (continuation)." />
@@ -455,14 +455,14 @@ export const MultiTimeframeStructureVisual = () => {
               <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">{activeTf === '4H' ? "The Market Environment" : "The Local Movement"}</p>
            </div>
            <div className="relative w-full h-48 flex items-center justify-center">
-              <svg className="w-full h-full max-w-[500px] overflow-visible">
+              <svg key={`tf-view-${activeTf}`} className="w-full h-full max-w-[500px] overflow-visible">
                  {activeTf === '4H' ? (
-                   <motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 0 100 L 500 100" fill="none" stroke="#475569" strokeWidth="10" strokeLinecap="round" />
+                   <motion.path key="path-4h" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 0 100 L 500 100" fill="none" stroke="#475569" strokeWidth="10" strokeLinecap="round" />
                  ) : (
-                   <motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 0 150 L 100 100 L 200 130 L 300 50 L 400 80 L 500 0" fill="none" stroke="#0D9488" strokeWidth="6" strokeLinecap="round" />
+                   <motion.path key="path-15m" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 0 150 L 100 100 L 200 130 L 300 50 L 400 80 L 500 0" fill="none" stroke="#0D9488" strokeWidth="6" strokeLinecap="round" />
                  )}
               </svg>
-              {activeTf === '4H' && <div className="absolute top-[30%] left-1/2 -translate-x-1/2 px-4 py-2 bg-rose-500 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-full">Resistance Area</div>}
+              {activeTf === '4H' && <div key="res-label" className="absolute top-[30%] left-1/2 -translate-x-1/2 px-4 py-2 bg-rose-500 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-full">Resistance Area</div>}
            </div>
         </div>
         <MentorInsight text="The 4H is the boss, the 15m is the employee. The employee might be running around fast (uptrend), but the boss decides if they are allowed to leave the building (range)." analogy="A magnifying glass. Looking closely (LTF) shows the texture of a leaf, but zooming out (HTF) shows the whole tree is leaning over." />
