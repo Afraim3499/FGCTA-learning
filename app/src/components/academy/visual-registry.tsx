@@ -75,6 +75,22 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "forex-timeframe-drill": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexTimeframeDrill), { loading: VisualLoading }),
   "forex-roadway-debrief": dynamic(() => import("./visuals/core/module-0-4").then(m => m.ForexRoadwayDebrief), { loading: VisualLoading }),
 
+  // --- MODULE 0.5 SCAFFOLD ---
+  "structure-skeleton-intro": dynamic(() => import("./visuals/module-0-5/core").then(m => m.StructureSkeletonIntro), { loading: VisualLoading }),
+  "swing-logic-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.SwingLogicVisual), { loading: VisualLoading }),
+  "structure-language-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.StructureLanguageVisual), { loading: VisualLoading }),
+  "trend-structure-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.TrendStructureVisual), { loading: VisualLoading }),
+  "range-structure-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.RangeStructureVisual), { loading: VisualLoading }),
+  "impulse-pullback-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.ImpulsePullbackVisual), { loading: VisualLoading }),
+  "reaction-areas-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.ReactionAreasVisual), { loading: VisualLoading }),
+  "structure-change-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.StructureChangeVisual), { loading: VisualLoading }),
+  "multi-timeframe-structure-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.MultiTimeframeStructureVisual), { loading: VisualLoading }),
+  "structure-drill-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.StructureDrillVisual), { loading: VisualLoading }),
+  "structure-debrief-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.StructureDebriefVisual), { loading: VisualLoading }),
+  "module-0-5-forex-placeholder": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexPlaceholderVisual), { loading: VisualLoading }),
+  "module-0-5-gold-placeholder": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldPlaceholderVisual), { loading: VisualLoading }),
+  "module-0-5-crypto-placeholder": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoPlaceholderVisual), { loading: VisualLoading }),
+
 
   // --- FOREX MODULES ---
   

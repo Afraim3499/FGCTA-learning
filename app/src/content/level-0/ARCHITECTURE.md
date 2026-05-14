@@ -28,7 +28,13 @@ All modules from 0.5 onward must follow the **Double-Modular Structure** for bot
 
 ---
 
-## 2. Technical Debt Log
+## 2. Implementation Checklist
+For a step-by-step guide on creating new modules, refer to:
+[Module Creation Checklist](./MODULE_CHECKLIST.md)
+
+---
+
+## 3. Technical Debt Log
 
 ### [DEBT-001] Module 0.4 Monolithic Visuals
 - **Status**: ACCEPTABLE DEBT
