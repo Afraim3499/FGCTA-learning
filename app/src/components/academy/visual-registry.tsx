@@ -105,6 +105,19 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "module-0-5-gold-placeholder": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldPlaceholderVisual), { loading: VisualLoading }),
   "module-0-5-crypto-placeholder": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoPlaceholderVisual), { loading: VisualLoading }),
 
+  // Crypto 0.5 adaptation keys
+  "crypto-fragmented-structure-skeleton": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoFragmentedStructureSkeleton), { loading: VisualLoading }),
+  "crypto-swing-source-map": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoSwingSourceMap), { loading: VisualLoading }),
+  "crypto-btc-alt-structure-context": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoBtcAltStructureContext), { loading: VisualLoading }),
+  "crypto-venue-structure-disagreement": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoVenueStructureDisagreement), { loading: VisualLoading }),
+  "crypto-trend-range-structure": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoTrendRangeStructure), { loading: VisualLoading }),
+  "crypto-liquidity-zones": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoLiquidityZones), { loading: VisualLoading }),
+  "crypto-perp-break-false-structure": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoPerpBreakFalseStructure), { loading: VisualLoading }),
+  "crypto-thin-liquidity-failed-break": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoThinLiquidityFailedBreak), { loading: VisualLoading }),
+  "crypto-htf-location-first": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoHtfLocationFirst), { loading: VisualLoading }),
+  "crypto-structure-break-drill": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoStructureBreakDrill), { loading: VisualLoading }),
+  "crypto-structure-roadway-debrief": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoStructureRoadwayDebrief), { loading: VisualLoading }),
+
 
   // --- FOREX MODULES ---
   
