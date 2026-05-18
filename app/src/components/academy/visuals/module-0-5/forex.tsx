@@ -161,14 +161,14 @@ export const ForexPairStructureSkeleton = () => {
 
             {/* The Animated Scale */}
             <div className="w-full max-w-lg h-36 relative flex items-end justify-center pb-4">
-              <svg className="w-full h-full overflow-visible">
+              <svg className="w-full h-full overflow-visible" viewBox="0 0 500 200">
                 {/* Scale Stand */}
                 <line x1="250" y1="120" x2="250" y2="150" stroke="#475569" strokeWidth="6" />
                 <path d="M 220 150 L 280 150" stroke="#475569" strokeWidth="8" strokeLinecap="round" />
                 
                 {/* Scale Beam */}
                 <motion.line 
-                  animate={{ rotate: (eurWeight - 50) * -0.6 }}
+                  animate={{ rotate: (eurWeight - 50) * 0.6 }}
                   transition={{ type: "spring", stiffness: 60 }}
                   x1="120" y1="120" x2="380" y2="120" 
                   stroke="#94a3b8" strokeWidth="4" 
@@ -178,8 +178,8 @@ export const ForexPairStructureSkeleton = () => {
                 {/* Scale Pans & Strings */}
                 <motion.g
                   animate={{ 
-                    y: (eurWeight - 50) * 0.5, 
-                    x: (eurWeight - 50) * 0.05 
+                    y: 130 * Math.sin(((eurWeight - 50) * 0.6 * Math.PI) / 180), 
+                    x: 130 * (1 - Math.cos(((eurWeight - 50) * 0.6 * Math.PI) / 180)) 
                   }}
                   transition={{ type: "spring", stiffness: 60 }}
                 >
@@ -194,8 +194,8 @@ export const ForexPairStructureSkeleton = () => {
 
                 <motion.g
                   animate={{ 
-                    y: (eurWeight - 50) * -0.5, 
-                    x: (eurWeight - 50) * -0.05 
+                    y: -130 * Math.sin(((eurWeight - 50) * 0.6 * Math.PI) / 180), 
+                    x: -130 * (1 - Math.cos(((eurWeight - 50) * 0.6 * Math.PI) / 180)) 
                   }}
                   transition={{ type: "spring", stiffness: 60 }}
                 >
@@ -262,7 +262,7 @@ export const ForexSwingPressurePoints = () => {
             
             {/* The Candle and Swing SVG */}
             <div className="flex-1 relative flex items-center justify-center">
-              <svg className="w-full h-full max-w-[400px] overflow-visible">
+              <svg className="w-full h-full max-w-[400px] overflow-visible" viewBox="0 0 400 300">
                 {/* Wiggles Path */}
                 <path 
                   d="M 20 280 L 50 200 L 80 230 L 110 140 L 140 180 L 175 110 L 210 160 L 250 80 L 290 190 L 330 150 L 370 230" 
@@ -416,7 +416,7 @@ export const ForexTrendRangeStructure = () => {
                 <line x1="0" y1="190" x2="500" y2="190" stroke="#10b981" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
               </>
             )}
-            <svg className="w-full h-full max-w-[350px] overflow-visible">
+            <svg className="w-full h-full max-w-[350px] overflow-visible" viewBox="0 0 380 250">
               <motion.path 
                 key={activeTab} 
                 initial={{ pathLength: 0 }} 
@@ -449,6 +449,10 @@ export const ForexTrendRangeStructure = () => {
             </svg>
           </div>
         </div>
+        <MentorInsight 
+          text="First classify the environment, then choose your tools. Trying to trade range boundaries in a clean trend, or buying breakouts in a rotation, is a fast track to liquidation." 
+          analogy="Weather forecasting. You don't wear a heavy winter coat in a summer heatwave. Know your season before walking outside."
+        />
       </div>
     </InstitutionalFrame>
   );
@@ -487,7 +491,7 @@ export const ForexSessionRangeStructure = () => {
           </div>
 
           <div className="relative h-56 flex items-center justify-center mt-6">
-            <svg className="w-full h-full max-w-[550px] overflow-visible z-10">
+            <svg className="w-full h-full max-w-[550px] overflow-visible z-10" viewBox="0 0 520 200">
               {/* Tokyo Range Box */}
               <rect x="50" y="100" width="120" height="40" fill="white" fillOpacity="0.03" stroke="#475569" strokeWidth="2" strokeDasharray="3 3" />
               <text x="110" y="125" textAnchor="middle" fill="#94a3b8" className="text-[9px] font-black uppercase tracking-widest">Tokyo Limit</text>
@@ -549,6 +553,10 @@ export const ForexSessionRangeStructure = () => {
             </div>
           </div>
         </div>
+        <MentorInsight 
+          text="A session range is not a target to trade, but a standard reference boundary. How the next session behaves relative to these boundaries dictates market intent." 
+          analogy="A launchpad. The rocket's power is measured by how quickly and cleanly it leaves the pad, or if it falls back down to explode on it."
+        />
       </div>
     </InstitutionalFrame>
   );
@@ -602,7 +610,7 @@ export const ForexSessionHighLowReaction = () => {
               <span className="text-[8px] font-black text-teal-400 uppercase tracking-widest">PREVIOUS LONDON HIGH AREA</span>
             </div>
 
-            <svg className="w-full h-full max-w-[350px] overflow-visible z-10">
+            <svg className="w-full h-full max-w-[350px] overflow-visible z-10" viewBox="0 0 380 270">
               <motion.path 
                 key={testArea} 
                 initial={{ pathLength: 0 }} 
@@ -626,6 +634,10 @@ export const ForexSessionHighLowReaction = () => {
             </svg>
           </div>
         </div>
+        <MentorInsight 
+          text="Session levels are zones of interest, not absolute brick walls. A mild pierce of a session high is a test of liquidity, not a confirmed change in structure." 
+          analogy="A dynamic guard rail. It can bend and flex under pressure (overshoot) to absorb impact before pushing price back into the safe lane."
+        />
       </div>
     </InstitutionalFrame>
   );
@@ -663,7 +675,7 @@ export const ForexExpansionPullbackRhythm = () => {
 
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[380px] flex flex-col justify-center">
           <div className="relative h-64 flex items-center justify-center">
-            <svg className="w-full h-full max-w-[500px] overflow-visible">
+            <svg className="w-full h-full max-w-[500px] overflow-visible" viewBox="0 0 500 180">
               {/* Compression Phase */}
               <motion.path 
                 initial={{ pathLength: 0 }}
@@ -730,6 +742,10 @@ export const ForexExpansionPullbackRhythm = () => {
             </div>
           </div>
         </div>
+        <MentorInsight 
+          text="Price must breathe to sustain directional strength. Chasing a massive expansion leg is a beginner's trap. Wait for the pullback to verify if support holds." 
+          analogy="Running a marathon. You cannot run at a full sprint indefinitely. You must pace yourself and take deep breaths (pullbacks) to cross the finish line."
+        />
       </div>
     </InstitutionalFrame>
   );
@@ -788,7 +804,7 @@ export const ForexBreakFailureQuality = () => {
             <div className="absolute top-[40%] left-0 w-full h-px bg-white/20 border-t border-dashed" />
             <div className="absolute top-[40%] left-4 -translate-y-4"><span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Range ceiling</span></div>
 
-            <svg className="w-full h-full max-w-[350px] overflow-visible z-10">
+            <svg className="w-full h-full max-w-[350px] overflow-visible z-10" viewBox="0 0 400 280">
               <motion.path 
                 key={breakType} 
                 initial={{ pathLength: 0 }} 
@@ -814,6 +830,10 @@ export const ForexBreakFailureQuality = () => {
             </svg>
           </div>
         </div>
+        <MentorInsight 
+          text="The close of the candle is the ultimate vote of institutional intent. A spike above range boundaries is meaningless if the candle body closes back inside the range." 
+          analogy="A castle gate check. Peeking through the keyhole isn't entering. You must open the gate, step through, and close it behind you (hold support)."
+        />
       </div>
     </InstitutionalFrame>
   );
@@ -861,9 +881,8 @@ export const ForexHtfLocationFirst = () => {
 
           <div className="flex-1 relative flex items-center justify-center bg-slate-900 rounded-[2rem] p-6 h-[250px] overflow-hidden">
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
-            
-            {zoomLevel === '15m' ? (
-              <svg key="15m-view" className="w-full h-full max-w-[400px] overflow-visible">
+             {zoomLevel === '15m' ? (
+              <svg key="15m-view" className="w-full h-full max-w-[400px] overflow-visible" viewBox="0 0 400 230">
                 {/* 15m bullish rally line */}
                 <motion.path 
                   initial={{ pathLength: 0 }} 
@@ -878,7 +897,7 @@ export const ForexHtfLocationFirst = () => {
                 <text x="380" y="30" textAnchor="middle" fill="#10b981" className="text-[9px] font-black uppercase tracking-widest">RALLY AGGRESSIVE</text>
               </svg>
             ) : (
-              <svg key="4h-view" className="w-full h-full max-w-[400px] overflow-visible">
+              <svg key="4h-view" className="w-full h-full max-w-[400px] overflow-visible" viewBox="0 0 500 250">
                 {/* 4H Macro ceiling zone */}
                 <rect x="0" y="40" width="500" height="50" fill="#BE123C" fillOpacity="0.1" stroke="#BE123C" strokeWidth="2" strokeDasharray="3 3" />
                 <text x="250" y="70" textAnchor="middle" fill="#BE123C" className="text-[10px] font-black uppercase tracking-[0.3em]">MAJOR 4H REJECTION CEILING</text>
@@ -898,6 +917,10 @@ export const ForexHtfLocationFirst = () => {
             )}
           </div>
         </div>
+        <MentorInsight 
+          text="A beautiful lower-timeframe setup driving directly into a major higher-timeframe resistance wall is highly likely to fail. Always audit the macro location first." 
+          analogy="A high-speed sports car driving into a concrete wall. The car is fast and active, but the wall does not care."
+        />
       </div>
     </InstitutionalFrame>
   );
@@ -936,7 +959,7 @@ export const ForexRelatedPairContext = () => {
             </div>
             
             <div className="flex-1 relative flex items-center justify-center bg-slate-900 rounded-xl p-4 overflow-hidden">
-              <svg className="w-full h-full overflow-visible">
+              <svg className="w-full h-full overflow-visible" viewBox="0 0 200 150">
                 {/* ceiling */}
                 <line x1="0" y1="50" x2="200" y2="50" stroke="white" strokeWidth="1" strokeDasharray="3 3" className="opacity-20" />
                 <path d="M 10 120 Q 50 100 80 120 L 140 40 L 180 30" fill="none" stroke="#0D9488" strokeWidth="3" />
@@ -955,7 +978,7 @@ export const ForexRelatedPairContext = () => {
             </div>
             
             <div className="flex-1 relative flex items-center justify-center bg-slate-900 rounded-xl p-4 overflow-hidden">
-              <svg className="w-full h-full overflow-visible">
+              <svg className="w-full h-full overflow-visible" viewBox="0 0 200 150">
                 {dxyTrend === 'support' ? (
                   <motion.path 
                     key="dxy-down"
@@ -1018,6 +1041,10 @@ export const ForexRelatedPairContext = () => {
             </div>
           </div>
         </div>
+        <MentorInsight 
+          text="Correlation is a support layer, not a mechanical system. If EUR/USD breaks out but DXY is perfectly flat and other USD pairs are quiet, the breakout has less supportive evidence." 
+          analogy="A choir. When one singer hits a high note (EUR/USD) but the rest of the choir remains silent (DXY/GBP/USD), the note feels thin and unconvincing."
+        />
       </div>
     </InstitutionalFrame>
   );
@@ -1044,7 +1071,7 @@ export const ForexStructureBreakDrill = () => {
           </div>
           
           <div className="relative h-44 flex items-center justify-center">
-            <svg className="w-full h-full max-w-[450px] overflow-visible">
+            <svg className="w-full h-full max-w-[450px] overflow-visible" viewBox="0 0 380 150">
               {/* London Range Limits */}
               <rect x="50" y="90" width="150" height="40" fill="white" fillOpacity="0.02" stroke="#64748b" strokeWidth="1" strokeDasharray="3 3" />
               
@@ -1110,6 +1137,10 @@ export const ForexStructureBreakDrill = () => {
             </button>
           ))}
         </div>
+        <MentorInsight 
+          text="Never trade the breakout candle blindly. Audit the close quality, wait for the hold test, and check the higher-timeframe boundary locations. Professional trading is an audit." 
+          analogy="A safety inspector. You don't sign off on a bridge just because it looks pretty; you pressure test the load-bearing columns."
+        />
       </div>
     </InstitutionalFrame>
   );
