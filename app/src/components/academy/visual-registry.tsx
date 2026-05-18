@@ -87,6 +87,20 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "multi-timeframe-structure-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.MultiTimeframeStructureVisual), { loading: VisualLoading }),
   "structure-drill-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.StructureDrillVisual), { loading: VisualLoading }),
   "structure-debrief-visual": dynamic(() => import("./visuals/module-0-5/core").then(m => m.StructureDebriefVisual), { loading: VisualLoading }),
+  
+  // Forex 0.5 adaptation keys
+  "forex-pair-structure-skeleton": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexPairStructureSkeleton), { loading: VisualLoading }),
+  "forex-swing-pressure-points": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexSwingPressurePoints), { loading: VisualLoading }),
+  "forex-trend-range-structure": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexTrendRangeStructure), { loading: VisualLoading }),
+  "forex-session-range-structure": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexSessionRangeStructure), { loading: VisualLoading }),
+  "forex-session-high-low-reaction": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexSessionHighLowReaction), { loading: VisualLoading }),
+  "forex-expansion-pullback-rhythm": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexExpansionPullbackRhythm), { loading: VisualLoading }),
+  "forex-break-failure-quality": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexBreakFailureQuality), { loading: VisualLoading }),
+  "forex-htf-location-first": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexHtfLocationFirst), { loading: VisualLoading }),
+  "forex-related-pair-context": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexRelatedPairContext), { loading: VisualLoading }),
+  "forex-structure-break-drill": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexStructureBreakDrill), { loading: VisualLoading }),
+  "forex-structure-roadway-debrief": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexStructureRoadwayDebrief), { loading: VisualLoading }),
+
   "module-0-5-forex-placeholder": dynamic(() => import("./visuals/module-0-5/forex").then(m => m.ForexPlaceholderVisual), { loading: VisualLoading }),
   "module-0-5-gold-placeholder": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldPlaceholderVisual), { loading: VisualLoading }),
   "module-0-5-crypto-placeholder": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoPlaceholderVisual), { loading: VisualLoading }),
