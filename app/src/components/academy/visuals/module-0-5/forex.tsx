@@ -123,6 +123,9 @@ const MentorInsight = ({ text, analogy }: { text: string; analogy?: string }) =>
 export const ForexPairStructureSkeleton = () => {
   const [eurWeight, setEurWeight] = useState(50); // 0 to 100
   
+  const leftY = (eurWeight - 50) * 0.8;
+  const rightY = (50 - eurWeight) * 0.8;
+  
   return (
     <InstitutionalFrame label="Relative Currency Pressure Balanced scale" id="FX-05-PAIR">
       <div className="w-full max-w-4xl mx-auto space-y-10">
@@ -166,24 +169,34 @@ export const ForexPairStructureSkeleton = () => {
                 <line x1="250" y1="120" x2="250" y2="150" stroke="#475569" strokeWidth="6" />
                 <path d="M 220 150 L 280 150" stroke="#475569" strokeWidth="8" strokeLinecap="round" />
                 
-                {/* Scale Beam */}
-                <motion.line 
-                  animate={{ rotate: (eurWeight - 50) * 0.6 }}
-                  transition={{ type: "spring", stiffness: 60 }}
-                  x1="120" y1="120" x2="380" y2="120" 
-                  stroke="#94a3b8" strokeWidth="4" 
-                  style={{ originX: "250px", originY: "120px" }}
-                />
+                {/* Scale Beam (Fixed Horizontal position) */}
+                <line x1="120" y1="120" x2="380" y2="120" stroke="#94a3b8" strokeWidth="4" />
                 
-                {/* Scale Pans & Strings */}
+                {/* Left Rope */}
+                <motion.line
+                  x1="120" y1="120"
+                  x2="120"
+                  animate={{ y2: 120 + leftY + 40 }}
+                  transition={{ type: "spring", stiffness: 60 }}
+                  stroke="#64748b" strokeWidth="3"
+                />
+
+                {/* Right Rope */}
+                <motion.line
+                  x1="380" y1="120"
+                  x2="380"
+                  animate={{ y2: 120 + rightY + 40 }}
+                  transition={{ type: "spring", stiffness: 60 }}
+                  stroke="#64748b" strokeWidth="3"
+                />
+
+                {/* Left Pan (EUR) - Animating vertically by leftY + 40 */}
                 <motion.g
                   animate={{ 
-                    y: 130 * Math.sin(((eurWeight - 50) * 0.6 * Math.PI) / 180), 
-                    x: 130 * (1 - Math.cos(((eurWeight - 50) * 0.6 * Math.PI) / 180)) 
+                    y: leftY + 40
                   }}
                   transition={{ type: "spring", stiffness: 60 }}
                 >
-                  {/* Left Pan (EUR) */}
                   <line x1="120" y1="120" x2="90" y2="160" stroke="#64748b" strokeWidth="2" />
                   <line x1="120" y1="120" x2="150" y2="160" stroke="#64748b" strokeWidth="2" />
                   <path d="M 80 160 Q 120 180 160 160" fill="none" stroke="#64748b" strokeWidth="4" />
@@ -192,14 +205,13 @@ export const ForexPairStructureSkeleton = () => {
                   <text x="120" y="148" textAnchor="middle" fill="white" className="text-[10px] font-black uppercase">EUR</text>
                 </motion.g>
 
+                {/* Right Pan (USD) - Animating vertically by rightY + 40 */}
                 <motion.g
                   animate={{ 
-                    y: -130 * Math.sin(((eurWeight - 50) * 0.6 * Math.PI) / 180), 
-                    x: -130 * (1 - Math.cos(((eurWeight - 50) * 0.6 * Math.PI) / 180)) 
+                    y: rightY + 40
                   }}
                   transition={{ type: "spring", stiffness: 60 }}
                 >
-                  {/* Right Pan (USD) */}
                   <line x1="380" y1="120" x2="350" y2="160" stroke="#64748b" strokeWidth="2" />
                   <line x1="380" y1="120" x2="410" y2="160" stroke="#64748b" strokeWidth="2" />
                   <path d="M 340 160 Q 380 180 420 160" fill="none" stroke="#64748b" strokeWidth="4" />
@@ -410,13 +422,13 @@ export const ForexTrendRangeStructure = () => {
           
           <div className="bg-slate-900 rounded-[2rem] p-6 h-[280px] relative overflow-hidden flex items-center justify-center border border-slate-800 shadow-xl">
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
-            {activeTab === 'range' && (
-              <>
-                <line x1="0" y1="70" x2="500" y2="70" stroke="#f43f5e" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
-                <line x1="0" y1="190" x2="500" y2="190" stroke="#10b981" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
-              </>
-            )}
             <svg className="w-full h-full max-w-[350px] overflow-visible" viewBox="0 0 380 250">
+              {activeTab === 'range' && (
+                <>
+                  <line x1="0" y1="70" x2="500" y2="70" stroke="#f43f5e" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
+                  <line x1="0" y1="190" x2="500" y2="190" stroke="#10b981" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
+                </>
+              )}
               <motion.path 
                 key={activeTab} 
                 initial={{ pathLength: 0 }} 
@@ -673,8 +685,8 @@ export const ForexExpansionPullbackRhythm = () => {
           ))}
         </div>
 
-        <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[380px] flex flex-col justify-center">
-          <div className="relative h-64 flex items-center justify-center">
+        <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden flex flex-col items-center justify-between min-h-[420px]">
+          <div className="w-full relative h-48 flex items-center justify-center mt-4">
             <svg className="w-full h-full max-w-[500px] overflow-visible" viewBox="0 0 500 180">
               {/* Compression Phase */}
               <motion.path 
@@ -727,19 +739,19 @@ export const ForexExpansionPullbackRhythm = () => {
                 />
               )}
             </svg>
+          </div>
 
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 border border-slate-800/80 backdrop-blur-md px-6 py-4 rounded-2xl text-center max-w-sm">
-              <h4 className="text-base font-black text-white uppercase italic tracking-tighter">
-                {step === 0 ? "Phase 1: Session Compression" :
-                 step === 1 ? "Phase 2: Impulsive Expansion" :
-                 "Phase 3: Controlled Pullback"}
-              </h4>
-              <p className="text-[10px] text-slate-400 font-bold leading-relaxed mt-2 uppercase tracking-wide">
-                {step === 0 ? "Currency trades closely within session boundaries. Volatility compresses like a spring." :
-                 step === 1 ? "Big capital volume injects, driving price aggressively outside the session range. Bias emerges." :
-                 "Price takes a breath, cooling back toward the broken session high to test for new support."}
-              </p>
-            </div>
+          <div className="w-full max-w-xl bg-slate-900/80 border border-slate-800 px-6 py-4 rounded-2xl text-center mt-6">
+            <h4 className="text-base font-black text-white uppercase italic tracking-tighter">
+              {step === 0 ? "Phase 1: Session Compression" :
+               step === 1 ? "Phase 2: Impulsive Expansion" :
+               "Phase 3: Controlled Pullback"}
+            </h4>
+            <p className="text-[10px] text-slate-400 font-bold leading-relaxed mt-2 uppercase tracking-wide">
+              {step === 0 ? "Currency trades closely within session boundaries. Volatility compresses like a spring." :
+               step === 1 ? "Big capital volume injects, driving price aggressively outside the session range. Bias emerges." :
+               "Price takes a breath, cooling back toward the broken session high to test for new support."}
+            </p>
           </div>
         </div>
         <MentorInsight 
@@ -1103,7 +1115,7 @@ export const ForexStructureBreakDrill = () => {
               key={opt.id}
               onClick={() => setSelectedOption(opt.id)}
               className={cn(
-                "p-6 rounded-[2rem] text-left border-2 transition-all flex flex-col justify-between h-[180px] shadow-sm",
+                "p-6 rounded-[2rem] text-left border-2 transition-all flex flex-col justify-start gap-3 h-auto min-h-[110px] shadow-sm cursor-pointer",
                 selectedOption === opt.id 
                   ? opt.correct 
                     ? "bg-teal-50 border-teal-500/60 shadow-teal-500/5 text-[#071B36]"
@@ -1111,32 +1123,47 @@ export const ForexStructureBreakDrill = () => {
                   : "bg-white border-slate-100 hover:border-slate-200 text-slate-600"
               )}
             >
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className={cn(
-                    "px-2.5 py-0.5 rounded text-[8px] font-black uppercase tracking-widest",
-                    selectedOption === opt.id 
-                      ? opt.correct ? "bg-teal-500 text-white" : "bg-rose-500 text-white"
-                      : "bg-[#071B36] text-white"
-                  )}>
-                    Option {opt.id}
-                  </span>
-                  <span className="text-[10px] font-black uppercase tracking-wider">{opt.label}</span>
-                </div>
-                <p className="text-[10.5px] font-bold leading-normal">{opt.desc}</p>
-              </div>
-
-              {selectedOption === opt.id && (
-                <p className={cn(
-                  "text-[9px] font-black uppercase mt-4 border-t pt-2",
-                  opt.correct ? "text-teal-600 border-teal-500/20" : "text-rose-600 border-rose-500/20"
+              <div className="flex items-center justify-between w-full">
+                <span className={cn(
+                  "px-2.5 py-0.5 rounded text-[8px] font-black uppercase tracking-widest",
+                  selectedOption === opt.id 
+                    ? opt.correct ? "bg-teal-500 text-white" : "bg-rose-500 text-white"
+                    : "bg-[#071B36] text-white"
                 )}>
-                  {opt.feedback}
-                </p>
-              )}
+                  Option {opt.id}
+                </span>
+                <span className="text-[10px] font-black uppercase tracking-wider">{opt.label}</span>
+              </div>
+              <p className="text-[10.5px] font-bold leading-normal">{opt.desc}</p>
             </button>
           ))}
         </div>
+
+        {selectedOption && (() => {
+          const opt = options.find(o => o.id === selectedOption);
+          if (!opt) return null;
+          return (
+            <div className={cn(
+              "p-6 rounded-[2rem] border-2 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-300",
+              opt.correct 
+                ? "bg-teal-500/5 border-teal-500/30 text-[#0D9488]" 
+                : "bg-rose-500/5 border-rose-500/30 text-[#BE123C]"
+            )}>
+              <div className="flex items-center gap-3 mb-2">
+                <span className={cn(
+                  "px-3 py-1 rounded-xl text-[9px] font-black uppercase tracking-widest text-white",
+                  opt.correct ? "bg-teal-600" : "bg-rose-600"
+                )}>
+                  {opt.correct ? "Audit Passed" : "Audit Rejected"}
+                </span>
+                <span className="text-[10px] font-black uppercase tracking-widest opacity-60">GBP/USD Structure Feedback</span>
+              </div>
+              <p className="text-xs font-bold leading-relaxed uppercase tracking-wide">
+                {opt.feedback}
+              </p>
+            </div>
+          );
+        })()}
         <MentorInsight 
           text="Never trade the breakout candle blindly. Audit the close quality, wait for the hold test, and check the higher-timeframe boundary locations. Professional trading is an audit." 
           analogy="A safety inspector. You don't sign off on a bridge just because it looks pretty; you pressure test the load-bearing columns."
