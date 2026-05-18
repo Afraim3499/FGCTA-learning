@@ -917,7 +917,7 @@ export const ForexHandoffOverlapBoard = () => {
                           height: `${(i === 5 || i === 6) && activeWindow === "Overlap" ? 90 : 
                                     i > 4 && i < 8 && activeWindow === "Handoff" ? 50 : 
                                     i > 8 && activeWindow === "LateNY" ? 20 : 
-                                    Math.random() * 40 + 10}%` 
+                                    ((i * 7 + 13) % 40) + 15}%` 
                         }}
                         className={cn(
                           "flex-1 rounded-t-lg transition-colors",
@@ -1334,7 +1334,7 @@ export const ForexBehaviorLensBoard = () => {
                       <span className={cn("text-[10px] font-black uppercase tracking-tight", item.color)}>{item.label}</span>
                       <div className="flex gap-1 h-8 items-end">
                          {[1,2,3,4].map(j => (
-                           <div key={j} className="flex-1 bg-white/10 rounded-sm" style={{ height: Math.random() * 100 + "%" }} />
+                           <div key={j} className="flex-1 bg-white/10 rounded-sm" style={{ height: ((j * 17 + i * 29) % 60) + 30 + "%" }} />
                          ))}
                       </div>
                    </div>
@@ -1707,7 +1707,7 @@ export const CryptoContinuousMarketBoard = () => {
                                  <motion.div 
                                     key={j}
                                     initial={{ height: 0 }}
-                                    animate={{ height: Math.random() * 100 + "%" }}
+                                    animate={{ height: ((j * 19 + i * 31) % 60) + 30 + "%" }}
                                     className={cn("w-1.5 rounded-t-sm", item.color, "opacity-40 group-hover:opacity-100 transition-opacity")}
                                  />
                                ))}
