@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { 
-  Globe, 
-  Fingerprint, 
-  Activity, 
-  Layers, 
-  TrendingUp, 
-  TrendingDown, 
-  Scale, 
-  ShieldAlert, 
-  Zap, 
+import {
+  Globe,
+  Fingerprint,
+  Activity,
+  Layers,
+  TrendingUp,
+  TrendingDown,
+  Scale,
+  ShieldAlert,
+  Zap,
   CheckCircle,
   Eye,
   Workflow,
@@ -38,20 +38,20 @@ const UI = {
 /**
  * Institutional Frame Component
  */
-const InstitutionalFrame = ({ 
-  children, 
-  label, 
+const InstitutionalFrame = ({
+  children,
+  label,
   status = "AUDIT ACTIVE",
   id = "LN-0.5-CR"
-}: { 
-  children: React.ReactNode; 
-  label: string; 
+}: {
+  children: React.ReactNode;
+  label: string;
   status?: string;
   id?: string;
 }) => (
   <div className="w-full h-full min-h-[550px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
     <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:32px_32px]" />
-    
+
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 relative z-10 border-b border-slate-200/50 pb-4">
       <div className="flex flex-col">
         <div className="flex items-center gap-2 mb-1">
@@ -130,7 +130,7 @@ export const CryptoFragmentedStructureSkeleton = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8">
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
           <div className="absolute top-0 right-0 p-6 opacity-[0.02] pointer-events-none"><Layers size={220} className="text-teal-400" /></div>
-          
+
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
               <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Multi-Feed Mapping Panel</span>
@@ -167,8 +167,8 @@ export const CryptoFragmentedStructureSkeleton = () => {
                   onClick={() => setActiveVenue(venue)}
                   className={cn(
                     "px-4 py-2.5 rounded-2xl text-[9px] font-black uppercase tracking-wider transition-all border shadow-sm cursor-pointer",
-                    activeVenue === venue 
-                      ? "bg-teal-600 text-white border-transparent" 
+                    activeVenue === venue
+                      ? "bg-teal-600 text-white border-transparent"
                       : "bg-white text-slate-400 border-slate-100 hover:border-slate-200"
                   )}
                 >
@@ -192,8 +192,8 @@ export const CryptoFragmentedStructureSkeleton = () => {
           </div>
         </div>
 
-        <MentorInsight 
-          text="A crypto chart is never a single source of truth. One exchange can print an aggressive structure break due to low liquidity while other venues remain completely flat. Always verify if the move is broad or isolated." 
+        <MentorInsight
+          text="A crypto chart is never a single source of truth. One exchange can print an aggressive structure break due to low liquidity while other venues remain completely flat. Always verify if the move is broad or isolated."
           analogy="Four photographers taking a picture of the same statue from different angles. One angle might make the statue look taller, but the statue's physical height hasn't actually changed."
         />
       </div>
@@ -219,7 +219,7 @@ export const CryptoSwingSourceMap = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8">
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
           <div className="absolute top-0 right-0 p-6 opacity-[0.02] pointer-events-none"><Activity size={220} className="text-teal-400" /></div>
-          
+
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
               <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Interactive Swing Engine</span>
@@ -232,31 +232,31 @@ export const CryptoSwingSourceMap = () => {
               <svg className="w-full h-full max-w-[320px] overflow-visible" viewBox="0 0 400 160">
                 {/* Reference line */}
                 <line x1="20" y1="80" x2="380" y2="80" stroke="#1e293b" strokeWidth="1" strokeDasharray="3 3" />
-                
+
                 {/* Left candle */}
                 <rect x="80" y="50" width="20" height="60" fill="#334155" />
                 <line x1="90" y1="30" x2="90" y2="130" stroke="#334155" strokeWidth="2" />
 
                 {/* Central swing low candle */}
                 <rect x="190" y="90" width="20" height="30" fill="#BE123C" />
-                <motion.line 
-                  x1="200" 
-                  y1="50" 
-                  x2="200" 
-                  animate={{ y2: selectedEngine === 'liq' || selectedEngine === 'thin' ? 150 : 110 }} 
-                  stroke={selectedEngine === 'liq' ? "#ef4444" : selectedEngine === 'thin' ? "#f59e0b" : "#94a3b8"} 
-                  strokeWidth="3" 
+                <motion.line
+                  x1="200"
+                  y1="50"
+                  x2="200"
+                  animate={{ y2: selectedEngine === 'liq' || selectedEngine === 'thin' ? 150 : 110 }}
+                  stroke={selectedEngine === 'liq' ? "#ef4444" : selectedEngine === 'thin' ? "#f59e0b" : "#94a3b8"}
+                  strokeWidth="3"
                   transition={{ type: "spring", stiffness: 80 }}
                 />
-                
+
                 {/* Highlight selector circle around swing low */}
-                <motion.circle 
-                  cx="200" 
-                  animate={{ cy: selectedEngine === 'liq' || selectedEngine === 'thin' ? 150 : 110 }} 
-                  r="10" 
-                  fill="none" 
-                  stroke="#ef4444" 
-                  strokeWidth="2" 
+                <motion.circle
+                  cx="200"
+                  animate={{ cy: selectedEngine === 'liq' || selectedEngine === 'thin' ? 150 : 110 }}
+                  r="10"
+                  fill="none"
+                  stroke="#ef4444"
+                  strokeWidth="2"
                   strokeDasharray="3 2"
                   className="animate-spin-slow"
                 />
@@ -275,8 +275,8 @@ export const CryptoSwingSourceMap = () => {
                   onClick={() => setSelectedEngine(engine)}
                   className={cn(
                     "px-4 py-2.5 rounded-2xl text-[9px] font-black uppercase tracking-wider transition-all border shadow-sm cursor-pointer",
-                    selectedEngine === engine 
-                      ? "bg-teal-600 text-white border-transparent" 
+                    selectedEngine === engine
+                      ? "bg-teal-600 text-white border-transparent"
                       : "bg-white text-slate-400 border-slate-100 hover:border-slate-200"
                   )}
                 >
@@ -297,8 +297,8 @@ export const CryptoSwingSourceMap = () => {
           </div>
         </div>
 
-        <MentorInsight 
-          text="Marking a swing low or high is only a description of where price turned. Real reading starts when you analyze *how* it turned. Squeezes and thin liquidations provide highly unstable reference points." 
+        <MentorInsight
+          text="Marking a swing low or high is only a description of where price turned. Real reading starts when you analyze *how* it turned. Squeezes and thin liquidations provide highly unstable reference points."
           analogy="A footprint in dry sand versus a footprint in wet concrete. Both footprints exist, but one will disappear immediately with the next wave, while the other remains solid."
         />
       </div>
@@ -324,14 +324,14 @@ export const CryptoBtcAltStructureContext = () => {
 
             {/* Toggle Switch */}
             <div className="flex bg-slate-900 p-1.5 rounded-2xl border border-slate-800 w-full max-w-xs justify-center">
-              <button 
-                onClick={() => setBtcTrend("bullish")} 
+              <button
+                onClick={() => setBtcTrend("bullish")}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", btcTrend === 'bullish' ? "bg-teal-600 text-white" : "text-slate-400")}
               >
                 BTC Bullish Trend
               </button>
-              <button 
-                onClick={() => setBtcTrend("bearish")} 
+              <button
+                onClick={() => setBtcTrend("bearish")}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", btcTrend === 'bearish' ? "bg-rose-600 text-white" : "text-slate-400")}
               >
                 BTC Aggressive Sell-off
@@ -349,14 +349,14 @@ export const CryptoBtcAltStructureContext = () => {
                   </span>
                 </div>
                 <svg className="w-full h-24 overflow-visible" viewBox="0 0 200 100">
-                  <motion.path 
+                  <motion.path
                     key={`btc-${btcTrend}`}
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
                     d={btcTrend === 'bullish' ? "M 20 80 L 70 60 L 120 70 L 180 30" : "M 20 30 L 70 50 L 120 40 L 180 90"}
-                    fill="none" 
-                    stroke={btcTrend === 'bullish' ? "#0D9488" : "#BE123C"} 
-                    strokeWidth="4" 
+                    fill="none"
+                    stroke={btcTrend === 'bullish' ? "#0D9488" : "#BE123C"}
+                    strokeWidth="4"
                     transition={{ duration: 0.5 }}
                   />
                 </svg>
@@ -371,14 +371,14 @@ export const CryptoBtcAltStructureContext = () => {
                   </span>
                 </div>
                 <svg className="w-full h-24 overflow-visible" viewBox="0 0 200 100">
-                  <motion.path 
+                  <motion.path
                     key={`alt-${btcTrend}`}
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
                     d="M 20 75 L 60 55 L 100 65 L 140 45 L 180 30"
-                    fill="none" 
-                    stroke="#0D9488" 
-                    strokeWidth="4" 
+                    fill="none"
+                    stroke="#0D9488"
+                    strokeWidth="4"
                     transition={{ duration: 0.5 }}
                   />
                   {btcTrend === 'bearish' && (
@@ -393,15 +393,15 @@ export const CryptoBtcAltStructureContext = () => {
           <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Pedagogical Verdict</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide">
-              {btcTrend === 'bullish' 
-                ? "Confluence Aligned: The altcoin's bullish structure is fully backed by supportive BTC market conditions." 
+              {btcTrend === 'bullish'
+                ? "Confluence Aligned: The altcoin's bullish structure is fully backed by supportive BTC market conditions."
                 : "Context Conflict: Altcoin rally looks strong, but BTC structure crash creates heavy resistance and likely fakeouts."}
             </p>
           </div>
         </div>
 
-        <MentorInsight 
-          text="An altcoin cannot escape the Bitcoin gravitational pull for long. A local 15m breakout is highly likely to become a trap if BTC's higher-timeframe structure is actively selling off. Context must support local strength." 
+        <MentorInsight
+          text="An altcoin cannot escape the Bitcoin gravitational pull for long. A local 15m breakout is highly likely to become a trap if BTC's higher-timeframe structure is actively selling off. Context must support local strength."
           analogy="A small boat trying to speed forward while the ocean tide is aggressively pulling backward. The boat's engine is running, but the current is too strong to make real headway."
         />
       </div>
@@ -439,8 +439,8 @@ export const CryptoVenueStructureDisagreement = () => {
                   onClick={() => setSelectedView(v)}
                   className={cn(
                     "px-4 py-2.5 rounded-2xl text-[9px] font-black uppercase tracking-wider transition-all border shadow-sm cursor-pointer",
-                    selectedView === v 
-                      ? "bg-teal-600 text-white border-transparent" 
+                    selectedView === v
+                      ? "bg-teal-600 text-white border-transparent"
                       : "bg-white text-slate-400 border-slate-100 hover:border-slate-200"
                   )}
                 >
@@ -453,20 +453,20 @@ export const CryptoVenueStructureDisagreement = () => {
             <div className="w-full max-w-md h-40 bg-slate-900 rounded-2xl relative border border-slate-800 flex items-center justify-center p-4">
               <div className="absolute top-8 left-0 w-full h-px bg-slate-800 border-dashed" />
               <div className="absolute bottom-8 left-0 w-full h-px bg-slate-800 border-dashed" />
-              
+
               <svg className="w-full h-full max-w-[320px] overflow-visible" viewBox="0 0 200 120">
-                <motion.path 
+                <motion.path
                   key={selectedView}
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   d={charts[selectedView].path}
-                  fill="none" 
-                  stroke={charts[selectedView].color} 
-                  strokeWidth="4" 
+                  fill="none"
+                  stroke={charts[selectedView].color}
+                  strokeWidth="4"
                   strokeLinecap="round"
                   transition={{ duration: 0.4 }}
                 />
-                
+
                 {/* Dynamic warning circle */}
                 <circle cx="140" cy={charts[selectedView].markerY} r="8" fill="white" stroke={charts[selectedView].color} strokeWidth="2.5" className="animate-pulse" />
               </svg>
@@ -486,8 +486,8 @@ export const CryptoVenueStructureDisagreement = () => {
           </div>
         </div>
 
-        <MentorInsight 
-          text="When perp structure breaks resistance but spot fails to react, do not rush. The derivatives market can squeeze leverage in isolation, creating a highly volatile structural disagreement that breaks down quickly." 
+        <MentorInsight
+          text="When perp structure breaks resistance but spot fails to react, do not rush. The derivatives market can squeeze leverage in isolation, creating a highly volatile structural disagreement that breaks down quickly."
           analogy="A shadow on the wall cast by a small toy. The shadow looks massive (perp move), but the real object (spot) remains very small."
         />
       </div>
@@ -551,8 +551,8 @@ export const CryptoTrendRangeStructure = () => {
                 onClick={() => setActiveTab(t)}
                 className={cn(
                   "w-full px-5 py-3.5 rounded-2xl text-left text-[10px] font-black uppercase tracking-widest transition-all border cursor-pointer",
-                  activeTab === t 
-                    ? "bg-teal-600 border-transparent text-white shadow-lg" 
+                  activeTab === t
+                    ? "bg-teal-600 border-transparent text-white shadow-lg"
                     : "bg-white border-slate-100 text-slate-400 hover:border-slate-200"
                 )}
               >
@@ -570,22 +570,22 @@ export const CryptoTrendRangeStructure = () => {
                   <line x1="0" y1="170" x2="500" y2="170" stroke="#10b981" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
                 </>
               )}
-              <motion.path 
-                key={activeTab} 
-                initial={{ pathLength: 0 }} 
-                animate={{ pathLength: 1 }} 
-                d={configs[activeTab].path} 
-                fill="none" 
-                stroke={configs[activeTab].color} 
-                strokeWidth="5" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
+              <motion.path
+                key={activeTab}
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                d={configs[activeTab].path}
+                fill="none"
+                stroke={configs[activeTab].color}
+                strokeWidth="5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               {configs[activeTab].points.map((pt, i) => (
-                <g 
-                  key={`${activeTab}-${i}`} 
+                <g
+                  key={`${activeTab}-${i}`}
                   className={cn(
-                    "animate-in zoom-in duration-300", 
+                    "animate-in zoom-in duration-300",
                     i === 0 ? "delay-0" : i === 1 ? "delay-75" : i === 2 ? "delay-150" : "delay-300"
                   )}
                 >
@@ -610,8 +610,8 @@ export const CryptoTrendRangeStructure = () => {
           </p>
         </div>
 
-        <MentorInsight 
-          text="Fast green/red candles do not make a trend. Trends and ranges are built by structural swing relationships. Never classify a new direction just because a single candle spiked." 
+        <MentorInsight
+          text="Fast green/red candles do not make a trend. Trends and ranges are built by structural swing relationships. Never classify a new direction just because a single candle spiked."
           analogy="A passenger train. Just because the engine makes a loud, sudden whistle doesn't mean the train is speeding down a new track. Look at the rails."
         />
       </div>
@@ -637,14 +637,14 @@ export const CryptoLiquidityZones = () => {
 
             {/* Selector controls */}
             <div className="flex bg-slate-900 p-1.5 rounded-2xl border border-slate-800 w-full max-w-xs justify-center">
-              <button 
-                onClick={() => setUseZone(false)} 
+              <button
+                onClick={() => setUseZone(false)}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", !useZone ? "bg-rose-600 text-white" : "text-slate-400")}
               >
                 Rigid Magic Line
               </button>
-              <button 
-                onClick={() => setUseZone(true)} 
+              <button
+                onClick={() => setUseZone(true)}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", useZone ? "bg-teal-600 text-white" : "text-slate-400")}
               >
                 Flexible Liquidity Zone
@@ -654,7 +654,7 @@ export const CryptoLiquidityZones = () => {
             {/* Chart Area */}
             <div className="w-full max-w-md h-44 bg-slate-900 rounded-2xl relative border border-slate-800 flex items-center justify-center p-4">
               <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:16px_16px]" />
-              
+
               {/* Liquidity Zone or Rigid Line */}
               {useZone ? (
                 <div className="absolute top-[35%] left-0 w-full h-[30px] bg-teal-500/10 border-y border-teal-500/30 flex items-center justify-end pr-8 pointer-events-none">
@@ -668,14 +668,14 @@ export const CryptoLiquidityZones = () => {
 
               <svg className="w-full h-full max-w-[320px] overflow-visible" viewBox="0 0 200 120">
                 {/* Price path dipping below level and reclaiming */}
-                <motion.path 
+                <motion.path
                   key={useZone ? 'zone' : 'line'}
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   d="M 10 30 L 60 50 L 100 90 L 140 40 L 190 30"
-                  fill="none" 
-                  stroke={useZone ? "#0D9488" : "#94a3b8"} 
-                  strokeWidth="4" 
+                  fill="none"
+                  stroke={useZone ? "#0D9488" : "#94a3b8"}
+                  strokeWidth="4"
                   strokeLinecap="round"
                   transition={{ duration: 0.5 }}
                 />
@@ -688,15 +688,15 @@ export const CryptoLiquidityZones = () => {
           <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Liquidity Diagnostics</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
-              {useZone 
-                ? "The price dips below the local low, sweeps the macro liquidity zone, gathers buys, and closes clean. This is standard range support hold." 
+              {useZone
+                ? "The price dips below the local low, sweeps the macro liquidity zone, gathers buys, and closes clean. This is standard range support hold."
                 : "Rigid line thinking calls this a 'Confirmed Bearish Breakout' because price went below the line. You sell the bottom immediately and get trapped."}
             </p>
           </div>
         </div>
 
-        <MentorInsight 
-          text="Crypto support and resistance are not concrete walls. Because crypto markets are decentralized and highly fragmented, think of support and resistance as dynamic liquidity zones. Wicks through are features, not bugs." 
+        <MentorInsight
+          text="Crypto support and resistance are not concrete walls. Because crypto markets are decentralized and highly fragmented, think of support and resistance as dynamic liquidity zones. Wicks through are features, not bugs."
           analogy="A trampoline. When you jump on it, the fabric stretches below the rest height before pushing you back up. A rigid level assumes the trampoline is made of concrete."
         />
       </div>
@@ -722,14 +722,14 @@ export const CryptoPerpBreakFalseStructure = () => {
 
             {/* Selector */}
             <div className="flex bg-slate-900 p-1.5 rounded-2xl border border-slate-800 w-full max-w-xs justify-center">
-              <button 
-                onClick={() => setActiveFeeds("perp")} 
+              <button
+                onClick={() => setActiveFeeds("perp")}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", activeFeeds === 'perp' ? "bg-rose-600 text-white" : "text-slate-400")}
               >
                 Show Perps Squeeze Feed
               </button>
-              <button 
-                onClick={() => setActiveFeeds("spot")} 
+              <button
+                onClick={() => setActiveFeeds("spot")}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", activeFeeds === 'spot' ? "bg-teal-600 text-white" : "text-slate-400")}
               >
                 Show Spot Demand Feed
@@ -744,15 +744,15 @@ export const CryptoPerpBreakFalseStructure = () => {
                 <svg className="w-full h-24 overflow-visible" viewBox="0 0 200 100">
                   {/* Resistance level */}
                   <line x1="0" y1="40" x2="200" y2="40" stroke="#f43f5e" strokeWidth="1" strokeDasharray="3 3" />
-                  
-                  <motion.path 
+
+                  <motion.path
                     key={activeFeeds}
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
                     d={activeFeeds === 'perp' ? "M 20 80 L 60 70 L 100 80 L 140 20 L 180 80" : "M 20 80 L 60 70 L 100 80 L 140 70 L 180 80"}
-                    fill="none" 
-                    stroke={activeFeeds === 'perp' ? "#BE123C" : "#0D9488"} 
-                    strokeWidth="4" 
+                    fill="none"
+                    stroke={activeFeeds === 'perp' ? "#BE123C" : "#0D9488"}
+                    strokeWidth="4"
                     transition={{ duration: 0.5 }}
                   />
                   {activeFeeds === 'perp' && <circle cx="140" cy="20" r="5" fill="#ef4444" className="animate-ping" />}
@@ -770,7 +770,7 @@ export const CryptoPerpBreakFalseStructure = () => {
                     </span>
                   </div>
                   <div className="w-full bg-slate-850 h-2.5 rounded-full overflow-hidden">
-                    <motion.div 
+                    <motion.div
                       key={`spot-vol-${activeFeeds}`}
                       initial={{ width: 0 }}
                       animate={{ width: activeFeeds === 'spot' ? "90%" : "20%" }}
@@ -785,7 +785,7 @@ export const CryptoPerpBreakFalseStructure = () => {
                     </span>
                   </div>
                   <div className="w-full bg-slate-850 h-2.5 rounded-full overflow-hidden">
-                    <motion.div 
+                    <motion.div
                       key={`perp-vol-${activeFeeds}`}
                       initial={{ width: 0 }}
                       animate={{ width: activeFeeds === 'perp' ? "95%" : "30%" }}
@@ -801,15 +801,15 @@ export const CryptoPerpBreakFalseStructure = () => {
           <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Leverage Audit Verdict</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
-              {activeFeeds === 'perp' 
-                ? "False Breakout: Driven fully by aggressive derivatives open interest and forced short liquidations. Spot order books are completely empty. Highly unstable structure." 
+              {activeFeeds === 'perp'
+                ? "False Breakout: Driven fully by aggressive derivatives open interest and forced short liquidations. Spot order books are completely empty. Highly unstable structure."
                 : "Organically Supported: Backed by heavy spot volume buying. This forms a true structural swing low/high."}
             </p>
           </div>
         </div>
 
-        <MentorInsight 
-          text="A breakout on a perp chart is highly unstable unless spot volumes validate the move. Leverage pressure can shoot price above a level like a rocket, but once the squeeze ends, gravity (lack of spot buying) pulls it right back down." 
+        <MentorInsight
+          text="A breakout on a perp chart is highly unstable unless spot volumes validate the move. Leverage pressure can shoot price above a level like a rocket, but once the squeeze ends, gravity (lack of spot buying) pulls it right back down."
           analogy="Throwing a ball into the air. It flies high (squeeze), but because there's no solid floor up there to hold it (spot volume), it will immediately fall back to the ground."
         />
       </div>
@@ -835,14 +835,14 @@ export const CryptoThinLiquidityFailedBreak = () => {
 
             {/* Toggle */}
             <div className="flex bg-slate-900 p-1.5 rounded-2xl border border-slate-800 w-full max-w-xs justify-center">
-              <button 
-                onClick={() => setLiqState("thin")} 
+              <button
+                onClick={() => setLiqState("thin")}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", liqState === 'thin' ? "bg-rose-600 text-white" : "text-slate-400")}
               >
                 Thin Order Book
               </button>
-              <button 
-                onClick={() => setLiqState("deep")} 
+              <button
+                onClick={() => setLiqState("deep")}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", liqState === 'deep' ? "bg-teal-600 text-white" : "text-slate-400")}
               >
                 Deep Order Book
@@ -852,17 +852,17 @@ export const CryptoThinLiquidityFailedBreak = () => {
             {/* Chart showing wicks vs candle holds */}
             <div className="w-full max-w-md h-40 bg-slate-900 rounded-2xl relative border border-slate-800 flex items-center justify-center p-4">
               <div className="absolute top-[35%] left-0 w-full h-px bg-slate-850" />
-              
+
               <svg className="w-full h-full max-w-[320px] overflow-visible" viewBox="0 0 200 120">
                 {/* Thin book wicks hard and returns fast, deep book prints small candle and breaks cleanly */}
-                <motion.path 
+                <motion.path
                   key={liqState}
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   d={liqState === 'thin' ? "M 20 80 L 60 75 L 100 20 L 140 75 L 180 80" : "M 20 80 L 60 75 L 100 45 L 140 40 L 180 35"}
-                  fill="none" 
-                  stroke={liqState === 'thin' ? "#ef4444" : "#0d9488"} 
-                  strokeWidth="4" 
+                  fill="none"
+                  stroke={liqState === 'thin' ? "#ef4444" : "#0d9488"}
+                  strokeWidth="4"
                   strokeLinecap="round"
                   transition={{ duration: 0.5 }}
                 />
@@ -875,15 +875,15 @@ export const CryptoThinLiquidityFailedBreak = () => {
           <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Depth Diagnostics</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
-              {liqState === 'thin' 
-                ? "Slippage Spike: Low available orders allow a single small trade to move price drastically up and down, printing a giant fakeout wick." 
+              {liqState === 'thin'
+                ? "Slippage Spike: Low available orders allow a single small trade to move price drastically up and down, printing a giant fakeout wick."
                 : "Clean Hold: Heavy order books absorb transactions steadily. Price holds above the previous low/high cleanly."}
             </p>
           </div>
         </div>
 
-        <MentorInsight 
-          text="Thin order books make crypto assets print extreme candles during quiet sessions. If a level is crossed but cannot hold, do not label it as a new structure break. It was simply slippage noise." 
+        <MentorInsight
+          text="Thin order books make crypto assets print extreme candles during quiet sessions. If a level is crossed but cannot hold, do not label it as a new structure break. It was simply slippage noise."
           analogy="Stepping on a weak floorboard that bends deep under your weight but snaps back. You haven't fallen through the floor, it just bent temporarily."
         />
       </div>
@@ -909,14 +909,14 @@ export const CryptoHtfLocationFirst = () => {
 
             {/* Selector */}
             <div className="flex bg-slate-900 p-1.5 rounded-2xl border border-slate-800 w-full max-w-xs justify-center">
-              <button 
-                onClick={() => setShowHtf(true)} 
+              <button
+                onClick={() => setShowHtf(true)}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", showHtf ? "bg-teal-600 text-white" : "text-slate-400")}
               >
                 Show 4H Macro Wall
               </button>
-              <button 
-                onClick={() => setShowHtf(false)} 
+              <button
+                onClick={() => setShowHtf(false)}
                 className={cn("px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer", !showHtf ? "bg-rose-600 text-white" : "text-slate-400")}
               >
                 Show 15m Local Move Only
@@ -926,7 +926,7 @@ export const CryptoHtfLocationFirst = () => {
             {/* Graphics */}
             <div className="w-full max-w-md h-40 bg-slate-900 rounded-2xl relative border border-slate-800 flex items-center justify-center p-4">
               <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:16px_16px]" />
-              
+
               {/* Macro Resistance block */}
               {showHtf && (
                 <div className="absolute top-[20%] left-0 w-full h-[30px] bg-rose-500/15 border-y border-dashed border-rose-500/35 flex items-center justify-end pr-8 pointer-events-none">
@@ -935,14 +935,14 @@ export const CryptoHtfLocationFirst = () => {
               )}
 
               <svg className="w-full h-full max-w-[320px] overflow-visible" viewBox="0 0 200 120">
-                <motion.path 
+                <motion.path
                   key={showHtf ? 'htf' : 'local'}
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   d="M 10 100 L 50 80 L 90 90 L 140 32 L 180 30"
-                  fill="none" 
-                  stroke={showHtf ? "#ef4444" : "#0d9488"} 
-                  strokeWidth="4" 
+                  fill="none"
+                  stroke={showHtf ? "#ef4444" : "#0d9488"}
+                  strokeWidth="4"
                   strokeLinecap="round"
                   transition={{ duration: 0.5 }}
                 />
@@ -955,15 +955,15 @@ export const CryptoHtfLocationFirst = () => {
           <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Timeframe Confluence Diagnostics</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
-              {showHtf 
-                ? "Context Conflict: A local 15m breakout pumps fast, but it is driving directly into a major 4H resistance wall. Extremely high probability of rejection." 
+              {showHtf
+                ? "Context Conflict: A local 15m breakout pumps fast, but it is driving directly into a major 4H resistance wall. Extremely high probability of rejection."
                 : "Active Bullish Structure: The 15m chart shows high volume and clean higher-low structures, looking highly bullish in isolation."}
             </p>
           </div>
         </div>
 
-        <MentorInsight 
-          text="Always audit the macro location first. A beautiful, high-volume lower-timeframe structure break driving directly into a concrete higher-timeframe resistance wall is highly likely to fail." 
+        <MentorInsight
+          text="Always audit the macro location first. A beautiful, high-volume lower-timeframe structure break driving directly into a concrete higher-timeframe resistance wall is highly likely to fail."
           analogy="A high-speed sports car racing forward. The car is fast and active, but it is driving straight into a concrete wall. The wall does not care how fast the car is."
         />
       </div>
@@ -991,19 +991,19 @@ export const CryptoStructureBreakDrill = () => {
           <div className="absolute top-[25%] left-0 w-full h-8 bg-rose-500/10 border-y border-dashed border-rose-500/30 flex items-center justify-end pr-8">
             <span className="text-[8px] font-black text-rose-400 uppercase tracking-widest">HTF 4H Resistance Ceiling</span>
           </div>
-          
+
           <div className="relative h-44 flex items-center justify-center">
             <svg className="w-full h-full max-w-[450px] overflow-visible" viewBox="0 0 380 150">
               {/* Range Boundaries */}
               <rect x="50" y="80" width="150" height="50" fill="white" fillOpacity="0.02" stroke="#64748b" strokeWidth="1" strokeDasharray="3 3" />
-              
-              <motion.path 
+
+              <motion.path
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
-                d="M 0 110 L 50 100 L 100 120 L 150 95 L 200 115 C 220 70, 240 40, 250 45 L 270 120 L 350 110" 
-                fill="none" 
-                stroke="#ef4444" 
-                strokeWidth="4" 
+                d="M 0 110 L 50 100 L 100 120 L 150 95 L 200 115 C 220 70, 240 40, 250 45 L 270 120 L 350 110"
+                fill="none"
+                stroke="#ef4444"
+                strokeWidth="4"
                 strokeLinecap="round"
               />
               <circle cx="250" cy="45" r="5" fill="#ef4444" />
@@ -1027,8 +1027,8 @@ export const CryptoStructureBreakDrill = () => {
               onClick={() => setSelectedOption(opt.id)}
               className={cn(
                 "p-5 rounded-[2rem] text-left border-2 transition-all flex flex-col justify-start gap-3 h-auto min-h-[120px] shadow-sm cursor-pointer",
-                selectedOption === opt.id 
-                  ? opt.correct 
+                selectedOption === opt.id
+                  ? opt.correct
                     ? "bg-teal-50 border-teal-500/60 shadow-teal-500/5 text-[#071B36]"
                     : "bg-rose-50 border-rose-500/60 shadow-rose-500/5 text-[#071B36]"
                   : "bg-white border-slate-100 hover:border-slate-200 text-slate-600"
@@ -1037,7 +1037,7 @@ export const CryptoStructureBreakDrill = () => {
               <div className="flex items-center justify-between w-full">
                 <span className={cn(
                   "px-2.5 py-0.5 rounded text-[8px] font-black uppercase tracking-widest",
-                  selectedOption === opt.id 
+                  selectedOption === opt.id
                     ? opt.correct ? "bg-teal-500 text-white" : "bg-rose-500 text-white"
                     : "bg-[#071B36] text-white"
                 )}>
@@ -1057,8 +1057,8 @@ export const CryptoStructureBreakDrill = () => {
           return (
             <div className={cn(
               "p-6 rounded-[2rem] border-2 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-300",
-              opt.correct 
-                ? "bg-teal-500/5 border-teal-500/30 text-[#0D9488]" 
+              opt.correct
+                ? "bg-teal-500/5 border-teal-500/30 text-[#0D9488]"
                 : "bg-rose-500/5 border-rose-500/30 text-[#BE123C]"
             )}>
               <div className="flex items-center gap-3 mb-2">
@@ -1077,8 +1077,8 @@ export const CryptoStructureBreakDrill = () => {
           );
         })()}
 
-        <MentorInsight 
-          text="Never audit a breakout on one venue in isolation. Check the spot volume, check perps open interest, check DEX liquidity depth, and check BTC context. Confluence is the only defense against market traps." 
+        <MentorInsight
+          text="Never audit a breakout on one venue in isolation. Check the spot volume, check perps open interest, check DEX liquidity depth, and check BTC context. Confluence is the only defense against market traps."
           analogy="A bank alarm ringing. You don't immediately shoot; you check if it was a system test, a mechanical fault, a false press, or a true emergency."
         />
       </div>
@@ -1133,3 +1133,36 @@ export const CryptoStructureRoadwayDebrief = () => {
     </InstitutionalFrame>
   );
 };
+
+export const CryptoPlaceholderVisual = () => (
+  <div className="w-full min-h-[400px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-8 flex flex-col relative overflow-hidden shadow-sm">
+    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:32px_32px]" />
+    <div className="flex items-center justify-between mb-8 relative z-10 border-b border-slate-200/50 pb-4">
+      <div className="flex flex-col">
+        <div className="flex items-center gap-2 mb-1">
+          <Database size={10} className="text-amber-600" />
+          <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Track Adaptation Diagnostic</span>
+        </div>
+        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic">Crypto Structural Adaptation</h4>
+      </div>
+      <div className="text-[10px] font-mono text-[#071B36] font-bold">STR-CR-05</div>
+    </div>
+    <div className="flex-1 flex flex-col items-center justify-center relative z-10">
+      <div className="flex flex-col items-center gap-6 text-center max-w-sm">
+        <div className="w-16 h-16 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-600">
+          <Globe size={32} />
+        </div>
+        <div className="space-y-2">
+          <h5 className="text-lg font-black text-[#071B36] uppercase">Crypto Logic Pending</h5>
+          <p className="text-xs text-slate-500 font-medium leading-relaxed">
+            Crypto's fragmented liquidity pools require unique multi-venue alignment. Audit in progress.
+          </p>
+        </div>
+        <div className="px-6 py-2 bg-slate-100 rounded-full text-[8px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+          <ShieldAlert size={12} />
+          Awaiting Verification
+        </div>
+      </div>
+    </div>
+  </div>
+);

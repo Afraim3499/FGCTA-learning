@@ -449,7 +449,7 @@ export const MultiTimeframeStructureVisual = () => {
            <button onClick={() => setActiveTf('15m')} className={cn("px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all shadow-xl", activeTf === '15m' ? "bg-teal-600 text-white" : "bg-slate-100 text-slate-400")}>15m (The Detail Window)</button>
         </div>
         <div className="bg-white border-2 border-slate-200 rounded-[3.5rem] p-10 h-[400px] relative overflow-hidden flex flex-col items-center justify-center">
-           <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#071B36_2px,transparent_2px)] bg-[length:32px:32px]" />
+           <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#071B36_2px,transparent_2px)] bg-[length:32px_32px]" />
            <div className="text-center mb-8 relative z-10">
               <h4 className="text-2xl font-black text-[#071B36] uppercase tracking-tighter italic">{activeTf === '4H' ? "Higher Timeframe Range" : "Lower Timeframe Uptrend"}</h4>
               <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">{activeTf === '4H' ? "The Market Environment" : "The Local Movement"}</p>

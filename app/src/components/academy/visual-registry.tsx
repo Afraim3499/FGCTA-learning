@@ -118,6 +118,19 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "crypto-structure-break-drill": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoStructureBreakDrill), { loading: VisualLoading }),
   "crypto-structure-roadway-debrief": dynamic(() => import("./visuals/module-0-5/crypto").then(m => m.CryptoStructureRoadwayDebrief), { loading: VisualLoading }),
 
+  // Gold 0.5 adaptation keys
+  "gold-volatility-structure-skeleton": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldVolatilityStructureSkeleton), { loading: VisualLoading }),
+  "gold-wick-heavy-swing-points": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldWickHeavySwingPoints), { loading: VisualLoading }),
+  "gold-trend-range-structure": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldTrendRangeStructure), { loading: VisualLoading }),
+  "gold-reaction-zones-not-lines": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldReactionZonesNotLines), { loading: VisualLoading }),
+  "gold-sweep-wick-failed-reaction": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldSweepWickFailedReaction), { loading: VisualLoading }),
+  "gold-impulse-pullback-rhythm": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldImpulsePullbackRhythm), { loading: VisualLoading }),
+  "gold-macro-fake-structure": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldMacroFakeStructure), { loading: VisualLoading }),
+  "gold-break-failure-quality": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldBreakFailureQuality), { loading: VisualLoading }),
+  "gold-htf-location-first": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldHtfLocationFirst), { loading: VisualLoading }),
+  "gold-structure-break-drill": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldStructureBreakDrill), { loading: VisualLoading }),
+  "gold-structure-roadway-debrief": dynamic(() => import("./visuals/module-0-5/gold").then(m => m.GoldStructureRoadwayDebrief), { loading: VisualLoading }),
+
 
   // --- FOREX MODULES ---
   
