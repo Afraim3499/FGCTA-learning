@@ -214,6 +214,58 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "timeframe-personality-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.TimeframePersonalityBoard), { loading: VisualLoading }),
   "evidence-audit-checklist-board": dynamic(() => import("./visuals/core/module-0-4").then(m => m.EvidenceAuditChecklistBoard), { loading: VisualLoading }),
 
+  // --- MODULE 0.6 SYNTHESIS ---
+  "evidence-audit-foundation": dynamic(() => import("./visuals/module-0-6").then(m => m.EvidenceAuditFoundation), { loading: VisualLoading }),
+  "single-clue-vs-evidence-stack": dynamic(() => import("./visuals/module-0-6").then(m => m.SingleClueVsEvidenceStack), { loading: VisualLoading }),
+  "evidence-layer-stack": dynamic(() => import("./visuals/module-0-6").then(m => m.EvidenceLayerStack), { loading: VisualLoading }),
+  "evidence-alignment-board": dynamic(() => import("./visuals/module-0-6").then(m => m.EvidenceAlignmentBoard), { loading: VisualLoading }),
+  "evidence-conflict-map": dynamic(() => import("./visuals/module-0-6").then(m => m.EvidenceConflictMap), { loading: VisualLoading }),
+  "reading-quality-classifier": dynamic(() => import("./visuals/module-0-6").then(m => m.ReadingQualityClassifier), { loading: VisualLoading }),
+  "verification-checkpoint-flow": dynamic(() => import("./visuals/module-0-6").then(m => m.VerificationCheckpointFlow), { loading: VisualLoading }),
+  "reading-failure-diagnostic": dynamic(() => import("./visuals/module-0-6").then(m => m.ReadingFailureDiagnostic), { loading: VisualLoading }),
+  "core-reading-workflow-map": dynamic(() => import("./visuals/module-0-6").then(m => m.CoreReadingWorkflowMap), { loading: VisualLoading }),
+  "evidence-audit-practice-drill": dynamic(() => import("./visuals/module-0-6").then(m => m.EvidenceAuditPracticeDrill), { loading: VisualLoading }),
+  "evidence-audit-debrief": dynamic(() => import("./visuals/module-0-6").then(m => m.EvidenceAuditDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.6 FOREX ROADWAY ---
+  "forex-evidence-audit-foundation": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexEvidenceAuditFoundation), { loading: VisualLoading }),
+  "forex-single-candle-trap": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexSingleCandleTrap), { loading: VisualLoading }),
+  "forex-session-context-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexSessionContextEvidence), { loading: VisualLoading }),
+  "forex-session-high-low-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexSessionHighLowEvidence), { loading: VisualLoading }),
+  "forex-usd-context-reading": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexUsdContextReading), { loading: VisualLoading }),
+  "forex-related-pair-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexRelatedPairEvidence), { loading: VisualLoading }),
+  "forex-event-distortion-audit": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexEventDistortionAudit), { loading: VisualLoading }),
+  "forex-aligned-vs-mixed-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexAlignedVsMixedEvidence), { loading: VisualLoading }),
+  "forex-verification-workflow": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexVerificationWorkflow), { loading: VisualLoading }),
+  "forex-evidence-audit-practice-drill": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexEvidenceAuditPracticeDrill), { loading: VisualLoading }),
+  "forex-evidence-audit-debrief": dynamic(() => import("./visuals/module-0-6").then(m => m.ForexEvidenceAuditDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.6 CRYPTO ROADWAY ---
+  "crypto-evidence-audit-foundation": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoEvidenceAuditFoundation), { loading: VisualLoading }),
+  "crypto-single-wick-trap": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoSingleWickTrap), { loading: VisualLoading }),
+  "crypto-btc-context-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoBtcContextEvidence), { loading: VisualLoading }),
+  "crypto-spot-perp-evidence-conflict": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoSpotPerpEvidenceConflict), { loading: VisualLoading }),
+  "crypto-liquidation-cascade-audit": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoLiquidationCascadeAudit), { loading: VisualLoading }),
+  "crypto-dex-cex-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoDexCexEvidence), { loading: VisualLoading }),
+  "crypto-funding-leverage-pressure": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoFundingLeveragePressure), { loading: VisualLoading }),
+  "crypto-aligned-vs-mixed-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoAlignedVsMixedEvidence), { loading: VisualLoading }),
+  "crypto-verification-workflow": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoVerificationWorkflow), { loading: VisualLoading }),
+  "crypto-evidence-audit-practice-drill": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoEvidenceAuditPracticeDrill), { loading: VisualLoading }),
+  "crypto-evidence-audit-debrief": dynamic(() => import("./visuals/module-0-6").then(m => m.CryptoEvidenceAuditDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.6 GOLD ROADWAY ---
+  "gold-evidence-audit-foundation": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldEvidenceAuditFoundation), { loading: VisualLoading }),
+  "gold-single-wick-trap": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldSingleWickTrap), { loading: VisualLoading }),
+  "gold-reaction-zone-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldReactionZoneEvidence), { loading: VisualLoading }),
+  "gold-usd-context-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldUsdContextEvidence), { loading: VisualLoading }),
+  "gold-macro-event-distortion": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldMacroEventDistortion), { loading: VisualLoading }),
+  "gold-close-quality-audit": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldCloseQualityAudit), { loading: VisualLoading }),
+  "gold-impulse-pullback-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldImpulsePullbackEvidence), { loading: VisualLoading }),
+  "gold-aligned-vs-mixed-evidence": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldAlignedVsMixedEvidence), { loading: VisualLoading }),
+  "gold-verification-workflow": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldVerificationWorkflow), { loading: VisualLoading }),
+  "gold-evidence-audit-practice-drill": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldEvidenceAuditPracticeDrill), { loading: VisualLoading }),
+  "gold-evidence-audit-debrief": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldEvidenceAuditDebrief), { loading: VisualLoading }),
+
   // --- ALIASES (Backward Compatibility) ---
   // These keys ensure that legacy data in the database still renders correctly 
   // during the transition to standardized keys.
