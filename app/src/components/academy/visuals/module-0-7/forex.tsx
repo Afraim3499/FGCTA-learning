@@ -24,23 +24,55 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { InstitutionalFrame, MentorInsight } from "./shared";
 
-/**
- * Helper: Mini Candlestick Graphic
- */
-const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15, label = "", color = "" }) => (
-  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
-    <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
-    <div 
-      className={cn(
-        "w-5 rounded-sm border relative flex items-center justify-center animate-pulse", 
-        color || (bullish ? "bg-teal-600 border-teal-700 shadow-sm text-white" : "bg-rose-600 border-rose-700 shadow-sm text-white")
-      )} 
-      style={{ height: `${bodyHeight}px`, animationDuration: "3.5s" }} 
-    />
-    <div className="w-0.5 bg-slate-400" style={{ height: `${wickBottom}px` }} />
-    {label && <span className="text-[8px] font-black text-slate-500 mt-1 uppercase tracking-tighter text-center leading-none">{label}</span>}
-  </div>
-);
+const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15, label = "", color = "" }) => {
+  let bodyStyle: React.CSSProperties = { height: `${bodyHeight}px`, animationDuration: "3.5s" };
+  let bodyClass = "w-5 rounded-sm border relative flex items-center justify-center animate-pulse";
+  
+  if (color) {
+    if (color.includes("purple")) {
+      bodyStyle.backgroundColor = "#9333ea"; // purple-600
+      bodyStyle.borderColor = "#7e22ce"; // purple-700
+      bodyClass += " text-white";
+    } else if (color.includes("amber")) {
+      bodyStyle.backgroundColor = "#f59e0b"; // amber-500
+      bodyStyle.borderColor = "#d97706"; // amber-600
+      bodyClass += " text-white";
+    } else if (color.includes("rose")) {
+      bodyStyle.backgroundColor = "#e11d48"; // rose-600
+      bodyStyle.borderColor = "#be123c"; // rose-700
+      bodyClass += " text-white";
+    } else if (color.includes("teal")) {
+      bodyStyle.backgroundColor = "#0d9488"; // teal-600
+      bodyStyle.borderColor = "#0f766e"; // teal-700
+      bodyClass += " text-white";
+    } else if (color.includes("slate")) {
+      bodyStyle.backgroundColor = "#475569"; // slate-600
+      bodyStyle.borderColor = "#334155"; // slate-700
+      bodyClass += " text-white";
+    } else {
+      bodyClass += ` ${color}`;
+    }
+  } else {
+    if (bullish) {
+      bodyStyle.backgroundColor = "#0d9488"; // teal-600
+      bodyStyle.borderColor = "#0f766e"; // teal-700
+      bodyClass += " text-white shadow-sm";
+    } else {
+      bodyStyle.backgroundColor = "#e11d48"; // rose-600
+      bodyStyle.borderColor = "#be123c"; // rose-700
+      bodyClass += " text-white shadow-sm";
+    }
+  }
+
+  return (
+    <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
+      <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
+      <div className={bodyClass} style={bodyStyle} />
+      <div className="w-0.5 bg-slate-400" style={{ height: `${wickBottom}px` }} />
+      {label && <span className="text-[8px] font-black text-slate-500 mt-1 uppercase tracking-tighter text-center leading-none">{label}</span>}
+    </div>
+  );
+};
 
 /**
  * Forex Checklist Ribbon
