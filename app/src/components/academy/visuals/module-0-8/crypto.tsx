@@ -74,7 +74,7 @@ export const CryptoLocationFoundation = () => {
   return (
     <InstitutionalFrame label="Crypto Location Radar" status="COORDINATE SCANNER">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Map: Select a coordinate layer to audit how it shapes the local crypto candle's reading quality.
         </p>
 
@@ -133,7 +133,7 @@ export const CryptoLocationFoundation = () => {
         <div className="w-full bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest leading-none block">{active.role}</span>
+              <span className="text-[9px] font-mono text-slate-650 uppercase tracking-widest leading-none block">{active.role}</span>
               <span className={`text-[7px] font-mono font-bold px-1.5 py-0.5 rounded uppercase ${
                 active.color === "teal" ? "bg-teal-50 text-teal-700 border border-teal-100" :
                 active.color === "amber" ? "bg-amber-50 text-amber-700 border border-amber-100" :
@@ -166,7 +166,7 @@ export const CryptoBtcLocationContext = () => {
   return (
     <InstitutionalFrame label="BTC Gravity Overlay" status="BTC ALIGNMENT">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenario: Toggle Bitcoin's structural location to see how it affects the altcoin breakout quality.
         </p>
 
@@ -238,7 +238,7 @@ export const CryptoBtcLocationContext = () => {
         {/* Readout Rating */}
         <div className="w-full bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex justify-between items-center gap-4">
           <div className="flex-1 min-w-0">
-            <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest leading-none block mb-1">Altcoin Location Quality</span>
+            <span className="text-[8px] font-mono text-slate-650 uppercase tracking-widest leading-none block mb-1">Altcoin Location Quality</span>
             <h5 className="text-xs font-black text-[#071B36] uppercase tracking-tight whitespace-normal break-words">
               {btcState === "resistance" ? "Mixed / Unstable Context" : "Clear / Supported Context"}
             </h5>
@@ -330,7 +330,7 @@ export const CryptoRangeEdgeVsMiddle = () => {
                   </div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">Immediate Chop</span>
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">Immediate Chop</span>
                   <MiniCandle color="rose" bodyHeight={25} upperWick={10} lowerWick={10} />
                 </div>
               </>
@@ -404,7 +404,7 @@ export const CryptoPriorHighLowLocation = () => {
   return (
     <InstitutionalFrame label="Layer 2: Swing Test Audits" status="SWING COORDINATES">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Audit: Select a prior swing scenario to view the candle wicks and coordinate outcomes.
         </p>
 
@@ -423,7 +423,7 @@ export const CryptoPriorHighLowLocation = () => {
             {/* Left: Prior Peak Landmark */}
             <div className="flex items-end gap-1 border-r border-slate-800/60 pr-4">
               <div className="flex flex-col items-center">
-                <span className="text-[6px] font-mono text-slate-500 mb-1">Landmark</span>
+                <span className="text-[6px] font-mono text-slate-400 mb-1">Landmark</span>
                 <MiniCandle color="teal" bodyHeight={15} upperWick={20} lowerWick={5} />
               </div>
             </div>
@@ -432,7 +432,7 @@ export const CryptoPriorHighLowLocation = () => {
             <div className="flex-1 flex justify-center items-end gap-3 pl-4">
               {active.candles.map((c, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">
                     {i === 0 ? "Approach" : i === 1 ? "Test" : "Follow"}
                   </span>
                   <MiniCandle 
@@ -490,7 +490,7 @@ export const CryptoLiquidityLocation = () => {
   return (
     <InstitutionalFrame label="Stop Cluster Map" status="LIQUIDITY PATHS">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenario: See how retail stops cluster below equal lows and how the market sweeps them to match order blocks.
         </p>
 
@@ -528,18 +528,18 @@ export const CryptoLiquidityLocation = () => {
           {/* Equal Lows representation */}
           <div className="relative z-10 w-full flex justify-center items-end h-32 pt-4 gap-6">
             <div className="flex flex-col items-center">
-              <span className="text-[6px] font-mono text-slate-500 mb-1">Low A</span>
+              <span className="text-[6px] font-mono text-slate-400 mb-1">Low A</span>
               <MiniCandle color="rose" bodyHeight={15} upperWick={5} lowerWick={15} />
             </div>
 
             <div className="flex flex-col items-center">
-              <span className="text-[6px] font-mono text-slate-500 mb-1">Low B</span>
+              <span className="text-[6px] font-mono text-slate-400 mb-1">Low B</span>
               <MiniCandle color="rose" bodyHeight={20} upperWick={5} lowerWick={10} />
             </div>
 
             {liquidState === "build" ? (
               <div className="flex flex-col items-center relative">
-                <span className="text-[6px] font-mono text-slate-500 mb-1">Resting Orders</span>
+                <span className="text-[6px] font-mono text-slate-400 mb-1">Resting Orders</span>
                 <div className="w-10 h-10 bg-purple-500/20 border border-purple-500/40 rounded-full flex items-center justify-center animate-pulse">
                   <Database size={12} className="text-purple-400" />
                 </div>
@@ -712,7 +712,7 @@ export const CryptoDexCexLocation = () => {
             <div className="w-full flex justify-center items-end h-16 pt-2 pb-2">
               <MiniCandle color="slate" bodyHeight={15} upperWick={10} lowerWick={10} />
             </div>
-            <span className="text-[5px] font-mono text-slate-500 text-center leading-none">Binance/Coinbase</span>
+            <span className="text-[5px] font-mono text-slate-700 text-center leading-none">Binance/Coinbase</span>
           </div>
 
           {/* CEX Perp */}
@@ -721,7 +721,7 @@ export const CryptoDexCexLocation = () => {
             <div className="w-full flex justify-center items-end h-16 pt-2 pb-2">
               <MiniCandle color="slate" bodyHeight={12} upperWick={8} lowerWick={8} />
             </div>
-            <span className="text-[5px] font-mono text-slate-500 text-center leading-none">Binance Futures</span>
+            <span className="text-[5px] font-mono text-slate-700 text-center leading-none">Binance Futures</span>
           </div>
 
           {/* DEX Pool */}
@@ -734,7 +734,7 @@ export const CryptoDexCexLocation = () => {
                 <MiniCandle color="slate" bodyHeight={14} upperWick={10} lowerWick={10} />
               )}
             </div>
-            <span className="text-[5px] font-mono text-slate-500 text-center leading-none">Uniswap V3 Pool</span>
+            <span className="text-[5px] font-mono text-slate-700 text-center leading-none">Uniswap V3 Pool</span>
           </div>
         </div>
 
@@ -791,7 +791,7 @@ export const CryptoBreakoutLocationAcceptance = () => {
   return (
     <InstitutionalFrame label="Breakout Location Lab" status="ACCEPTANCE VERIFIER">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Lab: Choose a scenario to observe breakout acceptance at range coordinates.
         </p>
 
@@ -810,7 +810,7 @@ export const CryptoBreakoutLocationAcceptance = () => {
             <div className="flex items-end gap-3">
               {active.candles.map((c, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">
                     {i === 0 ? "Test" : i === 1 ? "Expansion" : "Consolidate"}
                   </span>
                   <MiniCandle 
@@ -935,16 +935,16 @@ export const CryptoLocationQualityPracticeDrill = () => {
       <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
       
       <div className="absolute top-[20%] left-0 right-0 h-px border-t border-slate-800" />
-      <span className="text-[6px] font-mono text-slate-500 absolute top-2 left-4">Range High ($1.00)</span>
+      <span className="text-[6px] font-mono text-slate-400 absolute top-2 left-4">Range High ($1.00)</span>
 
       <div className="absolute bottom-[20%] left-0 right-0 h-px border-t border-slate-800" />
-      <span className="text-[6px] font-mono text-slate-500 absolute bottom-2 left-4">Range Low ($0.80)</span>
+      <span className="text-[6px] font-mono text-slate-400 absolute bottom-2 left-4">Range Low ($0.80)</span>
 
       <div className="w-full flex justify-center items-center h-full pt-6 pb-6 z-10 relative">
         <div className="flex flex-col items-center">
           <span className="text-[6px] font-mono text-amber-400 font-bold mb-1">Altcoin Midpoint ($0.90)</span>
           <MiniCandle color="teal" bodyHeight={35} upperWick={5} lowerWick={5} />
-          <span className="text-[6px] font-mono text-slate-500 mt-1">Dead Center - No edge</span>
+          <span className="text-[6px] font-mono text-slate-400 mt-1">Dead Center - No edge</span>
         </div>
       </div>
     </div>

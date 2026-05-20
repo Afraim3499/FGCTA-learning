@@ -90,7 +90,7 @@ export const ForexLocationFoundation = () => {
   return (
     <InstitutionalFrame label="Forex Location Audit Map" status="FOUR-LAYER SCANNER">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Map: Select a location layer to audit its coordinate role in the Forex reading process.
         </p>
 
@@ -141,7 +141,7 @@ export const ForexLocationFoundation = () => {
             })}
           </div>
 
-          <div className="w-full flex justify-between border-t border-slate-800/60 pt-2 text-[8px] font-mono text-slate-500">
+          <div className="w-full flex justify-between border-t border-slate-800/60 pt-2 text-[8px] font-mono text-slate-400">
             <span>Layer 1: Session</span>
             <span>Layer 2: Pair</span>
             <span>Layer 3: USD Context</span>
@@ -153,7 +153,7 @@ export const ForexLocationFoundation = () => {
         <div className="w-full bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest leading-none block">{active.time}</span>
+              <span className="text-[9px] font-mono text-slate-650 uppercase tracking-widest leading-none block">{active.time}</span>
               <span className={`text-[7px] font-mono font-bold px-1.5 py-0.5 rounded uppercase ${
                 active.color === "teal" ? "bg-teal-50 text-teal-700 border border-teal-100" :
                 active.color === "amber" ? "bg-amber-50 text-amber-700 border border-amber-100" :
@@ -226,7 +226,7 @@ export const ForexSessionHighLowLocation = () => {
   return (
     <InstitutionalFrame label="Layer 1: Session Boundary Test" status="BOUNDARY SCENARIOS">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Audit: Select a boundary reaction behavior to view its candle structure and details.
         </p>
 
@@ -259,7 +259,7 @@ export const ForexSessionHighLowLocation = () => {
             <div className="flex-1 flex justify-center items-end gap-3 pl-4">
               {active.candles.map((c, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">
                     {i === 0 ? "Approach" : i === 1 ? "Test" : "Follow"}
                   </span>
                   <MiniCandle 
@@ -389,7 +389,7 @@ export const ForexSessionMiddleZoneNoise = () => {
                   </div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">Immediate Chop</span>
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">Immediate Chop</span>
                   <MiniCandle color="rose" bodyHeight={25} upperWick={10} lowerWick={10} />
                 </div>
               </>
@@ -471,7 +471,7 @@ export const ForexLondonExpansionLocation = () => {
   return (
     <InstitutionalFrame label="Layer 2: London Expansion Audit" status="EXPANSION SCATTER">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Lab: Click the outcomes below to audit the location of London's expansion relative to the Asia range.
         </p>
 
@@ -483,14 +483,14 @@ export const ForexLondonExpansionLocation = () => {
           <div className="absolute bottom-4 left-4 right-1/2 top-12 bg-slate-500/10 border border-slate-600/30 rounded-xl p-2 z-10 flex flex-col justify-between">
             <span className="text-[7px] font-mono text-slate-400 uppercase font-black tracking-wider">Asia Session Range</span>
             <div className="w-full border-t border-dashed border-slate-700/60" />
-            <span className="text-[6px] font-mono text-slate-500">Vol: 120k contracts</span>
+            <span className="text-[6px] font-mono text-slate-400">Vol: 120k contracts</span>
           </div>
 
           <div className="relative z-20 w-full flex justify-end items-end h-32 pt-4 pr-4">
             <div className="flex items-end gap-3">
               {active.candles.map((c, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">
                     {i === 0 ? "London Open" : i === 1 ? "Expansion" : "Verify"}
                   </span>
                   <MiniCandle 
@@ -591,7 +591,7 @@ export const ForexNewYorkLocationShift = () => {
   return (
     <InstitutionalFrame label="Session Handoff Analyzer" status="NY TRANSITION SCANNERS">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Paths: Select a New York scenario to see how US volume handles the London breakout location.
         </p>
 
@@ -609,17 +609,17 @@ export const ForexNewYorkLocationShift = () => {
           <div className="relative z-10 w-full flex justify-between items-end h-32 pt-4">
             {/* Left: London session baseline */}
             <div className="flex items-end gap-1 border-r border-slate-800/60 pr-4">
-              <span className="text-[6px] font-mono text-slate-500 uppercase tracking-widest absolute top-2 left-2">London Session</span>
+              <span className="text-[6px] font-mono text-slate-650 uppercase tracking-widest absolute top-2 left-2">London Session</span>
               <MiniCandle color="teal" bodyHeight={20} upperWick={5} lowerWick={5} />
               <MiniCandle color="teal" bodyHeight={35} upperWick={10} lowerWick={5} />
             </div>
 
             {/* Right: New York action based on selection */}
             <div className="flex-1 flex justify-center items-end gap-3 pl-4 relative">
-              <span className="text-[6px] font-mono text-slate-500 uppercase tracking-widest absolute top-2 right-2">NY Session</span>
+              <span className="text-[6px] font-mono text-slate-650 uppercase tracking-widest absolute top-2 right-2">NY Session</span>
               {active.candles.map((c, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">
                     {i === 0 ? "NY Open" : i === 1 ? "NY Test" : "Verify"}
                   </span>
                   <MiniCandle 
@@ -719,7 +719,7 @@ export const ForexPairSwingLocation = () => {
   return (
     <InstitutionalFrame label="Layer 3: Prior Swing Coordinates" status="SWING DYNAMICS">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenarios: Select a scenario to see how the pair responds to a prior multi-day swing low.
         </p>
 
@@ -738,7 +738,7 @@ export const ForexPairSwingLocation = () => {
             {/* Left: Previous daily pivot */}
             <div className="flex items-end gap-1 border-r border-slate-800/60 pr-4">
               <div className="flex flex-col items-center">
-                <span className="text-[6px] font-mono text-slate-500 mb-1">Previous Swing</span>
+                <span className="text-[6px] font-mono text-slate-400 mb-1">Previous Swing</span>
                 <MiniCandle color="teal" bodyHeight={12} upperWick={5} lowerWick={30} />
               </div>
             </div>
@@ -747,7 +747,7 @@ export const ForexPairSwingLocation = () => {
             <div className="flex-1 flex justify-center items-end gap-3 pl-4">
               {active.candles.map((c, idx) => (
                 <div key={idx} className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">
                     {idx === 0 ? "Approach" : idx === 1 ? "Test" : "Follow"}
                   </span>
                   <MiniCandle 
@@ -842,7 +842,7 @@ export const ForexUsdLocationContext = () => {
   return (
     <InstitutionalFrame label="Layer 4: DXY Anchor Audit" status="DXY ALIGNMENT">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Context: Toggle DXY index scenarios to see how macro USD context modifies the EUR/USD support floor reading quality.
         </p>
 
@@ -856,7 +856,7 @@ export const ForexUsdLocationContext = () => {
             
             <div className="w-full flex justify-center items-end h-full pt-6 pb-2 z-10">
               <div className="flex flex-col items-center">
-                <span className="text-[6px] font-mono text-slate-500 mb-1">Local Test</span>
+                <span className="text-[6px] font-mono text-slate-400 mb-1">Local Test</span>
                 <MiniCandle 
                   color={active.eurusdCandle.color as any}
                   bodyHeight={active.eurusdCandle.h}
@@ -879,7 +879,7 @@ export const ForexUsdLocationContext = () => {
             
             <div className="w-full flex justify-center items-end h-full pt-6 pb-2 z-10">
               <div className="flex flex-col items-center">
-                <span className="text-[6px] font-mono text-slate-500 mb-1">USD Status</span>
+                <span className="text-[6px] font-mono text-slate-400 mb-1">USD Status</span>
                 <MiniCandle 
                   color={active.dxyCandle.color as any}
                   bodyHeight={active.dxyCandle.h}
@@ -915,7 +915,7 @@ export const ForexUsdLocationContext = () => {
         {/* Summary */}
         <div className="w-full bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex justify-between items-center gap-4">
           <div className="flex-1 min-w-0">
-            <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest leading-none block mb-1">Context Rating</span>
+            <span className="text-[8px] font-mono text-slate-650 uppercase tracking-widest leading-none block mb-1">Context Rating</span>
             <h5 className="text-xs font-black text-[#071B36] uppercase tracking-tight whitespace-normal break-words">{active.name}</h5>
           </div>
           <ReadingQualityBadge quality={active.quality} />
@@ -1104,16 +1104,16 @@ export const ForexLocationQualityPracticeDrill = () => {
       <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
       
       <div className="absolute top-[20%] left-0 right-0 h-px border-t border-slate-800" />
-      <span className="text-[6px] font-mono text-slate-500 absolute top-2 left-4">Asia High ($1.0900)</span>
+      <span className="text-[6px] font-mono text-slate-400 absolute top-2 left-4">Asia High ($1.0900)</span>
 
       <div className="absolute bottom-[20%] left-0 right-0 h-px border-t border-slate-800" />
-      <span className="text-[6px] font-mono text-slate-500 absolute bottom-2 left-4">Asia Low ($1.0800)</span>
+      <span className="text-[6px] font-mono text-slate-400 absolute bottom-2 left-4">Asia Low ($1.0800)</span>
 
       <div className="w-full flex justify-center items-center h-full pt-6 pb-6 z-10 relative">
         <div className="flex flex-col items-center">
           <span className="text-[6px] font-mono text-rose-400 font-bold mb-1">EUR/USD ($1.0850)</span>
           <MiniCandle color="teal" bodyHeight={35} upperWick={5} lowerWick={5} />
-          <span className="text-[6px] font-mono text-slate-500 mt-1">Dead Center of Range</span>
+          <span className="text-[6px] font-mono text-slate-400 mt-1">Dead Center of Range</span>
         </div>
       </div>
     </div>

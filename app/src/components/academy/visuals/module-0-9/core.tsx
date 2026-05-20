@@ -56,7 +56,7 @@ export const GoldReadingLabFoundation = () => {
   return (
     <GoldInstitutionalFrame label="Gold Reading Lab Console" status="SYSTEM RUNNING">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900/80 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
           Configure the console variables to audit how Gold's volatility and USD context interact to determine overall reading quality.
         </p>
 
@@ -205,7 +205,7 @@ export const GoldSpeedVsClarity = () => {
   return (
     <GoldInstitutionalFrame label="Speed vs Clarity Comparator" status="LOCATION COMPARISON">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900/80 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
           Observe how the exact same green candle shape has completely different reading values based on where it occurs. Select a location to audit.
         </p>
 
@@ -218,7 +218,7 @@ export const GoldSpeedVsClarity = () => {
               className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all cursor-pointer ${
                 selectedLoc === key 
                   ? "bg-[#1C160C] border-[#1C160C] text-white shadow-md scale-102"
-                  : "bg-white border-[#E6DFD5] text-amber-900/60 hover:bg-amber-50/20"
+                  : "bg-white border-[#E6DFD5] text-amber-850 hover:bg-amber-50/20"
               }`}
             >
               Location {key}
@@ -230,7 +230,7 @@ export const GoldSpeedVsClarity = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-5 gap-6 items-center bg-white p-6 rounded-3xl border border-amber-200/40">
           {/* Left: Candle representation */}
           <div className="md:col-span-2 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[180px]">
-            <span className="text-[8px] font-mono text-amber-700/60 uppercase tracking-widest mb-3">Candle Render</span>
+            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-3">Candle Render</span>
             <MiniGoldCandle 
               color={active.candleColor} 
               bodyHeight={active.bodyHeight} 
@@ -249,7 +249,7 @@ export const GoldSpeedVsClarity = () => {
               <GoldReadingQualityBadge quality={active.badge} />
             </div>
             
-            <p className="text-xs text-amber-900/80 leading-relaxed whitespace-normal break-words">
+            <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
               {active.desc}
             </p>
 
@@ -342,7 +342,7 @@ export const GoldReactionZoneLab = () => {
   return (
     <GoldInstitutionalFrame label="Reaction Zone Behavior Simulator" status="ZONE ANALYZER">
       <div className="w-full flex flex-col gap-5">
-        <p className="text-xs text-amber-900/80 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
           Gold zones are flexible areas where orders cluster. Select a path type below to see step-by-step price reactions.
         </p>
 
@@ -355,7 +355,7 @@ export const GoldReactionZoneLab = () => {
               className={`p-2 rounded-xl border text-xs font-bold text-center transition-all cursor-pointer ${
                 selectedPath === key 
                   ? "bg-[#1C160C] border-[#1C160C] text-white shadow-md"
-                  : "bg-white border-[#E6DFD5] text-amber-900/60 hover:bg-amber-50/20"
+                  : "bg-white border-[#E6DFD5] text-amber-850 hover:bg-amber-50/20"
               }`}
             >
               {key === "reject" ? "Test & Reject" : key === "accept" ? "Acceptance" : key === "overshoot" ? "Overshoot" : "Stall / Mixed"}
@@ -376,7 +376,7 @@ export const GoldReactionZoneLab = () => {
               </div>
               <div className="flex flex-col gap-2">
                 {active.steps.map((step, idx) => (
-                  <div key={idx} className="flex gap-2 items-start text-xs text-amber-900/80">
+                  <div key={idx} className="flex gap-2 items-start text-xs text-amber-900">
                     <span className="font-bold text-[#1C160C] shrink-0 mt-0.5">{idx + 1}.</span>
                     <span className="min-w-0 leading-relaxed whitespace-normal break-words">{step}</span>
                   </div>
@@ -396,7 +396,7 @@ export const GoldReactionZoneLab = () => {
 
           {/* Candle Preview Area */}
           <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-700/60 uppercase tracking-widest mb-4">Simulated Price</span>
+            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">Simulated Price</span>
             
             <div className="relative w-full h-32 border-y border-dashed border-amber-300 flex items-center justify-around px-4">
               {/* Zone label */}
@@ -413,7 +413,7 @@ export const GoldReactionZoneLab = () => {
                     upperWick={active.candle1.upper} 
                     lowerWick={active.candle1.lower} 
                   />
-                  <span className="text-[8px] font-mono text-amber-700/60 mt-1">Test</span>
+                  <span className="text-[8px] font-mono text-amber-800 mt-1">Test</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <MiniGoldCandle 
@@ -422,7 +422,7 @@ export const GoldReactionZoneLab = () => {
                     upperWick={active.candle2.upper} 
                     lowerWick={active.candle2.lower} 
                   />
-                  <span className="text-[8px] font-mono text-amber-700/60 mt-1">Response</span>
+                  <span className="text-[8px] font-mono text-amber-800 mt-1">Response</span>
                 </div>
               </div>
             </div>
@@ -483,7 +483,7 @@ export const GoldWickQualityLab = () => {
   return (
     <GoldInstitutionalFrame label="Wick Quality Classifier" status="WICK AUDIT ACTIVE">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900/80 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
           Not all wicks are created equal. Select a wick from the scanner to audit its source, location, close quality, and reading classification.
         </p>
 
@@ -536,7 +536,7 @@ export const GoldWickQualityLab = () => {
             </div>
           </div>
 
-          <p className="text-xs text-amber-900/80 leading-relaxed border-t border-amber-100 pt-3 whitespace-normal break-words">
+          <p className="text-xs text-amber-900 leading-relaxed border-t border-amber-100 pt-3 whitespace-normal break-words">
             {active.desc}
           </p>
         </div>
@@ -554,7 +554,7 @@ export const GoldSweepDisciplineLab = () => {
   return (
     <GoldInstitutionalFrame label="Sweep Decision Board" status="DECISION AUDIT">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900/80 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
           A crossover of a prior high is a question: Did price sweep liquidity and return, or did it accept the higher price? Compare the scenarios.
         </p>
 
@@ -574,7 +574,7 @@ export const GoldSweepDisciplineLab = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-amber-200/40 items-center">
           {/* Graphic Side */}
           <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-700/60 uppercase tracking-widest mb-4">Chart Model</span>
+            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">Chart Model</span>
             
             <div className="relative w-full h-36 flex flex-col justify-between items-center px-6">
               {/* Prior High line */}
@@ -588,18 +588,18 @@ export const GoldSweepDisciplineLab = () => {
               <div className="flex gap-10 items-end z-10 pt-4">
                 <div className="flex flex-col items-center">
                   <MiniGoldCandle color="gold" bodyHeight={40} upperWick={5} lowerWick={5} />
-                  <span className="text-[8px] font-mono text-amber-700/60 mt-1">Prev Day</span>
+                  <span className="text-[8px] font-mono text-amber-800 mt-1">Prev Day</span>
                 </div>
                 
                 {activeTab === "sweep" ? (
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="rose" bodyHeight={15} upperWick={45} lowerWick={5} />
-                    <span className="text-[8px] font-mono text-amber-700/60 mt-1">Sweep Close</span>
+                    <span className="text-[8px] font-mono text-amber-800 mt-1">Sweep Close</span>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="gold" bodyHeight={45} upperWick={10} lowerWick={5} />
-                    <span className="text-[8px] font-mono text-amber-700/60 mt-1">Breakout Close</span>
+                    <span className="text-[8px] font-mono text-amber-800 mt-1">Breakout Close</span>
                   </div>
                 )}
               </div>
@@ -616,7 +616,7 @@ export const GoldSweepDisciplineLab = () => {
                   </h5>
                   <GoldReadingQualityBadge quality="REJECTION SWEEP" />
                 </div>
-                <p className="text-xs text-amber-900/80 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
                   Gold spikes above yesterday's swing high, triggering buy stop orders. Instead of holding, the price immediately wicks back down and closes the candle well below the high.
                 </p>
                 <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200/50 text-emerald-950">
@@ -636,7 +636,7 @@ export const GoldSweepDisciplineLab = () => {
                   </h5>
                   <GoldReadingQualityBadge quality="VALID BREAKOUT" />
                 </div>
-                <p className="text-xs text-amber-900/80 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
                   Gold surges past yesterday's swing high. Instead of wicking back, the candle body closes strongly above the high, and consolidation begins at the new price floor.
                 </p>
                 <div className="p-3 bg-amber-50 rounded-xl border border-amber-200/50 text-amber-950">
@@ -665,7 +665,7 @@ export const GoldCloseQualityLab = () => {
   return (
     <GoldInstitutionalFrame label="Close Quality Comparison" status="CLOSE AUDIT">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900/80 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
           Candle travel represents market activity; the close represents commitment. Toggle the close quality options below to see how to filter candles.
         </p>
 
@@ -685,7 +685,7 @@ export const GoldCloseQualityLab = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-amber-200/40 items-center">
           {/* Visual candle representation */}
           <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-700/60 uppercase tracking-widest mb-4">Candle Close</span>
+            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">Candle Close</span>
             
             <div className="relative w-full h-36 border-y border-amber-200 flex items-center justify-center px-4">
               {/* Level Line */}
@@ -717,7 +717,7 @@ export const GoldCloseQualityLab = () => {
                   </h5>
                   <GoldReadingQualityBadge quality="CLEAR" />
                 </div>
-                <p className="text-xs text-amber-900/80 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
                   The candle body closes in the top 10% of its range, completely clearing the resistance zone boundary. This shows that buyers held every yard of progress, proving institutional backing for the breakout.
                 </p>
                 <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200/50 text-emerald-950">
@@ -738,7 +738,7 @@ export const GoldCloseQualityLab = () => {
                   </h5>
                   <GoldReadingQualityBadge quality="LOW QUALITY" />
                 </div>
-                <p className="text-xs text-amber-900/80 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
                   The candle spikes past resistance but drops back down before completing, closing in the bottom 30% of its range (leaving a long upper wick). Buyers failed to hold the high ground.
                 </p>
                 <div className="p-3 bg-rose-50 rounded-xl border border-rose-200/50 text-rose-950">
@@ -797,7 +797,7 @@ export const GoldMacroDistortionLab = () => {
   return (
     <GoldInstitutionalFrame label="Macro Distortion Chamber" status="EVENT SIMULATOR">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900/80 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
           Step through a major CPI news event timeline to observe how high-speed volatility distorts structure before stabilizing into a readable close.
         </p>
 
@@ -810,7 +810,7 @@ export const GoldMacroDistortionLab = () => {
               className={`flex-1 min-w-[100px] p-2 rounded-lg text-xs font-bold text-center transition-all cursor-pointer ${
                 step === idx
                   ? "bg-[#1C160C] text-white shadow-sm"
-                  : "text-amber-800/60 hover:bg-amber-200/20"
+                  : "text-amber-850 hover:bg-amber-200/20"
               }`}
             >
               Step {idx + 1}
@@ -822,7 +822,7 @@ export const GoldMacroDistortionLab = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-amber-200/40 items-center">
           {/* Left: Graphic representation */}
           <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-700/60 uppercase tracking-widest mb-4">CPI Event Render</span>
+            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">CPI Event Render</span>
             
             <div className="relative w-full h-36 flex flex-col justify-center items-center">
               <MiniGoldCandle 
@@ -840,7 +840,7 @@ export const GoldMacroDistortionLab = () => {
             <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight">
               {active.title}
             </h5>
-            <p className="text-xs text-amber-900/80 leading-relaxed whitespace-normal break-words">
+            <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
               {active.desc}
             </p>
 
@@ -870,7 +870,7 @@ export const GoldFollowThroughLab = () => {
   return (
     <GoldInstitutionalFrame label="Follow-Through Verification" status="TIMELINE SCANNER">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900/80 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
           A price reaction at a key zone is only the first step. Subsequent candles (follow-through) prove whether the reaction has sustained backing.
         </p>
 
@@ -890,7 +890,7 @@ export const GoldFollowThroughLab = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-amber-200/40 items-center">
           {/* Visual Timeline Graphic */}
           <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-700/60 uppercase tracking-widest mb-4">Candle Timeline</span>
+            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">Candle Timeline</span>
             
             <div className="relative w-full h-36 border-b border-dashed border-amber-300 flex items-end justify-around pb-4 px-4">
               <div className="absolute left-2 top-2 bg-amber-100 text-[8px] font-mono font-black px-1.5 py-0.5 rounded text-amber-800 uppercase tracking-wider">
@@ -902,11 +902,11 @@ export const GoldFollowThroughLab = () => {
                 <div className="flex gap-6 items-end z-10">
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="rose" bodyHeight={35} upperWick={5} lowerWick={20} />
-                    <span className="text-[8px] font-mono text-amber-700/60 mt-1">1. Test</span>
+                    <span className="text-[8px] font-mono text-amber-800 mt-1">1. Test</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="gold" bodyHeight={25} upperWick={5} lowerWick={25} />
-                    <span className="text-[8px] font-mono text-amber-700/60 mt-1">2. Reaction</span>
+                    <span className="text-[8px] font-mono text-amber-800 mt-1">2. Reaction</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="gold" bodyHeight={45} upperWick={10} lowerWick={5} />
@@ -917,11 +917,11 @@ export const GoldFollowThroughLab = () => {
                 <div className="flex gap-6 items-end z-10">
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="rose" bodyHeight={35} upperWick={5} lowerWick={20} />
-                    <span className="text-[8px] font-mono text-amber-700/60 mt-1">1. Test</span>
+                    <span className="text-[8px] font-mono text-amber-800 mt-1">1. Test</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="gold" bodyHeight={25} upperWick={5} lowerWick={25} />
-                    <span className="text-[8px] font-mono text-amber-700/60 mt-1">2. Reaction</span>
+                    <span className="text-[8px] font-mono text-amber-800 mt-1">2. Reaction</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="slate" bodyHeight={5} upperWick={10} lowerWick={10} isDoji />
@@ -942,7 +942,7 @@ export const GoldFollowThroughLab = () => {
                   </h5>
                   <GoldReadingQualityBadge quality="FOLLOW-THROUGH HOLD" />
                 </div>
-                <p className="text-xs text-amber-900/80 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
                   Price rejects the zone (Candle 1), prints a bullish response (Candle 2), and the next candle (Candle 3) expands strongly upward. This follow-through confirms that institutions are actively defending the floor.
                 </p>
                 <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200/50 text-emerald-950">
@@ -963,7 +963,7 @@ export const GoldFollowThroughLab = () => {
                   </h5>
                   <GoldReadingQualityBadge quality="LOW QUALITY" />
                 </div>
-                <p className="text-xs text-amber-900/80 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
                   Price bounces (Candle 2), but the subsequent hour (Candle 3) stalls completely, printing a tiny doji candle. This tells you the initial response was just short-term cover and lacks real buying commitment.
                 </p>
                 <div className="p-3 bg-rose-50 rounded-xl border border-rose-200/50 text-rose-950">
@@ -1066,21 +1066,21 @@ export const GoldReadingLabPracticeDrill = () => {
 
   const chartPreview = (
     <div className="w-full p-4 bg-amber-50/20 border border-amber-200/30 rounded-2xl flex flex-col items-center justify-center min-h-[160px] shrink-0 mb-2">
-      <span className="text-[8px] font-mono text-amber-700/60 uppercase tracking-widest mb-3">DRILL CONSOLE VIEW</span>
+      <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-3">DRILL CONSOLE VIEW</span>
       
       <div className="relative w-full h-24 border-t border-dashed border-[#E6DFD5] flex items-end justify-center pb-2">
-        <span className="absolute left-2 top-2 text-[8px] font-mono text-amber-700/60 uppercase">Resistance zone floor ($2050)</span>
+        <span className="absolute left-2 top-2 text-[8px] font-mono text-amber-800 uppercase">Resistance zone floor ($2050)</span>
         
         <div className="flex gap-8 items-end z-10">
           <div className="flex flex-col items-center">
             {/* Sweeping candle with long upper wick and close in middle */}
             <MiniGoldCandle color="slate" bodyHeight={15} upperWick={35} lowerWick={5} />
-            <span className="text-[7px] font-mono text-amber-700/60">1. Sweep test</span>
+            <span className="text-[7px] font-mono text-amber-800">1. Sweep test</span>
           </div>
           <div className="flex flex-col items-center">
             {/* Hesitant stall candle */}
             <MiniGoldCandle color="slate" bodyHeight={5} upperWick={10} lowerWick={10} isDoji />
-            <span className="text-[7px] font-mono text-amber-700/60">2. Stall candle</span>
+            <span className="text-[7px] font-mono text-amber-800">2. Stall candle</span>
           </div>
         </div>
       </div>

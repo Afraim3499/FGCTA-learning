@@ -32,18 +32,18 @@ export const InstitutionalFrame = ({
       <div className="flex flex-col">
         <div className="flex items-center gap-2 mb-1">
           <MapPin size={10} className="text-teal-600 animate-bounce" />
-          <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.25em]">Location Monitor</span>
+          <span className="text-[9px] font-black text-slate-600 uppercase tracking-[0.25em]">Location Monitor</span>
         </div>
         <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{label}</h4>
       </div>
       <div className="flex items-center gap-3">
         <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Module ID</span>
+          <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest leading-none mb-1">Module ID</span>
           <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
         </div>
         <div className="w-px h-6 bg-slate-200" />
         <div className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-lg shadow-sm">
-          <div className="w-1.5 h-1.5 rounded-full bg-teal-505 animate-pulse style-override" style={{ backgroundColor: "#14B8A6" }} />
+          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
           <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
         </div>
       </div>
@@ -59,12 +59,12 @@ export const InstitutionalFrame = ({
        <div className="flex gap-4">
           <div className="flex items-center gap-1.5">
             <div className="w-1 h-1 bg-teal-500 rounded-full" />
-            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Location Audited</span>
+            <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest">Location Audited</span>
           </div>
        </div>
        <div className="flex items-center gap-1.5">
-          <Fingerprint size={10} className="text-slate-300" />
-          <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter">LN-LOC-PROD-V1</span>
+          <Fingerprint size={10} className="text-slate-500" />
+          <span className="text-[8px] font-mono text-slate-400 uppercase tracking-tighter">LN-LOC-PROD-V1</span>
        </div>
     </div>
   </div>
@@ -83,7 +83,7 @@ export const MentorInsight = ({ text, analogy }: { text: string; analogy?: strin
        <div className="flex-1">
           <p className="text-xs font-bold text-[#071B36] leading-relaxed">{text}</p>
           {analogy && (
-            <p className="mt-1.5 text-[11px] text-slate-500 italic leading-snug">
+            <p className="mt-1.5 text-[11px] text-slate-750 italic leading-snug">
               <span className="font-black uppercase text-[9px] mr-2 text-teal-600 not-italic">Analogy:</span>
               {analogy}
             </p>
@@ -242,7 +242,7 @@ export const StepWorkflow = ({
   return (
     <InstitutionalFrame label={label} status={status}>
       <div className="w-full flex flex-col gap-5 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           {desc}
         </p>
 
@@ -256,15 +256,15 @@ export const StepWorkflow = ({
                 onClick={() => setActiveStep(index)}
                 className={cn(
                   "flex-1 min-w-[50px] p-2 rounded-lg flex flex-col items-center justify-center transition-all cursor-pointer",
-                  activeStep === index ? "bg-[#071B36] text-white shadow-sm" : "text-slate-400 hover:bg-slate-200/50"
+                  activeStep === index ? "bg-[#071B36] text-white shadow-sm" : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
                 )}
               >
                 {Icon ? (
-                  <Icon size={14} className={activeStep === index ? "text-teal-400" : "text-slate-500"} />
+                  <Icon size={14} className={activeStep === index ? "text-teal-400" : "text-slate-650"} />
                 ) : (
                   <span className={cn(
                     "text-[10px] font-mono font-bold",
-                    activeStep === index ? "text-teal-400" : "text-slate-500"
+                    activeStep === index ? "text-teal-400" : "text-slate-650"
                   )}>#{index + 1}</span>
                 )}
                 <span className="text-[7px] font-mono font-bold mt-1 hidden md:inline">Step {index + 1}</span>
@@ -290,7 +290,7 @@ export const StepWorkflow = ({
             </p>
           </div>
           <div className="flex justify-between items-center mt-4 pt-2 border-t border-slate-800/80 relative z-10">
-            <span className="text-[7px] font-mono text-slate-500">
+            <span className="text-[7px] font-mono text-slate-400">
               STATUS: {steps[activeStep].status || "PASS"}
             </span>
             <button
@@ -376,7 +376,7 @@ export const PracticeDrill = ({
                 "w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-black shrink-0",
                 selectedOption === opt.id 
                   ? opt.isCorrect ? "bg-teal-500 border-teal-500 text-white" : "bg-rose-500 border-rose-500 text-white"
-                  : "border-slate-300 text-slate-400"
+                  : "border-slate-300 text-slate-600"
               )}>
                 {opt.id}
               </span>
@@ -448,7 +448,7 @@ export const DebriefDashboard = ({
   return (
     <InstitutionalFrame label={label} status={status}>
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           {desc}
         </p>
 
@@ -468,10 +468,10 @@ export const DebriefDashboard = ({
                   "p-3 rounded-xl border flex flex-col items-center gap-2 text-center transition-all cursor-pointer justify-center min-h-[85px]",
                   isSelected 
                     ? "bg-[#071B36] border-[#071B36] text-white shadow-md scale-105" 
-                    : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
+                    : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
                 )}
               >
-                {ItemIcon && <ItemIcon size={16} className={isSelected ? "text-teal-400" : "text-slate-400"} />}
+                {ItemIcon && <ItemIcon size={16} className={isSelected ? "text-teal-400" : "text-slate-550"} />}
                 <span className="text-[8px] font-black uppercase tracking-tight leading-none break-words max-w-full">
                   {item.title}
                 </span>
@@ -487,7 +487,7 @@ export const DebriefDashboard = ({
           <div className="flex items-center gap-3 relative z-10 border-b border-slate-800/80 pb-3">
             {IconComponent && <IconComponent size={20} className="text-teal-400 shrink-0" />}
             <div>
-              <h5 className="text-xs font-mono font-black text-slate-400 uppercase tracking-widest leading-none mb-1">
+              <h5 className="text-xs font-mono font-black text-slate-300 uppercase tracking-widest leading-none mb-1">
                 {active.title}
               </h5>
               <p className="text-xs font-black text-white whitespace-normal break-words leading-tight uppercase">

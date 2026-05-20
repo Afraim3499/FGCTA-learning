@@ -34,13 +34,13 @@ export const GoldInstitutionalFrame = ({
       <div className="flex flex-col">
         <div className="flex items-center gap-2 mb-1">
           <Compass size={11} className="text-amber-600 animate-spin-slow" style={{ animationDuration: '8s' }} />
-          <span className="text-[9px] font-black text-amber-700/70 uppercase tracking-[0.25em]">Gold Reading Lab</span>
+          <span className="text-[9px] font-black text-amber-800 uppercase tracking-[0.25em]">Gold Reading Lab</span>
         </div>
         <h4 className="text-base font-black text-[#1C160C] uppercase tracking-tighter italic leading-tight">{label}</h4>
       </div>
       <div className="flex items-center gap-3">
         <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-amber-700/60 uppercase tracking-widest leading-none mb-1">Module ID</span>
+          <span className="text-[8px] font-black text-amber-800 uppercase tracking-widest leading-none mb-1">Module ID</span>
           <span className="text-[10px] font-mono text-[#1C160C] font-bold">{id}</span>
         </div>
         <div className="w-px h-6 bg-amber-200/60" />
@@ -61,12 +61,12 @@ export const GoldInstitutionalFrame = ({
        <div className="flex gap-4">
           <div className="flex items-center gap-1.5">
             <div className="w-1 h-1 bg-amber-500 rounded-full" />
-            <span className="text-[8px] font-black text-amber-700/70 uppercase tracking-widest">XAU/USD Audited</span>
+            <span className="text-[8px] font-black text-amber-800 uppercase tracking-widest">XAU/USD Audited</span>
           </div>
        </div>
        <div className="flex items-center gap-1.5">
-          <Lock size={10} className="text-amber-400/60" />
-          <span className="text-[8px] font-mono text-amber-500/80 uppercase tracking-tighter">LN-GOLD-LAB-V1</span>
+          <Lock size={10} className="text-amber-600" />
+          <span className="text-[8px] font-mono text-amber-700 uppercase tracking-tighter">LN-GOLD-LAB-V1</span>
        </div>
     </div>
   </div>
@@ -242,12 +242,12 @@ export const GoldStepWorkflow = ({
   return (
     <GoldInstitutionalFrame label={label} status={status}>
       <div className="w-full flex flex-col gap-5 items-center">
-        <p className="text-xs text-amber-900/70 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-amber-900 max-w-xl text-center leading-relaxed whitespace-normal break-words font-medium">
           {desc}
         </p>
 
         {/* Step Nodes Stepper */}
-        <div className="w-full flex justify-between items-center bg-amber-100/40 border border-amber-200/40 p-2 rounded-xl shrink-0 gap-1 overflow-x-auto">
+        <div className="w-full flex justify-between items-center bg-amber-100 border border-amber-200 p-2 rounded-xl shrink-0 gap-1 overflow-x-auto">
           {steps.map((s, index) => {
             const Icon = s.icon;
             return (
@@ -256,15 +256,15 @@ export const GoldStepWorkflow = ({
                 onClick={() => setActiveStep(index)}
                 className={cn(
                   "flex-1 min-w-[50px] p-2 rounded-lg flex flex-col items-center justify-center transition-all cursor-pointer",
-                  activeStep === index ? "bg-[#1C160C] text-white shadow-sm" : "text-amber-800/60 hover:bg-amber-200/20"
+                  activeStep === index ? "bg-[#1C160C] text-white shadow-sm" : "text-amber-800 hover:text-amber-950 hover:bg-amber-200/50"
                 )}
               >
                 {Icon ? (
-                  <Icon size={14} className={activeStep === index ? "text-amber-400" : "text-amber-700/60"} />
+                  <Icon size={14} className={activeStep === index ? "text-amber-400" : "text-amber-800"} />
                 ) : (
                   <span className={cn(
                     "text-[10px] font-mono font-bold",
-                    activeStep === index ? "text-amber-400" : "text-amber-700/60"
+                    activeStep === index ? "text-amber-400" : "text-amber-800"
                   )}>#{index + 1}</span>
                 )}
                 <span className="text-[7px] font-mono font-bold mt-1 hidden md:inline">Step {index + 1}</span>
@@ -278,19 +278,19 @@ export const GoldStepWorkflow = ({
           <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#F59E0B_1px,transparent_1px)] bg-[length:14px_14px]" />
           <div className="relative z-10">
             {steps[activeStep].action && (
-              <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest block mb-1">
+              <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest block mb-1 font-bold">
                 {steps[activeStep].action}
               </span>
             )}
             <h5 className="text-sm font-black uppercase tracking-tight mb-2 whitespace-normal break-words">
               {steps[activeStep].title}
             </h5>
-            <p className="text-xs text-amber-100/80 leading-relaxed whitespace-normal break-words">
+            <p className="text-xs text-amber-200 leading-relaxed whitespace-normal break-words">
               {steps[activeStep].desc}
             </p>
           </div>
           <div className="flex justify-between items-center mt-4 pt-2 border-t border-amber-950 relative z-10">
-            <span className="text-[7px] font-mono text-amber-500/80">
+            <span className="text-[7px] font-mono text-amber-400">
               SEQUENCE AUDIT: {steps[activeStep].status || "VERIFIED"}
             </span>
             <button
@@ -369,14 +369,14 @@ export const GoldPracticeDrill = ({
                   ? opt.isCorrect
                     ? "bg-emerald-50 border-emerald-500 text-emerald-950 shadow-sm"
                     : "bg-rose-50 border-rose-500 text-rose-950 shadow-sm"
-                  : "bg-white border-[#E6DFD5] text-[#1C160C]/80 hover:bg-amber-50/30 hover:border-amber-300"
+                  : "bg-white border-[#E6DFD5] text-[#1C160C] hover:bg-amber-100 hover:border-amber-400"
               )}
             >
               <span className={cn(
                 "w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-black shrink-0",
                 selectedOption === opt.id 
                   ? opt.isCorrect ? "bg-[#1C160C] border-[#1C160C] text-white" : "bg-rose-500 border-rose-500 text-white"
-                  : "border-[#E6DFD5] text-amber-900/40"
+                  : "border-amber-300 text-amber-800"
               )}>
                 {opt.id}
               </span>
@@ -398,7 +398,7 @@ export const GoldPracticeDrill = ({
             )}
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[8px] font-mono font-black uppercase tracking-widest text-[#1C160C]/60">
+                <span className="text-[8px] font-mono font-black uppercase tracking-widest text-[#1C160C]">
                   {activeOption.isCorrect ? "VERDICT: CORRECT" : "VERDICT: INCORRECT"}
                 </span>
                 {!activeOption.isCorrect && (
@@ -448,7 +448,7 @@ export const GoldDebriefDashboard = ({
   return (
     <GoldInstitutionalFrame label={label} status={status}>
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-amber-900/70 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-amber-900 max-w-xl text-center leading-relaxed whitespace-normal break-words font-medium">
           {desc}
         </p>
 
@@ -465,10 +465,10 @@ export const GoldDebriefDashboard = ({
                   "p-3 rounded-xl border flex flex-col items-center gap-2 text-center transition-all cursor-pointer justify-center min-h-[85px]",
                   isSelected 
                     ? "bg-[#1C160C] border-[#1C160C] text-white shadow-md scale-105" 
-                    : "bg-white border-[#E6DFD5] text-amber-900/60 hover:bg-amber-50/20"
+                    : "bg-white border-[#E6DFD5] text-amber-950 hover:bg-amber-100"
                 )}
               >
-                {ItemIcon && <ItemIcon size={16} className={isSelected ? "text-amber-400" : "text-amber-700/60"} />}
+                {ItemIcon && <ItemIcon size={16} className={isSelected ? "text-amber-400" : "text-amber-800"} />}
                 <span className="text-[8px] font-black uppercase tracking-tight leading-none break-words max-w-full">
                   {item.title}
                 </span>
@@ -493,7 +493,7 @@ export const GoldDebriefDashboard = ({
             </div>
           </div>
 
-          <p className="text-xs text-amber-100/80 leading-relaxed whitespace-normal break-words relative z-10">
+          <p className="text-xs text-amber-200 leading-relaxed whitespace-normal break-words relative z-10">
             {active.desc}
           </p>
         </div>

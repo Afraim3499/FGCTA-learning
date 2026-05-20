@@ -84,7 +84,7 @@ export const LocationGivesEvidenceWeight = () => {
   return (
     <InstitutionalFrame label="Location-Weight Map" status="WEIGHT CALCULATOR">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Audit: Select different locations on the chart to see how the **exact same hammer candle** changes in reading weight and value.
         </p>
 
@@ -139,12 +139,12 @@ export const LocationGivesEvidenceWeight = () => {
         {/* Details Panel */}
         <div className="w-full bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div className="flex-1 min-w-0">
-            <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest leading-none block mb-1">Active Location Audit</span>
+            <span className="text-[9px] font-mono text-slate-650 uppercase tracking-widest leading-none block mb-1">Active Location Audit</span>
             <h5 className="text-sm font-black text-[#071B36] uppercase tracking-tight mb-1 whitespace-normal break-words">{active.name}</h5>
             <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">{active.desc}</p>
           </div>
           <div className="flex flex-col items-end shrink-0 bg-slate-50 border border-slate-200/60 rounded-xl p-3 min-w-[140px]">
-            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Reading Weight</span>
+            <span className="text-[8px] font-black text-slate-650 uppercase tracking-widest leading-none mb-1">Reading Weight</span>
             <span className="text-2xl font-black text-[#071B36] leading-none mb-1">{active.weight}</span>
             <span className={`text-[8px] font-bold uppercase tracking-wider ${
               active.color === "teal" ? "text-teal-600" :
@@ -214,7 +214,7 @@ export const ChartAreaPriorityMap = () => {
   return (
     <InstitutionalFrame label="Chart-Area Priority Map" status="PRIORITY SCANNER">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Map: Select an area class below to locate it on the mock chart layout and audit its structural priority.
         </p>
 
@@ -259,15 +259,15 @@ export const ChartAreaPriorityMap = () => {
 
           {/* Placeholder labels for relative heights */}
           <div className="w-full h-full flex flex-col justify-between pt-10 pb-10 z-10 pointer-events-none">
-            <div className="w-full flex justify-between px-2 text-[8px] font-mono text-slate-500">
+            <div className="w-full flex justify-between px-2 text-[8px] font-mono text-slate-400">
               <span>$120.00</span>
               <span>Ceiling</span>
             </div>
-            <div className="w-full flex justify-between px-2 text-[8px] font-mono text-slate-500">
+            <div className="w-full flex justify-between px-2 text-[8px] font-mono text-slate-400">
               <span>$110.00</span>
               <span>Center</span>
             </div>
-            <div className="w-full flex justify-between px-2 text-[8px] font-mono text-slate-500">
+            <div className="w-full flex justify-between px-2 text-[8px] font-mono text-slate-400">
               <span>$100.00</span>
               <span>Floor</span>
             </div>
@@ -488,7 +488,7 @@ export const EdgeVsMiddleLocation = () => {
   return (
     <InstitutionalFrame label="Edge vs Middle Audit" status="EDGE DETECTOR">
       <div className="w-full flex flex-col gap-5 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Range: Click the labels on the right of the range to inspect behavior quality at the edges vs the middle.
         </p>
 
@@ -511,17 +511,17 @@ export const EdgeVsMiddleLocation = () => {
               selectedArea === "lower" ? "bg-teal-500/20 border-teal-500/40" : "bg-transparent border-slate-800/20"
             }`} />
 
-            <div className="w-full flex justify-between text-[8px] font-mono text-slate-500 z-10">
+            <div className="w-full flex justify-between text-[8px] font-mono text-slate-400 z-10">
               <span>$100.00 Ceiling (Edge)</span>
               {selectedArea === "upper" && <span className="text-teal-400 font-bold">Active Selection</span>}
             </div>
 
-            <div className="w-full flex justify-between text-[8px] font-mono text-slate-500 z-10 my-10">
+            <div className="w-full flex justify-between text-[8px] font-mono text-slate-400 z-10 my-10">
               <span>$50.00 Midpoint (Noise)</span>
               {selectedArea === "middle" && <span className="text-amber-400 font-bold">Active Selection</span>}
             </div>
 
-            <div className="w-full flex justify-between text-[8px] font-mono text-slate-500 z-10">
+            <div className="w-full flex justify-between text-[8px] font-mono text-slate-400 z-10">
               <span>$0.00 Floor (Edge)</span>
               {selectedArea === "lower" && <span className="text-teal-400 font-bold">Active Selection</span>}
             </div>
@@ -660,7 +660,7 @@ export const PriorSwingLocationReference = () => {
   return (
     <InstitutionalFrame label="Swing Location Reference Map" status="SWING DEFIER">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenarios: Select a path to see how price reacts when returning to a **prior swing low** reference line.
         </p>
 
@@ -679,7 +679,7 @@ export const PriorSwingLocationReference = () => {
             {/* Left: Prior Swing History */}
             <div className="flex items-end gap-1 border-r border-slate-800/60 pr-4">
               <div className="flex flex-col items-center">
-                <span className="text-[7px] font-mono text-slate-500 mb-1">High</span>
+                <span className="text-[7px] font-mono text-slate-400 mb-1">High</span>
                 <MiniCandle color="teal" bodyHeight={25} upperWick={10} lowerWick={5} />
               </div>
               <div className="flex flex-col items-center">
@@ -687,7 +687,7 @@ export const PriorSwingLocationReference = () => {
                 <MiniCandle color="teal" bodyHeight={10} upperWick={5} lowerWick={25} />
               </div>
               <div className="flex flex-col items-center">
-                <span className="text-[7px] font-mono text-slate-500 mb-1">Rally</span>
+                <span className="text-[7px] font-mono text-slate-400 mb-1">Rally</span>
                 <MiniCandle color="teal" bodyHeight={40} upperWick={10} lowerWick={5} />
               </div>
             </div>
@@ -696,7 +696,7 @@ export const PriorSwingLocationReference = () => {
             <div className="flex-1 flex justify-center items-end gap-3 pl-4">
               {active.candles.map((c, idx) => (
                 <div key={idx} className="flex flex-col items-center">
-                  <span className="text-[7px] font-mono text-slate-500 mb-1">
+                  <span className="text-[7px] font-mono text-slate-400 mb-1">
                     {idx === 0 ? "Approach" : idx === 1 ? "Test" : "Follow"}
                   </span>
                   <MiniCandle 
@@ -794,7 +794,7 @@ export const AcceptanceRejectionLocation = () => {
   return (
     <InstitutionalFrame label="Zone Behavior Lab" status="REACTION ANALYSER">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Audit: Select a reaction behavior state to see the visual candle signature and its structural explanation.
         </p>
 
@@ -815,7 +815,7 @@ export const AcceptanceRejectionLocation = () => {
               lowerWick={current.candle.lw}
               isDoji={current.candle.isDoji}
             />
-            <span className="mt-2 text-[9px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+            <span className="mt-2 text-[9px] font-mono text-slate-650 font-bold uppercase tracking-wider">
               {current.name.split(" ")[0]} Signature
             </span>
           </div>
@@ -907,7 +907,7 @@ export const BadLocationWeakensEvidence = () => {
   return (
     <InstitutionalFrame label="Location Quality Audit" status="QUALITY COMPARATOR">
       <div className="w-full flex flex-col gap-5 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Comparison: Tap the panels to see how the **identical strong green candle** loses its reading quality based strictly on the location.
         </p>
 
@@ -957,7 +957,7 @@ export const BadLocationWeakensEvidence = () => {
             <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">{current.desc}</p>
           </div>
           <div className="flex flex-col items-end shrink-0 bg-slate-50 border border-slate-200/60 rounded-xl p-3 min-w-[140px]">
-            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Quality Score</span>
+            <span className="text-[8px] font-black text-slate-650 uppercase tracking-widest leading-none mb-1">Quality Score</span>
             <span className="text-2xl font-black text-[#071B36] leading-none mb-1">{current.score}</span>
             <span className={`text-[8px] font-bold uppercase tracking-wider ${
               current.color === "teal" ? "text-teal-600" :
@@ -981,7 +981,7 @@ export const HtfLocationChangesStory = () => {
   return (
     <InstitutionalFrame label="Dual-Timeframe Map" status="MULTIPLE TIMEFRAMES">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Toggle: Click **"Overlay HTF Context"** to reveal the daily resistance ceiling on the local breakout chart.
         </p>
 
@@ -1007,7 +1007,7 @@ export const HtfLocationChangesStory = () => {
               </div>
             )}
 
-            <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest z-10">Local Timeframe (15m)</span>
+            <span className="text-[9px] font-mono text-slate-650 uppercase tracking-widest z-10">Local Timeframe (15m)</span>
 
             <div className="relative z-10 w-full flex justify-around items-end h-32 pt-4">
               <MiniCandle color="teal" bodyHeight={15} upperWick={5} lowerWick={5} />
@@ -1018,7 +1018,7 @@ export const HtfLocationChangesStory = () => {
               </div>
             </div>
 
-            <div className="w-full flex justify-between text-[8px] font-mono text-slate-500 z-10">
+            <div className="w-full flex justify-between text-[8px] font-mono text-slate-400 z-10">
               <span>Clean upward push</span>
               <span className={overlayHtf ? "text-red-400 font-black" : "text-emerald-400 font-black"}>
                 {overlayHtf ? "HTF Trap" : "Bullish Breakout"}
@@ -1035,17 +1035,17 @@ export const HtfLocationChangesStory = () => {
               <span className="text-red-400 text-[8px] font-mono font-bold uppercase tracking-widest">Daily Supply Zone Floor</span>
             </div>
 
-            <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest z-10">Higher Timeframe (4h)</span>
+            <span className="text-[9px] font-mono text-slate-650 uppercase tracking-widest z-10">Higher Timeframe (4h)</span>
 
             <div className="relative z-10 w-full flex justify-center items-end h-32 pt-4">
               {/* Massive historical candles */}
               <div className="flex items-end gap-3">
                 <div className="flex flex-col items-center">
-                  <span className="text-[7px] text-slate-500 mb-1">Historical Sell</span>
+                  <span className="text-[7px] text-slate-400 mb-1">Historical Sell</span>
                   <MiniCandle color="rose" bodyHeight={60} upperWick={10} lowerWick={10} />
                 </div>
                 <div className="flex flex-col items-center">
-                  <span className="text-[7px] text-slate-500 mb-1">Retest</span>
+                  <span className="text-[7px] text-slate-400 mb-1">Retest</span>
                   <MiniCandle color="teal" bodyHeight={40} upperWick={15} lowerWick={5} />
                 </div>
                 <div className="flex flex-col items-center">
@@ -1055,7 +1055,7 @@ export const HtfLocationChangesStory = () => {
               </div>
             </div>
 
-            <div className="w-full flex justify-between text-[8px] font-mono text-slate-500 z-10">
+            <div className="w-full flex justify-between text-[8px] font-mono text-slate-400 z-10">
               <span>Approaching major level</span>
               <span className="text-red-400 font-black">Sell Pressure Imminent</span>
             </div>

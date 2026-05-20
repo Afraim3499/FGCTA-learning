@@ -71,7 +71,7 @@ export const GoldLocationFoundation = () => {
   return (
     <InstitutionalFrame label="Gold Location Radar" status="XAU/USD SCANNER">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Map: Select a coordinate layer to audit how it shapes the quality of a Gold candle reading.
         </p>
 
@@ -130,7 +130,7 @@ export const GoldLocationFoundation = () => {
         <div className="w-full bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest leading-none block">{active.role}</span>
+              <span className="text-[9px] font-mono text-slate-650 uppercase tracking-widest leading-none block">{active.role}</span>
               <span className={`text-[7px] font-mono font-bold px-1.5 py-0.5 rounded uppercase ${
                 active.color === "teal" ? "bg-teal-50 text-teal-700 border border-teal-100" :
                 active.color === "purple" ? "bg-purple-50 text-purple-700 border border-purple-100" :
@@ -163,7 +163,7 @@ export const GoldReactionZoneLocation = () => {
   return (
     <InstitutionalFrame label="Reaction Zone Board" status="ZONE BEHAVIOR SCANNER">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenario: Toggle the behavior outcome to see how price reacts to a major Gold reaction zone.
         </p>
 
@@ -200,7 +200,7 @@ export const GoldReactionZoneLocation = () => {
 
           <div className="relative z-20 w-full flex justify-around items-end h-32 pt-6">
             <div className="flex flex-col items-center">
-              <span className="text-[6px] font-mono text-slate-500 mb-1">Previous Approach</span>
+              <span className="text-[6px] font-mono text-slate-400 mb-1">Previous Approach</span>
               <MiniCandle color="rose" bodyHeight={25} upperWick={5} lowerWick={5} />
             </div>
 
@@ -222,7 +222,7 @@ export const GoldReactionZoneLocation = () => {
                   <MiniCandle color="rose" bodyHeight={35} upperWick={5} lowerWick={5} />
                 </div>
                 <div className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">Acceptance Hold</span>
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">Acceptance Hold</span>
                   <MiniCandle color="rose" bodyHeight={15} upperWick={10} lowerWick={5} />
                 </div>
               </>
@@ -335,7 +335,7 @@ export const GoldRangeMiddleNoise = () => {
                   </div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">Immediate Chop</span>
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">Immediate Chop</span>
                   <MiniCandle color="rose" bodyHeight={25} upperWick={10} lowerWick={10} />
                 </div>
               </>
@@ -409,7 +409,7 @@ export const GoldPriorHighLowLocation = () => {
   return (
     <InstitutionalFrame label="Swing Test Audits" status="SWING COORDINATES">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Audit: Select a prior swing scenario to view the candle wicks and coordinate outcomes.
         </p>
 
@@ -428,7 +428,7 @@ export const GoldPriorHighLowLocation = () => {
             {/* Left: Prior Peak Landmark */}
             <div className="flex items-end gap-1 border-r border-slate-800/60 pr-4">
               <div className="flex flex-col items-center">
-                <span className="text-[6px] font-mono text-slate-500 mb-1">Landmark</span>
+                <span className="text-[6px] font-mono text-slate-400 mb-1">Landmark</span>
                 <MiniCandle color="teal" bodyHeight={15} upperWick={20} lowerWick={5} />
               </div>
             </div>
@@ -437,7 +437,7 @@ export const GoldPriorHighLowLocation = () => {
             <div className="flex-1 flex justify-center items-end gap-3 pl-4">
               {active.candles.map((c, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <span className="text-[6px] font-mono text-slate-500 mb-1">
+                  <span className="text-[6px] font-mono text-slate-400 mb-1">
                     {i === 0 ? "Approach" : i === 1 ? "Test" : "Follow"}
                   </span>
                   <MiniCandle 
@@ -520,7 +520,7 @@ export const GoldWickLocationMeaning = () => {
   return (
     <InstitutionalFrame label="Wick Location Audit" status="WICK EVALUATOR">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Comparison: Select a location to see how it dictates the quality of identical candle wicks.
         </p>
 
@@ -543,7 +543,7 @@ export const GoldWickLocationMeaning = () => {
 
         {/* Visual Display */}
         <div className="w-full bg-[#071B36] rounded-2xl p-4 border border-slate-800 flex flex-col items-center justify-center relative min-h-[160px]">
-          <span className="text-[7px] font-mono text-slate-500 uppercase tracking-widest absolute top-2">CANDLE IN CONTEXT</span>
+          <span className="text-[7px] font-mono text-slate-650 uppercase tracking-widest absolute top-2">CANDLE IN CONTEXT</span>
           <div className="z-10 mt-2">
             <MiniCandle 
               color={active.wick.color as any}
@@ -609,7 +609,7 @@ export const GoldSweepLocationAudit = () => {
 
           <div className="relative z-10 w-full flex justify-center items-end h-32 pt-4 gap-6">
             <div className="flex flex-col items-center">
-              <span className="text-[6px] font-mono text-slate-500 mb-1">Landmark Peak</span>
+              <span className="text-[6px] font-mono text-slate-400 mb-1">Landmark Peak</span>
               <MiniCandle color="teal" bodyHeight={15} upperWick={20} lowerWick={5} />
             </div>
 
@@ -755,7 +755,7 @@ export const GoldHtfLocationContext = () => {
   return (
     <InstitutionalFrame label="Dual-Timeframe Context Overlay" status="HTF COORDINATES">
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenario: Toggle the Higher-Timeframe (HTF) overlay to see why a clean lower-timeframe push is in a high-risk location.
         </p>
 
@@ -787,11 +787,11 @@ export const GoldHtfLocationContext = () => {
           <div className="relative z-10 w-full flex justify-around items-end h-32 pt-10">
             {/* LTF Trend pushes up */}
             <div className="flex flex-col items-center">
-              <span className="text-[6px] font-mono text-slate-500 mb-1">LTF Candle 1</span>
+              <span className="text-[6px] font-mono text-slate-400 mb-1">LTF Candle 1</span>
               <MiniCandle color="teal" bodyHeight={15} upperWick={5} lowerWick={5} />
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-[6px] font-mono text-slate-500 mb-1">LTF Candle 2</span>
+              <span className="text-[6px] font-mono text-slate-400 mb-1">LTF Candle 2</span>
               <MiniCandle color="teal" bodyHeight={25} upperWick={5} lowerWick={5} />
             </div>
             <div className="flex flex-col items-center">
@@ -899,7 +899,7 @@ export const GoldLocationQualityPracticeDrill = () => {
 
   const chartPreview = (
     <div className="w-full bg-[#071B36] rounded-xl p-3 border border-slate-800 relative min-h-[140px] flex flex-col justify-between overflow-hidden">
-      <span className="text-[7px] font-mono text-slate-500 uppercase tracking-widest">DRILL SCENARIO MAP</span>
+      <span className="text-[7px] font-mono text-slate-650 uppercase tracking-widest">DRILL SCENARIO MAP</span>
       
       <div className="absolute top-[20%] left-0 right-0 h-px border-t border-dashed border-teal-500/20" />
       <div className="absolute bottom-[20%] left-0 right-0 h-px border-t border-dashed border-teal-500/20" />
@@ -914,7 +914,7 @@ export const GoldLocationQualityPracticeDrill = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-center text-[6px] font-mono text-slate-500">
+      <div className="flex justify-between items-center text-[6px] font-mono text-slate-400">
         <span>Range Ceiling ($2080)</span>
         <span>Range Floor ($2020)</span>
       </div>
