@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils";
 
 /**
  * Premium Gold Institutional Frame for Module 0.9
+ * Uses the proven dark-on-light design system (same as Module 0.8)
+ * with amber/gold accent touches for Gold identity.
  */
 export const GoldInstitutionalFrame = ({ 
   children, 
@@ -25,28 +27,28 @@ export const GoldInstitutionalFrame = ({
   status?: string;
   id?: string;
 }) => (
-  <div className="w-full h-full min-h-[550px] bg-[#FAF8F5] border border-[#E6DFD5] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
+  <div className="w-full h-full min-h-[550px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
     {/* Grid Background Effect */}
-    <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#B45309_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
+    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
     
     {/* Top Header Row */}
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-amber-200/50 pb-4 shrink-0">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
       <div className="flex flex-col">
         <div className="flex items-center gap-2 mb-1">
           <Compass size={11} className="text-amber-600 animate-spin-slow" style={{ animationDuration: '8s' }} />
-          <span className="text-[9px] font-black text-amber-800 uppercase tracking-[0.25em]">Gold Reading Lab</span>
+          <span className="text-[9px] font-black text-slate-600 uppercase tracking-[0.25em]">Gold Reading Lab</span>
         </div>
-        <h4 className="text-base font-black text-[#1C160C] uppercase tracking-tighter italic leading-tight">{label}</h4>
+        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{label}</h4>
       </div>
       <div className="flex items-center gap-3">
         <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-amber-800 uppercase tracking-widest leading-none mb-1">Module ID</span>
-          <span className="text-[10px] font-mono text-[#1C160C] font-bold">{id}</span>
+          <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest leading-none mb-1">Module ID</span>
+          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
         </div>
-        <div className="w-px h-6 bg-amber-200/60" />
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-white border border-amber-200/80 rounded-lg shadow-sm">
+        <div className="w-px h-6 bg-slate-200" />
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-lg shadow-sm">
           <div className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-          <span className="text-[9px] font-black text-[#1C160C] uppercase tracking-widest">{status}</span>
+          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
         </div>
       </div>
     </div>
@@ -57,16 +59,16 @@ export const GoldInstitutionalFrame = ({
     </div>
 
     {/* Bottom Footer Row */}
-    <div className="mt-6 pt-4 border-t border-amber-200/50 flex items-center justify-between shrink-0">
+    <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between shrink-0">
        <div className="flex gap-4">
           <div className="flex items-center gap-1.5">
             <div className="w-1 h-1 bg-amber-500 rounded-full" />
-            <span className="text-[8px] font-black text-amber-800 uppercase tracking-widest">XAU/USD Audited</span>
+            <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest">XAU/USD Audited</span>
           </div>
        </div>
        <div className="flex items-center gap-1.5">
-          <Lock size={10} className="text-amber-600" />
-          <span className="text-[8px] font-mono text-amber-700 uppercase tracking-tighter">LN-GOLD-LAB-V1</span>
+          <Lock size={10} className="text-slate-400" />
+          <span className="text-[8px] font-mono text-slate-400 uppercase tracking-tighter">LN-GOLD-LAB-V1</span>
        </div>
     </div>
   </div>
@@ -76,16 +78,16 @@ export const GoldInstitutionalFrame = ({
  * Mentor Insight Component
  */
 export const GoldMentorInsight = ({ text, analogy }: { text: string; analogy?: string }) => (
-  <div className="w-full mt-6 pt-5 border-t border-amber-200/50 flex flex-col gap-2 shrink-0 text-left">
+  <div className="w-full mt-6 pt-5 border-t border-slate-200 flex flex-col gap-2 shrink-0 text-left">
     <div className="flex items-center gap-2">
-      <div className="px-2 py-1 bg-[#1C160C] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Insight</div>
-      <div className="h-px flex-1 bg-amber-200/50" />
+      <div className="px-2 py-1 bg-[#071B36] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Insight</div>
+      <div className="h-px flex-1 bg-slate-200" />
     </div>
     <div className="flex gap-4">
        <div className="flex-1">
-          <p className="text-xs font-bold text-[#1C160C] leading-relaxed">{text}</p>
+          <p className="text-xs font-bold text-[#071B36] leading-relaxed">{text}</p>
           {analogy && (
-            <p className="mt-1.5 text-[11px] text-amber-800 italic leading-snug">
+            <p className="mt-1.5 text-[11px] text-slate-700 italic leading-snug">
               <span className="font-black uppercase text-[9px] mr-2 text-amber-600 not-italic">Analogy:</span>
               {analogy}
             </p>
@@ -199,14 +201,14 @@ export const GoldToggleSelector = ({
   onChange: (id: string) => void;
   className?: string;
 }) => (
-  <div className={cn("flex bg-amber-100/50 border border-amber-200/40 p-1 rounded-xl shrink-0 gap-1 overflow-x-auto max-w-full", className)}>
+  <div className={cn("flex bg-slate-100 border border-slate-200 p-1 rounded-xl shrink-0 gap-1 overflow-x-auto max-w-full", className)}>
     {options.map((opt) => (
       <button
         key={opt.id}
         onClick={() => onChange(opt.id)}
         className={cn(
           "px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap",
-          selectedId === opt.id ? "bg-[#1C160C] text-white shadow-sm" : "text-amber-900 hover:text-[#1C160C] hover:bg-amber-200/30"
+          selectedId === opt.id ? "bg-[#071B36] text-white shadow-sm" : "text-slate-700 hover:text-[#071B36] hover:bg-slate-200"
         )}
       >
         {opt.name}
@@ -242,12 +244,12 @@ export const GoldStepWorkflow = ({
   return (
     <GoldInstitutionalFrame label={label} status={status}>
       <div className="w-full flex flex-col gap-5 items-center">
-        <p className="text-xs text-amber-900 max-w-xl text-center leading-relaxed whitespace-normal break-words font-medium">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words font-medium">
           {desc}
         </p>
 
         {/* Step Nodes Stepper */}
-        <div className="w-full flex justify-between items-center bg-amber-100 border border-amber-200 p-2 rounded-xl shrink-0 gap-1 overflow-x-auto">
+        <div className="w-full flex justify-between items-center bg-slate-100 border border-slate-200 p-2 rounded-xl shrink-0 gap-1 overflow-x-auto">
           {steps.map((s, index) => {
             const Icon = s.icon;
             return (
@@ -256,15 +258,15 @@ export const GoldStepWorkflow = ({
                 onClick={() => setActiveStep(index)}
                 className={cn(
                   "flex-1 min-w-[50px] p-2 rounded-lg flex flex-col items-center justify-center transition-all cursor-pointer",
-                  activeStep === index ? "bg-[#1C160C] text-white shadow-sm" : "text-amber-800 hover:text-amber-950 hover:bg-amber-200/50"
+                  activeStep === index ? "bg-[#071B36] text-white shadow-sm" : "text-slate-600 hover:text-[#071B36] hover:bg-slate-200"
                 )}
               >
                 {Icon ? (
-                  <Icon size={14} className={activeStep === index ? "text-amber-400" : "text-amber-800"} />
+                  <Icon size={14} className={activeStep === index ? "text-amber-400" : "text-slate-600"} />
                 ) : (
                   <span className={cn(
                     "text-[10px] font-mono font-bold",
-                    activeStep === index ? "text-amber-400" : "text-amber-800"
+                    activeStep === index ? "text-amber-400" : "text-slate-600"
                   )}>#{index + 1}</span>
                 )}
                 <span className="text-[7px] font-mono font-bold mt-1 hidden md:inline">Step {index + 1}</span>
@@ -274,7 +276,7 @@ export const GoldStepWorkflow = ({
         </div>
 
         {/* Step details display */}
-        <div className="w-full bg-[#1C160C] text-white rounded-xl p-4 border border-amber-950 min-h-[160px] flex flex-col justify-between relative overflow-hidden">
+        <div className="w-full bg-[#071B36] text-white rounded-xl p-4 border border-slate-700 min-h-[160px] flex flex-col justify-between relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#F59E0B_1px,transparent_1px)] bg-[length:14px_14px]" />
           <div className="relative z-10">
             {steps[activeStep].action && (
@@ -285,11 +287,11 @@ export const GoldStepWorkflow = ({
             <h5 className="text-sm font-black uppercase tracking-tight mb-2 whitespace-normal break-words">
               {steps[activeStep].title}
             </h5>
-            <p className="text-xs text-amber-200 leading-relaxed whitespace-normal break-words">
+            <p className="text-xs text-slate-300 leading-relaxed whitespace-normal break-words">
               {steps[activeStep].desc}
             </p>
           </div>
-          <div className="flex justify-between items-center mt-4 pt-2 border-t border-amber-950 relative z-10">
+          <div className="flex justify-between items-center mt-4 pt-2 border-t border-slate-700 relative z-10">
             <span className="text-[7px] font-mono text-amber-400">
               SEQUENCE AUDIT: {steps[activeStep].status || "VERIFIED"}
             </span>
@@ -352,7 +354,7 @@ export const GoldPracticeDrill = ({
         {chartPreview}
 
         {/* Question */}
-        <p className="text-xs font-bold text-[#1C160C] text-center whitespace-normal break-words w-full leading-normal">
+        <p className="text-xs font-bold text-[#071B36] text-center whitespace-normal break-words w-full leading-normal">
           {question}
         </p>
 
@@ -369,14 +371,14 @@ export const GoldPracticeDrill = ({
                   ? opt.isCorrect
                     ? "bg-emerald-50 border-emerald-500 text-emerald-950 shadow-sm"
                     : "bg-rose-50 border-rose-500 text-rose-950 shadow-sm"
-                  : "bg-white border-[#E6DFD5] text-[#1C160C] hover:bg-amber-100 hover:border-amber-400"
+                  : "bg-white border-slate-200 text-[#071B36] hover:bg-slate-50 hover:border-slate-300"
               )}
             >
               <span className={cn(
                 "w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-black shrink-0",
                 selectedOption === opt.id 
-                  ? opt.isCorrect ? "bg-[#1C160C] border-[#1C160C] text-white" : "bg-rose-500 border-rose-500 text-white"
-                  : "border-amber-300 text-amber-800"
+                  ? opt.isCorrect ? "bg-[#071B36] border-[#071B36] text-white" : "bg-rose-500 border-rose-500 text-white"
+                  : "border-slate-300 text-slate-600"
               )}>
                 {opt.id}
               </span>
@@ -398,7 +400,7 @@ export const GoldPracticeDrill = ({
             )}
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[8px] font-mono font-black uppercase tracking-widest text-[#1C160C]">
+                <span className="text-[8px] font-mono font-black uppercase tracking-widest text-[#071B36]">
                   {activeOption.isCorrect ? "VERDICT: CORRECT" : "VERDICT: INCORRECT"}
                 </span>
                 {!activeOption.isCorrect && (
@@ -448,7 +450,7 @@ export const GoldDebriefDashboard = ({
   return (
     <GoldInstitutionalFrame label={label} status={status}>
       <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-amber-900 max-w-xl text-center leading-relaxed whitespace-normal break-words font-medium">
+        <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words font-medium">
           {desc}
         </p>
 
@@ -464,11 +466,11 @@ export const GoldDebriefDashboard = ({
                 className={cn(
                   "p-3 rounded-xl border flex flex-col items-center gap-2 text-center transition-all cursor-pointer justify-center min-h-[85px]",
                   isSelected 
-                    ? "bg-[#1C160C] border-[#1C160C] text-white shadow-md scale-105" 
-                    : "bg-white border-[#E6DFD5] text-amber-950 hover:bg-amber-100"
+                    ? "bg-[#071B36] border-[#071B36] text-white shadow-md scale-105" 
+                    : "bg-white border-slate-200 text-[#071B36] hover:bg-slate-50"
                 )}
               >
-                {ItemIcon && <ItemIcon size={16} className={isSelected ? "text-amber-400" : "text-amber-800"} />}
+                {ItemIcon && <ItemIcon size={16} className={isSelected ? "text-amber-400" : "text-slate-600"} />}
                 <span className="text-[8px] font-black uppercase tracking-tight leading-none break-words max-w-full">
                   {item.title}
                 </span>
@@ -478,13 +480,13 @@ export const GoldDebriefDashboard = ({
         </div>
 
         {/* Detailed Recap Panel */}
-        <div className="w-full bg-[#1C160C] rounded-2xl p-5 border border-amber-950 text-white flex flex-col gap-3 relative overflow-hidden text-left">
+        <div className="w-full bg-[#071B36] rounded-2xl p-5 border border-slate-700 text-white flex flex-col gap-3 relative overflow-hidden text-left">
           <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#F59E0B_1px,transparent_1px)] bg-[length:14px_14px]" />
           
-          <div className="flex items-center gap-3 relative z-10 border-b border-amber-950 pb-3">
+          <div className="flex items-center gap-3 relative z-10 border-b border-slate-700 pb-3">
             {IconComponent && <IconComponent size={20} className="text-amber-400 shrink-0" />}
             <div>
-              <h5 className="text-xs font-mono font-black text-amber-500 uppercase tracking-widest leading-none mb-1">
+              <h5 className="text-xs font-mono font-black text-amber-400 uppercase tracking-widest leading-none mb-1">
                 {active.title}
               </h5>
               <p className="text-xs font-black text-white whitespace-normal break-words leading-tight uppercase">
@@ -493,7 +495,7 @@ export const GoldDebriefDashboard = ({
             </div>
           </div>
 
-          <p className="text-xs text-amber-200 leading-relaxed whitespace-normal break-words relative z-10">
+          <p className="text-xs text-slate-300 leading-relaxed whitespace-normal break-words relative z-10">
             {active.desc}
           </p>
         </div>

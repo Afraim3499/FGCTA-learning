@@ -56,15 +56,15 @@ export const GoldReadingLabFoundation = () => {
   return (
     <GoldInstitutionalFrame label="Gold Reading Lab Console" status="SYSTEM RUNNING">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-slate-700 text-center max-w-xl mx-auto whitespace-normal break-words">
           Configure the console variables to audit how Gold's volatility and USD context interact to determine overall reading quality.
         </p>
 
         {/* Inputs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
           {/* Volatility Selection */}
-          <div className="flex flex-col gap-2 bg-white p-4 rounded-2xl border border-amber-200/40">
-            <span className="text-[10px] font-mono font-black text-amber-800 uppercase tracking-widest">
+          <div className="flex flex-col gap-2 bg-white p-4 rounded-2xl border border-slate-200">
+            <span className="text-[10px] font-mono font-black text-slate-600 uppercase tracking-widest">
               1. Gold Volatility State
             </span>
             <div className="flex flex-col gap-1.5 mt-1">
@@ -78,8 +78,8 @@ export const GoldReadingLabFoundation = () => {
                   onClick={() => setVolatility(opt.id as any)}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs font-bold transition-all border ${
                     volatility === opt.id 
-                      ? "bg-[#1C160C] text-white border-[#1C160C]" 
-                      : "bg-amber-50/20 text-amber-900 border-amber-200/40 hover:bg-amber-100/30"
+                      ? "bg-[#071B36] text-white border-[#071B36]" 
+                      : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                   }`}
                 >
                   {opt.name}
@@ -89,8 +89,8 @@ export const GoldReadingLabFoundation = () => {
           </div>
 
           {/* USD / DXY Context */}
-          <div className="flex flex-col gap-2 bg-white p-4 rounded-2xl border border-amber-200/40">
-            <span className="text-[10px] font-mono font-black text-amber-800 uppercase tracking-widest">
+          <div className="flex flex-col gap-2 bg-white p-4 rounded-2xl border border-slate-200">
+            <span className="text-[10px] font-mono font-black text-slate-600 uppercase tracking-widest">
               2. USD Context (DXY)
             </span>
             <div className="flex flex-col gap-1.5 mt-1">
@@ -104,8 +104,8 @@ export const GoldReadingLabFoundation = () => {
                   onClick={() => setUsdContext(opt.id as any)}
                   className={`w-full text-left px-3 py-2 rounded-lg text-xs font-bold transition-all border ${
                     usdContext === opt.id 
-                      ? "bg-[#1C160C] text-white border-[#1C160C]" 
-                      : "bg-amber-50/20 text-amber-900 border-amber-200/40 hover:bg-amber-100/30"
+                      ? "bg-[#071B36] text-white border-[#071B36]" 
+                      : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                   }`}
                 >
                   {opt.name}
@@ -116,7 +116,7 @@ export const GoldReadingLabFoundation = () => {
         </div>
 
         {/* Live Diagnostics */}
-        <div className="w-full grid grid-cols-3 gap-2 bg-[#1C160C] p-4 rounded-2xl border border-amber-950 text-white shrink-0">
+        <div className="w-full grid grid-cols-3 gap-2 bg-[#071B36] p-4 rounded-2xl border border-amber-950 text-white shrink-0">
           <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-amber-950/40 border border-amber-900/40">
             <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest mb-1">Tick Speed</span>
             <span className="text-xs font-black text-white text-center">{metrics.speed}</span>
@@ -132,10 +132,10 @@ export const GoldReadingLabFoundation = () => {
         </div>
 
         {/* Console Evaluation Panel */}
-        <div className="w-full bg-white p-4 rounded-2xl border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="w-full bg-white p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex flex-col text-left">
-            <span className="text-[8px] font-mono font-black text-amber-700 uppercase tracking-wider mb-1">CONSOLE EVALUATION</span>
-            <p className="text-xs text-amber-950 font-bold leading-relaxed whitespace-normal break-words max-w-md">
+            <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">CONSOLE EVALUATION</span>
+            <p className="text-xs text-[#071B36] font-bold leading-relaxed whitespace-normal break-words max-w-md">
               {qualityData.desc}
             </p>
           </div>
@@ -205,7 +205,7 @@ export const GoldSpeedVsClarity = () => {
   return (
     <GoldInstitutionalFrame label="Speed vs Clarity Comparator" status="LOCATION COMPARISON">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-slate-700 text-center max-w-xl mx-auto whitespace-normal break-words">
           Observe how the exact same green candle shape has completely different reading values based on where it occurs. Select a location to audit.
         </p>
 
@@ -217,8 +217,8 @@ export const GoldSpeedVsClarity = () => {
               onClick={() => setSelectedLoc(key)}
               className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all cursor-pointer ${
                 selectedLoc === key 
-                  ? "bg-[#1C160C] border-[#1C160C] text-white shadow-md scale-102"
-                  : "bg-white border-[#E6DFD5] text-amber-850 hover:bg-amber-50/20"
+                  ? "bg-[#071B36] border-[#071B36] text-white shadow-md scale-102"
+                  : "bg-white border-[#E2E8F0] text-slate-700 hover:bg-slate-50"
               }`}
             >
               Location {key}
@@ -227,37 +227,37 @@ export const GoldSpeedVsClarity = () => {
         </div>
 
         {/* Visual Showcase */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-5 gap-6 items-center bg-white p-6 rounded-3xl border border-amber-200/40">
+        <div className="w-full grid grid-cols-1 md:grid-cols-5 gap-6 items-center bg-white p-6 rounded-3xl border border-slate-200">
           {/* Left: Candle representation */}
-          <div className="md:col-span-2 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[180px]">
-            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-3">Candle Render</span>
+          <div className="md:col-span-2 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[180px]">
+            <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-3">Candle Render</span>
             <MiniGoldCandle 
               color={active.candleColor} 
               bodyHeight={active.bodyHeight} 
               upperWick={active.upperWick} 
               lowerWick={active.lowerWick} 
             />
-            <span className="text-[10px] font-bold text-[#1C160C] mt-2">Active Gold Candle</span>
+            <span className="text-[10px] font-bold text-[#071B36] mt-2">Active Gold Candle</span>
           </div>
 
           {/* Right: Analysis */}
           <div className="md:col-span-3 flex flex-col gap-4 text-left">
             <div className="flex items-center justify-between gap-4">
-              <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight whitespace-normal break-words">
+              <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight whitespace-normal break-words">
                 {active.title}
               </h5>
               <GoldReadingQualityBadge quality={active.badge} />
             </div>
             
-            <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
+            <p className="text-xs text-slate-700 leading-relaxed whitespace-normal break-words">
               {active.desc}
             </p>
 
-            <div className="p-3 bg-amber-50 rounded-xl border border-amber-200/50">
-              <span className="text-[8px] font-mono font-black text-amber-700 uppercase tracking-wider block mb-1">
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider block mb-1">
                 DISCIPLINED READING ACTION
               </span>
-              <p className="text-xs text-amber-950 font-bold leading-normal whitespace-normal break-words">
+              <p className="text-xs text-[#071B36] font-bold leading-normal whitespace-normal break-words">
                 {active.discipline}
               </p>
             </div>
@@ -342,7 +342,7 @@ export const GoldReactionZoneLab = () => {
   return (
     <GoldInstitutionalFrame label="Reaction Zone Behavior Simulator" status="ZONE ANALYZER">
       <div className="w-full flex flex-col gap-5">
-        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-slate-700 text-center max-w-xl mx-auto whitespace-normal break-words">
           Gold zones are flexible areas where orders cluster. Select a path type below to see step-by-step price reactions.
         </p>
 
@@ -354,8 +354,8 @@ export const GoldReactionZoneLab = () => {
               onClick={() => setSelectedPath(key)}
               className={`p-2 rounded-xl border text-xs font-bold text-center transition-all cursor-pointer ${
                 selectedPath === key 
-                  ? "bg-[#1C160C] border-[#1C160C] text-white shadow-md"
-                  : "bg-white border-[#E6DFD5] text-amber-850 hover:bg-amber-50/20"
+                  ? "bg-[#071B36] border-[#071B36] text-white shadow-md"
+                  : "bg-white border-[#E2E8F0] text-slate-700 hover:bg-slate-50"
               }`}
             >
               {key === "reject" ? "Test & Reject" : key === "accept" ? "Acceptance" : key === "overshoot" ? "Overshoot" : "Stall / Mixed"}
@@ -364,12 +364,12 @@ export const GoldReactionZoneLab = () => {
         </div>
 
         {/* Simulation Dashboard */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-amber-200/40 text-left items-stretch">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 text-left items-stretch">
           {/* Steps Description */}
           <div className="md:col-span-7 flex flex-col gap-3 justify-between">
             <div>
               <div className="flex items-center justify-between gap-4 mb-2">
-                <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight whitespace-normal break-words">
+                <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight whitespace-normal break-words">
                   {active.title}
                 </h5>
                 <GoldReadingQualityBadge quality={active.badge} />
@@ -377,30 +377,30 @@ export const GoldReactionZoneLab = () => {
               <div className="flex flex-col gap-2">
                 {active.steps.map((step, idx) => (
                   <div key={idx} className="flex gap-2 items-start text-xs text-amber-900">
-                    <span className="font-bold text-[#1C160C] shrink-0 mt-0.5">{idx + 1}.</span>
+                    <span className="font-bold text-[#071B36] shrink-0 mt-0.5">{idx + 1}.</span>
                     <span className="min-w-0 leading-relaxed whitespace-normal break-words">{step}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="mt-4 p-3 bg-amber-50 rounded-xl border border-amber-200/50">
-              <span className="text-[8px] font-mono font-black text-amber-700 uppercase tracking-wider block mb-1">
+            <div className="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider block mb-1">
                 ZONE INSIGHT
               </span>
-              <p className="text-xs text-amber-950 font-bold leading-normal whitespace-normal break-words">
+              <p className="text-xs text-[#071B36] font-bold leading-normal whitespace-normal break-words">
                 {active.insight}
               </p>
             </div>
           </div>
 
           {/* Candle Preview Area */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">Simulated Price</span>
+          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+            <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">Simulated Price</span>
             
-            <div className="relative w-full h-32 border-y border-dashed border-amber-300 flex items-center justify-around px-4">
+            <div className="relative w-full h-32 border-y border-dashed border-slate-300 flex items-center justify-around px-4">
               {/* Zone label */}
-              <div className="absolute left-2 top-2 bg-amber-100 text-[8px] font-mono font-black px-1.5 py-0.5 rounded text-amber-800 uppercase tracking-wider">
+              <div className="absolute left-2 top-2 bg-slate-100 text-[8px] font-mono font-black px-1.5 py-0.5 rounded text-slate-600 uppercase tracking-wider">
                 Reaction Zone
               </div>
 
@@ -413,7 +413,7 @@ export const GoldReactionZoneLab = () => {
                     upperWick={active.candle1.upper} 
                     lowerWick={active.candle1.lower} 
                   />
-                  <span className="text-[8px] font-mono text-amber-800 mt-1">Test</span>
+                  <span className="text-[8px] font-mono text-slate-600 mt-1">Test</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <MiniGoldCandle 
@@ -422,7 +422,7 @@ export const GoldReactionZoneLab = () => {
                     upperWick={active.candle2.upper} 
                     lowerWick={active.candle2.lower} 
                   />
-                  <span className="text-[8px] font-mono text-amber-800 mt-1">Response</span>
+                  <span className="text-[8px] font-mono text-slate-600 mt-1">Response</span>
                 </div>
               </div>
             </div>
@@ -483,7 +483,7 @@ export const GoldWickQualityLab = () => {
   return (
     <GoldInstitutionalFrame label="Wick Quality Classifier" status="WICK AUDIT ACTIVE">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-slate-700 text-center max-w-xl mx-auto whitespace-normal break-words">
           Not all wicks are created equal. Select a wick from the scanner to audit its source, location, close quality, and reading classification.
         </p>
 
@@ -495,8 +495,8 @@ export const GoldWickQualityLab = () => {
               onClick={() => setSelectedWick(idx)}
               className={`p-3 rounded-2xl border flex flex-col items-center gap-3 transition-all cursor-pointer ${
                 selectedWick === idx
-                  ? "bg-[#1C160C] border-[#1C160C] text-white shadow-md scale-102"
-                  : "bg-white border-[#E6DFD5] text-[#1C160C] hover:bg-amber-50/20"
+                  ? "bg-[#071B36] border-[#071B36] text-white shadow-md scale-102"
+                  : "bg-white border-[#E2E8F0] text-[#071B36] hover:bg-slate-50"
               }`}
             >
               <MiniGoldCandle 
@@ -513,9 +513,9 @@ export const GoldWickQualityLab = () => {
         </div>
 
         {/* Audit Details */}
-        <div className="w-full bg-white p-5 rounded-3xl border border-amber-200 text-left flex flex-col gap-4">
-          <div className="flex items-center justify-between gap-4 border-b border-amber-100 pb-3">
-            <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight whitespace-normal break-words">
+        <div className="w-full bg-white p-5 rounded-3xl border border-slate-200 text-left flex flex-col gap-4">
+          <div className="flex items-center justify-between gap-4 border-b border-slate-200 pb-3">
+            <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight whitespace-normal break-words">
               {active.title}
             </h5>
             <GoldReadingQualityBadge quality={active.rating} />
@@ -523,20 +523,20 @@ export const GoldWickQualityLab = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
             <div className="flex flex-col">
-              <span className="text-[8px] font-mono font-black text-amber-600 uppercase tracking-wider mb-1">Source</span>
-              <span className="font-bold text-[#1C160C]">{active.source}</span>
+              <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">Source</span>
+              <span className="font-bold text-[#071B36]">{active.source}</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-[8px] font-mono font-black text-amber-600 uppercase tracking-wider mb-1">Location</span>
-              <span className="font-bold text-[#1C160C]">{active.location}</span>
+              <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">Location</span>
+              <span className="font-bold text-[#071B36]">{active.location}</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-[8px] font-mono font-black text-amber-600 uppercase tracking-wider mb-1">Close Quality</span>
-              <span className="font-bold text-[#1C160C]">{active.close}</span>
+              <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">Close Quality</span>
+              <span className="font-bold text-[#071B36]">{active.close}</span>
             </div>
           </div>
 
-          <p className="text-xs text-amber-900 leading-relaxed border-t border-amber-100 pt-3 whitespace-normal break-words">
+          <p className="text-xs text-slate-700 leading-relaxed border-t border-slate-200 pt-3 whitespace-normal break-words">
             {active.desc}
           </p>
         </div>
@@ -554,7 +554,7 @@ export const GoldSweepDisciplineLab = () => {
   return (
     <GoldInstitutionalFrame label="Sweep Decision Board" status="DECISION AUDIT">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-slate-700 text-center max-w-xl mx-auto whitespace-normal break-words">
           A crossover of a prior high is a question: Did price sweep liquidity and return, or did it accept the higher price? Compare the scenarios.
         </p>
 
@@ -571,10 +571,10 @@ export const GoldSweepDisciplineLab = () => {
         </div>
 
         {/* Side-by-side or Toggled Content */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-amber-200/40 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 items-center">
           {/* Graphic Side */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">Chart Model</span>
+          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+            <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">Chart Model</span>
             
             <div className="relative w-full h-36 flex flex-col justify-between items-center px-6">
               {/* Prior High line */}
@@ -588,18 +588,18 @@ export const GoldSweepDisciplineLab = () => {
               <div className="flex gap-10 items-end z-10 pt-4">
                 <div className="flex flex-col items-center">
                   <MiniGoldCandle color="gold" bodyHeight={40} upperWick={5} lowerWick={5} />
-                  <span className="text-[8px] font-mono text-amber-800 mt-1">Prev Day</span>
+                  <span className="text-[8px] font-mono text-slate-600 mt-1">Prev Day</span>
                 </div>
                 
                 {activeTab === "sweep" ? (
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="rose" bodyHeight={15} upperWick={45} lowerWick={5} />
-                    <span className="text-[8px] font-mono text-amber-800 mt-1">Sweep Close</span>
+                    <span className="text-[8px] font-mono text-slate-600 mt-1">Sweep Close</span>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="gold" bodyHeight={45} upperWick={10} lowerWick={5} />
-                    <span className="text-[8px] font-mono text-amber-800 mt-1">Breakout Close</span>
+                    <span className="text-[8px] font-mono text-slate-600 mt-1">Breakout Close</span>
                   </div>
                 )}
               </div>
@@ -611,12 +611,12 @@ export const GoldSweepDisciplineLab = () => {
             {activeTab === "sweep" ? (
               <>
                 <div className="flex items-center justify-between gap-4">
-                  <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight">
+                  <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight">
                     Sweep-and-Return Rejection
                   </h5>
                   <GoldReadingQualityBadge quality="REJECTION SWEEP" />
                 </div>
-                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-slate-700 leading-relaxed whitespace-normal break-words">
                   Gold spikes above yesterday's swing high, triggering buy stop orders. Instead of holding, the price immediately wicks back down and closes the candle well below the high.
                 </p>
                 <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200/50 text-emerald-950">
@@ -631,16 +631,16 @@ export const GoldSweepDisciplineLab = () => {
             ) : (
               <>
                 <div className="flex items-center justify-between gap-4">
-                  <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight">
+                  <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight">
                     Breakout Acceptance
                   </h5>
                   <GoldReadingQualityBadge quality="VALID BREAKOUT" />
                 </div>
-                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-slate-700 leading-relaxed whitespace-normal break-words">
                   Gold surges past yesterday's swing high. Instead of wicking back, the candle body closes strongly above the high, and consolidation begins at the new price floor.
                 </p>
-                <div className="p-3 bg-amber-50 rounded-xl border border-amber-200/50 text-amber-950">
-                  <span className="text-[8px] font-mono font-black text-amber-700 uppercase tracking-wider block mb-1">
+                <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-amber-950">
+                  <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider block mb-1">
                     DISCIPLINED INTERPRETATION
                   </span>
                   <p className="text-xs font-bold leading-normal whitespace-normal break-words">
@@ -665,7 +665,7 @@ export const GoldCloseQualityLab = () => {
   return (
     <GoldInstitutionalFrame label="Close Quality Comparison" status="CLOSE AUDIT">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-slate-700 text-center max-w-xl mx-auto whitespace-normal break-words">
           Candle travel represents market activity; the close represents commitment. Toggle the close quality options below to see how to filter candles.
         </p>
 
@@ -682,14 +682,14 @@ export const GoldCloseQualityLab = () => {
         </div>
 
         {/* Content Box */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-amber-200/40 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 items-center">
           {/* Visual candle representation */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">Candle Close</span>
+          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+            <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">Candle Close</span>
             
-            <div className="relative w-full h-36 border-y border-amber-200 flex items-center justify-center px-4">
+            <div className="relative w-full h-36 border-y border-slate-200 flex items-center justify-center px-4">
               {/* Level Line */}
-              <div className="absolute top-16 left-0 w-full border-t border-[#E6DFD5] z-0" />
+              <div className="absolute top-16 left-0 w-full border-t border-[#E2E8F0] z-0" />
               
               <div className="flex gap-4 items-center z-10">
                 {selectedQuality === "strong" ? (
@@ -712,12 +712,12 @@ export const GoldCloseQualityLab = () => {
             {selectedQuality === "strong" ? (
               <>
                 <div className="flex items-center justify-between gap-4">
-                  <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight">
+                  <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight">
                     Institutional Close Commitment
                   </h5>
                   <GoldReadingQualityBadge quality="CLEAR" />
                 </div>
-                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-slate-700 leading-relaxed whitespace-normal break-words">
                   The candle body closes in the top 10% of its range, completely clearing the resistance zone boundary. This shows that buyers held every yard of progress, proving institutional backing for the breakout.
                 </p>
                 <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200/50 text-emerald-950">
@@ -733,12 +733,12 @@ export const GoldCloseQualityLab = () => {
             ) : (
               <>
                 <div className="flex items-center justify-between gap-4">
-                  <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight">
+                  <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight">
                     Rejection & Fade Close
                   </h5>
                   <GoldReadingQualityBadge quality="LOW QUALITY" />
                 </div>
-                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-slate-700 leading-relaxed whitespace-normal break-words">
                   The candle spikes past resistance but drops back down before completing, closing in the bottom 30% of its range (leaving a long upper wick). Buyers failed to hold the high ground.
                 </p>
                 <div className="p-3 bg-rose-50 rounded-xl border border-rose-200/50 text-rose-950">
@@ -797,20 +797,20 @@ export const GoldMacroDistortionLab = () => {
   return (
     <GoldInstitutionalFrame label="Macro Distortion Chamber" status="EVENT SIMULATOR">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-slate-700 text-center max-w-xl mx-auto whitespace-normal break-words">
           Step through a major CPI news event timeline to observe how high-speed volatility distorts structure before stabilizing into a readable close.
         </p>
 
         {/* Progress Timeline Stepper */}
-        <div className="w-full flex justify-between items-center bg-amber-100/40 p-2 border border-amber-200/40 rounded-xl shrink-0 gap-1 overflow-x-auto">
+        <div className="w-full flex justify-between items-center bg-slate-100 p-2 border border-slate-200 rounded-xl shrink-0 gap-1 overflow-x-auto">
           {steps.map((s, idx) => (
             <button
               key={idx}
               onClick={() => setStep(idx)}
               className={`flex-1 min-w-[100px] p-2 rounded-lg text-xs font-bold text-center transition-all cursor-pointer ${
                 step === idx
-                  ? "bg-[#1C160C] text-white shadow-sm"
-                  : "text-amber-850 hover:bg-amber-200/20"
+                  ? "bg-[#071B36] text-white shadow-sm"
+                  : "text-slate-700 hover:bg-slate-200"
               }`}
             >
               Step {idx + 1}
@@ -819,10 +819,10 @@ export const GoldMacroDistortionLab = () => {
         </div>
 
         {/* Visual Box */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-amber-200/40 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 items-center">
           {/* Left: Graphic representation */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">CPI Event Render</span>
+          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+            <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">CPI Event Render</span>
             
             <div className="relative w-full h-36 flex flex-col justify-center items-center">
               <MiniGoldCandle 
@@ -831,27 +831,27 @@ export const GoldMacroDistortionLab = () => {
                 upperWick={active.candle.upper} 
                 lowerWick={active.candle.lower} 
               />
-              <span className="text-[10px] font-bold text-[#1C160C] mt-2">{active.status}</span>
+              <span className="text-[10px] font-bold text-[#071B36] mt-2">{active.status}</span>
             </div>
           </div>
 
           {/* Right: Text details */}
           <div className="md:col-span-7 text-left flex flex-col gap-4">
-            <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight">
+            <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight">
               {active.title}
             </h5>
-            <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
+            <p className="text-xs text-slate-700 leading-relaxed whitespace-normal break-words">
               {active.desc}
             </p>
 
-            <div className="grid grid-cols-2 gap-4 text-xs border-t border-amber-100 pt-3">
+            <div className="grid grid-cols-2 gap-4 text-xs border-t border-slate-200 pt-3">
               <div className="flex flex-col">
-                <span className="text-[8px] font-mono font-black text-amber-600 uppercase tracking-wider mb-1">Spread State</span>
-                <span className="font-bold text-[#1C160C]">{active.spread}</span>
+                <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">Spread State</span>
+                <span className="font-bold text-[#071B36]">{active.spread}</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-[8px] font-mono font-black text-amber-600 uppercase tracking-wider mb-1">Volume Quality</span>
-                <span className="font-bold text-[#1C160C]">{active.volume}</span>
+                <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">Volume Quality</span>
+                <span className="font-bold text-[#071B36]">{active.volume}</span>
               </div>
             </div>
           </div>
@@ -870,7 +870,7 @@ export const GoldFollowThroughLab = () => {
   return (
     <GoldInstitutionalFrame label="Follow-Through Verification" status="TIMELINE SCANNER">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-xs text-amber-900 text-center max-w-xl mx-auto whitespace-normal break-words">
+        <p className="text-xs text-slate-700 text-center max-w-xl mx-auto whitespace-normal break-words">
           A price reaction at a key zone is only the first step. Subsequent candles (follow-through) prove whether the reaction has sustained backing.
         </p>
 
@@ -887,13 +887,13 @@ export const GoldFollowThroughLab = () => {
         </div>
 
         {/* Timeline Visualization */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-amber-200/40 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 items-center">
           {/* Visual Timeline Graphic */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-amber-50/20 border border-amber-200/20 rounded-2xl min-h-[220px]">
-            <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-4">Candle Timeline</span>
+          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+            <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">Candle Timeline</span>
             
-            <div className="relative w-full h-36 border-b border-dashed border-amber-300 flex items-end justify-around pb-4 px-4">
-              <div className="absolute left-2 top-2 bg-amber-100 text-[8px] font-mono font-black px-1.5 py-0.5 rounded text-amber-800 uppercase tracking-wider">
+            <div className="relative w-full h-36 border-b border-dashed border-slate-300 flex items-end justify-around pb-4 px-4">
+              <div className="absolute left-2 top-2 bg-slate-100 text-[8px] font-mono font-black px-1.5 py-0.5 rounded text-slate-600 uppercase tracking-wider">
                 Support Zone Floor
               </div>
 
@@ -902,11 +902,11 @@ export const GoldFollowThroughLab = () => {
                 <div className="flex gap-6 items-end z-10">
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="rose" bodyHeight={35} upperWick={5} lowerWick={20} />
-                    <span className="text-[8px] font-mono text-amber-800 mt-1">1. Test</span>
+                    <span className="text-[8px] font-mono text-slate-600 mt-1">1. Test</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="gold" bodyHeight={25} upperWick={5} lowerWick={25} />
-                    <span className="text-[8px] font-mono text-amber-800 mt-1">2. Reaction</span>
+                    <span className="text-[8px] font-mono text-slate-600 mt-1">2. Reaction</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="gold" bodyHeight={45} upperWick={10} lowerWick={5} />
@@ -917,11 +917,11 @@ export const GoldFollowThroughLab = () => {
                 <div className="flex gap-6 items-end z-10">
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="rose" bodyHeight={35} upperWick={5} lowerWick={20} />
-                    <span className="text-[8px] font-mono text-amber-800 mt-1">1. Test</span>
+                    <span className="text-[8px] font-mono text-slate-600 mt-1">1. Test</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="gold" bodyHeight={25} upperWick={5} lowerWick={25} />
-                    <span className="text-[8px] font-mono text-amber-800 mt-1">2. Reaction</span>
+                    <span className="text-[8px] font-mono text-slate-600 mt-1">2. Reaction</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <MiniGoldCandle color="slate" bodyHeight={5} upperWick={10} lowerWick={10} isDoji />
@@ -937,12 +937,12 @@ export const GoldFollowThroughLab = () => {
             {selectedTimeline === "valid" ? (
               <>
                 <div className="flex items-center justify-between gap-4">
-                  <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight">
+                  <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight">
                     Sustained Rejection holding support
                   </h5>
                   <GoldReadingQualityBadge quality="FOLLOW-THROUGH HOLD" />
                 </div>
-                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-slate-700 leading-relaxed whitespace-normal break-words">
                   Price rejects the zone (Candle 1), prints a bullish response (Candle 2), and the next candle (Candle 3) expands strongly upward. This follow-through confirms that institutions are actively defending the floor.
                 </p>
                 <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200/50 text-emerald-950">
@@ -958,12 +958,12 @@ export const GoldFollowThroughLab = () => {
             ) : (
               <>
                 <div className="flex items-center justify-between gap-4">
-                  <h5 className="text-xs font-black uppercase text-[#1C160C] tracking-tight">
+                  <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight">
                     Reaction Stall / Fake Bounce
                   </h5>
                   <GoldReadingQualityBadge quality="LOW QUALITY" />
                 </div>
-                <p className="text-xs text-amber-900 leading-relaxed whitespace-normal break-words">
+                <p className="text-xs text-slate-700 leading-relaxed whitespace-normal break-words">
                   Price bounces (Candle 2), but the subsequent hour (Candle 3) stalls completely, printing a tiny doji candle. This tells you the initial response was just short-term cover and lacks real buying commitment.
                 </p>
                 <div className="p-3 bg-rose-50 rounded-xl border border-rose-200/50 text-rose-950">
@@ -1065,22 +1065,22 @@ export const GoldReadingLabPracticeDrill = () => {
   ];
 
   const chartPreview = (
-    <div className="w-full p-4 bg-amber-50/20 border border-amber-200/30 rounded-2xl flex flex-col items-center justify-center min-h-[160px] shrink-0 mb-2">
-      <span className="text-[8px] font-mono text-amber-800 uppercase tracking-widest mb-3">DRILL CONSOLE VIEW</span>
+    <div className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col items-center justify-center min-h-[160px] shrink-0 mb-2">
+      <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-3">DRILL CONSOLE VIEW</span>
       
-      <div className="relative w-full h-24 border-t border-dashed border-[#E6DFD5] flex items-end justify-center pb-2">
-        <span className="absolute left-2 top-2 text-[8px] font-mono text-amber-800 uppercase">Resistance zone floor ($2050)</span>
+      <div className="relative w-full h-24 border-t border-dashed border-[#E2E8F0] flex items-end justify-center pb-2">
+        <span className="absolute left-2 top-2 text-[8px] font-mono text-slate-600 uppercase">Resistance zone floor ($2050)</span>
         
         <div className="flex gap-8 items-end z-10">
           <div className="flex flex-col items-center">
             {/* Sweeping candle with long upper wick and close in middle */}
             <MiniGoldCandle color="slate" bodyHeight={15} upperWick={35} lowerWick={5} />
-            <span className="text-[7px] font-mono text-amber-800">1. Sweep test</span>
+            <span className="text-[7px] font-mono text-slate-600">1. Sweep test</span>
           </div>
           <div className="flex flex-col items-center">
             {/* Hesitant stall candle */}
             <MiniGoldCandle color="slate" bodyHeight={5} upperWick={10} lowerWick={10} isDoji />
-            <span className="text-[7px] font-mono text-amber-800">2. Stall candle</span>
+            <span className="text-[7px] font-mono text-slate-600">2. Stall candle</span>
           </div>
         </div>
       </div>
