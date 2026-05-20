@@ -10,14 +10,14 @@ export const forexCards: LessonCard[] = [
     title: "Forex Conditions Begin With Pair Environment",
     label: "Forex Foundation",
     visualKey: "forex-condition-foundation",
-    body: "In Forex, a candlestick pattern or structure break does not stand alone. Every move is born inside a specific pair environment. That environment might be a clean trend, a quiet horizontal range, a messy transition, or choppy noise. But in the foreign exchange markets, this environment is also shaped by three powerful forces: session timing, USD context, and related-pair behavior. A professional Forex reader does not look at a single EUR/USD candle in isolation. Before they trust any move, they ask: 'What condition is this pair in, and does the broader context support it?' Let's build this essential Forex reading filter.",
+    body: "In Forex, a candlestick pattern or structure break does not stand alone. Every move is born inside a specific pair environment. That environment might be a clean trend, a quiet horizontal range, a messy transition, or choppy noise. But in the foreign exchange markets, this environment is also shaped by three powerful forces: session timing (hours when different global hubs trade), USD context (US Dollar strength or weakness), and related-pair behavior. A professional Forex reader does not look at a single EUR/USD candle in isolation. Before they trust any move, they ask: 'What condition is this currency pair in, and does the broader context support it?' Let's build this essential Forex reading filter.",
     context: {
       keyTerms: [
-        { term: "Pair Environment", definition: "The overall structural condition (trend, range, transition, chop) currently shaping a currency pair's movement." },
-        { term: "Session Rhythm", definition: "The predictable flow of volume and volatility as global trading hubs (Asia, London, New York) open and close." },
-        { term: "Forex Context Layer", definition: "The combined reading of session timing, USD strength, and related-pair behavior around a single pair's structure." },
-        { term: "USD Context", definition: "The underlying directional pressure of the US Dollar, which acts as the counterweight for all major currency pairs." },
-        { term: "Related-Pair Alignment", definition: "The correlation between highly connected pairs (like EUR/USD and GBP/USD) confirming or conflicting with a condition." }
+        { term: "Pair Environment", definition: "The overall structural condition (like a trend, range, or messy sideways movement) currently shaping a currency pair's movement." },
+        { term: "Session Rhythm", definition: "The regular flow of activity and price swings as major global cities (Asia, London, and New York) open and close." },
+        { term: "Forex Context Layer", definition: "Reading session hours, US Dollar strength, and related pairs together to confirm a currency pair's move." },
+        { term: "USD Context", definition: "The directional pressure of the US Dollar, which naturally pushes other currency pairs up or down." },
+        { term: "Related-Pair Alignment", definition: "Highly connected currency pairs moving in the same direction to confirm a setup." }
       ],
       whyThisMatters: "Without identifying the pair environment first, you will mistake quiet Asia range limits for active trend breakouts, and normal London pullbacks for complete market reversals.",
       realLifeExample: "You see EUR/USD push upward. If you identify the pair environment as a horizontal range during a quiet session, you expect rejection. If you identify it as a fresh London breakout with USD weakness, you expect continuation. The candle is the same; the environment changes the reading.",
@@ -30,14 +30,14 @@ export const forexCards: LessonCard[] = [
     title: "Session Timing Changes the Condition",
     label: "Session Environment",
     visualKey: "forex-session-condition-map",
-    body: "A Forex day is not a single continuous block of time. It is a rhythm of opening and closing windows: the Tokyo/Asia window, the London window, the New York window, and the intense New York/London overlap. The same candlestick pattern can mean something completely different depending on which window it forms in. A strong green candle during the quiet Asia window usually signifies range exhaustion. The exact same candle during London might start a clean expansion. Session timing does not tell you what to do. It helps you understand the environment.",
+    body: "A Forex day is not a single continuous block of time. It is a rhythm of opening and closing windows: the Tokyo/Asia window, the London window, the New York window, and the intense New York/London overlap. The same candlestick pattern can mean something completely different depending on which window it forms in. A strong green candle during the quiet Asia window usually signifies range exhaustion. The exact same candle during London might start a clean expansion (a breakout from consolidation). Session timing does not tell you what to do. It helps you understand the environment.",
     context: {
       keyTerms: [
-        { term: "Asia Window", definition: "A quiet, lower-volume session where currency pairs typically compress into tight horizontal ranges." },
-        { term: "London Window", definition: "A highly liquid session where European institutions enter, often initiating major directional expansion." },
-        { term: "New York Window", definition: "A high-volatility session where US markets react to macro data, often continuing or reversing London's moves." },
-        { term: "Session Overlap", definition: "The 4-hour window where London and New York are open simultaneously, creating the day's peak volume." },
-        { term: "Timeframe Relativity", definition: "Evaluating candle strength based on the average volatility of the current session window." }
+        { term: "Asia Window", definition: "A quiet, lower-volume trading session where currency pairs typically consolidate sideways in narrow ranges." },
+        { term: "London Window", definition: "A highly active session where major European volume enters, often starting directional price breakouts." },
+        { term: "New York Window", definition: "An active session where US markets react to economic news, often continuing or reversing London's moves." },
+        { term: "Session Overlap", definition: "The 4-hour window when both London and New York are open at the same time, creating the busiest trading period." },
+        { term: "Timeframe Relativity", definition: "Judgement of candle sizes based on the normal price movements of the current session." }
       ],
       whyThisMatters: "Understanding session timing prevents you from expecting massive trend continuation during quiet, low-volume hours.",
       realLifeExample: "You notice a breakout candle on GBP/USD at 3:00 AM New York time (London Open). You recognize that the London window is starting, which supports a high-quality expansion condition. The session timing confirms the environment.",
@@ -50,14 +50,14 @@ export const forexCards: LessonCard[] = [
     title: "Asia Range Is Often a Compression Condition",
     label: "Asia Compression",
     visualKey: "forex-asia-range-compression",
-    body: "During the Tokyo and Asia sessions, major pairs like EUR/USD or GBP/USD usually enter a quiet, balanced state. Volume drops, and price bounces horizontally, forming a tight session range. This is a classic compression condition. Beginners see price hitting the top of this range and expect a breakout, or they sell the first breakout candle immediately. This is a mistake. In Forex, Asia ranges are reference boundaries. They show you where orders are accumulating. Asia compression does not predict direction; it sets a benchmark for the next session to challenge.",
+    body: "During the Tokyo and Asia sessions, major pairs like EUR/USD or GBP/USD usually enter a quiet, balanced state. Volume drops, and price bounces horizontally, forming a tight session range. This is a classic compression condition. Beginners see price hitting the top of this range and expect a breakout, or they sell the first breakout candle immediately. This is a mistake. In Forex, Asia ranges are reference boundaries. They show you where orders are accumulating. Asia compression (a quiet state where a currency pair moves sideways within a narrow horizontal box) does not predict direction; it sets a benchmark for the next session to challenge.",
     context: {
       keyTerms: [
-        { term: "Asia Range", definition: "The highest and lowest price levels established during the Tokyo/Asia trading session." },
-        { term: "Asia Compression", definition: "A state of contracted volatility where a major pair consolidates within a narrow horizontal box." },
-        { term: "Reference Boundary", definition: "The highs and lows of a session range used to evaluate the quality of future breakouts." },
-        { term: "Asia Sweep", definition: "A temporary poke outside the Asia range highs or lows that quickly returns back inside." },
-        { term: "Volatility Contraction", definition: "The narrowing of price swings that typically precedes a large directional expansion." }
+        { term: "Asia Range", definition: "The highest and lowest prices reached during the Tokyo/Asia session." },
+        { term: "Asia Compression", definition: "A quiet state where a currency pair moves sideways within a narrow horizontal box." },
+        { term: "Reference Boundary", definition: "Using the highs and lows of a session to judge future breakouts." },
+        { term: "Asia Sweep", definition: "A temporary spike outside the Asia session high or low that quickly returns back inside." },
+        { term: "Volatility Contraction", definition: "The shrinking of price swings that typically happens before a large price breakout." }
       ],
       whyThisMatters: "Recognizing Asia as a compression environment stops you from chasing small moves and teaches you to wait for verified expansion.",
       realLifeExample: "EUR/USD consolidates in a tight 20-pip range during Asia. You mark the highs and lows. You do not trade inside it. You wait for London to test these boundaries to see if a real expansion condition develops.",
@@ -70,14 +70,14 @@ export const forexCards: LessonCard[] = [
     title: "London Expansion Must Prove Quality",
     label: "London Expansion",
     visualKey: "forex-london-expansion-quality",
-    body: "When London opens, a wave of institutional volume enters the market. If the pair has been compressing during Asia, this new volume will often push price outside the Asia range boundaries. This shift is an expansion condition. However, expansion is not automatically a clean trend. You must audit the quality of the move. Did the breakout candle close cleanly outside the range? Does the next candle hold above the boundary, or does it immediately snap back inside? In Forex, expansion starts the question; follow-through holds provide the answer.",
+    body: "When London opens, a wave of institutional volume (heavy volume from large financial institutions) enters the market. If the pair has been compressing during Asia, this new volume will often push price outside the Asia range boundaries. This shift is an expansion condition. However, expansion is not automatically a clean trend. You must audit the quality of the move. Did the breakout candle close cleanly outside the range? Does the next candle hold above the boundary, or does it immediately snap back inside? In Forex, expansion starts the question; follow-through holds provide the answer.",
     context: {
       keyTerms: [
-        { term: "London Expansion", definition: "The release of accumulated volume that pushes a pair outside its previous session boundaries." },
-        { term: "Close Quality", definition: "Evaluating whether a breakout candle closes strongly outside a boundary or leaves a long wick." },
-        { term: "Hold Verification", definition: "A subsequent candle maintaining price acceptance beyond the broken session level." },
-        { term: "Fake Expansion", definition: "A fast spike outside a range that fails to hold and rapidly reverses back into balance." },
-        { term: "Liquidity Grab", definition: "Sweeping resting orders outside a range boundary before rotating price in the opposite direction." }
+        { term: "London Expansion", definition: "The release of volume at London open that pushes price outside Asia session boundaries." },
+        { term: "Close Quality", definition: "Checking if a breakout candle closes strongly outside a boundary rather than leaving a long wick." },
+        { term: "Hold Verification", definition: "Verifying if subsequent candles stay outside the broken level to confirm the move." },
+        { term: "Fake Expansion", definition: "A false breakout where price spikes outside a boundary but quickly closes back inside." },
+        { term: "Liquidity Grab", definition: "A quick spike past a boundary to clear out orders before reversing price in the opposite direction." }
       ],
       whyThisMatters: "Waiting to verify expansion quality saves you from buying the absolute top of a fake breakout and getting trapped.",
       realLifeExample: "GBP/USD spikes 15 pips above the Asia high at the London open. You wait for the hourly close. The candle closes strongly outside, and the next candle holds. This is a high-quality expansion condition.",
@@ -90,14 +90,14 @@ export const forexCards: LessonCard[] = [
     title: "New York Can Continue, Reverse, or Create Transition",
     label: "New York Condition Shift",
     visualKey: "forex-new-york-condition-shift",
-    body: "The New York session is not a passive repeat of London's direction. It is a highly active session that frequently shifts the pair's condition. New York can continue the existing London trend, reject the London expansion entirely (returning price to the Asia range), or create a messy transition environment as it digests macro data. A trained learner does not assume London's bias is permanent. Before you audit New York candles, ask: 'Is this session confirming London's condition, challenging it, or turning it mixed?'",
+    body: "The New York session is not a passive repeat of London's direction. It is a highly active session that frequently shifts the pair's condition. New York can continue the existing London trend, reject the London expansion entirely (returning price to the Asia range), or create a messy transition environment as it digests macro data (high-impact US economic news). A trained learner does not assume London's bias is permanent. Before you audit New York candles, ask: 'Is this session confirming London's condition, challenging it, or turning it mixed?'",
     context: {
       keyTerms: [
-        { term: "New York Shift", definition: "A change in pair condition as US liquidity interacts with London's established structure." },
-        { term: "Trend Continuation", definition: "When New York volume aligns with the London direction, forming higher highs or lower lows." },
+        { term: "New York Shift", definition: "A change in the pair's environment as US traders enter the market." },
+        { term: "Trend Continuation", definition: "When New York volume moves in the same direction as London, making new highs or lows." },
         { term: "Expansion Rejection", definition: "When New York rejects London's breakout, pushing price back inside the previous range." },
-        { term: "Macro Event Distortion", definition: "Price spikes and structural confusion caused by major US economic reports (NFP, CPI, FOMC)." },
-        { term: "Session Overlap Transition", definition: "The transition window where European traders close positions and US traders establish them." }
+        { term: "Macro Event Distortion", definition: "Sudden price spikes and confusion caused by high-impact US economic reports (like inflation or employment reports)." },
+        { term: "Session Overlap Transition", definition: "The time when European traders close positions and US traders open theirs." }
       ],
       whyThisMatters: "Realizing that New York can reverse London prevents you from holding trend positions that are actively showing rejection signs.",
       realLifeExample: "EUR/USD expands upward during London. At the New York open, a macro report releases. Price spikes down, closing back inside the Asia range. New York has shifted the condition from expansion to transition.",
@@ -114,10 +114,10 @@ export const forexCards: LessonCard[] = [
     context: {
       keyTerms: [
         { term: "Forex Trend Condition", definition: "A market state where a pair consistently builds directional structure across session windows." },
-        { term: "Structure Respect", definition: "When pullbacks hold above previous swing points, confirming buyers or sellers are defending value." },
-        { term: "Session Follow-Through", definition: "When successive sessions continue the directional push instead of reversing it." },
-        { term: "Trend Pullback", definition: "A temporary, lower-volume retracement into key structure zones inside an active trend." },
-        { term: "Directional Bias", definition: "Evaluating the highest-probability trading direction based on clean session-backed structure." }
+        { term: "Structure Respect", definition: "When pullbacks hold above previous swing levels, showing buyers or sellers are defending value." },
+        { term: "Session Follow-Through", definition: "When successive trading sessions continue the directional push instead of reversing it." },
+        { term: "Trend Pullback", definition: "A temporary price drop against the main trend direction before the trend continues." },
+        { term: "Directional Bias", definition: "The highest-probability direction based on clean session-backed structure." }
       ],
       whyThisMatters: "Checking session support prevents you from buying a 'trend' that is actively being rejected by major New York volume.",
       realLifeExample: "AUD/USD is trending up. London pushes price to a new high. New York pulls back to the previous London breakout point, holds it, and continues upward. This session support confirms a clean trend environment.",
@@ -134,10 +134,10 @@ export const forexCards: LessonCard[] = [
     context: {
       keyTerms: [
         { term: "Range Condition", definition: "A balanced market state where price rotates horizontally between support and resistance." },
-        { term: "Exhaustion Sweep", definition: "A candle that pushes into a range boundary to clear stops, but lacks volume to hold." },
-        { term: "Sideways Rotation", definition: "The predictable flow of price traveling from one range boundary to the other and back." },
-        { term: "Range Floor", definition: "The horizontal support zone where buyers consistently step in to prevent lower prices." },
-        { term: "Range Ceiling", definition: "The horizontal resistance zone where sellers consistently step in to repel higher prices." }
+        { term: "Exhaustion Sweep", definition: "A candle that spikes outside a range boundary to clear orders but lacks volume to stay there." },
+        { term: "Sideways Rotation", definition: "Price traveling horizontally from one range boundary to the other and back." },
+        { term: "Range Floor", definition: "The bottom boundary where buying pressure consistently keeps price from dropping further." },
+        { term: "Range Ceiling", definition: "The top boundary where selling pressure consistently keeps price from rising higher." }
       ],
       whyThisMatters: "Recognizing a range condition prevents you from chasing breakouts at the absolute highs or selling breakouts at the absolute lows.",
       realLifeExample: "USD/CAD has rotated between 1.3400 and 1.3450 for three days. Price spikes to 1.3452 with speed. You identify the range environment, realize it is likely an exhaustion sweep, and wait for a rejection close.",
@@ -150,14 +150,14 @@ export const forexCards: LessonCard[] = [
     title: "USD Context Can Change the Pair Condition",
     label: "USD Condition Context",
     visualKey: "forex-usd-condition-context",
-    body: "Because USD is the counterweight for all major currency pairs, its environment strongly impacts your pair readings. A EUR/USD upward expansion is highly reliable if the US Dollar Index (DXY) is simultaneously breaking down into a clean downtrend. If EUR/USD is attempting to break higher, but the USD is in a strong uptrend, the two structures are in conflict. A trained Forex learner does not read a pair in isolation. They check if USD context supports, limits, or conflicts with the pair's condition.",
+    body: "Because USD is the counterweight for all major currency pairs, its environment strongly impacts your pair readings. A EUR/USD upward expansion is highly reliable if the US Dollar Index (DXY) is simultaneously breaking down into a clean downtrend. If EUR/USD is attempting to break higher, but the USD is in a strong uptrend, the two structures are in conflict. A trained Forex learner does not read a pair in isolation. They check if USD context (US Dollar strength or weakness) supports, limits, or conflicts with the pair's condition.",
     context: {
       keyTerms: [
-        { term: "USD Context", definition: "The overall environmental condition of the US Dollar, typically audited via the DXY index." },
-        { term: "DXY Index", definition: "A basket index tracking the value of the US Dollar against six major global currencies." },
-        { term: "Contextual Alignment", definition: "When the USD structure moves in the mathematically opposite direction of a USD-counter pair's breakout." },
-        { term: "Contextual Conflict", definition: "When a pair breakout occurs without supporting movement in the underlying USD index." },
-        { term: "USD Counterweight", definition: "The pricing mechanism where USD strength naturally depresses counter currencies, and vice versa." }
+        { term: "USD Context", definition: "The directional pressure of the US Dollar, acting as the counterweight for major currency pairs." },
+        { term: "DXY Index", definition: "US Dollar Index (DXY — an index tracking the value of the US Dollar against other major currencies)." },
+        { term: "Contextual Alignment", definition: "When the US Dollar Index moves in the opposite direction of a currency pair's breakout." },
+        { term: "Contextual Conflict", definition: "When a pair breakout occurs without supporting movement in the underlying US Dollar Index." },
+        { term: "USD Counterweight", definition: "The pricing rule where USD strength naturally depresses other currencies, and vice versa." }
       ],
       whyThisMatters: "Checking USD context prevents you from buying a fake euro breakout that is fighting against a super-strong US Dollar.",
       realLifeExample: "EUR/USD pushes above a resistance level. You check the DXY index and see it has just broken below a major support level. The USD weakness aligns with the EUR strength. Your reading quality increases to clear.",
@@ -173,11 +173,11 @@ export const forexCards: LessonCard[] = [
     body: "There are times when a Forex pair is simply unreadable. Candles overlap constantly, wicks form on both sides, structures are broken and immediately ignored, and session boundaries fail to contain price. This is a choppy condition. Beginners get frustrated because their drawings don't work, and they force trades to make up for losses. This is a trap. A trained learner understands that some pair environments are genuinely messy. When chop is identified, they lower their confidence to unclear and stand aside.",
     context: {
       keyTerms: [
-        { term: "Choppy Condition", definition: "A messy, sideways market state with no clear directional bias or respected horizontal boundaries." },
-        { term: "Overlapping Candles", definition: "Candles whose bodies repeatedly open and close within the range of the preceding candles." },
-        { term: "Structure Degradation", definition: "When technical levels are repeatedly crossed and ignored by price, rendering them useless." },
-        { term: "Reading Quality: Unclear", definition: "A formal classification stating the evidence is too conflicting or messy to form a bias." },
-        { term: "Stand Aside Filter", definition: "The decision to close the chart and protect capital when the condition is choppy." }
+        { term: "Choppy Condition", definition: "A messy, sideways market state with no clear direction or respected boundaries." },
+        { term: "Overlapping Candles", definition: "Candles whose bodies repeatedly open and close inside the space of previous candles." },
+        { term: "Structure Degradation", definition: "When technical support and resistance levels are repeatedly crossed and ignored, making them useless." },
+        { term: "Reading Quality: Unclear", definition: "Classifying the market as unreadable when clues are highly conflicting." },
+        { term: "Stand Aside Filter", definition: "The choice to stop analyzing and close the chart when the condition is choppy." }
       ],
       whyThisMatters: "Identifying chop protects your capital from being eaten away by small losses in a market with no structural edge.",
       realLifeExample: "EUR/USD has printed eight overlapping 1-hour candles during the New York afternoon with wicks on both sides. You identify the choppy condition, label it unclear, and close your trading platform.",
@@ -223,11 +223,11 @@ export const forexCards: LessonCard[] = [
     },
     context: {
       keyTerms: [
-        { term: "Divergent Breakout", definition: "When one pair breaks a level but a closely related pair remains trapped in consolidation." },
-        { term: "Unconfirmed Expansion", definition: "A breakout attempt that lacks follow-through validation from the USD index or related pairs." },
-        { term: "Mixed Evidence", definition: "A state where some clues are bullish (the London break) but others are bearish/flat (DXY, GBP)." },
-        { term: "Risk Mitigation", definition: "Lowering reading quality to mixed to prevent taking trades in unconfirmed environments." },
-        { term: "Transition Audit", definition: "Evaluating whether a breakout is failing and returning to a range condition." }
+        { term: "Divergent Breakout", definition: "When one pair breaks a level but a closely related pair remains trapped in sideways movement." },
+        { term: "Unconfirmed Expansion", definition: "A breakout attempt that lacks follow-through verification from the US Dollar or related pairs." },
+        { term: "Mixed Evidence", definition: "A state where some clues are bullish (like a breakout) but others are flat or opposing." },
+        { term: "Risk Mitigation", definition: "Lowering your reading quality rating to mixed to avoid trading in unconfirmed environments." },
+        { term: "Transition Audit", definition: "Checking if a breakout is failing and returning back inside the range boundaries." }
       ],
       whyThisMatters: "This drill trains you to cross-reference multiple Forex layers so you don't fall for isolated breakouts that lack broad support.",
       realLifeExample: "EUR/USD spikes up, but GBP/USD doesn't budge and the Dollar index is stable. You realize this is a divergent, low-quality expansion. You stand aside, avoiding a loss as EUR/USD drops back.",
@@ -243,11 +243,11 @@ export const forexCards: LessonCard[] = [
     body: "Congratulations! You have completed the Level 0 Module 0.7 Forex Roadway. You have shifted your perspective from chasing individual candles to auditing the overall Forex environment. You now understand that session rhythm, Asia compression ranges, London expansion quality, New York shifts, USD counterweight context, and related-pair confirmations dictate the validity of every technical setup. Carry this environmental filter with you whenever you open a currency chart.",
     context: {
       keyTerms: [
-        { term: "Environmental Filter", definition: "The habit of classifying Forex pair conditions and sessions before auditing local candles." },
-        { term: "Multi-Layer Audit", definition: "Evaluating pair structure, session rhythm, USD index, and related pairs together." },
-        { term: "Session Integrity", definition: "Recognizing how London and New York volume validate or reject price zones." },
-        { term: "Condition Adaptability", definition: "Shifting your reading rules immediately when a pair moves from trend to range or chop." },
-        { term: "Capital Preservation", definition: "Standing aside and declaring a reading unclear when Forex conditions are choppy." }
+        { term: "Environmental Filter", definition: "The habit of naming the pair's environment and session before looking at individual candles." },
+        { term: "Multi-Layer Audit", definition: "Checking pair structure, session hours, the US Dollar Index, and related pairs together." },
+        { term: "Session Integrity", definition: "Recognizing how London and New York trading hours confirm or reject price levels." },
+        { term: "Condition Adaptability", definition: "Changing your reading rules immediately when a pair shifts from trending to ranging or chop." },
+        { term: "Capital Preservation", definition: "Standing aside and keeping your money safe when the environment is choppy." }
       ],
       whyThisMatters: "Condition awareness is the ultimate filter. It separates clean institutional setups from messy retail traps.",
       realLifeExample: "You open a EUR/USD chart. Before looking at the current candle, you note that it's the Asia session (compression) and the Dollar Index is flat. You recognize that wicks are likely noise, and you wait for London.",

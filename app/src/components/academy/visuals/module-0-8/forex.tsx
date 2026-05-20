@@ -41,7 +41,7 @@ export const ForexLocationFoundation = () => {
       time: "Intraday Boundaries",
       purpose: "Timeline Limits",
       color: "slate",
-      desc: "Intraday coordinates established by session highs and lows (Asia Range, London Open, NY Open). Tells you where short-term order density is clustered.",
+      desc: "Intraday boundaries established by session highs and lows (Asia Range, London Open, NY Open). Tells you where short-term orders are grouped.",
       candles: [
         { color: "teal", h: 15, uw: 5, lw: 5 },
         { color: "rose", h: 10, uw: 10, lw: 10 },
@@ -54,7 +54,7 @@ export const ForexLocationFoundation = () => {
       time: "Multi-Day swings",
       purpose: "Historical Memory",
       color: "teal",
-      desc: "Prior swing highs and lows printed on daily/4-hour timeframes. These macro coordinates override local session lines and determine daily trend zones.",
+      desc: "Prior swing highs and lows printed on daily/4-hour timeframes. These major price levels override local session lines and determine daily trend zones.",
       candles: [
         { color: "teal", h: 40, uw: 15, lw: 5 },
         { color: "teal", h: 30, uw: 5, lw: 5 }
@@ -66,7 +66,7 @@ export const ForexLocationFoundation = () => {
       time: "DXY Index alignment",
       purpose: "Macro Anchor",
       color: "amber",
-      desc: "The value coordinates of the US Dollar Index. Major USD pairs must align with DXY support/resistance coordinates to prove institutional backing.",
+      desc: "The price levels of the US Dollar Index. Major USD pairs must align with DXY support and resistance levels to prove institutional backing.",
       candles: [
         { color: "rose", h: 35, uw: 10, lw: 25 },
         { color: "rose", h: 20, uw: 5, lw: 40 }
@@ -78,7 +78,7 @@ export const ForexLocationFoundation = () => {
       time: "Correlation status",
       purpose: "Broad Movement",
       color: "purple",
-      desc: "Cross-reference coordinates of sibling majors (like GBP/USD). Verifies if the move is broad and institutional or isolated retail noise.",
+      desc: "Cross-reference price levels of sibling majors (like GBP/USD). Verifies if the move is broad and market-wide or isolated noise.",
       candles: [
         { color: "teal", h: 15, uw: 5, lw: 35 }
       ]
@@ -193,7 +193,7 @@ export const ForexSessionHighLowLocation = () => {
         { color: "teal", h: 30, uw: 5, lw: 5 },
         { color: "rose", h: 10, uw: 40, lw: 5 } // Long upper wick spike
       ],
-      desc: "Price spikes past the Asia range ceiling to trigger resting buy stops, but encounters selling defense. It closes back below the level, leaving a clear wick. Rejection coordinate confirmed."
+      desc: "Price spikes past the Asia range ceiling to trigger resting buy stops, but encounters selling defense. It closes back below the level, leaving a clear wick. Rejection level confirmed."
     },
     {
       id: "overshoot",
@@ -205,7 +205,7 @@ export const ForexSessionHighLowLocation = () => {
         { color: "rose", h: 15, uw: 45, lw: 10 }, // Big wick through ceiling
         { color: "rose", h: 25, uw: 5, lw: 5 }
       ],
-      desc: "Price breaks the Asia high by 10 pips, creating the illusion of a trend expansion. However, the next candle returns inside. The breakout location is declared false."
+      desc: "Price breaks the Asia high by 10 pips, creating the illusion of a trend expansion. However, the next candle returns inside. The breakout level is declared false."
     },
     {
       id: "accept",
@@ -350,21 +350,21 @@ export const ForexSessionMiddleZoneNoise = () => {
           <div className={`absolute top-2 left-0 right-0 h-8 border-y flex items-center justify-between px-4 transition-all duration-300 ${
             activeSide === "edge" ? "bg-teal-500/20 border-teal-500/40" : "bg-transparent border-slate-800/10"
           }`}>
-            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Upper Range Edge (High-Info Ceiling)</span>
+            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Upper Range Edge (High-Information Ceiling)</span>
           </div>
 
           {/* Middle zone */}
           <div className={`absolute top-[40%] bottom-[40%] left-0 right-0 border-y flex items-center justify-between px-4 transition-all duration-300 ${
             activeSide === "middle" ? "bg-amber-500/20 border-amber-500/40" : "bg-transparent border-slate-800/10"
           }`}>
-            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Noisy Midpoint Zone (Equilibrium Noise)</span>
+            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Noisy Middle Zone (Balanced Noise)</span>
           </div>
 
           {/* Lower Edge zone */}
           <div className={`absolute bottom-2 left-0 right-0 h-8 border-y flex items-center justify-between px-4 transition-all duration-300 ${
             activeSide === "edge" ? "bg-teal-500/20 border-teal-500/40" : "bg-transparent border-slate-800/10"
           }`}>
-            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Lower Range Edge (High-Info Floor)</span>
+            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Lower Range Edge (High-Information Floor)</span>
           </div>
 
           <div className="relative z-10 w-full flex justify-around items-end h-28 pt-10">
@@ -405,7 +405,7 @@ export const ForexSessionMiddleZoneNoise = () => {
               <div>
                 <h5 className="text-xs font-black text-teal-800 uppercase mb-1">Edges Ask Clean Questions</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  Because key institutional buy/sell orders cluster at session boundaries, price is forced to show defense or breakout acceptance here. Reading quality is peak.
+                  Because key institutional buy and sell orders group at session boundaries, price is forced to show defense or breakout acceptance here. Reading quality is highest.
                 </p>
               </div>
             </div>
@@ -413,9 +413,9 @@ export const ForexSessionMiddleZoneNoise = () => {
             <div className="flex gap-3">
               <ShieldAlert className="text-amber-500 shrink-0" size={18} />
               <div>
-                <h5 className="text-xs font-black text-amber-800 uppercase mb-1">The Midpoint Equilibrium Vacuum</h5>
+                <h5 className="text-xs font-black text-amber-800 uppercase mb-1">The Middle Balanced Vacuum</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  The middle of a session range contains no historical memory. Price swings here are highly random, driven by minor retail order matching. A beautiful candle here is noise. Ignore it.
+                  The middle of a session range contains no historical memory. Price swings here are highly random. A beautiful candle here is noise. Ignore it.
                 </p>
               </div>
             </div>
@@ -442,7 +442,7 @@ export const ForexLondonExpansionLocation = () => {
         { color: "slate", h: 10, uw: 5, lw: 5 }, // Hold doji
         { color: "teal", h: 25, uw: 5, lw: 5 }
       ],
-      desc: "London volume pushes price clearly past the Asia ceiling. Price consolidates with small bodies above, proving buyers have accepted the higher location. Valid trend continuation."
+      desc: "London volume pushes price clearly past the Asia ceiling. Price consolidates with small bodies above, proving buyers have accepted the higher location. Valid trend movement."
     },
     {
       id: "return",
@@ -483,7 +483,7 @@ export const ForexLondonExpansionLocation = () => {
           <div className="absolute bottom-4 left-4 right-1/2 top-12 bg-slate-500/10 border border-slate-600/30 rounded-xl p-2 z-10 flex flex-col justify-between">
             <span className="text-[7px] font-mono text-slate-400 uppercase font-black tracking-wider">Asia Session Range</span>
             <div className="w-full border-t border-dashed border-slate-700/60" />
-            <span className="text-[6px] font-mono text-slate-400">Vol: 120k contracts</span>
+            <span className="text-[6px] font-mono text-slate-400">Volume: 120k trades</span>
           </div>
 
           <div className="relative z-20 w-full flex justify-end items-end h-32 pt-4 pr-4">
@@ -687,7 +687,7 @@ export const ForexPairSwingLocation = () => {
         { color: "teal", h: 10, uw: 5, lw: 35 }, // Long rejection wick
         { color: "teal", h: 25, uw: 5, lw: 5 }
       ],
-      desc: "EUR/USD returns to yesterday's swing low. Price temporarily spikes below but wicks back aggressively, closing above the level. Shows buying inventory defense at Layer 3."
+      desc: "EUR/USD returns to yesterday's swing low. Price temporarily spikes below but wicks back aggressively, closing above the level. Shows buyer defense at Layer 3."
     },
     {
       id: "accept",
@@ -704,13 +704,13 @@ export const ForexPairSwingLocation = () => {
       id: "overshoot",
       name: "Overshoot & Reclaim Sweep",
       color: "purple",
-      action: "Liquidity Sweep",
+      action: "Stop Run Sweep",
       candles: [
         { color: "rose", h: 30, uw: 5, lw: 5 },
         { color: "rose", h: 12, uw: 5, lw: 45 }, // Deep spike sweeping support
         { color: "teal", h: 35, uw: 10, lw: 5 }
       ],
-      desc: "Price overshoots the swing low by 15 pips to trigger sell-stops, but rejects instantly to close above. High-probability trap."
+      desc: "Price overshoots the swing low by 15 price points to trigger automatic exit orders, but rejects instantly to close above. High-probability trap."
     }
   ];
 
@@ -810,7 +810,7 @@ export const ForexUsdLocationContext = () => {
       name: "USD Context Aligned",
       quality: "High Reading Quality",
       color: "teal",
-      dxyText: "DXY is sitting at a key structural resistance ceiling, making USD index likely to decline.",
+      dxyText: "DXY is sitting at a key resistance ceiling, making USD index likely to decline.",
       eurusdText: "EUR/USD is sitting at its session support floor. Since USD weakness supports EUR/USD strength, the setup is highly aligned.",
       dxyCandle: { color: "teal", h: 30, uw: 20, lw: 5 }, // Rejection ceiling
       eurusdCandle: { color: "rose", h: 10, uw: 5, lw: 35 } // Reject floor
@@ -820,7 +820,7 @@ export const ForexUsdLocationContext = () => {
       name: "USD Context Conflicting",
       quality: "Low/Mixed Quality - Warning",
       color: "rose",
-      dxyText: "DXY has broken out and accepted value above its resistance ceiling, showing strong USD buying pressure.",
+      dxyText: "DXY has broken out and accepted price above its resistance ceiling, showing strong USD buying pressure.",
       eurusdText: "EUR/USD is testing support. However, because DXY is breaking out, the EUR/USD support floor is highly likely to break down. Avoid trading.",
       dxyCandle: { color: "teal", h: 40, uw: 5, lw: 5 }, // Breakout close
       eurusdCandle: { color: "rose", h: 20, uw: 5, lw: 10 } // Weak support test
@@ -830,8 +830,8 @@ export const ForexUsdLocationContext = () => {
       name: "USD Context Unclear",
       quality: "Moderate / Neutral Quality",
       color: "amber",
-      dxyText: "DXY is trading inside its midpoint noise, showing no clear institutional bias.",
-      eurusdText: "EUR/USD is at a support floor. The setup is tradeable but has no macro tailwinds. Rely strictly on local candle confirmation.",
+      dxyText: "DXY is trading inside its middle range noise, showing no clear bias.",
+      eurusdText: "EUR/USD is at a support floor. The setup is tradeable but has no major tailwinds. Rely strictly on local candle confirmation.",
       dxyCandle: { color: "slate", h: 15, uw: 10, lw: 10 }, // Chop doji
       eurusdCandle: { color: "rose", h: 15, uw: 5, lw: 25 } // Normal test
     }
@@ -988,7 +988,7 @@ export const ForexRelatedPairLocation = () => {
               ) : (
                 <div className="flex flex-col items-center">
                   <MiniCandle color="slate" bodyHeight={10} upperWick={10} lowerWick={10} />
-                  <span className="text-[7px] font-mono text-amber-400 font-bold mt-1">Trapped in Midpoint Noise</span>
+                  <span className="text-[7px] font-mono text-amber-400 font-bold mt-1">Trapped in Middle Noise</span>
                 </div>
               )}
             </div>
@@ -1003,7 +1003,7 @@ export const ForexRelatedPairLocation = () => {
               <div>
                 <h5 className="text-xs font-black text-teal-800 uppercase mb-1">Aligned Session Breakout</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  Both EUR/USD and GBP/USD are pushing past their session ceilings simultaneously. This coordinated movement proves that broad institutional capital is actively selling USD and buying European currencies, validating the breakout location.
+                  Both EUR/USD and GBP/USD are pushing past their session ceilings simultaneously. This coordinated movement proves that broad institutional capital is actively selling USD and buying European currencies, validating the breakout level.
                 </p>
               </div>
             </div>
@@ -1013,7 +1013,7 @@ export const ForexRelatedPairLocation = () => {
               <div>
                 <h5 className="text-xs font-black text-amber-800 uppercase mb-1">Isolated Breakout Trap</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  While EUR/USD looks strong, GBP/USD is completely dead in the water, trapped in midpoint range chop. This conflict suggests the EUR/USD move is highly isolated—often representing a false hunt before rotating back inside.
+                  While EUR/USD looks strong, GBP/USD is completely dead in the water, trapped in middle range chop. This conflict suggests the EUR/USD move is highly isolated—often representing a false breakout before rotating back inside.
                 </p>
               </div>
             </div>
@@ -1031,7 +1031,7 @@ export const ForexLocationFirstWorkflow = () => {
   const steps = [
     {
       title: "1. Map Session Boundaries",
-      desc: "Identify the Asia high/low range limits. Mark these coordinates as the starting ceilings and floors of the day.",
+      desc: "Identify the Asia high and low range limits. Mark these boundaries as the starting ceilings and floors of the day.",
       icon: Compass,
       status: "COORDINATES MAPPED"
     },
@@ -1055,7 +1055,7 @@ export const ForexLocationFirstWorkflow = () => {
     },
     {
       title: "5. Classify Reading Quality",
-      desc: "Rate the coordinate location as Clear, Mixed, or Unclear. Stand aside immediately if price is in midpoint noise.",
+      desc: "Rate the coordinate location as Clear, Mixed, or Unclear. Stand aside immediately if price is in middle noise.",
       icon: CheckCircle2,
       status: "SCAN COMPLETED"
     }
@@ -1077,7 +1077,7 @@ export const ForexLocationQualityPracticeDrill = () => {
       id: "A",
       text: "Clear bullish reading because EUR/USD printed a strong candle closing near its high, showing buyer control.",
       isCorrect: false,
-      feedback: "Incorrect. The candle may be active, but its location in the middle of the session range devalues the reading quality to midpoint noise."
+      feedback: "Incorrect. The candle may be active, but its location in the middle of the session range devalues the reading quality to middle noise."
     },
     {
       id: "B",
@@ -1134,14 +1134,14 @@ export const ForexLocationDebrief = () => {
   const debriefKeys = [
     {
       id: "coordinates",
-      title: "Locational Coordinates",
+      title: "Locational Levels",
       habit: "Identify session and pair boundaries before candles.",
       desc: "Never look at a candle in isolation. Always begin your chart analysis by mapping where the pair is trading relative to the Asia high/low and prior daily swings.",
       icon: MapPin
     },
     {
       id: "noise",
-      title: "Midpoint Exclusion",
+      title: "Middle-Zone Exclusion",
       habit: "Filter out center-zone price swings.",
       desc: "Force yourself to ignore price movements that take place inside the middle of a range. Edges ask clear questions; the middle only offers random, low-information noise.",
       icon: ShieldAlert
@@ -1150,7 +1150,7 @@ export const ForexLocationDebrief = () => {
       id: "context",
       title: "USD & Related Context",
       habit: "Verify setups using DXY and sibling correlations.",
-      desc: "Ensure the US Dollar Index (DXY) is compatible with your local pair level, and check related pairs (like GBP/USD) to ensure the breakout location is broad, not isolated.",
+      desc: "Ensure the US Dollar Index (DXY) is compatible with your local pair level, and check related pairs (like GBP/USD) to ensure the breakout level is broad, not isolated.",
       icon: DollarSign
     }
   ];

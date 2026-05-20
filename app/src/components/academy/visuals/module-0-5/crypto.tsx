@@ -18,99 +18,9 @@ import {
   ArrowRight,
   Database
 } from "lucide-react";
+import { UI, InstitutionalFrame, MentorInsight } from "./shared";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-
-/**
- * LURNAVA INSTITUTIONAL DESIGN TOKENS
- */
-const UI = {
-  navy: "#071B36",
-  teal: "#0D9488",
-  slate: "#475569",
-  border: "#E2E8F0",
-  bg: "#F8FBFC",
-  rose: "#BE123C",
-  sky: "#0284C7",
-  amber: "#D97706"
-};
-
-/**
- * Institutional Frame Component
- */
-const InstitutionalFrame = ({
-  children,
-  label,
-  status = "AUDIT ACTIVE",
-  id = "LN-0.5-CR"
-}: {
-  children: React.ReactNode;
-  label: string;
-  status?: string;
-  id?: string;
-}) => (
-  <div className="w-full h-full min-h-[550px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
-    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:32px_32px]" />
-
-    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 relative z-10 border-b border-slate-200/50 pb-4">
-      <div className="flex flex-col">
-        <div className="flex items-center gap-2 mb-1">
-          <Globe size={10} className="text-teal-600 animate-spin-slow" />
-          <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Crypto Track Adaptation</span>
-        </div>
-        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic">{label}</h4>
-      </div>
-      <div className="flex items-center gap-3 self-end md:self-auto">
-        <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
-          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
-        </div>
-        <div className="w-px h-6 bg-slate-200" />
-        <div className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm">
-          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
-        </div>
-      </div>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center justify-center relative z-10">
-      {children}
-    </div>
-
-    <div className="mt-8 pt-4 border-t border-slate-200/50 flex items-center justify-between">
-       <div className="flex gap-4">
-          <div className="flex items-center gap-1.5">
-            <div className="w-1 h-1 bg-teal-500 rounded-full" />
-            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Venue Feeds Synchronized</span>
-          </div>
-       </div>
-       <div className="flex items-center gap-1.5">
-          <Fingerprint size={10} className="text-slate-300" />
-          <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter">LN-CR-PROD-V1</span>
-       </div>
-    </div>
-  </div>
-);
-
-const MentorInsight = ({ text, analogy }: { text: string; analogy?: string }) => (
-  <div className="w-full mt-8 pt-6 border-t border-slate-200/50 flex flex-col gap-3">
-    <div className="flex items-center gap-2">
-      <div className="px-2 py-1 bg-[#071B36] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Insight</div>
-      <div className="h-px flex-1 bg-slate-200" />
-    </div>
-    <div className="flex gap-4">
-       <div className="flex-1">
-          <p className="text-xs font-bold text-[#071B36] leading-relaxed">{text}</p>
-          {analogy && (
-            <p className="mt-2 text-[11px] text-slate-500 italic leading-snug">
-              <span className="font-black uppercase text-[9px] mr-2 text-teal-600 not-italic">Analogy:</span>
-              {analogy}
-            </p>
-          )}
-       </div>
-    </div>
-  </div>
-);
 
 /**
  * Card 1: Crypto Structure Is Fragmented Market Behavior
@@ -119,21 +29,21 @@ export const CryptoFragmentedStructureSkeleton = () => {
   const [activeVenue, setActiveVenue] = useState<"cex" | "perp" | "dex" | "index">("index");
 
   const venueData = {
-    cex: { label: "CEX Spot (Binance)", status: "Steady Accumulation", color: "text-teal-400", bg: "bg-teal-500/10", border: "border-teal-500/20", desc: "Clean upward structure with heavy limit buyers holding the low swings." },
-    perp: { label: "Derivatives (Perps)", status: "Leverage Spike / Squeeze", color: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20", desc: "High leverage wicks and funding sweeps showing extreme deviation from spot." },
-    dex: { label: "DEX Pools (Uniswap)", status: "Thin Liquidity Sweep", color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20", desc: "Large isolated drop from one heavy sell order. No broad market follow-through." },
-    index: { label: "Aggregated Index Feed", status: "Smoothed Reading", color: "text-sky-400", bg: "bg-sky-500/10", border: "border-sky-500/20", desc: "Weighted average across multiple exchanges. Hides venue-specific anomalies." }
+    cex: { label: "CEX Spot (Binance)", status: "Steady Accumulation", color: "text-teal-400", bg: "bg-[#E6F2F0]", border: "border-teal-200", desc: "Clean upward structure with heavy limit buyers holding the low swings." },
+    perp: { label: "Derivatives (Perps)", status: "Leverage Spike / Squeeze", color: "text-rose-400", bg: "bg-[#FDF2F2]", border: "border-rose-200", desc: "High leverage wicks and funding sweeps showing extreme deviation from spot." },
+    dex: { label: "DEX Pools (Uniswap)", status: "Thin Liquidity Sweep", color: "text-amber-400", bg: "bg-[#FEF3C7]", border: "border-amber-200", desc: "Large isolated drop from one heavy sell order. No broad market follow-through." },
+    index: { label: "Aggregated Index Feed", status: "Smoothed Reading", color: "text-sky-400", bg: "bg-[#E0F2FE]", border: "border-sky-200", desc: "Weighted average across multiple exchanges. Hides venue-specific anomalies." }
   };
 
   return (
     <InstitutionalFrame label="Multi-Venue Fragmentation Map" id="CR-05-FRAG">
       <div className="w-full max-w-4xl mx-auto space-y-8">
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
-          <div className="absolute top-0 right-0 p-6 opacity-[0.02] pointer-events-none"><Layers size={220} className="text-teal-400" /></div>
+          <div className="absolute top-0 right-0 p-6 text-[#09223B] pointer-events-none"><Layers size={220} className="text-teal-400" /></div>
 
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Multi-Feed Mapping Panel</span>
+              <span className="px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Multi-Feed Mapping Panel</span>
               <h3 className="text-xl font-black text-white uppercase italic tracking-tight">The Fragmented Asset View</h3>
             </div>
 
@@ -153,10 +63,10 @@ export const CryptoFragmentedStructureSkeleton = () => {
               </svg>
 
               {/* Four Corner Nodes */}
-              <div className={cn("absolute top-2 left-[10%] px-3 py-1.5 rounded-xl border text-[9px] font-bold uppercase transition-all", activeVenue === 'cex' ? "bg-teal-500/20 border-teal-500 text-teal-300" : "bg-slate-900 border-slate-800 text-slate-500")}>CEX SPOT</div>
-              <div className={cn("absolute top-2 right-[10%] px-3 py-1.5 rounded-xl border text-[9px] font-bold uppercase transition-all", activeVenue === 'perp' ? "bg-rose-500/20 border-rose-500 text-rose-300" : "bg-slate-900 border-slate-800 text-slate-500")}>PERP MARKET</div>
-              <div className={cn("absolute bottom-2 left-[10%] px-3 py-1.5 rounded-xl border text-[9px] font-bold uppercase transition-all", activeVenue === 'dex' ? "bg-amber-500/20 border-amber-500 text-amber-300" : "bg-slate-900 border-slate-800 text-slate-500")}>DEX POOL</div>
-              <div className={cn("absolute bottom-2 right-[10%] px-3 py-1.5 rounded-xl border text-[9px] font-bold uppercase transition-all", activeVenue === 'index' ? "bg-sky-500/20 border-sky-500 text-sky-300" : "bg-slate-900 border-slate-800 text-slate-500")}>AGGREGATE</div>
+              <div className={cn("absolute top-2 left-[10%] px-3 py-1.5 rounded-xl border text-[9px] font-bold uppercase transition-all", activeVenue === 'cex' ? "bg-[#CCECE6] border-teal-500 text-teal-300" : "bg-slate-900 border-slate-800 text-slate-500")}>CEX SPOT</div>
+              <div className={cn("absolute top-2 right-[10%] px-3 py-1.5 rounded-xl border text-[9px] font-bold uppercase transition-all", activeVenue === 'perp' ? "bg-[#FDE2E2] border-rose-500 text-rose-300" : "bg-slate-900 border-slate-800 text-slate-500")}>PERP MARKET</div>
+              <div className={cn("absolute bottom-2 left-[10%] px-3 py-1.5 rounded-xl border text-[9px] font-bold uppercase transition-all", activeVenue === 'dex' ? "bg-[#FDE68A] border-amber-500 text-amber-300" : "bg-slate-900 border-slate-800 text-slate-500")}>DEX POOL</div>
+              <div className={cn("absolute bottom-2 right-[10%] px-3 py-1.5 rounded-xl border text-[9px] font-bold uppercase transition-all", activeVenue === 'index' ? "bg-[#E0F2FE] border-sky-500 text-sky-300" : "bg-slate-900 border-slate-800 text-slate-500")}>AGGREGATE</div>
             </div>
 
             {/* Selector Buttons */}
@@ -179,7 +89,7 @@ export const CryptoFragmentedStructureSkeleton = () => {
           </div>
 
           {/* Description Panel */}
-          <div className="w-full bg-slate-900/60 border border-slate-800/80 p-4 rounded-2xl mt-6">
+          <div className="w-full bg-[#0B1E36] border border-slate-800 p-4 rounded-2xl mt-6">
             <div className="flex items-center gap-2 mb-1.5">
               <span className={cn("px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest", venueData[activeVenue].bg, venueData[activeVenue].border, venueData[activeVenue].color)}>
                 {venueData[activeVenue].status}
@@ -208,27 +118,27 @@ export const CryptoSwingSourceMap = () => {
   const [selectedEngine, setSelectedEngine] = useState<"spot" | "perp" | "liq" | "thin">("spot");
 
   const engineDetails = {
-    spot: { label: "Spot Accumulation Swing", title: "Organic Capital Injection", color: "text-teal-400", border: "border-teal-500/30", bg: "bg-teal-950/20", desc: "Formed when actual spot buyers match or exceed limit sells. The swing high or low builds high-quality, lasting structural support." },
-    perp: { label: "Perpetual Contract Squeeze", title: "Funding & Leverage Drive", color: "text-sky-400", border: "border-sky-500/30", bg: "bg-sky-950/20", desc: "Driven by aggressive derivative buying/selling. It creates strong short-term swings, but if spot demand does not follow, the swing frequently fades." },
-    liq: { label: "Liquidation Cascade Sweep", title: "Forced Position Closure", color: "text-rose-400", border: "border-rose-500/30", bg: "bg-rose-950/20", desc: "A hyper-aggressive price spike created by the mechanical triggering of leverage stops. The swing high or low forms a temporary extreme that wicks back fast." },
-    thin: { label: "Thin-Liquidity Wick", title: "Order Book Vacuum", color: "text-amber-400", border: "border-amber-500/30", bg: "bg-amber-950/20", desc: "Occurs during low volume periods when a small market order sweeps through empty price quotes. The swing carries very low structural evidence." }
+    spot: { label: "Spot Accumulation Swing", title: "Organic Capital Injection", color: "text-teal-400", border: "border-teal-300", bg: "bg-[#0A2E36]", desc: "Formed when actual spot buyers match or exceed limit sells. The swing high or low builds high-quality, lasting structural support." },
+    perp: { label: "Perpetual Contract Squeeze", title: "Funding & Leverage Drive", color: "text-sky-400", border: "border-sky-300", bg: "bg-[#0A233C]", desc: "Driven by aggressive derivative buying/selling. It creates strong short-term swings, but if spot demand does not follow, the swing frequently fades." },
+    liq: { label: "Liquidation Cascade Sweep", title: "Forced Position Closure", color: "text-rose-400", border: "border-rose-300", bg: "bg-[#2E0B1A]", desc: "A hyper-aggressive price spike created by the mechanical triggering of leverage stops. The swing high or low forms a temporary extreme that wicks back fast." },
+    thin: { label: "Thin-Liquidity Wick", title: "Order Book Vacuum", color: "text-amber-400", border: "border-[#FCD34D]", bg: "bg-[#2D1F0B]", desc: "Occurs during low volume periods when a small market order sweeps through empty price quotes. The swing carries very low structural evidence." }
   };
 
   return (
     <InstitutionalFrame label="Swing Engine Diagnostic Board" id="CR-05-SWING">
       <div className="w-full max-w-4xl mx-auto space-y-8">
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
-          <div className="absolute top-0 right-0 p-6 opacity-[0.02] pointer-events-none"><Activity size={220} className="text-teal-400" /></div>
+          <div className="absolute top-0 right-0 p-6 text-[#09223B] pointer-events-none"><Activity size={220} className="text-teal-400" /></div>
 
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Interactive Swing Engine</span>
+              <span className="px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Interactive Swing Engine</span>
               <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Anatomy of a Turning Point</h3>
             </div>
 
             {/* Graphic representation of candle swing */}
             <div className="w-full max-w-md h-40 bg-slate-900 rounded-2xl relative border border-slate-800 flex items-center justify-center">
-              <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:16px_16px]" />
+              <div className="absolute inset-0 bg-[radial-gradient(#091F3A_1px,transparent_1px)] bg-[length:16px_16px]" />
               <svg className="w-full h-full max-w-[320px] overflow-visible" viewBox="0 0 400 160">
                 {/* Reference line */}
                 <line x1="20" y1="80" x2="380" y2="80" stroke="#1e293b" strokeWidth="1" strokeDasharray="3 3" />
@@ -318,7 +228,7 @@ export const CryptoBtcAltStructureContext = () => {
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">BTC Market Context Layer</span>
+              <span className="px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">BTC Market Context Layer</span>
               <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Altcoin Structure Aligned vs Isolated</h3>
             </div>
 
@@ -341,10 +251,10 @@ export const CryptoBtcAltStructureContext = () => {
             {/* Visualizing Dual Charts */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
               {/* BTC Chart */}
-              <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-5 relative overflow-hidden flex flex-col justify-between min-h-[160px]">
+              <div className="bg-[#0B1E36] border border-slate-800 rounded-3xl p-5 relative overflow-hidden flex flex-col justify-between min-h-[160px]">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-black text-white uppercase tracking-wider">BTC Macro (4H)</span>
-                  <span className={cn("px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest", btcTrend === 'bullish' ? "bg-teal-500/10 border border-teal-500/20 text-teal-400" : "bg-rose-500/10 border-rose-500/20 text-rose-400")}>
+                  <span className={cn("px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest", btcTrend === 'bullish' ? "bg-[#E6F2F0] border border-teal-200 text-teal-400" : "bg-[#FDF2F2] border-rose-200 text-rose-400")}>
                     {btcTrend === 'bullish' ? "SUPPORTIVE CONTEXT" : "RISK-OFF CRASH"}
                   </span>
                 </div>
@@ -363,10 +273,10 @@ export const CryptoBtcAltStructureContext = () => {
               </div>
 
               {/* Altcoin Chart */}
-              <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-5 relative overflow-hidden flex flex-col justify-between min-h-[160px]">
+              <div className="bg-[#0B1E36] border border-slate-800 rounded-3xl p-5 relative overflow-hidden flex flex-col justify-between min-h-[160px]">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-black text-white uppercase tracking-wider">Altcoin (15m)</span>
-                  <span className={cn("px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest", btcTrend === 'bullish' ? "bg-teal-500/10 border border-teal-500/20 text-teal-400" : "bg-amber-500/10 border-amber-500/20 text-amber-400")}>
+                  <span className={cn("px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest", btcTrend === 'bullish' ? "bg-[#E6F2F0] border border-teal-200 text-teal-400" : "bg-[#FEF3C7] border-amber-200 text-amber-400")}>
                     {btcTrend === 'bullish' ? "CLEAN TRENDING" : "ISOLATED STRENGTH (HIGH RISK)"}
                   </span>
                 </div>
@@ -390,7 +300,7 @@ export const CryptoBtcAltStructureContext = () => {
           </div>
 
           {/* Verdict block */}
-          <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
+          <div className="w-full bg-[#0B1E36] border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Pedagogical Verdict</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide">
               {btcTrend === 'bullish'
@@ -427,7 +337,7 @@ export const CryptoVenueStructureDisagreement = () => {
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Multi-Venue Comparative Panel</span>
+              <span className="px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Multi-Venue Comparative Panel</span>
               <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Cross-venue structural divergence</h3>
             </div>
 
@@ -478,7 +388,7 @@ export const CryptoVenueStructureDisagreement = () => {
           </div>
 
           {/* Description Panel */}
-          <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
+          <div className="w-full bg-[#0B1E36] border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">{charts[selectedView].label}</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
               {charts[selectedView].note}
@@ -562,12 +472,12 @@ export const CryptoTrendRangeStructure = () => {
           </div>
 
           <div className="flex-1 bg-slate-900 rounded-[2rem] p-6 h-[280px] relative overflow-hidden flex items-center justify-center border border-slate-800 shadow-xl w-full">
-            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#0C233E_1px,transparent_1px)] bg-[length:24px_24px]" />
             <svg className="w-full h-full max-w-[350px] overflow-visible" viewBox="0 0 380 250">
               {activeTab === 'range' && (
                 <>
-                  <line x1="0" y1="70" x2="500" y2="70" stroke="#f43f5e" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
-                  <line x1="0" y1="170" x2="500" y2="170" stroke="#10b981" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
+                  <line x1="0" y1="70" x2="500" y2="70" stroke="#992E46" strokeWidth="2" strokeDasharray="4 4" />
+                  <line x1="0" y1="170" x2="500" y2="170" stroke="#1F5E49" strokeWidth="2" strokeDasharray="4 4" />
                 </>
               )}
               <motion.path
@@ -603,7 +513,7 @@ export const CryptoTrendRangeStructure = () => {
           </div>
         </div>
 
-        <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl">
+        <div className="w-full bg-[#0B1E36] border border-slate-800 p-4 rounded-2xl">
           <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Structure Description</span>
           <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
             {configs[activeTab].desc}
@@ -631,7 +541,7 @@ export const CryptoLiquidityZones = () => {
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Interactive Audit Area</span>
+              <span className="px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Interactive Audit Area</span>
               <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Rigid Levels vs. Fluid Liquidity Zones</h3>
             </div>
 
@@ -653,11 +563,11 @@ export const CryptoLiquidityZones = () => {
 
             {/* Chart Area */}
             <div className="w-full max-w-md h-44 bg-slate-900 rounded-2xl relative border border-slate-800 flex items-center justify-center p-4">
-              <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:16px_16px]" />
+              <div className="absolute inset-0 bg-[radial-gradient(#091F3A_1px,transparent_1px)] bg-[length:16px_16px]" />
 
               {/* Liquidity Zone or Rigid Line */}
               {useZone ? (
-                <div className="absolute top-[35%] left-0 w-full h-[30px] bg-teal-500/10 border-y border-teal-500/30 flex items-center justify-end pr-8 pointer-events-none">
+                <div className="absolute top-[35%] left-0 w-full h-[30px] bg-[#E6F2F0] border-y border-teal-300 flex items-center justify-end pr-8 pointer-events-none">
                   <span className="text-[8px] font-black text-teal-400 uppercase tracking-widest">Macro Liquidity Accumulation Zone</span>
                 </div>
               ) : (
@@ -685,7 +595,7 @@ export const CryptoLiquidityZones = () => {
           </div>
 
           {/* Explanation text */}
-          <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
+          <div className="w-full bg-[#0B1E36] border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Liquidity Diagnostics</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
               {useZone
@@ -716,7 +626,7 @@ export const CryptoPerpBreakFalseStructure = () => {
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Derivative vs. Spot Feed Comparison</span>
+              <span className="px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Derivative vs. Spot Feed Comparison</span>
               <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Perp-Driven Breaks vs. Spot Confirmation</h3>
             </div>
 
@@ -739,7 +649,7 @@ export const CryptoPerpBreakFalseStructure = () => {
             {/* Visual representation */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
               {/* Candle Chart Panel */}
-              <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-5 relative flex flex-col justify-between min-h-[160px]">
+              <div className="bg-[#0B1E36] border border-slate-800 rounded-3xl p-5 relative flex flex-col justify-between min-h-[160px]">
                 <span className="text-[10px] font-black text-white uppercase tracking-wider mb-2">Price Action Chart</span>
                 <svg className="w-full h-24 overflow-visible" viewBox="0 0 200 100">
                   {/* Resistance level */}
@@ -760,7 +670,7 @@ export const CryptoPerpBreakFalseStructure = () => {
               </div>
 
               {/* Volume/Indicators Panel */}
-              <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-5 relative flex flex-col justify-between min-h-[160px]">
+              <div className="bg-[#0B1E36] border border-slate-800 rounded-3xl p-5 relative flex flex-col justify-between min-h-[160px]">
                 <span className="text-[10px] font-black text-white uppercase tracking-wider mb-2">Volume Confluence Audit</span>
                 <div className="flex flex-col gap-2 justify-center flex-1">
                   <div className="flex items-center justify-between text-[9px] font-bold uppercase text-slate-400">
@@ -798,7 +708,7 @@ export const CryptoPerpBreakFalseStructure = () => {
           </div>
 
           {/* Description */}
-          <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
+          <div className="w-full bg-[#0B1E36] border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Leverage Audit Verdict</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
               {activeFeeds === 'perp'
@@ -829,7 +739,7 @@ export const CryptoThinLiquidityFailedBreak = () => {
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Depth Order Book Inspector</span>
+              <span className="px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Depth Order Book Inspector</span>
               <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Thin Book Slippage vs. Deep Liquidity Hold</h3>
             </div>
 
@@ -872,7 +782,7 @@ export const CryptoThinLiquidityFailedBreak = () => {
           </div>
 
           {/* Description */}
-          <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
+          <div className="w-full bg-[#0B1E36] border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Depth Diagnostics</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
               {liqState === 'thin'
@@ -903,7 +813,7 @@ export const CryptoHtfLocationFirst = () => {
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
           <div className="flex flex-col items-center gap-6">
             <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Multi-Timeframe Comparative Inspector</span>
+              <span className="px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Multi-Timeframe Comparative Inspector</span>
               <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Zoomed Local Move vs. Macro Wall Location</h3>
             </div>
 
@@ -925,11 +835,11 @@ export const CryptoHtfLocationFirst = () => {
 
             {/* Graphics */}
             <div className="w-full max-w-md h-40 bg-slate-900 rounded-2xl relative border border-slate-800 flex items-center justify-center p-4">
-              <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:16px_16px]" />
+              <div className="absolute inset-0 bg-[radial-gradient(#091F3A_1px,transparent_1px)] bg-[length:16px_16px]" />
 
               {/* Macro Resistance block */}
               {showHtf && (
-                <div className="absolute top-[20%] left-0 w-full h-[30px] bg-rose-500/15 border-y border-dashed border-rose-500/35 flex items-center justify-end pr-8 pointer-events-none">
+                <div className="absolute top-[20%] left-0 w-full h-[30px] bg-[#FFF5F5] border-y border-dashed border-rose-300 flex items-center justify-end pr-8 pointer-events-none">
                   <span className="text-[8px] font-black text-rose-400 uppercase tracking-widest">4H Major Resistance Ceiling</span>
                 </div>
               )}
@@ -952,7 +862,7 @@ export const CryptoHtfLocationFirst = () => {
           </div>
 
           {/* Description */}
-          <div className="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mt-6">
+          <div className="w-full bg-[#0B1E36] border border-slate-800 p-4 rounded-2xl mt-6">
             <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest block mb-1">Timeframe Confluence Diagnostics</span>
             <p className="text-xs text-slate-300 font-bold uppercase tracking-wide leading-relaxed">
               {showHtf
@@ -988,7 +898,7 @@ export const CryptoStructureBreakDrill = () => {
     <InstitutionalFrame label="Interactive Practice Scenario" id="CR-05-DRILL">
       <div className="w-full max-w-4xl mx-auto space-y-8">
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden min-h-[350px] flex flex-col justify-between">
-          <div className="absolute top-[25%] left-0 w-full h-8 bg-rose-500/10 border-y border-dashed border-rose-500/30 flex items-center justify-end pr-8">
+          <div className="absolute top-[25%] left-0 w-full h-8 bg-[#FDF2F2] border-y border-dashed border-rose-300 flex items-center justify-end pr-8">
             <span className="text-[8px] font-black text-rose-400 uppercase tracking-widest">HTF 4H Resistance Ceiling</span>
           </div>
 
@@ -1029,8 +939,8 @@ export const CryptoStructureBreakDrill = () => {
                 "p-5 rounded-[2rem] text-left border-2 transition-all flex flex-col justify-start gap-3 h-auto min-h-[120px] shadow-sm cursor-pointer",
                 selectedOption === opt.id
                   ? opt.correct
-                    ? "bg-teal-50 border-teal-500/60 shadow-teal-500/5 text-[#071B36]"
-                    : "bg-rose-50 border-rose-500/60 shadow-rose-500/5 text-[#071B36]"
+                    ? "bg-teal-50 border-teal-200 shadow-teal-100 text-[#071B36]"
+                    : "bg-rose-50 border-rose-200 shadow-rose-100 text-[#071B36]"
                   : "bg-white border-slate-100 hover:border-slate-200 text-slate-600"
               )}
             >
@@ -1058,8 +968,8 @@ export const CryptoStructureBreakDrill = () => {
             <div className={cn(
               "p-6 rounded-[2rem] border-2 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-300",
               opt.correct
-                ? "bg-teal-500/5 border-teal-500/30 text-[#0D9488]"
-                : "bg-rose-500/5 border-rose-500/30 text-[#BE123C]"
+                ? "bg-[#E6F2F0] border-teal-300 text-[#0D9488]"
+                : "bg-[#FFF5F5] border-rose-300 text-[#BE123C]"
             )}>
               <div className="flex items-center gap-3 mb-2">
                 <span className={cn(
@@ -1068,7 +978,7 @@ export const CryptoStructureBreakDrill = () => {
                 )}>
                   {opt.correct ? "Audit Passed" : "Audit Rejected"}
                 </span>
-                <span className="text-[10px] font-black uppercase tracking-widest opacity-60">SOL/USD Structure Feedback</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">SOL/USD Structure Feedback</span>
               </div>
               <p className="text-xs font-bold leading-relaxed uppercase tracking-wide">
                 {opt.feedback}
@@ -1094,10 +1004,10 @@ export const CryptoStructureRoadwayDebrief = () => {
     <InstitutionalFrame label="Roadway Competency Verified" id="CR-05-DEBRIEF" status="COMPLETE">
       <div className="w-full max-w-4xl mx-auto space-y-12 flex flex-col items-center">
         <div className="relative group">
-          <div className="w-24 h-24 rounded-[2.5rem] bg-teal-500 flex items-center justify-center text-white shadow-2xl shadow-teal-500/20 group-hover:scale-110 transition-transform duration-500">
+          <div className="w-24 h-24 rounded-[2.5rem] bg-teal-500 flex items-center justify-center text-white shadow-2xl shadow-teal-100 group-hover:scale-110 transition-transform duration-500">
             <CheckCircle size={48} strokeWidth={2.5} />
           </div>
-          <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -inset-4 border-2 border-dashed border-teal-200 rounded-full opacity-30" />
+          <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -inset-4 border-2 border-dashed border-teal-100 rounded-full" />
         </div>
 
         <div className="text-center space-y-2">
@@ -1111,8 +1021,8 @@ export const CryptoStructureRoadwayDebrief = () => {
             { label: "swing source", desc: "Spot demand filtered from leverage noise", icon: <Activity size={16} /> },
             { label: "confluence alignment", desc: "BTC context layered successfully", icon: <Compass size={16} /> }
           ].map((item, i) => (
-            <div key={i} className="bg-white border border-slate-200/60 p-6 rounded-[2rem] shadow-sm flex flex-col gap-3">
-              <div className="w-8 h-8 rounded-xl bg-teal-500/10 text-teal-600 flex items-center justify-center">
+            <div key={i} className="bg-white border border-slate-200 p-6 rounded-[2rem] shadow-sm flex flex-col gap-3">
+              <div className="w-8 h-8 rounded-xl bg-[#E6F2F0] text-teal-600 flex items-center justify-center">
                 {item.icon}
               </div>
               <div>
@@ -1136,8 +1046,8 @@ export const CryptoStructureRoadwayDebrief = () => {
 
 export const CryptoPlaceholderVisual = () => (
   <div className="w-full min-h-[400px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-8 flex flex-col relative overflow-hidden shadow-sm">
-    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:32px_32px]" />
-    <div className="flex items-center justify-between mb-8 relative z-10 border-b border-slate-200/50 pb-4">
+    {/* Grid background handled by InstitutionalFrame */}
+    <div className="flex items-center justify-between mb-8 relative z-10 border-b border-slate-200 pb-4">
       <div className="flex flex-col">
         <div className="flex items-center gap-2 mb-1">
           <Database size={10} className="text-amber-600" />
@@ -1149,7 +1059,7 @@ export const CryptoPlaceholderVisual = () => (
     </div>
     <div className="flex-1 flex flex-col items-center justify-center relative z-10">
       <div className="flex flex-col items-center gap-6 text-center max-w-sm">
-        <div className="w-16 h-16 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-600">
+        <div className="w-16 h-16 rounded-2xl bg-[#E6F2F0] flex items-center justify-center text-teal-600">
           <Globe size={32} />
         </div>
         <div className="space-y-2">

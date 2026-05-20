@@ -6,14 +6,14 @@ export const forexCards: LessonCard[] = [
     title: "Forex Brief: Reading a Relationship",
     visualKey: "forex-relationship",
     label: "Roadway Context",
-    body: "In Forex, a chart is a comparison. EUR/USD does not show Euro alone; it shows Euro priced against the US Dollar. Before reading the move, identify both sides of the pair.",
+    body: "In Forex (Foreign Exchange), a chart is a comparison. EUR/USD (Euro vs. US Dollar) does not show Euro alone; it shows Euro priced against the US Dollar. Before reading the move, identify both sides of the pair.",
     context: {
       keyTerms: [
         { term: "Currency Pair", definition: "Two currencies compared against each other." },
-        { term: "Base Currency", definition: "The first currency in the pair. In EUR/USD, EUR is the base." },
-        { term: "Quote Currency", definition: "The second currency in the pair. In EUR/USD, USD is the quote." },
+        { term: "Base Currency", definition: "The first currency in the pair. In EUR/USD, EUR (Euro) is the base." },
+        { term: "Quote Currency", definition: "The second currency in the pair. In EUR/USD, USD (US Dollar) is the quote." },
         { term: "Relationship Reading", definition: "Reading how both sides of the pair may be affecting movement." },
-        { term: "USD Context", definition: "Checking whether the US Dollar is broadly strong or weak across related pairs." }
+        { term: "USD Context", definition: "Checking whether the US Dollar (USD) is broadly strong or weak across related pairs." }
       ],
       whyThisMatters: "A learner may look at EUR/USD rising and assume Euro is strong. That may be true, but the move may also come from Dollar weakness. Forex readings become clearer when the learner checks both sides of the pair.",
       realLifeExample: "EUR/USD rises during a session. A rushed learner says, 'Euro is strong.' A trained learner checks whether USD is also weakening against other currencies before forming a stronger reading.",
@@ -56,7 +56,7 @@ export const forexCards: LessonCard[] = [
         { term: "One-sided mistake", definition: "Explaining a pair’s movement by looking at only one side of the relationship." }
       ],
       whyThisMatters: "Forex pairs have two sides. A learner who reads only the base currency may miss that the quote currency is driving the move. Context prevents quick but weak explanations.",
-      realLifeExample: "GBP/USD rises during London. A rushed learner says GBP is strong. A trained learner checks EUR/USD, AUD/USD, and USD/JPY to see whether USD weakness is part of the explanation.",
+      realLifeExample: "GBP/USD (British Pound vs. US Dollar) rises during London. A rushed learner says GBP (British Pound) is strong. A trained learner checks EUR/USD, AUD/USD (Australian Dollar vs. US Dollar), and USD/JPY (US Dollar vs. Japanese Yen) to see whether USD (US Dollar) weakness is part of the explanation.",
       commonMistake: "Seeing a large candle and immediately assigning the move to the first currency in the pair.",
       quickNote: "One pair gives a clue. Related pairs give context."
     }

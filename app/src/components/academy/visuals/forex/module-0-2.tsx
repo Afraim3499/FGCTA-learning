@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import {
+  Database,
   Globe,
   TrendingUp,
   TrendingDown,
@@ -18,6 +19,54 @@ import {
 } from "lucide-react";
 
 /**
+ * Institutional Frame Component for Module 0.2 (Forex)
+ */
+const InstitutionalFrame = ({ 
+  children, 
+  label, 
+  status = "AUDIT STANDBY",
+  id = "LN-0.2-AUD"
+}: { 
+  children: React.ReactNode; 
+  label: string; 
+  status?: string;
+  id?: string;
+}) => (
+  <div className="w-full h-full min-h-[450px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
+    {/* Grid Background Effect */}
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
+    
+    {/* Top Header Row */}
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
+      <div className="flex flex-col">
+        <div className="flex items-center gap-2 mb-1">
+          <Database size={10} className="text-teal-600 animate-pulse" />
+          <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.25em]">Evidence Audit Stream</span>
+        </div>
+        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{label}</h4>
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="flex flex-col items-end">
+          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
+          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
+        </div>
+        <div className="w-px h-6 bg-slate-200" />
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-lg shadow-sm">
+          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Dynamic Content Center Stage */}
+    <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
+      {children}
+    </div>
+  </div>
+);
+
+
+/**
  * 0.2 - Forex Relationship
  */
 export const ForexRelationship = () => {
@@ -25,10 +74,12 @@ export const ForexRelationship = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="my-2 space-y-10 max-w-4xl mx-auto w-full text-left">
+    <InstitutionalFrame label="Forex Pair Relationship" id="LN-0.2-FOREX-REL" status="RELATIONSHIP AUDIT">
+      <div className="my-2 space-y-10 max-w-4xl mx-auto w-full text-left">
+        
       {/* The Core Relationship */}
       <div className="relative p-10 bg-white rounded-[3rem] border border-slate-200 shadow-xl overflow-hidden text-center">
-        <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none rotate-12">
+        <div className="absolute top-0 right-0 p-8  pointer-events-none rotate-12">
           <Globe size={160} />
         </div>
 
@@ -39,11 +90,11 @@ export const ForexRelationship = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('base')}
             onBlur={() => setActivePart(null)}
-            className={cn("space-y-4 transition-all duration-300", activePart && !isActive('base') ? "opacity-60 scale-[0.98]" : "opacity-100", isActive('base') ? "scale-105" : "")}
+            className={cn("space-y-4 transition-all duration-300", activePart && !isActive('base') ? " scale-[0.98]" : "", isActive('base') ? "scale-105" : "")}
           >
             <div className={cn("w-32 h-32 rounded-[2.5rem] flex flex-col items-center justify-center border-4 transition-colors", isActive('base') ? "bg-slate-800 border-slate-700 shadow-2xl text-white" : "bg-slate-900 border-slate-800 text-white")}>
               <span className="text-3xl font-black tracking-tighter">EUR</span>
-              <span className="text-[10px] font-bold opacity-50 uppercase tracking-widest mt-1 italic">Base</span>
+              <span className="text-[10px] font-bold  uppercase tracking-widest mt-1 italic">Base</span>
             </div>
             <div className="text-center">
               <div className={cn("text-[10px] font-black uppercase tracking-widest mb-1 transition-colors", isActive('base') ? "text-slate-600" : "text-slate-400")}>The Item</div>
@@ -65,7 +116,7 @@ export const ForexRelationship = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('quote')}
             onBlur={() => setActivePart(null)}
-            className={cn("space-y-4 transition-all duration-300", activePart && !isActive('quote') ? "opacity-60 scale-[0.98]" : "opacity-100", isActive('quote') ? "scale-105" : "")}
+            className={cn("space-y-4 transition-all duration-300", activePart && !isActive('quote') ? " scale-[0.98]" : "", isActive('quote') ? "scale-105" : "")}
           >
             <div className={cn("w-32 h-32 rounded-[2.5rem] flex flex-col items-center justify-center border-4 transition-colors", isActive('quote') ? "bg-slate-50 border-slate-200 shadow-xl text-slate-900" : "bg-white border-slate-100 text-slate-900")}>
               <span className="text-3xl font-black tracking-tighter">USD</span>
@@ -102,7 +153,7 @@ export const ForexRelationship = () => {
               className={cn(
                 "p-5 rounded-2xl border flex items-center gap-4 transition-all duration-300 text-left w-full", 
                 isActive(item.id) || (item.id === "dual" && (isActive("base") || isActive("quote"))) ? "bg-slate-50 border-slate-300 shadow-md scale-105" : "bg-white border-slate-100 shadow-sm",
-                activePart && !isActive(item.id) && !(item.id === "dual" && (isActive("base") || isActive("quote"))) ? "opacity-60" : "opacity-100"
+                activePart && !isActive(item.id) && !(item.id === "dual" && (isActive("base") || isActive("quote"))) ? "" : ""
               )}
             >
               <div className={cn("w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors", isActive(item.id) ? "bg-slate-200" : "bg-slate-50")}>
@@ -123,9 +174,9 @@ export const ForexRelationship = () => {
         onMouseLeave={() => setActivePart(null)}
         onFocus={() => setActivePart('warning')}
         onBlur={() => setActivePart(null)}
-        className={cn("p-6 rounded-[2rem] border flex items-start gap-4 transition-all duration-300 w-full text-left", isActive('warning') ? "bg-amber-100/50 border-amber-300 shadow-md scale-[1.01]" : "bg-amber-50/50 border-amber-100 shadow-sm", activePart && !isActive('warning') ? "opacity-80" : "opacity-100")}
+        className={cn("p-6 rounded-[2rem] border flex items-start gap-4 transition-all duration-300 w-full text-left", isActive('warning') ? "bg-[#FEF3C7] border-amber-300 shadow-md scale-[1.01]" : "bg-[#FFFBEB] border-amber-100 shadow-sm", activePart && !isActive('warning') ? "" : "")}
       >
-        <div className="w-10 h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/20">
+        <div className="w-10 h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-md">
           <AlertCircle size={20} />
         </div>
         <div className="space-y-1 text-left">
@@ -135,7 +186,9 @@ export const ForexRelationship = () => {
           </p>
         </div>
       </button>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -154,7 +207,9 @@ export const ForexNetworkVisual = () => {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-8">
+    <InstitutionalFrame label="Forex OTC Network" id="LN-0.2-FOREX-NET" status="NETWORK SCAN">
+      <div className="w-full max-w-4xl mx-auto py-8">
+        
       <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 px-4">
         {/* Connection Line */}
         <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -translate-y-1/2 hidden md:block z-0" />
@@ -168,7 +223,7 @@ export const ForexNetworkVisual = () => {
             onBlur={() => setActivePart(null)}
             className={cn(
               "relative z-10 flex flex-col items-center gap-3 transition-all duration-300",
-              activePart && !isActive(node.label) ? "opacity-60 scale-[0.98]" : "opacity-100"
+              activePart && !isActive(node.label) ? " scale-[0.98]" : ""
             )}
           >
             <div className={cn(
@@ -194,7 +249,9 @@ export const ForexNetworkVisual = () => {
           Forex is <span className="text-slate-900 font-black">Decentralized</span>. You are not looking at one central exchange; you are looking at a feed generated by a network of providers.
         </p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -206,11 +263,13 @@ export const ForexQuotePanelVisual = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-3xl mx-auto py-8">
+    <InstitutionalFrame label="Forex Bid-Ask Panel" id="LN-0.2-FOREX-QUOTE" status="QUOTE SCAN">
+      <div className="w-full max-w-3xl mx-auto py-8">
+        
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Quote Card */}
-        <div className="bg-slate-900 rounded-[2rem] p-8 shadow-2xl border border-white/5 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-6 opacity-10">
+        <div className="bg-slate-900 rounded-[2rem] p-8 shadow-2xl border border-slate-800 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-6 ">
             <Activity size={80} className="text-white" />
           </div>
 
@@ -226,7 +285,7 @@ export const ForexQuotePanelVisual = () => {
                 onMouseLeave={() => setActivePart(null)}
                 onFocus={() => setActivePart('bid')}
                 onBlur={() => setActivePart(null)}
-                className={cn("space-y-1 text-left transition-all duration-300 p-2 rounded-xl border border-transparent", isActive('bid') ? "bg-white/5 border-white/10 scale-105" : "", activePart && !isActive('bid') ? "opacity-40" : "opacity-100")}
+                className={cn("space-y-1 text-left transition-all duration-300 p-2 rounded-xl border border-transparent", isActive('bid') ? "bg-[#1E293B] border-slate-800 scale-105" : "", activePart && !isActive('bid') ? "" : "")}
               >
                 <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Sell (Bid)</p>
                 <p className="text-3xl font-black text-white tracking-tighter">1.08<span className={cn("italic transition-colors", isActive('bid') ? "text-teal-300" : "text-teal-400")}>24</span><span className="text-[12px] align-top ml-0.5">5</span></p>
@@ -236,7 +295,7 @@ export const ForexQuotePanelVisual = () => {
                 onMouseLeave={() => setActivePart(null)}
                 onFocus={() => setActivePart('ask')}
                 onBlur={() => setActivePart(null)}
-                className={cn("space-y-1 text-right transition-all duration-300 p-2 rounded-xl border border-transparent", isActive('ask') ? "bg-white/5 border-white/10 scale-105" : "", activePart && !isActive('ask') ? "opacity-40" : "opacity-100")}
+                className={cn("space-y-1 text-right transition-all duration-300 p-2 rounded-xl border border-transparent", isActive('ask') ? "bg-[#1E293B] border-slate-800 scale-105" : "", activePart && !isActive('ask') ? "" : "")}
               >
                 <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Buy (Ask)</p>
                 <p className="text-3xl font-black text-white tracking-tighter">1.08<span className={cn("italic transition-colors", isActive('ask') ? "text-rose-300" : "text-rose-400")}>25</span><span className="text-[12px] align-top ml-0.5">7</span></p>
@@ -248,7 +307,7 @@ export const ForexQuotePanelVisual = () => {
               onMouseLeave={() => setActivePart(null)}
               onFocus={() => setActivePart('spread')}
               onBlur={() => setActivePart(null)}
-              className={cn("mt-6 pt-6 border-t border-white/10 flex justify-between items-center w-full transition-all duration-300 rounded-xl p-2", isActive('spread') ? "bg-white/5 scale-[1.02]" : "", activePart && !isActive('spread') ? "opacity-40" : "opacity-100")}
+              className={cn("mt-6 pt-6 border-t border-slate-800 flex justify-between items-center w-full transition-all duration-300 rounded-xl p-2", isActive('spread') ? "bg-[#1E293B] scale-[1.02]" : "", activePart && !isActive('spread') ? "" : "")}
             >
               <div className="flex items-center gap-2">
                 <div className={cn("w-2 h-2 rounded-full transition-colors", isActive('spread') ? "bg-white shadow-[0_0_8px_white]" : "bg-teal-500")} />
@@ -266,9 +325,9 @@ export const ForexQuotePanelVisual = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('bid')}
             onBlur={() => setActivePart(null)}
-            className={cn("flex gap-4 items-start p-4 rounded-2xl border text-left w-full transition-all duration-300", isActive('bid') ? "bg-teal-50/50 border-teal-200 shadow-sm scale-[1.02]" : "bg-white border-transparent", activePart && !isActive('bid') ? "opacity-60" : "opacity-100")}
+            className={cn("flex gap-4 items-start p-4 rounded-2xl border text-left w-full transition-all duration-300", isActive('bid') ? "bg-[#E6FFFA] border-teal-200 shadow-sm scale-[1.02]" : "bg-white border-transparent", activePart && !isActive('bid') ? "" : "")}
           >
-            <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border transition-colors", isActive('bid') ? "bg-teal-100 text-teal-700 border-teal-300" : "bg-teal-500/10 text-teal-600 border-teal-100")}>
+            <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border transition-colors", isActive('bid') ? "bg-teal-100 text-teal-700 border-teal-300" : "bg-[#E6FFFA] text-teal-600 border-teal-100")}>
               <ArrowDown size={14} />
             </div>
             <div>
@@ -281,9 +340,9 @@ export const ForexQuotePanelVisual = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('ask')}
             onBlur={() => setActivePart(null)}
-            className={cn("flex gap-4 items-start p-4 rounded-2xl border text-left w-full transition-all duration-300", isActive('ask') ? "bg-rose-50/50 border-rose-200 shadow-sm scale-[1.02]" : "bg-white border-transparent", activePart && !isActive('ask') ? "opacity-60" : "opacity-100")}
+            className={cn("flex gap-4 items-start p-4 rounded-2xl border text-left w-full transition-all duration-300", isActive('ask') ? "bg-[#FFF5F5] border-rose-200 shadow-sm scale-[1.02]" : "bg-white border-transparent", activePart && !isActive('ask') ? "" : "")}
           >
-            <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border transition-colors", isActive('ask') ? "bg-rose-100 text-rose-700 border-rose-300" : "bg-rose-500/10 text-rose-600 border-rose-100")}>
+            <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border transition-colors", isActive('ask') ? "bg-rose-100 text-rose-700 border-rose-300" : "bg-[#FFF5F5] text-rose-600 border-rose-100")}>
               <ArrowUp size={14} />
             </div>
             <div>
@@ -293,7 +352,9 @@ export const ForexQuotePanelVisual = () => {
           </button>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -322,7 +383,7 @@ export const ForexInstrumentPanel = () => {
       details: "Is the Dollar strong, weak, or mixed across the market?",
       icon: <Zap size={18} className="text-amber-500" />,
       color: "border-amber-200",
-      accent: "bg-amber-50/30",
+      accent: "bg-[#FFFBEB]",
       activeBg: "bg-amber-50 border-amber-300"
     },
     {
@@ -332,7 +393,7 @@ export const ForexInstrumentPanel = () => {
       details: "Major markets (LDN, NY, TYO) currently active.",
       icon: <Clock size={18} className="text-emerald-500" />,
       color: "border-emerald-200",
-      accent: "bg-emerald-50/30",
+      accent: "bg-[#F0FDF4]",
       activeBg: "bg-emerald-50 border-emerald-300"
     },
     {
@@ -342,18 +403,20 @@ export const ForexInstrumentPanel = () => {
       details: "Is there enough participation for a clean reading?",
       icon: <Activity size={18} className="text-blue-500" />,
       color: "border-blue-200",
-      accent: "bg-blue-50/30",
+      accent: "bg-[#F0F7FF]",
       activeBg: "bg-blue-50 border-blue-300"
     }
   ];
 
   return (
-    <div className="my-2 space-y-8 max-w-5xl mx-auto w-full text-left pb-10">
-      <div className="relative p-8 bg-slate-50/30 rounded-[3rem] border border-slate-100/50">
+    <InstitutionalFrame label="Forex Instrument Dashboard" id="LN-0.2-FOREX-INST" status="INSTRUMENT SCAN">
+      <div className="my-2 space-y-8 max-w-5xl mx-auto w-full text-left pb-10">
+        
+      <div className="relative p-8 bg-[#F8FAFC] rounded-[3rem] border border-[#E2E8F0]">
 
         {/* Connection Lines Layout */}
         <div className="hidden md:block absolute inset-0 pointer-events-none">
-          <svg className="w-full h-full opacity-20" viewBox="0 0 800 600" fill="none">
+          <svg className="w-full h-full " viewBox="0 0 800 600" fill="none">
             <path d="M200 150 L400 300 M600 150 L400 300 M200 450 L400 300 M600 450 L400 300" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" className="text-slate-400" />
           </svg>
         </div>
@@ -372,7 +435,7 @@ export const ForexInstrumentPanel = () => {
                 className={cn(
                   "w-full text-left p-6 rounded-[2.5rem] border-2 transition-all duration-300", 
                   isActive(item.id) ? `${item.activeBg} shadow-md scale-105` : `bg-white ${item.color} shadow-xl hover:-translate-y-1`,
-                  activePart && !isActive(item.id) ? "opacity-60" : "opacity-100"
+                  activePart && !isActive(item.id) ? "" : ""
                 )}
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -395,7 +458,7 @@ export const ForexInstrumentPanel = () => {
           {/* Center Column: The Pair */}
           <div className="flex flex-col items-center justify-center order-1 lg:order-2">
             <div className={cn("relative group transition-all duration-500", activePart ? "scale-105" : "")}>
-              <div className="absolute -inset-4 bg-gradient-to-r from-slate-900 to-slate-800 rounded-[3.5rem] blur-2xl opacity-10 transition duration-1000" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-slate-900 to-slate-800 rounded-[3.5rem] blur-2xl  transition duration-1000" />
               <div className={cn("relative w-52 h-52 rounded-[3.5rem] text-white flex flex-col items-center justify-center shadow-2xl border-4 transition-colors duration-500", activePart ? "bg-slate-800 border-slate-700" : "bg-slate-900 border-slate-800", "scale-105")}>
                 <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-1 italic">Active Pair</div>
                 <span className="text-5xl font-black tracking-tighter">EUR/USD</span>
@@ -419,7 +482,7 @@ export const ForexInstrumentPanel = () => {
                 className={cn(
                   "w-full text-left p-6 rounded-[2.5rem] border-2 transition-all duration-300", 
                   isActive(item.id) ? `${item.activeBg} shadow-md scale-105` : `bg-white ${item.color} shadow-xl hover:-translate-y-1`,
-                  activePart && !isActive(item.id) ? "opacity-60" : "opacity-100"
+                  activePart && !isActive(item.id) ? "" : ""
                 )}
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -443,18 +506,20 @@ export const ForexInstrumentPanel = () => {
 
       {/* Protocol Footer */}
       <div className="flex items-center gap-5 px-6 py-6 bg-slate-900 rounded-[2.5rem] shadow-xl text-white">
-        <div className="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20">
+        <div className="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-md">
           <ShieldCheck size={24} />
         </div>
         <div className="flex-1 space-y-0.5">
           <h4 className="text-[10px] font-black text-emerald-400 uppercase tracking-[0.2em]">Verification Protocol</h4>
           <h3 className="text-sm font-black text-white uppercase tracking-tight">The Forex Pre-Reading Checklist</h3>
         </div>
-        <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/10 rounded-xl border border-white/10">
+        <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-[#334155] rounded-xl border border-slate-800">
           <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
           <span className="text-[10px] font-bold uppercase tracking-widest">V2 Standard</span>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };

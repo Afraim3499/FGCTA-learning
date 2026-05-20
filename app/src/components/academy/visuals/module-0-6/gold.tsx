@@ -28,7 +28,7 @@ import { InstitutionalFrame, MentorInsight } from "./shared";
  * Helper: Mini Candlestick Graphic
  */
 const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15, label = "" }) => (
-  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-105 shadow-sm shrink-0">
+  <div className="flex flex-col items-center justify-center h-32 w-16 bg-[#F8FBFC] rounded-lg p-2 border border-slate-105 shadow-sm shrink-0">
     {/* Upper Wick */}
     <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
     {/* Body */}
@@ -104,7 +104,7 @@ export const GoldEvidenceAuditFoundation = () => {
                   className={cn(
                     "w-full p-3.5 rounded-xl border text-left transition-all duration-300 flex items-center justify-between shadow-sm",
                     activeStep === idx 
-                      ? "bg-white border-[#D4AF37] ring-2 ring-amber-500/10 scale-[1.01]" 
+                      ? "bg-white border-[#D4AF37] ring-2 ring-amber-100 scale-[1.01]" 
                       : "bg-[#F8FBFC] border-slate-200 hover:bg-white"
                   )}
                 >
@@ -122,7 +122,7 @@ export const GoldEvidenceAuditFoundation = () => {
 
           {/* Console Display (Right) */}
           <div className="md:col-span-5 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><Layers size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><Layers size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-4 relative z-10">
               <div className="flex items-center gap-2 text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -197,7 +197,7 @@ export const GoldSingleWickTrap = () => {
           {/* Left panel: Single Clue Trap */}
           <div className={cn(
             "border rounded-[2rem] p-6 flex flex-col justify-between transition-all duration-500 shadow-sm relative overflow-hidden",
-            !toggleActive ? "bg-rose-50/50 border-rose-200 ring-2 ring-rose-500/10" : "bg-white border-slate-200 opacity-60"
+            !toggleActive ? "bg-[#FFF5F5] border-rose-200 ring-2 ring-rose-100" : "bg-white border-slate-200 text-slate-400 bg-[#F8FBFC]"
           )}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -218,7 +218,7 @@ export const GoldSingleWickTrap = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-rose-100/50 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-700 leading-normal flex items-start gap-2">
+            <div className="mt-6 p-4 bg-[#FFF5F5] border border-rose-200 rounded-xl text-[10px] font-bold text-rose-700 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 Danger: Gold was sweeping liquidity. The next candle closed below support and DXY was strongly rising. The buy trap failed.
@@ -229,7 +229,7 @@ export const GoldSingleWickTrap = () => {
           {/* Right panel: Full Evidence Stack */}
           <div className={cn(
             "border rounded-[2rem] p-6 flex flex-col justify-between transition-all duration-500 shadow-sm relative overflow-hidden",
-            toggleActive ? "bg-amber-50/30 border-amber-200 ring-2 ring-amber-500/10 scale-[1.01]" : "bg-white border-slate-200 opacity-60"
+            toggleActive ? "bg-[#FEF3C7] border-amber-200 ring-2 ring-amber-100 scale-[1.01]" : "bg-white border-slate-200 text-slate-400 bg-[#F8FBFC]"
           )}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -261,7 +261,7 @@ export const GoldSingleWickTrap = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-amber-100/50 border border-amber-200/50 rounded-xl text-[10px] font-bold text-[#8C761D] leading-normal flex items-start gap-2">
+            <div className="mt-6 p-4 bg-[#FEF3C7] border border-amber-200 rounded-xl text-[10px] font-bold text-[#8C761D] leading-normal flex items-start gap-2">
               <ListChecks size={14} className="shrink-0 mt-0.5" />
               <span>
                 Result: DXY strength and weak close quality reveal that the wick was just a trap. The reading remains mixed.
@@ -314,11 +314,11 @@ export const GoldReactionZoneEvidence = () => {
           
           {/* Chart Display (Left) */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2.5rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             {/* Reaction Zone Box */}
             {lineMode === "zone" ? (
-              <div className="absolute top-[40px] left-0 w-full h-[60px] bg-amber-500/10 border-t border-b border-amber-500/20 flex items-center justify-center">
+              <div className="absolute top-[40px] left-0 w-full h-[60px] bg-[#FEF3C7] border-t border-b border-[#FDE68A] flex items-center justify-center">
                 <span className="text-[9px] font-black uppercase tracking-widest text-[#AA8F24]">Gold Reaction Zone ($2030 - $2034)</span>
               </div>
             ) : (
@@ -391,8 +391,8 @@ export const GoldUsdContextEvidence = () => {
       gold: "Gold pushes above key resistance zone.",
       quality: "CLEAR BULLISH READING",
       desc: "Weak dollar context supports gold's upward expansion. The correlation is aligned, increasing confidence.",
-      color: "bg-teal-50 text-teal-600 border-teal-100",
-      bColor: "text-teal-400 border-teal-500/20"
+      color: "bg-[#F0FDF4] text-teal-700 border-teal-200",
+      bColor: "text-teal-400 border-[#133F73]"
     },
     conflict: {
       status: "CONFLICTING GRAVITY",
@@ -401,7 +401,7 @@ export const GoldUsdContextEvidence = () => {
       quality: "MIXED READING",
       desc: "Strong dollar creates a heavy anchor for gold. The breakout push is conflicting and highly fragile.",
       color: "bg-amber-50 text-amber-600 border-amber-100",
-      bColor: "text-amber-400 border-amber-400/20"
+      bColor: "text-amber-400 border-[#78350F]"
     },
     unclear: {
       status: "UNCLEAR / CHOPPY",
@@ -410,7 +410,7 @@ export const GoldUsdContextEvidence = () => {
       quality: "UNSTABLE READING",
       desc: "Dollar index context is choppy. Gold's move has lower correlation support, rendering the setup less clear.",
       color: "bg-slate-50 text-slate-500 border-slate-200",
-      bColor: "text-slate-400 border-slate-400/10"
+      bColor: "text-slate-400 border-slate-300"
     }
   };
 
@@ -466,7 +466,7 @@ export const GoldUsdContextEvidence = () => {
 
           {/* Diagnostic (Right) */}
           <div className="md:col-span-4 bg-[#071B36] text-white rounded-[2.5rem] p-6 flex flex-col justify-between shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><ShieldAlert size={100} className="text-teal-400" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><ShieldAlert size={100} className="text-teal-400" /></div>
             
             <div className="space-y-4 relative z-10">
               <div className="text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -552,7 +552,7 @@ export const GoldMacroEventDistortion = () => {
           
           {/* Chart Display (Left) */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2.5rem] p-6 flex items-center justify-center shadow-sm min-h-[200px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             <div className="absolute top-1/2 left-0 w-full border-t border-slate-200 border-dashed" />
             
             <AnimatePresence mode="wait">
@@ -631,7 +631,7 @@ export const GoldCloseQualityAudit = () => {
   const closeTypes = {
     strong: {
       title: "Strong Close",
-      badge: "bg-teal-50 text-teal-600 border-teal-100",
+      badge: "bg-[#F0FDF4] text-teal-700 border-teal-200",
       desc: "The candle body closes at the absolute top of the range. This indicates maximum buyer commitment and validates structural extension.",
       candle: { bullish: true, bodyHeight: 65, wickTop: 5, wickBottom: 5 },
       quality: "HIGH QUALITY EVIDENCE"
@@ -645,7 +645,7 @@ export const GoldCloseQualityAudit = () => {
     },
     weak: {
       title: "Weak Close",
-      badge: "bg-rose-50 text-rose-600 border-rose-100",
+      badge: "bg-[#FFF5F5] text-rose-700 border-rose-200",
       desc: "The candle wicks high but closes near its open, back inside the range. This represents a clear rejection and exhaustion of buyers.",
       candle: { bullish: true, bodyHeight: 10, wickTop: 65, wickBottom: 5 },
       quality: "LOW QUALITY / CONFLICT"
@@ -658,7 +658,7 @@ export const GoldCloseQualityAudit = () => {
     <InstitutionalFrame label="Gold Close Quality" id="GLD-06-CLOS">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Close Quality</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Close Quality</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Candle Close Commitment</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             Click each close type to observe how it changes the reading quality classification.
@@ -698,7 +698,7 @@ export const GoldCloseQualityAudit = () => {
               </div>
             </div>
 
-            <div className="bg-slate-50 border border-slate-150 p-4 rounded-xl">
+            <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block mb-0.5">Audit Reading State</span>
               <span className="text-xs font-black text-[#071B36]">{current.quality}</span>
             </div>
@@ -745,7 +745,7 @@ export const GoldImpulsePullbackEvidence = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Impulse & Pullback</span>
+            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Impulse & Pullback</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">The Volatility Rhythm</h3>
           </div>
           
@@ -768,7 +768,7 @@ export const GoldImpulsePullbackEvidence = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
           
           {/* Panel Left */}
-          <div className={cn("md:col-span-7 rounded-2xl p-6 flex flex-col justify-between shadow-sm relative overflow-hidden border", drillMode === "chaser" ? "bg-rose-50/50 border-rose-200" : "bg-teal-50/50 border-teal-200")}>
+          <div className={cn("md:col-span-7 rounded-2xl p-6 flex flex-col justify-between shadow-sm relative overflow-hidden border", drillMode === "chaser" ? "bg-[#FFF5F5] border-rose-200" : "bg-[#F0FDF4] border-teal-200")}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <span className={cn("w-2 h-2 rounded-full", drillMode === "chaser" ? "bg-rose-500" : "bg-teal-500")} />
@@ -843,7 +843,7 @@ export const GoldAlignedVsMixedEvidence = () => {
   const conditions = {
     clear: {
       title: "Clear Aligned Reading",
-      badge: "bg-teal-50 text-teal-600 border-teal-100",
+      badge: "bg-[#F0FDF4] text-teal-700 border-teal-200",
       desc: "All critical layers support the same interpretation. Gold reacts from a key reaction zone, closes strongly near the high, DXY is weak, and follow-through holds.",
       items: [
         "Gold reacts cleanly from a key historical zone",
@@ -872,7 +872,7 @@ export const GoldAlignedVsMixedEvidence = () => {
   return (
     <InstitutionalFrame label="Evidence Classification Board" id="GLD-08-ALGN">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/50 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
           <div className="space-y-1">
             <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Quality Audit</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Classification State</h3>
@@ -908,7 +908,7 @@ export const GoldAlignedVsMixedEvidence = () => {
                 {current.desc}
               </p>
             </div>
-            <div className="bg-slate-50 p-4 border border-slate-200/50 rounded-xl text-[10px] font-bold text-slate-600">
+            <div className="bg-slate-100 p-4 border border-slate-200 rounded-xl text-[10px] font-bold text-slate-600">
               Rule: {activeTab === "clear" ? "Wait for verification checkpoint to confirm entry." : "Stand aside or reduce position risk significantly."}
             </div>
           </div>
@@ -955,7 +955,7 @@ export const GoldVerificationWorkflow = () => {
     <InstitutionalFrame label="Gold Verification Flow" id="GLD-09-WORK">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Verification Logic</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Verification Logic</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Setting Checkpoints</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             Click each workflow node to see how verification checks filter out high-speed FOMO breakouts.
@@ -990,7 +990,7 @@ export const GoldVerificationWorkflow = () => {
 
           {/* Details (Right) */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2.5rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><ListChecks size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><ListChecks size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-5 relative z-10">
               <div className="flex items-center gap-2 text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -1000,7 +1000,7 @@ export const GoldVerificationWorkflow = () => {
               <div className="h-px bg-slate-100" />
               
               <div className="space-y-3">
-                <span className="text-[9px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
+                <span className="text-[9px] font-black font-mono text-teal-600 bg-[#F0FDF4] px-2 py-0.5 rounded border border-teal-200 inline-block uppercase">
                   NODE {activeNode + 1} ACTIVE
                 </span>
                 <h4 className="text-sm font-black text-[#071B36] uppercase">{workflow[activeNode].label.split(". ")[1]}</h4>
@@ -1128,8 +1128,8 @@ export const GoldEvidenceAuditPracticeDrill = () => {
                       "w-full p-4 rounded-xl border text-left text-xs font-bold leading-normal transition-all duration-200 shadow-sm",
                       selectedOption === opt.id 
                         ? opt.isCorrect 
-                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-900"
-                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-900"
+                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-100 text-teal-900"
+                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-100 text-rose-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                     )}
                   >
@@ -1190,10 +1190,10 @@ export const GoldEvidenceAuditDebrief = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         
         <div className="bg-[#071B36] rounded-[2.5rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden text-white">
-          <div className="absolute top-0 right-0 p-6 opacity-10"><Compass size={120} className="text-[#D4AF37]" /></div>
+          <div className="absolute top-0 right-0 p-6 text-slate-100"><Compass size={120} className="text-[#D4AF37]" /></div>
           
           <div className="relative z-10 space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] font-extrabold text-[#D4AF37] uppercase tracking-[0.25em]">Gold Track Complete</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2D2200] border border-[#543F00] text-[10px] font-extrabold text-[#D4AF37] uppercase tracking-[0.25em]">Gold Track Complete</span>
             <h3 className="text-xl font-black leading-tight uppercase tracking-tight">The Gold Auditor</h3>
             <p className="text-xs text-slate-400 leading-relaxed max-w-xl font-semibold">
               You have completed the Level 0 Gold Roadway. You have shifted your mindset from an emotional speculator reacting to speed to a disciplined gold auditor. You now understand that gold's aggressive movements can be read systematically through reaction zones, close quality, USD pressure, and verification checkpoints.

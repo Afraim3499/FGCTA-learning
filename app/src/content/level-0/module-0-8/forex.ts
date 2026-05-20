@@ -11,11 +11,11 @@ export const forexCards: LessonCard[] = [
     title: "The Forex Location Habit: Four-Dimensional Auditing",
     label: "Forex Foundation",
     visualKey: "forex-location-foundation",
-    body: "In retail trading, beginners are taught to draw lines on a chart and buy or sell 'support and resistance' blindly. In institutional reality, a single candle or breakout has zero absolute meaning. Before you judge any local price movement, you must audit the pair's location across four distinct layers: Session Structure (timeline boundaries), Pair Structure (historical swing memory), USD Context (DXY index alignment), and Related-Pair Context (correlation verification). If any of these layers are conflicting or out of place, the location is low-quality, and the local candle signal must be ignored.",
+    body: "In retail trading, beginners are taught to draw lines on a chart and buy or sell 'support and resistance' blindly. In institutional reality, a single candle or breakout has zero absolute meaning. Before you judge any local price movement, you must audit the pair's location across four distinct layers: Session Structure (time-based boundaries), Pair Structure (historical swing memory), USD Context (US Dollar Index (DXY) alignment), and Related-Pair Context (correlation verification). If any of these layers are conflicting or out of place, the location is low-quality, and the local candle signal must be ignored.",
     context: {
       keyTerms: [
         { term: "Forex Location Habit", definition: "The rule of auditing session structure, pair structure, USD context, and related pairs before reading local candles." },
-        { term: "Session Structure", definition: "The temporal boundaries (highs and lows) established during the Asia, London, and New York sessions." },
+        { term: "Session Structure", definition: "The time-based boundaries (highs and lows) established during the Asia, London, and New York sessions." },
         { term: "Pair Structure", definition: "A pair's individual historical memory, defined by multi-day swing highs and swing lows." },
         { term: "USD Context", definition: "The macro alignment of the US Dollar Index (DXY), which anchors all major USD currency pairs." },
         { term: "Related-Pair Context", definition: "The correlation status of sibling pairs (like GBP/USD verifying a EUR/USD move)." }
@@ -34,11 +34,11 @@ export const forexCards: LessonCard[] = [
     body: "The Forex market runs 24 hours a day, but volume is highly concentrated. Session boundaries—the Asia range, London open expansion, and New York reaction zones—are not brick-wall barriers where price must bounce. They are temporal reference zones where major orders are matched. When price approaches a session boundary, it is entering Layer 1 of its location map. Your task is to observe whether the session edge is defended (Limit Rejection), swept (Overshoot & Return), or accepted (Expansion Hold).",
     context: {
       keyTerms: [
-        { term: "Temporal reference", definition: "Using session highs and lows as behavioral markers rather than absolute support or resistance lines." },
+        { term: "Time-based reference", definition: "Using session highs and lows as behavioral markers rather than absolute support or resistance lines." },
         { term: "Asia Range boundary", definition: "The baseline ceiling and floor established during low-volume Asian hours, tested by London." },
-        { term: "Limit Rejection", definition: "When price attempts to breach a session edge but closes back inside, leaving a significant wick." },
-        { term: "Expansion Hold", definition: "A clean body close outside a session boundary followed by consolidation, proving acceptance." },
-        { term: "Overshoot & Return", definition: "A false expansion where price sweeps past a session high/low but quickly closes back inside." }
+        { term: "Limit Rejection", definition: "When price attempts to break past a session edge but closes back inside, leaving a significant wick." },
+        { term: "Movement Hold", definition: "A clean body close outside a session boundary followed by consolidation, proving acceptance." },
+        { term: "Overshoot & Return", definition: "A false breakout where price sweeps past a session high/low but quickly closes back inside." }
       ],
       whyThisMatters: "Session structure tells you who is in control of the daily timeline, preventing you from buying wicks that are actually liquidity sweeps.",
       realLifeExample: "London volume pushes EUR/USD 5 pips above the Asia high. You do not buy. You wait for the candle close to see if the session high location is accepted or swept.",
@@ -51,12 +51,12 @@ export const forexCards: LessonCard[] = [
     title: "The Midpoint Noise: Filtering Session Structure",
     label: "Middle-Zone Noise",
     visualKey: "forex-session-middle-zone-noise",
-    body: "Within any daily session structure, there is a high-information edge and a low-information midpoint. The center of a session range represents price equilibrium, where buy and sell orders are balanced and minor retail flows chop price back and forth. If a pair prints an active-looking candle in this middle zone, it is noise. Without the presence of resting institutional orders that cluster at session edges, midpoint price moves lack momentum and follow-through. The location devalues the candle.",
+    body: "Within any daily session structure, there is a high-information edge and a low-information midpoint. The center of a session range represents price balance, where buy and sell orders are balanced and minor retail flows chop price back and forth. If a pair prints an active-looking candle in this middle zone, it is noise. Without the presence of resting institutional orders that cluster at session edges, midpoint price moves lack momentum and follow-through. The location devalues the candle.",
     context: {
       keyTerms: [
-        { term: "Price Equilibrium", definition: "The balanced center of a range where buying and selling pressures cancel each other out." },
+        { term: "Price Balance", definition: "The balanced center of a range where buying and selling pressures cancel each other out." },
         { term: "Low-Information Zone", definition: "Areas inside a range where price behavior is random and provides no edge." },
-        { term: "Midpoint Chop", definition: "Sideways, overlapping price movement in the center of a session structure." },
+        { term: "Midpoint Chop", definition: "Sideways, overlapping price movement in the center of a session structure (also called chop)." },
         { term: "Location Devaluation", definition: "Lowering the priority of a candle pattern because it formed in a random midpoint." },
         { term: "Edge Focus", definition: "Discipline to only read candle behavior when price is interacting with outer boundaries." }
       ],
@@ -71,14 +71,14 @@ export const forexCards: LessonCard[] = [
     title: "Layer 2: Pair Structure (London Expansion Limits)",
     label: "London Expansion Location",
     visualKey: "forex-london-expansion-location",
-    body: "When the London session opens, European capital enters, often expanding the price beyond the Asia range limits. This is the first major test of Layer 2: Pair Structure. As price expands, you must audit where this expansion stalls relative to the pair's daily structure. A breakout that occurs without a consolidation base above the Asia high lacks structural acceptance. You are auditing the quality of the new location, checking if the pair can sustain value outside its baseline range.",
+    body: "When the London session opens, European capital enters, often expanding the price beyond the Asia range limits. This is the first major test of Layer 2: Pair Structure. As price moves, you must audit where this movement slows down relative to the pair's daily structure. A breakout that occurs without a consolidation base above the Asia high lacks market acceptance. You are auditing the quality of the new location, checking if the pair can sustain value outside its baseline range.",
     context: {
       keyTerms: [
-        { term: "Pair Structure Expansion", definition: "How the pair establishes new directional zones outside the initial session range." },
+        { term: "Pair Structure Movement", definition: "How the pair establishes new directional zones outside the initial session range." },
         { term: "Consolidation Base", definition: "A cluster of small-bodied candles holding above a level, proving the new location is accepted." },
         { term: "Sustained Value", definition: "Price holding outside a boundary for multiple candles, establishing a new trend floor." },
-        { term: "Expansion Stall", definition: "When a breakout loses momentum immediately after crossing a boundary, warning of a trap." },
-        { term: "Structural Acceptance", definition: "Confirmation that the market has accepted the new higher or lower price tier." }
+        { term: "Movement Stall", definition: "When a breakout loses momentum immediately after crossing a boundary, warning of a trap." },
+        { term: "Market Acceptance", definition: "Confirmation that the market has accepted the new higher or lower price tier." }
       ],
       whyThisMatters: "Auditing expansion location stops you from chasing momentum right as the pair runs out of volume at a structural exhaustion point.",
       realLifeExample: "EUR/USD breaks the Asia high at London open, but stalls immediately and prints tiny dojis. You classify the location as an expansion stall and wait.",
@@ -95,8 +95,8 @@ export const forexCards: LessonCard[] = [
     context: {
       keyTerms: [
         { term: "Session Handoff", definition: "The transitional period when London volume fades and New York liquidity takes control." },
-        { term: "London Coordinates", definition: "The high and low extremes printed during European hours, serving as New York's primary map." },
-        { term: "Continuation Hold", definition: "When New York tests the London high/low from above/below and rejects returning inside." },
+        { term: "London Coordinates", definition: "The highest and lowest prices reached during European hours, serving as New York's primary map." },
+        { term: "Continuation Hold", definition: "When New York tests the London high or low from above or below and holds direction without returning inside." },
         { term: "Handoff Alignment", definition: "When both London and New York volume push price in the same direction." },
         { term: "Reversal Trap", definition: "When New York completely undoes a London breakout, trapping morning momentum traders." }
       ],
@@ -111,13 +111,13 @@ export const forexCards: LessonCard[] = [
     title: "Layer 3: Prior Pair Swings (Multi-Day Memory)",
     label: "Pair Swing Location",
     visualKey: "forex-pair-swing-location",
-    body: "Beyond daily session boundaries lies Layer 3: Prior Pair Swings. These are the multi-day peaks and troughs where major capital imbalances previously reversed the market. These locations carry a deeper structural memory than intraday session lines. When a currency pair returns to a major daily or 4-hour swing low, local session candles change meaning. A bearish candle testing a daily swing floor is not a signal to sell—it is a test of structural defense. You must locate the pair relative to these multi-day coordinates.",
+    body: "Beyond daily session boundaries lies Layer 3: Prior Pair Swings. These are the multi-day peaks and troughs where major unequal buying or selling pressure previously reversed the market. These locations carry a deeper structural memory than intraday session lines. When a currency pair returns to a major daily or 4-hour swing low, local session candles change meaning. A bearish candle testing a daily swing floor is not a signal to sell—it is a test of structural defense. You must locate the pair relative to these multi-day coordinates.",
     context: {
       keyTerms: [
         { term: "Multi-Day Memory", definition: "The tendency of price to react at significant historical turning points from previous days." },
         { term: "Swing Low Floor", definition: "A prior major daily or 4-hour bottom where buyers previously overwhelmed sellers." },
         { term: "Swing High Ceiling", definition: "A prior major daily or 4-hour peak where sellers previously overwhelmed buyers." },
-        { term: "Structural Defense", definition: "Institutional buy or sell limits placed at major swing levels to defend positions." },
+        { term: "Structural Defense", definition: "Large automatic buy or sell orders placed by big players at major swing levels to defend positions." },
         { term: "Local vs. Macro Location", definition: "Comparing immediate session lines with major daily swing coordinates." }
       ],
       whyThisMatters: "Prioritizing prior swing locations stops you from selling breakdown candles that are actually slamming directly into multi-day buying support.",
@@ -134,10 +134,10 @@ export const forexCards: LessonCard[] = [
     body: "Because the US Dollar anchors over 80% of all Forex transactions, you cannot read any major pair in isolation. This is Layer 4: USD Context. The US Dollar Index (DXY) represents the aggregate strength of the USD. If EUR/USD is testing a local support floor, but DXY is trading in midpoint noise or breaking out of its own support floor, the EUR/USD floor is unstable. A high-quality location requires alignment: a pair at support must be backed by the USD index sitting at resistance.",
     context: {
       keyTerms: [
-        { term: "USD Index (DXY)", definition: "A measure of the value of the US Dollar relative to a basket of foreign currencies." },
+        { term: "US Dollar Index (DXY)", definition: "A measure of the value of the US Dollar relative to a basket of foreign currencies." },
         { term: "Macro Anchor", definition: "Using the DXY index to determine the true strength or weakness driving major USD pairs." },
-        { term: "Context Alignment", definition: "When DXY is at resistance while a major USD pair (like EUR/USD) is at support." },
-        { term: "Context Conflict", definition: "When DXY and a currency pair are both testing support, indicating an unstable, non-correlated move." },
+        { term: "Chart Alignment", definition: "When DXY is at resistance while a major USD pair (like EUR/USD) is at support." },
+        { term: "Chart Conflict", definition: "When DXY and a currency pair are both testing support, indicating an unstable, non-correlated move." },
         { term: "Index Filter", definition: "Using DXY location to approve or reject local pair setups." }
       ],
       whyThisMatters: "Checking USD context prevents you from trading fake pair setups that are contradicted by the true underlying movement of the Dollar.",
@@ -151,12 +151,12 @@ export const forexCards: LessonCard[] = [
     title: "Layer 5: Related-Pair Context (Correlation Check)",
     label: "Related-Pair Location",
     visualKey: "forex-related-pair-location",
-    body: "The final layer of the location audit is Related-Pair Context. Correlated pairs (such as EUR/USD and GBP/USD) should move in harmony when driven by broad institutional capital. If EUR/USD is attempting to break a session high, but GBP/USD is trapped in midpoint noise and DXY is flat, the EUR/USD move is isolated. Isolated breakouts are usually retail-driven traps. An aligned location—where multiple major pairs test boundaries together—confirms institutional participation.",
+    body: "The final layer of the location audit is Related-Pair Context. Correlated pairs (such as EUR/USD and GBP/USD, which tend to move in the same direction) should move in harmony when driven by broad institutional capital. If EUR/USD is attempting to break a session high, but GBP/USD is trapped in midpoint noise and DXY is flat, the EUR/USD move is isolated. Isolated breakouts are usually retail-driven traps. An aligned location—where multiple major pairs test boundaries together—confirms institutional participation.",
     context: {
       keyTerms: [
         { term: "Related-Pair Context", definition: "Using the location of correlated pairs to verify the broad validity of a move." },
         { term: "Isolated Breakout", definition: "A price expansion occurring on only one pair, indicating low institutional backing." },
-        { term: "Coordinated Expansion", definition: "When multiple majors break session boundaries simultaneously, proving broad flow." },
+        { term: "Coordinated Price Breakouts", definition: "When multiple major pairs break session boundaries simultaneously, proving broad flow." },
         { term: "Retail Trap", definition: "An isolated move designed to suck in retail breakout traders before rotating back." },
         { term: "Correlation Verification", definition: "Checking if sibling pairs are at similar structural edges before trading." }
       ],
@@ -176,8 +176,8 @@ export const forexCards: LessonCard[] = [
       keyTerms: [
         { term: "Location Workflow", definition: "A top-down audit process prioritizing structural coordinates over candle shapes." },
         { term: "Session Mapping", definition: "Marking current day session boundaries to establish the immediate playing field." },
-        { term: "Swing Integration", definition: "Overlaying historical daily/4h swings to check for major macro support or resistance." },
-        { term: "Context Check", definition: "Auditing USD index and related pairs to verify broad capital alignment." },
+        { term: "Mapping Prior Swings", definition: "Overlaying historical daily/4h swings to check for major support or resistance." },
+        { term: "US Dollar Check", definition: "Auditing the US Dollar Index and related pairs to verify broad capital alignment." },
         { term: "Behavior Verification", definition: "Analyzing local wicks and closes only after location quality has been approved." }
       ],
       whyThisMatters: "A structured workflow guarantees objectivity, stopping you from chasing shiny candles that form in random, unprofitable areas.",
@@ -194,7 +194,7 @@ export const forexCards: LessonCard[] = [
     body: "Apply the location-first habit to this scenario: EUR/USD prints a strong green candle on the 15-minute chart, closing near its high. However, price is in the middle of its Asia range ($1.0850). GBP/USD is also trading in its midpoint noise, and DXY is consolidated. How should you read this setup based on the four-layer location model?",
     taskData: {
       type: "choice_block",
-      question: "EUR/USD is currently trading inside its Asia session range. It prints a very strong green candle on the 15-minute chart, closing near its high at $1.0850. This candle is sitting directly in the middle of the range, far from the Asia high ($1.0900) and Asia low ($1.0800). GBP/USD is also sitting in the middle of its own range, and USD context (DXY) is completely flat and unclear. What is the most disciplined Forex location reading?",
+      question: "EUR/USD is currently trading inside its Asia session range. It prints a very strong green candle on the 15-minute chart, closing near its high at $1.0850. This candle is sitting directly in the middle of the range, far from the Asia high ($1.0900) and Asia low ($1.0800). GBP/USD is also sitting in the middle of its own range, and US Dollar context (DXY) is completely flat and unclear. What is the most disciplined Forex location reading?",
       options: [
         {
           id: "A",
@@ -225,8 +225,8 @@ export const forexCards: LessonCard[] = [
     context: {
       keyTerms: [
         { term: "Midpoint Noise", definition: "The central portion of a session range where price action is highly random and lacks direction." },
-        { term: "Isolated Candle Trap", definition: "Trading a single candle purely based on its visual size while ignoring its location." },
-        { term: "Flat USD Context", definition: "When the DXY index is consolidated, providing no directional aid for currency pairs." },
+        { term: "Isolated Candle Trap", definition: "Trading a single candle purely based on its visual size and ignoring where it formed on the chart." },
+        { term: "Flat US Dollar Movement", definition: "When the US Dollar Index (DXY) is consolidated, providing no directional aid for currency pairs." },
         { term: "Discipline Stand-Aside", definition: "Refusing to trade active-looking candles because they formed in low-priority locations." },
         { term: "Range Rotation Rule", definition: "The tendency of price to drift through the middle of a range rather than reverse there." }
       ],
@@ -246,7 +246,7 @@ export const forexCards: LessonCard[] = [
       keyTerms: [
         { term: "Location Checklist", definition: "The mental audit of session, pair, USD, and correlation boundaries before making a trading decision." },
         { term: "Session Boundaries", definition: "The outer ceilings and floors of a session range where institutional order flow changes." },
-        { term: "USD Index Overlay", definition: "Consistently referencing the DXY location to check if context supports the pair's setup." },
+        { term: "Checking the US Dollar Index", definition: "Consistently referencing the DXY location to check if context supports the pair's setup." },
         { term: "Related-Pair Filter", definition: "Using correlations (e.g., EUR/USD vs GBP/USD) to ensure price action is broad rather than isolated." },
         { term: "Top-Down Reading", definition: "An analytical method that prioritizes macro location and session edges over individual candle wicks." }
       ],

@@ -6,7 +6,7 @@ export const forexCards: LessonCard[] = [
     title: "Forex Timeframes Are Session Records",
     visualKey: "forex-session-timeframe-board",
     label: "Forex Foundation",
-    body: "A 15-minute candle records 15 minutes of activity. But in Forex, those 15 minutes are not equal across the day. A candle formed during quiet Asia, London open, New York overlap, or major news does not carry the same environment. \n\n**The Formula**: timeframe + session = reading environment",
+    body: "A 15-minute candle records 15 minutes of activity. But in the Foreign Exchange (Forex) market, those 15 minutes are not equal across the day. A candle formed during quiet Asia, London open, New York overlap, or major news does not carry the same environment. \n\n**The Formula**: timeframe + session = reading environment",
     context: {
       keyTerms: [
         { term: "Forex Session", definition: "A major trading window such as Asia, London, or New York." },
@@ -15,7 +15,7 @@ export const forexCards: LessonCard[] = [
         { term: "Session Record", definition: "A candle understood through both its timeframe and the session that created it." }
       ],
       whyThisMatters: "If a learner reads only the candle duration, they miss the market environment behind the candle. Forex movement changes across the trading day.",
-      realLifeExample: "A 15-minute EUR/USD candle during late Asia may be slow and narrow. A 15-minute EUR/USD candle after London opens may form inside a much more active environment.",
+      realLifeExample: "A 15-minute Euro vs. US Dollar (EUR/USD) candle during late Asia may be slow and narrow. A 15-minute EUR/USD candle after London opens may form inside a much more active environment.",
       commonMistake: "Reading Forex candles as if every hour of the day has the same quality.",
       quickNote: "In Forex, timeframe tells you how long. Session tells you what kind of market."
     }
@@ -85,7 +85,7 @@ export const forexCards: LessonCard[] = [
     title: "News Windows Distort Timeframe Reading",
     visualKey: "forex-news-distortion-board",
     label: "Event Pressure",
-    body: "A Forex candle formed during a major news window may record real market reaction, but it can also include unstable movement, spread changes, violent wicks, or fast repricing. The disciplined learner does not treat a news candle as clean until structure and follow-through appear.",
+    body: "A Forex candle formed during a major news window may record real market reaction, but it can also include unstable movement, spread changes (the widening gap between buying and selling prices), violent wicks, or fast repricing. The disciplined learner does not treat a news candle as clean until structure and follow-through appear.",
     context: {
       keyTerms: [
         { term: "News Window", definition: "The time around major economic releases or central bank events." },
@@ -95,7 +95,7 @@ export const forexCards: LessonCard[] = [
         { term: "Follow-Through", definition: "What price does after the event candle closes." }
       ],
       whyThisMatters: "Many Forex learners mistake fast news movement for high-quality evidence. Speed can create drama without clarity.",
-      realLifeExample: "GBP/USD prints a huge candle after economic data. A rushed learner sees direction. A trained learner waits to see whether the next candles confirm the move or reject it.",
+      realLifeExample: "The British Pound vs. US Dollar (GBP/USD) currency pair prints a huge candle after economic data. A rushed learner sees direction. A trained learner waits to see whether the next candles confirm the move or reject it.",
       commonMistake: "Treating every large news candle as a clean directional reading.",
       "quickNote": "News can make a candle loud before it becomes clear."
     }
@@ -155,7 +155,7 @@ export const forexCards: LessonCard[] = [
         { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." }
       ],
       whyThisMatters: "Forex is fast and fragmented. A fixed process slows the learner down and improves the quality of the evidence they accept.",
-      realLifeExample: "EUR/USD pushes on 15m. A trained learner checks 4H location, London participation, and upcoming CPI data before trusting the move.",
+      realLifeExample: "EUR/USD pushes on 15m. A trained learner checks 4H location, London participation, and upcoming Consumer Price Index (CPI) inflation data before trusting the move.",
       commonMistake: "Starting from the fastest chart and letting session speed control the reading.",
       "quickNote": "Read Forex from session into behavior, not from speed into emotion."
     }

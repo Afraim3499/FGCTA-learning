@@ -65,7 +65,7 @@ const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom 
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
+    <div className="flex flex-col items-center justify-center h-32 w-16 bg-[#F8FAFC] rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
       <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
       <div className={bodyClass} style={bodyStyle} />
       <div className="w-0.5 bg-slate-400" style={{ height: `${wickBottom}px` }} />
@@ -148,7 +148,7 @@ export const ForexConditionFoundation = () => {
                   className={cn(
                     "w-full p-3 rounded-xl border text-left transition-all duration-200 flex items-center justify-between shadow-sm",
                     selectedFactor === k 
-                      ? "bg-white border-teal-500 ring-2 ring-teal-500/10 scale-102 text-[#071B36]" 
+                      ? "bg-white border-teal-500 ring-2 ring-teal-100 scale-102 text-[#071B36]" 
                       : "bg-[#F8FBFC] border-slate-200 hover:bg-white text-slate-600"
                   )}
                 >
@@ -161,7 +161,7 @@ export const ForexConditionFoundation = () => {
 
           {/* Interactive display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><Compass size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><Compass size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-4 relative z-10 font-mono">
               <div className="flex items-center gap-2 text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -269,7 +269,7 @@ export const ForexSessionConditionMap = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Display component */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[200px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             <div className="flex gap-4 items-end relative z-10">
               {activeSession === "asia" && (
@@ -294,8 +294,8 @@ export const ForexSessionConditionMap = () => {
               )}
               {activeSession === "nyLate" && (
                 <>
-                  <MiniCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Chop" color="bg-rose-500/40 border-rose-400 text-rose-800" />
-                  <MiniCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Overlap" color="bg-slate-400/40 border-slate-300 text-slate-800" />
+                  <MiniCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Chop" color="bg-[#FECDD3] border-rose-400 text-rose-800" />
+                  <MiniCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Overlap" color="bg-[#E2E8F0] border-slate-300 text-slate-800" />
                 </>
               )}
             </div>
@@ -742,7 +742,7 @@ export const ForexRangeConditionRotation = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Chart Display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="w-full border-t border-rose-500/30 border-dashed flex items-center justify-between px-4 pt-1">
+            <div className="w-full border-t border-rose-200 border-dashed flex items-center justify-between px-4 pt-1">
               <span className="text-[8px] font-black uppercase text-rose-500 tracking-wider">Range Ceiling</span>
             </div>
 
@@ -768,7 +768,7 @@ export const ForexRangeConditionRotation = () => {
               )}
             </div>
 
-            <div className="w-full border-b border-teal-500/30 border-dashed flex items-center justify-between px-4 pb-1">
+            <div className="w-full border-b border-teal-200 border-dashed flex items-center justify-between px-4 pb-1">
               <span className="text-[8px] font-black uppercase text-teal-500 tracking-wider">Range Floor</span>
             </div>
           </div>
@@ -873,13 +873,13 @@ export const ForexUsdConditionContext = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Panels Display */}
           <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-2 bg-white border border-slate-200 rounded-[2rem] p-4 sm:p-6 shadow-sm min-h-fit sm:min-h-[220px]">
-            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50 min-h-[90px] sm:min-h-0 min-w-0">
+            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-[#F1F5F9] min-h-[90px] sm:min-h-0 min-w-0">
               <span className="text-[8px] font-black uppercase text-slate-400">EUR/USD</span>
               <span className="text-[10px] font-black text-[#071B36] uppercase leading-tight break-words whitespace-normal">{current.eurText}</span>
               <Info size={14} className="text-slate-300 shrink-0" />
             </div>
             
-            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50 min-h-[90px] sm:min-h-0 min-w-0">
+            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-[#F1F5F9] min-h-[90px] sm:min-h-0 min-w-0">
               <span className="text-[8px] font-black uppercase text-slate-400">GBP/USD</span>
               <span className="text-[10px] font-black text-[#071B36] uppercase leading-tight break-words whitespace-normal">{current.gbpText}</span>
               <Info size={14} className="text-slate-300 shrink-0" />
@@ -939,14 +939,14 @@ export const ForexChoppyConditionWarning = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Chart Display */}
-          <div className="md:col-span-7 bg-rose-50/10 border border-rose-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+          <div className="md:col-span-7 bg-[#FFF5F5] border border-rose-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             <div className="flex gap-2 items-center relative z-10">
-              <MiniCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Overlap" color="bg-rose-500/40 border-rose-400 text-rose-800" />
-              <MiniCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Overlap" color="bg-slate-400/40 border-slate-300 text-slate-800" />
-              <MiniCandle bullish={true} bodyHeight={10} wickTop={40} wickBottom={40} label="Overlap" color="bg-rose-500/40 border-rose-400 text-rose-800" />
-              <MiniCandle bullish={false} bodyHeight={25} wickTop={20} wickBottom={35} label="Overlap" color="bg-slate-400/40 border-slate-300 text-slate-800" />
+              <MiniCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Overlap" color="bg-[#FECDD3] border-rose-400 text-rose-800" />
+              <MiniCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Overlap" color="bg-[#E2E8F0] border-slate-300 text-slate-800" />
+              <MiniCandle bullish={true} bodyHeight={10} wickTop={40} wickBottom={40} label="Overlap" color="bg-[#FECDD3] border-rose-400 text-rose-800" />
+              <MiniCandle bullish={false} bodyHeight={25} wickTop={20} wickBottom={35} label="Overlap" color="bg-[#E2E8F0] border-slate-300 text-slate-800" />
             </div>
 
             <div className="absolute top-4 right-4 bg-rose-100 border border-rose-200 rounded-lg p-2 flex items-center gap-1 text-[9px] font-black text-rose-700 uppercase">
@@ -977,7 +977,7 @@ export const ForexChoppyConditionWarning = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
+            <div className="mt-8 bg-[#FFE4E6] p-4 border border-[#FECDD3] rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 If the condition is choppy, your confidence should drop. The best traders know when to stand aside and protect capital.
@@ -1078,8 +1078,8 @@ export const ForexConditionPracticeDrill = () => {
                       "w-full p-4 rounded-xl border text-left text-xs font-bold leading-normal transition-all duration-200 shadow-sm",
                       selectedOption === opt.id 
                         ? opt.isCorrect 
-                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-900"
-                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-900"
+                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-100 text-teal-900"
+                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-100 text-rose-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                     )}
                   >
@@ -1140,10 +1140,10 @@ export const ForexConditionDebrief = () => {
         <ForexChecklistRibbon />
 
         <div className="bg-[#071B36] rounded-[2rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden text-white">
-          <div className="absolute top-0 right-0 p-6 opacity-10"><Globe size={120} className="text-teal-400" /></div>
+          <div className="absolute top-0 right-0 p-6 text-slate-200"><Globe size={120} className="text-teal-400" /></div>
           
           <div className="relative z-10 space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Forex Track Complete</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0FDFA] border border-[#CCFBF1] text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Forex Track Complete</span>
             <h3 className="text-lg font-black leading-tight uppercase tracking-tight">Environmental Filter</h3>
             <p className="text-xs text-slate-400 leading-relaxed max-w-xl font-semibold">
               You have completed the Level 0 Module 0.7 Forex Roadway. You have shifted your perspective from chasing individual candles to auditing the overall Forex environment. You now understand that session rhythm, Asia compression ranges, London expansion quality, New York shifts, USD counterweight context, and related-pair confirmations dictate the validity of every technical setup.

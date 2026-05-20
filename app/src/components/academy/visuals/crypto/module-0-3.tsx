@@ -16,6 +16,68 @@ import {
 } from "lucide-react";
 
 /**
+ * LURNAVA INSTITUTIONAL DESIGN TOKENS
+ */
+const UI = {
+  navy: "#071B36",
+  teal: "#0D9488",
+  slate: "#475569",
+  border: "#E2E8F0",
+  bg: "#F8FBFC",
+  rose: "#BE123C",
+  sky: "#0284C7",
+  amber: "#D97706"
+};
+
+/**
+ * Institutional Frame Component for Module 0.3 Crypto
+ */
+const InstitutionalFrame = ({ 
+  children, 
+  label, 
+  status = "AUDIT STANDBY",
+  id = "LN-0.3-AUD"
+}: { 
+  children: React.ReactNode; 
+  label: string; 
+  status?: string;
+  id?: string;
+}) => (
+  <div className="w-full h-full min-h-[450px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
+    {/* Grid Background Effect */}
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
+    
+    {/* Top Header Row */}
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
+      <div className="flex flex-col">
+        <div className="flex items-center gap-2 mb-1">
+          <DatabaseIcon size={10} className="text-teal-600 animate-pulse" />
+          <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.25em]">Evidence Audit Stream</span>
+        </div>
+        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{label}</h4>
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="flex flex-col items-end">
+          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
+          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
+        </div>
+        <div className="w-px h-6 bg-slate-200" />
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-lg shadow-sm">
+          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Dynamic Content Center Stage */}
+    <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
+      {children}
+    </div>
+  </div>
+);
+
+
+/**
  * 0.3 - Crypto Candle Source Map
  */
 export const CryptoCandleSourceMap = () => {
@@ -59,7 +121,9 @@ export const CryptoCandleSourceMap = () => {
   const active = sources.find(s => s.id === activePart) || sources[3];
 
   return (
-    <div className="w-full pt-6 py-4 px-2">
+    <InstitutionalFrame label="Crypto Candle Source Map" id="LN-0.3-SRC" status="VENUE SCAN">
+      <div className="w-full pt-6 py-4 px-2">
+        
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
         {/* Source Selector */}
         <div className="lg:col-span-5 flex flex-col gap-3">
@@ -87,7 +151,7 @@ export const CryptoCandleSourceMap = () => {
         </div>
 
         {/* Dynamic Candle Record */}
-        <div className="lg:col-span-7 bg-slate-100/50 rounded-3xl p-6 border border-slate-200 relative min-h-[320px] flex flex-col items-center justify-center">
+        <div className="lg:col-span-7 bg-[#F1F5F9] rounded-3xl p-6 border border-slate-200 relative min-h-[320px] flex flex-col items-center justify-center">
           <div className="relative z-10 flex flex-col items-center">
             {/* Candle Rendering based on source */}
             <div className="flex flex-col items-center mb-6">
@@ -122,7 +186,9 @@ export const CryptoCandleSourceMap = () => {
           <span className="text-white font-black">Mechanic Check:</span> A single price event can look dramatically different depending on where you source the data.
         </p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -134,14 +200,16 @@ export const TwoCandleEnginesBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full pt-6">
+    <InstitutionalFrame label="Two Candle Engines Board" id="LN-0.3-ENG" status="SPOT VS PERP">
+      <div className="w-full pt-6">
+        
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {/* Spot Panel */}
         <div 
           onMouseEnter={() => setActivePart('spot')}
           className={cn(
             "p-5 rounded-3xl border relative overflow-hidden transition-all duration-300",
-            isActive('spot') ? "bg-blue-50/50 border-blue-200 shadow-md scale-[1.01]" : "bg-white border-slate-100 opacity-90"
+            isActive('spot') ? "bg-[#EFF6FF] border-blue-200 shadow-md scale-[1.01]" : "bg-white border-slate-100 "
           )}
         >
           <div className="flex items-center gap-3 mb-6">
@@ -167,7 +235,7 @@ export const TwoCandleEnginesBoard = () => {
             ))}
           </div>
 
-          <div className="bg-slate-50/50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center">
+          <div className="bg-[#F8FAFC] rounded-2xl p-6 border border-slate-100 flex flex-col items-center">
              <div className="w-0.5 h-12 bg-slate-300" />
              <div className="w-8 h-8 bg-emerald-500 rounded-sm shadow-md" />
              <div className="w-0.5 h-12 bg-slate-300" />
@@ -180,7 +248,7 @@ export const TwoCandleEnginesBoard = () => {
           onMouseEnter={() => setActivePart('perp')}
           className={cn(
             "p-5 rounded-3xl border relative overflow-hidden transition-all duration-300",
-            isActive('perp') ? "bg-amber-50/50 border-amber-200 shadow-md scale-[1.01]" : "bg-white border-slate-100 opacity-90"
+            isActive('perp') ? "bg-[#FFFBEB] border-amber-200 shadow-md scale-[1.01]" : "bg-white border-slate-100 "
           )}
         >
           <div className="flex items-center gap-3 mb-6">
@@ -206,7 +274,7 @@ export const TwoCandleEnginesBoard = () => {
             ))}
           </div>
 
-          <div className="bg-slate-50/50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center">
+          <div className="bg-[#F8FAFC] rounded-2xl p-6 border border-slate-100 flex flex-col items-center">
              <div className="w-0.5 h-20 bg-slate-300" />
              <div className="w-8 h-4 bg-emerald-500 rounded-sm shadow-md" />
              <div className="w-0.5 h-4 bg-slate-300" />
@@ -220,7 +288,9 @@ export const TwoCandleEnginesBoard = () => {
           <span className="text-amber-400">Rule:</span> Spot volume is more reliable evidence than Perpetual volume.
         </p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -266,10 +336,12 @@ export const WickSourceDiagnosticBoard = () => {
   const active = causes.find(c => c.id === activePart) || causes[0];
 
   return (
-    <div className="w-full pt-6">
+    <InstitutionalFrame label="Wick Source Diagnostic Board" id="LN-0.3-DIAG" status="WICK DIAGNOSTIC">
+      <div className="w-full pt-6">
+        
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
         {/* Candle Visualization */}
-        <div className="lg:col-span-5 bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col items-center justify-center min-h-[350px]">
+        <div className="lg:col-span-5 bg-[#F8FAFC] rounded-3xl p-6 border border-slate-100 flex flex-col items-center justify-center min-h-[350px]">
            <div className={cn("w-0.5 bg-slate-300 transition-all duration-500", active.wickH)} />
            <div className={cn("w-10 bg-emerald-500 rounded-sm shadow-md transition-all duration-500", active.bodyH)} />
            <div className="w-0.5 h-8 bg-slate-300" />
@@ -298,7 +370,7 @@ export const WickSourceDiagnosticBoard = () => {
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-black uppercase tracking-tight">{cause.label}</span>
-                <span className={cn("text-[8px] font-black uppercase px-2 py-0.5 rounded-md", activePart === cause.id ? "bg-white/10 text-white" : "bg-slate-50 text-slate-500")}>
+                <span className={cn("text-[8px] font-black uppercase px-2 py-0.5 rounded-md", activePart === cause.id ? "bg-[#334155] text-white" : "bg-[#F8FAFC] text-slate-500")}>
                   {cause.evidence}
                 </span>
               </div>
@@ -315,7 +387,9 @@ export const WickSourceDiagnosticBoard = () => {
           <span className="text-emerald-500">Target:</span> Only trust wicks supported by high spot volume.
         </p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -357,9 +431,11 @@ export const CryptoCandleDecisionBoard = () => {
   ];
 
   return (
-    <div className="w-full pt-6">
+    <InstitutionalFrame label="Crypto Candle Decision Board" id="LN-0.3-DEC" status="DECISION AUDIT">
+      <div className="w-full pt-6">
+        
       <div className="p-4 relative">
-        <div className="absolute top-4 right-0 p-8 opacity-[0.03] text-slate-900 rotate-12">
+        <div className="absolute top-4 right-0 p-8  text-slate-900 rotate-12">
           <ShieldAlert size={300} />
         </div>
 
@@ -385,7 +461,7 @@ export const CryptoCandleDecisionBoard = () => {
                     "p-4 rounded-xl border text-left transition-all duration-300",
                     step === i 
                       ? "bg-slate-900 border-slate-800 shadow-md scale-[1.01] text-white" 
-                      : "bg-slate-50/50 border-slate-100 text-slate-600 hover:border-slate-200"
+                      : "bg-[#F8FAFC] border-slate-100 text-slate-600 hover:border-slate-200"
                   )}
                 >
                   <div className="flex items-center justify-between mb-1">
@@ -401,7 +477,7 @@ export const CryptoCandleDecisionBoard = () => {
 
           {/* Diagnostic Result */}
           <div className="bg-white rounded-3xl p-6 border border-slate-200 flex flex-col items-center text-center shadow-sm">
-            <div className="mb-4 p-3 bg-slate-50 rounded-xl">
+            <div className="mb-4 p-3 bg-[#F8FAFC] rounded-xl">
               {steps[step].icon}
             </div>
             <h3 className="text-base font-black text-slate-900 mb-1">{steps[step].val}</h3>
@@ -416,7 +492,7 @@ export const CryptoCandleDecisionBoard = () => {
               />
             </div>
 
-            <div className="p-3 rounded-xl bg-amber-50 border border-amber-100 w-full">
+            <div className="p-3 rounded-xl bg-[#FFFBEB] border border-amber-100 w-full">
               <p className="text-[9px] font-black text-amber-900 uppercase tracking-widest leading-relaxed">
                 Verdict: {step === 3 ? "MECHANICAL NOISE - DO NOT TRUST" : "AWAITING MORE DATA..."}
               </p>
@@ -430,6 +506,8 @@ export const CryptoCandleDecisionBoard = () => {
           Reading is not complete until every mechanical instrument is audited.
         </p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };

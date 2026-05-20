@@ -32,7 +32,7 @@ import { InstitutionalFrame, MentorInsight, UI } from "./shared";
  * Helper: Mini Candlestick Graphic
  */
 const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15 }) => (
-  <div className="flex flex-col items-center justify-center h-28 w-12 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
+  <div className="flex flex-col items-center justify-center h-28 w-12 bg-[#F8FBFC] rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
     {/* Upper Wick */}
     <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
     {/* Body */}
@@ -80,7 +80,7 @@ export const EvidenceAuditFoundation = () => {
           {/* Process Diagram (Left Rail) */}
           <div className="md:col-span-7 flex flex-col justify-center space-y-6">
             <div className="space-y-2">
-              <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Methodology</span>
+              <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Methodology</span>
               <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">The Audit Pipeline</h3>
               <p className="text-xs font-medium text-slate-500 leading-relaxed">
                 Click each stage to see how raw candles are transformed into disciplined classifications rather than guesses.
@@ -95,7 +95,7 @@ export const EvidenceAuditFoundation = () => {
                   className={cn(
                     "w-full p-4 rounded-2xl border text-left transition-all duration-300 flex items-center justify-between shadow-sm",
                     activeStep === idx 
-                      ? "bg-white border-teal-500 ring-2 ring-teal-500/10 scale-[1.02]" 
+                      ? "bg-white border-teal-500 ring-2 ring-teal-100 scale-[1.02]" 
                       : "bg-[#F8FBFC] border-slate-200 hover:bg-white"
                   )}
                 >
@@ -113,7 +113,7 @@ export const EvidenceAuditFoundation = () => {
 
           {/* Diagnostic Display (Right Rail) */}
           <div className="md:col-span-5 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><Layers size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><Layers size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-4 relative z-10">
               <div className="flex items-center gap-2 text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -131,7 +131,7 @@ export const EvidenceAuditFoundation = () => {
                   transition={{ duration: 0.2 }}
                   className="space-y-3"
                 >
-                  <span className="text-[10px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
+                  <span className="text-[10px] font-black font-mono text-teal-600 bg-[#F0FDF4] px-2 py-0.5 rounded border border-teal-200 inline-block uppercase">
                     Stage {activeStep + 1} ACTIVE
                   </span>
                   <h4 className="text-sm font-black text-[#071B36] uppercase">{steps[activeStep].subtitle}</h4>
@@ -172,7 +172,7 @@ export const SingleClueVsEvidenceStack = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-rose-600 uppercase tracking-widest bg-rose-50 px-2 py-1 rounded border border-rose-100 inline-block">Single-Clue Trap</span>
+            <span className="text-[10px] font-black text-rose-600 uppercase tracking-widest bg-[#FFF5F5] px-2 py-1 rounded border border-rose-200 inline-block">Single-Clue Trap</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">The Danger of Isolated Signals</h3>
           </div>
           <button 
@@ -188,7 +188,7 @@ export const SingleClueVsEvidenceStack = () => {
           {/* Left panel: Single Clue Trap */}
           <div className={cn(
             "border rounded-[2rem] p-6 flex flex-col justify-between transition-all duration-500 shadow-sm relative overflow-hidden",
-            !toggleActive ? "bg-rose-50/50 border-rose-200 ring-2 ring-rose-500/10" : "bg-white border-slate-200 opacity-60"
+            !toggleActive ? "bg-[#FFF5F5] border-rose-200 ring-2 ring-rose-100" : "bg-white border-slate-200 text-slate-400 bg-[#F8FBFC]"
           )}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -210,7 +210,7 @@ export const SingleClueVsEvidenceStack = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-rose-100/50 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-700 leading-normal flex items-start gap-2">
+            <div className="mt-6 p-4 bg-[#FFF5F5] border border-rose-200 rounded-xl text-[10px] font-bold text-rose-700 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 No location context. No higher timeframe trend check. No volume verification. High probability of entering a trap.
@@ -221,7 +221,7 @@ export const SingleClueVsEvidenceStack = () => {
           {/* Right panel: Full Evidence Stack */}
           <div className={cn(
             "border rounded-[2rem] p-6 flex flex-col justify-between transition-all duration-500 shadow-sm relative overflow-hidden",
-            toggleActive ? "bg-teal-50/50 border-teal-200 ring-2 ring-teal-500/10 scale-[1.01]" : "bg-white border-slate-200 opacity-60"
+            toggleActive ? "bg-teal-50/50 border-teal-200 ring-2 ring-teal-100 scale-[1.01]" : "bg-white border-slate-200 text-slate-400 bg-[#F8FBFC]"
           )}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -254,7 +254,7 @@ export const SingleClueVsEvidenceStack = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-teal-100/50 border border-teal-200/50 rounded-xl text-[10px] font-bold text-teal-700 leading-normal flex items-start gap-2">
+            <div className="mt-6 p-4 bg-[#F0FDF4] border border-teal-200 rounded-xl text-[10px] font-bold text-teal-700 leading-normal flex items-start gap-2">
               <ListChecks size={14} className="shrink-0 mt-0.5" />
               <span>
                 By checking multiple layers, we identify that the green candle is actually hitting resistance, preventing a premature entry.
@@ -291,7 +291,7 @@ export const EvidenceLayerStack = () => {
     <InstitutionalFrame label="Evidence Layer Stack" id="AUD-03-STACK">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Audit Checklist</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Audit Checklist</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">The Six Layers of Verification</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             Click each layer of the stack to understand what it audits and how it impacts your reading confidence.
@@ -301,7 +301,7 @@ export const EvidenceLayerStack = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
           
           {/* Staged Stack (Left) */}
-          <div className="md:col-span-6 flex flex-col justify-end space-y-1 bg-slate-50 border border-slate-200/50 p-4 rounded-[2rem]">
+          <div className="md:col-span-6 flex flex-col justify-end space-y-1 bg-slate-50 border border-slate-200 p-4 rounded-[2rem]">
             {[...layers].reverse().map((layer, index) => {
               const originalIndex = 5 - index;
               const isActive = activeLayer === originalIndex;
@@ -325,7 +325,7 @@ export const EvidenceLayerStack = () => {
 
           {/* Layer Detail Board (Right) */}
           <div className="md:col-span-6 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><Compass size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><Compass size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-5 relative z-10">
               <div className="flex items-center gap-2 text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -335,7 +335,7 @@ export const EvidenceLayerStack = () => {
               <div className="h-px bg-slate-100" />
               
               <div className="space-y-4">
-                <span className="text-[10px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
+                <span className="text-[10px] font-black font-mono text-teal-600 bg-[#F0FDF4] px-2 py-0.5 rounded border border-teal-200 inline-block uppercase">
                   LAYER {activeLayer + 1} AUDIT
                 </span>
                 <h4 className="text-base font-black text-[#071B36] uppercase">{layers[activeLayer].name.split(". ")[1]}</h4>
@@ -389,7 +389,7 @@ export const EvidenceAlignmentBoard = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Confluence State</span>
+            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Confluence State</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Structured Confluence</h3>
           </div>
           <button 
@@ -410,7 +410,7 @@ export const EvidenceAlignmentBoard = () => {
                 className={cn(
                   "p-5 rounded-2xl border transition-all duration-500 flex flex-col justify-between shadow-sm relative overflow-hidden",
                   confluenceActive 
-                    ? "bg-teal-50/40 border-teal-200 ring-2 ring-teal-500/5" 
+                    ? "bg-[#F0FDF4] border-teal-200 ring-2 ring-teal-100" 
                     : "bg-white border-slate-200"
                 )}
               >
@@ -445,7 +445,7 @@ export const EvidenceAlignmentBoard = () => {
               <div className="relative flex flex-col items-center justify-center py-6">
                 <div className={cn(
                   "w-24 h-24 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-500 relative z-10 bg-slate-50",
-                  confluenceActive ? "border-teal-500 shadow-lg shadow-teal-500/10 scale-105" : "border-slate-200"
+                  confluenceActive ? "border-teal-500 shadow-lg shadow-teal-100 scale-105" : "border-slate-200"
                 )}>
                   <Scale size={24} className={confluenceActive ? "text-teal-500 animate-bounce" : "text-slate-400"} />
                   <span className="text-[9px] font-black uppercase text-slate-500 mt-2">Confluence</span>
@@ -509,7 +509,7 @@ export const EvidenceConflictMap = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-amber-600 uppercase tracking-widest bg-amber-50 px-2 py-1 rounded border border-amber-100 inline-block">Conflict Diagnostic</span>
+            <span className="text-[10px] font-black text-amber-600 uppercase tracking-widest bg-[#FEF3C7] px-2 py-1 rounded border border-[#FDE68A] inline-block">Conflict Diagnostic</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Identifying Conflicting Clues</h3>
           </div>
           
@@ -532,7 +532,7 @@ export const EvidenceConflictMap = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
           
           {/* Supporting Column (Left) */}
-          <div className="md:col-span-4 bg-teal-50/20 border border-teal-200/50 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm">
+          <div className="md:col-span-4 bg-[#F0FDF4] border border-teal-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm">
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-teal-600">
                 <CheckCircle size={14} />
@@ -554,7 +554,7 @@ export const EvidenceConflictMap = () => {
           </div>
 
           {/* Limiting Column (Center) */}
-          <div className="md:col-span-4 bg-rose-50/20 border border-rose-200/50 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm">
+          <div className="md:col-span-4 bg-[#FFF5F5] border border-rose-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm">
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-rose-600">
                 <AlertTriangle size={14} />
@@ -577,7 +577,7 @@ export const EvidenceConflictMap = () => {
 
           {/* Diagnostic Console (Right) */}
           <div className="md:col-span-4 bg-[#071B36] text-white rounded-[2rem] p-6 flex flex-col justify-between shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><ShieldAlert size={100} className="text-teal-400" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><ShieldAlert size={100} className="text-teal-400" /></div>
             
             <div className="space-y-4 relative z-10">
               <div className="text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -586,7 +586,7 @@ export const EvidenceConflictMap = () => {
               <div className="h-px bg-slate-800" />
               
               <div className="space-y-3">
-                <span className="text-[9px] font-black font-mono text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20 inline-block uppercase">
+                <span className="text-[9px] font-black font-mono text-amber-400 bg-[#FEF3C7] px-2 py-0.5 rounded border border-[#FDE68A] inline-block uppercase">
                   CONFLICT DETECTED
                 </span>
                 <h4 className="text-sm font-black text-white uppercase italic tracking-tight leading-tight">{current.label}</h4>
@@ -623,7 +623,7 @@ export const ReadingQualityClassifier = () => {
     clear: {
       title: "Clear Reading Quality",
       subtitle: "Multiple Layers Align",
-      badge: "border-teal-100 bg-teal-50 text-teal-600",
+      badge: "border-teal-200 bg-[#F0FDF4] text-teal-700",
       desc: "All critical layers of the stack support the same interpretation. Conflict is minimal or absent. Reading quality is high.",
       rule: "Wait for verification checkpoint to execute. High structural context.",
       visual: (
@@ -639,7 +639,7 @@ export const ReadingQualityClassifier = () => {
     mixed: {
       title: "Mixed Reading Quality",
       subtitle: "Active Supporting and Limiting Clues",
-      badge: "border-amber-100 bg-amber-50 text-amber-600",
+      badge: "border-[#FDE68A] bg-[#FEF3C7] text-amber-700",
       desc: "You have strong reasons to see one scenario, but clear technical boundaries or wicks actively oppose or limit that scenario.",
       rule: "Lower volume, wait for further structural expansion, or step aside.",
       visual: (
@@ -655,7 +655,7 @@ export const ReadingQualityClassifier = () => {
     unclear: {
       title: "Unclear Reading Quality",
       subtitle: "No Defined Structure / High Noise",
-      badge: "border-slate-100 bg-slate-50 text-slate-600",
+      badge: "border-slate-200 bg-slate-100 text-slate-600",
       desc: "The swings are erratic, overlapping, or poorly defined. Price is chopping between levels without respecting them.",
       rule: "Do not attempt to read. Close the terminal. Capital preservation.",
       visual: (
@@ -677,7 +677,7 @@ export const ReadingQualityClassifier = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         
         {/* Classification Selector */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/50 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
           <div className="space-y-1">
             <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Quality Audit</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Classification State</h3>
@@ -718,7 +718,7 @@ export const ReadingQualityClassifier = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50 border border-slate-150 p-5 rounded-2xl space-y-2">
+            <div className="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-2">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Rule of Engagement</span>
               <p className="text-xs text-[#071B36] font-black leading-snug">{current.rule}</p>
             </div>
@@ -726,7 +726,7 @@ export const ReadingQualityClassifier = () => {
 
           {/* Graphic Container */}
           <div className="md:col-span-5 bg-white border border-slate-200 rounded-[2.5rem] p-8 flex items-center justify-center shadow-sm relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             <div className="w-full relative z-10">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -784,7 +784,7 @@ export const VerificationCheckpointFlow = () => {
     <InstitutionalFrame label="Verification Checkpoint Flow" id="AUD-07-VERIF">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Verification Logic</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Verification Logic</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Setting Checkpoints</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             A trained trader never chases. Click the workflow steps below to see how verification checks replace prediction.
@@ -819,7 +819,7 @@ export const VerificationCheckpointFlow = () => {
 
           {/* Node Details Board (Right) */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2.5rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-6 opacity-5"><ListChecks size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-6 text-slate-100"><ListChecks size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-5 relative z-10">
               <div className="flex items-center gap-2 text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -829,7 +829,7 @@ export const VerificationCheckpointFlow = () => {
               <div className="h-px bg-slate-100" />
               
               <div className="space-y-4">
-                <span className="text-[9px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
+                <span className="text-[9px] font-black font-mono text-teal-600 bg-[#F0FDF4] px-2 py-0.5 rounded border border-teal-200 inline-block uppercase">
                   NODE {activeNode + 1} ACTIVE
                 </span>
                 <h4 className="text-sm font-black text-[#071B36] uppercase">{workflow[activeNode].title}</h4>
@@ -867,7 +867,7 @@ export const ReadingFailureDiagnostic = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-rose-600 uppercase tracking-widest bg-rose-50 px-2 py-1 rounded border border-rose-100 inline-block">Audit Update</span>
+            <span className="text-[10px] font-black text-rose-600 uppercase tracking-widest bg-[#FFF5F5] px-2 py-1 rounded border border-rose-200 inline-block">Audit Update</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Handling Breakdown Without Ego</h3>
           </div>
           
@@ -891,7 +891,7 @@ export const ReadingFailureDiagnostic = () => {
           
           {/* Visual Candlestick Representation (Left) */}
           <div className="md:col-span-6 bg-white border border-slate-200 rounded-[2.5rem] p-8 flex items-center justify-center shadow-sm relative overflow-hidden min-h-[220px]">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             <AnimatePresence mode="wait">
               {stage === "before" ? (
@@ -940,7 +940,7 @@ export const ReadingFailureDiagnostic = () => {
               <div className="space-y-3">
                 <span className={cn(
                   "text-[9px] font-black font-mono px-2 py-0.5 rounded border inline-block uppercase",
-                  stage === "before" ? "bg-teal-50 text-teal-600 border-teal-100" : "bg-rose-50 text-rose-600 border-rose-100"
+                  stage === "before" ? "bg-[#F0FDF4] text-teal-700 border-teal-200" : "bg-[#FFF5F5] text-rose-700 border-rose-200"
                 )}>
                   {stage === "before" ? "STAGE 1: CLEAR BREAK" : "STAGE 2: BREAKDOWN"}
                 </span>
@@ -997,7 +997,7 @@ export const CoreReadingWorkflowMap = () => {
     <InstitutionalFrame label="Full Core Reading Workflow" id="AUD-09-WORK">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Workflow Map</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Workflow Map</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">The Modular Checklist</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             Follow this repeatable sequence on every chart before formulating any trading conclusion.
@@ -1027,10 +1027,10 @@ export const CoreReadingWorkflowMap = () => {
 
         {/* Detail panel */}
         <div className="bg-white border border-slate-200 rounded-[2rem] p-6 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-4 opacity-5"><Activity size={100} className="text-[#071B36]" /></div>
+          <div className="absolute top-0 right-0 p-4 text-slate-100"><Activity size={100} className="text-[#071B36]" /></div>
           
           <div className="space-y-3 relative z-10">
-            <span className="text-[9px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
+            <span className="text-[9px] font-black font-mono text-teal-600 bg-[#F0FDF4] px-2 py-0.5 rounded border border-teal-200 inline-block uppercase">
               STEP {steps[activeStep].num} DETAILS
             </span>
             <h4 className="text-sm font-black text-[#071B36] uppercase tracking-tight leading-tight">{steps[activeStep].name}</h4>
@@ -1143,8 +1143,8 @@ export const EvidenceAuditPracticeDrill = () => {
                       "w-full p-4 rounded-xl border text-left text-xs font-bold leading-normal transition-all duration-200 shadow-sm",
                       selectedOption === opt.id 
                         ? opt.isCorrect 
-                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-900"
-                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-900"
+                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-100 text-teal-900"
+                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-100 text-rose-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                     )}
                   >
@@ -1165,8 +1165,8 @@ export const EvidenceAuditPracticeDrill = () => {
                   className={cn(
                     "p-4 rounded-xl border text-xs font-semibold leading-relaxed shadow-sm",
                     options.find(o => o.id === selectedOption)?.isCorrect 
-                      ? "bg-teal-50 border-teal-200 text-teal-800"
-                      : "bg-rose-50 border-rose-200 text-rose-800"
+                      ? "bg-[#F0FDF4] border-teal-200 text-teal-800"
+                      : "bg-[#FFF5F5] border-rose-200 text-rose-800"
                   )}
                 >
                   <div className="flex items-center gap-1.5 mb-1.5">
@@ -1201,7 +1201,7 @@ export const EvidenceAuditDebrief = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         
         <div className="bg-[#071B36] rounded-[2.5rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden text-white">
-          <div className="absolute top-0 right-0 p-6 opacity-10"><Compass size={120} className="text-teal-400" /></div>
+          <div className="absolute top-0 right-0 p-6 text-slate-100"><Compass size={120} className="text-teal-400" /></div>
           
           <div className="relative z-10 space-y-6">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Level 0 Complete</span>

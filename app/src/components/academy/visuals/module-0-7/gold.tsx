@@ -68,7 +68,7 @@ const MiniGoldCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBot
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-32 w-16 bg-amber-50/50 rounded-lg p-2 border border-amber-100 shadow-sm shrink-0">
+    <div className="flex flex-col items-center justify-center h-32 w-16 bg-[#FFFDF5] rounded-lg p-2 border border-amber-100 shadow-sm shrink-0">
       <div className="w-0.5 bg-amber-400" style={{ height: `${wickTop}px` }} />
       <div className={bodyClass} style={bodyStyle} />
       <div className="w-0.5 bg-amber-400" style={{ height: `${wickBottom}px` }} />
@@ -81,7 +81,7 @@ const MiniGoldCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBot
  * Gold Checklist Ribbon
  */
 const GoldChecklistRibbon = () => (
-  <div className="w-full bg-[#0B1528] text-white py-2.5 px-4 rounded-xl border border-amber-900/35 flex items-center justify-between shadow-sm shrink-0 mb-4 font-mono">
+  <div className="w-full bg-[#0B1528] text-white py-2.5 px-4 rounded-xl border border-[#451A03] flex items-center justify-between shadow-sm shrink-0 mb-4 font-mono">
     <div className="flex items-center gap-2">
       <Zap size={12} className="text-amber-400 animate-pulse" />
       <span className="text-[9px] font-black uppercase tracking-widest text-amber-400">Gold Roadway filter</span>
@@ -151,7 +151,7 @@ export const GoldConditionFoundation = () => {
                   className={cn(
                     "w-full p-3 rounded-xl border text-left transition-all duration-200 flex items-center justify-between shadow-sm",
                     selectedLayer === k 
-                      ? "bg-white border-amber-500 ring-2 ring-amber-500/10 scale-102 text-[#0B1528]" 
+                      ? "bg-white border-amber-500 ring-2 ring-amber-100 scale-102 text-[#0B1528]" 
                       : "bg-[#F8FBFC] border-slate-200 hover:bg-white text-slate-600"
                   )}
                 >
@@ -164,7 +164,7 @@ export const GoldConditionFoundation = () => {
 
           {/* Interactive display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><Compass size={100} className="text-[#0B1528]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><Compass size={100} className="text-[#0B1528]" /></div>
             
             <div className="space-y-4 relative z-10 font-mono">
               <div className="flex items-center gap-2 text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -268,7 +268,7 @@ export const GoldVolatilityConditionMap = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Display component */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[200px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#0B1528_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             <div className="flex gap-4 items-end relative z-10">
               {activeWeather === "calm" && (
@@ -392,7 +392,7 @@ export const GoldReactionZoneCondition = () => {
           {/* Scanner Display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
             {/* Historical Resistance Zone */}
-            <div className="absolute top-[80px] left-0 w-full h-[35px] bg-amber-500/10 border-y border-amber-500/20 flex items-center justify-start pl-4">
+            <div className="absolute top-[80px] left-0 w-full h-[35px] bg-[#FFFBEB] border-y border-[#FDE68A] flex items-center justify-start pl-4">
               <span className="text-[8px] font-black text-amber-700 uppercase tracking-wider">RESISTANCE REACTION ZONE</span>
             </div>
 
@@ -806,14 +806,14 @@ export const GoldChoppyConditionWarning = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Chart Display */}
-          <div className="md:col-span-7 bg-rose-50/10 border border-rose-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#0B1528_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+          <div className="md:col-span-7 bg-[#FFF5F5] border border-rose-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             <div className="flex gap-2 items-center relative z-10">
-              <MiniGoldCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Chop" color="bg-rose-500/40 border-rose-400 text-rose-800" />
-              <MiniGoldCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Chop" color="bg-slate-400/40 border-slate-300 text-slate-800" />
-              <MiniGoldCandle bullish={true} bodyHeight={10} wickTop={40} wickBottom={40} label="Chop" color="bg-rose-500/40 border-rose-400 text-rose-800" />
-              <MiniGoldCandle bullish={false} bodyHeight={25} wickTop={20} wickBottom={35} label="Chop" color="bg-slate-400/40 border-slate-300 text-slate-800" />
+              <MiniGoldCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Chop" color="bg-[#FECDD3] border-rose-400 text-rose-800" />
+              <MiniGoldCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Chop" color="bg-[#E2E8F0] border-slate-300 text-slate-800" />
+              <MiniGoldCandle bullish={true} bodyHeight={10} wickTop={40} wickBottom={40} label="Chop" color="bg-[#FECDD3] border-rose-400 text-rose-800" />
+              <MiniGoldCandle bullish={false} bodyHeight={25} wickTop={20} wickBottom={35} label="Chop" color="bg-[#E2E8F0] border-slate-300 text-slate-800" />
             </div>
 
             <div className="absolute top-4 right-4 bg-rose-100 border border-rose-200 rounded-lg p-2 flex items-center gap-1 text-[9px] font-black text-rose-700 uppercase">
@@ -844,7 +844,7 @@ export const GoldChoppyConditionWarning = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
+            <div className="mt-8 bg-[#FFE4E6] p-4 border border-[#FECDD3] rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 Chop is not a failure to understand. Sometimes Gold is simply not clean. Protect capital and stand aside.
@@ -908,7 +908,7 @@ export const GoldConditionFirstWorkflow = () => {
 
           {/* Details */}
           <div className="md:col-span-6 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm font-mono relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><ListChecks size={100} className="text-[#0B1528]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><ListChecks size={100} className="text-[#0B1528]" /></div>
             
             <div className="space-y-4 relative z-10">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none">Workflow Step Details</span>
@@ -1022,8 +1022,8 @@ export const GoldConditionPracticeDrill = () => {
                       "w-full p-4 rounded-xl border text-left text-xs font-bold leading-normal transition-all duration-200 shadow-sm font-mono",
                       selectedOption === opt.id 
                         ? opt.isCorrect 
-                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-900"
-                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-900"
+                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-100 text-teal-900"
+                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-100 text-rose-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                     )}
                   >
@@ -1083,11 +1083,11 @@ export const GoldConditionDebrief = () => {
       <div className="w-full max-w-4xl mx-auto space-y-4 text-left">
         <GoldChecklistRibbon />
 
-        <div className="bg-[#0B1528] rounded-[2rem] p-8 border border-amber-900/35 shadow-2xl relative overflow-hidden text-white">
-          <div className="absolute top-0 right-0 p-6 opacity-10"><Zap size={120} className="text-amber-400" /></div>
+        <div className="bg-[#0B1528] rounded-[2rem] p-8 border border-[#451A03] shadow-2xl relative overflow-hidden text-white">
+          <div className="absolute top-0 right-0 p-6 text-slate-200"><Zap size={120} className="text-amber-400" /></div>
           
           <div className="relative z-10 space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] font-extrabold text-amber-400 uppercase tracking-[0.25em]">Gold Track Complete</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFFBEB] border border-[#FDE68A] text-[10px] font-extrabold text-amber-400 uppercase tracking-[0.25em]">Gold Track Complete</span>
             <h3 className="text-lg font-black leading-tight uppercase tracking-tight font-mono">Environmental Filter</h3>
             <p className="text-xs text-slate-400 leading-relaxed max-w-xl font-semibold">
               You have completed the Level 0 Module 0.7 Gold Roadway. You have shifted your perspective from chasing individual candles to auditing the overall Gold environment. You now understand that volatility, reaction zones, macro pressure, USD context, close quality, structure, and follow-through dictate the validity of every technical setup.

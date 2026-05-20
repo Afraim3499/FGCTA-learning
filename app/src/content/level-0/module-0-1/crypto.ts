@@ -6,18 +6,18 @@ export const cryptoCards: LessonCard[] = [
     title: "Crypto Brief: Mechanics Over Hype",
     visualKey: "crypto-mechanics-map",
     label: "Roadway Context",
-    body: "Crypto trades all day, but not every move is clean. Before trusting a crypto chart, check whether the move is supported by spot activity, perpetual mechanics, BTC context, and exchange conditions.",
+    body: "Crypto trades all day, but not every move is clean. Before trusting a crypto chart, check whether the move is supported by spot activity, perpetual mechanics, BTC (Bitcoin) context, and exchange conditions.",
     context: {
       keyTerms: [
-        { term: "Spot", definition: "Buying or holding the actual crypto asset. If you buy BTC on spot, you hold BTC." },
+        { term: "Spot", definition: "Buying or holding the actual crypto asset. If you buy Bitcoin (BTC) on spot, you hold Bitcoin." },
         { term: "Perpetual", definition: "A derivative contract that follows the asset price without owning the asset. Affected by leverage and funding." },
         { term: "Funding", definition: "A periodic payment mechanism showing pressure between long and short positions." },
         { term: "Liquidation pressure", definition: "Forced closing of leveraged positions when traders cannot maintain margin." },
-        { term: "BTC context", definition: "The influence Bitcoin often has on the broader crypto market as a reference asset." },
+        { term: "BTC context", definition: "The influence Bitcoin (BTC) often has on the broader crypto market as a reference asset." },
         { term: "Exchange noise", definition: "Movement that may appear strong in one place or thin condition but is not broadly supported." }
       ],
       whyThisMatters: "Crypto can move because of real buying, leveraged contract pressure, BTC-wide movement, or thin exchange conditions. If a learner only looks at the candle, they may confuse hype or mechanical pressure with clean market evidence.",
-      realLifeExample: "BTC moves sharply during a low-liquidity period, and several altcoins follow. A rushed learner assumes every coin is independently strong. A trained learner first checks BTC context, market breadth, and whether the move is supported beyond one noisy chart.",
+      realLifeExample: "Bitcoin (BTC) moves sharply during a low-liquidity period, and several altcoins follow. A rushed learner assumes every coin is independently strong. A trained learner first checks BTC context, market breadth, and whether the move is supported beyond one noisy chart.",
       commonMistake: "Treating every fast crypto move as meaningful without checking whether it is broad, supported, and mechanically clean.",
       quickNote: "In crypto, speed is not proof. Check the mechanics behind the move."
     }

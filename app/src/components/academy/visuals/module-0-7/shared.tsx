@@ -18,10 +18,10 @@ export const InstitutionalFrame = ({
 }) => (
   <div className="w-full h-full min-h-[550px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
     {/* Grid Background Effect */}
-    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
     
     {/* Top Header Row */}
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200/50 pb-4 shrink-0">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
       <div className="flex flex-col">
         <div className="flex items-center gap-2 mb-1">
           <Compass size={10} className="text-teal-600 animate-spin" style={{ animationDuration: "12s" }} />
@@ -48,7 +48,7 @@ export const InstitutionalFrame = ({
     </div>
 
     {/* Bottom Footer Row */}
-    <div className="mt-6 pt-4 border-t border-slate-200/50 flex items-center justify-between shrink-0">
+    <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between shrink-0">
        <div className="flex gap-4">
           <div className="flex items-center gap-1.5">
             <div className="w-1 h-1 bg-teal-500 rounded-full" />
@@ -67,7 +67,7 @@ export const InstitutionalFrame = ({
  * Mentor Insight Component
  */
 export const MentorInsight = ({ text, analogy }: { text: string; analogy?: string }) => (
-  <div className="w-full mt-6 pt-5 border-t border-slate-200/50 flex flex-col gap-2 shrink-0 text-left">
+  <div className="w-full mt-6 pt-5 border-t border-slate-200 flex flex-col gap-2 shrink-0 text-left">
     <div className="flex items-center gap-2">
       <div className="px-2 py-1 bg-[#071B36] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Insight</div>
       <div className="h-px flex-1 bg-slate-200" />

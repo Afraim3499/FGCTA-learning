@@ -6,7 +6,7 @@ export const cryptoCards: LessonCard[] = [
     title: "Crypto Timeframes Run 24/7",
     visualKey: "crypto-continuous-market-board",
     label: "Crypto Foundation",
-    body: "A crypto timeframe is a candle duration inside a continuous market. The chart may keep printing candles all day and all weekend, but the quality of those candles can change with activity, liquidity, venue behavior, BTC context, and event pressure.",
+    body: "A crypto timeframe is a candle duration inside a continuous market. The chart may keep printing candles all day and all weekend, but the quality of those candles can change with activity, liquidity, venue behavior, Bitcoin (BTC) context, and event pressure.",
     context: {
       keyTerms: [
         { term: "24/7 Market", definition: "A market that continues trading across days, nights, weekends, and holidays." },
@@ -26,7 +26,7 @@ export const cryptoCards: LessonCard[] = [
     title: "The Crypto Day Has Activity Cycles",
     visualKey: "crypto-activity-cycle-board",
     label: "Activity Rhythm",
-    body: "Crypto does not follow the same session structure as Forex, but it still has activity rhythms. Some windows attract more participation, some are quieter, and some become unstable because of events, funding pressure, or broader market attention.",
+    body: "Crypto does not follow the same session structure as Foreign Exchange (Forex), but it still has activity rhythms. Some windows attract more participation, some are quieter, and some become unstable because of events, funding pressure, or broader market attention.",
     context: {
       keyTerms: [
         { term: "Activity Cycle", definition: "A repeated change in market participation across time." },
@@ -47,7 +47,7 @@ export const cryptoCards: LessonCard[] = [
     title: "Same Candle, Different Market Condition",
     visualKey: "crypto-candle-quality-board",
     label: "Candle Quality",
-    body: "A crypto candle gains meaning from the condition that created it. The same candle shape can be useful, weak, exaggerated, or unstable depending on liquidity, venue activity, spot support, perpetual pressure, and event context.",
+    body: "A crypto candle gains meaning from the condition that created it. The same candle shape can be useful, weak, exaggerated, or unstable depending on liquidity, venue activity, spot support, perpetual contract (perp) pressure, and event context.",
     context: {
       keyTerms: [
         { term: "Candle Condition", definition: "The market environment that created the candle." },
@@ -68,7 +68,7 @@ export const cryptoCards: LessonCard[] = [
     title: "BTC Context Changes Timeframe Reading",
     visualKey: "crypto-btc-context-board",
     label: "Market Context",
-    body: "In crypto, a candle on one asset is often connected to the broader market. BTC context can strengthen, weaken, or complicate the reading. A trained learner checks whether the move is asset-specific or part of wider market movement.",
+    body: "In crypto, a candle on one asset is often connected to the broader market. Bitcoin (BTC) context can strengthen, weaken, or complicate the reading. A trained learner checks whether the move is asset-specific or part of wider market movement.",
     context: {
       keyTerms: [
         { term: "BTC Context", definition: "The broader condition of Bitcoin, often used as a reference for crypto market direction." },
@@ -77,9 +77,9 @@ export const cryptoCards: LessonCard[] = [
         { term: "Asset-Specific Move", definition: "Movement that appears more connected to one asset than the entire market." },
         { term: "Market Pull", definition: "When BTC or broader crypto movement influences other assets." }
       ],
-      whyThisMatters: "Many altcoin candles look strong until BTC context changes. A learner who ignores BTC may mistake market-wide pull for asset-specific strength.",
-      realLifeExample: "SOL prints a bullish candle while BTC is also moving strongly upward. That candle may have broad support. If SOL spikes while BTC is weak and other assets are flat, the learner should investigate more carefully.",
-      commonMistake: "Reading an altcoin candle as isolated strength without checking BTC context.",
+      whyThisMatters: "Many altcoin (alternative cryptocurrency) candles look strong until Bitcoin (BTC) context changes. A learner who ignores BTC may mistake market-wide pull for asset-specific strength.",
+      realLifeExample: "Solana (SOL) prints a bullish candle while Bitcoin (BTC) is also moving strongly upward. That candle may have broad support. If Solana (SOL) spikes while Bitcoin (BTC) is weak and other assets are flat, the learner should investigate more carefully.",
+      commonMistake: "Reading an altcoin candle as isolated strength without checking Bitcoin (BTC) context.",
       "quickNote": "In crypto, one asset’s candle often needs the market’s context."
     }
   },
@@ -88,7 +88,7 @@ export const cryptoCards: LessonCard[] = [
     title: "Spot vs Perp Timeframe Behavior",
     visualKey: "crypto-spot-perp-board",
     label: "Market Type",
-    body: "A spot candle and a perpetual candle can share the same timeframe but carry different information. Spot movement records asset trades. Perpetual movement may also include leverage pressure, funding imbalance, liquidation risk, and contract behavior.",
+    body: "A spot candle (from a market where assets are bought and sold immediately) and a perpetual (perp) contract candle (a type of derivative with no expiry date) can share the same timeframe but carry different information. Spot movement records asset trades. Perpetual (perp) movement may also include leverage pressure (borrowed funds), funding imbalance (scheduled fees paid between traders), liquidation risk (forced closures), and contract behavior.",
     context: {
       keyTerms: [
         { term: "Spot Candle", definition: "A candle formed from actual asset buying and selling on a venue." },
@@ -150,18 +150,18 @@ export const cryptoCards: LessonCard[] = [
     title: "Multi-Timeframe Crypto Reading Process",
     visualKey: "crypto-reading-stack-board",
     label: "Crypto Workflow",
-    body: "A disciplined crypto reading starts with broader structure and market context before moving into lower-timeframe detail. The learner checks BTC context, venue type, liquidity condition, and timeframe alignment before trusting the candle.",
+    body: "A disciplined crypto reading starts with broader structure and market context before moving into lower-timeframe detail. The learner checks Bitcoin (BTC) context, venue type, liquidity condition, and timeframe alignment before trusting the candle.",
     context: {
       keyTerms: [
         { term: "Crypto Top-Down Reading", definition: "A process for reading from broader context into local detail." },
         { term: "HTF Structure", definition: "Higher-timeframe market location and broader movement." },
-        { term: "Venue Check", definition: "Identifying whether the candle comes from spot, perpetuals, DEX, or an aggregated feed." },
+        { term: "Venue Check", definition: "Identifying whether the candle comes from spot, perpetuals, decentralized exchanges (DEX), or an aggregated feed." },
         { term: "Working Timeframe", definition: "The main chart used for current analysis." },
         { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." },
         { term: "Alignment", definition: "When multiple layers support the same reading." }
       ],
       whyThisMatters: "Crypto has many moving layers. Without a process, the learner can be pulled around by every dramatic candle.",
-      realLifeExample: "ETH rallies on 15m. A trained learner checks the 4H structure, BTC condition, whether spot confirms, and whether the move appears across venues before treating it as clean.",
+      realLifeExample: "Ethereum (ETH) rallies on 15m. A trained learner checks the 4H structure, Bitcoin (BTC) condition, whether spot confirms, and whether the move appears across venues before treating it as clean.",
       commonMistake: "Starting from the smallest chart and letting urgency control the reading.",
       "quickNote": "Crypto reading needs structure before speed."
     }
@@ -174,7 +174,7 @@ export const cryptoCards: LessonCard[] = [
     body: "This drill tests whether you can separate active movement from aligned evidence. A crypto candle can be real and still incomplete. The trained learner checks timeframe, venue, BTC context, spot support, and liquidity before calling a reading clean.",
     taskData: {
       type: "choice_block",
-      question: "A token shows a strong 15-minute candle on a perpetual exchange. The 4H chart is still under resistance, BTC is flat, spot movement is weaker, and the candle formed during a thin-liquidity period.",
+      question: "A token shows a strong 15-minute candle on a perpetual exchange. The 4H chart is still under resistance, Bitcoin (BTC) is flat, spot movement is weaker, and the candle formed during a thin-liquidity period.",
       options: [
         {
           id: "A",
@@ -184,7 +184,7 @@ export const cryptoCards: LessonCard[] = [
         },
         {
           id: "B",
-          text: "The move should be treated carefully because the lower-timeframe candle is not fully supported by BTC context, spot confirmation, or higher-timeframe structure.",
+          text: "The move should be treated carefully because the lower-timeframe candle is not fully supported by Bitcoin (BTC) context, spot confirmation, or higher-timeframe structure.",
           isCorrect: true,
           feedback: "Correct. The 15-minute move is active, but the broader evidence is not aligned. BTC is not supporting strongly, spot confirmation is weaker, and higher-timeframe structure is still limiting the reading. This is mixed evidence, not clean confirmation."
         },
@@ -222,7 +222,7 @@ export const cryptoCards: LessonCard[] = [
     title: "Crypto Debrief: Time, Venue, Liquidity, Alignment",
     visualKey: "crypto-roadway-debrief",
     label: "Roadway Debrief",
-    body: "You are no longer reading crypto candles as isolated shapes. You now understand that every crypto candle belongs to a timeframe, every timeframe forms inside a market condition, and every candle must be checked against venue, liquidity, BTC context, and broader structure.",
+    body: "You are no longer reading crypto candles as isolated shapes. You now understand that every crypto candle belongs to a timeframe, every timeframe forms inside a market condition, and every candle must be checked against venue, liquidity, Bitcoin (BTC) context, and broader structure.",
     context: {
       keyTerms: [
         { term: "Venue Source", definition: "The market or platform that produced the candle." },
@@ -233,7 +233,7 @@ export const cryptoCards: LessonCard[] = [
         { term: "Crypto Evidence Stack", definition: "The combined review of timeframe, venue, BTC, liquidity, and structure." }
       ],
       whyThisMatters: "Crypto is fast, continuous, fragmented, and emotional. A learner needs a process that slows the reading down and checks the right layers.",
-      realLifeExample: "Two learners see the same 15m crypto candle. One reacts to the candle. The trained learner asks where it formed, which venue produced it, whether BTC supports it, and whether liquidity confirms it.",
+      realLifeExample: "Two learners see the same 15m crypto candle. One reacts to the candle. The trained learner asks where it formed, which venue produced it, whether Bitcoin (BTC) supports it, and whether liquidity confirms it.",
       commonMistake: "Leaving with the idea that “crypto is 24/7” but no actual process for reading crypto timeframes.",
       "quickNote": "Crypto candles are read through time, venue, liquidity, and alignment."
     }

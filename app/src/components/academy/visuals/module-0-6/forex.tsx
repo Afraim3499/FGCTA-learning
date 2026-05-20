@@ -28,7 +28,7 @@ import { InstitutionalFrame, MentorInsight } from "./shared";
  * Helper: Mini Candlestick Graphic
  */
 const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15, label = "" }) => (
-  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
+  <div className="flex flex-col items-center justify-center h-32 w-16 bg-[#F8FBFC] rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
     {/* Upper Wick */}
     <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
     {/* Body */}
@@ -65,7 +65,7 @@ export const ForexEvidenceAuditFoundation = () => {
       title: "3. Structure & Location",
       subtitle: "Swing & Key Areas",
       desc: "Label local swing points and identify nearby session range highs/lows and HTF boundaries.",
-      color: "bg-amber-50 text-amber-600 border-amber-100"
+      color: "bg-[#FEF3C7] text-amber-700 border-[#FDE68A]"
     },
     {
       title: "4. USD Context & Related Pairs",
@@ -89,7 +89,7 @@ export const ForexEvidenceAuditFoundation = () => {
           {/* Interactive Chevrons (Left Rail) */}
           <div className="md:col-span-7 flex flex-col justify-center space-y-6">
             <div className="space-y-2">
-              <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Forex Roadmap</span>
+              <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Forex Roadmap</span>
               <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">The Forex Audit Pipeline</h3>
               <p className="text-xs font-medium text-slate-500 leading-relaxed">
                 Click each stage of the pipeline to see how we audit currency behavior rather than guessing breakout direction.
@@ -104,7 +104,7 @@ export const ForexEvidenceAuditFoundation = () => {
                   className={cn(
                     "w-full p-3.5 rounded-xl border text-left transition-all duration-300 flex items-center justify-between shadow-sm",
                     activeStep === idx 
-                      ? "bg-white border-teal-500 ring-2 ring-teal-500/10 scale-[1.01]" 
+                      ? "bg-white border-teal-500 ring-2 ring-teal-100 scale-[1.01]" 
                       : "bg-[#F8FBFC] border-slate-200 hover:bg-white"
                   )}
                 >
@@ -122,7 +122,7 @@ export const ForexEvidenceAuditFoundation = () => {
 
           {/* Console Log Display (Right Rail) */}
           <div className="md:col-span-5 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><Layers size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><Layers size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-4 relative z-10">
               <div className="flex items-center gap-2 text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -140,7 +140,7 @@ export const ForexEvidenceAuditFoundation = () => {
                   transition={{ duration: 0.2 }}
                   className="space-y-3"
                 >
-                  <span className="text-[9px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
+                  <span className="text-[9px] font-black font-mono text-teal-600 bg-[#F0FDF4] px-2 py-0.5 rounded border border-teal-200 inline-block uppercase">
                     Stage {activeStep + 1} ACTIVE
                   </span>
                   <h4 className="text-sm font-black text-[#071B36] uppercase">{steps[activeStep].subtitle}</h4>
@@ -197,7 +197,7 @@ export const ForexSingleCandleTrap = () => {
           {/* Left panel: Single Clue Trap */}
           <div className={cn(
             "border rounded-[2rem] p-6 flex flex-col justify-between transition-all duration-500 shadow-sm relative overflow-hidden",
-            !toggleActive ? "bg-rose-50/50 border-rose-200 ring-2 ring-rose-500/10" : "bg-white border-slate-200 opacity-60"
+            !toggleActive ? "bg-[#FFF5F5] border-rose-200 ring-2 ring-rose-100" : "bg-white border-slate-200 text-slate-400 bg-[#F8FBFC]"
           )}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -218,7 +218,7 @@ export const ForexSingleCandleTrap = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-rose-100/50 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-700 leading-normal flex items-start gap-2">
+            <div className="mt-6 p-4 bg-[#FFF5F5] border border-rose-200 rounded-xl text-[10px] font-bold text-rose-700 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 Danger: No session location checked. The candle is hitting key resistance and remains inside the Asian range.
@@ -229,7 +229,7 @@ export const ForexSingleCandleTrap = () => {
           {/* Right panel: Full Evidence Stack */}
           <div className={cn(
             "border rounded-[2rem] p-6 flex flex-col justify-between transition-all duration-500 shadow-sm relative overflow-hidden",
-            toggleActive ? "bg-teal-50/50 border-teal-200 ring-2 ring-teal-500/10 scale-[1.01]" : "bg-white border-slate-200 opacity-60"
+            toggleActive ? "bg-[#F0FDF4] border-teal-200 ring-2 ring-teal-100 scale-[1.01]" : "bg-white border-slate-200 text-slate-400 bg-[#F8FBFC]"
           )}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -261,7 +261,7 @@ export const ForexSingleCandleTrap = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-teal-100/50 border border-teal-200/50 rounded-xl text-[10px] font-bold text-teal-700 leading-normal flex items-start gap-2">
+            <div className="mt-6 p-4 bg-[#F0FDF4] border border-teal-200 rounded-xl text-[10px] font-bold text-teal-700 leading-normal flex items-start gap-2">
               <ListChecks size={14} className="shrink-0 mt-0.5" />
               <span>
                 Result: Aligned resistance and lack of GBP confirmation reveals that the green candle is likely a trap.
@@ -292,7 +292,7 @@ export const ForexSessionContextEvidence = () => {
       liquidity: "Low-Medium",
       weight: "Low Breakout Weight",
       desc: "Most pairs consolidate. A breakout candle printed here is often a false drift due to thin institutional participation.",
-      color: "border-blue-100 bg-blue-50 text-blue-700"
+      color: "border-blue-200 bg-[#EFF6FF] text-blue-700"
     },
     london: {
       name: "London Session (Trend Maker)",
@@ -300,7 +300,7 @@ export const ForexSessionContextEvidence = () => {
       liquidity: "High",
       weight: "High Breakout Weight",
       desc: "European institutions enter. Major volume establishes daily trends, making candle closes highly significant.",
-      color: "border-purple-100 bg-purple-50 text-purple-700"
+      color: "border-purple-200 bg-[#F5F3FF] text-purple-700"
     },
     overlap: {
       name: "London/NY Overlap (Peak Volume)",
@@ -308,7 +308,7 @@ export const ForexSessionContextEvidence = () => {
       liquidity: "Maximum",
       weight: "Maximum Evidence Weight",
       desc: "Both major markets are open. Price expansions and major news stabilizations during this window set the weekly story.",
-      color: "border-teal-100 bg-teal-50 text-teal-700"
+      color: "border-teal-200 bg-[#F0FDF4] text-teal-700"
     },
     newyork: {
       name: "New York Session (Reversals/Data)",
@@ -316,7 +316,7 @@ export const ForexSessionContextEvidence = () => {
       liquidity: "High",
       weight: "High Reaction Weight",
       desc: "US macroeconomic reports occur. Expect major volatility spikes followed by stabilization checks at range limits.",
-      color: "border-amber-100 bg-amber-50 text-amber-700"
+      color: "border-[#FDE68A] bg-[#FEF3C7] text-amber-700"
     }
   };
 
@@ -326,7 +326,7 @@ export const ForexSessionContextEvidence = () => {
     <InstitutionalFrame label="Session Context Timeline" id="FRX-03-SESS">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Session Context</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Session Context</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">The Forex Session Timeline</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             Click each session window to see how regional market hours alter the weight and safety of candle evidence.
@@ -373,7 +373,7 @@ export const ForexSessionContextEvidence = () => {
               </div>
             </div>
 
-            <div className="bg-slate-50 border border-slate-150 p-4 rounded-xl space-y-1">
+            <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl space-y-1">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Evidence Rule</span>
               <p className="text-xs text-[#071B36] font-black italic">{current.weight}</p>
             </div>
@@ -424,7 +424,7 @@ export const ForexSessionHighLowEvidence = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Evidence Areas</span>
+            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Evidence Areas</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Asia Range High/Low Tests</h3>
           </div>
           
@@ -448,7 +448,7 @@ export const ForexSessionHighLowEvidence = () => {
           
           {/* Chart Graphic (Left) */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2.5rem] p-6 flex flex-col justify-between shadow-sm min-h-[260px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             {/* Asia Range Boundary Marks */}
             <div className="absolute top-1/4 left-0 w-full border-t-2 border-dashed border-slate-200 flex items-center justify-between px-4 z-0">
@@ -475,7 +475,7 @@ export const ForexSessionHighLowEvidence = () => {
                     {/* Spike candle sweeps high and returns */}
                     <MiniCandle bullish={true} bodyHeight={25} wickTop={40} wickBottom={5} label="London Spike" />
                     <MiniCandle bullish={false} bodyHeight={45} wickTop={10} wickBottom={10} label="NY Return" />
-                    <div className="absolute -top-3 right-0 bg-rose-50 border border-rose-100 rounded px-2 py-0.5 text-[8px] font-black text-rose-600 uppercase">
+                    <div className="absolute -top-3 right-0 bg-[#FFF5F5] border border-rose-200 rounded px-2 py-0.5 text-[8px] font-black text-rose-600 uppercase">
                       Sweep & Reject
                     </div>
                   </motion.div>
@@ -490,7 +490,7 @@ export const ForexSessionHighLowEvidence = () => {
                     {/* Breakout candle closes above and holds */}
                     <MiniCandle bullish={true} bodyHeight={50} wickTop={5} wickBottom={5} label="London Break" />
                     <MiniCandle bullish={true} bodyHeight={30} wickTop={5} wickBottom={10} label="NY Hold" />
-                    <div className="absolute -top-3 right-0 bg-teal-50 border border-teal-100 rounded px-2 py-0.5 text-[8px] font-black text-teal-600 uppercase">
+                    <div className="absolute -top-3 right-0 bg-[#F0FDF4] border border-teal-200 rounded px-2 py-0.5 text-[8px] font-black text-teal-600 uppercase">
                       Expansion Hold
                     </div>
                   </motion.div>
@@ -510,7 +510,7 @@ export const ForexSessionHighLowEvidence = () => {
               <div className="space-y-3">
                 <span className={cn(
                   "text-[9px] font-black font-mono px-2 py-0.5 rounded border inline-block uppercase",
-                  scenario === "sweep" ? "bg-rose-50 text-rose-600 border-rose-100" : "bg-teal-50 text-teal-600 border-teal-100"
+                  scenario === "sweep" ? "bg-[#FFF5F5] text-rose-700 border-rose-200" : "bg-[#F0FDF4] text-teal-700 border-teal-200"
                 )}>
                   {scenario === "sweep" ? "SWEEP & REJECT" : "EXPANSION DETECTED"}
                 </span>
@@ -559,7 +559,7 @@ export const ForexUsdContextReading = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">USD Correlation</span>
+            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">USD Correlation</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">USD Master Driver Check</h3>
           </div>
           
@@ -674,7 +674,7 @@ export const ForexRelatedPairEvidence = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Correlation Audit</span>
+            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Correlation Audit</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Sibling Confirmation</h3>
           </div>
           
@@ -703,7 +703,7 @@ export const ForexRelatedPairEvidence = () => {
                 <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider">EUR/USD Behavior</span>
                 <p className="text-xs text-slate-700 font-bold">{current.eurusd}</p>
               </div>
-              <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border uppercase", activeMode === "align" ? "bg-teal-50 text-teal-600 border-teal-100" : "bg-amber-50 text-amber-600 border-amber-100")}>{current.status}</span>
+              <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border uppercase", activeMode === "align" ? "bg-[#F0FDF4] text-teal-700 border-teal-200" : "bg-[#FEF3C7] text-amber-700 border-[#FDE68A]")}>{current.status}</span>
             </div>
 
             <div className="p-4 bg-white border border-slate-200 rounded-xl flex items-center justify-between shadow-sm">
@@ -711,7 +711,7 @@ export const ForexRelatedPairEvidence = () => {
                 <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider">GBP/USD Behavior</span>
                 <p className="text-xs text-slate-700 font-bold">{current.gbpusd}</p>
               </div>
-              <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border uppercase", activeMode === "align" ? "bg-teal-50 text-teal-600 border-teal-100" : "bg-rose-50 text-rose-600 border-rose-100")}>{activeMode === "align" ? "Aligned" : "No Confirm"}</span>
+              <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border uppercase", activeMode === "align" ? "bg-[#F0FDF4] text-teal-700 border-teal-200" : "bg-[#FFF5F5] text-rose-700 border-rose-200")}>{activeMode === "align" ? "Aligned" : "No Confirm"}</span>
             </div>
 
             <div className="p-4 bg-white border border-slate-200 rounded-xl flex items-center justify-between shadow-sm">
@@ -719,13 +719,13 @@ export const ForexRelatedPairEvidence = () => {
                 <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider">Global USD Index (DXY)</span>
                 <p className="text-xs text-slate-700 font-bold">{current.dxy}</p>
               </div>
-              <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border uppercase", activeMode === "align" ? "bg-teal-50 text-teal-600 border-teal-100" : "bg-slate-50 text-slate-500 border-slate-100")}>{activeMode === "align" ? "Aligned" : "Neutral"}</span>
+              <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border uppercase", activeMode === "align" ? "bg-[#F0FDF4] text-teal-700 border-teal-200" : "bg-slate-50 text-slate-500 border-slate-100")}>{activeMode === "align" ? "Aligned" : "Neutral"}</span>
             </div>
           </div>
 
           {/* Diagnostic Console (Right) */}
           <div className="md:col-span-4 bg-[#071B36] text-white rounded-[2.5rem] p-6 flex flex-col justify-between shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><ShieldAlert size={100} className="text-teal-400" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><ShieldAlert size={100} className="text-teal-400" /></div>
             
             <div className="space-y-4 relative z-10">
               <div className="text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -736,7 +736,7 @@ export const ForexRelatedPairEvidence = () => {
               <div className="space-y-3">
                 <span className={cn(
                   "text-[9px] font-black font-mono px-2 py-0.5 rounded border inline-block uppercase",
-                  activeMode === "align" ? "bg-teal-400/10 text-teal-400 border-teal-400/20" : "bg-amber-400/10 text-amber-400 border-amber-400/20"
+                  activeMode === "align" ? "bg-[#0F2D54] border border-[#133F73] text-teal-400" : "bg-[#451A03] border border-[#78350F] text-amber-400"
                 )}>
                   {activeMode === "align" ? "CONFIRMED ALIGNMENT" : "WARNING: DIVERGENCE"}
                 </span>
@@ -814,7 +814,7 @@ export const ForexEventDistortionAudit = () => {
           
           {/* Visual Display (Left) */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2.5rem] p-6 flex items-center justify-center shadow-sm min-h-[200px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             <div className="absolute top-1/2 left-0 w-full border-t border-slate-200 border-dashed" />
             
             <AnimatePresence mode="wait">
@@ -893,7 +893,7 @@ export const ForexAlignedVsMixedEvidence = () => {
   const conditions = {
     clear: {
       title: "Clear Aligned Reading",
-      badge: "bg-teal-50 text-teal-600 border-teal-100",
+      badge: "bg-[#F0FDF4] text-teal-700 border-teal-200",
       desc: "All critical layers support the same interpretation. EUR/USD breaks a session range, closes outside, holds on pullback, USD index supports, and related pairs agree.",
       items: [
         "EUR/USD breaks London Session high",
@@ -905,7 +905,7 @@ export const ForexAlignedVsMixedEvidence = () => {
     },
     mixed: {
       title: "Mixed Reading (Conflict)",
-      badge: "bg-amber-50 text-amber-600 border-amber-100",
+      badge: "bg-[#FEF3C7] text-amber-700 border-[#FDE68A]",
       desc: "EUR/USD breaks high but closing candle leaves a long upper wick. GBP/USD remains flat in consolidation, and the USD index is trading sideways.",
       items: [
         "EUR/USD breaks London Session high",
@@ -922,7 +922,7 @@ export const ForexAlignedVsMixedEvidence = () => {
   return (
     <InstitutionalFrame label="Evidence Classification Board" id="FRX-08-ALGN">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/50 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
           <div className="space-y-1">
             <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Quality Audit</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Classification State</h3>
@@ -958,7 +958,7 @@ export const ForexAlignedVsMixedEvidence = () => {
                 {current.desc}
               </p>
             </div>
-            <div className="bg-slate-50 p-4 border border-slate-200/50 rounded-xl text-[10px] font-bold text-slate-600">
+            <div className="bg-slate-100 p-4 border border-slate-200 rounded-xl text-[10px] font-bold text-slate-600">
               Rule: {activeTab === "clear" ? "Wait for verification checkpoint to confirm setup." : "Reduce size, wait for better session expansion, or stay flat."}
             </div>
           </div>
@@ -1005,7 +1005,7 @@ export const ForexVerificationWorkflow = () => {
     <InstitutionalFrame label="Forex Verification Flow" id="FRX-09-WORK">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Verification Logic</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Verification Logic</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Setting Checkpoints</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             Click each workflow node to understand how verification checks replace guesses on breakouts.
@@ -1040,7 +1040,7 @@ export const ForexVerificationWorkflow = () => {
 
           {/* Details (Right) */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2.5rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><ListChecks size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><ListChecks size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-5 relative z-10">
               <div className="flex items-center gap-2 text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -1050,7 +1050,7 @@ export const ForexVerificationWorkflow = () => {
               <div className="h-px bg-slate-100" />
               
               <div className="space-y-3">
-                <span className="text-[9px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
+                <span className="text-[9px] font-black font-mono text-teal-600 bg-[#F0FDF4] px-2 py-0.5 rounded border border-teal-200 inline-block uppercase">
                   NODE {activeNode + 1} ACTIVE
                 </span>
                 <h4 className="text-sm font-black text-[#071B36] uppercase">{workflow[activeNode].label.split(". ")[1]}</h4>
@@ -1178,8 +1178,8 @@ export const ForexEvidenceAuditPracticeDrill = () => {
                       "w-full p-4 rounded-xl border text-left text-xs font-bold leading-normal transition-all duration-200 shadow-sm",
                       selectedOption === opt.id 
                         ? opt.isCorrect 
-                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-900"
-                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-900"
+                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-100 text-teal-900"
+                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-100 text-rose-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                     )}
                   >
@@ -1240,10 +1240,10 @@ export const ForexEvidenceAuditDebrief = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         
         <div className="bg-[#071B36] rounded-[2.5rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden text-white">
-          <div className="absolute top-0 right-0 p-6 opacity-10"><Compass size={120} className="text-teal-400" /></div>
+          <div className="absolute top-0 right-0 p-6 text-slate-100"><Compass size={120} className="text-teal-400" /></div>
           
           <div className="relative z-10 space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Forex Track Complete</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2D54] border border-[#133F73] text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Forex Track Complete</span>
             <h3 className="text-2xl font-black leading-tight uppercase tracking-tight">The Forex Auditor</h3>
             <p className="text-xs text-slate-400 leading-relaxed max-w-xl font-medium">
               You have completed the Level 0 Forex Roadway. You have shifted your mindset from a retail trader chasing signals to a disciplined analyst auditing pair behavior. You now know that a Forex chart is a relationship of two currencies, shaped by session clocks, USD strength, related pair confirmation, and verification checkpoints.

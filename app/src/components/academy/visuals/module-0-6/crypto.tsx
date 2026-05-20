@@ -28,7 +28,7 @@ import { InstitutionalFrame, MentorInsight } from "./shared";
  * Helper: Mini Candlestick Graphic
  */
 const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15, label = "" }) => (
-  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
+  <div className="flex flex-col items-center justify-center h-32 w-16 bg-[#F8FBFC] rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
     {/* Upper Wick */}
     <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
     {/* Body */}
@@ -89,7 +89,7 @@ export const CryptoEvidenceAuditFoundation = () => {
           {/* Interactive Pipeline (Left) */}
           <div className="md:col-span-7 flex flex-col justify-center space-y-6">
             <div className="space-y-2">
-              <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Crypto Roadmap</span>
+              <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Crypto Roadmap</span>
               <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">The Crypto Audit Pipeline</h3>
               <p className="text-xs font-medium text-slate-500 leading-relaxed">
                 Click each stage of the pipeline to see how we audit fragmented crypto evidence before drawing a reading.
@@ -104,7 +104,7 @@ export const CryptoEvidenceAuditFoundation = () => {
                   className={cn(
                     "w-full p-3.5 rounded-xl border text-left transition-all duration-300 flex items-center justify-between shadow-sm",
                     activeStep === idx 
-                      ? "bg-white border-teal-500 ring-2 ring-teal-500/10 scale-[1.01]" 
+                      ? "bg-white border-teal-500 ring-2 ring-teal-100 scale-[1.01]" 
                       : "bg-[#F8FBFC] border-slate-200 hover:bg-white"
                   )}
                 >
@@ -122,7 +122,7 @@ export const CryptoEvidenceAuditFoundation = () => {
 
           {/* Console Display (Right) */}
           <div className="md:col-span-5 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><Layers size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><Layers size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-4 relative z-10">
               <div className="flex items-center gap-2 text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -140,7 +140,7 @@ export const CryptoEvidenceAuditFoundation = () => {
                   transition={{ duration: 0.2 }}
                   className="space-y-3"
                 >
-                  <span className="text-[9px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
+                  <span className="text-[9px] font-black font-mono text-teal-600 bg-[#F0FDF4] px-2 py-0.5 rounded border border-teal-200 inline-block uppercase">
                     Stage {activeStep + 1} ACTIVE
                   </span>
                   <h4 className="text-sm font-black text-[#071B36] uppercase">{steps[activeStep].subtitle}</h4>
@@ -197,7 +197,7 @@ export const CryptoSingleWickTrap = () => {
           {/* Left panel: Single Clue Trap */}
           <div className={cn(
             "border rounded-[2rem] p-6 flex flex-col justify-between transition-all duration-500 shadow-sm relative overflow-hidden",
-            !toggleActive ? "bg-rose-50/50 border-rose-200 ring-2 ring-rose-500/10" : "bg-white border-slate-200 opacity-60"
+            !toggleActive ? "bg-[#FFF5F5] border-rose-200 ring-2 ring-rose-100" : "bg-white border-slate-200 text-slate-400 bg-[#F8FBFC]"
           )}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -218,7 +218,7 @@ export const CryptoSingleWickTrap = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-rose-100/50 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-700 leading-normal flex items-start gap-2">
+            <div className="mt-6 p-4 bg-[#FFF5F5] border border-rose-200 rounded-xl text-[10px] font-bold text-rose-700 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 Danger: No volume or spot context checked. The next candle closed below support, proving the wick was just a stop run.
@@ -229,7 +229,7 @@ export const CryptoSingleWickTrap = () => {
           {/* Right panel: Full Evidence Stack */}
           <div className={cn(
             "border rounded-[2rem] p-6 flex flex-col justify-between transition-all duration-500 shadow-sm relative overflow-hidden",
-            toggleActive ? "bg-teal-50/50 border-teal-200 ring-2 ring-teal-500/10 scale-[1.01]" : "bg-white border-slate-200 opacity-60"
+            toggleActive ? "bg-[#F0FDF4] border-teal-200 ring-2 ring-teal-100 scale-[1.01]" : "bg-white border-slate-200 text-slate-400 bg-[#F8FBFC]"
           )}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -261,7 +261,7 @@ export const CryptoSingleWickTrap = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-teal-100/50 border border-teal-200/50 rounded-xl text-[10px] font-bold text-teal-700 leading-normal flex items-start gap-2">
+            <div className="mt-6 p-4 bg-[#F0FDF4] border border-teal-200 rounded-xl text-[10px] font-bold text-teal-700 leading-normal flex items-start gap-2">
               <ListChecks size={14} className="shrink-0 mt-0.5" />
               <span>
                 Result: Low spot volume and BTC weakness reveal that the wick is a trap. The reading remains mixed/unclear.
@@ -292,8 +292,8 @@ export const CryptoBtcContextEvidence = () => {
       alt: "Altcoin breaks local range resistance high.",
       quality: "CLEAR BULLISH READING",
       desc: "Bitcoin's upward trend provides supportive market gravity, confirming the altcoin's breakout.",
-      color: "bg-teal-50 text-teal-600 border-teal-100",
-      dColor: "text-teal-400 border-teal-500/20"
+      color: "bg-[#F0FDF4] text-teal-700 border-teal-200",
+      dColor: "text-teal-400 border-[#133F73]"
     },
     conflict: {
       status: "CONFLICTING",
@@ -302,7 +302,7 @@ export const CryptoBtcContextEvidence = () => {
       quality: "MIXED READING",
       desc: "Bitcoin's resistance limits market-wide upside. The altcoin's breakout is highly fragile.",
       color: "bg-amber-50 text-amber-600 border-amber-100",
-      dColor: "text-amber-400 border-amber-400/20"
+      dColor: "text-amber-400 border-[#78350F]"
     },
     unclear: {
       status: "UNSTABLE / NOISY",
@@ -310,8 +310,8 @@ export const CryptoBtcContextEvidence = () => {
       alt: "Altcoin spike candle tries to push high.",
       quality: "UNSTABLE / UNCLEAR READING",
       desc: "Bitcoin's sudden drop drags altcoins down. The altcoin's local breakout fails instantly.",
-      color: "bg-rose-50 text-rose-600 border-rose-100",
-      dColor: "text-rose-400 border-rose-400/20"
+      color: "bg-[#FFF5F5] text-rose-700 border-rose-200",
+      dColor: "text-rose-400 border-[#991B1B]"
     }
   };
 
@@ -321,7 +321,7 @@ export const CryptoBtcContextEvidence = () => {
     <InstitutionalFrame label="BTC Gravity Board" id="CRP-03-GRAV">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">BTC Context</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">BTC Context</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Bitcoin Market Gravity</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             Select a Bitcoin market state to see how it directly dictates the safety and quality of altcoin breakouts.
@@ -367,7 +367,7 @@ export const CryptoBtcContextEvidence = () => {
 
           {/* Diagnostic (Right) */}
           <div className="md:col-span-4 bg-[#071B36] text-white rounded-[2.5rem] p-6 flex flex-col justify-between shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><ShieldAlert size={100} className="text-teal-400" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><ShieldAlert size={100} className="text-teal-400" /></div>
             
             <div className="space-y-4 relative z-10">
               <div className="text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -418,7 +418,7 @@ export const CryptoSpotPerpEvidenceConflict = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Venue Conflict</span>
+            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Venue Conflict</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Spot vs Perpetual Volume</h3>
           </div>
           
@@ -544,7 +544,7 @@ export const CryptoLiquidationCascadeAudit = () => {
           
           {/* Chart Display (Left) */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2.5rem] p-6 flex items-center justify-center shadow-sm min-h-[200px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             <div className="absolute top-1/2 left-0 w-full border-t border-slate-200 border-dashed" />
             
             <AnimatePresence mode="wait">
@@ -650,7 +650,7 @@ export const CryptoDexCexEvidence = () => {
     <InstitutionalFrame label="Venue Disagreement Board" id="CRP-06-VNU">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Venue Difference</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Venue Difference</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Cross-Exchange Disagreement</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             Click each venue to see how liquidity depth changes the shape of the candle evidence.
@@ -695,7 +695,7 @@ export const CryptoDexCexEvidence = () => {
               </div>
             </div>
 
-            <div className="bg-slate-50 border border-slate-150 p-4 rounded-xl text-[10px] font-bold text-slate-500 leading-normal">
+            <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl text-[10px] font-bold text-slate-500 leading-normal">
               Audit Tip: Do not trust a dramatic DEX breakout if CEX spot feeds show flat volume.
             </div>
           </div>
@@ -770,7 +770,7 @@ export const CryptoFundingLeveragePressure = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Funding rate</span>
+            <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Funding rate</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Leverage Crowd Monitor</h3>
           </div>
           
@@ -812,7 +812,7 @@ export const CryptoFundingLeveragePressure = () => {
               </div>
             </div>
 
-            <div className="bg-slate-50 border border-slate-150 p-4 rounded-xl">
+            <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block mb-0.5">Reading Quality Log</span>
               <span className="text-xs font-black text-[#071B36]">{current.risk}</span>
             </div>
@@ -861,7 +861,7 @@ export const CryptoAlignedVsMixedEvidence = () => {
   const conditions = {
     clear: {
       title: "Clear Aligned Reading",
-      badge: "bg-teal-50 text-teal-600 border-teal-100",
+      badge: "bg-[#F0FDF4] text-teal-700 border-teal-200",
       desc: "All critical layers support the same interpretation. BTC is in a clear trend, spot volume is rising on Coinbase, perp OI rises stable, and the pullback holds support.",
       items: [
         "Altcoin breaks range high cleanly",
@@ -890,7 +890,7 @@ export const CryptoAlignedVsMixedEvidence = () => {
   return (
     <InstitutionalFrame label="Evidence Classification Board" id="CRP-08-ALGN">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/50 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
           <div className="space-y-1">
             <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Quality Audit</span>
             <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Classification State</h3>
@@ -926,7 +926,7 @@ export const CryptoAlignedVsMixedEvidence = () => {
                 {current.desc}
               </p>
             </div>
-            <div className="bg-slate-50 p-4 border border-slate-200/50 rounded-xl text-[10px] font-bold text-slate-600">
+            <div className="bg-slate-100 p-4 border border-slate-200 rounded-xl text-[10px] font-bold text-slate-600">
               Rule: {activeTab === "clear" ? "Wait for verification checkpoint to confirm setup." : "Reduce risk, avoid crowded perp assets, or stay flat."}
             </div>
           </div>
@@ -973,7 +973,7 @@ export const CryptoVerificationWorkflow = () => {
     <InstitutionalFrame label="Crypto Verification Flow" id="CRP-09-WORK">
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Verification Logic</span>
+          <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-[#F0FDF4] px-2 py-1 rounded border border-teal-200 inline-block">Verification Logic</span>
           <h3 className="text-xl font-black text-[#071B36] uppercase tracking-tight">Setting Checkpoints</h3>
           <p className="text-xs font-medium text-slate-500 leading-relaxed">
             Click each workflow node to see how verification checks filter out high-speed FOMO breakouts.
@@ -1008,7 +1008,7 @@ export const CryptoVerificationWorkflow = () => {
 
           {/* Details (Right) */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2.5rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><ListChecks size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><ListChecks size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-5 relative z-10">
               <div className="flex items-center gap-2 text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -1018,7 +1018,7 @@ export const CryptoVerificationWorkflow = () => {
               <div className="h-px bg-slate-100" />
               
               <div className="space-y-3">
-                <span className="text-[9px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
+                <span className="text-[9px] font-black font-mono text-teal-600 bg-[#F0FDF4] px-2 py-0.5 rounded border border-teal-200 inline-block uppercase">
                   NODE {activeNode + 1} ACTIVE
                 </span>
                 <h4 className="text-sm font-black text-[#071B36] uppercase">{workflow[activeNode].label.split(". ")[1]}</h4>
@@ -1146,8 +1146,8 @@ export const CryptoEvidenceAuditPracticeDrill = () => {
                       "w-full p-4 rounded-xl border text-left text-xs font-bold leading-normal transition-all duration-200 shadow-sm",
                       selectedOption === opt.id 
                         ? opt.isCorrect 
-                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-900"
-                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-900"
+                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-100 text-teal-900"
+                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-100 text-rose-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                     )}
                   >
@@ -1208,10 +1208,10 @@ export const CryptoEvidenceAuditDebrief = () => {
       <div className="w-full max-w-4xl mx-auto space-y-8 text-left">
         
         <div className="bg-[#071B36] rounded-[2.5rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden text-white">
-          <div className="absolute top-0 right-0 p-6 opacity-10"><Compass size={120} className="text-teal-400" /></div>
+          <div className="absolute top-0 right-0 p-6 text-slate-100"><Compass size={120} className="text-teal-400" /></div>
           
           <div className="relative z-10 space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Crypto Track Complete</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F2D54] border border-[#133F73] text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Crypto Track Complete</span>
             <h3 className="text-xl font-black leading-tight uppercase tracking-tight">The Crypto Auditor</h3>
             <p className="text-xs text-slate-400 leading-relaxed max-w-xl font-semibold">
               You have completed the Level 0 Crypto Roadway. You have shifted your mindset from a retail speculator chasing speed to a disciplined crypto auditor. You now understand that a crypto chart is just one piece of a fragmented market, shaped by Bitcoin's gravity, spot/perp volume, liquidation cascades, and verification checkpoints.

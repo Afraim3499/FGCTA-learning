@@ -27,98 +27,9 @@ import {
   ShieldAlert,
   Search
 } from "lucide-react";
+import { UI, InstitutionalFrame, MentorInsight } from "./shared";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-
-/**
- * LURNAVA INSTITUTIONAL DESIGN TOKENS
- */
-const UI = {
-  navy: "#071B36",
-  teal: "#0D9488",
-  slate: "#475569",
-  border: "#E2E8F0",
-  bg: "#F8FBFC",
-  rose: "#BE123C",
-  sky: "#0284C7",
-};
-
-/**
- * Institutional Frame Component
- */
-const InstitutionalFrame = ({ 
-  children, 
-  label, 
-  status = "ANALYSIS ACTIVE",
-  id = "LN-0.5-STR"
-}: { 
-  children: React.ReactNode; 
-  label: string; 
-  status?: string;
-  id?: string;
-}) => (
-  <div className="w-full h-full min-h-[550px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-8 flex flex-col relative overflow-hidden shadow-sm">
-    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:32px_32px]" />
-    
-    <div className="flex items-center justify-between mb-8 relative z-10 border-b border-slate-200/50 pb-4">
-      <div className="flex flex-col">
-        <div className="flex items-center gap-2 mb-1">
-          <Database size={10} className="text-teal-600" />
-          <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Structural Audit Stream</span>
-        </div>
-        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic">{label}</h4>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
-          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
-        </div>
-        <div className="w-px h-6 bg-slate-200" />
-        <div className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm">
-          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
-        </div>
-      </div>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center justify-center relative z-10">
-      {children}
-    </div>
-
-    <div className="mt-8 pt-4 border-t border-slate-200/50 flex items-center justify-between">
-       <div className="flex gap-4">
-          <div className="flex items-center gap-1.5">
-            <div className="w-1 h-1 bg-teal-500 rounded-full" />
-            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Structure Verified</span>
-          </div>
-       </div>
-       <div className="flex items-center gap-1.5">
-          <Fingerprint size={10} className="text-slate-300" />
-          <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter">LN-STR-PROD-V1</span>
-       </div>
-    </div>
-  </div>
-);
-
-const MentorInsight = ({ text, analogy }: { text: string; analogy?: string }) => (
-  <div className="w-full mt-8 pt-6 border-t border-slate-200/50 flex flex-col gap-3">
-    <div className="flex items-center gap-2">
-      <div className="px-2 py-1 bg-[#071B36] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Insight</div>
-      <div className="h-px flex-1 bg-slate-200" />
-    </div>
-    <div className="flex gap-4">
-       <div className="flex-1">
-          <p className="text-xs font-bold text-[#071B36] leading-relaxed">{text}</p>
-          {analogy && (
-            <p className="mt-2 text-[11px] text-slate-500 italic leading-snug">
-              <span className="font-black uppercase text-[9px] mr-2 text-teal-600 not-italic">Analogy:</span>
-              {analogy}
-            </p>
-          )}
-       </div>
-    </div>
-  </div>
-);
 
 /**
  * Card 1: Structure Is the Market’s Skeleton
@@ -153,15 +64,15 @@ export const StructureSkeletonIntro = () => {
         </div>
 
         <div className="bg-[#071B36] rounded-[2.5rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-6 opacity-10"><TrendingUp size={120} className="text-teal-400" /></div>
+          <div className="absolute top-0 right-0 p-6"><TrendingUp size={120} className="text-[#0E3247]" /></div>
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.2em]">The Building Process</div>
-              <h3 className="text-2xl font-black text-white leading-tight uppercase tracking-tight">Structure is <span className="text-teal-400 underline decoration-teal-500/30 underline-offset-8 italic">Built</span>, Not Guessed.</h3>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.2em]">The Building Process</div>
+              <h3 className="text-2xl font-black text-white leading-tight uppercase tracking-tight">Structure is <span className="text-teal-400 underline decoration-teal-300 underline-offset-8 italic">Built</span>, Not Guessed.</h3>
               <p className="text-xs text-slate-400 leading-relaxed max-w-sm font-medium">You are moving from reading isolated "sentences" (candles) to reading the entire "story" (structure).</p>
             </div>
             <div className="relative h-40 flex items-center justify-center">
-               <div className="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-transparent rounded-full blur-3xl" />
+               <div className="absolute inset-0 bg-gradient-to-r from-[#0A263C] to-transparent rounded-full blur-3xl" />
                <div className="flex gap-1 items-end relative h-24">
                   {[30, 50, 40, 70, 60, 90, 80].map((h, i) => (
                     <motion.div key={`bar-${i}`} initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ delay: i * 0.1, duration: 1 }} className="w-4 bg-slate-800 rounded-t-sm border-x border-t border-slate-700 relative">
@@ -188,19 +99,19 @@ export const SwingLogicVisual = () => {
       <div className="w-full max-w-4xl mx-auto space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-extrabold text-blue-500 uppercase tracking-widest">Noise vs. Meaning</div>
+             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-blue-200 text-[10px] font-extrabold text-blue-500 uppercase tracking-widest">Noise vs. Meaning</div>
              <h3 className="text-3xl font-black text-[#071B36] uppercase tracking-tighter italic">Filtering the Chaos</h3>
              <p className="text-sm text-slate-500 leading-relaxed font-bold">Most beginners see every candle as a move. A Lurnava learner only cares about the **Turns** and **Legs**.</p>
-             <button onClick={() => setShowLogic(!showLogic)} className="px-8 py-3 bg-[#071B36] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-xl hover:bg-slate-800 transition-all flex items-center gap-3 shadow-xl shadow-slate-900/10">
+             <button onClick={() => setShowLogic(!showLogic)} className="px-8 py-3 bg-[#071B36] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-xl hover:bg-slate-800 transition-all flex items-center gap-3 shadow-xl shadow-slate-200">
                {showLogic ? "Reset Analysis" : "Apply Swing Filter"}
                <ArrowRightCircle size={16} />
              </button>
           </div>
           <div className="bg-white border-2 border-slate-200 rounded-[3rem] p-10 h-[300px] relative overflow-hidden shadow-sm flex items-center justify-center">
-             <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,0,0,0.1)_1.5px,transparent_1.5px)] bg-[length:100%_16px]" />
-             <div className="flex gap-1.5 items-end h-32 opacity-20">
+             <div className="absolute inset-0 bg-[linear-gradient(#F1F5F9_1.5px,transparent_1.5px)] bg-[length:100%_16px]" />
+             <div className="flex gap-1.5 items-end h-32">
                 {[40, 45, 42, 60, 55, 65, 62, 80, 75, 85, 82, 95, 90, 70, 75, 60, 65, 50, 55, 40].map((h, i) => (
-                  <div key={i} className="w-3 bg-slate-400 rounded-sm" style={{ height: `${h}%` }} />
+                  <div key={i} className="w-3 bg-slate-100 rounded-sm" style={{ height: `${h}%` }} />
                 ))}
              </div>
              <AnimatePresence>
@@ -246,7 +157,7 @@ export const StructureLanguageVisual = () => {
           ))}
         </div>
         <div className="bg-slate-900 rounded-[3rem] p-10 h-[400px] relative overflow-hidden border border-slate-800 shadow-2xl flex items-center justify-center">
-           <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+           <div className="absolute inset-0 bg-[radial-gradient(#152C48_1px,transparent_1px)] bg-[length:24px_24px]" />
            <svg className="w-full h-full max-w-[400px] pointer-events-none overflow-visible">
               <motion.path key={activeTab} initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d={current.path} fill="none" stroke={current.color === 'emerald' ? "#10b981" : current.color === 'rose' ? "#f43f5e" : "#64748b"} strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" className="transition-all duration-700" />
               {current.points.map((pt, i) => (
@@ -279,7 +190,7 @@ export const TrendStructureVisual = () => {
            ))}
         </div>
         <div className="bg-white border-2 border-slate-200 rounded-[3rem] p-10 min-h-[350px] relative overflow-hidden flex flex-col justify-center">
-           <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
+           <div className="absolute inset-0 bg-[radial-gradient(#F1F5F9_1px,transparent_1px)] bg-[length:24px_24px]" />
            <div className="flex flex-col md:flex-row items-center justify-around gap-8">
               <div className="space-y-4 max-w-xs">
                  <h4 className={cn("text-2xl font-black uppercase italic tracking-tighter", activeTrend === 'up' ? "text-teal-600" : "text-rose-600")}>{activeTrend === 'up' ? "Expansion (Bullish)" : "Contraction (Bearish)"}</h4>
@@ -312,8 +223,8 @@ export const RangeStructureVisual = () => {
     <InstitutionalFrame label="Equilibrium Diagnostic" id="STR-05-RANGE">
       <div className="w-full max-w-4xl mx-auto space-y-12">
         <div className="bg-[#071B36] rounded-[3rem] p-10 min-h-[400px] relative overflow-hidden border border-slate-800 shadow-2xl flex flex-col justify-center">
-           <div className="absolute top-1/4 left-0 w-full h-px bg-rose-500/30 border-t border-dashed" />
-           <div className="absolute bottom-1/4 left-0 w-full h-px bg-teal-500/30 border-t border-dashed" />
+           <div className="absolute top-1/4 left-0 w-full h-px bg-[#FFF5F5] border-t border-dashed" />
+           <div className="absolute bottom-1/4 left-0 w-full h-px bg-[#E6F2F0] border-t border-dashed" />
            <div className="absolute top-1/4 left-8 -translate-y-6"><span className="text-[8px] font-black text-rose-400 uppercase tracking-widest">Resistance Ceiling</span></div>
            <div className="absolute bottom-1/4 left-8 translate-y-2"><span className="text-[8px] font-black text-teal-400 uppercase tracking-widest">Support Floor</span></div>
            
@@ -327,7 +238,7 @@ export const RangeStructureVisual = () => {
               </svg>
            </div>
 
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/5 border border-white/10 backdrop-blur-md px-6 py-4 rounded-2xl text-center">
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0E223D] border border-slate-800 backdrop-blur-md px-6 py-4 rounded-2xl text-center">
               <h4 className="text-xl font-black text-white uppercase italic tracking-tighter">Balanced Market</h4>
               <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1">Rotation without Breakout</p>
            </div>
@@ -353,10 +264,10 @@ export const ImpulsePullbackVisual = () => {
         </div>
         <div className="bg-white border-2 border-slate-200 rounded-[3rem] p-10 h-[350px] relative flex items-center justify-center overflow-hidden">
            <svg className="w-full h-full max-w-[500px] overflow-visible">
-              <motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 0 250 L 200 50" fill="none" stroke="#0D9488" strokeWidth="8" strokeLinecap="round" className={cn("transition-opacity duration-500", phase === 'impulse' ? "opacity-100" : "opacity-30")} />
+              <motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 0 250 L 200 50" fill="none" stroke={phase === "impulse" ? "#0D9488" : "#E2E8F0"} strokeWidth="8" strokeLinecap="round" className="transition-all duration-500" />
               <AnimatePresence>
                 {(phase === 'pullback' || phase === 'outcome') && (
-                  <motion.path key="pullback-path" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 200 50 L 300 150" fill="none" stroke="#475569" strokeWidth="6" strokeLinecap="round" className={cn("transition-opacity duration-500", phase === 'pullback' ? "opacity-100" : "opacity-30")} />
+                  <motion.path key="pullback-path" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 200 50 L 300 150" fill="none" stroke={phase === "pullback" ? "#475569" : "#E2E8F0"} strokeWidth="6" strokeLinecap="round" className="transition-all duration-500" />
                 )}
                 {phase === 'outcome' && (
                   <motion.path key="outcome-path" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M 300 150 L 500 0" fill="none" stroke="#0D9488" strokeWidth="6" strokeDasharray="8 4" strokeLinecap="round" />
@@ -392,7 +303,7 @@ export const ReactionAreasVisual = () => {
               {!isZone ? (
                 <motion.div key="line-marker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute top-[30%] left-0 w-full h-px bg-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.5)] z-20" />
               ) : (
-                <motion.div key="zone-marker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute top-[25%] left-0 w-full h-20 bg-teal-500/10 border-y border-dashed border-teal-500/30 z-20" />
+                <motion.div key="zone-marker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute top-[25%] left-0 w-full h-20 bg-[#E6F2F0] border-y border-dashed border-teal-300 z-20" />
               )}
            </AnimatePresence>
            <svg className="w-full h-full max-w-[600px] overflow-visible z-10">
@@ -424,7 +335,7 @@ export const StructureChangeVisual = () => {
            <button onClick={() => setType('fail')} className={cn("px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all", type === 'fail' ? "bg-rose-600 text-white" : "bg-slate-100 text-slate-400")}>Failed Break (Trap)</button>
         </div>
         <div className="bg-[#071B36] rounded-[3rem] p-10 h-[350px] relative overflow-hidden border border-slate-800 shadow-2xl flex items-center justify-center">
-           <div className="absolute top-[40%] left-0 w-full h-px bg-white/20 border-t border-dashed" />
+           <div className="absolute top-[40%] left-0 w-full h-px bg-[#243C5B] border-t border-dashed" />
            <svg className="w-full h-full max-w-[500px] overflow-visible">
               <motion.path key={type} initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d={type === 'clean' ? "M 0 200 L 200 140 L 300 40 L 400 80 L 500 0" : "M 0 200 L 200 140 L 300 40 L 350 150 L 500 180"} fill="none" stroke={type === 'clean' ? "#0D9488" : "#BE123C"} strokeWidth="6" strokeLinecap="round" />
               <text x="310" y="30" className={cn("text-[10px] font-black uppercase tracking-widest", type === 'clean' ? "fill-teal-400" : "fill-rose-400")}>{type === 'clean' ? "Break + Follow Thru" : "Break + Trap"}</text>
@@ -449,7 +360,7 @@ export const MultiTimeframeStructureVisual = () => {
            <button onClick={() => setActiveTf('15m')} className={cn("px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all shadow-xl", activeTf === '15m' ? "bg-teal-600 text-white" : "bg-slate-100 text-slate-400")}>15m (The Detail Window)</button>
         </div>
         <div className="bg-white border-2 border-slate-200 rounded-[3.5rem] p-10 h-[400px] relative overflow-hidden flex flex-col items-center justify-center">
-           <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#071B36_2px,transparent_2px)] bg-[length:32px_32px]" />
+           <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1.5px,transparent_1.5px)] bg-[length:32px_32px]" />
            <div className="text-center mb-8 relative z-10">
               <h4 className="text-2xl font-black text-[#071B36] uppercase tracking-tighter italic">{activeTf === '4H' ? "Higher Timeframe Range" : "Lower Timeframe Uptrend"}</h4>
               <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">{activeTf === '4H' ? "The Market Environment" : "The Local Movement"}</p>
@@ -479,7 +390,7 @@ export const StructureDrillVisual = () => {
     <InstitutionalFrame label="Evidence Conflict Diagnostic" id="STR-10-DRILL">
       <div className="w-full max-w-4xl mx-auto space-y-12">
         <div className="bg-[#071B36] rounded-[3rem] p-12 border border-slate-800 shadow-2xl relative overflow-hidden flex flex-col justify-center">
-           <div className="absolute top-[20%] left-0 w-full h-12 bg-rose-500/10 border-y border-dashed border-rose-500/30 flex items-center justify-end pr-8">
+           <div className="absolute top-[20%] left-0 w-full h-12 bg-[#FDF2F2] border-y border-dashed border-rose-300 flex items-center justify-end pr-8">
               <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest">HTF Ceiling</span>
            </div>
            <div className="relative h-64 flex items-center justify-center">
@@ -515,10 +426,10 @@ export const StructureDebriefVisual = () => {
     <InstitutionalFrame label="Module Competency Verified" id="STR-11-DEBRIEF" status="COMPLETE">
       <div className="w-full max-w-4xl mx-auto space-y-12 flex flex-col items-center">
         <div className="relative group">
-           <div className="w-24 h-24 rounded-[2.5rem] bg-teal-500 flex items-center justify-center text-white shadow-2xl shadow-teal-500/20 group-hover:scale-110 transition-transform duration-500">
+           <div className="w-24 h-24 rounded-[2.5rem] bg-teal-500 flex items-center justify-center text-white shadow-2xl shadow-teal-100 group-hover:scale-110 transition-transform duration-500">
               <CheckCircle size={48} strokeWidth={2.5} />
            </div>
-           <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -inset-4 border-2 border-dashed border-teal-200 rounded-full opacity-30" />
+           <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -inset-4 border-2 border-dashed border-teal-100 rounded-full" />
         </div>
 
         <div className="text-center space-y-2">

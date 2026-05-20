@@ -104,7 +104,7 @@ export const forexCards: LessonCard[] = [
         { term: "Return Inside", definition: "Price moves outside an area but comes back in." }
       ],
       whyThisMatters: "Rigid line thinking makes learners panic when price moves slightly beyond a session high or low.",
-      realLifeExample: "GBP/USD pushes above the London high by a few pips, then closes back below it. A trained learner does not call that a clean break without follow-through.",
+      realLifeExample: "GBP/USD pushes above the London high by a small margin (a few pips, which are the smallest price fractions in Forex), then closes back below it. A trained learner does not call that a clean break without follow-through.",
       commonMistake: "Treating session highs and lows as walls.",
       quickNote: "Session levels are areas to audit, not buttons to press."
     }

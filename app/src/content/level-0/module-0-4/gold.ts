@@ -6,7 +6,7 @@ export const goldCards: LessonCard[] = [
     title: "Gold Timeframes Are Volatility Records",
     visualKey: "gold-volatility-record-board",
     label: "Gold Foundation",
-    body: "A Gold timeframe does not exist by itself. A 15-minute candle records 15 minutes of XAU/USD movement, but its quality depends on volatility, liquidity, market window, macro context, and where the candle forms inside the broader structure.",
+    body: "A Gold timeframe does not exist by itself. A 15-minute candle records 15 minutes of Gold vs. US Dollar (XAU/USD) movement, but its quality depends on volatility, liquidity, market window, macro context, and where the candle forms inside the broader structure.",
     context: {
       keyTerms: [
         { term: "XAU/USD Timeframe", definition: "The amount of time represented by one Gold candle." },
@@ -92,7 +92,7 @@ export const goldCards: LessonCard[] = [
       keyTerms: [
         { term: "Participation Window", definition: "A time period where market involvement may increase." },
         { term: "Futures Participation", definition: "Activity in futures markets that may influence visible Gold movement." },
-        { term: "Retail XAU/USD Candle", definition: "The candle visible on a retail chart or platform." },
+        { term: "Retail XAU/USD Candle", definition: "The Gold vs. US Dollar (XAU/USD) candle visible on a retail chart or platform." },
         { term: "Liquidity Attention", definition: "The level of market activity around a price move." },
         { term: "Macro Attention", definition: "Market focus on USD, yields, inflation, rates, and risk conditions." }
       ],

@@ -6,11 +6,11 @@ export const goldCards: LessonCard[] = [
     title: "Gold Is More Than One Chart",
     label: "Market Structure",
     visualKey: "gold-market-map-visual",
-    body: "XAU/USD is only one visible window. The gold market underneath is multi-layered, consisting of London OTC spot, COMEX futures, benchmark auctions, and physical bullion.",
+    body: "XAU/USD (Gold vs. United States Dollar currency pair) is only one visible window. The gold market underneath is multi-layered, consisting of London OTC (Over-The-Counter: trading directly between counterparties without a central exchange) spot, COMEX (Commodity Exchange) futures, benchmark auctions, and physical bullion.",
     context: {
       keyTerms: [
         { term: "London OTC", definition: "The primary spot market for gold, where trading is bilateral." },
-        { term: "Benchmark Price", definition: "The global reference price set during daily LBMA auctions." },
+        { term: "Benchmark Price", definition: "The global reference price set during daily LBMA (London Bullion Market Association) auctions." },
         { term: "Futures Market", definition: "A standardized exchange where contracts for future delivery are traded." }
       ],
       whyThisMatters: "Gold can appear as one simple chart, but the market underneath is layered. Missing the source of the move (spot, futures, or benchmark) can lead to a shallow reading.",

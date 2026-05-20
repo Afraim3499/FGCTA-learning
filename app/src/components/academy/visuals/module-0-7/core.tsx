@@ -64,7 +64,7 @@ const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom 
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
+    <div className="flex flex-col items-center justify-center h-32 w-16 bg-[#F8FAFC] rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
       {/* Upper Wick */}
       <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
       {/* Body */}
@@ -154,7 +154,7 @@ export const MarketConditionsFoundation = () => {
                   className={cn(
                     "w-full p-3 rounded-xl border text-left transition-all duration-200 flex items-center justify-between shadow-sm",
                     selectedLens === key 
-                      ? "bg-white border-teal-500 ring-2 ring-teal-500/10 scale-102 text-[#071B36]" 
+                      ? "bg-white border-teal-500 ring-2 ring-teal-100 scale-102 text-[#071B36]" 
                       : "bg-[#F8FBFC] border-slate-200 hover:bg-white text-slate-600"
                   )}
                 >
@@ -167,7 +167,7 @@ export const MarketConditionsFoundation = () => {
 
           {/* Display Output */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col md:flex-row gap-6 items-center shadow-sm">
-            <div className="flex flex-col items-center shrink-0 border border-slate-100 bg-slate-50/50 rounded-2xl p-4">
+            <div className="flex flex-col items-center shrink-0 border border-slate-100 bg-[#F1F5F9] rounded-2xl p-4">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-3">Isolated Candle</span>
               <MiniCandle bullish={true} bodyHeight={60} wickTop={5} wickBottom={5} label="GREEN CANDLE" color="bg-teal-600 border-teal-700 text-white" />
             </div>
@@ -239,7 +239,7 @@ export const TrendConditionEnvironment = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Swing Chart */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             <div className="flex gap-4 items-end relative z-10">
               <MiniCandle bullish={true} bodyHeight={30} label="Low" />
@@ -284,7 +284,7 @@ export const TrendConditionEnvironment = () => {
               </div>
             </div>
 
-            <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter mt-4 block border-t border-slate-200/50 pt-3">
+            <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter mt-4 block border-t border-slate-200 pt-3">
               Verdict: Environment dictates candle value.
             </span>
           </div>
@@ -336,7 +336,7 @@ export const RangeConditionEnvironment = () => {
           {/* Chart Display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between items-center shadow-sm min-h-[220px] relative overflow-hidden">
             {/* Ceiling */}
-            <div className="w-full border-t border-rose-500/30 border-dashed flex items-center justify-between px-4 pt-1">
+            <div className="w-full border-t border-rose-200 border-dashed flex items-center justify-between px-4 pt-1">
               <span className="text-[8px] font-black uppercase text-rose-500 tracking-wider bg-rose-50 px-1 border border-rose-100 rounded">Ceiling (Resistance)</span>
             </div>
 
@@ -364,7 +364,7 @@ export const RangeConditionEnvironment = () => {
             </div>
 
             {/* Floor */}
-            <div className="w-full border-b border-teal-500/30 border-dashed flex items-center justify-between px-4 pb-1">
+            <div className="w-full border-b border-teal-200 border-dashed flex items-center justify-between px-4 pb-1">
               <span className="text-[8px] font-black uppercase text-teal-500 tracking-wider bg-teal-50 px-1 border border-teal-100 rounded">Floor (Support)</span>
             </div>
           </div>
@@ -388,7 +388,7 @@ export const RangeConditionEnvironment = () => {
               </div>
             </div>
 
-            <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter mt-4 block border-t border-slate-200/50 pt-3">
+            <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter mt-4 block border-t border-slate-200 pt-3">
               Verdict: Range ceiling repels price rotation.
             </span>
           </div>
@@ -447,7 +447,7 @@ export const TransitionConditionMap = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Chart Display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex items-center justify-center shadow-sm min-h-[200px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -545,10 +545,10 @@ export const CompressionConditionBoard = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Chart Display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
-            <div className={cn("absolute w-full border-t border-[#D4AF37]/30 border-dashed left-0 transition-all duration-700", squeezeActive ? "top-[80px]" : "top-[30px]")} />
-            <div className={cn("absolute w-full border-b border-[#D4AF37]/30 border-dashed left-0 transition-all duration-700", squeezeActive ? "bottom-[80px]" : "bottom-[30px]")} />
+            <div className={cn("absolute w-full border-t border-[#D4AF37] border-dashed left-0 transition-all duration-700", squeezeActive ? "top-[80px]" : "top-[30px]")} />
+            <div className={cn("absolute w-full border-b border-[#D4AF37] border-dashed left-0 transition-all duration-700", squeezeActive ? "bottom-[80px]" : "bottom-[30px]")} />
 
             <div className="flex gap-4 items-center relative z-10">
               <MiniCandle bullish={true} bodyHeight={50} label="Swing 1" />
@@ -697,14 +697,14 @@ export const ChoppyConditionWarning = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Chart Display */}
-          <div className="md:col-span-7 bg-rose-50/10 border border-rose-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
+          <div className="md:col-span-7 bg-[#FFF5F5] border border-rose-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:16px_16px]" />
             
             <div className="flex gap-2 items-center relative z-10">
-              <MiniCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Overlap" color="bg-rose-500/40 border-rose-400 text-rose-800" />
-              <MiniCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Overlap" color="bg-slate-400/40 border-slate-300 text-slate-800" />
-              <MiniCandle bullish={true} bodyHeight={10} wickTop={40} wickBottom={40} label="Overlap" color="bg-rose-500/40 border-rose-400 text-rose-800" />
-              <MiniCandle bullish={false} bodyHeight={25} wickTop={20} wickBottom={35} label="Overlap" color="bg-slate-400/40 border-slate-300 text-slate-800" />
+              <MiniCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Overlap" color="bg-[#FECDD3] border-rose-400 text-rose-800" />
+              <MiniCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Overlap" color="bg-[#E2E8F0] border-slate-300 text-slate-800" />
+              <MiniCandle bullish={true} bodyHeight={10} wickTop={40} wickBottom={40} label="Overlap" color="bg-[#FECDD3] border-rose-400 text-rose-800" />
+              <MiniCandle bullish={false} bodyHeight={25} wickTop={20} wickBottom={35} label="Overlap" color="bg-[#E2E8F0] border-slate-300 text-slate-800" />
             </div>
 
             <div className="absolute top-4 right-4 bg-rose-100 border border-rose-200 rounded-lg p-2 flex items-center gap-1 text-[9px] font-black text-rose-700 uppercase">
@@ -735,7 +735,7 @@ export const ChoppyConditionWarning = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
+            <div className="mt-8 bg-[#FFE4E6] p-4 border border-[#FECDD3] rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 Before you trust any local pattern, identify the environment. It is chop, which means all local evidence is untrustworthy noise.
@@ -901,7 +901,7 @@ export const ConditionFirstWorkflow = () => {
 
           {/* Details Console */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-5"><ListChecks size={100} className="text-[#071B36]" /></div>
+            <div className="absolute top-0 right-0 p-4 text-slate-100"><ListChecks size={100} className="text-[#071B36]" /></div>
             
             <div className="space-y-5 relative z-10 font-mono">
               <div className="flex items-center gap-2 text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
@@ -1020,8 +1020,8 @@ export const MarketConditionPracticeDrill = () => {
                       "w-full p-4 rounded-xl border text-left text-xs font-bold leading-normal transition-all duration-200 shadow-sm",
                       selectedOption === opt.id 
                         ? opt.isCorrect 
-                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-900"
-                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-900"
+                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-100 text-teal-900"
+                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-100 text-rose-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                     )}
                   >
@@ -1082,10 +1082,10 @@ export const MarketConditionDebrief = () => {
         <ChecklistRibbon />
 
         <div className="bg-[#071B36] rounded-[2rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden text-white">
-          <div className="absolute top-0 right-0 p-6 opacity-10"><Compass size={120} className="text-teal-400" /></div>
+          <div className="absolute top-0 right-0 p-6 text-slate-200"><Compass size={120} className="text-teal-400" /></div>
           
           <div className="relative z-10 space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Core Track Complete</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0FDFA] border border-[#CCFBF1] text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Core Track Complete</span>
             <h3 className="text-lg font-black leading-tight uppercase tracking-tight">Environmental Classifier</h3>
             <p className="text-xs text-slate-400 leading-relaxed max-w-xl font-semibold">
               You have completed the Level 0 Module 0.7 Core Concept. You have shifted your mindset from reacting to individual price candles to classifying the broader market environment first. You now understand that trends, ranges, transitions, compressions, expansions, and chop dictate what candle evidence actually means.

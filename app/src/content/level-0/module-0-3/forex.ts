@@ -6,7 +6,7 @@ export const forexCards: LessonCard[] = [
     title: "Forex Candles Are Quote Records",
     visualKey: "forex-candle-quote-record-board",
     label: "Forex Candle Foundation",
-    body: "A Forex candle is a time-boxed quote record. It shows where the quoted price opened, how high and low it travelled, and where it closed during that selected period. It is evidence from a price feed, not a universal signal.",
+    body: "A Forex (Foreign Exchange) candle is a time-boxed quote record. It shows where the quoted price opened, how high and low it travelled, and where it closed during that selected period. It is evidence from a price feed, not a universal signal.",
     context: {
       keyTerms: [
         { term: "Forex Candle", definition: "A visual record of quoted price action for a currency pair." },
@@ -17,7 +17,7 @@ export const forexCards: LessonCard[] = [
         { term: "Timeframe", definition: "The duration of activity recorded by a single candle." }
       ],
       whyThisMatters: "A learner may see a candle and assume it represents the entire Forex market. In reality, the candle is a record of quoted movement in a specific pair, timeframe, and platform environment. That context matters before interpretation.",
-      realLifeExample: "A 15-minute EUR/USD candle opens at 1.0850, moves to 1.0872, drops to 1.0844, and closes at 1.0865. The candle records that quote movement in pips during that 15-minute window.",
+      realLifeExample: "A 15-minute EUR/USD (Euro vs. US Dollar) candle opens at 1.0850, moves to 1.0872, drops to 1.0844, and closes at 1.0865. The candle records that quote movement in pips during that 15-minute window.",
       commonMistake: "Thinking every Forex candle is a complete picture of the whole global market instead of a record from a specific quote environment.",
       quickNote: "A Forex candle is a quote record first."
     }
@@ -70,7 +70,7 @@ export const forexCards: LessonCard[] = [
     title: "Forex Mini Drill: Clean Candle or Quote Noise?",
     visualKey: "forex-candle-decision-board",
     label: "Practical Drill",
-    body: "A learner sees a long upper wick on EUR/USD and immediately says, 'This is rejection, so price should drop.' The candle formed during a low-liquidity period and the spread was wider than usual.\n\n**What is the disciplined Forex candle reading?**",
+    body: "A learner sees a long upper wick on EUR/USD (Euro vs. US Dollar) and immediately says, 'This is rejection, so price should drop.' The candle formed during a low-liquidity period and the spread was wider than usual.\n\n**What is the disciplined Forex candle reading?**",
     taskData: {
       type: "choice_block",
       question: "What is the disciplined Forex candle reading?",

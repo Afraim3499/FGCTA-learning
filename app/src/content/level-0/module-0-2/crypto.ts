@@ -24,7 +24,7 @@ export const cryptoCards: LessonCard[] = [
     title: "Order Book vs. Liquidity Pool",
     label: "Market Mechanics",
     visualKey: "crypto-market-engines-visual",
-    body: "On a centralized exchange, price comes from an order book. On a decentralized exchange, price may come from a liquidity pool (AMM). Both show a chart, but the mechanics behind them are different.",
+    body: "On a Centralized Exchange (CEX), price comes from an order book. On a Decentralized Exchange (DEX), price may come from a liquidity pool powered by an Automated Market Maker (AMM). Both show a chart, but the mechanics behind them are different.",
     context: {
       keyTerms: [
         { term: "Order Book", definition: "A list of buy and sell orders organized by price level." },

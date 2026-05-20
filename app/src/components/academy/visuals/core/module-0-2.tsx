@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import {
+  Database,
   TrendingUp,
   TrendingDown,
   ArrowRight,
@@ -26,6 +27,54 @@ import {
 } from "lucide-react";
 
 /**
+ * Institutional Frame Component for Module 0.2
+ */
+const InstitutionalFrame = ({ 
+  children, 
+  label, 
+  status = "AUDIT STANDBY",
+  id = "LN-0.2-AUD"
+}: { 
+  children: React.ReactNode; 
+  label: string; 
+  status?: string;
+  id?: string;
+}) => (
+  <div className="w-full h-full min-h-[450px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
+    {/* Grid Background Effect */}
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
+    
+    {/* Top Header Row */}
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
+      <div className="flex flex-col">
+        <div className="flex items-center gap-2 mb-1">
+          <Database size={10} className="text-teal-600 animate-pulse" />
+          <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.25em]">Evidence Audit Stream</span>
+        </div>
+        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{label}</h4>
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="flex flex-col items-end">
+          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
+          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
+        </div>
+        <div className="w-px h-6 bg-slate-200" />
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-lg shadow-sm">
+          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Dynamic Content Center Stage */}
+    <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
+      {children}
+    </div>
+  </div>
+);
+
+
+/**
  * 0.2 - Transaction Mechanism Mini Visual
  */
 export const TransactionMechanismMiniVisual = () => {
@@ -33,7 +82,9 @@ export const TransactionMechanismMiniVisual = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-3xl mx-auto py-4">
+    <InstitutionalFrame label="Transaction Mechanism" id="LN-0.2-TXMINI" status="MECHANICS SCAN">
+      <div className="w-full max-w-3xl mx-auto py-4">
+        
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2">
         <button 
           onMouseEnter={() => setActivePart('orders')}
@@ -45,7 +96,7 @@ export const TransactionMechanismMiniVisual = () => {
             isActive('orders') ? "bg-blue-100 border-blue-300 shadow-md scale-105" : "bg-slate-50 border-slate-200"
           )}
         >
-          <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-[#EFF6FF] text-blue-600 flex items-center justify-center">
             <TrendingUp size={16} />
           </div>
           <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">Orders</span>
@@ -64,7 +115,7 @@ export const TransactionMechanismMiniVisual = () => {
           )}
         >
           <div className="absolute -top-1 -right-1 w-2 h-2 bg-teal-500 rounded-full animate-ping" />
-          <div className="w-8 h-8 rounded-lg bg-teal-500/10 text-teal-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-[#F0FDFA] text-teal-600 flex items-center justify-center">
             <Cpu size={16} />
           </div>
           <span className="text-[10px] font-black uppercase tracking-widest text-teal-900">Matching</span>
@@ -82,7 +133,7 @@ export const TransactionMechanismMiniVisual = () => {
             isActive('transaction') ? "bg-emerald-100 border-emerald-300 shadow-md scale-105" : "bg-emerald-50 border-emerald-200"
           )}
         >
-          <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-[#F0FDF4] text-emerald-600 flex items-center justify-center">
             <ArrowRightLeft size={16} />
           </div>
           <span className="text-[10px] font-black uppercase tracking-widest text-emerald-900">Transaction</span>
@@ -97,16 +148,18 @@ export const TransactionMechanismMiniVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "flex items-center gap-3 px-4 py-2 rounded-xl border transition-all duration-300",
-            isActive('chart') ? "bg-slate-800 border-slate-600 shadow-xl scale-105" : "bg-slate-900 border-white/10 shadow-lg text-white"
+            isActive('chart') ? "bg-slate-800 border-slate-600 shadow-xl scale-105" : "bg-slate-900 border-slate-800 shadow-lg text-white"
           )}
         >
-          <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-300", isActive('chart') ? "bg-white/20 text-white" : "bg-white/10 text-white")}>
+          <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-300", isActive('chart') ? "bg-[#475569] text-white" : "bg-[#334155] text-white")}>
             <BarChart3 size={16} />
           </div>
           <span className={cn("text-[10px] font-black uppercase tracking-widest transition-colors duration-300", isActive('chart') ? "text-white" : "text-slate-300")}>Chart Record</span>
         </button>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -125,12 +178,14 @@ export const IntentLogicBoardVisual = () => {
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-8 px-4 relative">
-      <div className="max-w-2xl mx-auto mb-12 p-6 rounded-[2.5rem] bg-[var(--ln-navy-900)] text-white shadow-2xl border border-teal-500/20 relative overflow-hidden text-center">
-        <div className="absolute top-0 right-0 p-4 opacity-10">
+    <InstitutionalFrame label="Intent Logic Analyzer" id="LN-0.2-INTENT" status="INTENT SCAN">
+      <div className="w-full max-w-5xl mx-auto py-8 px-4 relative">
+        
+      <div className="max-w-2xl mx-auto mb-12 p-6 rounded-[2.5rem] bg-[var(--ln-navy-900)] text-white shadow-2xl border border-[#CCFBF1] relative overflow-hidden text-center">
+        <div className="absolute top-0 right-0 p-4 ">
           <Info size={40} className="text-teal-400" />
         </div>
-        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-teal-400/80 mb-4">The Central Rule</p>
+        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#2DD4BF] mb-4">The Central Rule</p>
         <div className="space-y-1">
           <p className="text-sm font-black uppercase tracking-tight">Patterns do not cause intent.</p>
           <p className="text-sm font-black uppercase tracking-tight text-teal-400">Intent creates pressure.</p>
@@ -165,7 +220,7 @@ export const IntentLogicBoardVisual = () => {
               </div>
               <div className={cn(
                 "flex-1 w-full p-6 rounded-[2.5rem] bg-white border transition-all duration-300",
-                isActive ? "border-teal-400 shadow-xl scale-[1.02] bg-slate-50/50" : "border-slate-100 shadow-lg group-hover:border-teal-500/30"
+                isActive ? "border-teal-400 shadow-xl scale-[1.02] bg-[#F8FAFC]" : "border-slate-100 shadow-lg group-hover:border-[#99F6E4]"
               )}>
                 <div className="flex items-center justify-between mb-2">
                   <span className={cn(
@@ -177,7 +232,7 @@ export const IntentLogicBoardVisual = () => {
                   )}
                 </div>
                 <h5 className="text-sm font-black text-slate-900 uppercase tracking-tight">{step.title}</h5>
-                <p className="text-[11px] font-bold text-slate-500/80 mt-1 uppercase tracking-tight italic leading-relaxed">
+                <p className="text-[11px] font-bold text-slate-500 mt-1 uppercase tracking-tight italic leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -194,7 +249,9 @@ export const IntentLogicBoardVisual = () => {
           </p>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -206,7 +263,9 @@ export const MindsetComparisonVisual = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-8 px-4 relative">
+    <InstitutionalFrame label="Mindset Comparison Board" id="LN-0.2-MINDSET" status="MINDSET AUDIT">
+      <div className="w-full max-w-5xl mx-auto py-8 px-4 relative">
+        
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <button
           onMouseEnter={() => setActivePart('guesser')}
@@ -215,11 +274,11 @@ export const MindsetComparisonVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "flex flex-col rounded-[2.5rem] border shadow-xl overflow-hidden group text-left transition-all duration-300",
-            isActive('guesser') ? "bg-rose-50/30 border-rose-300 scale-[1.02] shadow-rose-500/10" : "bg-white border-slate-100",
-            activePart && activePart !== 'guesser' ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('guesser') ? "bg-[#FFFDFD] border-rose-300 scale-[1.02] shadow-rose-500/10" : "bg-white border-slate-100",
+            activePart && activePart !== 'guesser' ? " scale-[0.98]" : ""
           )}
         >
-          <div className="bg-rose-500/5 px-6 py-3 border-b border-rose-500/10 flex items-center justify-between">
+          <div className="bg-[#FFF5F5] px-6 py-3 border-b border-[#FFE4E6] flex items-center justify-between">
             <span className="text-[10px] font-black uppercase tracking-widest text-rose-700">The Guesser</span>
             <div className="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center">
                <AlertCircle size={14} />
@@ -232,7 +291,7 @@ export const MindsetComparisonVisual = () => {
                 alt="Reactive Learner"
                 className={cn(
                   "w-full h-full object-cover transition-all duration-500",
-                  isActive('guesser') ? "grayscale-0 scale-105" : "grayscale-[0.5]"
+                  isActive('guesser') ? " scale-105" : ""
                 )}
               />
             </div>
@@ -260,11 +319,11 @@ export const MindsetComparisonVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "flex flex-col rounded-[2.5rem] border shadow-xl overflow-hidden group text-left transition-all duration-300",
-            isActive('observer') ? "bg-emerald-50/30 border-emerald-300 scale-[1.02] shadow-emerald-500/10" : "bg-white border-slate-100",
-            activePart && activePart !== 'observer' ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('observer') ? "bg-[#FBFDFB] border-emerald-300 scale-[1.02] shadow-emerald-500/10" : "bg-white border-slate-100",
+            activePart && activePart !== 'observer' ? " scale-[0.98]" : ""
           )}
         >
-          <div className="bg-emerald-500/5 px-6 py-3 border-b border-emerald-500/10 flex items-center justify-between">
+          <div className="bg-[#F0FDF4] px-6 py-3 border-b border-[#D1FAE5] flex items-center justify-between">
             <span className="text-[10px] font-black uppercase tracking-widest text-emerald-700">The Observer</span>
             <div className="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center">
                <CheckCircle2 size={14} />
@@ -299,32 +358,34 @@ export const MindsetComparisonVisual = () => {
         </button>
       </div>
 
-      <div className="mt-12 p-8 rounded-[3rem] bg-[var(--ln-navy-900)] text-white shadow-2xl border border-teal-500/20 relative overflow-hidden group">
-        <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+      <div className="mt-12 p-8 rounded-[3rem] bg-[var(--ln-navy-900)] text-white shadow-2xl border border-[#CCFBF1] relative overflow-hidden group">
+        <div className="absolute top-0 right-0 p-6  group-hover: transition-opacity">
           <Brain size={80} className="text-teal-400" />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
           <div className="space-y-4">
-            <h5 className="text-[10px] font-black uppercase tracking-[0.4em] text-teal-400/80">Lurnava Rule</h5>
+            <h5 className="text-[10px] font-black uppercase tracking-[0.4em] text-[#2DD4BF]">Lurnava Rule</h5>
             <div className="space-y-1">
               <p className="text-lg font-black uppercase tracking-tight leading-none">Do not guess from shape.</p>
               <p className="text-lg font-black uppercase tracking-tight text-teal-400 leading-none">Read behavior, pressure, and intent.</p>
             </div>
           </div>
-          <div className="flex items-center gap-6 p-5 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-sm">
-             <div className="w-12 h-12 rounded-2xl bg-teal-500/20 flex items-center justify-center shrink-0 border border-teal-500/30">
+          <div className="flex items-center gap-6 p-5 rounded-[2rem] bg-[#1E293B] border border-slate-800 backdrop-blur-sm">
+             <div className="w-12 h-12 rounded-2xl bg-[#CCFBF1] flex items-center justify-center shrink-0 border border-[#99F6E4]">
                <Eye size={24} className="text-teal-400" />
              </div>
              <div>
                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">The Core Question</p>
-               <p className="text-[11px] font-bold text-white/90 leading-snug uppercase">
+               <p className="text-[11px] font-bold text-slate-200 leading-snug uppercase">
                  Lurnava learners do not ask “What does this shape suggest?” They ask “What market behavior is visible here?”
                </p>
              </div>
           </div>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -336,7 +397,9 @@ export const LiquidityComparisonVisual = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-6 px-4">
+    <InstitutionalFrame label="Liquidity Impact Board" id="LN-0.2-LIQ" status="LIQUIDITY AUDIT">
+      <div className="w-full max-w-5xl mx-auto py-6 px-4">
+        
       <div className="text-center mb-8">
         <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-2">Market Impact Analysis</h4>
         <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight italic">Same Order, Different Market Depth</h3>
@@ -349,13 +412,13 @@ export const LiquidityComparisonVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "flex flex-col rounded-[2.5rem] border shadow-xl overflow-hidden group text-left transition-all duration-300",
-            isActive('liquid') ? "bg-emerald-50/30 border-emerald-300 scale-[1.02] shadow-emerald-500/10" : "bg-white border-slate-100",
-            activePart && activePart !== 'liquid' ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('liquid') ? "bg-[#FBFDFB] border-emerald-300 scale-[1.02] shadow-emerald-500/10" : "bg-white border-slate-100",
+            activePart && activePart !== 'liquid' ? " scale-[0.98]" : ""
           )}
         >
-          <div className="bg-emerald-500/5 px-6 py-3 border-b border-emerald-500/10 flex items-center justify-between">
+          <div className="bg-[#F0FDF4] px-6 py-3 border-b border-[#D1FAE5] flex items-center justify-between">
             <span className="text-[10px] font-black uppercase tracking-widest text-emerald-700">Liquid Market</span>
-            <span className="text-[8px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 uppercase">High Depth</span>
+            <span className="text-[8px] font-bold px-2 py-0.5 rounded-full bg-[#F0FDF4] text-emerald-600 uppercase">High Depth</span>
           </div>
           <div className="p-6 space-y-6 flex-1 flex flex-col justify-between">
             <div className="space-y-2">
@@ -371,7 +434,7 @@ export const LiquidityComparisonVisual = () => {
                     "flex-1 h-6 bg-slate-50 rounded-lg flex items-center px-1 border overflow-hidden transition-colors duration-300",
                     isActive('liquid') ? "border-emerald-200" : "border-slate-100"
                   )}>
-                    <div className="h-4 bg-rose-400/20 rounded-md border border-rose-400/30 flex items-center px-2" style={{ width: `${row.size * 10}%` }}>
+                    <div className="h-4 bg-[#FFE4E6] rounded-md border border-[#FECDD3] flex items-center px-2" style={{ width: `${row.size * 10}%` }}>
                        <span className="text-[8px] font-black text-rose-600">{row.size} Units</span>
                     </div>
                   </div>
@@ -379,13 +442,13 @@ export const LiquidityComparisonVisual = () => {
               ))}
             </div>
             <div className="relative py-4">
-              <div className="absolute inset-0 flex items-center justify-center opacity-10">
+              <div className="absolute inset-0 flex items-center justify-center ">
                 <RefreshCcw size={40} className="animate-spin-slow" />
               </div>
               <div className="relative z-10 flex flex-col items-center gap-3">
                 <div className={cn(
                   "px-4 py-2 rounded-xl text-white border shadow-lg flex items-center gap-3 transition-colors duration-300",
-                  isActive('liquid') ? "bg-slate-800 border-slate-600" : "bg-slate-900 border-white/10"
+                  isActive('liquid') ? "bg-slate-800 border-slate-600" : "bg-slate-900 border-slate-800"
                 )}>
                   <TrendingUp size={14} className="text-emerald-400" />
                   <span className="text-[10px] font-black uppercase tracking-widest">BUY ORDER: 5 UNITS</span>
@@ -401,7 +464,7 @@ export const LiquidityComparisonVisual = () => {
                  <CheckCircle2 size={14} className="text-emerald-500" />
                  <p className="text-[10px] font-black uppercase tracking-widest text-emerald-800">Result: Near-Price Fill</p>
                </div>
-               <p className="text-[9px] font-bold text-emerald-600/70 uppercase leading-tight">Order filled at 100.10. No price jump required.</p>
+               <p className="text-[9px] font-bold text-emerald-600 uppercase leading-tight">Order filled at 100.10. No price jump required.</p>
                <div className="mt-2 text-[10px] font-black text-emerald-700 uppercase">Outcome: Small Move</div>
             </div>
           </div>
@@ -414,13 +477,13 @@ export const LiquidityComparisonVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "flex flex-col rounded-[2.5rem] border shadow-xl overflow-hidden group text-left transition-all duration-300",
-            isActive('illiquid') ? "bg-rose-50/30 border-rose-300 scale-[1.02] shadow-rose-500/10" : "bg-white border-slate-100",
-            activePart && activePart !== 'illiquid' ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('illiquid') ? "bg-[#FFFDFD] border-rose-300 scale-[1.02] shadow-rose-500/10" : "bg-white border-slate-100",
+            activePart && activePart !== 'illiquid' ? " scale-[0.98]" : ""
           )}
         >
-          <div className="bg-rose-500/5 px-6 py-3 border-b border-rose-500/10 flex items-center justify-between">
+          <div className="bg-[#FFF5F5] px-6 py-3 border-b border-[#FFE4E6] flex items-center justify-between">
             <span className="text-[10px] font-black uppercase tracking-widest text-rose-700">Illiquid Market</span>
-            <span className="text-[8px] font-bold px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-600 uppercase">Low Depth</span>
+            <span className="text-[8px] font-bold px-2 py-0.5 rounded-full bg-[#FFF5F5] text-rose-600 uppercase">Low Depth</span>
           </div>
           <div className="p-6 space-y-6 flex-1 flex flex-col justify-between">
             <div className="space-y-2">
@@ -434,10 +497,10 @@ export const LiquidityComparisonVisual = () => {
                   <span className="text-[10px] font-mono text-slate-400 w-10">{row.price.toFixed(2)}</span>
                   <div className={cn(
                     "flex-1 h-6 rounded-lg flex items-center px-1 border overflow-hidden transition-colors duration-300",
-                    row.hasGap ? (isActive('illiquid') ? 'bg-rose-100/50 border-dashed border-rose-300' : 'bg-rose-50/30 border-dashed border-rose-100') : (isActive('illiquid') ? 'bg-rose-50 border-rose-200' : 'bg-slate-50 border-slate-100')
+                    row.hasGap ? (isActive('illiquid') ? 'bg-[#FFE4E6] border-dashed border-rose-300' : 'bg-[#FFFDFD] border-dashed border-rose-100') : (isActive('illiquid') ? 'bg-rose-50 border-rose-200' : 'bg-slate-50 border-slate-100')
                   )}>
                     {row.size > 0 && (
-                      <div className="h-4 bg-rose-400/20 rounded-md border border-rose-400/30 flex items-center px-2" style={{ width: `${row.size * 10}%` }}>
+                      <div className="h-4 bg-[#FFE4E6] rounded-md border border-[#FECDD3] flex items-center px-2" style={{ width: `${row.size * 10}%` }}>
                          <span className="text-[8px] font-black text-rose-600">{row.size} Units</span>
                       </div>
                     )}
@@ -452,7 +515,7 @@ export const LiquidityComparisonVisual = () => {
               <div className="relative z-10 flex flex-col items-center gap-3">
                 <div className={cn(
                   "px-4 py-2 rounded-xl text-white border shadow-lg flex items-center gap-3 transition-colors duration-300",
-                  isActive('illiquid') ? "bg-slate-800 border-slate-600" : "bg-slate-900 border-white/10"
+                  isActive('illiquid') ? "bg-slate-800 border-slate-600" : "bg-slate-900 border-slate-800"
                 )}>
                   <TrendingUp size={14} className="text-rose-400" />
                   <span className="text-[10px] font-black uppercase tracking-widest">BUY ORDER: 5 UNITS</span>
@@ -468,7 +531,7 @@ export const LiquidityComparisonVisual = () => {
                  <AlertCircle size={14} className="text-rose-500" />
                  <p className="text-[10px] font-black uppercase tracking-widest text-rose-800">Result: Consumes Depth</p>
                </div>
-               <p className="text-[9px] font-bold text-rose-600/70 uppercase leading-tight">Must reach 100.30 to fill total 5 units.</p>
+               <p className="text-[9px] font-bold text-rose-600 uppercase leading-tight">Must reach 100.30 to fill total 5 units.</p>
                <div className="mt-2 text-[10px] font-black text-rose-700 uppercase animate-pulse">Outcome: Larger Jump</div>
             </div>
           </div>
@@ -487,7 +550,9 @@ export const LiquidityComparisonVisual = () => {
            Liquidity affects travel distance
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -499,7 +564,9 @@ export const MicrostructureBoardVisual = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-8 px-4 relative">
+    <InstitutionalFrame label="Market Microstructure" id="LN-0.2-MICRO" status="MICROSTRUCTURE SCAN">
+      <div className="w-full max-w-5xl mx-auto py-8 px-4 relative">
+        
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-7 space-y-6">
           <div className="flex items-center justify-between px-2 mb-2">
@@ -507,7 +574,7 @@ export const MicrostructureBoardVisual = () => {
             <h4 className={cn("text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-300", isActive('ask') ? "text-rose-500" : "text-slate-400")}>Ask Side (Liquidity)</h4>
           </div>
           <div className="relative">
-            <div className="absolute top-[2px] left-0 right-0 h-[52px] bg-teal-500/5 rounded-2xl border-y border-teal-500/10 pointer-events-none" />
+            <div className="absolute top-[2px] left-0 right-0 h-[52px] bg-[#F2FDFB] rounded-2xl border-y border-[#CCFBF1] pointer-events-none" />
             <div className="space-y-1 relative z-10">
               {[
                 { bid: 99.90, bidSize: "████████", ask: 100.10, askSize: "██████", isBest: true },
@@ -522,11 +589,11 @@ export const MicrostructureBoardVisual = () => {
                     onBlur={() => setActivePart(null)}
                     className={cn(
                       "flex items-center justify-end gap-3 p-3 rounded-xl border transition-all duration-300",
-                      isActive('bid') ? "bg-emerald-50/50 border-emerald-300 shadow-md scale-[1.02]" : "bg-white border-slate-100 shadow-sm hover:border-emerald-200",
-                      activePart && !isActive('bid') && !isActive('liquidity') ? "opacity-60" : "opacity-100"
+                      isActive('bid') ? "bg-[#F0FDF4] border-emerald-300 shadow-md scale-[1.02]" : "bg-white border-slate-100 shadow-sm hover:border-emerald-200",
+                      activePart && !isActive('bid') && !isActive('liquidity') ? "" : ""
                     )}
                   >
-                    <span className="text-[10px] font-mono text-emerald-500/60 truncate">{row.bidSize}</span>
+                    <span className="text-[10px] font-mono text-emerald-600 truncate">{row.bidSize}</span>
                     <span className={`text-sm font-black font-mono ${row.isBest ? 'text-emerald-600' : 'text-slate-400'}`}>{row.bid.toFixed(2)}</span>
                   </button>
                   <button 
@@ -536,12 +603,12 @@ export const MicrostructureBoardVisual = () => {
                     onBlur={() => setActivePart(null)}
                     className={cn(
                       "flex items-center justify-start gap-3 p-3 rounded-xl border transition-all duration-300",
-                      isActive('ask') ? "bg-rose-50/50 border-rose-300 shadow-md scale-[1.02]" : "bg-white border-slate-100 shadow-sm hover:border-rose-200",
-                      activePart && !isActive('ask') && !isActive('liquidity') ? "opacity-60" : "opacity-100"
+                      isActive('ask') ? "bg-[#FFF5F5] border-rose-300 shadow-md scale-[1.02]" : "bg-white border-slate-100 shadow-sm hover:border-rose-200",
+                      activePart && !isActive('ask') && !isActive('liquidity') ? "" : ""
                     )}
                   >
                     <span className={`text-sm font-black font-mono ${row.isBest ? 'text-rose-600' : 'text-slate-400'}`}>{row.ask.toFixed(2)}</span>
-                    <span className="text-[10px] font-mono text-rose-500/60 truncate">{row.askSize}</span>
+                    <span className="text-[10px] font-mono text-rose-600 truncate">{row.askSize}</span>
                   </button>
                 </div>
               ))}
@@ -558,7 +625,7 @@ export const MicrostructureBoardVisual = () => {
               <div className={cn("h-px flex-1 transition-colors duration-300", isActive('spread') ? "bg-slate-800" : "bg-slate-200")} />
               <div className={cn(
                 "px-4 py-1.5 rounded-full border shadow-lg text-[10px] font-black uppercase tracking-widest whitespace-nowrap transition-all duration-300",
-                isActive('spread') ? "bg-white text-slate-900 border-slate-900 scale-105" : "bg-slate-900 text-white border-white/10"
+                isActive('spread') ? "bg-white text-slate-900 border-slate-900 scale-105" : "bg-slate-900 text-white border-slate-800"
               )}>
                 Spread: 0.20
               </div>
@@ -568,11 +635,11 @@ export const MicrostructureBoardVisual = () => {
           </div>
         </div>
         <div className="lg:col-span-5 space-y-6">
-          <div className="p-6 rounded-[2.5rem] bg-[var(--ln-navy-900)] text-white shadow-2xl border border-teal-500/20 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+          <div className="p-6 rounded-[2.5rem] bg-[var(--ln-navy-900)] text-white shadow-2xl border border-[#CCFBF1] relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4  group-hover: transition-opacity">
               <Layers size={80} />
             </div>
-            <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-teal-400/80 mb-6">The Relationship</h5>
+            <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#2DD4BF] mb-6">The Relationship</h5>
             <div className="space-y-6 relative z-10">
               <button 
                 onMouseEnter={() => setActivePart('orders')}
@@ -581,12 +648,12 @@ export const MicrostructureBoardVisual = () => {
                 onBlur={() => setActivePart(null)}
                 className={cn(
                   "flex items-center gap-4 group/item w-full text-left transition-all duration-300 p-2 rounded-xl",
-                  isActive('orders') ? "bg-white/10 shadow-lg scale-[1.02]" : "hover:bg-white/5"
+                  isActive('orders') ? "bg-[#334155] shadow-lg scale-[1.02]" : "hover:bg-[#1E293B]"
                 )}
               >
                 <div className={cn(
                   "w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-colors",
-                  isActive('orders') ? "bg-teal-500/20 border-teal-500/50 text-teal-300" : "bg-white/5 border-white/10 text-teal-400"
+                  isActive('orders') ? "bg-[#CCFBF1] border-teal-500/50 text-teal-300" : "bg-[#1E293B] border-slate-800 text-teal-400"
                 )}>
                   <MousePointer2 size={18} />
                 </div>
@@ -605,12 +672,12 @@ export const MicrostructureBoardVisual = () => {
                 onBlur={() => setActivePart(null)}
                 className={cn(
                   "flex items-center gap-4 group/item w-full text-left transition-all duration-300 p-2 rounded-xl",
-                  isActive('liquidity') ? "bg-white/10 shadow-lg scale-[1.02]" : "hover:bg-white/5"
+                  isActive('liquidity') ? "bg-[#334155] shadow-lg scale-[1.02]" : "hover:bg-[#1E293B]"
                 )}
               >
                 <div className={cn(
                   "w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-colors",
-                  isActive('liquidity') ? "bg-teal-500/20 border-teal-500/50 text-teal-300" : "bg-white/5 border-white/10 text-teal-400"
+                  isActive('liquidity') ? "bg-[#CCFBF1] border-teal-500/50 text-teal-300" : "bg-[#1E293B] border-slate-800 text-teal-400"
                 )}>
                   <Layers size={18} />
                 </div>
@@ -629,12 +696,12 @@ export const MicrostructureBoardVisual = () => {
                 onBlur={() => setActivePart(null)}
                 className={cn(
                   "flex items-center gap-4 group/item w-full text-left transition-all duration-300 p-2 rounded-xl",
-                  isActive('spread') ? "bg-white/10 shadow-lg scale-[1.02]" : "hover:bg-white/5"
+                  isActive('spread') ? "bg-[#334155] shadow-lg scale-[1.02]" : "hover:bg-[#1E293B]"
                 )}
               >
                 <div className={cn(
                   "w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-colors",
-                  isActive('spread') ? "bg-teal-500/20 border-teal-500/50 text-teal-300" : "bg-white/5 border-white/10 text-teal-400"
+                  isActive('spread') ? "bg-[#CCFBF1] border-teal-500/50 text-teal-300" : "bg-[#1E293B] border-slate-800 text-teal-400"
                 )}>
                   <ArrowRightLeft size={18} />
                 </div>
@@ -652,7 +719,9 @@ export const MicrostructureBoardVisual = () => {
           </div>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -664,7 +733,9 @@ export const OrderMatchingVisual = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-8 px-4 relative">
+    <InstitutionalFrame label="Order Matching Engine" id="LN-0.2-MATCH" status="MATCHING SCAN">
+      <div className="w-full max-w-4xl mx-auto py-8 px-4 relative">
+        
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start relative">
         <button 
           onMouseEnter={() => setActivePart('bids')}
@@ -673,7 +744,7 @@ export const OrderMatchingVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "space-y-4 text-left transition-all duration-300",
-            activePart && !isActive('bids') && !isActive('matching') ? "opacity-60" : "opacity-100"
+            activePart && !isActive('bids') && !isActive('matching') ? "" : ""
           )}
         >
           <div className="text-center mb-6">
@@ -704,30 +775,30 @@ export const OrderMatchingVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "flex flex-col items-center gap-8 py-10 text-left transition-all duration-300",
-            activePart && !isActive('matching') && !isActive('transaction') ? "opacity-60" : "opacity-100"
+            activePart && !isActive('matching') && !isActive('transaction') ? "" : ""
           )}
         >
           <div className="relative w-full">
-            <div className={cn("absolute inset-0 rounded-[2.5rem] blur-xl transition-all duration-300", isActive('matching') ? "bg-teal-500/20 scale-110" : "bg-teal-500/5")} />
+            <div className={cn("absolute inset-0 rounded-[2.5rem] blur-xl transition-all duration-300", isActive('matching') ? "bg-[#CCFBF1] scale-110" : "bg-[#F2FDFB]")} />
             <div className={cn(
               "relative p-6 rounded-[2.5rem] bg-[var(--ln-navy-900)] text-white border text-center space-y-4 transition-all duration-300",
-              isActive('matching') ? "border-teal-400 shadow-[0_0_30px_rgba(45,212,191,0.3)] scale-[1.02]" : "shadow-2xl border-teal-500/20"
+              isActive('matching') ? "border-teal-400 shadow-[0_0_30px_rgba(45,212,191,0.3)] scale-[1.02]" : "shadow-2xl border-[#CCFBF1]"
             )}>
               <div className={cn(
                 "w-12 h-12 rounded-2xl flex items-center justify-center mx-auto border transition-colors",
-                isActive('matching') ? "bg-teal-500/30 text-teal-300 border-teal-400" : "bg-teal-500/20 text-teal-400 border-teal-500/30"
+                isActive('matching') ? "bg-[#99F6E4] text-teal-300 border-teal-400" : "bg-[#CCFBF1] text-teal-400 border-[#99F6E4]"
               )}>
                 <RefreshCcw size={24} className="animate-spin-slow" />
               </div>
-              <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-teal-400/80">Matching Point</h5>
-              <p className="text-[11px] font-bold text-white/90 leading-relaxed uppercase tracking-tight">Compatible orders meet</p>
+              <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#2DD4BF]">Matching Point</h5>
+              <p className="text-[11px] font-bold text-slate-200 leading-relaxed uppercase tracking-tight">Compatible orders meet</p>
             </div>
           </div>
           <div className={cn(
             "w-full p-5 rounded-[2rem] border-2 shadow-lg relative overflow-hidden transition-all duration-300",
-            isActive('matching') ? "bg-emerald-100 border-emerald-400 shadow-xl scale-[1.02]" : "bg-emerald-50 border-emerald-500/30"
+            isActive('matching') ? "bg-emerald-100 border-emerald-400 shadow-xl scale-[1.02]" : "bg-emerald-50 border-[#A7F3D0]"
           )}>
-             <div className="absolute top-0 right-0 p-2 text-emerald-500 opacity-20">
+             <div className="absolute top-0 right-0 p-2 text-emerald-500 ">
                 <MousePointer2 size={32} />
              </div>
              <div className="relative z-10">
@@ -743,7 +814,7 @@ export const OrderMatchingVisual = () => {
             <div className={cn("h-8 w-0.5 transition-colors duration-300", isActive('transaction') || isActive('matching') ? "bg-emerald-400" : "bg-slate-100")} />
             <div className={cn(
               "px-6 py-3 rounded-full text-white border shadow-xl flex items-center gap-3 transition-all duration-300",
-              isActive('transaction') || isActive('matching') ? "bg-slate-800 border-emerald-500 shadow-emerald-500/20 scale-105" : "bg-slate-900 border-white/10"
+              isActive('transaction') || isActive('matching') ? "bg-slate-800 border-emerald-500 shadow-emerald-500/20 scale-105" : "bg-slate-900 border-slate-800"
             )}>
               <CheckCircle2 size={14} className={cn("transition-colors", isActive('transaction') || isActive('matching') ? "text-emerald-300" : "text-emerald-400")} />
               <span className="text-[10px] font-black uppercase tracking-widest">Transaction Recorded</span>
@@ -758,7 +829,7 @@ export const OrderMatchingVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "space-y-4 text-left transition-all duration-300",
-            activePart && !isActive('asks') && !isActive('matching') ? "opacity-60" : "opacity-100"
+            activePart && !isActive('asks') && !isActive('matching') ? "" : ""
           )}
         >
           <div className="text-center mb-6">
@@ -795,7 +866,7 @@ export const OrderMatchingVisual = () => {
         onBlur={() => setActivePart(null)}
         className={cn(
           "mt-12 flex flex-col items-center w-full transition-all duration-300 text-left",
-          activePart && !isActive('transaction') ? "opacity-60" : "opacity-100"
+          activePart && !isActive('transaction') ? "" : ""
         )}
       >
         <div className={cn("h-10 w-0.5 transition-colors duration-300", isActive('transaction') ? "bg-teal-400" : "bg-slate-100")} />
@@ -803,7 +874,7 @@ export const OrderMatchingVisual = () => {
           "w-full max-w-md p-6 rounded-[2.5rem] bg-white border flex items-center gap-6 relative overflow-hidden transition-all duration-300",
           isActive('transaction') ? "border-teal-400 shadow-2xl scale-[1.02]" : "border-teal-100 shadow-xl"
         )}>
-          <div className={cn("absolute inset-0 bg-teal-500/5 transition-transform duration-500", isActive('transaction') ? "translate-y-0" : "translate-y-full")} />
+          <div className={cn("absolute inset-0 bg-[#F2FDFB] transition-transform duration-500", isActive('transaction') ? "translate-y-0" : "translate-y-full")} />
           <div className={cn(
             "w-14 h-14 rounded-2xl flex items-center justify-center border shrink-0 relative z-10 transition-colors",
             isActive('transaction') ? "bg-teal-100 text-teal-600 border-teal-300" : "bg-teal-50 text-teal-500 border-teal-100"
@@ -817,7 +888,9 @@ export const OrderMatchingVisual = () => {
           </div>
         </div>
       </button>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -829,7 +902,9 @@ export const MarketMechanismVisual = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-6 px-2 relative">
+    <InstitutionalFrame label="Market Mechanism Board" id="LN-0.2-MECH" status="MECHANICS STREAM">
+      <div className="w-full max-w-5xl mx-auto py-6 px-2 relative">
+        
       <div className={cn("hidden md:block absolute top-[75px] left-[15%] right-[15%] h-0.5 -z-10 transition-colors duration-300", isActive('matching') ? "bg-teal-200" : "bg-slate-100")} />
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-4 relative">
         <button 
@@ -839,7 +914,7 @@ export const MarketMechanismVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "w-full md:w-[28%] order-2 md:order-1 transition-all duration-300",
-            activePart && !isActive('buyers') && !isActive('matching') ? "opacity-60" : "opacity-100"
+            activePart && !isActive('buyers') && !isActive('matching') ? "" : ""
           )}
         >
           <div className={cn(
@@ -865,19 +940,19 @@ export const MarketMechanismVisual = () => {
             onBlur={() => setActivePart(null)}
             className={cn(
               "relative w-full text-left transition-all duration-300",
-              activePart && !isActive('matching') ? "opacity-60" : "opacity-100"
+              activePart && !isActive('matching') ? "" : ""
             )}
           >
-            <div className={cn("absolute inset-0 rounded-[2rem] transition-all duration-300", isActive('matching') ? "bg-teal-500/20 scale-105" : "bg-teal-500/5 animate-pulse")} />
+            <div className={cn("absolute inset-0 rounded-[2rem] transition-all duration-300", isActive('matching') ? "bg-[#CCFBF1] scale-105" : "bg-[#F2FDFB] animate-pulse")} />
             <div className={cn(
               "relative flex flex-col items-center p-6 rounded-[2rem] bg-[var(--ln-navy-900)] text-white border w-full text-center transition-all duration-300",
-              isActive('matching') ? "shadow-[0_0_30px_rgba(45,212,191,0.3)] border-teal-400 scale-[1.02]" : "shadow-xl border-teal-500/20"
+              isActive('matching') ? "shadow-[0_0_30px_rgba(45,212,191,0.3)] border-teal-400 scale-[1.02]" : "shadow-xl border-[#CCFBF1]"
             )}>
-              <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center mb-3 border transition-colors", isActive('matching') ? "bg-teal-500/40 text-teal-300 border-teal-300" : "bg-teal-500/20 text-teal-400 border-teal-500/30")}>
+              <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center mb-3 border transition-colors", isActive('matching') ? "bg-[#5EEAD4] text-teal-300 border-teal-300" : "bg-[#CCFBF1] text-teal-400 border-[#99F6E4]")}>
                 <Cpu size={22} className="animate-spin-slow" />
               </div>
               <span className="text-sm font-black uppercase tracking-widest mb-1 text-white">Matching Engine</span>
-              <p className="text-[9px] font-bold text-teal-400/80 uppercase tracking-widest">Orders meet at a price</p>
+              <p className="text-[9px] font-bold text-[#2DD4BF] uppercase tracking-widest">Orders meet at a price</p>
             </div>
           </button>
           <div className="flex flex-col items-center -my-2">
@@ -892,7 +967,7 @@ export const MarketMechanismVisual = () => {
             className={cn(
               "flex items-center gap-3 p-4 rounded-2xl border w-full text-left transition-all duration-300",
               isActive('transaction') ? "bg-emerald-100 border-emerald-400 shadow-md scale-[1.02]" : "bg-emerald-50 border-emerald-100 shadow-sm",
-              activePart && !isActive('transaction') && !isActive('matching') ? "opacity-60" : "opacity-100"
+              activePart && !isActive('transaction') && !isActive('matching') ? "" : ""
             )}
           >
             <div className={cn("w-8 h-8 rounded-lg border flex items-center justify-center shrink-0 transition-colors", isActive('transaction') ? "bg-white text-emerald-600 border-emerald-200" : "bg-white text-emerald-500 border-emerald-100")}>
@@ -911,7 +986,7 @@ export const MarketMechanismVisual = () => {
             className={cn(
               "flex items-center gap-3 p-4 rounded-2xl border w-full text-left transition-all duration-300",
               isActive('chart') ? "bg-teal-100 border-teal-400 shadow-md scale-[1.02]" : "bg-teal-50 border-teal-100 shadow-sm",
-              activePart && !isActive('chart') && !isActive('transaction') ? "opacity-60" : "opacity-100"
+              activePart && !isActive('chart') && !isActive('transaction') ? "" : ""
             )}
           >
             <div className={cn("w-8 h-8 rounded-lg bg-white border flex items-center justify-center shrink-0 transition-colors", isActive('chart') ? "text-teal-600 border-teal-200" : "text-teal-500 border-teal-100")}>
@@ -931,7 +1006,7 @@ export const MarketMechanismVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "w-full md:w-[28%] order-3 transition-all duration-300",
-            activePart && !isActive('sellers') && !isActive('matching') ? "opacity-60" : "opacity-100"
+            activePart && !isActive('sellers') && !isActive('matching') ? "" : ""
           )}
         >
           <div className={cn(
@@ -949,7 +1024,9 @@ export const MarketMechanismVisual = () => {
           </div>
         </button>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -967,7 +1044,9 @@ export const MarketMechanismRecapVisual = ({ moduleNumber = "0.2" }) => {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-2">
+    <InstitutionalFrame label="Market Mechanism Debrief" id="LN-0.2-RECAP" status="RECAP ACTIVE">
+      <div className="w-full max-w-4xl mx-auto py-2">
+        
       <div className="flex justify-center mb-8">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 shadow-sm">
           <CheckCircle2 size={14} className="text-emerald-500" />
@@ -986,16 +1065,16 @@ export const MarketMechanismRecapVisual = ({ moduleNumber = "0.2" }) => {
               step.color === "teal" && "border-teal-100",
               step.color === "emerald" && "border-emerald-100",
               step.color === "slate" && "border-slate-100",
-              step.color === "amber" && "border-amber-100 bg-amber-50/10"
+              step.color === "amber" && "border-amber-100 bg-[#FFFBEB]"
             )}>
               <div className={cn(
                 "w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border",
-                step.color === "blue" && "bg-blue-500/10 text-blue-600 border-blue-100",
-                step.color === "indigo" && "bg-indigo-500/10 text-indigo-600 border-indigo-100",
-                step.color === "teal" && "bg-teal-500/10 text-teal-600 border-teal-100",
-                step.color === "emerald" && "bg-emerald-500/10 text-emerald-600 border-emerald-100",
-                step.color === "slate" && "bg-slate-500/10 text-slate-600 border-slate-100",
-                step.color === "amber" && "bg-amber-500/10 text-amber-600 border-amber-200"
+                step.color === "blue" && "bg-[#EFF6FF] text-blue-600 border-blue-100",
+                step.color === "indigo" && "bg-[#EEF2FF] text-indigo-600 border-indigo-100",
+                step.color === "teal" && "bg-[#F0FDFA] text-teal-600 border-teal-100",
+                step.color === "emerald" && "bg-[#F0FDF4] text-emerald-600 border-emerald-100",
+                step.color === "slate" && "bg-[#F1F5F9] text-slate-600 border-slate-100",
+                step.color === "amber" && "bg-[#FEF3C7] text-amber-600 border-amber-200"
               )}>
                 {step.icon}
               </div>
@@ -1009,6 +1088,8 @@ export const MarketMechanismRecapVisual = ({ moduleNumber = "0.2" }) => {
           </React.Fragment>
         ))}
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };

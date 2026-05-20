@@ -93,7 +93,7 @@ export const forexCards: LessonCard[] = [
     body: "Because the US Dollar (USD) is on one side of most major Forex pairs, it acts as the master driver of the market. If you are auditing EUR/USD, GBP/USD, or AUD/USD, you cannot analyze them in isolation. You must check the general pressure of the USD itself. If all major USD pairs are moving in harmony, your reading is highly supported. If a pair is trying to move alone while the USD is flat, the evidence is mixed and less reliable.",
     context: {
       keyTerms: [
-        { term: "USD Index (DXY)", definition: "A measure of the value of the US Dollar relative to a basket of foreign currencies." },
+        { term: "US Dollar Index (DXY)", definition: "A measure of the US Dollar's value compared to other major global currencies." },
         { term: "Currency Correlation", definition: "The tendency of different currency pairs to move in similar or opposite directions." },
         { term: "USD Pressure", definition: "The market-wide strength or weakness of the US Dollar." },
         { term: "Harmonic Movement", definition: "When multiple pairs align to reflect the same underlying currency driver." },
@@ -130,13 +130,13 @@ export const forexCards: LessonCard[] = [
     title: "Macro Events Can Distort Forex Evidence",
     label: "Event Distortion",
     visualKey: "forex-event-distortion-audit",
-    body: "Economic reports, inflation releases (like CPI), employment numbers (NFP), and central bank rate decisions are major market events. During these releases, price can move hundreds of pips in a few seconds. These spikes are not organic structure; they are event distortions. A giant candle might break three levels, sweep the highs, and reverse instantly. As disciplined auditors, we do not guess event outcomes. We step aside and wait for the dust to settle.",
+    body: "Economic reports, inflation releases (like CPI), employment numbers (NFP), and central bank rate decisions are major market events. During these releases, price can move hundreds of price units (known as pips) in a few seconds. These spikes are not organic structure; they are event distortions. A giant candle might break three levels, sweep the highs, and reverse instantly. As disciplined auditors, we do not guess event outcomes. We step aside and wait for the dust to settle.",
     context: {
       keyTerms: [
         { term: "Macro Release", definition: "Scheduled economic data reports that impact currency valuations." },
         { term: "Event Distortion", definition: "Extreme volatility and price spikes caused by news releases rather than technical trends." },
-        { term: "Non-Farm Payrolls (NFP)", definition: "A major US employment report that causes extreme USD volatility." },
-        { term: "CPI Release", definition: "Consumer Price Index data, representing inflation trends." },
+        { term: "Non-Farm Payrolls (NFP)", definition: "A major monthly US job report that causes extreme Dollar volatility." },
+        { term: "CPI Release", definition: "Consumer Price Index (CPI) report, which shows inflation trends." },
         { term: "Post-News Stabilization", definition: "Waiting for price to form clear structure and candle closes after a news spike." }
       ],
       whyThisMatters: "Trying to audit a chart in the middle of a news release is impossible because the algorithms are clearing out orders on both sides.",

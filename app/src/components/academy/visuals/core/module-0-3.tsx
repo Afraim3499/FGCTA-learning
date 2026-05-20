@@ -18,6 +18,68 @@ import {
 } from "lucide-react";
 
 /**
+ * LURNAVA INSTITUTIONAL DESIGN TOKENS
+ */
+const UI = {
+  navy: "#071B36",
+  teal: "#0D9488",
+  slate: "#475569",
+  border: "#E2E8F0",
+  bg: "#F8FBFC",
+  rose: "#BE123C",
+  sky: "#0284C7",
+  amber: "#D97706"
+};
+
+/**
+ * Institutional Frame Component for Module 0.3
+ */
+const InstitutionalFrame = ({ 
+  children, 
+  label, 
+  status = "AUDIT STANDBY",
+  id = "LN-0.3-AUD"
+}: { 
+  children: React.ReactNode; 
+  label: string; 
+  status?: string;
+  id?: string;
+}) => (
+  <div className="w-full h-full min-h-[450px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
+    {/* Grid Background Effect */}
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
+    
+    {/* Top Header Row */}
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
+      <div className="flex flex-col">
+        <div className="flex items-center gap-2 mb-1">
+          <Database size={10} className="text-teal-600 animate-pulse" />
+          <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.25em]">Evidence Audit Stream</span>
+        </div>
+        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{label}</h4>
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="flex flex-col items-end">
+          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
+          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
+        </div>
+        <div className="w-px h-6 bg-slate-200" />
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-lg shadow-sm">
+          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Dynamic Content Center Stage */}
+    <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
+      {children}
+    </div>
+  </div>
+);
+
+
+/**
  * 0.3 - Candle Evidence Board
  */
 export const CandleEvidenceBoard = () => {
@@ -25,7 +87,9 @@ export const CandleEvidenceBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-2 flex flex-col items-center gap-6">
+    <InstitutionalFrame label="Candle Evidence Board" id="LN-0.3-EVID" status="EVIDENCE AUDIT">
+      <div className="w-full max-w-4xl mx-auto py-2 flex flex-col items-center gap-6">
+        
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
         <button 
           onMouseEnter={() => setActivePart('body')}
@@ -34,8 +98,8 @@ export const CandleEvidenceBoard = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-6 rounded-[2.5rem] border shadow-sm flex flex-col items-center text-center transition-all duration-300",
-            isActive('body') ? "bg-emerald-50/30 border-emerald-300 shadow-md scale-[1.02]" : "bg-white border-slate-100",
-            activePart && !isActive('body') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('body') ? "bg-[#EFFDF5] border-emerald-300 shadow-md scale-[1.02]" : "bg-white border-slate-100",
+            ""
           )}
         >
           <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors", isActive('body') ? "bg-emerald-100 text-emerald-700" : "bg-emerald-50 text-emerald-600")}>
@@ -55,8 +119,8 @@ export const CandleEvidenceBoard = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-6 rounded-[2.5rem] border shadow-sm flex flex-col items-center text-center transition-all duration-300",
-            isActive('wick') ? "bg-amber-50/30 border-amber-300 shadow-md scale-[1.02]" : "bg-white border-slate-100",
-            activePart && !isActive('wick') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('wick') ? "bg-[#FEFBF0] border-amber-300 shadow-md scale-[1.02]" : "bg-white border-slate-100",
+            ""
           )}
         >
           <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors", isActive('wick') ? "bg-amber-100 text-amber-700" : "bg-amber-50 text-amber-600")}>
@@ -80,8 +144,8 @@ export const CandleEvidenceBoard = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-6 rounded-[2.5rem] border shadow-sm flex flex-col items-center text-center transition-all duration-300",
-            isActive('close') ? "bg-blue-50/30 border-blue-300 shadow-md scale-[1.02]" : "bg-white border-slate-100",
-            activePart && !isActive('close') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('close') ? "bg-[#F0F7FF] border-blue-300 shadow-md scale-[1.02]" : "bg-white border-slate-100",
+            ""
           )}
         >
           <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors", isActive('close') ? "bg-blue-100 text-blue-700" : "bg-blue-50 text-blue-600")}>
@@ -89,12 +153,12 @@ export const CandleEvidenceBoard = () => {
           </div>
           <p className="text-sm font-black text-slate-900 mb-2">3. Close Location</p>
           <div className={cn("flex gap-3 mb-4 transition-transform", isActive('close') ? "scale-110" : "")}>
-            <div className={cn("flex flex-col items-center transition-all", isActive('close') ? "opacity-100 shadow-[0_0_8px_rgba(59,130,246,0.5)] bg-blue-500/10 rounded" : "opacity-80")}>
+            <div className={cn("flex flex-col items-center transition-all", isActive('close') ? " shadow-[0_0_8px_rgba(59,130,246,0.5)] bg-[#EFF6FF] rounded" : "")}>
               <div className="w-0.5 h-2 bg-slate-300" />
               <div className="w-4 h-6 bg-emerald-500 rounded-sm" />
               <div className="w-0.5 h-6 bg-slate-300" />
             </div>
-            <div className={cn("flex flex-col items-center transition-all", isActive('close') ? "opacity-100" : "opacity-80")}>
+            <div className={cn("flex flex-col items-center transition-all", isActive('close') ? "" : "")}>
               <div className="w-0.5 h-6 bg-slate-300" />
               <div className="w-4 h-6 bg-red-500 rounded-sm" />
               <div className="w-0.5 h-2 bg-slate-300" />
@@ -108,7 +172,7 @@ export const CandleEvidenceBoard = () => {
           <div className="space-y-1">
             <p className={cn("text-[9px] font-black uppercase tracking-tighter transition-colors", isActive('close') ? "text-blue-700" : "text-slate-900")}>Near High = Stronger finish</p>
             <p className={cn("text-[9px] font-black uppercase tracking-tighter transition-colors", isActive('close') ? "text-blue-700" : "text-slate-900")}>Near Low = Weaker finish</p>
-            <p className={cn("text-[9px] font-black uppercase tracking-tighter transition-opacity", isActive('close') ? "opacity-70 text-slate-700" : "opacity-50 text-slate-900")}>Near Middle = Mixed finish</p>
+            <p className={cn("text-[9px] font-black uppercase tracking-tighter transition-opacity", isActive('close') ? "opacity-70 text-slate-700" : " text-slate-900")}>Near Middle = Mixed finish</p>
           </div>
         </button>
       </div>
@@ -118,7 +182,9 @@ export const CandleEvidenceBoard = () => {
           The body shows where price opened and closed. Wicks show where price travelled but did not close. Close location helps you judge how the candle finished, but <span className="text-emerald-400">context decides</span> what it means.
         </p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -130,7 +196,9 @@ export const ContextLogicBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-2">
+    <InstitutionalFrame label="Context Logic Analyzer" id="LN-0.3-LOGIC" status="CONTEXT AUDIT">
+      <div className="w-full max-w-4xl mx-auto py-2">
+        
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <button 
           onMouseEnter={() => setActivePart('resistance')}
@@ -139,8 +207,8 @@ export const ContextLogicBoard = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-6 rounded-[2.5rem] border flex flex-col items-center text-center transition-all duration-300",
-            isActive('resistance') ? "bg-rose-100/50 border-rose-300 shadow-md scale-[1.02]" : "bg-rose-50/50 border-rose-100",
-            activePart && !isActive('resistance') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('resistance') ? "bg-[#FFF1F2] border-rose-300 shadow-md scale-[1.02]" : "bg-[#FFF5F5] border-rose-100",
+            ""
           )}
         >
           <p className="text-[10px] font-black uppercase tracking-widest text-rose-500 mb-4">At Resistance</p>
@@ -169,7 +237,7 @@ export const ContextLogicBoard = () => {
           className={cn(
             "p-6 rounded-[2.5rem] border flex flex-col items-center text-center transition-all duration-300",
             isActive('range') ? "bg-slate-100 border-slate-300 shadow-md scale-[1.02]" : "bg-slate-50 border-slate-100",
-            activePart && !isActive('range') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            ""
           )}
         >
           <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-4">Inside a Range</p>
@@ -177,7 +245,7 @@ export const ContextLogicBoard = () => {
             "relative w-full h-32 bg-white rounded-2xl border shadow-sm flex items-center justify-center overflow-hidden transition-colors",
             isActive('range') ? "border-slate-300" : "border-slate-100"
           )}>
-            <div className={cn("absolute inset-4 border-2 border-dashed rounded-lg transition-colors", isActive('range') ? "border-slate-400 bg-slate-100/50" : "border-slate-200 bg-slate-50/50")} />
+            <div className={cn("absolute inset-4 border-2 border-dashed rounded-lg transition-colors", isActive('range') ? "border-slate-400 bg-[#F1F5F9]" : "border-slate-200 bg-[#F8FAFC]")} />
             <div className={cn("relative flex flex-col items-center transition-transform", isActive('range') ? "scale-110" : "scale-100")}>
               <div className="w-0.5 h-4 bg-slate-300" />
               <div className="w-6 h-4 bg-emerald-500 rounded-sm" />
@@ -196,8 +264,8 @@ export const ContextLogicBoard = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-6 rounded-[2.5rem] border flex flex-col items-center text-center transition-all duration-300",
-            isActive('move') ? "bg-blue-100/50 border-blue-300 shadow-md scale-[1.02]" : "bg-blue-50/50 border-blue-100",
-            activePart && !isActive('move') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('move') ? "bg-[#EFF6FF] border-blue-300 shadow-md scale-[1.02]" : "bg-[#EFF6FF] border-blue-100",
+            ""
           )}
         >
           <p className="text-[10px] font-black uppercase tracking-widest text-blue-500 mb-4">After Strong Move</p>
@@ -227,7 +295,9 @@ export const ContextLogicBoard = () => {
         <p className="text-lg font-black italic mb-2">“Same shape. Different location. Different reading.”</p>
         <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-[0.2em]">The Golden Rule of Reading</p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -245,7 +315,9 @@ export const CandleFamilyPreview = () => {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-4">
+    <InstitutionalFrame label="Candle Family Previewer" id="LN-0.3-FAM" status="PREVIEW ACTIVE">
+      <div className="w-full max-w-4xl mx-auto py-4">
+        
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
         {families.map((fam, i) => (
           <button 
@@ -257,7 +329,7 @@ export const CandleFamilyPreview = () => {
             className={cn(
               "p-5 rounded-[2rem] border text-left transition-all duration-300",
               isActive(fam.title) ? `bg-${fam.color}-50/30 border-${fam.color}-200 shadow-lg scale-[1.02]` : "bg-white border-slate-100 shadow-sm",
-              activePart && !isActive(fam.title) ? "opacity-60 scale-[0.98]" : "opacity-100"
+              activePart && !isActive(fam.title) ? " scale-[0.98]" : ""
             )}
           >
              <p className={cn("text-xs font-black mb-4 pb-2 border-b transition-colors", isActive(fam.title) ? `text-${fam.color}-700 border-${fam.color}-100` : "text-slate-900 border-slate-50")}>{fam.title}</p>
@@ -265,7 +337,7 @@ export const CandleFamilyPreview = () => {
                {fam.items.map((item, j) => (
                  <div key={j} className={cn(
                    "flex items-center gap-3 p-2 rounded-xl transition-all",
-                   isActive(fam.title) ? `bg-${fam.color}-50 border-${fam.color}-100` : "bg-slate-50/50"
+                   isActive(fam.title) ? `bg-${fam.color}-50 border-${fam.color}-100` : "bg-[#F8FAFC]"
                  )}>
                     <div className={cn(`w-2 h-2 rounded-full transition-all`, isActive(fam.title) ? `bg-${fam.color}-500 shadow-[0_0_5px_currentColor]` : `bg-${fam.color}-500/30`)} />
                     <p className={cn("text-[10px] font-bold transition-colors", isActive(fam.title) ? `text-${fam.color}-900` : "text-slate-600")}>{item}</p>
@@ -283,7 +355,9 @@ export const CandleFamilyPreview = () => {
            These will be taught later in detail.
         </p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -295,7 +369,9 @@ export const CandleDecisionBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-2xl mx-auto py-2">
+    <InstitutionalFrame label="Candle Decision Board" id="LN-0.3-DEC" status="DECISION STANDBY">
+      <div className="w-full max-w-2xl mx-auto py-2">
+        
       <div className="p-6 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl overflow-hidden">
         <div className="flex items-center justify-center gap-3 mb-6 p-3 bg-rose-600 rounded-2xl text-white">
           <AlertCircle size={18} />
@@ -309,7 +385,7 @@ export const CandleDecisionBoard = () => {
             onBlur={() => setActivePart(null)}
             className={cn(
               "p-6 rounded-3xl border flex flex-col items-center transition-all duration-300",
-              isActive('specimen') || activePart ? "bg-emerald-50/50 border-emerald-200 shadow-md scale-[1.02]" : "bg-slate-50 border-slate-100"
+              isActive('specimen') || activePart ? "bg-[#EAFDF1] border-emerald-200 shadow-md scale-[1.02]" : "bg-slate-50 border-slate-100"
             )}
           >
             <div className={cn("w-0.5 h-6 transition-colors", isActive('specimen') || activePart ? "bg-emerald-300" : "bg-slate-300")} />
@@ -335,7 +411,7 @@ export const CandleDecisionBoard = () => {
                 className={cn(
                   "flex items-center gap-3 w-full text-left p-2 rounded-xl border transition-all duration-300",
                   isActive(item) ? "bg-emerald-50 border-emerald-300 shadow-sm scale-[1.02]" : "bg-white border-slate-100",
-                  activePart && !isActive(item) ? "opacity-60" : "opacity-100"
+                  activePart && !isActive(item) ? "" : ""
                 )}
               >
                  <div className={cn("w-4 h-4 rounded-md border flex items-center justify-center transition-colors", isActive(item) ? "bg-emerald-500 text-white border-emerald-500" : "border-slate-200 text-emerald-500")}>
@@ -347,7 +423,9 @@ export const CandleDecisionBoard = () => {
           </div>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -359,7 +437,9 @@ export const ForexCandleQuoteRecordBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-2xl mx-auto py-2 flex flex-col items-center">
+    <InstitutionalFrame label="Forex Candle Quote Recorder" id="LN-0.3-QUOTE" status="QUOTE STREAM">
+      <div className="w-full max-w-2xl mx-auto py-2 flex flex-col items-center">
+        
       <div className="w-full p-6 rounded-[2.5rem] bg-white border border-slate-100 shadow-xl overflow-hidden relative">
         <div className="flex items-center justify-between gap-4 mb-8">
           <button 
@@ -367,7 +447,7 @@ export const ForexCandleQuoteRecordBoard = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('feed')}
             onBlur={() => setActivePart(null)}
-            className={cn("flex-1 p-3 rounded-2xl border text-center transition-all duration-300", isActive('feed') ? "bg-slate-100 border-slate-300 shadow-sm scale-[1.02]" : "bg-slate-50 border-slate-200", activePart && !isActive('feed') ? "opacity-60" : "opacity-100")}
+            className={cn("flex-1 p-3 rounded-2xl border text-center transition-all duration-300", isActive('feed') ? "bg-slate-100 border-slate-300 shadow-sm scale-[1.02]" : "bg-slate-50 border-slate-200", activePart && !isActive('feed') ? "" : "")}
           >
             <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Source</p>
             <p className="text-[10px] font-black text-slate-900 uppercase">Liquidity Feed</p>
@@ -378,7 +458,7 @@ export const ForexCandleQuoteRecordBoard = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('movement')}
             onBlur={() => setActivePart(null)}
-            className={cn("flex-1 p-3 rounded-2xl border text-center transition-all duration-300", isActive('movement') ? "bg-blue-100 border-blue-300 shadow-sm scale-[1.02]" : "bg-blue-50 border-blue-100", activePart && !isActive('movement') ? "opacity-60" : "opacity-100")}
+            className={cn("flex-1 p-3 rounded-2xl border text-center transition-all duration-300", isActive('movement') ? "bg-blue-100 border-blue-300 shadow-sm scale-[1.02]" : "bg-blue-50 border-blue-100", activePart && !isActive('movement') ? "" : "")}
           >
             <p className="text-[9px] font-black text-blue-400 uppercase tracking-widest mb-1">Movement</p>
             <p className="text-[10px] font-black text-blue-900 uppercase">Quoted Pips</p>
@@ -389,7 +469,7 @@ export const ForexCandleQuoteRecordBoard = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('record')}
             onBlur={() => setActivePart(null)}
-            className={cn("flex-1 p-3 rounded-2xl border text-center transition-all duration-300", isActive('record') ? "bg-emerald-100 border-emerald-300 shadow-sm scale-[1.02]" : "bg-emerald-50 border-emerald-100", activePart && !isActive('record') ? "opacity-60" : "opacity-100")}
+            className={cn("flex-1 p-3 rounded-2xl border text-center transition-all duration-300", isActive('record') ? "bg-emerald-100 border-emerald-300 shadow-sm scale-[1.02]" : "bg-emerald-50 border-emerald-100", activePart && !isActive('record') ? "" : "")}
           >
             <p className="text-[9px] font-black text-emerald-400 uppercase tracking-widest mb-1">Result</p>
             <p className="text-[10px] font-black text-emerald-900 uppercase">Candle Record</p>
@@ -401,7 +481,7 @@ export const ForexCandleQuoteRecordBoard = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('pair')}
             onBlur={() => setActivePart(null)}
-            className={cn("absolute top-4 left-4 px-3 py-1 bg-white rounded-lg border shadow-sm transition-all duration-300", isActive('pair') ? "border-slate-400 shadow-md scale-105" : "border-slate-200", activePart && !isActive('pair') ? "opacity-60" : "opacity-100")}
+            className={cn("absolute top-4 left-4 px-3 py-1 bg-white rounded-lg border shadow-sm transition-all duration-300", isActive('pair') ? "border-slate-400 shadow-md scale-105" : "border-slate-200", activePart && !isActive('pair') ? "" : "")}
           >
              <p className="text-[9px] font-black text-slate-900 uppercase tracking-widest">EUR/USD 15m</p>
           </button>
@@ -409,18 +489,18 @@ export const ForexCandleQuoteRecordBoard = () => {
             <div className={cn("w-1 h-12 transition-colors duration-300", isActive('record') ? "bg-slate-600" : "bg-slate-400")} />
             <div className={cn("w-12 h-20 rounded-lg border-2 shadow-lg transition-all duration-300", isActive('record') ? "bg-emerald-400 border-emerald-300 scale-110 shadow-emerald-500/20" : "bg-emerald-500 border-emerald-400")} />
             <div className={cn("w-1 h-16 transition-colors duration-300", isActive('record') ? "bg-slate-600" : "bg-slate-400")} />
-            <div className={cn("absolute -left-32 top-1/2 -translate-y-1/2 text-right transition-all duration-300", isActive('movement') ? "scale-105 opacity-100" : "opacity-70", activePart && !isActive('movement') ? "opacity-30" : "")}>
+            <div className={cn("absolute -left-32 top-1/2 -translate-y-1/2 text-right transition-all duration-300", isActive('movement') ? "scale-105 " : "opacity-70", activePart && !isActive('movement') ? "" : "")}>
               <p className={cn("text-[10px] font-black uppercase transition-colors", isActive('movement') ? "text-blue-600" : "text-slate-900")}>Quote Journey</p>
               <p className={cn("text-[9px] font-bold transition-colors", isActive('movement') ? "text-blue-500" : "text-slate-400")}>1.0850 → 1.0872 → 1.0844</p>
             </div>
-            <div className={cn("absolute -right-32 top-1/2 -translate-y-1/2 text-left transition-all duration-300", isActive('record') ? "scale-105 opacity-100" : "opacity-70", activePart && !isActive('record') ? "opacity-30" : "")}>
+            <div className={cn("absolute -right-32 top-1/2 -translate-y-1/2 text-left transition-all duration-300", isActive('record') ? "scale-105 " : "opacity-70", activePart && !isActive('record') ? "" : "")}>
               <p className={cn("text-[10px] font-black uppercase transition-colors", isActive('record') ? "text-emerald-700" : "text-emerald-600")}>Final Record</p>
               <p className={cn("text-[9px] font-bold transition-colors", isActive('record') ? "text-emerald-600" : "text-emerald-500")}>Closed @ 1.0865</p>
             </div>
           </div>
         </div>
         <div className="p-4 rounded-2xl bg-slate-900 text-white flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-emerald-400">
+          <div className="w-10 h-10 rounded-xl bg-[#334155] flex items-center justify-center text-emerald-400">
             <Database size={20} />
           </div>
           <p className="text-[11px] font-bold leading-relaxed">
@@ -428,7 +508,9 @@ export const ForexCandleQuoteRecordBoard = () => {
           </p>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -440,7 +522,9 @@ export const CandleAnatomyBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-2">
+    <InstitutionalFrame label="Candle Anatomy Audit" id="LN-0.3-ANAT" status="ANATOMY AUDIT">
+      <div className="w-full max-w-4xl mx-auto py-2">
+        
       <div className="bg-white rounded-[3rem] p-10 border border-slate-200 shadow-xl relative overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Specimen Side */}
@@ -530,7 +614,9 @@ export const CandleAnatomyBoard = () => {
           </div>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -542,7 +628,9 @@ export const RecordVsSignalBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-2">
+    <InstitutionalFrame label="Record vs Signal Comparator" id="LN-0.3-VS" status="COMPARATOR STANDBY">
+      <div className="w-full max-w-5xl mx-auto py-2">
+        
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* The Record */}
         <button 
@@ -552,11 +640,11 @@ export const RecordVsSignalBoard = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-10 rounded-[3rem] border relative overflow-hidden transition-all duration-500 outline-none text-left w-full",
-            isActive('record') ? "bg-white border-blue-200 shadow-2xl scale-[1.02] z-20" : "bg-slate-50/50 border-slate-100 opacity-90",
-            activePart && !isActive('record') ? "opacity-40" : "opacity-100"
+            isActive('record') ? "bg-white border-blue-200 shadow-2xl scale-[1.02] z-20" : "bg-[#F8FAFC] border-slate-100 ",
+            activePart && !isActive('record') ? "" : ""
           )}
         >
-          <div className="absolute top-0 right-0 p-8 opacity-[0.03] text-slate-900">
+          <div className="absolute top-0 right-0 p-8  text-slate-900">
              <FileText size={160} />
           </div>
           <div className="relative z-10">
@@ -593,11 +681,11 @@ export const RecordVsSignalBoard = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-10 rounded-[3rem] border relative overflow-hidden transition-all duration-500 outline-none text-left w-full",
-            isActive('signal') ? "bg-white border-amber-200 shadow-2xl scale-[1.02] z-20" : "bg-slate-50/50 border-slate-100 opacity-90",
-            activePart && !isActive('signal') ? "opacity-40" : "opacity-100"
+            isActive('signal') ? "bg-white border-amber-200 shadow-2xl scale-[1.02] z-20" : "bg-[#F8FAFC] border-slate-100 ",
+            activePart && !isActive('signal') ? "" : ""
           )}
         >
-          <div className="absolute top-0 right-0 p-8 opacity-[0.03] text-slate-900">
+          <div className="absolute top-0 right-0 p-8  text-slate-900">
              <Zap size={160} />
           </div>
           <div className="relative z-10">
@@ -628,7 +716,7 @@ export const RecordVsSignalBoard = () => {
       </div>
 
       <div className="mt-10 p-8 rounded-[2.5rem] bg-slate-900 text-white flex items-center gap-8 shadow-2xl shadow-slate-900/20">
-         <div className="w-16 h-16 rounded-[2rem] bg-white/10 flex items-center justify-center shrink-0">
+         <div className="w-16 h-16 rounded-[2rem] bg-[#334155] flex items-center justify-center shrink-0">
            <Lightbulb size={32} className="text-amber-400" />
          </div>
          <div className="space-y-1">
@@ -638,7 +726,9 @@ export const RecordVsSignalBoard = () => {
            </p>
          </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -647,7 +737,9 @@ export const RecordVsSignalBoard = () => {
  */
 export const CandleDiagram = () => {
   return (
-    <div className="flex flex-col items-center justify-center py-6">
+    <InstitutionalFrame label="Candle Diagram Model" id="LN-0.3-DIAG" status="DIAGRAM ACTIVE">
+      <div className="flex flex-col items-center justify-center py-6">
+        
       <div className="relative flex flex-col items-center">
         {/* Upper Wick */}
         <div className="w-0.5 h-16 bg-slate-400" />
@@ -683,7 +775,9 @@ export const CandleDiagram = () => {
           <p className="text-[9px] font-bold text-amber-500 uppercase italic">Wick (Rejection)</p>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -692,7 +786,9 @@ export const CandleDiagram = () => {
  */
 export const CandleRecapMap = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-2">
+    <InstitutionalFrame label="Candle Recap Map" id="LN-0.3-RECAP" status="RECAP STANDBY">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-2">
+        
       {[
         { title: "The Record", desc: "Every candle is a complete record of what happened in a period.", icon: <FileText size={18} />, color: "blue" },
         { title: "The Context", desc: "Wicks show where price was rejected by participants.", icon: <Zap size={18} />, color: "amber" },
@@ -710,6 +806,8 @@ export const CandleRecapMap = () => {
           <p className="text-[10px] text-slate-500 font-bold leading-relaxed">{item.desc}</p>
         </div>
       ))}
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };

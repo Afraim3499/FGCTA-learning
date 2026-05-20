@@ -14,9 +14,9 @@ export const cryptoCards: LessonCard[] = [
     context: {
       keyTerms: [
         { term: "Fragmented Liquidity", definition: "A market condition where buy and sell orders are split across many different exchanges and venues." },
-        { term: "Spot Exchange (CEX)", definition: "A centralized platform where traders buy and sell the actual underlying cryptocurrency." },
-        { term: "Perpetual Futures (Perps)", definition: "Leveraged contracts tracking price that do not have an expiration date." },
-        { term: "Decentralized Exchange (DEX)", definition: "An on-chain liquidity pool where trading happens directly from user wallets." },
+        { term: "Spot Exchange (CEX)", definition: "A centralized company-run platform (like Binance or Coinbase) where traders buy and sell the actual cryptocurrency." },
+        { term: "Perpetual Futures (Perps)", definition: "Leveraged trading contracts tracking an asset's price without any expiration date." },
+        { term: "Decentralized Exchange (DEX)", definition: "A blockchain-based platform where trading happens directly between user wallets using smart contracts." },
         { term: "Market-Layer Audit", definition: "Evaluating price behavior across spot, futures, and related venues to verify a reading." }
       ],
       whyThisMatters: "If you only check one exchange's chart, you can easily be trapped by an isolated local movement that has no backing from the broader market.",
@@ -75,9 +75,9 @@ export const cryptoCards: LessonCard[] = [
       keyTerms: [
         { term: "Spot Confirmation", definition: "Visible buying volume on centralized spot exchanges backing a price move." },
         { term: "Perp-Led Movement", definition: "A price move driven predominantly by leverage and derivatives positioning on futures exchanges." },
-        { term: "Leverage Imbalance", definition: "An unstable market condition where futures open interest is unsustainably high." },
+        { term: "Leverage Imbalance", definition: "An unstable market condition where the amount of borrowed funds (leverage) in futures contracts is unsustainably high." },
         { term: "Spot/Perp Divergence", definition: "When price moves on perp exchanges but spot exchanges do not show matching volume or price action." },
-        { term: "Order Book Depth", definition: "The volume of limit orders available on an exchange to absorb price movements." }
+        { term: "Order Book Depth", definition: "The total volume of limit orders (buy and sell orders waiting at specific prices) available to absorb market movements." }
       ],
       whyThisMatters: "Perp-led breakouts are highly susceptible to sudden liquidations and reversals. Checking spot volume acts as a quality filter.",
       realLifeExample: "BTC spikes 2% on Binance Perps. You check Coinbase Spot and Binance Spot volume and see it is extremely low. This perp-led spike is likely a short squeeze that will collapse as soon as the futures buying stops.",
@@ -117,7 +117,7 @@ export const cryptoCards: LessonCard[] = [
         { term: "Decentralized Pool", definition: "Smart-contract-based reserves of tokens that facilitate trading on DEXs." },
         { term: "Slippage", definition: "The difference between the expected price of a trade and the price at which it is executed." },
         { term: "Venue Anomaly", definition: "A price spike or discrepancy that occurs on only one specific exchange." },
-        { term: "Arbitrage", definition: "The practice of buying on one exchange and selling on another to profit from price differences." }
+        { term: "Arbitrage", definition: "Profiting from price differences by buying a cryptocurrency on one exchange at a lower price and selling it on another exchange at a higher price." }
       ],
       whyThisMatters: "Relying purely on DEX charts can lead to trading price wicks that were caused by single large orders rather than general market movement.",
       realLifeExample: "A local DEX pool for a mid-cap token spikes 8% upward because a whale bought $100k worth of tokens. On Binance and OKX spot, the price remained completely unchanged. Arbitrageurs quickly sell on the DEX, bringing the price back down.",
@@ -133,11 +133,11 @@ export const cryptoCards: LessonCard[] = [
     body: "To keep the price of perpetual futures in line with the spot price, crypto exchanges use a mechanism called the funding rate. When most traders are leverage-long, longs pay shorts a fee every few hours (positive funding). When most are short, shorts pay longs (negative funding). If the funding rate becomes extremely positive, it shows that leverage is heavily crowded. This crowded position makes any bullish breakout fragile, as a small downward move can trigger a massive liquidation chain.",
     context: {
       keyTerms: [
-        { term: "Funding Rate", definition: "A periodic payment exchanged between long and short traders to align perp and spot prices." },
+        { term: "Funding Rate", definition: "A periodic fee exchanged between buy and sell contract holders to keep perp prices in line with spot prices." },
         { term: "Crowded Leverage", definition: "An extreme imbalance where the vast majority of market participants are positioned in the same direction." },
-        { term: "Open Interest (OI)", definition: "The total number of active, outstanding futures contracts in the market." },
+        { term: "Open Interest (OI)", definition: "The total number of active futures contracts that have not yet been closed or settled." },
         { term: "Funding Pressure", definition: "The financial cost of holding a leveraged position in a crowded market." },
-        { term: "Long Squeeze", definition: "A rapid price drop that forces leveraged long traders to sell, driving price down further." }
+        { term: "Long Squeeze", definition: "A market event where a sudden price drop forces buyers using leverage (longs) to sell, driving prices down even faster." }
       ],
       whyThisMatters: "Trading breakouts when funding is highly elevated is dangerous because the market is structurally fragile and primed for a reversal.",
       realLifeExample: "You want to buy a breakout on ETH. You check the funding rate and see it is at its highest level in months. This tells you leverage is crowded. A few hours later, a tiny dip triggers a mass cascade of long liquidations.",

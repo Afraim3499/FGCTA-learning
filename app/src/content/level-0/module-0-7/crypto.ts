@@ -10,14 +10,14 @@ export const cryptoCards: LessonCard[] = [
     title: "Crypto Conditions Begin With Market Layers",
     label: "Crypto Foundation",
     visualKey: "crypto-condition-foundation",
-    body: "In crypto markets, a candlestick pattern or range break does not exist in isolation. Every move is born inside a layered environment. That environment might be trending, ranging, compressing, expanding, transitioning, or choppy. But in crypto, this condition is also shaped by four powerful layers: BTC context, spot vs perp agreement, liquidity depth, and leverage pressure. A professional crypto reader does not look at a single altcoin's breakout in isolation. Before they trust any move, they ask: 'What condition is this asset in, and does the broader market layers support it?' Let's build this essential crypto filter.",
+    body: "In crypto markets, a candlestick pattern or range break does not exist in isolation. Every move is born inside a layered environment. That environment might be trending, ranging, compressing, expanding, transitioning, or choppy. But in crypto, this condition is also shaped by four powerful layers: BTC context (Bitcoin's overall market direction), spot vs perp agreement (whether physical buyers and futures traders agree on a move), liquidity depth (the amount of buy and sell orders waiting in the order book), and leverage pressure (the amount of borrowed funds in the market). A professional crypto reader does not look at a single altcoin's breakout in isolation. Before they trust any move, they ask: 'What condition is this asset in, and does the broader market layers support it?' Let's build this essential crypto filter.",
     context: {
       keyTerms: [
-        { term: "Crypto Condition", definition: "The dominant state (trend, range, transition, chop, unstable) currently shaping an asset's price action." },
-        { term: "BTC Context", definition: "The structural condition of Bitcoin, which dictates the overall trend direction and risk tolerance of the crypto market." },
-        { term: "Spot vs Perp Agreement", definition: "The alignment of price action between spot markets (physical buying) and perpetual futures (leveraged derivatives)." },
-        { term: "Liquidity Depth", definition: "The volume of buy and sell limit orders resting in order books, which stabilizes price against spikes." },
-        { term: "Leverage Pressure", definition: "The build-up of open interest and liquidation risk that can exaggerate or distort price movement." }
+        { term: "Crypto Condition", definition: "The overall state (like a trend, range, or messy sideways movement) currently shaping an asset's price action." },
+        { term: "BTC Context", definition: "The price direction and stability of Bitcoin, which shapes the behavior of all other cryptocurrencies." },
+        { term: "Spot vs Perp Agreement", definition: "When buying in the spot market (buying the actual coin) matches activity in futures markets (speculating with leverage)." },
+        { term: "Liquidity Depth", definition: "The size and volume of buy and sell orders waiting in the order book, which helps stabilize price." },
+        { term: "Leverage Pressure", definition: "The build-up of borrowed money and forced sales that can distort normal price movement." }
       ],
       whyThisMatters: "Without identifying the crypto condition first, you will constantly buy perp-driven spikes (expecting trend continuation) and sell liquidation wicks (expecting structural reversals).",
       realLifeExample: "You see SOL spike 5% in 10 minutes. If you identify the condition as a spot-supported expansion with BTC trending, you expect continuation. If you identify it as a perp-only spike during thin weekend liquidity, you expect it to fade. The candle is the same; the environment changes the reading.",
@@ -30,14 +30,14 @@ export const cryptoCards: LessonCard[] = [
     title: "BTC Context Shapes the Crypto Environment",
     label: "BTC Context",
     visualKey: "crypto-btc-condition-map",
-    body: "Bitcoin is the index of the crypto market. It dictates the overall environment. An altcoin can print a beautiful structure break, but if Bitcoin is stuck below resistance, transitioning, or choppy, the altcoin's breakout is fragile. A clean altcoin trend condition requires a healthy, stable, or trending Bitcoin environment. If Bitcoin wobbles or rejects structure, the altcoin's reading quality immediately drops to mixed or unstable. BTC context is not there to confuse you. It helps you understand the market around the coin.",
+    body: "Bitcoin is the index of the crypto market. It dictates the overall environment. An altcoin (any cryptocurrency other than Bitcoin) can print a beautiful structure break, but if Bitcoin is stuck below resistance, transitioning, or choppy, the altcoin's breakout is fragile. A clean altcoin trend condition requires a healthy, stable, or trending Bitcoin environment. If Bitcoin wobbles or rejects structure, the altcoin's reading quality immediately drops to mixed or unstable. BTC context is not there to confuse you. It helps you understand the market around the coin.",
     context: {
       keyTerms: [
-        { term: "BTC Dominance", definition: "The ratio of Bitcoin's market capitalization to the total market cap of all digital assets." },
-        { term: "Beta Relationship", definition: "The sensitivity of an altcoin's price relative to Bitcoin's directional movements." },
-        { term: "Correlated Volatility", definition: "The tendency of altcoins to mirror Bitcoin's sudden price swings, often with magnified intensity." },
-        { term: "Market Sentiment Filter", definition: "Using Bitcoin's structural health to determine the overall risk environment of the market." },
-        { term: "Altcoin Vulnerability", definition: "The risk that an altcoin's clean technical structure will be broken by a sudden Bitcoin move." }
+        { term: "BTC Dominance", definition: "Bitcoin's share of the total market value of all cryptocurrencies combined." },
+        { term: "Beta Relationship", definition: "How fast and far an altcoin moves compared to Bitcoin's price swings." },
+        { term: "Correlated Volatility", definition: "The tendency of other coins to mirror Bitcoin's sudden price swings with much larger moves." },
+        { term: "Market Sentiment Filter", definition: "Using Bitcoin's health to judge the risk appetite of the entire market." },
+        { term: "Altcoin Vulnerability", definition: "The danger of an altcoin's price collapsing solely because Bitcoin suddenly dropped." }
       ],
       whyThisMatters: "Respecting BTC context prevents you from buying clean altcoin breakouts right as Bitcoin is about to drop, which invalidates all local evidence.",
       realLifeExample: "ETH attempts to break out of a range. You check BTC and see it has just hit its major range ceiling and is showing rejection. You recognize that the ETH breakout lacks supporting environment, so you stay aside.",
@@ -50,14 +50,14 @@ export const cryptoCards: LessonCard[] = [
     title: "Spot-Supported Conditions Are Cleaner Than Perp-Only Pushes",
     label: "Spot vs Perp",
     visualKey: "crypto-spot-perp-condition-board",
-    body: "Crypto price action is split between two major venues: spot markets (buying the actual asset) and perpetual futures (speculating with leverage). A high-quality, stable market condition is spot-supported, meaning physical buyers are actively accumulating. In contrast, perp-driven conditions are fueled by leverage, funding rate pressures, and short-term speculation. While perp-only spikes can look fast and powerful on a chart, they are highly fragile and tend to reverse completely. A trained learner checks whether a move is backed by real spot volume or perp pressure.",
+    body: "Crypto price action is split between two major venues: spot markets (buying the actual asset) and perpetual futures (speculating with leverage). A high-quality, stable market condition is spot-supported, meaning physical buyers are actively accumulating. In contrast, perp-driven conditions are fueled by leverage, funding rate pressures (periodic fees paid between futures buyers and sellers), and short-term speculation. While perp-only spikes can look fast and powerful on a chart, they are highly fragile and tend to reverse completely. A trained learner checks whether a move is backed by real spot volume or perp pressure.",
     context: {
       keyTerms: [
-        { term: "Spot Market", definition: "The direct buying and selling of cryptocurrency tokens with immediate settlement and no leverage." },
-        { term: "Perpetual Futures (Perps)", definition: "Leveraged derivative contracts with no expiry date, tracking the underlying asset's index price." },
-        { term: "Spot Premium", definition: "A condition where the spot price trades higher than the futures price, showing organic buying pressure." },
-        { term: "Funding Rate Pressure", definition: "Periodic fees paid between perp longs and shorts that can force liquidations and position adjustments." },
-        { term: "Leverage Exhaustion", definition: "A fast move driven by futures buying that runs out of fresh capital and rapidly reverses." }
+        { term: "Spot Market", definition: "Directly buying and owning the actual cryptocurrency tokens with no leverage." },
+        { term: "Perpetual Futures (Perps)", definition: "Futures contracts that never expire, allowing traders to bet on price using borrowed money." },
+        { term: "Spot Premium", definition: "A state where the actual coin price is higher than its futures contract price, showing real buying." },
+        { term: "Funding Rate Pressure", definition: "Periodic fees paid between buyers and sellers in the futures market that can force them to close trades." },
+        { term: "Leverage Exhaustion", definition: "A quick move driven by borrowed money that runs out of steam and rapidly reverses." }
       ],
       whyThisMatters: "Distinguishing spot-supported environments from perp-driven squeezes saves you from buying the absolute top of leverage-fueled pumps.",
       realLifeExample: "SOL spikes 8%. You check spot order books and see very little buying, but futures open interest has jumped $50M. You classify the environment as an unstable perp-driven spike, expecting it to fade.",
@@ -70,14 +70,14 @@ export const cryptoCards: LessonCard[] = [
     title: "Crypto Compression Can Build Quiet Pressure",
     label: "Crypto Compression",
     visualKey: "crypto-compression-condition",
-    body: "Crypto markets are highly cyclical, moving from quiet compression to explosive expansion. Compression happens when price swings narrow, candles shrink in size, and volume fades. During compression, orders are accumulating on both CEX and DEX order books. Beginners see a coin stuck in a flat squeeze and get bored, or they guess a breakout direction to force a trade. This is a gamble. Compression does not predict direction. It is a condition that says: 'Movement is tightening. Wait to see what price proves next.'",
+    body: "Crypto markets are highly cyclical, moving from quiet compression to explosive expansion. Compression happens when price swings narrow, candles shrink in size, and volume fades. During compression, orders are accumulating on both CEX and DEX (centralized and decentralized exchange) order books. Beginners see a coin stuck in a flat squeeze and get bored, or they guess a breakout direction to force a trade. This is a gamble. Compression does not predict direction. It is a condition that says: 'Movement is tightening. Wait to see what price proves next.'",
     context: {
       keyTerms: [
-        { term: "Crypto Compression", definition: "A market state where volatility contracts and price consolidates within a tightening range." },
-        { term: "Volatility Cycle", definition: "The natural progression of the market shifting from quiet contraction to explosive expansion." },
-        { term: "Order Book Coiling", definition: "The accumulation of buy and sell limit orders within a very tight, narrow price band." },
-        { term: "Squeeze Trigger", definition: "The point where price reaches the apex of compression, preparing for a directional breakout." },
-        { term: "Directional Neutrality", definition: "Accepting that a squeeze does not guarantee which way the price will exit compression." }
+        { term: "Crypto Compression", definition: "A quiet market state where price swings shrink within a narrowing corridor." },
+        { term: "Volatility Cycle", definition: "The pattern of the market shifting from quiet contraction to explosive breakouts." },
+        { term: "Order Book Coiling", definition: "The build-up of buy and sell orders waiting in a very narrow price zone." },
+        { term: "Squeeze Trigger", definition: "The final point of compression where price is forced to break out." },
+        { term: "Directional Neutrality", definition: "Accepting that a tight squeeze does not tell you which direction the breakout will go." }
       ],
       whyThisMatters: "Classifying a coin as compressing stops you from entering trades in a flat, sideways market with no momentum.",
       realLifeExample: "BTC moves in a tiny $200 range for three days. You classify the condition as compression. You do not trade; you wait for a clean expansion push to verify direction.",
@@ -93,11 +93,11 @@ export const cryptoCards: LessonCard[] = [
     body: "When price exits a compression zone or range, the market shifts into an expansion condition. But crypto expansion is often wobbly. A clean expansion is supported by spot buying, stable funding rates, and a clean close that holds outside the breakout level. An unstable expansion is fueled by leveraged futures chasing, leaving long wicks, and failing to hold outside the boundary. A trained crypto learner does not chase the spike. They ask: 'Did expansion cleanly break, and does it hold?'",
     context: {
       keyTerms: [
-        { term: "Crypto Expansion", definition: "The release of volatility as price breaks outside a compression or range boundary." },
-        { term: "Hold Verification", definition: "Subsequent candles maintaining price acceptance outside the broken structure level." },
-        { term: "Expansion Quality", definition: "A rating (clean vs unstable) based on spot volume, leverage levels, and close quality." },
-        { term: "Breakout Fade", definition: "When a breakout spike fails to sustain itself and quickly collapses back inside the range." },
-        { term: "Leverage Chase", definition: "A fast move driven by futures traders chasing a breakout, creating an unsustainable spike." }
+        { term: "Crypto Expansion", definition: "The sudden release of price movement as it breaks past a squeeze boundary." },
+        { term: "Hold Verification", definition: "Checking if subsequent candles stay outside the broken boundary level." },
+        { term: "Expansion Quality", definition: "Classifying a breakout as clean (spot-supported) or unstable (perp-driven)." },
+        { term: "Breakout Fade", definition: "When a breakout spike fails to hold and collapses back inside the previous range." },
+        { term: "Leverage Chase", definition: "A rapid spike driven by futures traders chasing a breakout with borrowed money." }
       ],
       whyThisMatters: "Evaluating expansion quality protects you from FOMO-buying a fake breakout that collapses the minute leverage exhausts.",
       realLifeExample: "DOT spikes 10% above its range high. You check the next hour's close. The candle closes back inside the range, and futures funding is highly positive. You label the expansion unstable and stay safe.",
@@ -110,14 +110,14 @@ export const cryptoCards: LessonCard[] = [
     title: "Liquidation Conditions Can Fake Clarity",
     label: "Liquidation Environment",
     visualKey: "crypto-liquidation-condition",
-    body: "Because crypto is heavily leveraged, sudden price moves often trigger liquidation cascades. When short sellers are forced to buy back, or long buyers are forced to sell, price prints massive, fast candles with long wicks. Beginners look at these huge candles and assume a new trend has started. This is a trap. A liquidation move is a forced mechanical event, not organic institutional direction. Once the liquidation loop ends, price often snaps back completely. A liquidation condition is unstable until proven otherwise.",
+    body: "Because crypto is heavily leveraged, sudden price moves often trigger liquidation cascades (forced liquidations of trading accounts). When short sellers are forced to buy back, or long buyers are forced to sell, price prints massive, fast candles with long wicks. Beginners look at these huge candles and assume a new trend has started. This is a trap. A liquidation move is a forced mechanical event, not organic institutional direction. Once the liquidation loop ends, price often snaps back completely. A liquidation condition is unstable until proven otherwise.",
     context: {
       keyTerms: [
-        { term: "Liquidation Cascade", definition: "A chain reaction where forced closures of leveraged positions drive price rapidly in one direction." },
-        { term: "Forced Order Flow", definition: "Buy or sell orders executed automatically by exchange risk engines rather than human decision." },
-        { term: "Liquidation Wick", definition: "A long candle wick created by a rapid spike and immediate reversal during a liquidation event." },
-        { term: "Open Interest Collapse", definition: "A sharp drop in total active futures contracts, showing leverage is being cleared out." },
-        { term: "Mechanical Distortion", definition: "Price distortion caused by automated liquidations rather than organic market valuation." }
+        { term: "Liquidation Cascade", definition: "A chain reaction of forced account closures that drives price rapidly in one direction." },
+        { term: "Forced Order Flow", definition: "Orders executed automatically by exchange computers rather than human decision." },
+        { term: "Liquidation Wick", definition: "A long wick left behind after a rapid spike and instant snapback." },
+        { term: "Open Interest Collapse", definition: "A sharp drop in total active futures contracts as leverage gets cleared out." },
+        { term: "Mechanical Distortion", definition: "Price spikes caused by automated systems rather than people buying or selling." }
       ],
       whyThisMatters: "Understanding liquidation conditions stops you from chasing wicks and teaches you to wait for price to stabilize.",
       realLifeExample: "ETH drops $100 in 2 minutes, leaving a massive lower wick, then returns to its original price. You recognize this as a liquidation cascade. You do not panic; you wait for structure to settle.",
@@ -133,11 +133,11 @@ export const cryptoCards: LessonCard[] = [
     body: "Crypto trades 24/7, but market participation is not equal. During weekends, holidays, or late New York hours, liquidity in order books dries up. In a thin liquidity environment, even small buy or sell orders can cause large, erratic price spikes. These moves look significant on a chart, but they represent very low market agreement. In thin liquidity conditions, candles are noisy, wicks are common, and follow-through is extremely rare. A trained learner lowers reading confidence when liquidity is low.",
     context: {
       keyTerms: [
-        { term: "Thin Liquidity", definition: "A market state where there are few resting orders in the order book, increasing price sensitivity." },
-        { term: "Order Book Spread", definition: "The price gap between the highest buy bid and the lowest sell ask on an exchange." },
-        { term: "Weekend Volatility", definition: "Erratic price movements that occur on Saturdays and Sundays due to lower institutional volume." },
-        { term: "Slippage Spike", definition: "A sudden price jump caused by a market order eating through thin levels in the order book." },
-        { term: "Market Agreement", definition: "The degree of volume-backed consensus among market participants at a specific price level." }
+        { term: "Thin Liquidity", definition: "A market state where there are very few buy or sell orders waiting in the order book." },
+        { term: "Order Book Spread", definition: "The gap between the highest buy order and the lowest sell order on an exchange." },
+        { term: "Weekend Volatility", definition: "Erratic price swings that happen on weekends when major banks and institutions are closed." },
+        { term: "Slippage Spike", definition: "A sudden price spike caused by an order eating through a thin order book." },
+        { term: "Market Agreement", definition: "The level of consensus and volume backing a specific price move." }
       ],
       whyThisMatters: "Identifying thin liquidity environments keeps you from trading weekend noise that will likely be reversed when institutions return on Monday.",
       realLifeExample: "An altcoin spikes 6% on Sunday afternoon. You check order book depth and find it is extremely thin. You classify the environment as noisy and thin, ignoring the breakout.",
@@ -153,11 +153,11 @@ export const cryptoCards: LessonCard[] = [
     body: "A choppy crypto condition occurs when price moves sideways with no structure. Candles overlap constantly, wicks form on both sides, and mini-breaks are immediately reversed. This is where beginners lose the most money by trying to predict breakouts that never happen. A trained learner does not force a clear bias on a choppy chart. They accept that the market is messy, label the condition unclear, and protect their capital by standing aside.",
     context: {
       keyTerms: [
-        { term: "Crypto Chop", definition: "A messy sideways market state characterized by overlapping swings and failed directional pushes." },
-        { term: "Wick Noise", definition: "Frequent, long wicks on both sides of candles, indicating lack of consensus or control." },
-        { term: "Pattern Degradation", definition: "The breakdown of standard technical patterns (like triangles or ranges) inside a messy environment." },
-        { term: "Capital Protection", definition: "The discipline to preserve trading capital by staying out of choppy markets." },
-        { term: "Reading Quality: Unclear", definition: "A classification indicating the chart structure is too messy to establish a high-probability bias." }
+        { term: "Crypto Chop", definition: "A messy sideways state with overlapping swings and no clear direction." },
+        { term: "Wick Noise", definition: "Frequent long wicks on both sides of candles, showing no clear control." },
+        { term: "Pattern Degradation", definition: "The breakdown of standard shapes (like ranges or triangles), making them useless." },
+        { term: "Capital Protection", definition: "Keeping your trading funds safe by avoiding choppy environments." },
+        { term: "Reading Quality: Unclear", definition: "Classifying the market as unreadable when clues are highly conflicting." }
       ],
       whyThisMatters: "Recognizing a choppy environment prevents you from getting chopped up by endless false breakouts and small losses.",
       realLifeExample: "SOL bounces between $100 and $103 for two days, printing overlapping wicks. You identify the chop condition, classify the reading as unclear, and close the chart.",
@@ -173,11 +173,11 @@ export const cryptoCards: LessonCard[] = [
     body: "How does a professional audit a crypto chart? They do not look at a breakout candle first. They follow a disciplined checklist: Zoom out. Classify the overall asset condition. Check BTC context. Verify spot vs perp support. Check liquidity depth. Zoom in. Audit the local candle close quality. Check for follow-through holds. Classify reading quality. By running this filter, you ensure you never trade an isolated candle without knowing the condition around it.",
     context: {
       keyTerms: [
-        { term: "Crypto Workflow", definition: "The step-by-step audit process from macro market layers down to local candle details." },
-        { term: "Environmental Priority", definition: "The rule that the broader market condition always overrides individual candle shapes." },
-        { term: "Multi-Venue Verification", definition: "Cross-referencing spot and perpetual markets to check the quality of a price move." },
-        { term: "Follow-through Hold", definition: "Verifying that subsequent candles sustain a breakout before assigning a clear reading." },
-        { term: "Reading Quality Audit", definition: "Determining if a setup is Clear, Mixed, Unstable, or Unclear based on aligned evidence." }
+        { term: "Crypto Workflow", definition: "The step-by-step audit process starting from BTC context down to the individual candle." },
+        { term: "Environmental Priority", definition: "The rule that the overall market state always overrules local candle shapes." },
+        { term: "Multi-Venue Verification", definition: "Checking both spot and futures markets to confirm if a breakout is real." },
+        { term: "Follow-through Hold", definition: "Verifying that subsequent candles stay outside the broken level." },
+        { term: "Reading Quality Audit", definition: "Checking if clues align to give a clear, mixed, or unclear reading." }
       ],
       whyThisMatters: "Following this workflow prevents you from jumping into false setups driven by isolated, low-quality breakouts.",
       realLifeExample: "You see an altcoin break a level. You follow the workflow: check BTC (choppy), check spot vs perp (perp-only), check liquidity (thin). You classify it as mixed/unstable and avoid the trap.",
@@ -223,11 +223,11 @@ export const cryptoCards: LessonCard[] = [
     },
     context: {
       keyTerms: [
-        { term: "Divergent Breakout", definition: "When a coin breaks structure but the broader market (BTC) does not support the direction." },
-        { term: "Leverage-Fueled Spike", definition: "A breakout attempt driven by futures buying that lacks organic spot accumulation." },
-        { term: "Stalled Follow-Through", definition: "When price stops moving in the breakout direction immediately after the initial candle." },
-        { term: "Unstable Condition", definition: "A market environment that is vulnerable to rapid reversals due to high leverage or thin liquidity." },
-        { term: "Disciplined Classifier", definition: "Labelling a market condition based strictly on aligned evidence rather than FOMO." }
+        { term: "Divergent Breakout", definition: "When one coin breaks a level but Bitcoin is moving in the opposite direction." },
+        { term: "Leverage-Fueled Spike", definition: "A price spike driven by borrowed money rather than actual buying of the coin." },
+        { term: "Stalled Follow-Through", definition: "When price stops moving in the breakout direction immediately after the first candle." },
+        { term: "Unstable Condition", definition: "An environment that is highly vulnerable to rapid reversals." },
+        { term: "Disciplined Classifier", definition: "Naming the market environment based on clear evidence rather than FOMO (fear of missing out)." }
       ],
       whyThisMatters: "This drill trains you to cross-reference multiple crypto layers so you don't fall for isolated altcoin breakouts that lack organic market support.",
       realLifeExample: "An altcoin breaks out, but spot volume is low and funding rates are extremely high. You classify it as unstable, avoiding a loss when price crashes back down.",
@@ -243,11 +243,11 @@ export const cryptoCards: LessonCard[] = [
     body: "Congratulations! You have completed the Level 0 Module 0.7 Crypto Roadway. You have shifted your perspective from chasing individual candles to auditing the overall crypto environment. You now understand that BTC context, spot/perp alignment, liquidity depth, leverage pressure, structure, and follow-through dictate the validity of every technical setup. Carry this environmental filter with you whenever you open a digital asset chart.",
     context: {
       keyTerms: [
-        { term: "Environmental Filter", definition: "The habit of classifying crypto conditions and market layers before auditing local candles." },
-        { term: "Multi-Venue Audit", definition: "Evaluating altcoin structure, BTC context, spot/perp volume, and order book depth together." },
-        { term: "Follow-through Verification", definition: "Waiting for subsequent candles to prove price acceptance outside a broken level." },
-        { term: "Condition Adaptability", definition: "Shifting your trading rules immediately when a coin moves from trend to range or chop." },
-        { term: "Capital Preservation", definition: "Standing aside and declaring a reading unclear when crypto conditions are choppy." }
+        { term: "Environmental Filter", definition: "Naming the overall market environment and BTC context before auditing local candles." },
+        { term: "Multi-Venue Audit", definition: "Checking altcoin structure, BTC direction, and spot/futures volume together." },
+        { term: "Follow-through Verification", definition: "Checking if subsequent candles hold the new price level to confirm a breakout." },
+        { term: "Condition Adaptability", definition: "Changing your reading rules immediately when price shifts from trending to ranging." },
+        { term: "Capital Preservation", definition: "Protecting your trading funds by walking away when the market is choppy." }
       ],
       whyThisMatters: "Condition awareness is the ultimate filter. It separates clean spot-supported moves from unstable leverage traps.",
       realLifeExample: "You open an altcoin chart. Before looking at the current candle, you note that BTC is choppy and funding is positive. You recognize wicks are likely noise and wait.",

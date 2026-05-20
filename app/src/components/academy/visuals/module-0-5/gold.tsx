@@ -20,98 +20,9 @@ import {
   Globe,
   Layers
 } from "lucide-react";
+import { UI, InstitutionalFrame, MentorInsight } from "./shared";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-
-/**
- * LURNAVA INSTITUTIONAL DESIGN TOKENS (Gold Theme adaptation)
- */
-const UI = {
-  navy: "#071B36",
-  gold: "#D97706", // AA-compliant deep amber
-  teal: "#0D9488",
-  slate: "#475569",
-  border: "#E2E8F0",
-  bg: "#F8FBFC",
-  rose: "#BE123C",
-  sky: "#0284C7"
-};
-
-/**
- * Institutional Frame Component
- */
-const InstitutionalFrame = ({
-  children,
-  label,
-  status = "ANALYSIS ACTIVE",
-  id = "LN-0.5-STR-AU"
-}: {
-  children: React.ReactNode;
-  label: string;
-  status?: string;
-  id?: string;
-}) => (
-  <div className="w-full h-full min-h-[550px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-8 flex flex-col relative overflow-hidden shadow-sm">
-    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:32px_32px]" />
-
-    <div className="flex items-center justify-between mb-8 relative z-10 border-b border-slate-200/50 pb-4">
-      <div className="flex flex-col">
-        <div className="flex items-center gap-2 mb-1">
-          <Database size={10} className="text-[#D97706]" />
-          <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Gold Audit Stream</span>
-        </div>
-        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic">{label}</h4>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
-          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
-        </div>
-        <div className="w-px h-6 bg-slate-200" />
-        <div className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#D97706] animate-pulse" />
-          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
-        </div>
-      </div>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center justify-center relative z-10">
-      {children}
-    </div>
-
-    <div className="mt-8 pt-4 border-t border-slate-200/50 flex items-center justify-between">
-       <div className="flex gap-4">
-          <div className="flex items-center gap-1.5">
-            <div className="w-1 h-1 bg-[#D97706] rounded-full" />
-            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Volatility Proof Verified</span>
-          </div>
-       </div>
-       <div className="flex items-center gap-1.5">
-          <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter">LN-AU-PROD-V1</span>
-       </div>
-    </div>
-  </div>
-);
-
-const MentorInsight = ({ text, analogy }: { text: string; analogy?: string }) => (
-  <div className="w-full mt-8 pt-6 border-t border-slate-200/50 flex flex-col gap-3">
-    <div className="flex items-center gap-2">
-      <div className="px-2 py-1 bg-[#071B36] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Insight</div>
-      <div className="h-px flex-1 bg-slate-200" />
-    </div>
-    <div className="flex gap-4">
-       <div className="flex-1">
-          <p className="text-xs font-bold text-[#071B36] leading-relaxed">{text}</p>
-          {analogy && (
-            <p className="mt-2 text-[11px] text-slate-500 italic leading-snug">
-              <span className="font-black uppercase text-[9px] mr-2 text-[#D97706] not-italic">Analogy:</span>
-              {analogy}
-            </p>
-          )}
-       </div>
-    </div>
-  </div>
-);
 
 /**
  * Card 1: Gold Structure Is Volatility-Shaped Movement
@@ -144,7 +55,7 @@ export const GoldVolatilityStructureSkeleton = () => {
         </div>
 
         <div className="bg-[#071B36] rounded-[2.5rem] p-10 h-[300px] relative overflow-hidden border border-slate-800 shadow-2xl flex items-center justify-center">
-          <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(#0C233E_1px,transparent_1px)] bg-[length:24px_24px]" />
 
           <svg className="w-full h-full max-w-[500px] overflow-visible pointer-events-none">
             {/* Audited Structure Swings (Background reference when showing noise) */}
@@ -191,7 +102,7 @@ export const GoldVolatilityStructureSkeleton = () => {
           </svg>
 
           {/* Quick context box inside visual */}
-          <div className="absolute bottom-6 right-8 bg-slate-900/60 border border-slate-800 px-4 py-2 rounded-xl backdrop-blur-sm">
+          <div className="absolute bottom-6 right-8 bg-[#0B1E36] border border-slate-800 px-4 py-2 rounded-xl backdrop-blur-sm">
             <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block">Reading Quality</span>
             <span className={cn(
               "text-[10px] font-black uppercase tracking-wider",
@@ -243,7 +154,7 @@ export const GoldWickHeavySwingPoints = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="bg-white border-2 border-slate-200 rounded-[3rem] p-10 h-[300px] relative overflow-hidden shadow-sm flex items-center justify-center">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#F1F5F9_1px,transparent_1px)] bg-[length:24px_24px]" />
 
             <svg className="w-full h-full max-w-[300px] overflow-visible" viewBox="0 0 200 200">
               <line x1="20" y1="100" x2="180" y2="100" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="4 4" />
@@ -287,7 +198,7 @@ export const GoldWickHeavySwingPoints = () => {
           </div>
 
           <div className="space-y-6">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] font-black text-[#D97706] uppercase tracking-widest">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF3C7] border border-amber-200 text-[10px] font-black text-[#D97706] uppercase tracking-widest">
               Wick Audit Diagnostics
             </span>
             <h4 className="text-xl font-black text-[#071B36] uppercase tracking-tight italic">
@@ -405,12 +316,12 @@ export const GoldTrendRangeStructure = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="bg-[#071B36] rounded-[3rem] p-10 h-[300px] relative overflow-hidden border border-slate-800 shadow-2xl flex items-center justify-center md:col-span-2">
-            <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#152C48_1px,transparent_1px)] bg-[length:24px_24px]" />
 
             {activeTab === "range" && (
               <>
-                <div className="absolute top-[20%] left-0 w-full h-px bg-rose-500/20 border-t border-dashed" />
-                <div className="absolute bottom-[35%] left-0 w-full h-px bg-teal-500/20 border-t border-dashed" />
+                <div className="absolute top-[20%] left-0 w-full h-px bg-[#FDE2E2] border-t border-dashed" />
+                <div className="absolute bottom-[35%] left-0 w-full h-px bg-[#CCECE6] border-t border-dashed" />
               </>
             )}
 
@@ -496,7 +407,7 @@ export const GoldReactionZonesNotLines = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="bg-white border-2 border-slate-200 rounded-[3.5rem] p-10 h-[300px] relative overflow-hidden flex items-center justify-center shadow-sm">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#F1F5F9_1px,transparent_1px)] bg-[length:24px_24px]" />
 
             <AnimatePresence mode="wait">
               {viewMode === "line" ? (
@@ -513,7 +424,7 @@ export const GoldReactionZonesNotLines = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute top-[28%] left-0 w-full h-12 bg-amber-500/10 border-y border-dashed border-amber-500/30 z-20"
+                  className="absolute top-[28%] left-0 w-full h-12 bg-[#FEF3C7] border-y border-dashed border-[#FCD34D] z-20"
                 />
               )}
             </AnimatePresence>
@@ -543,7 +454,7 @@ export const GoldReactionZonesNotLines = () => {
           </div>
 
           <div className="space-y-6">
-            <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 border border-amber-500/20 text-[9px] font-black uppercase tracking-widest">
+            <span className="px-3 py-1 rounded-full bg-[#FEF3C7] text-amber-700 border border-amber-200 text-[9px] font-black uppercase tracking-widest">
               Support/Resistance Strategy
             </span>
             <h4 className="text-xl font-black text-[#071B36] uppercase tracking-tight italic">
@@ -615,7 +526,7 @@ export const GoldSweepWickFailedReaction = () => {
           </div>
           <button
             onClick={() => setStep((prev) => (prev < 4 ? prev + 1 : 1))}
-            className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#D97706] border-2 border-amber-500/20 px-4 py-2 rounded-xl bg-white hover:bg-slate-50"
+            className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#D97706] border-2 border-amber-200 px-4 py-2 rounded-xl bg-white hover:bg-slate-50"
           >
             <span>Next Stage</span>
             <ChevronRight size={14} />
@@ -624,10 +535,10 @@ export const GoldSweepWickFailedReaction = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="bg-[#071B36] rounded-[3rem] p-10 h-[300px] relative overflow-hidden border border-slate-800 shadow-2xl flex items-center justify-center md:col-span-2">
-            <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#152C48_1px,transparent_1px)] bg-[length:24px_24px]" />
 
             {/* Liquidity High Line */}
-            <div className="absolute top-[35%] left-0 w-full h-px bg-amber-500/40 border-t border-dashed" />
+            <div className="absolute top-[35%] left-0 w-full h-px bg-[#FDE68A] border-t border-dashed" />
             <div className="absolute top-[35%] left-8 -translate-y-5">
               <span className="text-[8px] font-black text-amber-400 uppercase tracking-widest">Historical Swing High</span>
             </div>
@@ -717,7 +628,7 @@ export const GoldImpulsePullbackRhythm = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="bg-white border-2 border-slate-200 rounded-[3rem] p-10 h-[300px] relative overflow-hidden shadow-sm flex items-center justify-center md:col-span-2">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#F1F5F9_1px,transparent_1px)] bg-[length:24px_24px]" />
 
             <svg className="w-full h-full max-w-[350px] overflow-visible pointer-events-none" viewBox="0 0 200 200">
               {/* Impulse leg */}
@@ -808,10 +719,10 @@ export const GoldMacroFakeStructure = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="bg-[#071B36] rounded-[3rem] p-10 h-[300px] relative overflow-hidden border border-slate-800 shadow-2xl flex items-center justify-center">
-            <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#152C48_1px,transparent_1px)] bg-[length:24px_24px]" />
 
             {/* Major Resistance Area */}
-            <div className="absolute top-[35%] left-0 w-full h-[2px] bg-amber-500/30 border-t border-dashed" />
+            <div className="absolute top-[35%] left-0 w-full h-[2px] bg-[#FDE68A] border-t border-dashed" />
             <div className="absolute top-[35%] left-8 -translate-y-5">
               <span className="text-[8px] font-black text-amber-400 uppercase tracking-widest">Major Resistance Wall</span>
             </div>
@@ -845,7 +756,7 @@ export const GoldMacroFakeStructure = () => {
           </div>
 
           <div className="space-y-6">
-            <span className="px-3 py-1 rounded-full bg-rose-500/10 text-rose-600 border border-rose-500/20 text-[9px] font-black uppercase tracking-widest">
+            <span className="px-3 py-1 rounded-full bg-[#FDF2F2] text-rose-600 border border-rose-200 text-[9px] font-black uppercase tracking-widest">
               Event Distortion Diagnostic
             </span>
             <h4 className="text-xl font-black text-[#071B36] uppercase tracking-tight italic">
@@ -924,10 +835,10 @@ export const GoldBreakFailureQuality = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="bg-[#071B36] rounded-[3rem] p-10 h-[300px] relative overflow-hidden border border-slate-800 shadow-2xl flex items-center justify-center md:col-span-2">
-            <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#152C48_1px,transparent_1px)] bg-[length:24px_24px]" />
 
             {/* Standard Resistance Zone */}
-            <div className="absolute top-[45%] left-0 w-full h-8 bg-amber-500/10 border-y border-dashed border-amber-500/30 z-10" />
+            <div className="absolute top-[45%] left-0 w-full h-8 bg-[#FEF3C7] border-y border-dashed border-[#FCD34D] z-10" />
             <div className="absolute top-[45%] left-8 -translate-y-5 z-20">
               <span className="text-[8px] font-black text-amber-400 uppercase tracking-widest">Historic Resistance Zone</span>
             </div>
@@ -1004,7 +915,7 @@ export const GoldHtfLocationFirst = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="bg-white border-2 border-slate-200 rounded-[3.5rem] p-10 h-[300px] relative overflow-hidden flex items-center justify-center shadow-sm md:col-span-2">
-            <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#F1F5F9_1px,transparent_1px)] bg-[length:24px_24px]" />
 
             {/* Fictional 4H resistance wall layer */}
             <AnimatePresence>
@@ -1013,7 +924,7 @@ export const GoldHtfLocationFirst = () => {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "80px" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="absolute top-[15%] left-0 w-full bg-rose-500/10 border-y border-dashed border-rose-500/40 z-20 flex items-center justify-end pr-8"
+                  className="absolute top-[15%] left-0 w-full bg-[#FDF2F2] border-y border-dashed border-rose-300 z-20 flex items-center justify-end pr-8"
                 >
                   <span className="text-[9px] font-black text-rose-600 uppercase tracking-widest">
                     HTF 4H Rejection Wall
@@ -1111,7 +1022,7 @@ export const GoldStructureBreakDrill = () => {
     <InstitutionalFrame label="Interactive Practice Scenario" id="AU-05-DRILL">
       <div className="w-full max-w-4xl mx-auto space-y-8">
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative min-h-[350px] flex flex-col justify-between">
-          <div className="absolute top-[25%] left-0 w-full h-8 bg-rose-500/10 border-y border-dashed border-rose-500/30 flex items-center justify-end pr-8">
+          <div className="absolute top-[25%] left-0 w-full h-8 bg-[#FDF2F2] border-y border-dashed border-rose-300 flex items-center justify-end pr-8">
             <span className="text-[8px] font-black text-rose-400 uppercase tracking-widest">HTF 4H Rejection Ceiling</span>
           </div>
 
@@ -1150,8 +1061,8 @@ export const GoldStructureBreakDrill = () => {
                 "p-5 rounded-[2rem] text-left border-2 transition-all flex flex-col justify-start gap-3 h-auto min-h-[120px] shadow-sm cursor-pointer",
                 selectedOption === opt.id
                   ? opt.correct
-                    ? "bg-teal-50 border-teal-500/60 shadow-teal-500/5 text-[#071B36]"
-                    : "bg-rose-50 border-rose-500/60 shadow-rose-500/5 text-[#071B36]"
+                    ? "bg-teal-50 border-teal-200 shadow-teal-100 text-[#071B36]"
+                    : "bg-rose-50 border-rose-200 shadow-rose-100 text-[#071B36]"
                   : "bg-white border-slate-100 hover:border-slate-200 text-slate-600"
               )}
             >
@@ -1178,8 +1089,8 @@ export const GoldStructureBreakDrill = () => {
             <div className={cn(
               "p-6 rounded-[2rem] border-2 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-300",
               opt.correct
-                ? "bg-teal-500/5 border-teal-500/30 text-[#0D9488]"
-                : "bg-rose-500/5 border-rose-500/30 text-[#BE123C]"
+                ? "bg-[#E6F2F0] border-teal-300 text-[#0D9488]"
+                : "bg-[#FFF5F5] border-rose-300 text-[#BE123C]"
             )}>
               <div className="flex items-center gap-3 mb-2">
                 <span className={cn(
@@ -1188,7 +1099,7 @@ export const GoldStructureBreakDrill = () => {
                 )}>
                   {opt.correct ? "Audit Passed" : "Audit Rejected"}
                 </span>
-                <span className="text-[10px] font-black uppercase tracking-widest opacity-60">XAU/USD Structure Feedback</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">XAU/USD Structure Feedback</span>
               </div>
               <p className="text-xs font-bold leading-relaxed uppercase tracking-wide">
                 {opt.feedback}
@@ -1214,10 +1125,10 @@ export const GoldStructureRoadwayDebrief = () => {
     <InstitutionalFrame label="Roadway Competency Verified" id="AU-05-DEBRIEF" status="COMPLETE">
       <div className="w-full max-w-4xl mx-auto space-y-12 flex flex-col items-center">
         <div className="relative group">
-          <div className="w-24 h-24 rounded-[2.5rem] bg-teal-500 flex items-center justify-center text-white shadow-2xl shadow-teal-500/20 group-hover:scale-110 transition-transform duration-500">
+          <div className="w-24 h-24 rounded-[2.5rem] bg-teal-500 flex items-center justify-center text-white shadow-2xl shadow-teal-100 group-hover:scale-110 transition-transform duration-500">
             <CheckCircle size={48} strokeWidth={2.5} />
           </div>
-          <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -inset-4 border-2 border-dashed border-teal-200 rounded-full opacity-30" />
+          <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -inset-4 border-2 border-dashed border-teal-100 rounded-full" />
         </div>
 
         <div className="text-center space-y-2">
@@ -1231,8 +1142,8 @@ export const GoldStructureRoadwayDebrief = () => {
             { label: "Wick Diagnostics", desc: "Sweeps and wicks analyzed for body close quality", icon: <Activity size={16} /> },
             { label: "HTF Dominance", desc: "Local structure filtered through macro locations", icon: <Compass size={16} /> }
           ].map((item, i) => (
-            <div key={i} className="bg-white border border-slate-200/60 p-6 rounded-[2rem] shadow-sm flex flex-col gap-3">
-              <div className="w-8 h-8 rounded-xl bg-teal-500/10 text-teal-600 flex items-center justify-center">
+            <div key={i} className="bg-white border border-slate-200 p-6 rounded-[2rem] shadow-sm flex flex-col gap-3">
+              <div className="w-8 h-8 rounded-xl bg-[#E6F2F0] text-teal-600 flex items-center justify-center">
                 {item.icon}
               </div>
               <div>

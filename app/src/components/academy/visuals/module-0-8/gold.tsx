@@ -29,9 +29,9 @@ import {
 // CARD 1: GoldLocationFoundation
 // ==========================================
 export const GoldLocationFoundation = () => {
-  const [selectedCoord, setSelectedCoord] = useState<string>("zone");
+  const [selectedLayer, setSelectedLayer] = useState<string>("zone");
 
-  const coordinates = [
+  const layers = [
     {
       id: "zone",
       name: "Reaction Zone",
@@ -43,17 +43,17 @@ export const GoldLocationFoundation = () => {
     {
       id: "landmark",
       name: "Prior High / Low",
-      role: "Liquidity Landmarks",
+      role: "Boundary Landmarks",
       color: "purple",
-      desc: "Prior daily or weekly extremes attract order clusters. Watch if Gold sweeps past them and returns inside, or accepts the new level.",
+      desc: "Prior daily or weekly extremes attract grouped orders. Watch if Gold sweeps past them and returns inside, or accepts the new level.",
       candles: [{ color: "purple", h: 15, uw: 30, lw: 5 }]
     },
     {
       id: "middle",
-      name: "Range Midpoint Noise",
-      role: "Equilibrium Zone",
+      name: "Range Middle Noise",
+      role: "Balanced Zone",
       color: "slate",
-      desc: "The center of a trading range is value equilibrium. Movements here look active but are highly random and lack order density.",
+      desc: "The center of a trading range is balanced value. Movements here look active but are highly random and lack order groupings.",
       candles: [{ color: "slate", h: 30, uw: 10, lw: 10 }]
     },
     {
@@ -66,13 +66,13 @@ export const GoldLocationFoundation = () => {
     }
   ];
 
-  const active = coordinates.find(c => c.id === selectedCoord) || coordinates[0];
+  const active = layers.find(c => c.id === selectedLayer) || layers[0];
 
   return (
     <InstitutionalFrame label="Gold Location Radar" status="XAU/USD SCANNER">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
-          Interactive Map: Select a coordinate layer to audit how it shapes the quality of a Gold candle reading.
+          Interactive Map: Select a chart layer to audit how it shapes the quality of a Gold candle reading.
         </p>
 
         {/* Radar Map Visual */}
@@ -87,38 +87,38 @@ export const GoldLocationFoundation = () => {
               </div>
             </div>
 
-            {/* Interactive Coordinate Nodes */}
+            {/* Interactive Chart Nodes */}
             <button 
-              onClick={() => setSelectedCoord("zone")}
+              onClick={() => setSelectedLayer("zone")}
               className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-2 py-0.5 rounded text-[8px] font-mono font-bold transition-all ${
-                selectedCoord === "zone" ? "bg-teal-500 text-slate-950 scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+                selectedLayer === "zone" ? "bg-teal-500 text-slate-950 scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
               }`}
             >
               REACTION ZONE
             </button>
 
             <button 
-              onClick={() => setSelectedCoord("landmark")}
+              onClick={() => setSelectedLayer("landmark")}
               className={`absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 px-2 py-0.5 rounded text-[8px] font-mono font-bold transition-all ${
-                selectedCoord === "landmark" ? "bg-purple-500 text-white scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+                selectedLayer === "landmark" ? "bg-purple-500 text-white scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
               }`}
             >
               PRIOR SWING
             </button>
 
             <button 
-              onClick={() => setSelectedCoord("middle")}
+              onClick={() => setSelectedLayer("middle")}
               className={`absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 px-2 py-0.5 rounded text-[8px] font-mono font-bold transition-all ${
-                selectedCoord === "middle" ? "bg-slate-400 text-slate-950 scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+                selectedLayer === "middle" ? "bg-slate-400 text-slate-950 scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
               }`}
             >
-              RANGE MIDPOINT
+              RANGE MIDDLE
             </button>
 
             <button 
-              onClick={() => setSelectedCoord("macro")}
+              onClick={() => setSelectedLayer("macro")}
               className={`absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 px-2 py-0.5 rounded text-[8px] font-mono font-bold transition-all ${
-                selectedCoord === "macro" ? "bg-amber-500 text-slate-950 scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+                selectedLayer === "macro" ? "bg-amber-500 text-slate-950 scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
               }`}
             >
               MACRO / USD
@@ -147,7 +147,7 @@ export const GoldLocationFoundation = () => {
 
         <MentorInsight 
           text="Before trusting a Gold move, locate XAU/USD through reaction zones, prior highs/lows, wick behavior, sweep areas, macro context, higher-timeframe location, close quality, and follow-through." 
-          analogy="A candle or wick doesn't tell its own story. The location coordinates around it dictate its structural value."
+          analogy="A candle or wick doesn't tell its own story. The price levels around it dictate its structural value."
         />
       </div>
     </InstitutionalFrame>
@@ -236,7 +236,7 @@ export const GoldReactionZoneLocation = () => {
             <div className="flex gap-3">
               <CheckCircle2 className="text-teal-600 shrink-0" size={18} />
               <div>
-                <h5 className="text-xs font-black text-[#071B36] uppercase mb-1">Defended Coordinate</h5>
+                <h5 className="text-xs font-black text-[#071B36] uppercase mb-1">Defended Level</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
                   Gold spikes past the zone ceiling to sweep stops, but the sellers force price to close back inside the zone. Subsequent bullish close confirms the zone is defended.
                 </p>
@@ -248,7 +248,7 @@ export const GoldReactionZoneLocation = () => {
               <div>
                 <h5 className="text-xs font-black text-[#071B36] uppercase mb-1">Structural Acceptance</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  Instead of wicking back, Gold closes strongly below the reaction zone. Subsequent candles consolidate below, confirming the zone is broken and price has accepted lower coordinates.
+                  Instead of wicking back, Gold closes strongly below the reaction zone. Subsequent candles consolidate below, confirming the zone is broken and price has accepted lower price levels.
                 </p>
               </div>
             </div>
@@ -296,21 +296,21 @@ export const GoldRangeMiddleNoise = () => {
           <div className={`absolute top-2 left-0 right-0 h-8 border-y flex items-center justify-between px-4 transition-all duration-300 ${
             selectedZone === "edge" ? "bg-teal-500/20 border-teal-500/40" : "bg-transparent border-slate-800/10"
           }`}>
-            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Upper Range Edge (Sell coordinate)</span>
+            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Upper Range Edge (Sell level)</span>
           </div>
 
           {/* Middle zone */}
           <div className={`absolute top-[40%] bottom-[40%] left-0 right-0 border-y flex items-center justify-between px-4 transition-all duration-300 ${
             selectedZone === "middle" ? "bg-amber-500/20 border-amber-500/40" : "bg-transparent border-slate-800/10"
           }`}>
-            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Range midpoint noise (Equilibrium zone)</span>
+            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Range middle noise (Balanced zone)</span>
           </div>
 
           {/* Lower Edge zone */}
           <div className={`absolute bottom-2 left-0 right-0 h-8 border-y flex items-center justify-between px-4 transition-all duration-300 ${
             selectedZone === "edge" ? "bg-teal-500/20 border-teal-500/40" : "bg-transparent border-slate-800/10"
           }`}>
-            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Lower Range Edge (Buy coordinate)</span>
+            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Lower Range Edge (Buy level)</span>
           </div>
 
           <div className="relative z-10 w-full flex justify-around items-end h-28 pt-10">
@@ -359,9 +359,9 @@ export const GoldRangeMiddleNoise = () => {
             <div className="flex gap-3">
               <ShieldAlert className="text-amber-500 shrink-0" size={18} />
               <div>
-                <h5 className="text-xs font-black text-[#071B36] uppercase mb-1">Midpoint Chop & Decoy Candles</h5>
+                <h5 className="text-xs font-black text-[#071B36] uppercase mb-1">Middle Chop & Decoy Candles</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  The range center is a value equilibrium. Candles here look active and fast, but are highly random and lead to immediate chop. Devalue midpoint candle wicks.
+                  The range center is a value equilibrium. Candles here look active and fast, but are highly random and lead to immediate chop. Devalue middle candle wicks.
                 </p>
               </div>
             </div>
@@ -382,13 +382,13 @@ export const GoldPriorHighLowLocation = () => {
     {
       id: "sweep",
       name: "Sweep & Return Inside",
-      status: "REJECTION SWEEP",
+      status: "REJECTION SPIKE",
       color: "purple",
       candles: [
         { color: "teal", h: 30, uw: 10, lw: 5 },
         { color: "rose", h: 10, uw: 45, lw: 5 } // Spiked and closed low
       ],
-      desc: "Price spikes past the prior swing high to trigger resting buy-stops and liquidate shorts, but immediately wicks and closes back inside. Low quality breakout; high quality rejection."
+      desc: "Price spikes past the prior swing high to trigger resting buy orders and force short trades to close, but immediately wicks and closes back inside. Low quality breakout; high quality rejection."
     },
     {
       id: "accept",
@@ -407,10 +407,10 @@ export const GoldPriorHighLowLocation = () => {
   const active = paths.find(p => p.id === selectedPath) || paths[0];
 
   return (
-    <InstitutionalFrame label="Swing Test Audits" status="SWING COORDINATES">
+    <InstitutionalFrame label="Swing Test Audits" status="SWING LEVELS">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
-          Interactive Audit: Select a prior swing scenario to view the candle wicks and coordinate outcomes.
+          Interactive Audit: Select a prior swing scenario to view the candle wicks and level outcomes.
         </p>
 
         {/* Chart representation */}
@@ -507,10 +507,10 @@ export const GoldWickLocationMeaning = () => {
     },
     {
       id: "midpoint",
-      name: "At Range Midpoint",
+      name: "At Range Middle",
       quality: "LOW QUALITY",
       color: "rose",
-      desc: "Gold prints a large wick in the dead center of the range. There are no historical orders here. This is likely random spread volatility; ignore this.",
+      desc: "Gold prints a large wick in the dead center of the range. There are no historical orders here. This is likely random price volatility; ignore this.",
       wick: { color: "slate", h: 15, uw: 20, lw: 20 }
     }
   ];
@@ -574,7 +574,7 @@ export const GoldSweepLocationAudit = () => {
   const [sweepState, setSweepState] = useState<"sweep" | "accept">("sweep");
 
   return (
-    <InstitutionalFrame label="Sweep Lab" status="LIQUIDITY AUDITOR">
+    <InstitutionalFrame label="Sweep Lab" status="SWEEP AUDITOR">
       <div className="w-full flex flex-col gap-6 items-center">
         {/* Toggle */}
         <div className="flex bg-slate-100 p-1 rounded-xl shrink-0">
@@ -630,12 +630,12 @@ export const GoldSweepLocationAudit = () => {
         {/* Explain Card */}
         <div className="w-full bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col gap-2">
           <h5 className="text-xs font-black text-[#071B36] uppercase tracking-tight">
-            {sweepState === "sweep" ? "Liquidity Taken & Rejected" : "Breakout Accepted Outside Edge"}
+            {sweepState === "sweep" ? "Spike Taken & Rejected" : "Breakout Accepted Outside Edge"}
           </h5>
           <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
             {sweepState === "sweep" 
               ? "Gold spikes past the daily high to trigger buy stops, but the body immediately closes back below $2045. This confirms a false breakout sweep rejection; devalue the bullish attempt."
-              : "Gold clears $2045 and closes strongly above it. Subsequent candles hold price above $2045, confirming order flow has accepted the higher coordinate zone."}
+              : "Gold clears $2045 and closes strongly above it. Subsequent candles hold price above $2045, confirming order flow has accepted the higher price zone."}
           </p>
         </div>
       </div>
@@ -725,7 +725,7 @@ export const GoldMacroLocationDistortion = () => {
               <div>
                 <h5 className="text-xs font-black text-amber-800 uppercase mb-1">Volatile News Distortion</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  Gold spikes $25 higher during CPI, looking like a major breakout. However, DXY is sweeping support. The location is highly unstable and coordinates cannot be trusted yet.
+                  Gold spikes $25 higher during CPI, looking like a major breakout. However, DXY is sweeping support. The location is highly unstable and levels cannot be trusted yet.
                 </p>
               </div>
             </div>
@@ -735,7 +735,7 @@ export const GoldMacroLocationDistortion = () => {
               <div>
                 <h5 className="text-xs font-black text-teal-800 uppercase mb-1">News settled close</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  The news volatility settles. Gold closes back inside the range, printing a massive upper wick rejection. DXY holds its support floor. The initial breakout was a coordinate trap.
+                  The news volatility settles. Gold closes back inside the range, printing a massive upper wick rejection. DXY holds its support floor. The initial breakout was a level trap.
                 </p>
               </div>
             </div>
@@ -753,7 +753,7 @@ export const GoldHtfLocationContext = () => {
   const [htfView, setHtfView] = useState<boolean>(false);
 
   return (
-    <InstitutionalFrame label="Dual-Timeframe Context Overlay" status="HTF COORDINATES">
+    <InstitutionalFrame label="Dual-Timeframe Context Overlay" status="HTF LEVELS">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenario: Toggle the Higher-Timeframe (HTF) overlay to see why a clean lower-timeframe push is in a high-risk location.
@@ -823,9 +823,9 @@ export const GoldHtfLocationContext = () => {
 export const GoldLocationFirstWorkflow = () => {
   const steps = [
     {
-      title: "1. Coordinate Scan",
+      title: "1. Level Scan",
       action: "Map reaction zones and prior swings",
-      desc: "Before looking at the candles, identify where XAU/USD is relative to the daily and weekly boundaries. Is price near a reaction zone, prior high/low, or the midpoint?",
+      desc: "Before looking at the candles, identify where XAU/USD is relative to the daily and weekly boundaries. Is price near a reaction zone, prior high/low, or the middle?",
       icon: Compass,
       status: "COORDINATES SCAN COMPLETED"
     },
@@ -839,7 +839,7 @@ export const GoldLocationFirstWorkflow = () => {
     {
       title: "3. Macro & USD Audit",
       action: "Check news events and Dollar Index",
-      desc: "Identify if any high-impact events are scheduled (CPI, NFP). Verify if DXY is supporting or opposing the Gold movement coordinates.",
+      desc: "Identify if any high-impact events are scheduled (CPI, NFP). Verify if DXY is supporting or opposing the Gold movement levels.",
       icon: Globe,
       status: "ENVIRONMENT ALIGNED"
     },
@@ -853,7 +853,7 @@ export const GoldLocationFirstWorkflow = () => {
     {
       title: "5. Reading Verdict",
       action: "Classify reading quality",
-      desc: "Decide whether the evidence is clear, mixed, or unstable. If the location is weak (mid-range noise) or conflicted (against HTF), stand aside.",
+      desc: "Decide whether the evidence is clear, mixed, or unstable. If the location is weak (middle range noise) or conflicted (against HTF), stand aside.",
       icon: CheckCircle2,
       status: "VERDICT RESOLVED"
     }
@@ -938,14 +938,14 @@ export const GoldLocationDebrief = () => {
       id: "locate",
       title: "Locate Gold First",
       habit: "Do not judge the candle's size or wicks in isolation.",
-      desc: "Always scan your chart coordinates first to establish reading priority before checking candle shape.",
+      desc: "Always scan your chart levels first to establish reading priority before checking candle shape.",
       icon: Compass
     },
     {
       id: "filter",
       title: "Filter Mid-Range Noise",
       habit: "Devalue any price action that forms in range centers.",
-      desc: "Seek confirmation only at key boundaries or reaction zones. Midpoint wicks are usually noise.",
+      desc: "Seek confirmation only at key boundaries or reaction zones. Middle wicks are usually noise.",
       icon: ShieldAlert
     },
     {

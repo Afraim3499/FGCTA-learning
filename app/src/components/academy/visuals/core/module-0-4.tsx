@@ -80,10 +80,10 @@ const InstitutionalFrame = ({
 }) => (
   <div className="w-full h-full min-h-[500px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[1.5rem] p-8 flex flex-col relative overflow-hidden shadow-sm">
     {/* Background Texture */}
-    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:32px_32px]" />
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
     
     {/* Institutional Header */}
-    <div className="flex items-center justify-between mb-8 relative z-10 border-b border-slate-200/50 pb-4">
+    <div className="flex items-center justify-between mb-8 relative z-10 border-b border-slate-200 pb-4">
       <div className="flex flex-col">
         <div className="flex items-center gap-2 mb-1">
           <Database size={10} className="text-teal-600" />
@@ -109,7 +109,7 @@ const InstitutionalFrame = ({
     </div>
 
     {/* Technical Status Footer */}
-    <div className="mt-8 pt-4 border-t border-slate-200/50 flex items-center justify-between">
+    <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
        <div className="flex gap-4">
           <div className="flex items-center gap-1.5">
             <div className="w-1 h-1 bg-teal-500 rounded-full" />
@@ -129,7 +129,7 @@ const InstitutionalFrame = ({
 );
 
 const MentorInsight = ({ text, analogy }: { text: string; analogy?: string }) => (
-  <div className="w-full mt-8 pt-6 border-t border-slate-200/50 flex flex-col gap-3">
+  <div className="w-full mt-8 pt-6 border-t border-slate-200 flex flex-col gap-3">
     <div className="flex items-center gap-2">
       <div className="px-2 py-1 bg-[#071B36] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Insight</div>
       <div className="h-px flex-1 bg-slate-200" />
@@ -184,7 +184,7 @@ export const ForexTradingRhythmBoard = () => {
                </div>
 
                {/* Activity Bar container */}
-               <div className="w-full flex items-end justify-center h-32 bg-slate-50/50 rounded-2xl p-4 border border-dashed border-slate-200">
+               <div className="w-full flex items-end justify-center h-32 bg-[#F8FBFC] rounded-2xl p-4 border border-dashed border-slate-200">
                   <motion.div 
                     initial={{ height: 0 }}
                     animate={{ height: `${session.wave * 1.5}px` }}
@@ -239,7 +239,7 @@ export const TimeCompressionBoard = () => {
                       key={i} 
                       className={cn(
                         "w-full aspect-[1/2] rounded-full transition-colors duration-500",
-                        i === pulse ? "bg-teal-500 shadow-[0_0_10px_rgba(13,148,136,0.5)]" : i < pulse ? "bg-teal-200/50" : "bg-slate-100"
+                        i === pulse ? "bg-teal-500 shadow-[0_0_10px_rgba(13,148,136,0.5)]" : i < pulse ? "bg-[#CCFBF1]" : "bg-slate-100"
                       )}
                     />
                   ))}
@@ -267,18 +267,18 @@ export const TimeCompressionBoard = () => {
               <span className="text-[10px] font-black text-teal-600 uppercase tracking-widest">Compressed Record (1H)</span>
               <div className="px-2 py-0.5 bg-teal-50 border border-teal-100 rounded text-[8px] font-black text-teal-600">STABLE</div>
             </div>
-            <div className="p-10 bg-white border-2 border-teal-500 rounded-[2.5rem] shadow-2xl shadow-teal-500/10 flex flex-col items-center relative overflow-hidden">
+            <div className="p-10 bg-white border-2 border-teal-500 rounded-[2.5rem] shadow-2xl shadow-sm flex flex-col items-center relative overflow-hidden">
                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_center,black_1px,transparent_1px)] bg-[length:12px_12px]" />
                <div className="flex flex-col items-center relative z-10">
-                  <div className="w-1 h-12 bg-teal-500/20" />
+                  <div className="w-1 h-12 bg-[#CCECE6]" />
                   <motion.div 
                     initial={{ scaleY: 0 }}
                     animate={{ scaleY: 1 }}
                     className="w-14 h-24 bg-teal-500 rounded-lg border border-teal-600 shadow-lg flex items-center justify-center"
                   >
-                    <div className="w-8 h-1.5 bg-white/30 rounded-full" />
+                    <div className="w-8 h-1.5 bg-[#CBD5E1] rounded-full" />
                   </motion.div>
-                  <div className="w-1 h-16 bg-teal-500/20" />
+                  <div className="w-1 h-16 bg-[#CCECE6]" />
                </div>
             </div>
           </div>
@@ -326,7 +326,7 @@ export const TimeframeComparisonWindows = () => {
                       <div className="w-full h-px bg-slate-100 absolute top-1/2 -translate-y-1/2 opacity-50" />
                       
                       {/* Highlighted Zone */}
-                      <div className="w-full h-16 bg-teal-50/50 border-y border-teal-100/30 flex items-center justify-center relative">
+                      <div className="w-full h-16 bg-[#F0FDFA] border-y border-teal-100 flex items-center justify-center relative">
                          <div className="absolute top-1 right-2">
                            <span className="text-[7px] font-black text-teal-300 uppercase tracking-tighter">Reference Level</span>
                          </div>
@@ -386,7 +386,7 @@ export const TimeframeWeightLadder = () => {
                       animate={{ width: `${layer.weight}%` }}
                       className={cn("h-full opacity-90 relative flex items-center justify-end px-4", layer.color)}
                    >
-                      <span className="text-[8px] font-black text-white/50 uppercase tracking-widest">Weight: {layer.weight}%</span>
+                      <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Weight: {layer.weight}%</span>
                    </motion.div>
                 </div>
                 <div className="w-48 flex items-center gap-3">
@@ -436,7 +436,7 @@ export const HtfLtfRoles = () => {
                   <Fingerprint size={120} />
                </div>
                <div className="flex items-center gap-5 mb-8 relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-teal-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
+                  <div className="w-14 h-14 rounded-2xl bg-teal-500 flex items-center justify-center shadow-lg shadow-teal-100">
                      <TrendingUp size={30} strokeWidth={2.5} />
                   </div>
                   <div className="flex flex-col">
@@ -451,7 +451,7 @@ export const HtfLtfRoles = () => {
                     "Strategic Support/Resistance",
                     "Stable Market Environment"
                   ].map(item => (
-                    <div key={item} className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-2xl">
+                    <div key={item} className="flex items-center gap-4 p-4 bg-[#152B48] border border-[#1C3252] rounded-2xl">
                        <div className="w-2 h-2 rounded-full bg-teal-500 shadow-[0_0_8px_rgba(20,184,166,0.8)]" />
                        <span className="text-[11px] font-black uppercase tracking-widest opacity-80">{item}</span>
                     </div>
@@ -538,7 +538,7 @@ export const TimeframeConflictBoard = () => {
           <div className="p-10 bg-[#071B36] border-[4px] border-slate-800 rounded-[3rem] shadow-2xl relative overflow-hidden flex flex-col items-center gap-6">
             <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(white_1.5px,transparent_1.5px)] bg-[length:24px_24px]" />
             
-            <div className="w-16 h-16 rounded-[1.5rem] bg-rose-500/20 border border-rose-500 flex items-center justify-center text-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.3)]">
+            <div className="w-16 h-16 rounded-[1.5rem] bg-[#FDE2E2] border border-rose-500 flex items-center justify-center text-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.3)]">
                <ShieldAlert size={32} />
             </div>
 
@@ -632,7 +632,7 @@ export const TimeframeDecisionScenario = () => {
                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{item.label} LAYER</span>
                     <h5 className={cn("text-lg font-black uppercase tracking-tighter leading-none", item.color)}>{item.state}</h5>
                  </div>
-                 <div className="pt-4 border-t border-black/5 flex items-center justify-between">
+                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                     <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{item.val}</span>
                     <div className="flex gap-0.5">
                        {[...Array(3)].map((_, i) => (
@@ -652,7 +652,7 @@ export const TimeframeDecisionScenario = () => {
          <div className="bg-[#071B36] rounded-[3rem] p-10 flex items-center justify-between shadow-2xl relative overflow-hidden group">
             <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(white_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
             <div className="flex items-center gap-8 relative z-10">
-               <div className="w-16 h-16 rounded-[1.5rem] bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400 shadow-[0_0_30px_rgba(20,184,166,0.3)]">
+               <div className="w-16 h-16 rounded-[1.5rem] bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400 shadow-[0_0_30px_rgba(20,184,166,0.3)]">
                   <Workflow size={32} />
                </div>
                <div className="flex flex-col">
@@ -749,7 +749,7 @@ export const ForexSessionTimeframeBoard = () => {
               className={cn(
                 "p-4 rounded-2xl border-2 transition-all flex flex-col items-center gap-3",
                 activeSession === name 
-                  ? `${data.bg} ${data.border} shadow-lg shadow-teal-500/10 scale-105` 
+                  ? `${data.bg} ${data.border} shadow-lg shadow-sm scale-105` 
                   : "bg-white border-slate-100 opacity-60 hover:opacity-100"
               )}
             >
@@ -959,7 +959,7 @@ export const ForexHandoffOverlapBoard = () => {
         </div>
 
         <div className="w-full p-6 bg-amber-50 border border-amber-100 rounded-[2rem] flex items-center gap-6 group">
-           <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:rotate-12 transition-transform">
+           <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-lg shadow-amber-100 group-hover:rotate-12 transition-transform">
               <AlertTriangle size={24} strokeWidth={2.5} />
            </div>
            <div className="flex flex-col flex-1">
@@ -1034,7 +1034,7 @@ export const ForexCandleWeightBoard = () => {
                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Constant: Candle Shape</span>
                <div className="p-10 bg-slate-50 border border-slate-100 rounded-[2rem] relative group">
                   <div className="w-[4px] h-32 bg-slate-200" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-20 bg-teal-500 border-2 border-teal-600 shadow-lg shadow-teal-500/20" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-20 bg-teal-500 border-2 border-teal-600 shadow-lg shadow-teal-100" />
                   <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#071B36] rounded-lg text-[8px] font-black text-white uppercase tracking-widest">
                      Bullish 15m
                   </div>
@@ -1080,10 +1080,10 @@ export const ForexCandleWeightBoard = () => {
                </div>
 
                <div className="p-8 bg-[#071B36] rounded-[2rem] shadow-2xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 blur-[60px]" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#F0FDFA] blur-[60px]" />
                   <div className="flex flex-col gap-6 relative z-10">
                      <div className="flex flex-col">
-                        <span className="text-[9px] font-black text-teal-400/60 uppercase tracking-widest leading-none">Diagnostic Result</span>
+                        <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest leading-none">Diagnostic Result</span>
                         <span className="text-xl font-black text-white uppercase italic tracking-tighter mt-1">{current.quality}</span>
                      </div>
 
@@ -1092,7 +1092,7 @@ export const ForexCandleWeightBoard = () => {
                            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Evidence Weight</span>
                            <span className="text-[9px] font-mono text-teal-400">{current.weight}%</span>
                         </div>
-                        <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                        <div className="w-full h-1.5 bg-[#152B48] rounded-full overflow-hidden">
                            <motion.div 
                               initial={{ width: 0 }}
                               animate={{ width: `${current.weight}%` }}
@@ -1156,23 +1156,23 @@ export const ForexNewsDistortionBoard = () => {
                 <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest">News Window Volatility</span>
              </div>
              <div className="p-10 bg-slate-900 border-2 border-slate-800 rounded-[3rem] shadow-2xl flex flex-col items-center justify-center min-h-[300px] relative overflow-hidden">
-                <div className="absolute inset-0 bg-rose-500/5" />
+                <div className="absolute inset-0 bg-[#FFF5F5]" />
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[length:15px_15px]" />
                 
                 <div className="flex flex-col items-center gap-1 relative z-10">
-                   <div className="w-[4px] h-32 bg-rose-500/40" />
+                   <div className="w-[4px] h-32 bg-[#FDA4AF]" />
                    <div className="w-12 h-32 bg-rose-500 border-2 border-rose-400 shadow-[0_0_30px_rgba(244,63,94,0.3)] relative">
                       {/* Distortion effects */}
-                      <div className="absolute -inset-2 border border-rose-500/20 animate-ping rounded-sm" />
+                      <div className="absolute -inset-2 border border-[#FECACA] animate-ping rounded-sm" />
                       <div className="absolute top-1/2 -left-12 -translate-y-1/2 flex flex-col gap-1">
-                         <div className="w-8 h-[1px] bg-rose-500/50" />
+                         <div className="w-8 h-[1px] bg-[#FFF5F5]0" />
                          <span className="text-[7px] font-black text-rose-400 uppercase">Slippage</span>
                       </div>
                    </div>
-                   <div className="w-[4px] h-24 bg-rose-500/40" />
+                   <div className="w-[4px] h-24 bg-[#FDA4AF]" />
                 </div>
 
-                <div className="mt-8 px-4 py-2 bg-rose-500/20 border border-rose-500/40 rounded-xl flex items-center gap-2">
+                <div className="mt-8 px-4 py-2 bg-[#FDE2E2] border border-[#FCA5A5] rounded-xl flex items-center gap-2">
                    <AlertTriangle size={12} className="text-rose-400" />
                    <span className="text-[9px] font-black text-rose-400 uppercase tracking-tighter">Fast Repricing / Spread Expansion</span>
                 </div>
@@ -1180,9 +1180,9 @@ export const ForexNewsDistortionBoard = () => {
           </div>
         </div>
 
-        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-[#1C3252] flex items-center justify-between shadow-xl">
            <div className="flex items-center gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+              <div className="w-12 h-12 rounded-2xl bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400">
                  <ShieldCheck size={24} />
               </div>
               <div className="flex flex-col">
@@ -1214,7 +1214,7 @@ export const ForexLocationContextBoard = () => {
            <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)] bg-[length:40px_40px]" />
            
            {/* HTF Resistance Zone */}
-           <div className="absolute top-12 left-8 right-8 h-20 bg-rose-500/5 border-y-2 border-rose-500/20 flex items-center justify-center">
+           <div className="absolute top-12 left-8 right-8 h-20 bg-[#FFF5F5] border-y-2 border-[#FECACA] flex items-center justify-center">
               <div className="flex flex-col items-center gap-1">
                  <span className="text-[10px] font-black text-rose-500 uppercase tracking-[0.4em]">4H Resistance Area (Major Zone)</span>
                  <span className="text-[8px] font-bold text-rose-400 uppercase">Institutional Supply</span>
@@ -1270,7 +1270,7 @@ export const ForexLocationContextBoard = () => {
 
         <div className="p-8 bg-[#071B36] rounded-[2.5rem] flex items-center justify-between border-b-4 border-teal-500 shadow-2xl">
            <div className="flex items-center gap-8">
-              <div className="w-14 h-14 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+              <div className="w-14 h-14 rounded-2xl bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400">
                  <Target size={28} />
               </div>
               <div className="flex flex-col">
@@ -1305,7 +1305,7 @@ export const ForexBehaviorLensBoard = () => {
                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">HTF Context (The Map)</span>
               </div>
               <div className="p-8 bg-slate-50 border-2 border-slate-100 rounded-[2.5rem] relative h-[350px] flex items-center justify-center overflow-hidden">
-                 <div className="absolute top-10 left-4 right-4 h-12 bg-rose-500/10 border-y border-rose-500/20 flex items-center justify-center">
+                 <div className="absolute top-10 left-4 right-4 h-12 bg-[#FFE4E6] border-y border-[#FECACA] flex items-center justify-center">
                     <span className="text-[8px] font-black text-rose-500 uppercase tracking-widest">4H Resistance Zone</span>
                  </div>
                  <div className="w-px h-full bg-slate-200 absolute left-1/2" />
@@ -1322,19 +1322,19 @@ export const ForexBehaviorLensBoard = () => {
               </div>
               <div className="p-8 bg-[#071B36] border-[4px] border-slate-800 rounded-[3rem] shadow-2xl relative min-h-[350px] grid grid-cols-2 gap-6">
                  {[
-                   { label: "Fast Push", icon: <Zap size={14}/>, color: "text-teal-400", bg: "bg-teal-400/10" },
-                   { label: "Slowing", icon: <Activity size={14}/>, color: "text-amber-400", bg: "bg-amber-400/10" },
-                   { label: "Rejection", icon: <ShieldAlert size={14}/>, color: "text-rose-400", bg: "bg-rose-400/10" },
-                   { label: "Break Attempt", icon: <Target size={14}/>, color: "text-blue-400", bg: "bg-blue-400/10" }
+                   { label: "Fast Push", icon: <Zap size={14}/>, color: "text-teal-400", bg: "bg-[#E6FDF9]" },
+                   { label: "Slowing", icon: <Activity size={14}/>, color: "text-amber-400", bg: "bg-[#FEF3C7]" },
+                   { label: "Rejection", icon: <ShieldAlert size={14}/>, color: "text-rose-400", bg: "bg-[#FFE4E6]" },
+                   { label: "Break Attempt", icon: <Target size={14}/>, color: "text-blue-400", bg: "bg-[#EFF6FF]" }
                  ].map((item, i) => (
                    <div key={i} className={cn("p-6 rounded-2xl border border-white/5 flex flex-col gap-3", item.bg)}>
-                      <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center bg-white/5", item.color)}>
+                      <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center bg-[#152B48]", item.color)}>
                          {item.icon}
                       </div>
                       <span className={cn("text-[10px] font-black uppercase tracking-tight", item.color)}>{item.label}</span>
                       <div className="flex gap-1 h-8 items-end">
                          {[1,2,3,4].map(j => (
-                           <div key={j} className="flex-1 bg-white/10 rounded-sm" style={{ height: ((j * 17 + i * 29) % 60) + 30 + "%" }} />
+                           <div key={j} className="flex-1 bg-[#1B3254] rounded-sm" style={{ height: ((j * 17 + i * 29) % 60) + 30 + "%" }} />
                          ))}
                       </div>
                    </div>
@@ -1382,7 +1382,7 @@ export const ForexConflictResolver = () => {
                <div className="flex flex-col gap-8 relative z-10">
                   {/* HTF Resistance */}
                   <div className="relative">
-                    <div className="absolute -left-4 right-0 h-4 bg-rose-500/10 border-y border-rose-500/20 flex items-center justify-center">
+                    <div className="absolute -left-4 right-0 h-4 bg-[#FFE4E6] border-y border-[#FECACA] flex items-center justify-center">
                        <span className="text-[8px] font-black text-rose-500 uppercase tracking-[0.4em]">4H Bearish Wall (NY Session)</span>
                     </div>
                     <div className="h-20" />
@@ -1416,14 +1416,14 @@ export const ForexConflictResolver = () => {
           {/* Logic Panel */}
           <div className="flex flex-col gap-6">
              <div className="p-8 bg-[#071B36] rounded-[3rem] border-[4px] border-slate-800 shadow-2xl flex flex-col items-center text-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-500">
+                <div className="w-16 h-16 rounded-2xl bg-[#FDE2E2] border border-[#FCA5A5] flex items-center justify-center text-rose-500">
                    <ShieldAlert size={32} />
                 </div>
                 <div className="flex flex-col gap-2">
                    <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest leading-none">Diagnostic Result</span>
                    <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter">Mixed Reading</h4>
                 </div>
-                <div className="w-full h-px bg-white/10" />
+                <div className="w-full h-px bg-[#1B3254]" />
                 <p className="text-[11px] font-bold text-slate-400 uppercase leading-relaxed">
                   Session momentum (London) is hitting HTF Resistance (NY). <span className="text-teal-400">Professional choice: Wait for alignment.</span>
                 </p>
@@ -1560,7 +1560,7 @@ export const ForexTimeframeDrill = () => {
         <div className="bg-[#071B36] rounded-[3rem] p-10 flex items-center justify-between shadow-2xl relative overflow-hidden">
            <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(white_1.5px,transparent_1.5px)] bg-[length:20px_20px]" />
            <div className="flex items-center gap-8 relative z-10">
-              <div className="w-16 h-16 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+              <div className="w-16 h-16 rounded-2xl bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400">
                  <Target size={32} />
               </div>
               <div className="flex flex-col">
@@ -1583,7 +1583,7 @@ export const ForexRoadwayDebrief = () => {
     <InstitutionalFrame label="Roadway Competency Verified" id="FX-RECAP-0.4" status="COMPLETE">
       <div className="w-full max-w-4xl flex flex-col gap-10">
         <div className="flex flex-col items-center gap-6 text-center">
-           <div className="w-20 h-20 rounded-[2.5rem] bg-teal-500/10 border-2 border-teal-500/30 flex items-center justify-center text-teal-500 shadow-xl">
+           <div className="w-20 h-20 rounded-[2.5rem] bg-[#F0FDFA] border-2 border-teal-300 flex items-center justify-center text-teal-500 shadow-xl">
               <CheckCircle size={48} strokeWidth={2.5} />
            </div>
            <div className="flex flex-col gap-2">
@@ -1731,7 +1731,7 @@ export const CryptoContinuousMarketBoard = () => {
 
               <div className="p-8 bg-[#071B36] rounded-[2.5rem] flex items-center justify-between border-b-4 border-teal-500 shadow-2xl">
                  <div className="flex items-center gap-8">
-                    <div className="w-14 h-14 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+                    <div className="w-14 h-14 rounded-2xl bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400">
                        <Clock size={28} />
                     </div>
                     <div className="flex flex-col">
@@ -1794,9 +1794,9 @@ export const CryptoActivityCycleBoard = () => {
                           animate={{ height: `${Math.min(activity, 100)}%` }}
                           className={cn(
                             "flex-1 rounded-t-sm transition-all duration-500",
-                            isUS ? "bg-teal-500/40 hover:bg-teal-500" : 
-                            isEurope ? "bg-blue-500/30 hover:bg-blue-500" :
-                            isAsia ? "bg-amber-500/30 hover:bg-amber-500" : "bg-slate-200 hover:bg-slate-400"
+                            isUS ? "bg-[#2DD4BF] hover:bg-teal-500" : 
+                            isEurope ? "bg-[#93C5FD] hover:bg-blue-500" :
+                            isAsia ? "bg-[#FCD34D] hover:bg-amber-500" : "bg-slate-200 hover:bg-slate-400"
                           )}
                        />
                     );
@@ -1814,7 +1814,7 @@ export const CryptoActivityCycleBoard = () => {
                     </div>
                     <div className="flex flex-col items-center gap-2">
                        <span className="text-[7px] font-black text-teal-500 uppercase">US/Overlap Cycle</span>
-                       <div className="w-px h-4 bg-teal-500/20" />
+                       <div className="w-px h-4 bg-[#CCECE6]" />
                     </div>
                  </div>
               </div>
@@ -1840,9 +1840,9 @@ export const CryptoActivityCycleBoard = () => {
            </div>
         </div>
 
-        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-[#1C3252] flex items-center justify-between shadow-xl">
            <div className="flex items-center gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+              <div className="w-12 h-12 rounded-2xl bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400">
                  <Radar size={24} />
               </div>
               <div className="flex flex-col">
@@ -1957,13 +1957,13 @@ export const CryptoCandleQualityBoard = () => {
                  </div>
 
                  <div className="p-8 bg-[#071B36] rounded-[3rem] shadow-2xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 blur-[60px]" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#F0FDFA] blur-[60px]" />
                     <div className="flex flex-col gap-4 relative z-10">
                        <div className="flex items-center justify-between">
                           <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest">Reading Quality</span>
                           <span className={cn("text-xs font-black uppercase italic tracking-tighter", current.color)}>{current.quality}</span>
                        </div>
-                       <div className="h-px w-full bg-white/10" />
+                       <div className="h-px w-full bg-[#1B3254]" />
                        <p className="text-xs font-bold text-slate-300 leading-relaxed">
                           {current.desc}
                        </p>
@@ -2056,7 +2056,7 @@ export const CryptoBtcContextBoard = () => {
            <div className="flex flex-col items-center gap-6 relative z-10">
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Altcoin Reading</span>
               <div className="p-8 bg-white border border-slate-100 rounded-[2rem] w-full flex flex-col items-center justify-center min-h-[200px] shadow-sm relative group overflow-hidden">
-                 <div className="absolute inset-0 bg-slate-50/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                 <div className="absolute inset-0 bg-[#F8FBFC] opacity-0 group-hover:opacity-100 transition-opacity" />
                  <div className="flex flex-col items-center gap-1 relative z-10">
                     <div className="w-[2px] h-8 bg-slate-200" />
                     <motion.div 
@@ -2107,7 +2107,7 @@ export const CryptoBtcContextBoard = () => {
                     {current.quality}
                  </h4>
               </div>
-              <div className="h-px w-full bg-white/10 relative z-10" />
+              <div className="h-px w-full bg-[#1B3254] relative z-10" />
               <p className="text-sm font-bold text-slate-400 leading-relaxed relative z-10">
                  {current.desc}
               </p>
@@ -2192,7 +2192,7 @@ export const CryptoSpotPerpBoard = () => {
                       { label: "Leverage pressure", desc: "Borrowed volatility" },
                       { label: "Liquidation risk", desc: "Forced candle extension" }
                     ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-3 px-4 py-3 bg-white/5 rounded-xl border border-white/5">
+                      <div key={i} className="flex items-center gap-3 px-4 py-3 bg-[#152B48] rounded-xl border border-white/5">
                          <Zap size={12} className="text-blue-400" />
                          <div className="flex flex-col">
                             <span className="text-[9px] font-black text-white uppercase">{item.label}</span>
@@ -2276,11 +2276,11 @@ export const CryptoLiquidityRiskBoard = () => {
                  <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[length:40px_100%]" />
                  
                  <div className="flex flex-col items-center gap-1 relative z-10">
-                    <div className="w-[1.5px] h-16 bg-rose-500/40" />
+                    <div className="w-[1.5px] h-16 bg-[#FDA4AF]" />
                     <div className="w-12 h-32 bg-rose-100 border-2 border-rose-200 shadow-sm relative">
                        <div className="absolute -top-4 -left-4 -right-4 -bottom-4 border border-rose-500/10 rounded animate-pulse" />
                     </div>
-                    <div className="w-[1.5px] h-12 bg-rose-500/40" />
+                    <div className="w-[1.5px] h-12 bg-[#FDA4AF]" />
                  </div>
 
                  <div className="flex flex-col gap-3 relative z-10">
@@ -2292,7 +2292,7 @@ export const CryptoLiquidityRiskBoard = () => {
                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Wick Noise</span>
                        <span className="text-[9px] font-black text-rose-500 uppercase">HIGH</span>
                     </div>
-                    <div className="p-4 bg-rose-500/10 border border-rose-500/20 rounded-xl text-center">
+                    <div className="p-4 bg-[#FFE4E6] border border-[#FECACA] rounded-xl text-center">
                        <span className="text-[9px] font-bold text-rose-700 uppercase leading-none">Price travels far with low volume</span>
                     </div>
                  </div>
@@ -2300,9 +2300,9 @@ export const CryptoLiquidityRiskBoard = () => {
            </div>
         </div>
 
-        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-[#1C3252] flex items-center justify-between shadow-xl">
            <div className="flex items-center gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400">
+              <div className="w-12 h-12 rounded-2xl bg-[#FDE2E2] border border-[#FCA5A5] flex items-center justify-center text-rose-400">
                  <Wind size={28} />
               </div>
               <div className="flex flex-col">
@@ -2358,23 +2358,23 @@ export const CryptoEventPressureBoard = () => {
                  <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Event Volatility (News/Listing)</span>
               </div>
               <div className="p-10 bg-slate-900 border-2 border-slate-800 rounded-[3rem] shadow-2xl flex flex-col items-center justify-center min-h-[350px] relative overflow-hidden">
-                 <div className="absolute inset-0 bg-rose-500/5" />
+                 <div className="absolute inset-0 bg-[#FFF5F5]" />
                  <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[length:15px_15px]" />
                  
                  <div className="flex flex-col items-center gap-1 relative z-10">
-                    <div className="w-[3px] h-32 bg-rose-500/40" />
+                    <div className="w-[3px] h-32 bg-[#FDA4AF]" />
                     <div className="w-14 h-32 bg-rose-500 border-2 border-rose-400 shadow-[0_0_30px_rgba(244,63,94,0.4)] relative">
-                       <div className="absolute -inset-2 border border-rose-500/20 animate-ping rounded-sm" />
+                       <div className="absolute -inset-2 border border-[#FECACA] animate-ping rounded-sm" />
                        <div className="absolute -right-16 top-1/2 -translate-y-1/2 flex flex-col items-center">
                           <AlertTriangle size={14} className="text-rose-400 mb-1" />
                           <span className="text-[7px] font-black text-rose-400 uppercase whitespace-nowrap">Liquidation Spike</span>
                        </div>
                     </div>
-                    <div className="w-[3px] h-16 bg-rose-500/40" />
+                    <div className="w-[3px] h-16 bg-[#FDA4AF]" />
                  </div>
 
                  <div className="mt-8 flex flex-col items-center gap-2">
-                    <div className="px-4 py-2 bg-rose-500/20 border border-rose-500/40 rounded-xl flex items-center gap-2">
+                    <div className="px-4 py-2 bg-[#FDE2E2] border border-[#FCA5A5] rounded-xl flex items-center gap-2">
                        <Zap size={12} className="text-rose-400" />
                        <span className="text-[9px] font-black text-rose-400 uppercase tracking-tighter">Emotional Repricing</span>
                     </div>
@@ -2384,9 +2384,9 @@ export const CryptoEventPressureBoard = () => {
            </div>
         </div>
 
-        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-[#1C3252] flex items-center justify-between shadow-xl">
            <div className="flex items-center gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400">
+              <div className="w-12 h-12 rounded-2xl bg-[#FDE2E2] border border-[#FCA5A5] flex items-center justify-center text-rose-400">
                  <AlertOctagon size={24} />
               </div>
               <div className="flex flex-col">
@@ -2440,7 +2440,7 @@ export const CryptoReadingStackBoard = () => {
                           activeStep === i ? "bg-[#071B36] border-[#071B36] text-white shadow-xl translate-x-4" : "bg-white border-slate-100 text-slate-400 grayscale opacity-60"
                        )}
                     >
-                       <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center bg-white/10", activeStep === i ? "text-teal-400" : "text-slate-300")}>
+                       <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center bg-[#1B3254]", activeStep === i ? "text-teal-400" : "text-slate-300")}>
                           {step.icon}
                        </div>
                        <span className="text-[10px] font-black uppercase tracking-widest">{step.title}</span>
@@ -2594,7 +2594,7 @@ export const CryptoRoadwayDebrief = () => {
                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Process Finalization</span>
                     <h4 className="text-3xl font-black text-[#071B36] uppercase italic tracking-tighter">8-Step Clinical Crypto Audit</h4>
                  </div>
-                 <div className="flex items-center gap-4 px-6 py-3 bg-teal-500 rounded-2xl shadow-lg shadow-teal-500/20">
+                 <div className="flex items-center gap-4 px-6 py-3 bg-teal-500 rounded-2xl shadow-lg shadow-teal-100">
                     <ShieldCheck size={20} className="text-white" />
                     <span className="text-xs font-black text-white uppercase tracking-widest italic">Standard Verified</span>
                  </div>
@@ -2604,7 +2604,7 @@ export const CryptoRoadwayDebrief = () => {
               <div className="grid grid-cols-4 gap-4">
                  {auditSteps.map((step, i) => (
                     <div key={i} className="p-6 bg-slate-50 border border-slate-100 rounded-[2rem] flex flex-col gap-3 group hover:bg-[#071B36] transition-all duration-300">
-                       <div className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-400 group-hover:text-teal-400 group-hover:bg-white/10 transition-colors">
+                       <div className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-400 group-hover:text-teal-400 group-hover:bg-[#1B3254] transition-colors">
                           {step.icon}
                        </div>
                        <div className="flex flex-col">
@@ -2616,7 +2616,7 @@ export const CryptoRoadwayDebrief = () => {
               </div>
 
               {/* Summary Statement */}
-              <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+              <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-[#1C3252] flex items-center justify-between shadow-xl">
                  <div className="flex flex-col gap-1">
                     <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.4em]">Professional Shift</span>
                     <p className="text-white font-bold text-lg uppercase tracking-tight max-w-2xl leading-tight italic">
@@ -2765,7 +2765,7 @@ export const GoldVolatilityRecordBoard = () => {
                           <span className="text-[10px] font-black text-teal-400 uppercase tracking-[0.3em]">Reading Quality</span>
                           <span className={cn("text-xs font-black uppercase tracking-tighter italic", current.color)}>{current.quality}</span>
                        </div>
-                       <div className="h-px w-full bg-white/10" />
+                       <div className="h-px w-full bg-[#1B3254]" />
                        <p className="text-xs font-bold text-slate-300 leading-relaxed">
                           {current.desc}
                        </p>
@@ -2814,7 +2814,7 @@ export const GoldMarketRhythmBoard = () => {
                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Participation Map</span>
                     <h4 className="text-2xl font-black text-[#071B36] uppercase italic tracking-tighter">XAU/USD Activity Cycles</h4>
                  </div>
-                 <div className="px-6 py-3 bg-amber-500 rounded-2xl shadow-lg shadow-amber-500/20 flex items-center gap-3">
+                 <div className="px-6 py-3 bg-amber-500 rounded-2xl shadow-lg shadow-amber-100 flex items-center gap-3">
                     <Clock size={18} className="text-white" />
                     <span className="text-xs font-black text-white uppercase tracking-widest">Global Flow</span>
                  </div>
@@ -2887,7 +2887,7 @@ export const GoldMarketRhythmBoard = () => {
            </div>
         </div>
 
-        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-[#1C3252] flex items-center justify-between shadow-xl">
            <div className="flex items-center gap-6">
               <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500">
                  <Timer size={24} />
@@ -3077,11 +3077,11 @@ export const GoldEventDistortionBoard = () => {
                  <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Macro Event Window (Data/Rates)</span>
               </div>
               <div className="p-12 bg-[#071B36] border-2 border-slate-800 rounded-[3rem] shadow-2xl flex flex-col items-center justify-center min-h-[400px] relative overflow-hidden">
-                 <div className="absolute inset-0 bg-rose-500/5" />
+                 <div className="absolute inset-0 bg-[#FFF5F5]" />
                  <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[length:20px_20px]" />
                  
                  <div className="flex flex-col items-center gap-1 relative z-10">
-                    <div className="w-[3px] h-32 bg-rose-500/40" />
+                    <div className="w-[3px] h-32 bg-[#FDA4AF]" />
                     <div className="w-14 h-48 bg-rose-500 border-2 border-rose-400 shadow-[0_0_40px_rgba(244,63,94,0.4)] relative">
                        <div className="absolute -inset-4 border border-rose-500/10 animate-ping rounded-sm" />
                        <div className="absolute -right-20 top-1/2 -translate-y-1/2 flex flex-col items-center">
@@ -3089,11 +3089,11 @@ export const GoldEventDistortionBoard = () => {
                           <span className="text-[7px] font-black text-rose-400 uppercase whitespace-nowrap tracking-[0.2em]">Extreme Spread</span>
                        </div>
                     </div>
-                    <div className="w-[3px] h-24 bg-rose-500/40" />
+                    <div className="w-[3px] h-24 bg-[#FDA4AF]" />
                  </div>
 
                  <div className="mt-10 flex flex-col items-center gap-2">
-                    <div className="px-4 py-2 bg-rose-500/20 border border-rose-500/40 rounded-xl flex items-center gap-2">
+                    <div className="px-4 py-2 bg-[#FDE2E2] border border-[#FCA5A5] rounded-xl flex items-center gap-2">
                        <Zap size={14} className="text-rose-400" />
                        <span className="text-[9px] font-black text-rose-400 uppercase tracking-tighter italic">Macro Distortion</span>
                     </div>
@@ -3105,7 +3105,7 @@ export const GoldEventDistortionBoard = () => {
 
         <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-b-4 border-rose-500 shadow-xl">
            <div className="flex items-center gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400">
+              <div className="w-12 h-12 rounded-2xl bg-[#FDE2E2] border border-[#FCA5A5] flex items-center justify-center text-rose-400">
                  <ShieldAlert size={28} />
               </div>
               <div className="flex flex-col">
@@ -3233,9 +3233,9 @@ export const GoldParticipationBoard = () => {
            </div>
         </div>
 
-        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-white/10 flex items-center justify-between shadow-xl">
+        <div className="p-8 bg-[#071B36] rounded-[2.5rem] border border-[#1C3252] flex items-center justify-between shadow-xl">
            <div className="flex items-center gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+              <div className="w-12 h-12 rounded-2xl bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400">
                  <ShieldCheck size={28} />
               </div>
               <div className="flex flex-col">
@@ -3278,7 +3278,7 @@ export const GoldLocationContextBoard = () => {
                     onClick={() => setShowHTF(!showHTF)}
                     className={cn(
                        "flex items-center gap-4 px-6 py-3 rounded-2xl shadow-lg transition-all",
-                       showHTF ? "bg-[#071B36] text-white shadow-[#071B36]/20" : "bg-amber-500 text-white shadow-amber-500/20"
+                       showHTF ? "bg-[#071B36] text-white shadow-[#071B36]/20" : "bg-amber-500 text-white shadow-amber-100"
                     )}
                  >
                     <Layers size={20} />
@@ -3299,14 +3299,14 @@ export const GoldLocationContextBoard = () => {
                              className="absolute inset-0 flex flex-col justify-between"
                           >
                              {/* Major Supply Zone */}
-                             <div className="h-24 bg-rose-500/5 border-b-2 border-dashed border-rose-500/20 flex items-center px-12">
+                             <div className="h-24 bg-[#FFF5F5] border-b-2 border-dashed border-[#FECACA] flex items-center px-12">
                                 <div className="flex flex-col">
                                    <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest leading-none mb-1">HTF Supply</span>
                                    <span className="text-[8px] font-bold text-slate-400 uppercase">Previous Rejection Zone</span>
                                 </div>
                              </div>
                              {/* Major Demand Zone */}
-                             <div className="h-24 bg-teal-500/5 border-t-2 border-dashed border-teal-500/20" />
+                             <div className="h-24 bg-teal-500/5 border-t-2 border-dashed border-teal-200" />
                           </motion.div>
                        )}
                     </AnimatePresence>
@@ -3415,7 +3415,7 @@ export const GoldLocalBehaviorBoard = () => {
                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">HTF Anchor (Location)</span>
               </div>
               <div className="p-10 bg-[#071B36] border-2 border-slate-800 rounded-[3rem] shadow-xl flex flex-col justify-between min-h-[400px]">
-                 <div className="h-16 border-b-2 border-dashed border-white/10 flex items-center px-4">
+                 <div className="h-16 border-b-2 border-dashed border-[#1C3252] flex items-center px-4">
                     <span className="text-[9px] font-black text-teal-400 uppercase tracking-widest italic">4H Resistance Area</span>
                  </div>
                  <div className="flex-1 flex flex-col items-center justify-center relative">
@@ -3429,7 +3429,7 @@ export const GoldLocalBehaviorBoard = () => {
                        </p>
                     </div>
                  </div>
-                 <div className="h-12 bg-white/5 rounded-2xl flex items-center justify-center">
+                 <div className="h-12 bg-[#152B48] rounded-2xl flex items-center justify-center">
                     <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Location Fixed</span>
                  </div>
               </div>
@@ -3598,7 +3598,7 @@ export const GoldReadingStackBoard = () => {
                        </p>
                     </div>
 
-                    <div className="mt-10 pt-8 border-t border-white/10">
+                    <div className="mt-10 pt-8 border-t border-[#1C3252]">
                        <div className="flex items-center gap-3 text-slate-500">
                           <Shield size={14} />
                           <span className="text-[9px] font-black uppercase tracking-widest italic">Verification Required</span>
@@ -3620,7 +3620,7 @@ export const GoldReadingStackBoard = () => {
 
         <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center justify-between border-b-4 border-teal-500 shadow-xl">
            <div className="flex items-center gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+              <div className="w-12 h-12 rounded-2xl bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400">
                  <ClipboardList size={24} />
               </div>
               <div className="flex flex-col">
@@ -3789,7 +3789,7 @@ export const GoldRoadwayDebrief = () => {
 
         <div className="grid grid-cols-2 gap-6">
            <div className="p-8 bg-slate-900 rounded-[2.5rem] flex items-center gap-6 border-b-4 border-teal-500 shadow-xl">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+              <div className="w-12 h-12 rounded-2xl bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400">
                  <Compass size={24} />
               </div>
               <div className="flex flex-col">
@@ -4079,7 +4079,7 @@ export const EvidenceAuditChecklistBoard = () => {
 
         <div className="p-8 bg-[#071B36] rounded-[2.5rem] flex items-center justify-between border-b-4 border-teal-500 shadow-xl">
            <div className="flex items-center gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
+              <div className="w-12 h-12 rounded-2xl bg-[#CCECE6] border border-[#99F6E4] flex items-center justify-center text-teal-400">
                  <ClipboardCheck size={24} />
               </div>
               <div className="flex flex-col">

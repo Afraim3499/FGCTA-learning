@@ -118,15 +118,15 @@ export const GoldReadingLabFoundation = () => {
         {/* Live Diagnostics */}
         <div className="w-full grid grid-cols-3 gap-2 bg-[#071B36] p-4 rounded-2xl border border-amber-950 text-white shrink-0">
           <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-amber-950/40 border border-amber-900/40">
-            <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest mb-1">Tick Speed</span>
+            <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest mb-1">Price Speed</span>
             <span className="text-xs font-black text-white text-center">{metrics.speed}</span>
           </div>
           <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-amber-950/40 border border-amber-900/40">
-            <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest mb-1">Raw Clarity</span>
+            <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest mb-1">Reading Clarity</span>
             <span className="text-xs font-black text-white text-center">{metrics.clarity}</span>
           </div>
           <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-amber-950/40 border border-amber-900/40">
-            <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest mb-1">Broker Spread</span>
+            <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest mb-1">Spread Cost</span>
             <span className="text-xs font-black text-white text-center">{metrics.spread}</span>
           </div>
         </div>
@@ -846,11 +846,11 @@ export const GoldMacroDistortionLab = () => {
 
             <div className="grid grid-cols-2 gap-4 text-xs border-t border-slate-200 pt-3">
               <div className="flex flex-col">
-                <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">Spread State</span>
+                <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">Spread Cost</span>
                 <span className="font-bold text-[#071B36]">{active.spread}</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">Volume Quality</span>
+                <span className="text-[8px] font-mono font-black text-slate-500 uppercase tracking-wider mb-1">Trading Activity</span>
                 <span className="font-bold text-[#071B36]">{active.volume}</span>
               </div>
             </div>

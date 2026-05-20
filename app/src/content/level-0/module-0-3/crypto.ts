@@ -6,7 +6,7 @@ export const cryptoCards: LessonCard[] = [
     title: "Crypto Candles Are Venue Records",
     visualKey: "crypto-candle-source-map",
     label: "Venue Fragmentation",
-    body: "In Forex, price is smoothed across major banks. In Crypto, price is fragmented across dozens of venues. A single BTC move can look like a clean trend on one exchange and a massive, distorted spike on another. You must never trust a candle until you know which venue produced it and whether it represents real asset ownership (Spot) or synthetic pressure (Perpetual/DEX).",
+    body: "In Forex, price is smoothed across major banks. In Crypto, price is fragmented across dozens of venues. A single BTC (Bitcoin) move can look like a clean trend on one exchange and a massive, distorted spike on another. You must never trust a candle until you know which venue produced it and whether it represents real asset ownership (Spot) or synthetic pressure (Perpetual [Perp] contract / DEX [decentralized exchange]).",
     context: {
       keyTerms: [
         { term: "Venue", definition: "The market or platform where the price is formed, such as a spot exchange, perpetual exchange, DEX pool, or aggregated feed." },
@@ -28,7 +28,7 @@ export const cryptoCards: LessonCard[] = [
     title: "The Two Market Engines",
     visualKey: "two-candle-engines-board",
     label: "Spot vs Perpetual",
-    body: "Crypto has two primary market engines: the **Spot Engine** (Asset trades) and the **Perpetual Engine** (Contract/Leverage pressure). A spot candle is driven by supply and demand for the asset itself. A perpetual candle is often driven by speculative leverage and forced exits. To read crypto accurately, you must prioritize the Spot Engine as the 'True' record and treat Perp-only moves as potential noise.",
+    body: "Crypto has two primary market engines: the **Spot Engine** (Asset trades) and the **Perpetual Engine** (Contract/Leverage pressure - also known as Perpetual [Perp] contracts). A spot candle is driven by supply and demand for the asset itself. A perpetual candle is often driven by speculative leverage and forced exits. To read crypto accurately, you must prioritize the Spot Engine as the 'True' record and treat Perp-only moves as potential noise.",
     context: {
       keyTerms: [
         { term: "Spot Market", definition: "A market where the actual crypto asset is bought and sold." },
@@ -75,7 +75,7 @@ export const cryptoCards: LessonCard[] = [
     body: "Observe the verification board. We have a sudden spike on a Perpetual venue. Use the diagnostic checklist to determine if this move represents a real structural shift or mechanical noise.",
     taskData: {
       type: "choice_block",
-      question: "Based on the verification data (Bybit Perp source, Weak Spot Confirmation, High Vol Delta), what is the most disciplined reading of this spike?",
+      question: "Based on the verification data (Bybit Perpetual [Perp] contract source, Weak Spot Confirmation, High Vol Delta), what is the most disciplined reading of this spike?",
       options: [
         { id: "opt1", text: "This is a bullish breakout. The high volume confirms strong buyer intent.", isCorrect: false, feedback: "Incorrect. The 'High Vol Delta' is coming from liquidations, not buyers." },
         { id: "opt2", text: "This is mechanical noise. The lack of spot confirmation and presence of liquidations suggest a temporary spike.", isCorrect: true, feedback: "Correct. You correctly identified that the move lacks 'Real Evidence' from the Spot Engine." }

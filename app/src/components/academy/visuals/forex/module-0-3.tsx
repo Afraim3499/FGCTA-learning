@@ -20,6 +20,68 @@ import {
 } from "lucide-react";
 
 /**
+ * LURNAVA INSTITUTIONAL DESIGN TOKENS
+ */
+const UI = {
+  navy: "#071B36",
+  teal: "#0D9488",
+  slate: "#475569",
+  border: "#E2E8F0",
+  bg: "#F8FBFC",
+  rose: "#BE123C",
+  sky: "#0284C7",
+  amber: "#D97706"
+};
+
+/**
+ * Institutional Frame Component for Module 0.3 Forex
+ */
+const InstitutionalFrame = ({ 
+  children, 
+  label, 
+  status = "AUDIT STANDBY",
+  id = "LN-0.3-AUD"
+}: { 
+  children: React.ReactNode; 
+  label: string; 
+  status?: string;
+  id?: string;
+}) => (
+  <div className="w-full h-full min-h-[450px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
+    {/* Grid Background Effect */}
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
+    
+    {/* Top Header Row */}
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
+      <div className="flex flex-col">
+        <div className="flex items-center gap-2 mb-1">
+          <Activity size={10} className="text-teal-600 animate-pulse" />
+          <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.25em]">Evidence Audit Stream</span>
+        </div>
+        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{label}</h4>
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="flex flex-col items-end">
+          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
+          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
+        </div>
+        <div className="w-px h-6 bg-slate-200" />
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-lg shadow-sm">
+          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Dynamic Content Center Stage */}
+    <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
+      {children}
+    </div>
+  </div>
+);
+
+
+/**
  * 0.3 - Forex Pip Candle Board
  */
 export const ForexPipCandleBoard = () => {
@@ -27,11 +89,13 @@ export const ForexPipCandleBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-2xl mx-auto py-2">
+    <InstitutionalFrame label="Forex Pip Candle Board" id="LN-0.3-PIP" status="PIP RECORDER">
+      <div className="w-full max-w-2xl mx-auto py-2">
+        
       <div className="p-6 rounded-[2.5rem] bg-white border border-slate-100 shadow-xl flex flex-col items-center">
         <div className="relative w-full h-64 bg-slate-50 rounded-3xl border border-slate-100 flex items-center justify-center mb-6 overflow-hidden">
           {/* Grid Background */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+          <div className="absolute inset-0 " style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
 
           <div className="relative flex flex-col items-center">
             {/* Upper Wick with Pip Label */}
@@ -40,7 +104,7 @@ export const ForexPipCandleBoard = () => {
               onMouseLeave={() => setActivePart(null)}
               onFocus={() => setActivePart('wick-up')}
               onBlur={() => setActivePart(null)}
-              className={cn("relative flex flex-col items-center transition-all duration-300", activePart && !isActive('wick-up') && !isActive('range') ? "opacity-60" : "opacity-100", isActive('wick-up') ? "scale-105" : "")}
+              className={cn("relative flex flex-col items-center transition-all duration-300", activePart && !isActive('wick-up') && !isActive('range') ? "" : "", isActive('wick-up') ? "scale-105" : "")}
             >
               <div className={cn("w-1 h-10 transition-colors duration-300", isActive('wick-up') ? "bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]" : "bg-slate-400")} />
               <div className={cn("absolute -right-16 top-2 px-2 py-0.5 border rounded-md text-[9px] font-black uppercase transition-colors duration-300", isActive('wick-up') ? "bg-amber-100 border-amber-300 text-amber-700" : "bg-amber-50 border-amber-100 text-amber-600")}>7 Pips</div>
@@ -52,7 +116,7 @@ export const ForexPipCandleBoard = () => {
               onMouseLeave={() => setActivePart(null)}
               onFocus={() => setActivePart('body')}
               onBlur={() => setActivePart(null)}
-              className={cn("relative w-16 h-24 rounded-lg border-2 shadow-md flex items-center justify-center transition-all duration-300 z-10", isActive('body') ? "bg-emerald-400 border-emerald-300 scale-105 shadow-emerald-500/20" : "bg-emerald-500 border-emerald-400", activePart && !isActive('body') && !isActive('range') ? "opacity-60" : "opacity-100")}
+              className={cn("relative w-16 h-24 rounded-lg border-2 shadow-md flex items-center justify-center transition-all duration-300 z-10", isActive('body') ? "bg-emerald-400 border-emerald-300 scale-105 shadow-emerald-500/20" : "bg-emerald-500 border-emerald-400", activePart && !isActive('body') && !isActive('range') ? "" : "")}
             >
               <div className={cn("absolute -right-20 px-2 py-0.5 border rounded-md text-[9px] font-black uppercase transition-colors duration-300", isActive('body') ? "bg-emerald-100 border-emerald-300 text-emerald-700" : "bg-emerald-50 border-emerald-100 text-emerald-600")}>15 Pips</div>
             </button>
@@ -63,7 +127,7 @@ export const ForexPipCandleBoard = () => {
               onMouseLeave={() => setActivePart(null)}
               onFocus={() => setActivePart('wick-down')}
               onBlur={() => setActivePart(null)}
-              className={cn("relative flex flex-col items-center transition-all duration-300", activePart && !isActive('wick-down') && !isActive('range') ? "opacity-60" : "opacity-100", isActive('wick-down') ? "scale-105" : "")}
+              className={cn("relative flex flex-col items-center transition-all duration-300", activePart && !isActive('wick-down') && !isActive('range') ? "" : "", isActive('wick-down') ? "scale-105" : "")}
             >
               <div className={cn("w-1 h-8 transition-colors duration-300", isActive('wick-down') ? "bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]" : "bg-slate-400")} />
               <div className={cn("absolute -right-16 bottom-2 px-2 py-0.5 border rounded-md text-[9px] font-black uppercase transition-colors duration-300", isActive('wick-down') ? "bg-amber-100 border-amber-300 text-amber-700" : "bg-slate-100 border-slate-200 text-slate-500")}>6 Pips</div>
@@ -75,7 +139,7 @@ export const ForexPipCandleBoard = () => {
               onMouseLeave={() => setActivePart(null)}
               onFocus={() => setActivePart('range')}
               onBlur={() => setActivePart(null)}
-              className={cn("absolute -left-20 top-0 bottom-0 flex items-center transition-all duration-300", activePart && !isActive('range') ? "opacity-40" : "opacity-100", isActive('range') ? "scale-105" : "")}
+              className={cn("absolute -left-20 top-0 bottom-0 flex items-center transition-all duration-300", activePart && !isActive('range') ? "" : "", isActive('range') ? "scale-105" : "")}
             >
               <div className={cn("h-full w-2 border-y-2 border-l-2 rounded-l-lg transition-colors duration-300", isActive('range') ? "border-slate-500" : "border-slate-300")} />
               <div className={cn("ml-2 px-2 py-1 text-white rounded-lg text-[10px] font-black uppercase whitespace-nowrap transition-colors duration-300", isActive('range') ? "bg-slate-800 shadow-md" : "bg-slate-900")}>28 Pips Total</div>
@@ -99,7 +163,7 @@ export const ForexPipCandleBoard = () => {
               className={cn(
                 `p-3 rounded-2xl border text-center transition-all duration-300`,
                 isActive(tile.id) ? `bg-${tile.color}-100 border-${tile.color}-300 shadow-sm scale-105` : `bg-${tile.color}-50 border-${tile.color}-100`,
-                activePart && !isActive(tile.id) && !(tile.id === "wick-up" && isActive("wick-down")) ? "opacity-60" : "opacity-100"
+                activePart && !isActive(tile.id) && !(tile.id === "wick-up" && isActive("wick-down")) ? "" : ""
               )}
             >
               <p className={`text-[9px] font-black text-${tile.color}-600 uppercase mb-0.5`}>{tile.label}</p>
@@ -116,7 +180,9 @@ export const ForexPipCandleBoard = () => {
           </p>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -128,7 +194,9 @@ export const ForexDistortedCandleBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-2">
+    <InstitutionalFrame label="Forex Distorted Candle Board" id="LN-0.3-DIST" status="DISTORTION SCAN">
+      <div className="w-full max-w-4xl mx-auto py-2">
+        
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* 1. Clean Record */}
         <button 
@@ -138,8 +206,8 @@ export const ForexDistortedCandleBoard = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-6 rounded-[2.5rem] border flex flex-col items-center transition-all duration-300 text-left w-full",
-            isActive('clean') ? "bg-emerald-100/40 border-emerald-300 shadow-md scale-[1.02]" : "bg-emerald-50/30 border-emerald-100",
-            activePart && !isActive('clean') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('clean') ? "bg-[#D1FAE5] border-emerald-300 shadow-md scale-[1.02]" : "bg-[#EFFDF5] border-emerald-100",
+            activePart && !isActive('clean') ? " scale-[0.98]" : ""
           )}
         >
           <div className={cn("px-4 py-1.5 rounded-full text-white text-[9px] font-black uppercase tracking-widest mb-6 transition-colors", isActive('clean') ? "bg-emerald-600" : "bg-emerald-500")}>Clean Record</div>
@@ -149,11 +217,11 @@ export const ForexDistortedCandleBoard = () => {
             <div className="w-0.5 h-6 bg-slate-400" />
           </div>
           <div className="w-full space-y-2">
-             <div className={cn("flex items-center gap-3 p-3 rounded-xl border transition-colors", isActive('clean') ? "bg-emerald-50/80 border-emerald-200" : "bg-white border-emerald-100")}>
+             <div className={cn("flex items-center gap-3 p-3 rounded-xl border transition-colors", isActive('clean') ? "bg-[#EAFDF1] border-emerald-200" : "bg-white border-emerald-100")}>
                <div className="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center"><CheckCircle2 size={14} /></div>
                <p className="text-[10px] font-bold text-slate-700 uppercase">Active Session / Tight Spread</p>
              </div>
-             <div className={cn("flex items-center gap-3 p-3 rounded-xl border transition-colors", isActive('clean') ? "bg-emerald-50/80 border-emerald-200" : "bg-white border-emerald-100")}>
+             <div className={cn("flex items-center gap-3 p-3 rounded-xl border transition-colors", isActive('clean') ? "bg-[#EAFDF1] border-emerald-200" : "bg-white border-emerald-100")}>
                <div className="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center"><CheckCircle2 size={14} /></div>
                <p className="text-[10px] font-bold text-slate-700 uppercase">Clear Body / Reliable Evidence</p>
              </div>
@@ -168,22 +236,22 @@ export const ForexDistortedCandleBoard = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-6 rounded-[2.5rem] border flex flex-col items-center transition-all duration-300 text-left w-full",
-            isActive('distorted') ? "bg-rose-100/40 border-rose-300 shadow-md scale-[1.02]" : "bg-rose-50/30 border-rose-100 shadow-sm",
-            activePart && !isActive('distorted') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('distorted') ? "bg-[#FEE2E2] border-rose-300 shadow-md scale-[1.02]" : "bg-[#FFF5F5] border-rose-100 shadow-sm",
+            activePart && !isActive('distorted') ? " scale-[0.98]" : ""
           )}
         >
           <div className={cn("px-4 py-1.5 rounded-full text-white text-[9px] font-black uppercase tracking-widest mb-6 transition-colors", isActive('distorted') ? "bg-rose-600" : "bg-rose-500")}>Distorted Record</div>
           <div className={cn("relative flex flex-col items-center mb-6 transition-transform", isActive('distorted') ? "scale-105" : "")}>
-            <div className={cn("w-0.5 h-20 transition-all", isActive('distorted') ? "bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)] opacity-80" : "bg-rose-400 opacity-50")} />
+            <div className={cn("w-0.5 h-20 transition-all", isActive('distorted') ? "bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)] " : "bg-rose-400 ")} />
             <div className={cn("w-12 h-6 rounded-md border transition-colors", isActive('distorted') ? "bg-rose-200 border-rose-300" : "bg-rose-100 border-rose-200")} />
-            <div className={cn("w-0.5 h-6 transition-all", isActive('distorted') ? "bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)] opacity-80" : "bg-rose-400 opacity-50")} />
+            <div className={cn("w-0.5 h-6 transition-all", isActive('distorted') ? "bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)] " : "bg-rose-400 ")} />
           </div>
           <div className="w-full space-y-2">
-             <div className={cn("flex items-center gap-3 p-3 rounded-xl border transition-colors", isActive('distorted') ? "bg-rose-50/80 border-rose-200" : "bg-white border-rose-100")}>
+             <div className={cn("flex items-center gap-3 p-3 rounded-xl border transition-colors", isActive('distorted') ? "bg-[#FFF1F1] border-rose-200" : "bg-white border-rose-100")}>
                <div className="w-6 h-6 rounded-lg bg-rose-50 text-rose-500 flex items-center justify-center"><XCircle size={14} /></div>
                <p className="text-[10px] font-bold text-slate-700 uppercase">Low Liquidity / Wide Spread</p>
              </div>
-             <div className={cn("flex items-center gap-3 p-3 rounded-xl border transition-colors", isActive('distorted') ? "bg-rose-50/80 border-rose-200" : "bg-white border-rose-100")}>
+             <div className={cn("flex items-center gap-3 p-3 rounded-xl border transition-colors", isActive('distorted') ? "bg-[#FFF1F1] border-rose-200" : "bg-white border-rose-100")}>
                <div className="w-6 h-6 rounded-lg bg-rose-50 text-rose-500 flex items-center justify-center"><XCircle size={14} /></div>
                <p className="text-[10px] font-bold text-slate-700 uppercase">Long Wick / Weak Evidence</p>
              </div>
@@ -194,7 +262,9 @@ export const ForexDistortedCandleBoard = () => {
       <div className="p-5 rounded-[2rem] bg-slate-900 text-white text-center">
         <p className="text-sm font-black italic">“A Forex candle is only as useful as the condition it formed in.”</p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -206,7 +276,9 @@ export const ForexCandleDecisionBoard = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-2xl mx-auto py-2">
+    <InstitutionalFrame label="Forex Candle Decision Board" id="LN-0.3-DEC" status="DECISION AUDIT">
+      <div className="w-full max-w-2xl mx-auto py-2">
+        
       <div className="p-6 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl overflow-hidden">
         {/* Scenario Header */}
         <div className="flex items-center justify-between mb-6">
@@ -224,7 +296,7 @@ export const ForexCandleDecisionBoard = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('spread')}
             onBlur={() => setActivePart(null)}
-            className={cn("px-3 py-1 border rounded-lg flex items-center gap-2 transition-all duration-300", isActive('spread') ? "bg-rose-100 border-rose-300 scale-105" : "bg-rose-50 border-rose-100", activePart && !isActive('spread') && !isActive('wick') ? "opacity-60" : "opacity-100")}
+            className={cn("px-3 py-1 border rounded-lg flex items-center gap-2 transition-all duration-300", isActive('spread') ? "bg-rose-100 border-rose-300 scale-105" : "bg-rose-50 border-rose-100", activePart && !isActive('spread') && !isActive('wick') ? "" : "")}
           >
             <div className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
             <span className={cn("text-[10px] font-black uppercase transition-colors duration-300", isActive('spread') ? "text-rose-700" : "text-rose-600")}>Wide Spread</span>
@@ -240,7 +312,7 @@ export const ForexCandleDecisionBoard = () => {
                onMouseLeave={() => setActivePart(null)}
                onFocus={() => setActivePart('session')}
                onBlur={() => setActivePart(null)}
-               className={cn("absolute top-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-white rounded-lg border shadow-sm flex items-center gap-2 transition-all duration-300", isActive('session') ? "border-slate-400 scale-105" : "border-slate-200", activePart && !isActive('session') && !isActive('wick') ? "opacity-60" : "opacity-100")}
+               className={cn("absolute top-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-white rounded-lg border shadow-sm flex items-center gap-2 transition-all duration-300", isActive('session') ? "border-slate-400 scale-105" : "border-slate-200", activePart && !isActive('session') && !isActive('wick') ? "" : "")}
              >
                <Clock size={12} className={cn("transition-colors duration-300", isActive('session') ? "text-slate-600" : "text-slate-400")} />
                <span className={cn("text-[9px] font-black uppercase transition-colors duration-300", isActive('session') ? "text-slate-800" : "text-slate-600")}>Quiet Session</span>
@@ -252,14 +324,14 @@ export const ForexCandleDecisionBoard = () => {
                   onMouseLeave={() => setActivePart(null)}
                   onFocus={() => setActivePart('wick')}
                   onBlur={() => setActivePart(null)}
-                  className={cn("w-2 h-24 rounded-full transition-all duration-300", isActive('wick') ? "bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)] scale-110" : "bg-rose-400 w-0.5 rounded-none", activePart && !isActive('wick') ? "opacity-60" : "opacity-100")} 
+                  className={cn("w-2 h-24 rounded-full transition-all duration-300", isActive('wick') ? "bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)] scale-110" : "bg-rose-400 w-0.5 rounded-none", activePart && !isActive('wick') ? "" : "")} 
                 />
                 <button 
                   onMouseEnter={() => setActivePart('body')}
                   onMouseLeave={() => setActivePart(null)}
                   onFocus={() => setActivePart('body')}
                   onBlur={() => setActivePart(null)}
-                  className={cn("w-12 h-6 rounded border transition-all duration-300", isActive('body') ? "bg-slate-300 border-slate-400 scale-110 shadow-sm" : "bg-slate-200 border-slate-300", activePart && !isActive('body') ? "opacity-60" : "opacity-100")} 
+                  className={cn("w-12 h-6 rounded border transition-all duration-300", isActive('body') ? "bg-slate-300 border-slate-400 scale-110 shadow-sm" : "bg-slate-200 border-slate-300", activePart && !isActive('body') ? "" : "")} 
                 />
                 <div className="w-0.5 h-4 bg-slate-400" />
              </div>
@@ -285,7 +357,7 @@ export const ForexCandleDecisionBoard = () => {
                 className={cn(
                   "flex items-center gap-3 w-full text-left p-3 rounded-2xl border transition-all duration-300",
                   isActive(item.id) ? "bg-slate-50 border-slate-300 shadow-sm scale-[1.02]" : "bg-white border-slate-100 shadow-sm",
-                  activePart && !isActive(item.id) ? "opacity-60" : "opacity-100"
+                  activePart && !isActive(item.id) ? "" : ""
                 )}
               >
                 <div className={cn("w-6 h-6 rounded-lg flex items-center justify-center transition-colors duration-300", isActive(item.id) ? "bg-slate-200 text-slate-700" : "bg-slate-50 text-slate-400")}>{item.icon}</div>
@@ -300,7 +372,7 @@ export const ForexCandleDecisionBoard = () => {
           onMouseLeave={() => setActivePart(null)}
           onFocus={() => setActivePart('quality')}
           onBlur={() => setActivePart(null)}
-          className={cn("w-full p-4 rounded-2xl border flex items-center text-left gap-3 transition-all duration-300", isActive('quality') || isActive('wick') ? "bg-blue-100 border-blue-300 shadow-sm scale-[1.01]" : "bg-blue-50 border-blue-100", activePart && !isActive('quality') && !isActive('wick') ? "opacity-60" : "opacity-100")}
+          className={cn("w-full p-4 rounded-2xl border flex items-center text-left gap-3 transition-all duration-300", isActive('quality') || isActive('wick') ? "bg-blue-100 border-blue-300 shadow-sm scale-[1.01]" : "bg-blue-50 border-blue-100", activePart && !isActive('quality') && !isActive('wick') ? "" : "")}
         >
           <Info size={18} className="text-blue-500 shrink-0" />
           <p className="text-[11px] font-bold text-blue-900 leading-tight">
@@ -308,7 +380,9 @@ export const ForexCandleDecisionBoard = () => {
           </p>
         </button>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -320,7 +394,9 @@ export const ForexContextComparison = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="my-2 space-y-10 max-w-5xl mx-auto w-full text-left pb-10">
+    <InstitutionalFrame label="Forex Context Comparison" id="LN-0.3-CTX" status="CONTEXT MONITOR">
+      <div className="my-2 space-y-10 max-w-5xl mx-auto w-full text-left pb-10">
+        
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
         {/* Left: Isolated Reading */}
@@ -331,8 +407,8 @@ export const ForexContextComparison = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "flex flex-col h-full rounded-[3rem] border p-8 transition-all duration-300 text-left w-full",
-            isActive('isolated') ? "bg-rose-100/40 border-rose-300 shadow-md scale-[1.02]" : "bg-rose-50/30 border-rose-100/50",
-            activePart && !isActive('isolated') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('isolated') ? "bg-[#FEE2E2] border-rose-300 shadow-md scale-[1.02]" : "bg-[#FFF5F5] border-rose-100/50",
+            activePart && !isActive('isolated') ? " scale-[0.98]" : ""
           )}
         >
           <div className="flex items-center gap-3 mb-8">
@@ -375,8 +451,8 @@ export const ForexContextComparison = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "flex flex-col h-full rounded-[3rem] border p-8 transition-all duration-300 text-left w-full",
-            isActive('contextual') ? "bg-emerald-100/40 border-emerald-300 shadow-md scale-[1.02]" : "bg-emerald-50/30 border-emerald-100/50",
-            activePart && !isActive('contextual') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('contextual') ? "bg-[#D1FAE5] border-emerald-300 shadow-md scale-[1.02]" : "bg-[#EFFDF5] border-emerald-100/50",
+            activePart && !isActive('contextual') ? " scale-[0.98]" : ""
           )}
         >
           <div className="flex items-center gap-3 mb-8">
@@ -397,7 +473,7 @@ export const ForexContextComparison = () => {
                 { pair: "AUD/USD", dir: "up", color: "text-emerald-500" },
                 { pair: "USD/JPY", dir: "down", color: "text-rose-500" }
               ].map((item, i) => (
-                <div key={i} className={cn("p-4 rounded-2xl border shadow-sm flex flex-col items-center gap-1 transition-colors", isActive('contextual') ? "bg-emerald-50/50 border-emerald-200" : "bg-white border-slate-100")}>
+                <div key={i} className={cn("p-4 rounded-2xl border shadow-sm flex flex-col items-center gap-1 transition-colors", isActive('contextual') ? "bg-[#EAFDF1] border-emerald-200" : "bg-white border-slate-100")}>
                   <span className="text-xs font-black text-slate-900">{item.pair}</span>
                   {item.dir === "up" ? <TrendingUp size={16} className={item.color} /> : <TrendingDown size={16} className={item.color} />}
                 </div>
@@ -433,7 +509,9 @@ export const ForexContextComparison = () => {
           </p>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -445,7 +523,9 @@ export const ForexSessionLiquidityVisual = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-8">
+    <InstitutionalFrame label="Forex Session Liquidity Monitor" id="LN-0.3-LIQ" status="LIQUIDITY AUDIT">
+      <div className="w-full max-w-4xl mx-auto py-8">
+        
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Active Session */}
         <button 
@@ -455,8 +535,8 @@ export const ForexSessionLiquidityVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-6 rounded-3xl border text-left transition-all duration-300 w-full",
-            isActive('active') ? "bg-teal-100/40 border-teal-300 shadow-md scale-[1.02]" : "bg-teal-50/30 border-teal-100",
-            activePart && !isActive('active') ? "opacity-60 scale-[0.98]" : "opacity-100"
+            isActive('active') ? "bg-[#CCFBF1] border-teal-300 shadow-md scale-[1.02]" : "bg-[#F0FDFA] border-teal-100",
+            activePart && !isActive('active') ? " scale-[0.98]" : ""
           )}
         >
           <div className="flex items-center justify-between mb-6">
@@ -491,8 +571,8 @@ export const ForexSessionLiquidityVisual = () => {
           onBlur={() => setActivePart(null)}
           className={cn(
             "p-6 rounded-3xl border text-left transition-all duration-300 w-full",
-            isActive('quiet') ? "bg-slate-100 border-slate-300 shadow-md scale-[1.02] opacity-100" : "bg-white border-slate-200 shadow-sm opacity-80",
-            activePart && !isActive('quiet') ? "opacity-60 scale-[0.98]" : ""
+            isActive('quiet') ? "bg-slate-100 border-slate-300 shadow-md scale-[1.02] " : "bg-white border-slate-200 shadow-sm ",
+            activePart && !isActive('quiet') ? " scale-[0.98]" : ""
           )}
         >
           <div className="flex items-center justify-between mb-6">
@@ -519,7 +599,9 @@ export const ForexSessionLiquidityVisual = () => {
           </div>
         </button>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -537,7 +619,9 @@ export const ForexMiniDrillBoard = () => {
   ];
 
   return (
-    <div className="w-full max-w-2xl mx-auto py-2">
+    <InstitutionalFrame label="Forex Mini Drill Board" id="LN-0.3-DRILL" status="DRILL STANDBY">
+      <div className="w-full max-w-2xl mx-auto py-2">
+        
       <div className="p-8 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl overflow-hidden relative">
         <div className="flex items-center gap-3 mb-8">
            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-lg">
@@ -580,7 +664,9 @@ export const ForexMiniDrillBoard = () => {
            <p className="text-xs font-bold leading-relaxed text-slate-300">This candle record is high-quality evidence. Sourced from a major pair during an active session with tight spreads.</p>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -592,7 +678,9 @@ export const ForexQuoteQualityDrillVisual = () => {
   const isActive = (part: string) => activePart === part;
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-8">
+    <InstitutionalFrame label="Forex Quote Quality Drill" id="LN-0.3-QUAL" status="QUALITY SCAN">
+      <div className="w-full max-w-4xl mx-auto py-8">
+        
       <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 shadow-xl relative overflow-hidden">
         {/* Scenario Header */}
         <div className="flex items-center justify-between mb-8 border-b border-slate-50 pb-6">
@@ -622,7 +710,7 @@ export const ForexQuoteQualityDrillVisual = () => {
                 onMouseLeave={() => setActivePart(null)}
                 onFocus={() => setActivePart(item.id)}
                 onBlur={() => setActivePart(null)}
-                className={cn("p-5 rounded-2xl border flex items-center justify-between transition-all duration-300 outline-none w-full", isActive(item.id) ? "bg-slate-50 border-slate-300 scale-105 shadow-md" : "bg-white border-slate-100", activePart && !isActive(item.id) ? "opacity-60" : "opacity-100")}
+                className={cn("p-5 rounded-2xl border flex items-center justify-between transition-all duration-300 outline-none w-full", isActive(item.id) ? "bg-slate-50 border-slate-300 scale-105 shadow-md" : "bg-white border-slate-100", activePart && !isActive(item.id) ? "" : "")}
               >
                 <div className="text-left">
                   <p className={cn("text-xs font-black uppercase mb-1 transition-colors", isActive(item.id) ? "text-slate-900" : "text-slate-900")}>{item.label}</p>
@@ -641,9 +729,9 @@ export const ForexQuoteQualityDrillVisual = () => {
             onMouseLeave={() => setActivePart(null)}
             onFocus={() => setActivePart('verdict')}
             onBlur={() => setActivePart(null)}
-            className={cn("h-full rounded-[2.5rem] p-8 text-white text-center flex flex-col items-center justify-center outline-none transition-all duration-300 w-full", isActive('verdict') ? "bg-slate-800 scale-[1.02] shadow-xl" : "bg-slate-900", activePart && !isActive('verdict') ? "opacity-60" : "opacity-100")}
+            className={cn("h-full rounded-[2.5rem] p-8 text-white text-center flex flex-col items-center justify-center outline-none transition-all duration-300 w-full", isActive('verdict') ? "bg-slate-800 scale-[1.02] shadow-xl" : "bg-slate-900", activePart && !isActive('verdict') ? "" : "")}
           >
-            <div className={cn("w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-colors", isActive('verdict') ? "bg-white/20" : "bg-white/10")}>
+            <div className={cn("w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-colors", isActive('verdict') ? "bg-[#475569]" : "bg-[#334155]")}>
               <Brain size={32} className={cn("transition-colors", isActive('verdict') ? "text-rose-400" : "text-rose-500")} />
             </div>
             <p className={cn("text-xs font-black uppercase tracking-widest mb-2 transition-colors", isActive('verdict') ? "text-white" : "text-white")}>Professional Verdict</p>
@@ -653,6 +741,8 @@ export const ForexQuoteQualityDrillVisual = () => {
           </button>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };

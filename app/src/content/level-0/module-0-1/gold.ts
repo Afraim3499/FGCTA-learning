@@ -9,10 +9,10 @@ export const goldCards: LessonCard[] = [
     body: "Gold can move quickly, but speed alone does not make a reading reliable. A Lurnava learner checks whether the move has structure, liquidity, wick context, and supporting Dollar/rate background.",
     context: {
       keyTerms: [
-        { term: "XAU/USD", definition: "Gold priced against the US Dollar." },
+        { term: "XAU/USD", definition: "Gold priced against the US Dollar (USD)." },
         { term: "Liquidity", definition: "How much active buying and selling is available. Thin liquidity can make movement noisy." },
         { term: "Wick", definition: "The thin part of a candle showing where price traveled before being pushed back." },
-        { term: "Dollar context", definition: "The broader strength or weakness of the US Dollar." },
+        { term: "Dollar context", definition: "The broader strength or weakness of the US Dollar (USD)." },
         { term: "Rate pressure", definition: "Interest-rate expectations that can influence Gold demand and pricing." },
         { term: "Speed vs clarity", definition: "The difference between fast movement and reliable evidence." }
       ],
@@ -31,14 +31,14 @@ export const goldCards: LessonCard[] = [
     context: {
       keyTerms: [
         { term: "Volatility", definition: "How quickly and widely price moves." },
-        { term: "USD Context", definition: "The broader strength or weakness of the US Dollar." },
+        { term: "USD Context", definition: "The broader strength or weakness of the US Dollar (USD)." },
         { term: "Rate Expectations", definition: "Market expectations about interest rates and the attractiveness of holding cash or interest-paying assets." },
         { term: "Market Uncertainty", definition: "Periods where fear, risk, or instability can increase attention on Gold." },
         { term: "Liquidity", definition: "How much active buying and selling is available. Thin liquidity can make Gold movement noisy." },
         { term: "Wick Rejection", definition: "When price moves into an area but is pushed back before the candle closes." }
       ],
       whyThisMatters: "Gold often reacts quickly to background conditions. If a learner reads only the candle, they may mistake a fast move for a clear move. Context drivers help separate meaningful pressure from temporary noise.",
-      realLifeExample: "Gold jumps during a news-sensitive period while the Dollar is weakening. A rushed learner reacts to the spike. A trained learner checks whether the move is supported by USD context, rate expectations, liquidity, and whether the candle holds or rejects.",
+      realLifeExample: "Gold jumps during a news-sensitive period while the US Dollar (USD) is weakening. A rushed learner reacts to the spike. A trained learner checks whether the move is supported by USD (US Dollar) context, rate expectations, liquidity, and whether the candle holds or rejects.",
       commonMistake: "Treating Gold like a normal slow-moving chart. Gold can move fast, reject quickly, and punish readings that ignore context.",
       quickNote: "In Gold, context comes before confidence."
     }

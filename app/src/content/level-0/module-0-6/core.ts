@@ -98,7 +98,7 @@ export const coreCards: LessonCard[] = [
         { term: "Limiting Evidence", definition: "Clues that reduce the quality or confidence of a reading." },
         { term: "Supporting Evidence", definition: "Clues that strengthen the quality of a reading." },
         { term: "Mixed Reading", definition: "A classification where supporting and limiting clues are balanced." },
-        { term: "Divergence", definition: "When two related market metrics (like spot vs. derivative structure) disagree." }
+        { term: "Divergence", definition: "When two related market metrics (like spot vs. futures behavior) disagree." }
       ],
       whyThisMatters: "Ignoring conflicting evidence is a primary cause of retail traders entering low-probability breakout traps.",
       realLifeExample: "Price breaks a local swing high, but volume is declining and price is sitting directly under a higher-timeframe range high. The local structure is bullish, but location and volume are bearish.",
@@ -151,7 +151,7 @@ export const coreCards: LessonCard[] = [
     title: "When Early Evidence Breaks Down",
     label: "Reading Failure",
     visualKey: "reading-failure-diagnostic",
-    body: "A reading is not a promise. It is an assessment that can change with the very next candle. When early evidence breaks down—for example, when a breakout candle is immediately followed by a large engulfing candle back inside structure—the disciplined learner does not defend their initial read. They update their classification immediately to mixed or unclear, accepting that the market story has changed.",
+    body: "A reading is not a promise. It is an assessment that can change with the very next candle. When early evidence breaks down—for example, when a breakout candle is immediately followed by a large opposing candle (often called an engulfing candle) that pushes back inside structure—the disciplined learner does not defend their initial read. They update their classification immediately to mixed or unclear, accepting that the market story has changed.",
     context: {
       keyTerms: [
         { term: "Evidence Breakdown", definition: "When follow-through fails and invalidates the previous reading." },
@@ -226,7 +226,7 @@ export const coreCards: LessonCard[] = [
       keyTerms: [
         { term: "Disciplined Reading", definition: "A chart reading that accepts mixed or unclear conditions." },
         { term: "Local Break", definition: "A price move beyond a lower-timeframe structure point." },
-        { term: "HTF Range", definition: "The high-timeframe boundary layout currently containing price." },
+        { term: "High-Timeframe Range", definition: "The broader trading boundary on a higher-timeframe chart." },
         { term: "Weak Follow-Through", definition: "Immediate pause or reversal candles after a structure break." },
         { term: "Evidence Classification", definition: "The final step of labeling a chart's quality as clear, mixed, or unclear." }
       ],

@@ -18,7 +18,7 @@ export const coreCards: LessonCard[] = [
         { term: "Timeframe", definition: "The specific duration one candle represents (e.g., 1 hour)." }
       ],
       whyThisMatters: "Every part of the candle answers a question. The body shows who 'won' the period. The wicks show where one side tried to push but failed. Without this anatomy, you are just looking at colors.",
-      realLifeExample: "A 5-minute candle on EUR/USD. If EUR/USD opens at 1.1000, moves up to 1.1012, drops to 1.0998, and closes at 1.1009, that single candle records the full journey of that 5-minute period.",
+      realLifeExample: "A 5-minute candle on EUR/USD (Euro vs. US Dollar). If EUR/USD opens at 1.1000, moves up to 1.1012, drops to 1.0998, and closes at 1.1009, that single candle records the full journey of that 5-minute period.",
       commonMistake: "Thinking one candle is a prediction. Many beginners see a green candle and instantly think 'buy.' But a candle first shows what already happened inside one period — not a guaranteed next move.",
       quickNote: "A candle records a period of market activity."
     }
@@ -54,7 +54,7 @@ export const coreCards: LessonCard[] = [
         { term: "Balance of Power", definition: "The net result of buyer vs. seller interaction at the close." }
       ],
       whyThisMatters: "Color is a shortcut. Anatomy is the full story.",
-      realLifeExample: "The 'Flash Rejection'. In high-speed markets like Gold, you might see price spike up 40 pips and then immediately crash back down. The resulting long upper wick is the record of that failed attempt to move higher.",
+      realLifeExample: "The 'Flash Rejection'. In high-speed markets like Gold, you might see price spike up 40 pips (which are the smallest price fractions in Forex) and then immediately crash back down. The resulting long upper wick is the record of that failed attempt to move higher.",
       commonMistake: "Ignoring the close location. A candle can be green but close near its low after a big rejection. If you only look at the color, you miss the fact that the sellers actually took control at the end of the period.",
       quickNote: "Color is not enough. Read the whole record."
     }
@@ -90,7 +90,7 @@ export const coreCards: LessonCard[] = [
       ],
       whyThisMatters: "Knowing the name 'Hammer' is useless if you don't understand the rejection it recorded.",
       realLifeExample: "The 'Engulfing' record. Instead of just memorizing the name, see it as a record where the current period’s activity completely overwhelmed and 'erased' the previous period’s progress. It’s a record of a sudden shift in power.",
-      commonMistake: "Collecting patterns like stamps. Many learners try to learn 50 patterns and look for them everywhere. It is better to understand the OHLC logic of 3 patterns than to know the names of 30 without understanding the record.",
+      commonMistake: "Collecting patterns like stamps. Many learners try to learn 50 patterns and look for them everywhere. It is better to understand the OHLC (Open, High, Low, Close) logic of 3 patterns than to know the names of 30 without understanding the record.",
       quickNote: "Pattern names are vocabulary. Context creates the reading."
     }
   },
@@ -127,7 +127,7 @@ export const coreCards: LessonCard[] = [
     context: {
       keyTerms: ["Participant Interaction", "Behavioral Record", "Contextual Foundation"],
       whyThisMatters: "This foundation allows you to understand every future concept in the academy with much higher clarity.",
-      realLifeExample: "The Multi-Asset Audit. If you see a strong record on EUR/USD, a disciplined learner checks if the same behavior is recorded on GBP/USD or the DXY. This turns a single record into a 'cluster' of evidence.",
+      realLifeExample: "The Multi-Asset Audit. If you see a strong record on EUR/USD (Euro vs. US Dollar), a disciplined learner checks if the same behavior is recorded on GBP/USD (British Pound vs. US Dollar) or the DXY (US Dollar Index). This turns a single record into a 'cluster' of evidence.",
       commonMistake: "Thinking you are 'done' learning candles. Reading candles is a life-long skill. As you move to higher levels, you will see that every advanced concept (like Order Blocks) is just a more sophisticated way of reading candle records.",
       quickNote: "You are reading behavior, not shapes."
     }

@@ -10,7 +10,7 @@ export const coreCards: LessonCard[] = [
     title: "Location Gives Evidence Its Weight",
     label: "Core Foundation",
     visualKey: "location-gives-evidence-weight",
-    body: "Imagine reading a letter. The words are clear, but if you don't know who sent it or where it came from, the meaning is incomplete. The same rule applies to the charts. A single candlestick, a wick, a sudden expansion, or a tight compression does not carry the same weight everywhere. Its meaning changes based on the location. Price near a prior swing high, range boundary, or higher-timeframe reaction area holds far more weight than price drifting aimlessly in the middle of noise. Before you judge what a candle is doing, you must locate where it is happening.",
+    body: "Imagine reading a letter. The words are clear, but if you don't know who sent it or where it came from, the meaning is incomplete. The same rule applies to the charts. A single candlestick, a wick, a sudden expansion, or a tight compression does not carry the same weight everywhere. Its meaning changes based on the location. Price near a previous swing high, range boundary, or larger-chart (higher-timeframe) reaction area holds far more weight than price drifting aimlessly in the middle of noise. Before you judge what a candle is doing, you must locate where it is happening.",
     context: {
       keyTerms: [
         { term: "Market Location", definition: "The specific area on a chart where price is currently trading relative to structural reference points." },
@@ -30,7 +30,7 @@ export const coreCards: LessonCard[] = [
     title: "Not Every Chart Area Matters Equally",
     label: "Location Priority",
     visualKey: "chart-area-priority-map",
-    body: "A common beginner mistake is looking at a chart and treating every square inch of it as if it holds the same value. It doesn't. A chart is divided into high-information areas and low-information areas. High-information areas are locations where buyers and sellers have actively fought before—like structure edges and prior reaction zones. Low-information areas are the spaces in between, where price drifts with no clear boundary. A professional trader ignores the noise in the middle and focuses attention exclusively on the edges.",
+    body: "A common beginner mistake is looking at a chart and treating every square inch of it as if it holds the same value. It doesn't. A chart is divided into high-information areas and low-information areas. High-information areas are locations where buyers and sellers have actively fought before—like edges of chart structures and prior reaction zones. Low-information areas are the spaces in between, where price drifts with no clear boundary. A professional trader ignores the noise in the middle and focuses attention exclusively on the edges.",
     context: {
       keyTerms: [
         { term: "High-Information Area", definition: "A location on the chart that has historically generated strong interest and clear price reactions." },
@@ -50,13 +50,13 @@ export const coreCards: LessonCard[] = [
     title: "Reaction Areas Are Zones, Not Magic Lines",
     label: "Reaction Areas",
     visualKey: "reaction-zones-not-lines",
-    body: "When you mark a location on your chart, do not draw a thin, single line and expect price to bounce off it to the penny. Markets are made of human decisions and order books, not laser beams. A reaction area is always a zone—a price range where orders are clustered. Price will often overshoot a level, reject it slightly below, or hover inside it before declaring a direction. If you think in lines, you will constantly be trapped by minor wicks; if you think in zones, you will give price room to show its true behavior.",
+    body: "When you mark a location on your chart, do not draw a thin, single line and expect price to bounce off it to the penny. Markets are made of human decisions and buying and selling orders, not laser beams. A reaction area is always a zone—a price range where orders are clustered. Price will often overshoot a level, reject it slightly below, or hover inside it before declaring a direction. If you think in lines, you will constantly be trapped by minor wicks; if you think in zones, you will give price room to show its true behavior.",
     context: {
       keyTerms: [
         { term: "Reaction Zone", definition: "A flexible price range representing clustered order interest rather than a single price line." },
-        { term: "Overshoot", definition: "A temporary penetration past a key level that is quickly reclaimed, showing zone depth." },
+        { term: "Overshoot", definition: "A temporary spike past a key level that is quickly reclaimed, showing zone depth." },
         { term: "Order Clustering", definition: "The concentration of buy or sell orders within a specific price range." },
-        { term: "Line Thinking Trap", definition: "The error of expecting price to respect an exact decimal number on the chart." },
+        { term: "Line Thinking Trap", definition: "The error of expecting price to respect an exact price number on the chart." },
         { term: "Zone Depth", definition: "The vertical height of a reaction area, allowing for normal market breathing room." }
       ],
       whyThisMatters: "Thinking in zones instead of exact lines keeps you calm when price temporarily spikes past a level before returning.",
@@ -74,10 +74,10 @@ export const coreCards: LessonCard[] = [
     context: {
       keyTerms: [
         { term: "Outer Boundary", definition: "The extreme high or low price point of a structure where the market's limits are tested." },
-        { term: "Drifting Price", definition: "Aimless price movement in the middle of a structure that lacks institutional momentum." },
+        { term: "Drifting Price", definition: "Aimless price movement in the middle of a structure that lacks large professional player backing." },
         { term: "Edge Decision", definition: "The critical choice price makes at a boundary: either rejection back inside or breakout acceptance." },
         { term: "Middle Noise Trap", definition: "Getting chopped up by taking trades based on candles forming inside the center of a range." },
-        { term: "Structural Limits", definition: "The verified points where supply or demand has previously overwhelmed the opposite side." }
+        { term: "Structural Limits", definition: "The verified points where selling or buying pressure has previously overwhelmed the opposite side." }
       ],
       whyThisMatters: "Focusing on structural edges helps you stay patient and wait for price to reach areas where the risk of random chop is lowest.",
       realLifeExample: "Instead of trying to trade the choppy waves inside a range, you wait for price to reach the extreme range highs or lows to see who controls the boundaries.",
@@ -96,7 +96,7 @@ export const coreCards: LessonCard[] = [
         { term: "Prior Swing", definition: "A historical turning point where price changed direction, leaving a clear high or low reference." },
         { term: "Location Reference", definition: "Using historical turning points as coordinates to judge current price reactions." },
         { term: "Re-test behavior", definition: "How price behaves (rejection, acceptance, overshoot) when it returns to a prior swing area." },
-        { term: "Pivot Zone", definition: "The area immediately surrounding a major swing high or low." },
+        { term: "Pivot Zone", definition: "Pivot Zone (the area right around a swing point) immediately surrounding a major high or low." },
         { term: "Historical Record", definition: "The memory of past transactions that influences how traders react when price returns." }
       ],
       whyThisMatters: "Prior swings provide objective landmarks on your chart. Without them, you are navigating without a map.",
@@ -116,7 +116,7 @@ export const coreCards: LessonCard[] = [
         { term: "Rejection Behavior", definition: "A quick price move away from a zone after a test, often leaving long wicks." },
         { term: "Acceptance Behavior", definition: "When price holds its ground inside or beyond a zone, showing comfort at new values." },
         { term: "Value Building", definition: "A series of overlapping candle bodies that establish a new price range." },
-        { term: "Zone Defense", definition: "Active orders stepping in to prevent price from breaking through a structure boundary." },
+        { term: "Zone Defense", definition: "Defending the zone with buy or sell orders to prevent price from breaking through a structure boundary." },
         { term: "Close Quality", definition: "Checking where the candle closes relative to the zone to confirm if the test failed or succeeded." }
       ],
       whyThisMatters: "Recognizing acceptance saves you from selling a market that is consolidating just above a resistance zone, preparing to break higher.",
@@ -134,10 +134,10 @@ export const coreCards: LessonCard[] = [
     context: {
       keyTerms: [
         { term: "Evidence Devaluation", definition: "Lowering the importance of a candlestick pattern because of its poor location." },
-        { term: "Overextended Move", definition: "A long, continuous price expansion that has run out of order flow and is vulnerable to exhaustion." },
+        { term: "Overextended Move", definition: "A long, continuous price expansion that is running out of buyers or sellers." },
         { term: "Isolated Pattern Trap", definition: "Trading a candlestick pattern purely based on its visual shape, ignoring context." },
         { term: "Location Validation", definition: "Confirming that a candlestick pattern formed at a structural boundary or swing." },
-        { term: "Pattern Degradation", definition: "The process where reliable patterns become highly random when formed inside chop." }
+        { term: "Pattern Degradation", definition: "The process where reliable patterns become highly random when formed inside messy, sideways movement." }
       ],
       whyThisMatters: "Understanding this concept saves you from losing money on perfect-looking patterns that form in the middle of market noise.",
       realLifeExample: "A hammer candle prints. In the middle of a choppy range, you ignore it. At a clean higher-timeframe support zone, you audit it as high-quality evidence.",
@@ -153,10 +153,10 @@ export const coreCards: LessonCard[] = [
     body: "A lower-timeframe chart is like a magnifying glass—it shows the details of local action. But if you don't look up, you might step off a cliff. A 5-minute chart might show a beautiful, clean uptrend making higher highs. It looks highly bullish. But if you zoom out to the 4-hour chart, you discover price is currently touching the upper edge of a major daily resistance zone. The lower-timeframe strength is moving straight into higher-timeframe supply. The higher-timeframe location always overrides the local story.",
     context: {
       keyTerms: [
-        { term: "Higher Timeframe (HTF)", definition: "A wider perspective chart (e.g., 4-hour, Daily) used to identify major structures." },
-        { term: "Lower Timeframe (LTF)", definition: "A detailed perspective chart (e.g., 5-minute, 15-minute) used to observe local behavior." },
-        { term: "Location Override", definition: "The rule that HTF structural zones dictate the quality and risk of LTF movements." },
-        { term: "Contextual Conflict", definition: "When local price action looks strong, but is heading directly into opposing macro levels." },
+        { term: "Higher Timeframe (HTF)", definition: "A broader chart timeframe (e.g., 4-hour, Daily) used to identify major structures." },
+        { term: "Lower Timeframe (LTF)", definition: "A detailed local timeframe chart (e.g., 5-minute, 15-minute) used to observe local behavior." },
+        { term: "Location Override", definition: "The rule that larger-chart zones determine the safety of smaller-chart movements." },
+        { term: "Contextual Conflict", definition: "When local price action looks strong, but is heading directly into opposing major price boundaries." },
         { term: "Map Checking", definition: "The habit of checking HTF locations before auditing local candlestick behavior." }
       ],
       whyThisMatters: "Checking HTF locations stops you from buying a minor breakout directly into a major resistance zone.",
@@ -225,9 +225,9 @@ export const coreCards: LessonCard[] = [
       keyTerms: [
         { term: "Middle Range Zone", definition: "The central portion of a range where buying and selling forces are in equilibrium, creating noise." },
         { term: "Candle Devaluation", definition: "Discounting the significance of a strong candle because it formed in a low-priority area." },
-        { term: "Reference Vacuum", definition: "A chart area devoid of prior swings or key zones, making it impossible to measure reaction quality." },
+        { term: "Reference Vacuum", definition: "A chart area lacking any prior swings or key zones, making it impossible to measure reaction quality." },
         { term: "Discipline Override", definition: "Choosing to ignore an active-looking candle because it failed your location filter." },
-        { term: "Range Rotation Rule", definition: "The tendency of price to traverse the middle of a range quickly rather than reverse there." }
+        { term: "Range Rotation Rule", definition: "The tendency of price to move through the middle of a range quickly rather than reverse there." }
       ],
       whyThisMatters: "This drill trains you to resist the visual temptation of trading strong-looking candles that have no structural backup.",
       realLifeExample: "You see BTC print a huge green bar. You check the chart and see it is in the middle of a consolidation range. You sit on your hands and wait.",
@@ -243,10 +243,10 @@ export const coreCards: LessonCard[] = [
     body: "Congratulations! You have completed the Module 0.8 Core Concept. You have mastered one of the most critical filters in trading: Location Awareness. You now understand that a candlestick is only as valuable as the ground it stands on. By ignoring the noisy middle, focusing on structure edges, thinking in zones, and verifying with higher timeframes, you have elevated your chart reading far above the retail average. You are now ready to apply these location filters to real charts.",
     context: {
       keyTerms: [
-        { term: "Location Filter", definition: "The strict rule of rejecting any chart evidence that does not form at a key structural boundary." },
-        { term: "Zone Awareness", definition: "Viewing chart levels as flexible bands of order flow rather than rigid decimal lines." },
+        { term: "Zone Filter", definition: "The strict rule of rejecting any chart evidence that does not form at a key structural boundary." },
+        { term: "Zone Awareness", definition: "Viewing chart levels as flexible bands of buying and selling interest rather than rigid price lines." },
         { term: "Edge Focus", definition: "Directing all your analytical attention to the outer boundaries of market structures." },
-        { term: "Contextual Weighting", definition: "Evaluating candle strength only after validating the location quality." },
+        { term: "Contextual Weighting", definition: "Evaluating candle strength only after verifying the location quality." },
         { term: "Top-Down Discipline", definition: "Consistently referencing higher timeframes to prevent trading into major structural walls." }
       ],
       whyThisMatters: "Location awareness is your shield. It prevents you from taking low-quality trades in the middle of noise, preserving your capital for high-priority opportunities.",

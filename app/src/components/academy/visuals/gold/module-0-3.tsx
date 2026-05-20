@@ -19,6 +19,68 @@ import {
 } from "lucide-react";
 
 /**
+ * LURNAVA INSTITUTIONAL DESIGN TOKENS
+ */
+const UI = {
+  navy: "#071B36",
+  teal: "#0D9488",
+  slate: "#475569",
+  border: "#E2E8F0",
+  bg: "#F8FBFC",
+  rose: "#BE123C",
+  sky: "#0284C7",
+  amber: "#D97706"
+};
+
+/**
+ * Institutional Frame Component for Module 0.3 Gold
+ */
+const InstitutionalFrame = ({ 
+  children, 
+  label, 
+  status = "AUDIT STANDBY",
+  id = "LN-0.3-AUD"
+}: { 
+  children: React.ReactNode; 
+  label: string; 
+  status?: string;
+  id?: string;
+}) => (
+  <div className="w-full h-full min-h-[450px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
+    {/* Grid Background Effect */}
+    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
+    
+    {/* Top Header Row */}
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
+      <div className="flex flex-col">
+        <div className="flex items-center gap-2 mb-1">
+          <ClipboardCheck size={10} className="text-teal-600 animate-pulse" />
+          <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.25em]">Evidence Audit Stream</span>
+        </div>
+        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{label}</h4>
+      </div>
+      <div className="flex items-center gap-3">
+        <div className="flex flex-col items-end">
+          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
+          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
+        </div>
+        <div className="w-px h-6 bg-slate-200" />
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-lg shadow-sm">
+          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
+          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Dynamic Content Center Stage */}
+    <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
+      {children}
+    </div>
+  </div>
+);
+
+
+/**
  * 0.3 - Gold Candles Are Volatility Records
  */
 export const GoldCandleContextBoard = () => {
@@ -36,10 +98,12 @@ export const GoldCandleContextBoard = () => {
   const active = tags.find(t => t.id === activeTag);
 
   return (
-    <div className="w-full pt-6">
+    <InstitutionalFrame label="Gold Candle Context Analyzer" id="LN-0.3-CTX" status="CONTEXT SCAN">
+      <div className="w-full pt-6">
+        
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Central Candle with Tags */}
-        <div className="lg:col-span-7 relative h-[450px] bg-slate-100/50 rounded-[3rem] border border-slate-200 flex items-center justify-center overflow-hidden">
+        <div className="lg:col-span-7 relative h-[450px] bg-[#F1F5F9] rounded-[3rem] border border-slate-200 flex items-center justify-center overflow-hidden">
           {/* Context Tags Grid */}
           <div className="absolute inset-0 grid grid-cols-2 gap-x-12 gap-y-16 p-12 pointer-events-none">
             {tags.map((t, i) => (
@@ -48,7 +112,7 @@ export const GoldCandleContextBoard = () => {
                 className={cn(
                   "flex items-center gap-3 p-4 rounded-3xl border bg-white shadow-xl transition-all duration-700 self-center max-w-[180px]",
                   i % 2 === 0 ? "justify-self-start -translate-x-4" : "justify-self-end translate-x-4",
-                  activeTag === t.id ? "scale-125 border-slate-900 shadow-2xl z-30 opacity-100" : "opacity-30 grayscale scale-90"
+                  activeTag === t.id ? "scale-125 border-slate-900 shadow-2xl z-30 " : " grayscale scale-90"
                 )}
               >
                 <div className={cn("w-8 h-8 rounded-xl text-white flex items-center justify-center shadow-lg shrink-0", t.color)}>
@@ -61,15 +125,15 @@ export const GoldCandleContextBoard = () => {
 
           {/* The Candle */}
           <div className="relative z-10 flex flex-col items-center translate-y-4">
-            <div className="w-0.5 h-20 bg-slate-400 opacity-50" />
+            <div className="w-0.5 h-20 bg-slate-400 " />
             <div className="w-14 h-28 bg-amber-400 rounded-sm shadow-2xl border border-amber-500 relative">
                <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                {/* Reflection */}
                <div className="absolute top-0 right-0 w-1/3 h-full bg-white/10" />
             </div>
-            <div className="w-0.5 h-20 bg-slate-400 opacity-50" />
+            <div className="w-0.5 h-20 bg-slate-400 " />
             
-            <div className="mt-6 px-4 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-sm text-white text-[9px] font-black uppercase tracking-[0.2em] shadow-lg border border-white/10">
+            <div className="mt-6 px-4 py-1.5 rounded-full bg-[#0F172A] backdrop-blur-sm text-white text-[9px] font-black uppercase tracking-[0.2em] shadow-lg border border-white/10">
               XAU/USD RECORD
             </div>
           </div>
@@ -95,7 +159,7 @@ export const GoldCandleContextBoard = () => {
             </div>
             
             {active && (
-              <div className="mt-6 p-4 rounded-2xl bg-slate-50 border border-slate-100 animate-in fade-in slide-in-from-top-2">
+              <div className="mt-6 p-4 rounded-2xl bg-[#F8FAFC] border border-slate-100 animate-in fade-in slide-in-from-top-2">
                 <p className="text-[10px] font-bold text-slate-600 leading-relaxed italic">
                   "{active.desc}"
                 </p>
@@ -110,7 +174,9 @@ export const GoldCandleContextBoard = () => {
           </div>
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -121,14 +187,16 @@ export const GoldCandleQualityBoard = () => {
   const [activePart, setActivePart] = useState<'news' | 'struct'>('struct');
 
   return (
-    <div className="w-full pt-6">
+    <InstitutionalFrame label="Gold Candle Quality Comparator" id="LN-0.3-QUAL" status="QUALITY COMPARATOR">
+      <div className="w-full pt-6">
+        
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* News Panel */}
         <div 
           onMouseEnter={() => setActivePart('news')}
           className={cn(
             "p-6 rounded-[2.5rem] border relative transition-all duration-300",
-            activePart === 'news' ? "bg-rose-50/50 border-rose-200 shadow-xl scale-[1.01]" : "bg-white border-slate-100 opacity-80 grayscale-[0.5]"
+            activePart === 'news' ? "bg-[#FFF5F5] border-rose-200 shadow-xl scale-[1.01]" : "bg-white border-slate-100  grayscale-[0.5]"
           )}
         >
           <div className="flex items-center gap-3 mb-6">
@@ -155,7 +223,7 @@ export const GoldCandleQualityBoard = () => {
              ))}
           </div>
 
-          <div className="bg-white/50 rounded-2xl p-6 border border-rose-100 flex flex-col items-center">
+          <div className="bg-white rounded-2xl p-6 border border-rose-100 flex flex-col items-center">
              <div className="w-0.5 h-24 bg-slate-300" />
              <div className="w-14 h-4 bg-rose-500 rounded-sm shadow-md" />
              <div className="w-0.5 h-12 bg-slate-300" />
@@ -168,7 +236,7 @@ export const GoldCandleQualityBoard = () => {
           onMouseEnter={() => setActivePart('struct')}
           className={cn(
             "p-6 rounded-[2.5rem] border relative transition-all duration-300",
-            activePart === 'struct' ? "bg-emerald-50/50 border-emerald-200 shadow-xl scale-[1.01]" : "bg-white border-slate-100 opacity-80 grayscale-[0.5]"
+            activePart === 'struct' ? "bg-[#EAFDF1] border-emerald-200 shadow-xl scale-[1.01]" : "bg-white border-slate-100  grayscale-[0.5]"
           )}
         >
           <div className="flex items-center gap-3 mb-6">
@@ -195,7 +263,7 @@ export const GoldCandleQualityBoard = () => {
              ))}
           </div>
 
-          <div className="bg-white/50 rounded-2xl p-6 border border-emerald-100 flex flex-col items-center">
+          <div className="bg-white rounded-2xl p-6 border border-emerald-100 flex flex-col items-center">
              <div className="w-0.5 h-8 bg-slate-300" />
              <div className="w-10 h-20 bg-emerald-500 rounded-sm shadow-md" />
              <div className="w-0.5 h-8 bg-slate-300" />
@@ -209,7 +277,9 @@ export const GoldCandleQualityBoard = () => {
           <span className="text-amber-400">Verdict:</span> Structure and close location decide quality, not just size.
         </p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -229,10 +299,12 @@ export const GoldWickDiagnosticBoard = () => {
   const active = diagnoses.find(d => d.id === activePart) || diagnoses[0];
 
   return (
-    <div className="w-full pt-6">
+    <InstitutionalFrame label="Gold Wick Diagnostic Board" id="LN-0.3-DIAG" status="WICK DIAGNOSTIC">
+      <div className="w-full pt-6">
+        
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
         {/* Visualization */}
-        <div className="lg:col-span-5 bg-slate-100/50 rounded-[3rem] p-10 border border-slate-200 flex flex-col items-center justify-center min-h-[350px]">
+        <div className="lg:col-span-5 bg-[#F1F5F9] rounded-[3rem] p-10 border border-slate-200 flex flex-col items-center justify-center min-h-[350px]">
            <div className={cn("w-0.5 bg-slate-400 transition-all duration-500", active.wickH)} />
            <div className={cn("w-12 bg-amber-400 rounded-sm shadow-md transition-all duration-500 border border-amber-500", active.bodyH)} />
            <div className="w-0.5 h-8 bg-slate-300" />
@@ -259,7 +331,7 @@ export const GoldWickDiagnosticBoard = () => {
             >
               <div className="flex items-center justify-between mb-1">
                 <span className="text-xs font-black uppercase tracking-tight">{d.label}</span>
-                <span className={cn("text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md", activePart === d.id ? "bg-white/10 text-white" : "bg-slate-50 text-slate-400")}>
+                <span className={cn("text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md", activePart === d.id ? "bg-white/10 text-white" : "bg-[#F8FAFC] text-slate-400")}>
                   {d.id === 'rej' ? 'High Trust' : 'Caution'}
                 </span>
               </div>
@@ -270,7 +342,9 @@ export const GoldWickDiagnosticBoard = () => {
           ))}
         </div>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };
 
@@ -298,7 +372,9 @@ export const GoldCandleDecisionBoard = () => {
   ];
 
   return (
-    <div className="w-full pt-6">
+    <InstitutionalFrame label="Gold Candle Decision Protocol" id="LN-0.3-DEC" status="DECISION AUDIT">
+      <div className="w-full pt-6">
+        
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Situation Feed */}
         <div className="space-y-4">
@@ -323,7 +399,7 @@ export const GoldCandleDecisionBoard = () => {
                   className={cn(
                     "p-4 rounded-2xl border text-left transition-all duration-300 relative overflow-hidden",
                     isActive ? "bg-slate-900 border-slate-800 shadow-xl scale-[1.02] z-10 text-white" : 
-                    isAudited ? "bg-white border-emerald-100 text-slate-600 shadow-sm" : "bg-slate-50/30 border-slate-100 text-slate-400"
+                    isAudited ? "bg-white border-emerald-100 text-slate-600 shadow-sm" : "bg-[#F8FAFC] border-slate-100 text-slate-400"
                   )}
                 >
                   {isActive && <div className="absolute top-0 left-0 w-1 h-full bg-amber-400" />}
@@ -353,11 +429,11 @@ export const GoldCandleDecisionBoard = () => {
 
         {/* Diagnostic Result */}
         <div className="bg-white rounded-[2.5rem] p-8 border border-slate-200 flex flex-col items-center text-center shadow-sm relative overflow-hidden">
-           <div className="absolute top-0 right-0 p-4 opacity-[0.03] text-slate-900">
+           <div className="absolute top-0 right-0 p-4  text-slate-900">
              <ShieldAlert size={150} />
            </div>
 
-           <div className="mb-6 p-4 bg-slate-50 rounded-2xl relative z-10">
+           <div className="mb-6 p-4 bg-[#F8FAFC] rounded-2xl relative z-10">
              <Info size={24} className="text-slate-900" />
            </div>
            
@@ -384,7 +460,7 @@ export const GoldCandleDecisionBoard = () => {
               ) : (
                 <div className={cn(
                   "p-6 rounded-[2rem] border w-full z-10 transition-all duration-700 text-left",
-                  isAuditComplete ? "bg-rose-50 border-rose-200" : "bg-amber-50 border-amber-200"
+                  isAuditComplete ? "bg-[#FFF5F5] border-rose-200" : "bg-[#FFFBEB] border-amber-200"
                 )}>
                    <p className="text-[10px] font-black text-rose-900 uppercase tracking-widest leading-relaxed mb-2 flex items-center gap-2">
                      <AlertCircle size={14} /> Final Verdict
@@ -405,6 +481,8 @@ export const GoldCandleDecisionBoard = () => {
           Reading is not complete until every context variable is audited.
         </p>
       </div>
-    </div>
+    
+      </div>
+    </InstitutionalFrame>
   );
 };

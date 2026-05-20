@@ -12,7 +12,7 @@ export const goldCards: LessonCard[] = [
         { term: "XAU/USD Candle", definition: "A candle that records Gold priced against the US Dollar during one selected timeframe." },
         { term: "Volatility", definition: "How quickly and sharply price moves." },
         { term: "Session Activity", definition: "The market time window in which the candle forms, such as Asia, London, or New York." },
-        { term: "USD Context", definition: "The broader strength or weakness of the US Dollar, which can influence Gold pricing." },
+        { term: "USD Context", definition: "The broader strength or weakness of the US Dollar (USD), which can influence Gold pricing." },
         { term: "Rate Expectations", definition: "Market expectations around interest rates, which can affect demand for Gold." },
         { term: "News Window", definition: "A period around major economic events where candles may become unusually fast or unstable." },
         { term: "Liquidity Condition", definition: "How clean or thin the market environment is when the candle forms." }
@@ -71,7 +71,7 @@ export const goldCards: LessonCard[] = [
     title: "Gold Mini Drill: Clean Rejection or Event Noise?",
     visualKey: "gold-candle-decision-board",
     label: "Practical Drill",
-    body: "A learner sees Gold form a large candle with a long upper wick during a major news window. The candle closes near the middle of its range, and follow-through has not appeared yet.\n\n**What is the disciplined Gold candle reading?**",
+    body: "Observe the decision board. We have a sudden spike on XAU/USD (Gold vs. US Dollar) during a high-volatility news window. Use the checklist to determine if this move represents a real structural breakout or mechanical noise.\n\n**What is the disciplined Gold candle reading?**",
     taskData: {
       type: "choice_block",
       question: "What is the disciplined Gold reading?",
@@ -93,7 +93,7 @@ export const goldCards: LessonCard[] = [
         { term: "Structure Confirmation", definition: "Additional chart behavior that supports the reading." }
       ],
       whyThisMatters: "Gold often creates candles that look decisive but are actually unstable. A learner who can label unclear conditions honestly will avoid forcing weak readings from dramatic candles.",
-      realLifeExample: "Gold forms a long upper wick after major news, but the candle closes in the middle and the next candle does not confirm weakness. A rushed learner calls reversal. A trained learner marks the reading incomplete until structure supports it.",
+      realLifeExample: "A gold candle (XAU/USD - Gold vs. US Dollar) opens at $2,000, spikes to $2,020 during a major news window, drops to $1,980, and closes at $1,995. The candle records that massive price movement in dollars, but the structure is incomplete until future candles confirm a trend.",
       commonMistake: "Turning a news-driven Gold wick into a complete reversal conclusion.",
       quickNote: "In Gold, unclear is a professional answer."
     }

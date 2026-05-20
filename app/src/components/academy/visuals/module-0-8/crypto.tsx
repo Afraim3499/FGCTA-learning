@@ -37,10 +37,10 @@ export const CryptoLocationFoundation = () => {
   const coordinates = [
     {
       id: "btc",
-      name: "BTC Context gravity",
-      role: "Market Gravity",
+      name: "Bitcoin (BTC) Pull",
+      role: "Bitcoin Market Influence",
       color: "amber",
-      desc: "Bitcoin's location acts as a gravity field. If BTC is at daily resistance, altcoin breakout wicks are highly likely to fail. Always check BTC location first.",
+      desc: "Bitcoin's location acts as a strong pulling force. If BTC is at daily resistance, altcoin breakout wicks are highly likely to fail. Always check BTC location first.",
       candles: [{ color: "rose", h: 30, uw: 10, lw: 20 }]
     },
     {
@@ -54,17 +54,17 @@ export const CryptoLocationFoundation = () => {
     {
       id: "liquidity",
       name: "Liquidation Area",
-      role: "Stop Clusters",
+      role: "Exit Orders",
       color: "purple",
-      desc: " Obvious peaks/troughs where liquidations and stop-losses group. These draw price coordinates to match orders.",
+      desc: "Obvious peaks and troughs where exit orders group. These draw price to match orders.",
       candles: [{ color: "purple", h: 10, uw: 40, lw: 10 }]
     },
     {
       id: "venue",
-      name: "Spot vs Perp alignment",
-      role: "Cross-Market Check",
+      name: "Spot vs Futures contracts",
+      role: "Market Source Check",
       color: "teal",
-      desc: "Check if spot demand confirms leverage-driven perp wicks. True breakouts require spot coordinate acceptance.",
+      desc: "Check if spot demand confirms leverage-driven futures wicks. True breakouts require spot price acceptance.",
       candles: [{ color: "teal", h: 35, uw: 5, lw: 5 }]
     }
   ];
@@ -97,7 +97,7 @@ export const CryptoLocationFoundation = () => {
                 selectedCoord === "btc" ? "bg-amber-500 text-slate-950 scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
               }`}
             >
-              BTC CONTEXT
+              BITCOIN PULL
             </button>
 
             <button 
@@ -112,10 +112,10 @@ export const CryptoLocationFoundation = () => {
             <button 
               onClick={() => setSelectedCoord("liquidity")}
               className={`absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 px-2 py-0.5 rounded text-[8px] font-mono font-bold transition-all ${
-                selectedCoord === "liquidity" ? "bg-purple-500 text-white scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+                selectedCoord === "liquidity" ? "bg-purple-50 text-purple-750 scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
               }`}
             >
-              LIQ ZONE
+              EXIT AREA
             </button>
 
             <button 
@@ -124,7 +124,7 @@ export const CryptoLocationFoundation = () => {
                 selectedCoord === "venue" ? "bg-teal-500 text-slate-950 scale-105" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
               }`}
             >
-              SPOT / PERP
+              SPOT vs FUTURES
             </button>
           </div>
         </div>
@@ -164,7 +164,7 @@ export const CryptoBtcLocationContext = () => {
   const [btcState, setBtcState] = useState<"resistance" | "supported">("resistance");
 
   return (
-    <InstitutionalFrame label="BTC Gravity Overlay" status="BTC ALIGNMENT">
+    <InstitutionalFrame label="Bitcoin Pull Overlay" status="BTC ALIGNMENT">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenario: Toggle Bitcoin's structural location to see how it affects the altcoin breakout quality.
@@ -194,7 +194,7 @@ export const CryptoBtcLocationContext = () => {
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* BTC Index */}
           <div className="bg-[#071B36] rounded-xl p-4 border border-slate-800 flex flex-col justify-between relative min-h-[160px]">
-            <span className="text-[8px] font-mono text-slate-400 uppercase tracking-wider absolute top-2 left-2 font-bold">BTC Index location</span>
+            <span className="text-[8px] font-mono text-slate-400 uppercase tracking-wider absolute top-2 left-2 font-bold">Bitcoin Price location</span>
             
             <div className="absolute top-[35%] left-0 right-0 h-px border-t border-dashed border-rose-500/30" />
             
@@ -298,7 +298,7 @@ export const CryptoRangeEdgeVsMiddle = () => {
           <div className={`absolute top-[40%] bottom-[40%] left-0 right-0 border-y flex items-center justify-between px-4 transition-all duration-300 ${
             selectedZone === "middle" ? "bg-amber-500/20 border-amber-500/40" : "bg-transparent border-slate-800/10"
           }`}>
-            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Range midpoint noise (Equilibrium zone)</span>
+            <span className="text-[7px] font-mono text-slate-400 font-bold uppercase tracking-wider">Range middle noise (Balanced zone)</span>
           </div>
 
           {/* Lower Edge zone */}
@@ -488,7 +488,7 @@ export const CryptoLiquidityLocation = () => {
   const [liquidState, setLiquidState] = useState<"build" | "sweep">("build");
 
   return (
-    <InstitutionalFrame label="Stop Cluster Map" status="LIQUIDITY PATHS">
+    <InstitutionalFrame label="Automatic Exit Order Map" status="LIQUIDITY PATHS">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-700 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenario: See how retail stops cluster below equal lows and how the market sweeps them to match order blocks.
@@ -543,7 +543,7 @@ export const CryptoLiquidityLocation = () => {
                 <div className="w-10 h-10 bg-purple-500/20 border border-purple-500/40 rounded-full flex items-center justify-center animate-pulse">
                   <Database size={12} className="text-purple-400" />
                 </div>
-                <span className="text-[5px] font-mono text-purple-400 uppercase tracking-widest absolute top-12 font-black">Stops Cluster</span>
+                <span className="text-[5px] font-mono text-purple-400 uppercase tracking-widest absolute top-12 font-black">Exit Orders</span>
               </div>
             ) : (
               <div className="flex flex-col items-center">
@@ -605,7 +605,7 @@ export const CryptoSpotPerpLocationDisagreement = () => {
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Spot Market */}
           <div className="bg-[#071B36] rounded-xl p-4 border border-slate-800 flex flex-col justify-between relative min-h-[160px]">
-            <span className="text-[8px] font-mono text-slate-400 uppercase tracking-wider absolute top-2 left-2 font-bold">Spot Book (Real Demand)</span>
+            <span className="text-[8px] font-mono text-slate-400 uppercase tracking-wider absolute top-2 left-2 font-bold">Spot Market (Real Buying)</span>
             
             <div className="absolute top-[35%] left-0 right-0 h-px border-t border-dashed border-slate-700" />
             
@@ -623,10 +623,10 @@ export const CryptoSpotPerpLocationDisagreement = () => {
               )}
             </div>
           </div>
-
+ 
           {/* Perp Market */}
           <div className="bg-[#071B36] rounded-xl p-4 border border-slate-800 flex flex-col justify-between relative min-h-[160px]">
-            <span className="text-[8px] font-mono text-slate-400 uppercase tracking-wider absolute top-2 left-2 font-bold">Perp Book (Leverage Flows)</span>
+            <span className="text-[8px] font-mono text-slate-400 uppercase tracking-wider absolute top-2 left-2 font-bold">Futures Market (Borrowed Trades)</span>
             
             <div className="absolute top-[35%] left-0 right-0 h-px border-t border-dashed border-slate-700" />
             
@@ -654,7 +654,7 @@ export const CryptoSpotPerpLocationDisagreement = () => {
               <div>
                 <h5 className="text-xs font-black text-amber-800 uppercase mb-1">Leverage Distortion Trap</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  The perpetual contract spikes past the range ceiling, but spot shows price is trapped below. This tells you the move is driven by leveraged perp funding pressure or short liquidations. Lower reading quality.
+                  The perpetual contract spikes past the range ceiling, but spot shows price is trapped below. This tells you the move is driven by leveraged contract pressure. Lower reading quality.
                 </p>
               </div>
             </div>
@@ -662,9 +662,9 @@ export const CryptoSpotPerpLocationDisagreement = () => {
             <div className="flex gap-3">
               <CheckCircle2 className="text-teal-600 shrink-0" size={18} />
               <div>
-                <h5 className="text-xs font-black text-teal-800 uppercase mb-1">Aligned Institutional Breakout</h5>
+                <h5 className="text-xs font-black text-teal-800 uppercase mb-1">Aligned Breakout</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  Both spot and perp books accept the coordinates above the range high. The breakout is backed by real asset accumulation, confirming high reading quality.
+                  Both spot and futures markets accept the coordinates above the range high. The breakout is backed by real asset accumulation, confirming high reading quality.
                 </p>
               </div>
             </div>
@@ -708,25 +708,25 @@ export const CryptoDexCexLocation = () => {
         <div className="w-full grid grid-cols-3 gap-2">
           {/* CEX Spot */}
           <div className="bg-[#071B36] rounded-xl p-3 border border-slate-800 flex flex-col justify-between items-center relative min-h-[140px]">
-            <span className="text-[6px] font-mono text-slate-400 uppercase tracking-wider text-center font-bold">CEX Spot Book</span>
+            <span className="text-[6px] font-mono text-slate-400 uppercase tracking-wider text-center font-bold">CEX Spot Market</span>
             <div className="w-full flex justify-center items-end h-16 pt-2 pb-2">
               <MiniCandle color="slate" bodyHeight={15} upperWick={10} lowerWick={10} />
             </div>
             <span className="text-[5px] font-mono text-slate-700 text-center leading-none">Binance/Coinbase</span>
           </div>
-
+ 
           {/* CEX Perp */}
           <div className="bg-[#071B36] rounded-xl p-3 border border-slate-800 flex flex-col justify-between items-center relative min-h-[140px]">
-            <span className="text-[6px] font-mono text-slate-400 uppercase tracking-wider text-center font-bold">CEX Perp Book</span>
+            <span className="text-[6px] font-mono text-slate-400 uppercase tracking-wider text-center font-bold">CEX Futures Market</span>
             <div className="w-full flex justify-center items-end h-16 pt-2 pb-2">
               <MiniCandle color="slate" bodyHeight={12} upperWick={8} lowerWick={8} />
             </div>
             <span className="text-[5px] font-mono text-slate-700 text-center leading-none">Binance Futures</span>
           </div>
-
+ 
           {/* DEX Pool */}
           <div className="bg-[#071B36] rounded-xl p-3 border border-slate-800 flex flex-col justify-between items-center relative min-h-[140px]">
-            <span className="text-[6px] font-mono text-slate-400 uppercase tracking-wider text-center font-bold">DEX Liquidity Pool</span>
+            <span className="text-[6px] font-mono text-slate-400 uppercase tracking-wider text-center font-bold">DEX Pool</span>
             <div className="w-full flex justify-center items-end h-16 pt-2 pb-2">
               {selectedVenue === "dex" ? (
                 <MiniCandle color="rose" bodyHeight={10} upperWick={5} lowerWick={45} />
@@ -741,11 +741,11 @@ export const CryptoDexCexLocation = () => {
         {/* Explain Card */}
         <div className="w-full bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col gap-2">
           <h5 className="text-xs font-black text-[#071B36] uppercase tracking-tight">
-            {selectedVenue === "dex" ? "Thin DEX Pool Wick (Misleading)" : "CEX/DEX Coordinates Aligned (True Move)"}
+            {selectedVenue === "dex" ? "Thin DEX Pool Wick (Misleading)" : "Exchange Coordinates Aligned (True Move)"}
           </h5>
           <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
             {selectedVenue === "dex" 
-              ? "A single large market sell order drained shallow pool liquidity on Uniswap, printing a deep 15% wick. However, CEX books show no matching drop. The move is pool-specific noise."
+              ? "A single large market sell order drained shallow pool liquidity on Uniswap, printing a deep 15% wick. However, CEX markets show no matching drop. The move is pool-specific noise."
               : "All venues display similar candle coordinates. The price change represents broad capital shifting across the entire market. High reading quality."}
           </p>
         </div>
@@ -775,7 +775,7 @@ export const CryptoBreakoutLocationAcceptance = () => {
     {
       id: "hold",
       name: "Acceptance & Hold",
-      status: "VALID EXPANSION",
+      status: "VALID MOVEMENT",
       color: "teal",
       candles: [
         { color: "teal", h: 35, uw: 5, lw: 5 },
@@ -873,8 +873,8 @@ export const CryptoLocationFirstWorkflow = () => {
       status: "BTC CHECK"
     },
     {
-      title: "3. Spot vs Perp Audit",
-      desc: "Cross-check perps with spot charts to verify if spot buyers are accepting the price level.",
+      title: "3. Spot vs Futures Audit",
+      desc: "Cross-check futures with spot charts to verify if spot buyers are accepting the price level.",
       icon: Sliders,
       status: "ALIGNMENT SCAN"
     },
@@ -972,16 +972,16 @@ export const CryptoLocationDebrief = () => {
     },
     {
       id: "btc",
-      title: "BTC gravity index",
+      title: "Bitcoin Pull Index",
       habit: "Check BTC structural limits.",
       desc: "Never audit an altcoin's breakout coordinate without mapping Bitcoin's local structure. A heavy BTC devalues any alt breakout.",
       icon: Layers
     },
     {
       id: "orderbook",
-      title: "Spot & Perp agreement",
-      habit: "Cross-check spot book support.",
-      desc: "Ensure perp spikes are backed by spot order block participation. Reject leverage-only squeezes forming in isolation.",
+      title: "Spot & Futures Agreement",
+      habit: "Cross-check spot market support.",
+      desc: "Ensure futures spikes are backed by spot market support. Reject leverage-only squeezes forming in isolation.",
       icon: Database
     }
   ];

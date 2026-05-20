@@ -23,99 +23,9 @@ import {
   Workflow, 
   Zap 
 } from "lucide-react";
+import { UI, InstitutionalFrame, MentorInsight } from "./shared";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-
-/**
- * LURNAVA INSTITUTIONAL DESIGN TOKENS
- */
-const UI = {
-  navy: "#071B36",
-  teal: "#0D9488",
-  slate: "#475569",
-  border: "#E2E8F0",
-  bg: "#F8FBFC",
-  rose: "#BE123C",
-  sky: "#0284C7",
-  amber: "#D97706"
-};
-
-/**
- * Institutional Frame Component
- */
-const InstitutionalFrame = ({ 
-  children, 
-  label, 
-  status = "AUDIT ACTIVE",
-  id = "LN-0.5-FX"
-}: { 
-  children: React.ReactNode; 
-  label: string; 
-  status?: string;
-  id?: string;
-}) => (
-  <div className="w-full h-full min-h-[550px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm">
-    <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#071B36_1.5px,transparent_1.5px)] bg-[length:32px_32px]" />
-    
-    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 relative z-10 border-b border-slate-200/50 pb-4">
-      <div className="flex flex-col">
-        <div className="flex items-center gap-2 mb-1">
-          <Globe size={10} className="text-teal-600 animate-spin-slow" />
-          <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Forex Track Adaptation</span>
-        </div>
-        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic">{label}</h4>
-      </div>
-      <div className="flex items-center gap-3 self-end md:self-auto">
-        <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Audit ID</span>
-          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
-        </div>
-        <div className="w-px h-6 bg-slate-200" />
-        <div className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm">
-          <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-          <span className="text-[9px] font-black text-[#071B36] uppercase tracking-widest">{status}</span>
-        </div>
-      </div>
-    </div>
-
-    <div className="flex-1 flex flex-col items-center justify-center relative z-10">
-      {children}
-    </div>
-
-    <div className="mt-8 pt-4 border-t border-slate-200/50 flex items-center justify-between">
-       <div className="flex gap-4">
-          <div className="flex items-center gap-1.5">
-            <div className="w-1 h-1 bg-teal-500 rounded-full" />
-            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Exchange Rates Synchronized</span>
-          </div>
-       </div>
-       <div className="flex items-center gap-1.5">
-          <Fingerprint size={10} className="text-slate-300" />
-          <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter">LN-FX-PROD-V1</span>
-       </div>
-    </div>
-  </div>
-);
-
-const MentorInsight = ({ text, analogy }: { text: string; analogy?: string }) => (
-  <div className="w-full mt-8 pt-6 border-t border-slate-200/50 flex flex-col gap-3">
-    <div className="flex items-center gap-2">
-      <div className="px-2 py-1 bg-[#071B36] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Insight</div>
-      <div className="h-px flex-1 bg-slate-200" />
-    </div>
-    <div className="flex gap-4">
-       <div className="flex-1">
-          <p className="text-xs font-bold text-[#071B36] leading-relaxed">{text}</p>
-          {analogy && (
-            <p className="mt-2 text-[11px] text-slate-500 italic leading-snug">
-              <span className="font-black uppercase text-[9px] mr-2 text-teal-600 not-italic">Analogy:</span>
-              {analogy}
-            </p>
-          )}
-       </div>
-    </div>
-  </div>
-);
 
 /**
  * Card 1: Forex Structure Is Pair Behavior
@@ -130,16 +40,16 @@ export const ForexPairStructureSkeleton = () => {
     <InstitutionalFrame label="Relative Currency Pressure Balanced scale" id="FX-05-PAIR">
       <div className="w-full max-w-4xl mx-auto space-y-10">
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-6 opacity-5"><Scale size={160} className="text-teal-400" /></div>
+          <div className="absolute top-0 right-0 p-6"><Scale size={160} className="text-[#0C2B3F]" /></div>
           
           <div className="relative z-10 flex flex-col items-center gap-8">
             <div className="text-center space-y-2">
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Interactive Equilibrium Scale</span>
+              <span className="px-3 py-1 rounded-full bg-[#E6F2F0] border border-teal-200 text-[9px] font-extrabold text-teal-400 uppercase tracking-widest">Interactive Equilibrium Scale</span>
               <h3 className="text-2xl font-black text-white uppercase italic tracking-tight">EUR/USD Exchange Rate Pressure</h3>
               <p className="text-xs text-slate-400 max-w-lg mx-auto">Adjust the relative weight of the base currency (EUR) vs the quote currency (USD) to observe how it pushes the structure.</p>
             </div>
             
-            <div className="w-full max-w-md bg-slate-900/60 p-6 rounded-2xl border border-slate-800/80 space-y-6">
+            <div className="w-full max-w-md bg-[#0B1E36] p-6 rounded-2xl border border-slate-800 space-y-6">
               <div className="flex justify-between items-center text-xs font-black text-white uppercase tracking-widest">
                 <span className="text-teal-400">EUR Strength ({eurWeight}%)</span>
                 <span className="text-rose-400">USD Strength ({100 - eurWeight}%)</span>
@@ -222,7 +132,7 @@ export const ForexPairStructureSkeleton = () => {
               </svg>
             </div>
             
-            <div className="p-4 bg-white/5 border border-white/10 rounded-2xl text-center w-full max-w-md">
+            <div className="p-4 bg-[#0E223D] border border-slate-800 rounded-2xl text-center w-full max-w-md">
               <span className="text-[10px] font-black text-teal-400 uppercase tracking-widest block mb-1">Resulting Market Narrative</span>
               <p className="text-xs text-slate-300 font-bold uppercase">
                 {eurWeight > 58 ? "EUR Dominates → High relative buying pressure → Clean Bullish Structure (Uptrend)" :
@@ -252,7 +162,7 @@ export const ForexSwingPressurePoints = () => {
       <div className="w-full max-w-4xl mx-auto space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-extrabold text-blue-500 uppercase tracking-widest">Filter Verification</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-blue-200 text-[10px] font-extrabold text-blue-500 uppercase tracking-widest">Filter Verification</span>
             <h3 className="text-2xl font-black text-[#071B36] uppercase tracking-tighter italic">Filtering Forex Swings</h3>
             <p className="text-xs text-slate-500 leading-relaxed font-bold">
               Currency pairs have endless intraday noise due to continuous algorithmic transactions. If you mark every wiggle, the structure disappears. The Lurnava habit is to filter minor noise and focus purely on heavy pressure turning points.
@@ -261,7 +171,7 @@ export const ForexSwingPressurePoints = () => {
               onClick={() => setFilterNoise(!filterNoise)} 
               className={cn(
                 "px-8 py-3 text-[10px] font-black uppercase tracking-[0.2em] rounded-xl hover:scale-102 active:scale-98 transition-all flex items-center gap-3 shadow-lg",
-                filterNoise ? "bg-teal-600 text-white shadow-teal-600/10" : "bg-[#071B36] text-white shadow-slate-900/10"
+                filterNoise ? "bg-teal-600 text-white shadow-teal-100" : "bg-[#071B36] text-white shadow-slate-200"
               )}
             >
               {filterNoise ? "Noise Filter Applied" : "Apply Noise Filter"}
@@ -270,7 +180,7 @@ export const ForexSwingPressurePoints = () => {
           </div>
           
           <div className="bg-white border border-slate-200 rounded-[3rem] p-8 h-[350px] relative overflow-hidden shadow-sm flex flex-col justify-between">
-            <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,0,0,0.1)_1.5px,transparent_1.5px)] bg-[length:100%_16px]" />
+            <div className="absolute inset-0 bg-[linear-gradient(#F1F5F9_1.5px,transparent_1.5px)] bg-[length:100%_16px]" />
             
             {/* The Candle and Swing SVG */}
             <div className="flex-1 relative flex items-center justify-center">
@@ -279,9 +189,7 @@ export const ForexSwingPressurePoints = () => {
                 <path 
                   d="M 20 280 L 50 200 L 80 230 L 110 140 L 140 180 L 175 110 L 210 160 L 250 80 L 290 190 L 330 150 L 370 230" 
                   fill="none" 
-                  stroke="#94a3b8" 
-                  strokeWidth="2" 
-                  className={cn("transition-opacity duration-300", filterNoise ? "opacity-30" : "opacity-100")} 
+                  stroke={filterNoise ? "#E2E8F0" : "#94a3b8"} strokeWidth="2" className="transition-all duration-300" 
                 />
                 
                 {/* Filtered Heavy Path */}
@@ -421,12 +329,12 @@ export const ForexTrendRangeStructure = () => {
           </div>
           
           <div className="bg-slate-900 rounded-[2rem] p-6 h-[280px] relative overflow-hidden flex items-center justify-center border border-slate-800 shadow-xl">
-            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#0C233E_1px,transparent_1px)] bg-[length:24px_24px]" />
             <svg className="w-full h-full max-w-[350px] overflow-visible" viewBox="0 0 380 250">
               {activeTab === 'range' && (
                 <>
-                  <line x1="0" y1="70" x2="500" y2="70" stroke="#f43f5e" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
-                  <line x1="0" y1="190" x2="500" y2="190" stroke="#10b981" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
+                  <line x1="0" y1="70" x2="500" y2="70" stroke="#992E46" strokeWidth="2" strokeDasharray="4 4" />
+                  <line x1="0" y1="190" x2="500" y2="190" stroke="#1F5E49" strokeWidth="2" strokeDasharray="4 4" />
                 </>
               )}
               <motion.path 
@@ -555,7 +463,7 @@ export const ForexSessionRangeStructure = () => {
             </svg>
             
             {/* HUD overlay */}
-            <div className="absolute bottom-2 left-6 bg-slate-900/80 border border-slate-800 px-4 py-3 rounded-xl max-w-xs">
+            <div className="absolute bottom-2 left-6 bg-[#091D34] border border-slate-800 px-4 py-3 rounded-xl max-w-xs">
               <span className="text-[8px] font-black text-teal-400 uppercase tracking-widest block mb-1">Architecture Narrative</span>
               <p className="text-[10px] text-slate-300 font-bold leading-normal">
                 {activeSession === 'tokyo' ? "Tokyo establishes initial session structure (limited range). A quiet equilibrium." :
@@ -615,10 +523,10 @@ export const ForexSessionHighLowReaction = () => {
           </div>
 
           <div className="bg-slate-900 rounded-[2rem] p-6 h-[280px] relative overflow-hidden flex items-center justify-center border border-slate-800">
-            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#0C233E_1px,transparent_1px)] bg-[length:24px_24px]" />
             
             {/* The Session High Zone Area */}
-            <div className="absolute top-[30%] left-0 w-full h-10 bg-teal-500/10 border-y border-dashed border-teal-500/20 flex items-center pl-4">
+            <div className="absolute top-[30%] left-0 w-full h-10 bg-[#E6F2F0] border-y border-dashed border-teal-200 flex items-center pl-4">
               <span className="text-[8px] font-black text-teal-400 uppercase tracking-widest">PREVIOUS LONDON HIGH AREA</span>
             </div>
 
@@ -694,9 +602,7 @@ export const ForexExpansionPullbackRhythm = () => {
                 animate={{ pathLength: 1 }}
                 d="M 0 120 Q 25 110 50 125 Q 75 140 100 120"
                 fill="none" 
-                stroke="#64748b" 
-                strokeWidth="4" 
-                className="opacity-70"
+                stroke="#495B72" strokeWidth="4"
               />
               
               {/* Expansion Phase */}
@@ -741,7 +647,7 @@ export const ForexExpansionPullbackRhythm = () => {
             </svg>
           </div>
 
-          <div className="w-full max-w-xl bg-slate-900/80 border border-slate-800 px-6 py-4 rounded-2xl text-center mt-6">
+          <div className="w-full max-w-xl bg-[#091D34] border border-slate-800 px-6 py-4 rounded-2xl text-center mt-6">
             <h4 className="text-base font-black text-white uppercase italic tracking-tighter">
               {step === 0 ? "Phase 1: Session Compression" :
                step === 1 ? "Phase 2: Impulsive Expansion" :
@@ -812,8 +718,8 @@ export const ForexBreakFailureQuality = () => {
           </div>
 
           <div className="bg-slate-900 rounded-[2rem] p-6 h-[280px] relative overflow-hidden flex items-center justify-center border border-slate-800 shadow-xl">
-            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
-            <div className="absolute top-[40%] left-0 w-full h-px bg-white/20 border-t border-dashed" />
+            <div className="absolute inset-0 bg-[radial-gradient(#0C233E_1px,transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute top-[40%] left-0 w-full h-px bg-[#243C5B] border-t border-dashed" />
             <div className="absolute top-[40%] left-4 -translate-y-4"><span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Range ceiling</span></div>
 
             <svg className="w-full h-full max-w-[350px] overflow-visible z-10" viewBox="0 0 400 280">
@@ -892,7 +798,7 @@ export const ForexHtfLocationFirst = () => {
           </div>
 
           <div className="flex-1 relative flex items-center justify-center bg-slate-900 rounded-[2rem] p-6 h-[250px] overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#0C233E_1px,transparent_1px)] bg-[length:24px_24px]" />
              {zoomLevel === '15m' ? (
               <svg key="15m-view" className="w-full h-full max-w-[400px] overflow-visible" viewBox="0 0 400 230">
                 {/* 15m bullish rally line */}
@@ -973,7 +879,7 @@ export const ForexRelatedPairContext = () => {
             <div className="flex-1 relative flex items-center justify-center bg-slate-900 rounded-xl p-4 overflow-hidden">
               <svg className="w-full h-full overflow-visible" viewBox="0 0 200 150">
                 {/* ceiling */}
-                <line x1="0" y1="50" x2="200" y2="50" stroke="white" strokeWidth="1" strokeDasharray="3 3" className="opacity-20" />
+                <line x1="0" y1="50" x2="200" y2="50" stroke="#38495F" strokeWidth="1" strokeDasharray="3 3" />
                 <path d="M 10 120 Q 50 100 80 120 L 140 40 L 180 30" fill="none" stroke="#0D9488" strokeWidth="3" />
                 <circle cx="140" cy="40" r="3" fill="#0D9488" />
               </svg>
@@ -1025,7 +931,7 @@ export const ForexRelatedPairContext = () => {
 
           {/* Stacking Verdict */}
           <div className="bg-[#071B36] border border-slate-800 rounded-[2rem] p-6 shadow-xl flex flex-col justify-between text-white h-[280px]">
-            <div className="border-b border-white/10 pb-2 mb-2">
+            <div className="border-b border-slate-800 pb-2 mb-2">
               <span className="text-[8px] font-black text-teal-400 uppercase tracking-widest">STACK EVIDENCE AUDIT</span>
               <h5 className="text-sm font-black uppercase italic text-white">Final Correlation</h5>
             </div>
@@ -1035,7 +941,7 @@ export const ForexRelatedPairContext = () => {
                 <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Evidence Quality</span>
                 <span className={cn(
                   "px-2 py-1 rounded text-[8px] font-black uppercase tracking-widest",
-                  dxyTrend === 'support' ? "bg-teal-500/20 text-teal-300 border border-teal-500/30" : "bg-rose-500/20 text-rose-300 border border-rose-500/30"
+                  dxyTrend === 'support' ? "bg-[#CCECE6] text-teal-300 border border-teal-300" : "bg-[#FDE2E2] text-rose-300 border border-rose-300"
                 )}>
                   {dxyTrend === 'support' ? "CLEAN & ALIGNED" : "MIXED & CONFLICTED"}
                 </span>
@@ -1078,7 +984,7 @@ export const ForexStructureBreakDrill = () => {
     <InstitutionalFrame label="Interactive Practice Scenario" id="FX-05-DRILL">
       <div className="w-full max-w-4xl mx-auto space-y-8">
         <div className="bg-[#071B36] rounded-[3rem] p-8 border border-slate-800 shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[350px]">
-          <div className="absolute top-[25%] left-0 w-full h-8 bg-rose-500/10 border-y border-dashed border-rose-500/30 flex items-center justify-end pr-8">
+          <div className="absolute top-[25%] left-0 w-full h-8 bg-[#FDF2F2] border-y border-dashed border-rose-300 flex items-center justify-end pr-8">
             <span className="text-[8px] font-black text-rose-400 uppercase tracking-widest">HTF 4H Resistance Ceiling</span>
           </div>
           
@@ -1118,8 +1024,8 @@ export const ForexStructureBreakDrill = () => {
                 "p-6 rounded-[2rem] text-left border-2 transition-all flex flex-col justify-start gap-3 h-auto min-h-[110px] shadow-sm cursor-pointer",
                 selectedOption === opt.id 
                   ? opt.correct 
-                    ? "bg-teal-50 border-teal-500/60 shadow-teal-500/5 text-[#071B36]"
-                    : "bg-rose-50 border-rose-500/60 shadow-rose-500/5 text-[#071B36]"
+                    ? "bg-teal-50 border-teal-200 shadow-teal-100 text-[#071B36]"
+                    : "bg-rose-50 border-rose-200 shadow-rose-100 text-[#071B36]"
                   : "bg-white border-slate-100 hover:border-slate-200 text-slate-600"
               )}
             >
@@ -1146,8 +1052,8 @@ export const ForexStructureBreakDrill = () => {
             <div className={cn(
               "p-6 rounded-[2rem] border-2 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-300",
               opt.correct 
-                ? "bg-teal-500/5 border-teal-500/30 text-[#0D9488]" 
-                : "bg-rose-500/5 border-rose-500/30 text-[#BE123C]"
+                ? "bg-[#E6F2F0] border-teal-300 text-[#0D9488]" 
+                : "bg-[#FFF5F5] border-rose-300 text-[#BE123C]"
             )}>
               <div className="flex items-center gap-3 mb-2">
                 <span className={cn(
@@ -1156,7 +1062,7 @@ export const ForexStructureBreakDrill = () => {
                 )}>
                   {opt.correct ? "Audit Passed" : "Audit Rejected"}
                 </span>
-                <span className="text-[10px] font-black uppercase tracking-widest opacity-60">GBP/USD Structure Feedback</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">GBP/USD Structure Feedback</span>
               </div>
               <p className="text-xs font-bold leading-relaxed uppercase tracking-wide">
                 {opt.feedback}
@@ -1181,10 +1087,10 @@ export const ForexStructureRoadwayDebrief = () => {
     <InstitutionalFrame label="Roadway Competency Verified" id="FX-05-DEBRIEF" status="COMPLETE">
       <div className="w-full max-w-4xl mx-auto space-y-12 flex flex-col items-center">
         <div className="relative group">
-          <div className="w-24 h-24 rounded-[2.5rem] bg-teal-500 flex items-center justify-center text-white shadow-2xl shadow-teal-500/20 group-hover:scale-110 transition-transform duration-500">
+          <div className="w-24 h-24 rounded-[2.5rem] bg-teal-500 flex items-center justify-center text-white shadow-2xl shadow-teal-100 group-hover:scale-110 transition-transform duration-500">
             <CheckCircle size={48} strokeWidth={2.5} />
           </div>
-          <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -inset-4 border-2 border-dashed border-teal-200 rounded-full opacity-30" />
+          <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -inset-4 border-2 border-dashed border-teal-100 rounded-full" />
         </div>
 
         <div className="text-center space-y-2">
