@@ -18,7 +18,15 @@ import {
   Clock,
   Compass
 } from "lucide-react";
-import { InstitutionalFrame, MentorInsight, MiniCandle } from "./shared";
+import { 
+  InstitutionalFrame, 
+  MentorInsight, 
+  MiniCandle,
+  StepWorkflow,
+  PracticeDrill,
+  DebriefDashboard,
+  ReadingQualityBadge
+} from "./shared";
 
 // ==========================================
 // CARD 1: ForexLocationFoundation
@@ -910,13 +918,7 @@ export const ForexUsdLocationContext = () => {
             <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest leading-none block mb-1">Context Rating</span>
             <h5 className="text-xs font-black text-[#071B36] uppercase tracking-tight whitespace-normal break-words">{active.name}</h5>
           </div>
-          <span className={`text-[8px] font-mono font-black px-2 py-1 rounded border shrink-0 ${
-            active.color === "teal" ? "bg-teal-50 text-teal-700 border-teal-200" :
-            active.color === "rose" ? "bg-rose-50 text-rose-700 border-rose-200" :
-            "bg-amber-50 text-amber-700 border-amber-200"
-          }`}>
-            {active.quality}
-          </span>
+          <ReadingQualityBadge quality={active.quality} />
         </div>
       </div>
     </InstitutionalFrame>
@@ -1026,217 +1028,109 @@ export const ForexRelatedPairLocation = () => {
 // CARD 9: ForexLocationFirstWorkflow
 // ==========================================
 export const ForexLocationFirstWorkflow = () => {
-  const [currentStep, setCurrentStep] = useState<number>(0);
-
   const steps = [
     {
       title: "1. Map Session Boundaries",
-      detail: "Identify the Asia high/low range limits. Mark these coordinates as the starting ceilings and floors of the day.",
+      desc: "Identify the Asia high/low range limits. Mark these coordinates as the starting ceilings and floors of the day.",
+      icon: Compass,
       status: "COORDINATES MAPPED"
     },
     {
       title: "2. Check USD Context",
-      detail: "Consult the DXY chart. Ensure the Dollar Index is at a compatible area (e.g. resistance ceiling if buying a pair support).",
+      desc: "Consult the DXY chart. Ensure the Dollar Index is at a compatible area (e.g. resistance ceiling if buying a pair support).",
+      icon: DollarSign,
       status: "USD ALIGNED"
     },
     {
       title: "3. Cross-Check Related Pairs",
-      detail: "Verify if GBP/USD or other related majors are testing similar boundary edges, confirming broad flow.",
+      desc: "Verify if GBP/USD or other related majors are testing similar boundary edges, confirming broad flow.",
+      icon: Globe,
       status: "CORRELATION VERIFIED"
     },
     {
       title: "4. Audit Local Behavior",
-      detail: "Analyze candle closes and wicks at the edge. Watch for rejection wicks or a solid body close showing acceptance.",
+      desc: "Analyze candle closes and wicks at the edge. Watch for rejection wicks or a solid body close showing acceptance.",
+      icon: Activity,
       status: "BEHAVIOR AUDITED"
     },
     {
       title: "5. Classify Reading Quality",
-      detail: "Rate the coordinate location as Clear, Mixed, or Unclear. Stand aside immediately if price is in midpoint noise.",
+      desc: "Rate the coordinate location as Clear, Mixed, or Unclear. Stand aside immediately if price is in midpoint noise.",
+      icon: CheckCircle2,
       status: "SCAN COMPLETED"
     }
   ];
 
   return (
-    <InstitutionalFrame label="Forex Location Workflow" status="WORKFLOW MONITOR">
-      <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
-          Interactive Checklist: Click the steps in sequence to run through the location-first Forex reading workflow.
-        </p>
-
-        {/* Step List */}
-        <div className="w-full flex flex-col gap-2">
-          {steps.map((s, idx) => {
-            const isActive = idx === currentStep;
-            const isCompleted = idx < currentStep;
-            return (
-              <button
-                key={idx}
-                onClick={() => setCurrentStep(idx)}
-                className={`w-full p-3 rounded-xl border text-left transition-all flex justify-between items-center cursor-pointer ${
-                  isActive 
-                    ? "bg-[#071B36] border-[#071B36] text-white shadow-md" 
-                    : isCompleted 
-                    ? "bg-slate-50 border-slate-200 text-[#071B36]" 
-                    : "bg-white border-slate-100 text-slate-400 hover:bg-slate-50/50"
-                }`}
-              >
-                <span className="text-xs font-black uppercase tracking-tight">{s.title}</span>
-                <span className={`text-[7px] font-mono font-black px-2 py-0.5 rounded ${
-                  isActive ? "bg-teal-500 text-white" :
-                  isCompleted ? "bg-teal-100 text-teal-700" :
-                  "bg-slate-100 text-slate-400"
-                }`}>
-                  {isActive ? "ACTIVE SCAN" : isCompleted ? "COMPLETED" : "PENDING"}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Step details display */}
-        <div className="w-full bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col gap-2">
-          <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest block">Step Details</span>
-          <h5 className="text-xs font-black text-[#071B36] uppercase">{steps[currentStep].title}</h5>
-          <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">{steps[currentStep].detail}</p>
-        </div>
-      </div>
-    </InstitutionalFrame>
+    <StepWorkflow
+      steps={steps}
+      label="Forex Location Workflow"
+      status="WORKFLOW MONITOR"
+      desc="Interactive Checklist: Click the steps in sequence to run through the location-first Forex reading workflow."
+    />
   );
 };
 
-// ==========================================
-// CARD 10: ForexLocationQualityPracticeDrill
-// ==========================================
 export const ForexLocationQualityPracticeDrill = () => {
-  const [selectedOpt, setSelectedOpt] = useState<string | null>(null);
-  const [showResult, setShowResult] = useState<boolean>(false);
+  const options = [
+    {
+      id: "A",
+      text: "Clear bullish reading because EUR/USD printed a strong candle closing near its high, showing buyer control.",
+      isCorrect: false,
+      feedback: "Incorrect. The candle may be active, but its location in the middle of the session range devalues the reading quality to midpoint noise."
+    },
+    {
+      id: "B",
+      text: "Strong location because any large candle inside a liquid session range is important and should be traded.",
+      isCorrect: false,
+      feedback: "Incorrect. Not every candle matters equally. Location changes how useful the evidence is; in the middle of a range, price is highly random."
+    },
+    {
+      id: "C",
+      text: "Weak or low-quality location because the move formed in the middle of the range without any useful reference area or related-pair alignment.",
+      isCorrect: true,
+      feedback: "Correct! This is a weak or low-quality location. The move happened in the middle of the range, away from session edges or clear reference areas, and lacks related-pair support."
+    },
+    {
+      id: "D",
+      text: "Guaranteed reversal because price is inside the Asia range and must rotate back to the floor immediately.",
+      isCorrect: false,
+      feedback: "Incorrect. Being inside a range does not guarantee a reversal. It only means the location is weak and you should stand aside."
+    }
+  ];
 
-  const scenarioData = {
-    question: "EUR/USD is currently trading inside its Asia session range. It prints a very strong green candle on the 15-minute chart, closing near its high at $1.0850. This candle is sitting directly in the middle of the range, far from the Asia high ($1.0900) and Asia low ($1.0800). GBP/USD is also sitting in the middle of its own range, and USD context (DXY) is completely flat and unclear. What is the most disciplined Forex location reading?",
-    options: [
-      {
-        id: "A",
-        text: "Clear bullish reading because EUR/USD printed a strong candle closing near its high, showing buyer control.",
-        isCorrect: false,
-        feedback: "Incorrect. The candle may be active, but its location in the middle of the session range devalues the reading quality to midpoint noise."
-      },
-      {
-        id: "B",
-        text: "Strong location because any large candle inside a liquid session range is important and should be traded.",
-        isCorrect: false,
-        feedback: "Incorrect. Not every candle matters equally. Location changes how useful the evidence is; in the middle of a range, price is highly random."
-      },
-      {
-        id: "C",
-        text: "Weak or low-quality location because the move formed in the middle of the range without any useful reference area or related-pair alignment.",
-        isCorrect: true,
-        feedback: "Correct! This is a weak or low-quality location. The move happened in the middle of the range, away from session edges or clear reference areas, and lacks related-pair support."
-      },
-      {
-        id: "D",
-        text: "Guaranteed reversal because price is inside the Asia range and must rotate back to the floor immediately.",
-        isCorrect: false,
-        feedback: "Incorrect. Being inside a range does not guarantee a reversal. It only means the location is weak and you should stand aside."
-      }
-    ]
-  };
+  const chartPreview = (
+    <div className="w-full bg-[#071B36] rounded-2xl p-4 border border-slate-800 relative min-h-[160px] flex flex-col justify-between overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
+      
+      <div className="absolute top-[20%] left-0 right-0 h-px border-t border-slate-800" />
+      <span className="text-[6px] font-mono text-slate-500 absolute top-2 left-4">Asia High ($1.0900)</span>
 
-  const handleSelect = (id: string) => {
-    setSelectedOpt(id);
-    setShowResult(true);
-  };
+      <div className="absolute bottom-[20%] left-0 right-0 h-px border-t border-slate-800" />
+      <span className="text-[6px] font-mono text-slate-500 absolute bottom-2 left-4">Asia Low ($1.0800)</span>
 
-  const selectedData = scenarioData.options.find(o => o.id === selectedOpt);
+      <div className="w-full flex justify-center items-center h-full pt-6 pb-6 z-10 relative">
+        <div className="flex flex-col items-center">
+          <span className="text-[6px] font-mono text-rose-400 font-bold mb-1">EUR/USD ($1.0850)</span>
+          <MiniCandle color="teal" bodyHeight={35} upperWick={5} lowerWick={5} />
+          <span className="text-[6px] font-mono text-slate-500 mt-1">Dead Center of Range</span>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <InstitutionalFrame label="Location Audit Practice" status="AUDIT DRILL">
-      <div className="w-full flex flex-col gap-5 items-center">
-        
-        {/* Visual Mock-up */}
-        <div className="w-full bg-[#071B36] rounded-2xl p-4 border border-slate-800 relative min-h-[160px] flex flex-col justify-between overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
-          
-          {/* Asia High Line */}
-          <div className="absolute top-[20%] left-0 right-0 h-px border-t border-slate-800" />
-          <span className="text-[6px] font-mono text-slate-500 absolute top-2 left-4">Asia High ($1.0900)</span>
-
-          {/* Asia Low Line */}
-          <div className="absolute bottom-[20%] left-0 right-0 h-px border-t border-slate-800" />
-          <span className="text-[6px] font-mono text-slate-500 absolute bottom-2 left-4">Asia Low ($1.0800)</span>
-
-          {/* Midpoint candle representation */}
-          <div className="w-full flex justify-center items-center h-full pt-6 pb-6 z-10 relative">
-            <div className="flex flex-col items-center">
-              <span className="text-[6px] font-mono text-rose-400 font-bold mb-1">EUR/USD ($1.0850)</span>
-              <MiniCandle color="teal" bodyHeight={35} upperWick={5} lowerWick={5} />
-              <span className="text-[6px] font-mono text-slate-500 mt-1">Dead Center of Range</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Scenario description */}
-        <p className="text-xs text-slate-600 leading-relaxed bg-slate-50 border border-slate-200/60 p-3 rounded-xl whitespace-normal break-words w-full font-medium">
-          {scenarioData.question}
-        </p>
-
-        {/* Options List */}
-        <div className="w-full flex flex-col gap-2">
-          {scenarioData.options.map((opt) => {
-            const isChosen = opt.id === selectedOpt;
-            return (
-              <button
-                key={opt.id}
-                onClick={() => handleSelect(opt.id)}
-                className={`w-full p-3 rounded-xl border text-left transition-all cursor-pointer whitespace-normal break-words flex gap-3 ${
-                  isChosen
-                    ? opt.isCorrect
-                      ? "bg-teal-50 border-teal-500 text-teal-900"
-                      : "bg-rose-50 border-rose-500 text-rose-900"
-                    : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
-                }`}
-              >
-                <span className={`w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-black shrink-0 ${
-                  isChosen 
-                    ? opt.isCorrect ? "bg-teal-500 border-teal-500 text-white" : "bg-rose-500 border-rose-500 text-white"
-                    : "border-slate-300 text-slate-400"
-                }`}>
-                  {opt.id}
-                </span>
-                <span className="text-xs leading-tight font-medium">{opt.text}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Feedback Display */}
-        {showResult && selectedData && (
-          <div className={`w-full p-4 rounded-xl border flex gap-3 transition-all ${
-            selectedData.isCorrect ? "bg-emerald-50 border-emerald-200 text-emerald-800" : "bg-rose-50 border-rose-200 text-rose-800"
-          }`}>
-            {selectedData.isCorrect ? (
-              <CheckCircle2 className="text-emerald-500 shrink-0" size={18} />
-            ) : (
-              <XCircle className="text-rose-500 shrink-0" size={18} />
-            )}
-            <div>
-              <h5 className="text-xs font-black uppercase mb-1">
-                {selectedData.isCorrect ? "Correct Audit" : "Mistaken Audit"}
-              </h5>
-              <p className="text-xs leading-relaxed whitespace-normal break-words">{selectedData.feedback}</p>
-            </div>
-          </div>
-        )}
-      </div>
-    </InstitutionalFrame>
+    <PracticeDrill
+      question="EUR/USD is currently trading inside its Asia session range. It prints a very strong green candle on the 15-minute chart, closing near its high at $1.0850. This candle is sitting directly in the middle of the range, far from the Asia high ($1.0900) and Asia low ($1.0800). GBP/USD is also sitting in the middle of its own range, and USD context (DXY) is completely flat and unclear. What is the most disciplined Forex location reading?"
+      options={options}
+      chartPreview={chartPreview}
+      label="Location Audit Practice"
+      status="AUDIT DRILL"
+    />
   );
 };
 
-// ==========================================
-// CARD 11: ForexLocationDebrief
-// ==========================================
 export const ForexLocationDebrief = () => {
-  const [selectedKey, setSelectedKey] = useState<string>("coordinates");
-
   const debriefKeys = [
     {
       id: "coordinates",
@@ -1261,61 +1155,12 @@ export const ForexLocationDebrief = () => {
     }
   ];
 
-  const active = debriefKeys.find(k => k.id === selectedKey) || debriefKeys[0];
-  const IconComponent = active.icon;
-
   return (
-    <InstitutionalFrame label="Forex Location Audit Recap" status="DRILL COMPLETE">
-      <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
-          Interactive Recap: Select an audit coordinate category to view the core Lurnava reading habit.
-        </p>
-
-        {/* Dashboard grid */}
-        <div className="w-full grid grid-cols-3 gap-2">
-          {debriefKeys.map((item) => {
-            const isSelected = item.id === selectedKey;
-            const ItemIcon = item.icon;
-            return (
-              <button
-                key={item.id}
-                onClick={() => setSelectedKey(item.id)}
-                className={`p-3 rounded-xl border flex flex-col items-center gap-2 text-center transition-all cursor-pointer ${
-                  isSelected 
-                    ? "bg-[#071B36] border-[#071B36] text-white shadow-md scale-105" 
-                    : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
-                }`}
-              >
-                <ItemIcon size={16} className={isSelected ? "text-teal-400" : "text-slate-400"} />
-                <span className="text-[8px] font-black uppercase tracking-tight leading-none break-words max-w-full">
-                  {item.title.split(" ")[0]}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Summary Card */}
-        <div className="w-full bg-[#071B36] rounded-2xl p-5 border border-slate-800 text-white flex flex-col gap-3 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
-          
-          <div className="flex items-center gap-3 relative z-10 border-b border-slate-800/80 pb-3">
-            <IconComponent size={20} className="text-teal-400 shrink-0" />
-            <div>
-              <h5 className="text-xs font-mono font-black text-slate-400 uppercase tracking-widest leading-none mb-1">
-                {active.title}
-              </h5>
-              <p className="text-xs font-black text-white whitespace-normal break-words leading-tight uppercase">
-                {active.habit}
-              </p>
-            </div>
-          </div>
-
-          <p className="text-xs text-slate-300 leading-relaxed whitespace-normal break-words relative z-10">
-            {active.desc}
-          </p>
-        </div>
-      </div>
-    </InstitutionalFrame>
+    <DebriefDashboard
+      cards={debriefKeys}
+      label="Forex Location Audit Recap"
+      status="DRILL COMPLETE"
+      desc="Interactive Recap: Select an audit coordinate category to view the core Lurnava reading habit."
+    />
   );
 };

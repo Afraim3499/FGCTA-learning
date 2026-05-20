@@ -15,7 +15,15 @@ import {
   Sliders,
   AlertCircle
 } from "lucide-react";
-import { InstitutionalFrame, MentorInsight, MiniCandle } from "./shared";
+import { 
+  InstitutionalFrame, 
+  MentorInsight, 
+  MiniCandle,
+  StepWorkflow,
+  PracticeDrill,
+  DebriefDashboard,
+  ReadingQualityBadge
+} from "./shared";
 
 // ==========================================
 // CARD 1: LocationGivesEvidenceWeight
@@ -1095,322 +1103,152 @@ export const HtfLocationChangesStory = () => {
   );
 };
 
-// ==========================================
-// CARD 9: LocationFirstWorkflow
-// ==========================================
 export const LocationFirstWorkflow = () => {
-  const [activeStep, setActiveStep] = useState<number>(0);
-
   const steps = [
     {
       title: "Location Check",
-      subtitle: "Near key area?",
-      detail: "Identify if price is approaching or sitting inside a significant historical reaction area. If price is drifting in open space, stop the analysis—the location is poor.",
-      clue: "Address check"
+      desc: "Identify if price is approaching or sitting inside a significant historical reaction area. If price is drifting in open space, stop the analysis—the location is poor.",
+      icon: MapPin,
+      status: "Near key area?"
     },
     {
       title: "Reference Audit",
-      subtitle: "Edge, middle, or swing?",
-      detail: "Classify the structure coordinate. Are you at the outer boundary ceiling/floor, in the empty midpoint space, or at a prior swing landmark?",
-      clue: "Coordinate check"
+      desc: "Classify the structure coordinate. Are you at the outer boundary ceiling/floor, in the empty midpoint space, or at a prior swing landmark?",
+      icon: Sliders,
+      status: "Edge, middle, or swing?"
     },
     {
       title: "HTF Context",
-      subtitle: "Where on the bigger map?",
-      detail: "Verify the higher-timeframe layout. Ensure your local direction is not colliding with major daily/4h support floors or resistance ceilings.",
-      clue: "Obstacle check"
+      desc: "Verify the higher-timeframe layout. Ensure your local direction is not colliding with major daily/4h support floors or resistance ceilings.",
+      icon: Layers,
+      status: "Where on the bigger map?"
     },
     {
       title: "Behavior Read",
-      subtitle: "Reject, accept, pause?",
-      detail: "Observe how price reacts around the zone. Watch the candlestick close quality. Are wicks rejecting the level or are solid bodies accepting it?",
-      clue: "Reaction check"
+      desc: "Observe how price reacts around the zone. Watch the candlestick close quality. Are wicks rejecting the level or are solid bodies accepting it?",
+      icon: Activity,
+      status: "Reject, accept, pause?"
     },
     {
       title: "Read Classification",
-      subtitle: "Final Quality Check",
-      detail: "Determine final reading quality (Clear, Mixed, or Unclear) and state what structural validation must occur next before taking action.",
-      clue: "Verification check"
+      desc: "Determine final reading quality (Clear, Mixed, or Unclear) and state what structural validation must occur next before taking action.",
+      icon: CheckCircle2,
+      status: "Final Quality Check"
     }
   ];
 
   return (
-    <InstitutionalFrame label="Location-First Checklist" status="WORKFLOW MONITOR">
-      <div className="w-full flex flex-col gap-6 items-center">
-        <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
-          Interactive Stepper: Walk through the disciplined steps a professional trader takes before evaluating any candlestick pattern.
-        </p>
-
-        {/* Stepper progress bar */}
-        <div className="w-full flex justify-between items-center relative z-10 shrink-0 overflow-x-auto py-2">
-          {steps.map((s, idx) => {
-            const isActive = idx === activeStep;
-            const isCompleted = idx < activeStep;
-            return (
-              <button
-                key={idx}
-                onClick={() => setActiveStep(idx)}
-                className="flex flex-col items-center focus:outline-none min-w-[70px] cursor-pointer"
-              >
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black border transition-all ${
-                  isActive ? "bg-[#071B36] text-white border-[#071B36] scale-110 shadow" :
-                  isCompleted ? "bg-teal-500 text-white border-teal-500" :
-                  "bg-white text-slate-400 border-slate-200 hover:border-slate-300"
-                }`}>
-                  {idx + 1}
-                </div>
-                <span className={`text-[8px] font-bold mt-1 text-center whitespace-normal max-w-[80px] break-words ${
-                  isActive ? "text-[#071B36]" : "text-slate-400"
-                }`}>
-                  {s.title.split(" ")[0]}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Detail Panel */}
-        <div className="w-full bg-[#071B36] rounded-2xl p-6 border border-slate-800 relative min-h-[160px] flex flex-col justify-between overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
-          
-          <div className="relative z-10">
-            <span className="text-[8px] font-mono text-teal-400 uppercase tracking-widest font-black block mb-1">
-              Step {activeStep + 1}: {steps[activeStep].subtitle}
-            </span>
-            <h5 className="text-sm font-black text-white uppercase tracking-tight mb-2 whitespace-normal break-words">
-              {steps[activeStep].title}
-            </h5>
-            <p className="text-xs text-slate-300 leading-relaxed whitespace-normal break-words">
-              {steps[activeStep].detail}
-            </p>
-          </div>
-
-          <div className="relative z-10 mt-4 pt-3 border-t border-slate-800 flex justify-between items-center flex-wrap gap-2">
-            <span className="text-[8px] font-mono text-slate-500 uppercase">Mental Filter: {steps[activeStep].clue}</span>
-            <div className="flex gap-2">
-              <button
-                disabled={activeStep === 0}
-                onClick={() => setActiveStep(prev => prev - 1)}
-                className="px-2.5 py-1 rounded bg-slate-800 text-[10px] font-bold text-slate-300 disabled:opacity-30 hover:bg-slate-700 cursor-pointer"
-              >
-                Prev
-              </button>
-              <button
-                disabled={activeStep === steps.length - 1}
-                onClick={() => setActiveStep(prev => prev + 1)}
-                className="px-2.5 py-1 rounded bg-teal-600 text-[10px] font-bold text-white disabled:opacity-30 hover:bg-teal-500 cursor-pointer"
-              >
-                Next
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </InstitutionalFrame>
+    <StepWorkflow
+      steps={steps}
+      label="Location-First Checklist"
+      status="WORKFLOW MONITOR"
+      desc="Interactive Stepper: Walk through the disciplined steps a professional trader takes before evaluating any candlestick pattern."
+    />
   );
 };
 
-// ==========================================
-// CARD 10: LocationQualityPracticeDrill
-// ==========================================
 export const LocationQualityPracticeDrill = () => {
-  const [selectedOpt, setSelectedOpt] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState<string | null>(null);
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-
-  const scenario = {
-    question: "Price is trading inside a wide horizontal range between $100 and $120. A strong green candle closes near its high at $110, directly in the middle of the range, away from boundaries and prior swings. What is the disciplined location reading?",
-    options: [
-      {
-        id: "A",
-        text: "Clear bullish reading because the green candle is large and closed near its high.",
-        correct: false,
-        feedback: "Incorrect. The size of the candle is attractive, but because it formed in the middle of a range (poor location), its information quality is very low."
-      },
-      {
-        id: "B",
-        text: "Strong evidence because any large candle matters equally regardless of where it forms.",
-        correct: false,
-        feedback: "Incorrect. Not all chart areas are equal. The location changes the weight of the evidence. A candle in the middle of a range is highly random."
-      },
-      {
-        id: "C",
-        text: "Poor or low-quality location because the move occurred in the middle of the range without any key reference structures nearby.",
-        correct: true,
-        feedback: "Correct! This is a poor location. Although the candle looks strong, its position in the dead center of the range makes it unreliable noise."
-      },
-      {
-        id: "D",
-        text: "Guaranteed reversal because price is inside a range and must rotate back immediately.",
-        correct: false,
-        feedback: "Incorrect. Ranges lead to rotations, but there are no guarantees in trading. In the middle of the range, price can drift unpredictably."
-      }
-    ]
-  };
-
-  const handleSelect = (optId: string) => {
-    setSelectedOpt(optId);
-    const opt = scenario.options.find(o => o.id === optId);
-    if (opt) {
-      setFeedback(opt.feedback);
-      setIsCorrect(opt.correct);
+  const options = [
+    {
+      id: "A",
+      text: "Clear bullish reading because the green candle is large and closed near its high.",
+      isCorrect: false,
+      feedback: "Incorrect. The size of the candle is attractive, but because it formed in the middle of a range (poor location), its information quality is very low."
+    },
+    {
+      id: "B",
+      text: "Strong evidence because any large candle matters equally regardless of where it forms.",
+      isCorrect: false,
+      feedback: "Incorrect. Not all chart areas are equal. The location changes the weight of the evidence. A candle in the middle of a range is highly random."
+    },
+    {
+      id: "C",
+      text: "Poor or low-quality location because the move occurred in the middle of the range without any key reference structures nearby.",
+      isCorrect: true,
+      feedback: "Correct! This is a poor location. Although the candle looks strong, its position in the dead center of the range makes it unreliable noise."
+    },
+    {
+      id: "D",
+      text: "Guaranteed reversal because price is inside a range and must rotate back immediately.",
+      isCorrect: false,
+      feedback: "Incorrect. Ranges lead to rotations, but there are no guarantees in trading. In the middle of the range, price can drift unpredictably."
     }
-  };
+  ];
+
+  const chartPreview = (
+    <div className="w-full bg-[#071B36] rounded-2xl p-4 border border-slate-800 relative min-h-[140px] flex flex-col justify-between overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
+      
+      <div className="absolute top-2 left-0 right-0 h-4 border-y border-red-500/20 bg-red-500/5 flex items-center justify-between px-4">
+        <span className="text-[6px] font-mono text-red-400">RANGE RESISTANCE CEILING ($120.00)</span>
+      </div>
+
+      <div className="absolute bottom-2 left-0 right-0 h-4 border-y border-teal-500/20 bg-teal-500/5 flex items-center justify-between px-4">
+        <span className="text-[6px] font-mono text-teal-400">RANGE SUPPORT FLOOR ($100.00)</span>
+      </div>
+
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="flex flex-col items-center">
+          <span className="bg-amber-950/80 border border-amber-500/40 text-amber-300 text-[6px] font-mono px-1 rounded mb-1">
+            Midpoint ($110.00)
+          </span>
+          <MiniCandle color="teal" bodyHeight={35} upperWick={5} lowerWick={5} />
+        </div>
+      </div>
+
+      <div className="w-full flex justify-between text-[7px] font-mono text-slate-500 z-10">
+        <span>Outer Ceiling</span>
+        <span>Seller Territory</span>
+      </div>
+      <div className="w-full flex justify-between text-[7px] font-mono text-slate-500 z-10">
+        <span>Outer Floor</span>
+        <span>Buyer Territory</span>
+      </div>
+    </div>
+  );
 
   return (
-    <InstitutionalFrame label="Interactive Practice Drill" status="DRILL ACTIVE">
-      <div className="w-full flex flex-col gap-5 items-center">
-        {/* Visual range mockup for scenario */}
-        <div className="w-full bg-[#071B36] rounded-2xl p-4 border border-slate-800 relative min-h-[140px] flex flex-col justify-between overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
-          
-          {/* Support and Resistance floors */}
-          <div className="absolute top-2 left-0 right-0 h-4 border-y border-red-500/20 bg-red-500/5 flex items-center justify-between px-4">
-            <span className="text-[6px] font-mono text-red-400">RANGE RESISTANCE CEILING ($120.00)</span>
-          </div>
-
-          <div className="absolute bottom-2 left-0 right-0 h-4 border-y border-teal-500/20 bg-teal-500/5 flex items-center justify-between px-4">
-            <span className="text-[6px] font-mono text-teal-400">RANGE SUPPORT FLOOR ($100.00)</span>
-          </div>
-
-          {/* Large green candle directly in the center */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="flex flex-col items-center">
-              <span className="bg-amber-950/80 border border-amber-500/40 text-amber-300 text-[6px] font-mono px-1 rounded mb-1">
-                Midpoint ($110.00)
-              </span>
-              <MiniCandle color="teal" bodyHeight={35} upperWick={5} lowerWick={5} />
-            </div>
-          </div>
-
-          <div className="w-full flex justify-between text-[7px] font-mono text-slate-500 z-10">
-            <span>Outer Ceiling</span>
-            <span>Seller Territory</span>
-          </div>
-          <div className="w-full flex justify-between text-[7px] font-mono text-slate-500 z-10">
-            <span>Outer Floor</span>
-            <span>Buyer Territory</span>
-          </div>
-        </div>
-
-        {/* Question */}
-        <div className="w-full text-left">
-          <h5 className="text-xs font-bold text-[#071B36] leading-relaxed whitespace-normal break-words">
-            {scenario.question}
-          </h5>
-        </div>
-
-        {/* Options */}
-        <div className="w-full flex flex-col gap-2">
-          {scenario.options.map((opt) => {
-            const isSelected = selectedOpt === opt.id;
-            return (
-              <button
-                key={opt.id}
-                onClick={() => handleSelect(opt.id)}
-                className={`p-3 rounded-xl border text-xs font-bold text-left transition-all cursor-pointer whitespace-normal break-words leading-tight flex items-start gap-3 ${
-                  isSelected 
-                    ? opt.correct 
-                      ? "bg-teal-50 border-teal-500 text-teal-900 shadow-sm" 
-                      : "bg-rose-50 border-rose-500 text-rose-900 shadow-sm" 
-                    : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
-                }`}
-              >
-                <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black border shrink-0 ${
-                  isSelected 
-                    ? opt.correct 
-                      ? "bg-teal-600 text-white border-teal-600" 
-                      : "bg-rose-600 text-white border-rose-600" 
-                    : "bg-slate-100 text-slate-600 border-slate-300"
-                }`}>
-                  {opt.id}
-                </span>
-                <span className="flex-1">{opt.text}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Feedback log */}
-        {feedback && (
-          <div className={`w-full p-4 rounded-xl border flex gap-3 ${
-            isCorrect 
-              ? "bg-teal-50 border-teal-200 text-teal-800" 
-              : "bg-rose-50 border-rose-200 text-rose-800"
-          }`}>
-            {isCorrect ? (
-              <CheckCircle2 className="text-teal-600 shrink-0" size={18} />
-            ) : (
-              <XCircle className="text-rose-500 shrink-0" size={18} />
-            )}
-            <div>
-              <h6 className="text-xs font-black uppercase mb-1">
-                {isCorrect ? "Correct Audit" : "Mistake Logged"}
-              </h6>
-              <p className="text-xs leading-relaxed whitespace-normal break-words">{feedback}</p>
-            </div>
-          </div>
-        )}
-      </div>
-    </InstitutionalFrame>
+    <PracticeDrill
+      question="Price is trading inside a wide horizontal range between $100 and $120. A strong green candle closes near its high at $110, directly in the middle of the range, away from boundaries and prior swings. What is the disciplined location reading?"
+      options={options}
+      chartPreview={chartPreview}
+      label="Interactive Practice Drill"
+      status="DRILL ACTIVE"
+    />
   );
 };
 
-// ==========================================
-// CARD 11: LocationReadingDebrief
-// ==========================================
 export const LocationReadingDebrief = () => {
+  const debriefKeys = [
+    {
+      id: "floor",
+      title: "Location Floor",
+      habit: "Check structural coordinates first.",
+      desc: "Always check the structural coordinates first. Never judge a candle pattern in a vacuum.",
+      icon: MapPin
+    },
+    {
+      id: "middle",
+      title: "Ignore Middle",
+      habit: "Filter out center-zone price swings.",
+      desc: "The center of ranges and channels is empty space. Focus your analysis on the structural edges.",
+      icon: XCircle
+    },
+    {
+      id: "htf",
+      title: "HTF Boundaries",
+      habit: "Zoom out to weekly or 4-hour maps.",
+      desc: "Zoom out to the weekly or 4-hour map. The higher-timeframe location always overrides local speed.",
+      icon: Layers
+    }
+  ];
+
   return (
-    <InstitutionalFrame label="Location Audit Debrief" status="AUDIT COMPLETE">
-      <div className="w-full flex flex-col gap-6 items-center">
-        
-        {/* Recap dashboard */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-3">
-          
-          <div className="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col items-center text-center">
-            <MapPin className="text-teal-600 mb-2" size={20} />
-            <h5 className="text-xs font-black text-[#071B36] uppercase tracking-tight mb-1">Location Floor</h5>
-            <p className="text-[10px] text-slate-500 leading-normal whitespace-normal break-words">
-              Always check the structural coordinates first. Never judge a candle pattern in a vacuum.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col items-center text-center">
-            <XCircle className="text-rose-500 mb-2" size={20} />
-            <h5 className="text-xs font-black text-[#071B36] uppercase tracking-tight mb-1">Ignore the Middle</h5>
-            <p className="text-[10px] text-slate-500 leading-normal whitespace-normal break-words">
-              The center of ranges and channels is empty space. Focus your analysis on the structural edges.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm flex flex-col items-center text-center">
-            <Layers className="text-purple-600 mb-2" size={20} />
-            <h5 className="text-xs font-black text-[#071B36] uppercase tracking-tight mb-1">HTF Boundaries</h5>
-            <p className="text-[10px] text-slate-500 leading-normal whitespace-normal break-words">
-              Zoom out to the weekly or 4-hour map. The higher-timeframe location always overrides local speed.
-            </p>
-          </div>
-
-        </div>
-
-        {/* Takeaway badge */}
-        <div className="w-full bg-[#071B36] text-white rounded-2xl p-6 text-center border border-slate-800 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
-          
-          <div className="relative z-10 flex flex-col items-center gap-2">
-            <span className="text-[8px] font-mono text-teal-400 uppercase tracking-widest font-black">
-              LURNAVA CORE FILTER
-            </span>
-            <blockquote className="text-sm font-black italic text-slate-100 max-w-md leading-relaxed whitespace-normal break-words">
-              "Before you trust the candle shape, look at where it formed. Good trading is about trading locations, not candle patterns."
-            </blockquote>
-            <div className="w-8 h-px bg-teal-500 my-1" />
-            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
-              Level 0 Module 0.8 Complete
-            </span>
-          </div>
-        </div>
-      </div>
-    </InstitutionalFrame>
+    <DebriefDashboard
+      cards={debriefKeys}
+      label="Location Audit Debrief"
+      status="AUDIT COMPLETE"
+      desc="Interactive Recap: Select an audit coordinate category to view the core Lurnava reading habit."
+    />
   );
 };

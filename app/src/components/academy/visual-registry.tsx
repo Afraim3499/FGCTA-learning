@@ -344,6 +344,45 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "forex-location-quality-practice-drill": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexLocationQualityPracticeDrill), { loading: VisualLoading }),
   "forex-location-debrief": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexLocationDebrief), { loading: VisualLoading }),
 
+  // --- MODULE 0.8 CRYPTO ---
+  "crypto-location-foundation": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoLocationFoundation), { loading: VisualLoading }),
+  "crypto-btc-location-context": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoBtcLocationContext), { loading: VisualLoading }),
+  "crypto-range-edge-vs-middle": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoRangeEdgeVsMiddle), { loading: VisualLoading }),
+  "crypto-prior-high-low-location": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoPriorHighLowLocation), { loading: VisualLoading }),
+  "crypto-liquidity-location": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoLiquidityLocation), { loading: VisualLoading }),
+  "crypto-spot-perp-location-disagreement": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoSpotPerpLocationDisagreement), { loading: VisualLoading }),
+  "crypto-dex-cex-location": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoDexCexLocation), { loading: VisualLoading }),
+  "crypto-breakout-location-acceptance": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoBreakoutLocationAcceptance), { loading: VisualLoading }),
+  "crypto-location-first-workflow": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoLocationFirstWorkflow), { loading: VisualLoading }),
+  "crypto-location-quality-practice-drill": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoLocationQualityPracticeDrill), { loading: VisualLoading }),
+  "crypto-location-debrief": dynamic(() => import("./visuals/module-0-8").then(m => m.CryptoLocationDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.8 GOLD ---
+  "gold-location-foundation": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldLocationFoundation), { loading: VisualLoading }),
+  "gold-reaction-zone-location": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldReactionZoneLocation), { loading: VisualLoading }),
+  "gold-range-middle-noise": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldRangeMiddleNoise), { loading: VisualLoading }),
+  "gold-prior-high-low-location": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldPriorHighLowLocation), { loading: VisualLoading }),
+  "gold-wick-location-meaning": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldWickLocationMeaning), { loading: VisualLoading }),
+  "gold-sweep-location-audit": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldSweepLocationAudit), { loading: VisualLoading }),
+  "gold-macro-location-distortion": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldMacroLocationDistortion), { loading: VisualLoading }),
+  "gold-htf-location-context": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldHtfLocationContext), { loading: VisualLoading }),
+  "gold-location-first-workflow": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldLocationFirstWorkflow), { loading: VisualLoading }),
+  "gold-location-quality-practice-drill": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldLocationQualityPracticeDrill), { loading: VisualLoading }),
+  "gold-location-debrief": dynamic(() => import("./visuals/module-0-8").then(m => m.GoldLocationDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.9 GOLD SPECIALIZED ---
+  "gold-reading-lab-foundation": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldReadingLabFoundation), { loading: VisualLoading }),
+  "gold-speed-vs-clarity": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldSpeedVsClarity), { loading: VisualLoading }),
+  "gold-reaction-zone-lab": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldReactionZoneLab), { loading: VisualLoading }),
+  "gold-wick-quality-lab": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldWickQualityLab), { loading: VisualLoading }),
+  "gold-sweep-discipline-lab": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldSweepDisciplineLab), { loading: VisualLoading }),
+  "gold-close-quality-lab": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldCloseQualityLab), { loading: VisualLoading }),
+  "gold-macro-distortion-lab": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldMacroDistortionLab), { loading: VisualLoading }),
+  "gold-follow-through-lab": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldFollowThroughLab), { loading: VisualLoading }),
+  "gold-reading-sequence": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldReadingSequence), { loading: VisualLoading }),
+  "gold-reading-lab-practice-drill": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldReadingLabPracticeDrill), { loading: VisualLoading }),
+  "gold-reading-lab-debrief": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldReadingLabDebrief), { loading: VisualLoading }),
+
   // --- ALIASES (Backward Compatibility) ---
   // These keys ensure that legacy data in the database still renders correctly 
   // during the transition to standardized keys.

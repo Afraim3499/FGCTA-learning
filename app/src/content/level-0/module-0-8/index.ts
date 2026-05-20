@@ -1,5 +1,7 @@
 import { coreCards } from "./core";
 import { forexCards } from "./forex";
+import { cryptoCards } from "./crypto";
+import { goldCards } from "./gold";
 import { AcademyModule } from "../../../types/curriculum";
 
 export const module08: AcademyModule = {
@@ -12,7 +14,8 @@ export const module08: AcademyModule = {
   tracks: {
     core: coreCards,
     forex: forexCards,
-    gold: [],
-    crypto: []
+    gold: goldCards,
+    crypto: cryptoCards
   }
 };
+
