@@ -1,3 +1,4 @@
+// Module 0.9 Visual components export index
 export {
   GoldReadingLabFoundation,
   GoldSpeedVsClarity,
