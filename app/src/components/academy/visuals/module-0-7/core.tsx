@@ -27,7 +27,7 @@ import { InstitutionalFrame, MentorInsight } from "./shared";
  * Helper: Mini Candlestick Graphic
  */
 const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15, label = "", color = "" }) => (
-  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-105 shadow-sm shrink-0">
+  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
     {/* Upper Wick */}
     <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
     {/* Body */}
@@ -51,7 +51,7 @@ const ChecklistRibbon = () => (
   <div className="w-full bg-[#071B36] text-white py-2.5 px-4 rounded-xl border border-slate-800 flex items-center justify-between shadow-sm shrink-0 mb-4 font-mono">
     <div className="flex items-center gap-2">
       <Compass size={12} className="text-teal-400 animate-spin" style={{ animationDuration: "10s" }} />
-      <span className="text-[9px] font-black uppercase tracking-widest text-slate-350">Lurnava Mental Filter</span>
+      <span className="text-[9px] font-black uppercase tracking-widest text-slate-300">Lurnava Mental Filter</span>
     </div>
     <span className="text-[10px] font-black text-teal-400 uppercase tracking-tight text-right italic">
       "Before I trust the candle, I must identify the environment."
@@ -70,28 +70,28 @@ export const MarketConditionsFoundation = () => {
       title: "Trend Lens",
       badge: "bg-teal-50 text-teal-600 border-teal-100",
       desc: "Inside a clean trend, this strong candle represents structural continuation. Buyers are committed.",
-      trap: "SPECWIDE TRAP: Buying blindly without checking pullback zones.",
+      trap: "SPECULATIVE TRAP: Buying blindly without checking pullback zones.",
       outcome: "ALIGNED CONTINUATION"
     },
     range: {
       title: "Range Lens",
       badge: "bg-amber-50 text-amber-600 border-amber-100",
       desc: "At a range boundary, this exact same strong candle represents exhaustion. Sellers will defend.",
-      trap: "SPECWIDE TRAP: Buying the breakout candle expecting a clean launch.",
+      trap: "SPECULATIVE TRAP: Buying the breakout candle expecting a clean launch.",
       outcome: "EXHAUSTION SWEEP WARNING"
     },
     compression: {
       title: "Compression Lens",
       badge: "bg-purple-50 text-purple-600 border-purple-100",
       desc: "Inside compression, this candle is an expansion attempt. It must close outside to verify.",
-      trap: "SPECWIDE TRAP: Guessing the breakout direction inside the squeeze.",
+      trap: "SPECULATIVE TRAP: Guessing the breakout direction inside the squeeze.",
       outcome: "EXPANSION ATTEMPT"
     },
     chop: {
       title: "Chop Lens",
       badge: "bg-rose-50 text-[#BE123C] border-rose-100",
       desc: "Inside choppy noise, this candle is random. Swings overlap, structure is ignored.",
-      trap: "SPECWIDE TRAP: Finding patterns and forcing trades in random noise.",
+      trap: "SPECULATIVE TRAP: Finding patterns and forcing trades in random noise.",
       outcome: "RANDOM NOISE / IGNORE"
     }
   };
@@ -135,7 +135,7 @@ export const MarketConditionsFoundation = () => {
 
           {/* Display Output */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col md:flex-row gap-6 items-center shadow-sm">
-            <div className="flex flex-col items-center shrink-0 border border-slate-105 bg-slate-50/50 rounded-2xl p-4">
+            <div className="flex flex-col items-center shrink-0 border border-slate-100 bg-slate-50/50 rounded-2xl p-4">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-3">Isolated Candle</span>
               <MiniCandle bullish={true} bodyHeight={60} wickTop={5} wickBottom={5} label="GREEN CANDLE" color="bg-teal-600 border-teal-700 text-white" />
             </div>
@@ -154,7 +154,7 @@ export const MarketConditionsFoundation = () => {
                 </div>
               </div>
 
-              <div className="bg-slate-50 p-4 border border-slate-150 rounded-xl space-y-1">
+              <div className="bg-slate-50 p-4 border border-slate-200 rounded-xl space-y-1">
                 <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none">Audited Interpretation</span>
                 <span className="text-xs font-black text-[#071B36] uppercase tracking-tight">{current.outcome}</span>
               </div>
@@ -252,7 +252,7 @@ export const TrendConditionEnvironment = () => {
               </div>
             </div>
 
-            <span className="text-[8px] font-mono text-slate-350 uppercase tracking-tighter mt-4 block border-t border-slate-200/50 pt-3">
+            <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter mt-4 block border-t border-slate-200/50 pt-3">
               Verdict: Environment dictates candle value.
             </span>
           </div>
@@ -356,7 +356,7 @@ export const RangeConditionEnvironment = () => {
               </div>
             </div>
 
-            <span className="text-[8px] font-mono text-slate-350 uppercase tracking-tighter mt-4 block border-t border-slate-200/50 pt-3">
+            <span className="text-[8px] font-mono text-slate-300 uppercase tracking-tighter mt-4 block border-t border-slate-200/50 pt-3">
               Verdict: Range ceiling repels price rotation.
             </span>
           </div>
@@ -544,7 +544,7 @@ export const CompressionConditionBoard = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-amber-50 border border-amber-250 rounded-xl p-3 flex items-start gap-1.5 text-[9px] font-bold text-amber-800">
+            <div className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-3 flex items-start gap-1.5 text-[9px] font-bold text-amber-800">
               <Info size={14} className="shrink-0 text-amber-600 mt-0.5" />
               <span>Squeeze limits swing space. Breakout is pending.</span>
             </div>
@@ -623,7 +623,7 @@ export const ExpansionConditionBoard = () => {
               
               <div className="space-y-3">
                 <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", expansionMode === "verified" ? "text-teal-600 bg-teal-50 border-teal-100" : "text-rose-600 bg-rose-50 border-rose-100")}>
-                  {expansionMode === "verified" ? "EXPANSION VERIFIED" : "SPECWIDE TRAP"}
+                  {expansionMode === "verified" ? "EXPANSION VERIFIED" : "SPECULATIVE TRAP"}
                 </span>
                 <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                   {expansionMode === "verified" 
@@ -703,7 +703,7 @@ export const ChoppyConditionWarning = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-850 leading-normal flex items-start gap-2">
+            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 Before you trust any local pattern, identify the environment. It is chop, which means all local evidence is untrustworthy noise.
@@ -767,7 +767,7 @@ export const SameCandleDifferentCondition = () => {
         </div>
 
         {/* Tab Selectors */}
-        <div className="grid grid-cols-4 gap-2 bg-slate-105 p-1.5 rounded-xl border border-slate-200">
+        <div className="grid grid-cols-4 gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
           {Object.keys(cases).map((k) => (
             <button
               key={k}
@@ -876,7 +876,7 @@ export const ConditionFirstWorkflow = () => {
                 <Info size={12} className="text-teal-500" />
                 Active Analysis Phase
               </div>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-3">
                 <span className="text-[9px] font-black font-mono text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-100 inline-block uppercase">
@@ -889,7 +889,7 @@ export const ConditionFirstWorkflow = () => {
               </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-slate-105 space-y-1">
+            <div className="mt-8 pt-4 border-t border-slate-100 space-y-1">
               <span className="text-[8px] font-black uppercase text-slate-400 tracking-widest font-mono">Verification Task</span>
               <p className="text-xs text-[#071B36] font-black leading-snug italic">{steps[activeStep].check}</p>
             </div>
@@ -956,14 +956,14 @@ export const MarketConditionPracticeDrill = () => {
                 <Info size={12} className="text-teal-500" />
                 Scenario Evidence Board
               </div>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-3 font-mono">
                 <h4 className="text-[10px] font-black uppercase text-[#071B36]">Prior Environment</h4>
-                <p className="text-xs text-slate-650 leading-relaxed font-bold">{scenario.prior}</p>
+                <p className="text-xs text-slate-600 leading-relaxed font-bold">{scenario.prior}</p>
                 
                 <h4 className="text-[10px] font-black uppercase text-[#071B36] mt-4">Recent Clues</h4>
-                <p className="text-xs text-slate-650 leading-relaxed font-bold">{scenario.recent}</p>
+                <p className="text-xs text-slate-600 leading-relaxed font-bold">{scenario.recent}</p>
               </div>
             </div>
 
@@ -1055,7 +1055,7 @@ export const MarketConditionDebrief = () => {
           <div className="relative z-10 space-y-6">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Core Track Complete</span>
             <h3 className="text-lg font-black leading-tight uppercase tracking-tight">Environmental Classifier</h3>
-            <p className="text-xs text-slate-405 leading-relaxed max-w-xl font-semibold">
+            <p className="text-xs text-slate-400 leading-relaxed max-w-xl font-semibold">
               You have completed the Level 0 Module 0.7 Core Concept. You have shifted your mindset from reacting to individual price candles to classifying the broader market environment first. You now understand that trends, ranges, transitions, compressions, expansions, and chop dictate what candle evidence actually means.
             </p>
           </div>

@@ -31,12 +31,12 @@ import { InstitutionalFrame, MentorInsight } from "./shared";
  * Helper: Mini Candlestick Graphic
  */
 const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15, label = "", color = "" }) => (
-  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-105 shadow-sm shrink-0">
+  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
     <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
     <div 
       className={cn(
         "w-5 rounded-sm border relative flex items-center justify-center animate-pulse", 
-        color || (bullish ? "bg-teal-600 border-teal-700 shadow-sm text-white" : "bg-rose-605 border-rose-705 shadow-sm text-white")
+        color || (bullish ? "bg-teal-600 border-teal-700 shadow-sm text-white" : "bg-rose-600 border-rose-700 shadow-sm text-white")
       )} 
       style={{ height: `${bodyHeight}px`, animationDuration: "3.5s" }} 
     />
@@ -71,25 +71,25 @@ export const CryptoConditionFoundation = () => {
       title: "BTC Context",
       desc: "Bitcoin acts as the market index. If BTC is trending, altcoin breaks hold. If BTC is choppy, altcoins become fragile.",
       rule: "Check BTC direction and range limits before trading any altcoin.",
-      badge: "bg-amber-50 text-amber-650 border-amber-150"
+      badge: "bg-amber-50 text-amber-600 border-amber-200"
     },
     venue: {
       title: "Spot vs Perp Support",
       desc: "Spot buying indicates real accumulation. Perp buying is leverage-driven and highly prone to sudden reversals.",
       rule: "Confirm breakouts have spot volume support, not just perp open interest spikes.",
-      badge: "bg-teal-50 text-teal-655 border-teal-150"
+      badge: "bg-teal-50 text-teal-600 border-teal-200"
     },
     liquidity: {
       title: "Liquidity Depth",
       desc: "Thin order books during late-session or weekends create erratic spikes with very poor follow-through.",
       rule: "Lower reading confidence when trading inside low-liquidity hours.",
-      badge: "bg-purple-50 text-purple-650 border-purple-150"
+      badge: "bg-purple-50 text-purple-600 border-purple-200"
     },
     leverage: {
       title: "Leverage Pressure",
       desc: "Crowded futures positioning triggers liquidation cascades, producing massive candles that represent forced exit spikes.",
       rule: "Never trade directly inside liquidation wicks until price stabilizes.",
-      badge: "bg-rose-50 text-rose-650 border-rose-150"
+      badge: "bg-rose-50 text-rose-600 border-rose-200"
     }
   };
 
@@ -124,7 +124,7 @@ export const CryptoConditionFoundation = () => {
                   )}
                 >
                   <span className="text-xs font-black uppercase tracking-wider">{layers[k as keyof typeof layers].title}</span>
-                  <ChevronRight size={14} className={selectedLayer === k ? "text-amber-605" : "text-slate-300"} />
+                  <ChevronRight size={14} className={selectedLayer === k ? "text-amber-600" : "text-slate-300"} />
                 </button>
               ))}
             </div>
@@ -139,7 +139,7 @@ export const CryptoConditionFoundation = () => {
                 <Info size={12} className="text-amber-500" />
                 Active Market Layer
               </div>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-3">
                 <span className={cn("px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider border inline-block", current.badge)}>
@@ -151,7 +151,7 @@ export const CryptoConditionFoundation = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-slate-50 p-4 border border-slate-155 rounded-xl space-y-1">
+            <div className="mt-8 bg-slate-50 p-4 border border-slate-200 rounded-xl space-y-1">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none font-mono">Audit Filter Rule</span>
               <p className="text-xs text-[#0B1528] font-black leading-snug font-mono italic">"{current.rule}"</p>
             </div>
@@ -179,28 +179,28 @@ export const CryptoBtcConditionMap = () => {
       altImpact: "High-Quality Expansion",
       desc: "Altcoin breakout structures are highly reliable and hold value. Risk environment is stable.",
       quality: "Clear Reading Quality",
-      color: "bg-teal-50 text-teal-605 border-teal-150"
+      color: "bg-teal-50 text-teal-600 border-teal-200"
     },
     range: {
       title: "BTC Range / Balance",
       altImpact: "Independent Rotation",
       desc: "Altcoins move independently based on local factors. Standard range rotation rules apply.",
       quality: "Mixed / Independent Quality",
-      color: "bg-purple-50 text-purple-605 border-purple-150"
+      color: "bg-purple-50 text-purple-600 border-purple-200"
     },
     transition: {
       title: "BTC Transition",
       altImpact: "Fragile Breakouts",
       desc: "Altcoins attempt breakouts but face sudden rejection the second Bitcoin tests range extremes.",
       quality: "Mixed Reading Quality",
-      color: "bg-amber-50 text-amber-605 border-amber-150"
+      color: "bg-amber-50 text-amber-600 border-amber-200"
     },
     chop: {
       title: "BTC Chop / Dump",
       altImpact: "Structure Breakdown",
       desc: "Erratic sweeps in Bitcoin invalidate all altcoin patterns. Altcoin breakouts collapse instantly.",
       quality: "Unclear / High Risk",
-      color: "bg-rose-50 text-rose-605 border-rose-150"
+      color: "bg-rose-50 text-rose-600 border-rose-200"
     }
   };
 
@@ -217,7 +217,7 @@ export const CryptoBtcConditionMap = () => {
         </div>
 
         {/* Weather selectors */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200">
           {Object.keys(conditions).map((k) => (
             <button
               key={k}
@@ -243,7 +243,7 @@ export const CryptoBtcConditionMap = () => {
                 <>
                   <MiniCandle bullish={true} bodyHeight={30} label="BTC UP" color="bg-amber-500 border-amber-600 text-white" />
                   <MiniCandle bullish={true} bodyHeight={60} label="ALT BREAK" />
-                  <MiniCandle bullish={true} bodyHeight={20} label="HOLD" color="bg-teal-650 border-teal-755 text-white animate-pulse" />
+                  <MiniCandle bullish={true} bodyHeight={20} label="HOLD" color="bg-teal-600 border-teal-700 text-white animate-pulse" />
                 </>
               )}
               {activeWeather === "range" && (
@@ -262,7 +262,7 @@ export const CryptoBtcConditionMap = () => {
               )}
               {activeWeather === "chop" && (
                 <>
-                  <MiniCandle bullish={true} bodyHeight={15} wickTop={30} wickBottom={30} label="BTC CHOP" color="bg-rose-550 border-rose-650 text-white" />
+                  <MiniCandle bullish={true} bodyHeight={15} wickTop={30} wickBottom={30} label="BTC CHOP" color="bg-rose-500 border-rose-600 text-white" />
                   <MiniCandle bullish={false} bodyHeight={10} wickTop={40} wickBottom={40} label="ALT COLLAPSE" color="bg-rose-500/40 border-rose-400 text-rose-800" />
                 </>
               )}
@@ -313,7 +313,7 @@ export const CryptoSpotPerpConditionBoard = () => {
       perpOI: "Stable / Rising Open Interest",
       conditionResult: "Clean Expansion Environment",
       desc: "Price is rising with organic spot volume and moderate futures leverage. This condition is stable and high quality.",
-      badge: "bg-teal-50 text-teal-655 border-teal-150"
+      badge: "bg-teal-50 text-teal-600 border-teal-200"
     },
     perpOnly: {
       label: "Perp-Only Spike",
@@ -321,7 +321,7 @@ export const CryptoSpotPerpConditionBoard = () => {
       perpOI: "Sharp $40M Open Interest Spike",
       conditionResult: "Unstable / Leverage Squeeze",
       desc: "Price is driven purely by leveraged futures traders. Spot order books are empty. Highly vulnerable to a complete reverse dump.",
-      badge: "bg-rose-50 text-rose-605 border-rose-150"
+      badge: "bg-rose-50 text-rose-600 border-rose-200"
     }
   };
 
@@ -338,7 +338,7 @@ export const CryptoSpotPerpConditionBoard = () => {
             <h3 className="text-lg font-black text-[#0B1528] uppercase tracking-tight">Venue Agreement Dashboard</h3>
           </div>
           
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             <button 
               onClick={() => setVenueMode("aligned")} 
               className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", venueMode === "aligned" ? "bg-[#0B1528] text-white shadow-sm" : "text-slate-600 hover:text-[#0B1528]")}
@@ -357,16 +357,16 @@ export const CryptoSpotPerpConditionBoard = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Venues Display */}
           <div className="md:col-span-7 grid grid-cols-2 gap-4 bg-white border border-slate-200 rounded-[2rem] p-6 shadow-sm min-h-[220px]">
-            <div className="border border-slate-105 rounded-xl p-4 flex flex-col justify-between bg-slate-50/50">
+            <div className="border border-slate-100 rounded-xl p-4 flex flex-col justify-between bg-slate-50/50">
               <span className="text-[8px] font-black uppercase text-slate-400 font-mono">Spot Order Books</span>
               <span className="text-[10px] font-black text-[#0B1528] uppercase leading-tight font-mono">{current.spotVolume}</span>
-              <Info size={14} className="text-slate-350" />
+              <Info size={14} className="text-slate-300" />
             </div>
             
-            <div className="border border-slate-105 rounded-xl p-4 flex flex-col justify-between bg-[#0B1528] text-white">
-              <span className="text-[8px] font-black uppercase text-slate-450 font-mono">Perp Open Interest</span>
+            <div className="border border-slate-100 rounded-xl p-4 flex flex-col justify-between bg-[#0B1528] text-white">
+              <span className="text-[8px] font-black uppercase text-slate-400 font-mono">Perp Open Interest</span>
               <span className="text-[10px] font-black text-amber-400 uppercase leading-tight font-mono">{current.perpOI}</span>
-              <Zap size={14} className="text-amber-450 animate-pulse" />
+              <Zap size={14} className="text-amber-400 animate-pulse" />
             </div>
           </div>
 
@@ -444,8 +444,8 @@ export const CryptoCompressionCondition = () => {
                 <>
                   <div className="absolute -top-1 right-2 w-0.5 h-16 border-r-2 border-teal-500 border-dashed animate-pulse" />
                   <div className="absolute -bottom-1 right-2 w-0.5 h-16 border-r-2 border-rose-500 border-dashed animate-pulse" />
-                  <span className="absolute -top-6 right-2 text-[8px] font-black text-teal-605 bg-teal-50 px-1 border border-teal-150 rounded">EXPANSION UP</span>
-                  <span className="absolute -bottom-6 right-2 text-[8px] font-black text-rose-605 bg-rose-50 px-1 border border-rose-150 rounded">EXPANSION DOWN</span>
+                  <span className="absolute -top-6 right-2 text-[8px] font-black text-teal-600 bg-teal-50 px-1 border border-teal-200 rounded">EXPANSION UP</span>
+                  <span className="absolute -bottom-6 right-2 text-[8px] font-black text-rose-600 bg-rose-50 px-1 border border-rose-200 rounded">EXPANSION DOWN</span>
                 </>
               )}
             </div>
@@ -462,7 +462,7 @@ export const CryptoCompressionCondition = () => {
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none">Compression Audit Console</span>
               <div className="h-px bg-slate-200" />
               
-              <div className="space-y-3 text-xs text-slate-650 leading-relaxed font-bold">
+              <div className="space-y-3 text-xs text-slate-600 leading-relaxed font-bold">
                 <p>
                   1. The asset is compressing. swigs are narrowing, and volume is dropping. Price is in directionless equilibrium.
                 </p>
@@ -472,7 +472,7 @@ export const CryptoCompressionCondition = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-amber-50 border border-amber-250 p-3 rounded-xl text-[9px] font-bold text-amber-805">
+            <div className="mt-8 bg-amber-50 border border-amber-200 p-3 rounded-xl text-[9px] font-bold text-amber-800">
               Rule: Compression is not a prediction. Wait for verified expansion.
             </div>
           </div>
@@ -500,11 +500,11 @@ export const CryptoExpansionQuality = () => {
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-extrabold text-teal-605 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Expansion</span>
+            <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Expansion</span>
             <h3 className="text-lg font-black text-[#0B1528] uppercase tracking-tight">Breakout Verification</h3>
           </div>
           
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             <button 
               onClick={() => setExpansionMode("clean")} 
               className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", expansionMode === "clean" ? "bg-teal-600 text-white shadow-sm" : "text-slate-600 hover:text-teal-600")}
@@ -513,7 +513,7 @@ export const CryptoExpansionQuality = () => {
             </button>
             <button 
               onClick={() => setExpansionMode("fade")} 
-              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", expansionMode === "fade" ? "bg-rose-600 text-white shadow-sm" : "text-slate-600 hover:text-rose-605")}
+              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", expansionMode === "fade" ? "bg-rose-600 text-white shadow-sm" : "text-slate-600 hover:text-rose-600")}
             >
               Perp Spike & Fade
             </button>
@@ -523,7 +523,7 @@ export const CryptoExpansionQuality = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Chart Display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="absolute top-[80px] left-0 w-full border-t border-slate-350 border-dashed" />
+            <div className="absolute top-[80px] left-0 w-full border-t border-slate-300 border-dashed" />
             <span className="absolute top-[85px] left-4 text-[7px] font-black text-slate-400 uppercase tracking-wider">Range Boundary</span>
 
             <div className="flex gap-4 items-end relative z-10">
@@ -531,12 +531,12 @@ export const CryptoExpansionQuality = () => {
               {expansionMode === "clean" ? (
                 <>
                   <MiniCandle bullish={true} bodyHeight={60} label="SPOT BREAK" />
-                  <MiniCandle bullish={true} bodyHeight={20} wickTop={10} label="HOLD OUT" color="bg-teal-650 border-teal-755 text-white animate-pulse" />
+                  <MiniCandle bullish={true} bodyHeight={20} wickTop={10} label="HOLD OUT" color="bg-teal-600 border-teal-700 text-white animate-pulse" />
                 </>
               ) : (
                 <>
                   <MiniCandle bullish={true} bodyHeight={70} wickTop={25} label="PERP SPIKE" color="bg-rose-500 border-rose-600 text-white" />
-                  <MiniCandle bullish={false} bodyHeight={50} label="FADE IN" color="bg-rose-650 border-rose-755 text-white animate-pulse" />
+                  <MiniCandle bullish={false} bodyHeight={50} label="FADE IN" color="bg-rose-600 border-rose-700 text-white animate-pulse" />
                 </>
               )}
             </div>
@@ -549,7 +549,7 @@ export const CryptoExpansionQuality = () => {
               <div className="h-px bg-slate-200" />
               
               <div className="space-y-3">
-                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", expansionMode === "clean" ? "text-teal-650 bg-teal-50 border-teal-150" : "text-rose-650 bg-rose-50 border-rose-150")}>
+                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", expansionMode === "clean" ? "text-teal-600 bg-teal-50 border-teal-200" : "text-rose-600 bg-rose-50 border-rose-200")}>
                   {expansionMode === "clean" ? "CLEAN VERIFIED EXPANSION" : "UNSTABLE PERP FADE"}
                 </span>
                 <p className="text-xs text-slate-500 font-semibold leading-relaxed">
@@ -585,13 +585,13 @@ export const CryptoLiquidationCondition = () => {
   const states = {
     cascade: {
       label: "Cascade Spike",
-      badge: "bg-rose-50 text-rose-605 border-rose-150",
+      badge: "bg-rose-50 text-rose-600 border-rose-200",
       desc: "Forced short liquidations trigger automated market buy orders. Price spikes 8% in 3 minutes, leaving a massive wick.",
       status: "UNSTABLE ENVIRONMENT"
     },
     stabilize: {
       label: "Settled Hold",
-      badge: "bg-teal-50 text-teal-655 border-teal-150",
+      badge: "bg-teal-50 text-teal-600 border-teal-200",
       desc: "After the liquidation clearing, price remains consolidated near the highs. Organic demand steps in to defend the level.",
       status: "VERIFIED STABILITY"
     }
@@ -610,7 +610,7 @@ export const CryptoLiquidationCondition = () => {
             <h3 className="text-lg font-black text-[#0B1528] uppercase tracking-tight">Forced Exit Diagnostics</h3>
           </div>
           
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             <button 
               onClick={() => setLiqState("cascade")} 
               className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", liqState === "cascade" ? "bg-rose-600 text-white shadow-sm" : "text-slate-600 hover:text-rose-600")}
@@ -619,7 +619,7 @@ export const CryptoLiquidationCondition = () => {
             </button>
             <button 
               onClick={() => setLiqState("stabilize")} 
-              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", liqState === "stabilize" ? "bg-teal-650 text-white shadow-sm" : "text-slate-600 hover:text-teal-650")}
+              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", liqState === "stabilize" ? "bg-teal-600 text-white shadow-sm" : "text-slate-600 hover:text-teal-600")}
             >
               Post-Move Hold
             </button>
@@ -642,7 +642,7 @@ export const CryptoLiquidationCondition = () => {
               ) : (
                 <>
                   <MiniCandle bullish={true} bodyHeight={75} wickTop={10} label="LIQ CLEAR" />
-                  <MiniCandle bullish={true} bodyHeight={20} label="STABLE" color="bg-teal-650 border-teal-755 text-white animate-pulse" />
+                  <MiniCandle bullish={true} bodyHeight={20} label="STABLE" color="bg-teal-600 border-teal-700 text-white animate-pulse" />
                   <div className="absolute top-4 right-4 bg-teal-100 border border-teal-200 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-teal-700 uppercase">
                     <CheckCircle size={10} />
                     Volume holds structure
@@ -696,7 +696,7 @@ export const CryptoThinLiquidityCondition = () => {
       volatility: "Smooth step-by-step price action",
       quality: "High Reading Quality",
       desc: "Order books are dense. Large buy/sell orders are absorbed without major slippage. technical levels are respected.",
-      badge: "bg-teal-50 text-teal-655 border-teal-150"
+      badge: "bg-teal-50 text-teal-600 border-teal-200"
     },
     thin: {
       label: "Thin Liquidity (Weekend/Holiday)",
@@ -704,7 +704,7 @@ export const CryptoThinLiquidityCondition = () => {
       volatility: "Erratic spikes and quick fades",
       quality: "Lower Confidence Reading",
       desc: "Order books are hollow. Small retail orders cause large, erratic swings. Price action is highly noisy with wicks.",
-      badge: "bg-rose-50 text-rose-605 border-rose-150"
+      badge: "bg-rose-50 text-rose-600 border-rose-200"
     }
   };
 
@@ -721,16 +721,16 @@ export const CryptoThinLiquidityCondition = () => {
             <h3 className="text-lg font-black text-[#0B1528] uppercase tracking-tight">Order Book Density</h3>
           </div>
           
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             <button 
               onClick={() => setLiquidityMode("normal")} 
-              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all font-mono", liquidityMode === "normal" ? "bg-[#0B1528] text-white shadow-sm" : "text-slate-650 hover:text-[#0B1528]")}
+              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all font-mono", liquidityMode === "normal" ? "bg-[#0B1528] text-white shadow-sm" : "text-slate-600 hover:text-[#0B1528]")}
             >
               Normal Volume
             </button>
             <button 
               onClick={() => setLiquidityMode("thin")} 
-              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all font-mono", liquidityMode === "thin" ? "bg-rose-600 text-white shadow-sm" : "text-slate-650 hover:text-[#0B1528]")}
+              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all font-mono", liquidityMode === "thin" ? "bg-rose-600 text-white shadow-sm" : "text-slate-600 hover:text-[#0B1528]")}
             >
               Thin Liquidity
             </button>
@@ -745,12 +745,12 @@ export const CryptoThinLiquidityCondition = () => {
                 <>
                   <MiniCandle bullish={true} bodyHeight={25} label="Step 1" />
                   <MiniCandle bullish={true} bodyHeight={35} label="Step 2" />
-                  <MiniCandle bullish={true} bodyHeight={40} label="Step 3" color="bg-teal-650 border-teal-755 text-white" />
+                  <MiniCandle bullish={true} bodyHeight={40} label="Step 3" color="bg-teal-600 border-teal-700 text-white" />
                 </>
               ) : (
                 <>
                   <MiniCandle bullish={true} bodyHeight={70} wickTop={35} label="ERRATIC SPIKE" color="bg-rose-500 border-rose-600 text-white animate-pulse" />
-                  <MiniCandle bullish={false} bodyHeight={60} label="ERRATIC FADE" color="bg-rose-650 border-rose-755 text-white animate-pulse" />
+                  <MiniCandle bullish={false} bodyHeight={60} label="ERRATIC FADE" color="bg-rose-600 border-rose-700 text-white animate-pulse" />
                 </>
               )}
             </div>
@@ -772,7 +772,7 @@ export const CryptoThinLiquidityCondition = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-slate-105 p-3 border border-slate-200 rounded-xl text-[9px] font-bold text-slate-700">
+            <div className="mt-8 bg-slate-100 p-3 border border-slate-200 rounded-xl text-[9px] font-bold text-slate-700">
               Rule: If liquidity is thin, your confidence should drop.
             </div>
           </div>
@@ -841,7 +841,7 @@ export const CryptoChoppyConditionWarning = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-850 leading-normal flex items-start gap-2">
+            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 Chop is not a failure to understand. Sometimes the market is simply not clean. Protect capital and stand aside.
@@ -894,7 +894,7 @@ export const CryptoConditionFirstWorkflow = () => {
                   "p-3 rounded-xl border text-left transition-all duration-205 flex items-center justify-between shadow-sm",
                   activeStep === idx 
                     ? "bg-[#0B1528] text-white border-transparent scale-102" 
-                    : "bg-white border-slate-200 hover:bg-slate-50 text-slate-650"
+                    : "bg-white border-slate-200 hover:bg-slate-50 text-slate-600"
                 )}
               >
                 <span className="text-xs font-black uppercase tracking-wider font-mono">{s.label}</span>
@@ -909,10 +909,10 @@ export const CryptoConditionFirstWorkflow = () => {
             
             <div className="space-y-4 relative z-10">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none">Workflow Step Details</span>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-2">
-                <span className="text-[10px] font-black text-amber-655 bg-amber-50 px-2 py-0.5 rounded border border-amber-150 inline-block">
+                <span className="text-[10px] font-black text-amber-600 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 inline-block">
                   {steps[activeStep].label}
                 </span>
                 <p className="text-xs text-slate-600 font-semibold leading-relaxed">
@@ -921,7 +921,7 @@ export const CryptoConditionFirstWorkflow = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-slate-50 p-4 rounded-xl text-[9px] font-bold text-slate-700 italic border border-slate-150">
+            <div className="mt-8 bg-slate-50 p-4 rounded-xl text-[9px] font-bold text-slate-700 italic border border-slate-200">
               Rule: Never audit a candle until you have named the room it is standing in.
             </div>
           </div>
@@ -987,14 +987,14 @@ export const CryptoConditionPracticeDrill = () => {
                 <Info size={12} className="text-amber-500" />
                 Scenario Evidence Board
               </div>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-3 font-mono">
                 <h4 className="text-[10px] font-black uppercase text-[#0B1528]">Breakout Attempt</h4>
-                <p className="text-xs text-slate-650 leading-relaxed font-bold">{scenario.prior}</p>
+                <p className="text-xs text-slate-600 leading-relaxed font-bold">{scenario.prior}</p>
                 
                 <h4 className="text-[10px] font-black uppercase text-[#0B1528] mt-4">Context Clues</h4>
-                <p className="text-xs text-slate-650 leading-relaxed font-bold">{scenario.recent}</p>
+                <p className="text-xs text-slate-600 leading-relaxed font-bold">{scenario.recent}</p>
               </div>
             </div>
 
@@ -1019,8 +1019,8 @@ export const CryptoConditionPracticeDrill = () => {
                       "w-full p-4 rounded-xl border text-left text-xs font-bold leading-normal transition-all duration-200 shadow-sm font-mono",
                       selectedOption === opt.id 
                         ? opt.isCorrect 
-                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-905"
-                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-905"
+                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-900"
+                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                     )}
                   >
@@ -1047,9 +1047,9 @@ export const CryptoConditionPracticeDrill = () => {
                 >
                   <div className="flex items-center gap-1.5 mb-1.5 font-mono">
                     {options.find(o => o.id === selectedOption)?.isCorrect ? (
-                      <CheckCircle size={14} className="text-teal-650" />
+                      <CheckCircle size={14} className="text-teal-600" />
                     ) : (
-                      <AlertTriangle size={14} className="text-rose-650" />
+                      <AlertTriangle size={14} className="text-rose-600" />
                     )}
                     <span className="font-black uppercase tracking-widest text-[9px]">
                       {options.find(o => o.id === selectedOption)?.isCorrect ? "Correct Audit" : "Audit Discrepancy"}

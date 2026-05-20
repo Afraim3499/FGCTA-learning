@@ -31,7 +31,7 @@ import { InstitutionalFrame, MentorInsight } from "./shared";
  * Helper: Mini Candlestick Graphic for Gold (typically golden/amber or classic dark mode tones)
  */
 const MiniGoldCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15, label = "", color = "" }) => (
-  <div className="flex flex-col items-center justify-center h-32 w-16 bg-amber-50/50 rounded-lg p-2 border border-amber-105 shadow-sm shrink-0">
+  <div className="flex flex-col items-center justify-center h-32 w-16 bg-amber-50/50 rounded-lg p-2 border border-amber-100 shadow-sm shrink-0">
     <div className="w-0.5 bg-amber-400" style={{ height: `${wickTop}px` }} />
     <div 
       className={cn(
@@ -51,10 +51,10 @@ const MiniGoldCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBot
 const GoldChecklistRibbon = () => (
   <div className="w-full bg-[#0B1528] text-white py-2.5 px-4 rounded-xl border border-amber-900/35 flex items-center justify-between shadow-sm shrink-0 mb-4 font-mono">
     <div className="flex items-center gap-2">
-      <Zap size={12} className="text-amber-405 animate-pulse" />
+      <Zap size={12} className="text-amber-400 animate-pulse" />
       <span className="text-[9px] font-black uppercase tracking-widest text-amber-400">Gold Roadway filter</span>
     </div>
-    <span className="text-[10px] font-black text-amber-305 uppercase tracking-tight text-right italic">
+    <span className="text-[10px] font-black text-amber-300 uppercase tracking-tight text-right italic">
       "Before I trust a gold move, I must name the condition and watch the reaction zone."
     </span>
   </div>
@@ -71,25 +71,25 @@ export const GoldConditionFoundation = () => {
       title: "Volatility State",
       desc: "Gold is naturally fast and volatile. Speed tells you activity increased, but it does not mean the condition is clear.",
       rule: "Never trade price speed alone. Wait for structure verification.",
-      badge: "bg-amber-50 text-amber-650 border-amber-150"
+      badge: "bg-amber-50 text-amber-600 border-amber-200"
     },
     zones: {
       title: "Reaction Zones",
       desc: "Gold moves between key zones rather than precise numbers. Watch how price acts as it tests these areas.",
       rule: "Identify if price is accepting, rejecting, or sweeping the zone.",
-      badge: "bg-teal-50 text-teal-655 border-teal-150"
+      badge: "bg-teal-50 text-teal-600 border-teal-200"
     },
     wicks: {
       title: "Wick Quality",
       desc: "Long wicks relative to candle bodies prove buyer or seller exhaustion. Clean moves close with solid bodies.",
       rule: "Verify close quality at the end of the session before trusting a break.",
-      badge: "bg-purple-50 text-purple-650 border-purple-150"
+      badge: "bg-purple-50 text-purple-600 border-purple-200"
     },
     macro: {
       title: "USD & Macro Pressure",
       desc: "Gold pricing reacts strongly to US economic releases, yields, and interest rate expectations.",
       rule: "Acknowledge when high-impact data distorts technical structures.",
-      badge: "bg-rose-50 text-rose-650 border-rose-150"
+      badge: "bg-rose-50 text-rose-600 border-rose-200"
     }
   };
 
@@ -120,11 +120,11 @@ export const GoldConditionFoundation = () => {
                     "w-full p-3 rounded-xl border text-left transition-all duration-200 flex items-center justify-between shadow-sm",
                     selectedLayer === k 
                       ? "bg-white border-amber-500 ring-2 ring-amber-500/10 scale-102 text-[#0B1528]" 
-                      : "bg-[#F8FBFC] border-slate-200 hover:bg-white text-slate-655"
+                      : "bg-[#F8FBFC] border-slate-200 hover:bg-white text-slate-600"
                   )}
                 >
                   <span className="text-xs font-black uppercase tracking-wider">{layers[k as keyof typeof layers].title}</span>
-                  <ChevronRight size={14} className={selectedLayer === k ? "text-amber-605" : "text-slate-300"} />
+                  <ChevronRight size={14} className={selectedLayer === k ? "text-amber-600" : "text-slate-300"} />
                 </button>
               ))}
             </div>
@@ -139,7 +139,7 @@ export const GoldConditionFoundation = () => {
                 <Info size={12} className="text-amber-500" />
                 Active Market Layer
               </div>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-3">
                 <span className={cn("px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider border inline-block", current.badge)}>
@@ -151,7 +151,7 @@ export const GoldConditionFoundation = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-slate-50 p-4 border border-slate-155 rounded-xl space-y-1">
+            <div className="mt-8 bg-slate-50 p-4 border border-slate-200 rounded-xl space-y-1">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none font-mono">Audit Filter Rule</span>
               <p className="text-xs text-[#0B1528] font-black leading-snug font-mono italic">"{current.rule}"</p>
             </div>
@@ -179,28 +179,28 @@ export const GoldVolatilityConditionMap = () => {
       impact: "Orderly Rotations",
       desc: "Gold rotates calmly between range highs and lows. Support and resistance zones are respected cleanly.",
       quality: "Standard Reading Quality",
-      color: "bg-teal-50 text-teal-605 border-teal-150"
+      color: "bg-teal-50 text-teal-600 border-teal-200"
     },
     expansion: {
       title: "Active Expansion",
       impact: "Clean Continuation",
       desc: "Price expands outside ranges with strong candle closes and solid follow-through, backed by volume.",
       quality: "High-Confidence Reading",
-      color: "bg-purple-50 text-purple-605 border-purple-150"
+      color: "bg-purple-50 text-purple-600 border-purple-200"
     },
     spike: {
       title: "Event Spike",
       impact: "Unstable Sweep",
       desc: "A rapid, news-driven surge that triggers stops on both sides but fails to sustain structure.",
       quality: "Mixed / Unstable Quality",
-      color: "bg-amber-50 text-amber-605 border-amber-150"
+      color: "bg-amber-50 text-amber-600 border-amber-200"
     },
     chop: {
       title: "Choppy Volatility",
       impact: "Structure Breakdowns",
       desc: "Erratic sweeps and overlapping candle bodies make breakout attempts highly prone to failure.",
       quality: "Unclear / High Risk",
-      color: "bg-rose-50 text-rose-605 border-rose-150"
+      color: "bg-rose-50 text-rose-600 border-rose-200"
     }
   };
 
@@ -217,7 +217,7 @@ export const GoldVolatilityConditionMap = () => {
         </div>
 
         {/* Weather selectors */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200">
           {Object.keys(conditions).map((k) => (
             <button
               key={k}
@@ -227,7 +227,7 @@ export const GoldVolatilityConditionMap = () => {
                 activeWeather === k ? "bg-[#0B1528] text-white border-transparent scale-102" : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
               )}
             >
-              <span className="text-[8px] font-black uppercase text-slate-450 leading-none">Weather Condition</span>
+              <span className="text-[8px] font-black uppercase text-slate-400 leading-none">Weather Condition</span>
               <span className="text-[9px] font-bold text-slate-400 mt-1 leading-none">{conditions[k as keyof typeof conditions].title}</span>
             </button>
           ))}
@@ -262,8 +262,8 @@ export const GoldVolatilityConditionMap = () => {
               )}
               {activeWeather === "chop" && (
                 <>
-                  <MiniGoldCandle bullish={true} bodyHeight={15} wickTop={30} wickBottom={30} label="Chop Up" color="bg-slate-450 border-slate-550 text-white" />
-                  <MiniGoldCandle bullish={false} bodyHeight={10} wickTop={40} wickBottom={40} label="Chop Down" color="bg-slate-450 border-slate-550 text-white" />
+                  <MiniGoldCandle bullish={true} bodyHeight={15} wickTop={30} wickBottom={30} label="Chop Up" color="bg-slate-400 border-slate-500 text-white" />
+                  <MiniGoldCandle bullish={false} bodyHeight={10} wickTop={40} wickBottom={40} label="Chop Down" color="bg-slate-400 border-slate-500 text-white" />
                 </>
               )}
             </div>
@@ -279,7 +279,7 @@ export const GoldVolatilityConditionMap = () => {
                 <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", current.color)}>
                   {current.impact}
                 </span>
-                <p className="text-xs text-slate-505 font-semibold leading-relaxed">
+                <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                   {current.desc}
                 </p>
               </div>
@@ -311,19 +311,19 @@ export const GoldReactionZoneCondition = () => {
       label: "Zone Test",
       description: "Price moves into a historical reaction zone to check if buyers or sellers are still defending it.",
       result: "Mixed / Pending Acceptance",
-      badge: "bg-amber-50 text-amber-605 border-amber-150"
+      badge: "bg-amber-50 text-amber-600 border-amber-200"
     },
     rejection: {
       label: "Zone Rejection",
       description: "Price enters the zone but leaves a long wick and closes outside it, confirming opposition.",
       result: "Clear Rejection Environment",
-      badge: "bg-rose-50 text-rose-605 border-rose-150"
+      badge: "bg-rose-50 text-rose-600 border-rose-200"
     },
     acceptance: {
       label: "Zone Acceptance",
       description: "Price breaks out of a zone and successfully consolidates on the other side, confirming strength.",
       result: "Clean Continuation Environment",
-      badge: "bg-teal-50 text-teal-655 border-teal-150"
+      badge: "bg-teal-50 text-teal-600 border-teal-200"
     }
   };
 
@@ -340,7 +340,7 @@ export const GoldReactionZoneCondition = () => {
             <h3 className="text-lg font-black text-[#0B1528] uppercase tracking-tight">Zone Context Scanner</h3>
           </div>
           
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             {Object.keys(zones).map((k) => (
               <button 
                 key={k}
@@ -369,7 +369,7 @@ export const GoldReactionZoneCondition = () => {
               {zoneMode === "test" && (
                 <>
                   <MiniGoldCandle bullish={true} bodyHeight={40} label="TEST" />
-                  <div className="absolute top-2 right-4 bg-amber-100 border border-amber-250 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-amber-700 uppercase">
+                  <div className="absolute top-2 right-4 bg-amber-100 border border-amber-200 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-amber-700 uppercase">
                     <Info size={10} />
                     Awaiting Reaction
                   </div>
@@ -378,8 +378,8 @@ export const GoldReactionZoneCondition = () => {
               {zoneMode === "rejection" && (
                 <>
                   <MiniGoldCandle bullish={true} bodyHeight={60} wickTop={35} label="WICK THROUGH" color="bg-rose-500 border-rose-600 text-white" />
-                  <MiniGoldCandle bullish={false} bodyHeight={35} label="CLOSE OUT" color="bg-rose-650 border-rose-755 text-white animate-pulse" />
-                  <div className="absolute top-2 right-4 bg-rose-100 border border-rose-250 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-rose-700 uppercase">
+                  <MiniGoldCandle bullish={false} bodyHeight={35} label="CLOSE OUT" color="bg-rose-600 border-rose-700 text-white animate-pulse" />
+                  <div className="absolute top-2 right-4 bg-rose-100 border border-rose-200 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-rose-700 uppercase">
                     <AlertTriangle size={10} />
                     Zone Rejection confirmed
                   </div>
@@ -388,8 +388,8 @@ export const GoldReactionZoneCondition = () => {
               {zoneMode === "acceptance" && (
                 <>
                   <MiniGoldCandle bullish={true} bodyHeight={60} label="BREAK THROUGH" />
-                  <MiniGoldCandle bullish={true} bodyHeight={20} label="HOLD ABOVE" color="bg-teal-650 border-teal-755 text-white animate-pulse" />
-                  <div className="absolute top-2 right-4 bg-teal-100 border border-teal-250 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-teal-700 uppercase">
+                  <MiniGoldCandle bullish={true} bodyHeight={20} label="HOLD ABOVE" color="bg-teal-600 border-teal-700 text-white animate-pulse" />
+                  <div className="absolute top-2 right-4 bg-teal-100 border border-teal-200 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-teal-700 uppercase">
                     <CheckCircle size={10} />
                     Zone Acceptance confirmed
                   </div>
@@ -408,7 +408,7 @@ export const GoldReactionZoneCondition = () => {
                 <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", current.badge)}>
                   {current.result}
                 </span>
-                <p className="text-xs text-slate-505 font-semibold leading-relaxed">
+                <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                   {current.description}
                 </p>
               </div>
@@ -470,10 +470,10 @@ export const GoldCompressionCondition = () => {
               <MiniGoldCandle bullish={true} bodyHeight={10} label="Coil 3" />
               {showPaths && (
                 <>
-                  <div className="absolute -top-1 right-2 w-0.5 h-16 border-r-2 border-teal-505 border-dashed animate-pulse" />
-                  <div className="absolute -bottom-1 right-2 w-0.5 h-16 border-r-2 border-rose-505 border-dashed animate-pulse" />
-                  <span className="absolute -top-6 right-2 text-[8px] font-black text-teal-605 bg-teal-50 px-1 border border-teal-150 rounded">EXPANSION UP</span>
-                  <span className="absolute -bottom-6 right-2 text-[8px] font-black text-rose-605 bg-rose-50 px-1 border border-rose-150 rounded">EXPANSION DOWN</span>
+                  <div className="absolute -top-1 right-2 w-0.5 h-16 border-r-2 border-teal-500 border-dashed animate-pulse" />
+                  <div className="absolute -bottom-1 right-2 w-0.5 h-16 border-r-2 border-rose-500 border-dashed animate-pulse" />
+                  <span className="absolute -top-6 right-2 text-[8px] font-black text-teal-600 bg-teal-50 px-1 border border-teal-200 rounded">EXPANSION UP</span>
+                  <span className="absolute -bottom-6 right-2 text-[8px] font-black text-rose-600 bg-rose-50 px-1 border border-rose-200 rounded">EXPANSION DOWN</span>
                 </>
               )}
             </div>
@@ -489,7 +489,7 @@ export const GoldCompressionCondition = () => {
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none">Compression Audit</span>
               <div className="h-px bg-slate-200" />
               
-              <div className="space-y-3 text-xs text-slate-650 leading-relaxed font-bold">
+              <div className="space-y-3 text-xs text-slate-600 leading-relaxed font-bold">
                 <p>
                   1. Price swings are narrowing and candle sizes are shrinking. Buyers and sellers are in coiled balance.
                 </p>
@@ -499,7 +499,7 @@ export const GoldCompressionCondition = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-amber-50 border border-amber-250 p-3 rounded-xl text-[9px] font-bold text-amber-805">
+            <div className="mt-8 bg-amber-50 border border-amber-200 p-3 rounded-xl text-[9px] font-bold text-amber-800">
               Rule: Compression is not a prediction. Wait for verified expansion.
             </div>
           </div>
@@ -527,20 +527,20 @@ export const GoldExpansionQuality = () => {
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-extrabold text-teal-605 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Gold Expansion</span>
+            <span className="text-[10px] font-extrabold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded border border-teal-100 inline-block">Gold Expansion</span>
             <h3 className="text-lg font-black text-[#0B1528] uppercase tracking-tight">Breakout Verification</h3>
           </div>
           
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             <button 
               onClick={() => setExpansionMode("clean")} 
-              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", expansionMode === "clean" ? "bg-teal-600 text-white shadow-sm" : "text-slate-650 hover:text-teal-600")}
+              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", expansionMode === "clean" ? "bg-teal-600 text-white shadow-sm" : "text-slate-600 hover:text-teal-600")}
             >
               Clean Hold
             </button>
             <button 
               onClick={() => setExpansionMode("wick")} 
-              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", expansionMode === "wick" ? "bg-rose-600 text-white shadow-sm" : "text-slate-655 hover:text-rose-605")}
+              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", expansionMode === "wick" ? "bg-rose-600 text-white shadow-sm" : "text-slate-600 hover:text-rose-600")}
             >
               Wick & Fail
             </button>
@@ -550,7 +550,7 @@ export const GoldExpansionQuality = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Chart Display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="absolute top-[80px] left-0 w-full border-t border-slate-350 border-dashed" />
+            <div className="absolute top-[80px] left-0 w-full border-t border-slate-300 border-dashed" />
             <span className="absolute top-[85px] left-4 text-[7px] font-black text-slate-400 uppercase tracking-wider">Reaction Zone Boundary</span>
 
             <div className="flex gap-4 items-end relative z-10">
@@ -558,12 +558,12 @@ export const GoldExpansionQuality = () => {
               {expansionMode === "clean" ? (
                 <>
                   <MiniGoldCandle bullish={true} bodyHeight={60} label="CLEAN CLOSE" />
-                  <MiniGoldCandle bullish={true} bodyHeight={20} wickTop={10} label="HOLD OUT" color="bg-teal-650 border-teal-755 text-white animate-pulse" />
+                  <MiniGoldCandle bullish={true} bodyHeight={20} wickTop={10} label="HOLD OUT" color="bg-teal-600 border-teal-700 text-white animate-pulse" />
                 </>
               ) : (
                 <>
                   <MiniGoldCandle bullish={true} bodyHeight={70} wickTop={40} label="SPIKE OUT" color="bg-rose-500 border-rose-600 text-white" />
-                  <MiniGoldCandle bullish={false} bodyHeight={50} label="FADE IN" color="bg-rose-650 border-rose-755 text-white animate-pulse" />
+                  <MiniGoldCandle bullish={false} bodyHeight={50} label="FADE IN" color="bg-rose-600 border-rose-700 text-white animate-pulse" />
                 </>
               )}
             </div>
@@ -576,7 +576,7 @@ export const GoldExpansionQuality = () => {
               <div className="h-px bg-slate-200" />
               
               <div className="space-y-3">
-                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", expansionMode === "clean" ? "text-teal-650 bg-teal-50 border-teal-150" : "text-rose-650 bg-rose-50 border-rose-150")}>
+                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", expansionMode === "clean" ? "text-teal-600 bg-teal-50 border-teal-200" : "text-rose-600 bg-rose-50 border-rose-200")}>
                   {expansionMode === "clean" ? "CLEAN VERIFIED EXPANSION" : "UNSTABLE SPIKE FADE"}
                 </span>
                 <p className="text-xs text-slate-500 font-semibold leading-relaxed">
@@ -616,20 +616,20 @@ export const GoldMacroConditionDistortion = () => {
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
           <div className="space-y-1">
-            <span className="text-[10px] font-extrabold text-rose-650 uppercase tracking-widest bg-rose-50 px-2 py-1 rounded border border-rose-100 inline-block">Macro Distortion</span>
+            <span className="text-[10px] font-extrabold text-rose-600 uppercase tracking-widest bg-rose-50 px-2 py-1 rounded border border-rose-100 inline-block">Macro Distortion</span>
             <h3 className="text-lg font-black text-[#0B1528] uppercase tracking-tight">Macro Pressure State Board</h3>
           </div>
           
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             <button 
               onClick={() => setMacroState("distortion")} 
-              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", macroState === "distortion" ? "bg-rose-600 text-white shadow-sm" : "text-slate-655 hover:text-rose-605")}
+              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", macroState === "distortion" ? "bg-rose-600 text-white shadow-sm" : "text-slate-600 hover:text-rose-600")}
             >
               CPI/News Spike
             </button>
             <button 
               onClick={() => setMacroState("settled")} 
-              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", macroState === "settled" ? "bg-teal-650 text-white shadow-sm" : "text-slate-655 hover:text-teal-655")}
+              className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", macroState === "settled" ? "bg-teal-600 text-white shadow-sm" : "text-slate-600 hover:text-teal-600")}
             >
               Post-News Settlement
             </button>
@@ -644,7 +644,7 @@ export const GoldMacroConditionDistortion = () => {
               {macroState === "distortion" ? (
                 <>
                   <MiniGoldCandle bullish={true} bodyHeight={80} wickTop={40} wickBottom={40} label="CPI DUAL SWEEP" color="bg-rose-500 border-rose-600 text-white" />
-                  <div className="absolute top-4 right-4 bg-rose-100 border border-rose-250 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-rose-700 uppercase animate-bounce">
+                  <div className="absolute top-4 right-4 bg-rose-100 border border-rose-200 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-rose-700 uppercase animate-bounce">
                     <AlertTriangle size={10} />
                     Unstable macro distortion
                   </div>
@@ -652,8 +652,8 @@ export const GoldMacroConditionDistortion = () => {
               ) : (
                 <>
                   <MiniGoldCandle bullish={true} bodyHeight={75} wickTop={10} label="SETTLED CLOSE" />
-                  <MiniGoldCandle bullish={true} bodyHeight={20} label="CONFIRMED HOLD" color="bg-teal-650 border-teal-755 text-white animate-pulse" />
-                  <div className="absolute top-4 right-4 bg-teal-100 border border-teal-250 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-teal-700 uppercase">
+                  <MiniGoldCandle bullish={true} bodyHeight={20} label="CONFIRMED HOLD" color="bg-teal-600 border-teal-700 text-white animate-pulse" />
+                  <div className="absolute top-4 right-4 bg-teal-100 border border-teal-200 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-teal-700 uppercase">
                     <CheckCircle size={10} />
                     Settled structure
                   </div>
@@ -665,11 +665,11 @@ export const GoldMacroConditionDistortion = () => {
           {/* Details */}
           <div className="md:col-span-5 bg-slate-50 border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm font-mono">
             <div className="space-y-4">
-              <span className="text-[8px] font-black text-slate-405 uppercase tracking-widest block leading-none">Macro State Console</span>
+              <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none">Macro State Console</span>
               <div className="h-px bg-slate-200" />
               
               <div className="space-y-3">
-                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", macroState === "distortion" ? "text-rose-650 bg-rose-50 border-rose-150" : "text-teal-650 bg-teal-50 border-teal-150")}>
+                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", macroState === "distortion" ? "text-rose-600 bg-rose-50 border-rose-200" : "text-teal-600 bg-teal-50 border-teal-200")}>
                   {macroState === "distortion" ? "UNSTABLE MACRO SWEEP" : "VERIFIED STABILIZATION"}
                 </span>
                 <p className="text-xs text-slate-500 font-semibold leading-relaxed">
@@ -721,7 +721,7 @@ export const GoldTrendConditionStructure = () => {
               <MiniGoldCandle bullish={true} bodyHeight={45} label="HH 3" />
             </div>
             
-            <div className="absolute top-4 right-4 bg-teal-100 border border-teal-250 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-teal-700 uppercase">
+            <div className="absolute top-4 right-4 bg-teal-100 border border-teal-200 rounded-lg p-2 flex items-center gap-1 text-[8px] font-black text-teal-700 uppercase">
               <CheckCircle size={10} />
               STRUCTURAL STAIRCASE
             </div>
@@ -733,7 +733,7 @@ export const GoldTrendConditionStructure = () => {
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none font-mono">Trend Audit Console</span>
               <div className="h-px bg-slate-200" />
               
-              <div className="space-y-3 text-xs text-slate-650 leading-relaxed font-bold">
+              <div className="space-y-3 text-xs text-slate-600 leading-relaxed font-bold">
                 <p>
                   1. Price is building a clean staircase of higher highs (HH) and higher lows (HL).
                 </p>
@@ -778,14 +778,14 @@ export const GoldChoppyConditionWarning = () => {
             <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#0B1528_1.5px,transparent_1.5px)] bg-[length:16px_16px]" />
             
             <div className="flex gap-2 items-center relative z-10">
-              <MiniGoldCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Chop" color="bg-rose-500/40 border-rose-400 text-rose-850" />
+              <MiniGoldCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Chop" color="bg-rose-500/40 border-rose-400 text-rose-800" />
               <MiniGoldCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Chop" color="bg-slate-400/40 border-slate-300 text-slate-800" />
-              <MiniGoldCandle bullish={true} bodyHeight={10} wickTop={40} wickBottom={40} label="Chop" color="bg-rose-500/40 border-rose-400 text-rose-855" />
+              <MiniGoldCandle bullish={true} bodyHeight={10} wickTop={40} wickBottom={40} label="Chop" color="bg-rose-500/40 border-rose-400 text-rose-800" />
               <MiniGoldCandle bullish={false} bodyHeight={25} wickTop={20} wickBottom={35} label="Chop" color="bg-slate-400/40 border-slate-300 text-slate-800" />
             </div>
 
-            <div className="absolute top-4 right-4 bg-rose-100 border border-rose-250 rounded-lg p-2 flex items-center gap-1 text-[9px] font-black text-rose-700 uppercase">
-              <AlertTriangle size={12} className="text-rose-505" />
+            <div className="absolute top-4 right-4 bg-rose-100 border border-rose-200 rounded-lg p-2 flex items-center gap-1 text-[9px] font-black text-rose-700 uppercase">
+              <AlertTriangle size={12} className="text-rose-500" />
               CHOP STATE DETECTED
             </div>
           </div>
@@ -812,7 +812,7 @@ export const GoldChoppyConditionWarning = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-850 leading-normal flex items-start gap-2">
+            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 Chop is not a failure to understand. Sometimes Gold is simply not clean. Protect capital and stand aside.
@@ -865,11 +865,11 @@ export const GoldConditionFirstWorkflow = () => {
                   "p-3 rounded-xl border text-left transition-all duration-205 flex items-center justify-between shadow-sm font-mono",
                   activeStep === idx 
                     ? "bg-[#0B1528] text-white border-transparent scale-102" 
-                    : "bg-white border-slate-200 hover:bg-slate-50 text-slate-650"
+                    : "bg-white border-slate-200 hover:bg-slate-50 text-slate-600"
                 )}
               >
                 <span className="text-xs font-black uppercase tracking-wider">{s.label}</span>
-                <ChevronRight size={14} className={activeStep === idx ? "text-amber-400" : "text-slate-350"} />
+                <ChevronRight size={14} className={activeStep === idx ? "text-amber-400" : "text-slate-300"} />
               </button>
             ))}
           </div>
@@ -880,10 +880,10 @@ export const GoldConditionFirstWorkflow = () => {
             
             <div className="space-y-4 relative z-10">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none">Workflow Step Details</span>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-2">
-                <span className="text-[10px] font-black text-amber-655 bg-amber-50 px-2 py-0.5 rounded border border-amber-150 inline-block">
+                <span className="text-[10px] font-black text-amber-600 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 inline-block">
                   {steps[activeStep].label}
                 </span>
                 <p className="text-xs text-slate-600 font-semibold leading-relaxed">
@@ -892,7 +892,7 @@ export const GoldConditionFirstWorkflow = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-slate-50 p-4 rounded-xl text-[9px] font-bold text-slate-700 italic border border-slate-150">
+            <div className="mt-8 bg-slate-50 p-4 rounded-xl text-[9px] font-bold text-slate-700 italic border border-slate-200">
               Rule: Never audit a candle until you have named the room it is standing in.
             </div>
           </div>
@@ -955,21 +955,21 @@ export const GoldConditionPracticeDrill = () => {
           <div className="md:col-span-5 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-between shadow-sm font-mono">
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">
-                <Info size={12} className="text-amber-505" />
+                <Info size={12} className="text-amber-500" />
                 Scenario Evidence Board
               </div>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-3">
                 <h4 className="text-[10px] font-black uppercase text-[#0B1528]">Breakout Attempt</h4>
-                <p className="text-xs text-slate-650 leading-relaxed font-bold">{scenario.prior}</p>
+                <p className="text-xs text-slate-600 leading-relaxed font-bold">{scenario.prior}</p>
                 
                 <h4 className="text-[10px] font-black uppercase text-[#0B1528] mt-4">Context Clues</h4>
-                <p className="text-xs text-slate-650 leading-relaxed font-bold">{scenario.recent}</p>
+                <p className="text-xs text-slate-600 leading-relaxed font-bold">{scenario.recent}</p>
               </div>
             </div>
 
-            <div className="mt-8 bg-slate-50 p-4 rounded-xl text-[9px] text-slate-505">
+            <div className="mt-8 bg-slate-50 p-4 rounded-xl text-[9px] text-slate-500">
               Audit Rule: Look for zone acceptance and follow-through.
             </div>
           </div>
@@ -990,8 +990,8 @@ export const GoldConditionPracticeDrill = () => {
                       "w-full p-4 rounded-xl border text-left text-xs font-bold leading-normal transition-all duration-200 shadow-sm font-mono",
                       selectedOption === opt.id 
                         ? opt.isCorrect 
-                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-905"
-                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-905"
+                          ? "bg-teal-50 border-teal-500 ring-2 ring-teal-500/10 text-teal-900"
+                          : "bg-rose-50 border-rose-500 ring-2 ring-rose-500/10 text-rose-900"
                         : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                     )}
                   >
@@ -1018,9 +1018,9 @@ export const GoldConditionPracticeDrill = () => {
                 >
                   <div className="flex items-center gap-1.5 mb-1.5 font-mono">
                     {options.find(o => o.id === selectedOption)?.isCorrect ? (
-                      <CheckCircle size={14} className="text-teal-650" />
+                      <CheckCircle size={14} className="text-teal-600" />
                     ) : (
-                      <AlertTriangle size={14} className="text-rose-650" />
+                      <AlertTriangle size={14} className="text-rose-600" />
                     )}
                     <span className="font-black uppercase tracking-widest text-[9px]">
                       {options.find(o => o.id === selectedOption)?.isCorrect ? "Correct Audit" : "Audit Discrepancy"}

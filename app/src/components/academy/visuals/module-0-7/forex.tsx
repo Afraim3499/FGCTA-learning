@@ -28,7 +28,7 @@ import { InstitutionalFrame, MentorInsight } from "./shared";
  * Helper: Mini Candlestick Graphic
  */
 const MiniCandle = ({ bullish = true, bodyHeight = 40, wickTop = 15, wickBottom = 15, label = "", color = "" }) => (
-  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-105 shadow-sm shrink-0">
+  <div className="flex flex-col items-center justify-center h-32 w-16 bg-white/50 rounded-lg p-2 border border-slate-100 shadow-sm shrink-0">
     <div className="w-0.5 bg-slate-400" style={{ height: `${wickTop}px` }} />
     <div 
       className={cn(
@@ -49,7 +49,7 @@ const ForexChecklistRibbon = () => (
   <div className="w-full bg-[#071B36] text-white py-2.5 px-4 rounded-xl border border-slate-800 flex items-center justify-between shadow-sm shrink-0 mb-4 font-mono">
     <div className="flex items-center gap-2">
       <Globe size={12} className="text-teal-400 animate-pulse" />
-      <span className="text-[9px] font-black uppercase tracking-widest text-slate-350">Forex Roadway filter</span>
+      <span className="text-[9px] font-black uppercase tracking-widest text-slate-300">Forex Roadway filter</span>
     </div>
     <span className="text-[10px] font-black text-teal-400 uppercase tracking-tight text-right italic">
       "Before I trust a Forex move, I need to know the session and pair condition."
@@ -68,25 +68,25 @@ export const ForexConditionFoundation = () => {
       title: "Session Rhythm",
       desc: "Asia is compression; London brings initial expansion; New York tests, continues, or rejects.",
       rule: "Audit which window price is in before expecting momentum.",
-      badge: "bg-teal-50 text-teal-650 border-teal-150"
+      badge: "bg-teal-50 text-teal-600 border-teal-200"
     },
     usd: {
       title: "USD Counterweight",
       desc: "Check DXY index alignment. A EUR/USD break is far cleaner if USD is breaking support.",
       rule: "Never analyze a major pair in isolation from DXY context.",
-      badge: "bg-amber-50 text-amber-650 border-amber-150"
+      badge: "bg-amber-50 text-amber-600 border-amber-200"
     },
     related: {
       title: "Related Pairs",
       desc: "Divergence between EUR/USD and GBP/USD breakout attempts signals mixed condition quality.",
       rule: "Look for correlation alignment before trusting single-pair spikes.",
-      badge: "bg-purple-50 text-purple-650 border-purple-150"
+      badge: "bg-purple-50 text-purple-600 border-purple-200"
     },
     structure: {
       title: "Pair Structure",
       desc: "Is price making clean swing steps or overlapping wicks? Chop voids all local candle signals.",
       rule: "Let overall structure dictate if local candles are meaningful.",
-      badge: "bg-blue-50 text-blue-650 border-blue-150"
+      badge: "bg-blue-50 text-blue-600 border-blue-200"
     }
   };
 
@@ -136,7 +136,7 @@ export const ForexConditionFoundation = () => {
                 <Info size={12} className="text-teal-500" />
                 Active Context Layer
               </div>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-3">
                 <span className={cn("px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider border inline-block", current.badge)}>
@@ -148,7 +148,7 @@ export const ForexConditionFoundation = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-slate-50 p-4 border border-slate-150 rounded-xl space-y-1">
+            <div className="mt-8 bg-slate-50 p-4 border border-slate-200 rounded-xl space-y-1">
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none font-mono">Audit Filter Rule</span>
               <p className="text-xs text-[#071B36] font-black leading-snug font-mono italic">"{current.rule}"</p>
             </div>
@@ -176,32 +176,32 @@ export const ForexSessionConditionMap = () => {
       clock: "8:00 PM - 3:00 AM NY",
       cond: "Compression Range",
       desc: "Low institutional participation for majors. Price consolidates within tight horizontal boxes.",
-      caution: "SPECWIDE TRAP: Treating range boundaries as breakout opportunities.",
-      color: "bg-teal-50 text-teal-605 border-teal-150"
+      caution: "SPECULATIVE TRAP: Treating range boundaries as breakout opportunities.",
+      color: "bg-teal-50 text-teal-600 border-teal-200"
     },
     london: {
       name: "London Open",
       clock: "3:00 AM - 7:00 AM NY",
       cond: "Initial Expansion",
       desc: "European capital enters. Price spikes outside the Asia boundaries to test higher or lower liquidity.",
-      caution: "SPECWIDE TRAP: Buying high-speed breakout candles immediately.",
-      color: "bg-amber-50 text-amber-605 border-amber-150"
+      caution: "SPECULATIVE TRAP: Buying high-speed breakout candles immediately.",
+      color: "bg-amber-50 text-amber-600 border-amber-200"
     },
     overlap: {
       name: "NY/London Overlap",
       clock: "8:00 AM - 12:00 PM NY",
       cond: "Follow-through / Rejection",
       desc: "US institutions open. Macro data prints. Peak daily volume determines if expansion holds or fails.",
-      caution: "SPECWIDE TRAP: Assuming London's direction must continue all day.",
-      color: "bg-purple-50 text-purple-655 border-purple-150"
+      caution: "SPECULATIVE TRAP: Assuming London's direction must continue all day.",
+      color: "bg-purple-50 text-purple-600 border-purple-200"
     },
     nyLate: {
       name: "Late New York",
       clock: "1:00 PM - 5:00 PM NY",
       cond: "Chop / Transition",
       desc: "Volume drains. Swings overlap repeatedly. Standard technical levels degrade into noise.",
-      caution: "SPECWIDE TRAP: Over-analyzing patterns in flat, low-liquidity chop.",
-      color: "bg-rose-50 text-rose-605 border-rose-150"
+      caution: "SPECULATIVE TRAP: Over-analyzing patterns in flat, low-liquidity chop.",
+      color: "bg-rose-50 text-rose-600 border-rose-200"
     }
   };
 
@@ -218,7 +218,7 @@ export const ForexSessionConditionMap = () => {
         </div>
 
         {/* Sessions timeline */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200">
           {Object.keys(sessions).map((k) => (
             <button
               key={k}
@@ -257,13 +257,13 @@ export const ForexSessionConditionMap = () => {
                 <>
                   <MiniCandle bullish={true} bodyHeight={60} label="London Exp" />
                   <MiniCandle bullish={false} bodyHeight={25} label="NY Pullback" />
-                  <MiniCandle bullish={true} bodyHeight={75} label="NY Hold" color="bg-purple-650 border-purple-750 text-white" />
+                  <MiniCandle bullish={true} bodyHeight={75} label="NY Hold" color="bg-purple-600 border-purple-700 text-white" />
                 </>
               )}
               {activeSession === "nyLate" && (
                 <>
-                  <MiniCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Chop" color="bg-rose-500/40 border-rose-450 text-rose-800" />
-                  <MiniCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Overlap" color="bg-slate-400/40 border-slate-350 text-slate-800" />
+                  <MiniCandle bullish={true} bodyHeight={20} wickTop={30} wickBottom={30} label="Chop" color="bg-rose-500/40 border-rose-400 text-rose-800" />
+                  <MiniCandle bullish={false} bodyHeight={15} wickTop={35} wickBottom={30} label="Overlap" color="bg-slate-400/40 border-slate-300 text-slate-800" />
                 </>
               )}
             </div>
@@ -344,8 +344,8 @@ export const ForexAsiaRangeCompression = () => {
                 <>
                   <div className="absolute -top-1 right-2 w-0.5 h-16 border-r-2 border-teal-500 border-dashed animate-pulse" />
                   <div className="absolute -bottom-1 right-2 w-0.5 h-16 border-r-2 border-rose-500 border-dashed animate-pulse" />
-                  <span className="absolute -top-6 right-2 text-[8px] font-black text-teal-605 bg-teal-50 px-1 border border-teal-150 rounded">PATH A: BUY EXPANSION</span>
-                  <span className="absolute -bottom-6 right-2 text-[8px] font-black text-rose-605 bg-rose-50 px-1 border border-rose-150 rounded">PATH B: SELL EXPANSION</span>
+                  <span className="absolute -top-6 right-2 text-[8px] font-black text-teal-600 bg-teal-50 px-1 border border-teal-200 rounded">PATH A: BUY EXPANSION</span>
+                  <span className="absolute -bottom-6 right-2 text-[8px] font-black text-rose-600 bg-rose-50 px-1 border border-rose-200 rounded">PATH B: SELL EXPANSION</span>
                 </>
               )}
             </div>
@@ -362,7 +362,7 @@ export const ForexAsiaRangeCompression = () => {
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest block leading-none">Compression Audit Console</span>
               <div className="h-px bg-slate-200" />
               
-              <div className="space-y-3 text-xs text-slate-650 leading-relaxed font-bold">
+              <div className="space-y-3 text-xs text-slate-600 leading-relaxed font-bold">
                 <p>
                   1. The Tokyo/Asia window is characterized by natural compression. Price is building energy but direction is not declared.
                 </p>
@@ -372,7 +372,7 @@ export const ForexAsiaRangeCompression = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-amber-50 border border-amber-250 p-3 rounded-xl text-[9px] font-bold text-amber-800">
+            <div className="mt-8 bg-amber-50 border border-amber-200 p-3 rounded-xl text-[9px] font-bold text-amber-800">
               Rule: Asia compression gives you a reference, not an instruction.
             </div>
           </div>
@@ -423,7 +423,7 @@ export const ForexLondonExpansionQuality = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Chart Display */}
           <div className="md:col-span-7 bg-white border border-slate-200 rounded-[2rem] p-6 flex flex-col justify-center items-center shadow-sm min-h-[220px] relative overflow-hidden">
-            <div className="absolute top-[80px] left-0 w-full border-t border-slate-350 border-dashed" />
+            <div className="absolute top-[80px] left-0 w-full border-t border-slate-300 border-dashed" />
             <span className="absolute top-[85px] left-4 text-[7px] font-black text-slate-400 uppercase tracking-wider">Asia High Range Limit</span>
 
             <div className="flex gap-4 items-end relative z-10">
@@ -431,12 +431,12 @@ export const ForexLondonExpansionQuality = () => {
               {expansionMode === "hold" ? (
                 <>
                   <MiniCandle bullish={true} bodyHeight={60} label="LNDN BREAK" />
-                  <MiniCandle bullish={true} bodyHeight={20} wickTop={20} label="HOLD" color="bg-teal-650 border-teal-755 text-white animate-pulse" />
+                  <MiniCandle bullish={true} bodyHeight={20} wickTop={20} label="HOLD" color="bg-teal-600 border-teal-700 text-white animate-pulse" />
                 </>
               ) : (
                 <>
                   <MiniCandle bullish={true} bodyHeight={60} label="LNDN SPIKE" />
-                  <MiniCandle bullish={false} bodyHeight={50} label="SNAP BACK" color="bg-rose-650 border-rose-755 text-white animate-pulse" />
+                  <MiniCandle bullish={false} bodyHeight={50} label="SNAP BACK" color="bg-rose-600 border-rose-700 text-white animate-pulse" />
                 </>
               )}
             </div>
@@ -449,7 +449,7 @@ export const ForexLondonExpansionQuality = () => {
               <div className="h-px bg-slate-200" />
               
               <div className="space-y-3">
-                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", expansionMode === "hold" ? "text-teal-650 bg-teal-50 border-teal-150" : "text-rose-650 bg-rose-50 border-rose-150")}>
+                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", expansionMode === "hold" ? "text-teal-600 bg-teal-50 border-teal-200" : "text-rose-600 bg-rose-50 border-rose-200")}>
                   {expansionMode === "hold" ? "VERIFIED HOLD" : "FAKE OUT SWEEP"}
                 </span>
                 <p className="text-xs text-slate-500 font-semibold leading-relaxed">
@@ -485,17 +485,17 @@ export const ForexNewYorkConditionShift = () => {
   const paths = {
     continue: {
       label: "Continuation",
-      badge: "bg-teal-50 text-teal-605 border-teal-150",
+      badge: "bg-teal-50 text-teal-600 border-teal-200",
       desc: "US volume joins European traders. NY creates a pullback that holds previous structures and makes new session highs."
     },
     rejection: {
       label: "Rejection",
-      badge: "bg-rose-50 text-rose-605 border-rose-150",
+      badge: "bg-rose-50 text-rose-600 border-rose-200",
       desc: "Macro news triggers a sharp counter-move. NY completely cancels the London move and returns price into the Asia range."
     },
     transition: {
       label: "Mixed Transition",
-      badge: "bg-amber-50 text-amber-605 border-amber-150",
+      badge: "bg-amber-50 text-amber-600 border-amber-200",
       desc: "Volume is divided. NY moves sideways, overlapping previous swing points, resulting in a mixed condition."
     }
   };
@@ -514,7 +514,7 @@ export const ForexNewYorkConditionShift = () => {
           </div>
           
           {/* Path selectors */}
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             {Object.keys(paths).map((k) => (
               <button
                 key={k}
@@ -539,12 +539,12 @@ export const ForexNewYorkConditionShift = () => {
               {nyPath === "continue" && (
                 <>
                   <MiniCandle bullish={false} bodyHeight={20} label="NY Retest" />
-                  <MiniCandle bullish={true} bodyHeight={65} label="NY Continue" color="bg-teal-650 border-teal-755 text-white" />
+                  <MiniCandle bullish={true} bodyHeight={65} label="NY Continue" color="bg-teal-600 border-teal-700 text-white" />
                 </>
               )}
               {nyPath === "rejection" && (
                 <>
-                  <MiniCandle bullish={false} bodyHeight={75} label="NY REJECT" color="bg-rose-650 border-rose-755 text-white" />
+                  <MiniCandle bullish={false} bodyHeight={75} label="NY REJECT" color="bg-rose-600 border-rose-700 text-white" />
                 </>
               )}
               {nyPath === "transition" && (
@@ -604,7 +604,7 @@ export const ForexTrendConditionSessionSupport = () => {
             <h3 className="text-lg font-black text-[#071B36] uppercase tracking-tight">Forex Trend Condition</h3>
           </div>
           
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             <button 
               onClick={() => setTrendState("support")} 
               className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", trendState === "support" ? "bg-teal-600 text-white shadow-sm" : "text-slate-600 hover:text-[#071B36]")}
@@ -628,12 +628,12 @@ export const ForexTrendConditionSessionSupport = () => {
               <MiniCandle bullish={true} bodyHeight={50} label="HH Swing" />
               {trendState === "support" ? (
                 <>
-                  <MiniCandle bullish={false} bodyHeight={20} label="Retest OK" color="bg-teal-650 border-teal-755 text-white" />
+                  <MiniCandle bullish={false} bodyHeight={20} label="Retest OK" color="bg-teal-600 border-teal-700 text-white" />
                   <MiniCandle bullish={true} bodyHeight={70} label="HH Continuation" />
                 </>
               ) : (
                 <>
-                  <MiniCandle bullish={false} bodyHeight={55} label="BREAK LH" color="bg-rose-650 border-rose-755 text-white" />
+                  <MiniCandle bullish={false} bodyHeight={55} label="BREAK LH" color="bg-rose-600 border-rose-700 text-white" />
                   <MiniCandle bullish={true} bodyHeight={20} label="Mixed overlap" />
                 </>
               )}
@@ -647,7 +647,7 @@ export const ForexTrendConditionSessionSupport = () => {
               <div className="h-px bg-slate-200" />
               
               <div className="space-y-3">
-                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", trendState === "support" ? "text-teal-650 bg-teal-50 border-teal-150" : "text-rose-605 bg-rose-50 border-rose-150")}>
+                <span className={cn("text-[9px] font-black px-2 py-0.5 rounded border inline-block uppercase", trendState === "support" ? "text-teal-600 bg-teal-50 border-teal-200" : "text-rose-600 bg-rose-50 border-rose-200")}>
                   {trendState === "support" ? "CLEAN TREND SUPPORT" : "WOBBLY TREND REJECTION"}
                 </span>
                 <p className="text-xs text-slate-500 font-semibold leading-relaxed">
@@ -691,7 +691,7 @@ export const ForexRangeConditionRotation = () => {
             <h3 className="text-lg font-black text-[#071B36] uppercase tracking-tight">Horizontal Balance Rotation</h3>
           </div>
           
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             <button 
               onClick={() => setRangeMode("speculative")} 
               className={cn("px-4 py-2 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all", rangeMode === "speculative" ? "bg-rose-600 text-white shadow-sm" : "text-slate-600 hover:text-[#071B36]")}
@@ -726,7 +726,7 @@ export const ForexRangeConditionRotation = () => {
                 </>
               ) : (
                 <>
-                  <MiniCandle bullish={false} bodyHeight={15} wickTop={45} label="EXHAUSTION" color="bg-rose-650 border-rose-755 text-white" />
+                  <MiniCandle bullish={false} bodyHeight={15} wickTop={45} label="EXHAUSTION" color="bg-rose-600 border-rose-700 text-white" />
                   <MiniCandle bullish={false} bodyHeight={40} label="Rotate Down" />
                   <div className="absolute -top-2 right-10 bg-teal-100 border border-teal-200 px-2 py-1 rounded flex items-center gap-1 text-[8px] font-black text-teal-700 uppercase">
                     <CheckCircle size={10} />
@@ -788,7 +788,7 @@ export const ForexUsdConditionContext = () => {
       gbpText: "GBP/USD breaks high",
       dxyText: "DXY Breaks Low",
       desc: "USD weakness is driving all counter majors in the same direction. Your EUR/USD reading quality increases to Clear.",
-      badge: "bg-teal-50 text-teal-605 border-teal-150"
+      badge: "bg-teal-50 text-teal-600 border-teal-200"
     },
     conflict: {
       label: "USD Conflicts",
@@ -796,7 +796,7 @@ export const ForexUsdConditionContext = () => {
       gbpText: "GBP/USD consolidates",
       dxyText: "DXY consolidates",
       desc: "EUR/USD pushes higher alone. Neither DXY nor GBP/USD confirms the strength. This is divergent, and reading quality drops to Mixed.",
-      badge: "bg-rose-50 text-rose-605 border-rose-150"
+      badge: "bg-rose-50 text-rose-600 border-rose-200"
     },
     unclear: {
       label: "USD Unclear",
@@ -804,7 +804,7 @@ export const ForexUsdConditionContext = () => {
       gbpText: "GBP/USD overlaps",
       dxyText: "DXY Flat / Chop",
       desc: "The dollar index is moving sideways with no structure. All major pairs are choppy. Environment is classified as Unclear.",
-      badge: "bg-amber-50 text-amber-605 border-amber-150"
+      badge: "bg-amber-50 text-amber-600 border-amber-200"
     }
   };
 
@@ -822,7 +822,7 @@ export const ForexUsdConditionContext = () => {
           </div>
           
           {/* States selectors */}
-          <div className="flex items-center gap-2 bg-slate-105 p-1 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
             {Object.keys(states).map((k) => (
               <button
                 key={k}
@@ -841,22 +841,22 @@ export const ForexUsdConditionContext = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Panels Display */}
           <div className="md:col-span-7 grid grid-cols-3 gap-2 bg-white border border-slate-200 rounded-[2rem] p-6 shadow-sm min-h-[220px]">
-            <div className="border border-slate-105 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50">
+            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50">
               <span className="text-[8px] font-black uppercase text-slate-400">EUR/USD</span>
               <span className="text-[10px] font-black text-[#071B36] uppercase leading-tight">{current.eurText}</span>
-              <Info size={14} className="text-slate-350" />
+              <Info size={14} className="text-slate-300" />
             </div>
             
-            <div className="border border-slate-105 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50">
+            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50">
               <span className="text-[8px] font-black uppercase text-slate-400">GBP/USD</span>
               <span className="text-[10px] font-black text-[#071B36] uppercase leading-tight">{current.gbpText}</span>
-              <Info size={14} className="text-slate-350" />
+              <Info size={14} className="text-slate-300" />
             </div>
 
-            <div className="border border-slate-105 rounded-xl p-3 flex flex-col justify-between bg-[#071B36] text-white">
-              <span className="text-[8px] font-black uppercase text-slate-450">DXY (USD Index)</span>
+            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-[#071B36] text-white">
+              <span className="text-[8px] font-black uppercase text-slate-400">DXY (USD Index)</span>
               <span className="text-[10px] font-black text-teal-400 uppercase leading-tight">{current.dxyText}</span>
-              <Globe size={14} className="text-teal-450" />
+              <Globe size={14} className="text-teal-400" />
             </div>
           </div>
 
@@ -945,7 +945,7 @@ export const ForexChoppyConditionWarning = () => {
               </div>
             </div>
 
-            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-850 leading-normal flex items-start gap-2">
+            <div className="mt-8 bg-rose-100/50 p-4 border border-rose-200/50 rounded-xl text-[10px] font-bold text-rose-800 leading-normal flex items-start gap-2">
               <Ban size={14} className="shrink-0 mt-0.5" />
               <span>
                 If the condition is choppy, your confidence should drop. The best traders know when to stand aside and protect capital.
@@ -1014,14 +1014,14 @@ export const ForexConditionPracticeDrill = () => {
                 <Info size={12} className="text-teal-500" />
                 Scenario Evidence Board
               </div>
-              <div className="h-px bg-slate-105" />
+              <div className="h-px bg-slate-100" />
               
               <div className="space-y-3 font-mono">
                 <h4 className="text-[10px] font-black uppercase text-[#071B36]">Breakout Attempt</h4>
-                <p className="text-xs text-slate-650 leading-relaxed font-bold">{scenario.prior}</p>
+                <p className="text-xs text-slate-600 leading-relaxed font-bold">{scenario.prior}</p>
                 
                 <h4 className="text-[10px] font-black uppercase text-[#071B36] mt-4">Context Clues</h4>
-                <p className="text-xs text-slate-650 leading-relaxed font-bold">{scenario.recent}</p>
+                <p className="text-xs text-slate-600 leading-relaxed font-bold">{scenario.recent}</p>
               </div>
             </div>
 
@@ -1113,7 +1113,7 @@ export const ForexConditionDebrief = () => {
           <div className="relative z-10 space-y-6">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[10px] font-extrabold text-teal-400 uppercase tracking-[0.25em]">Forex Track Complete</span>
             <h3 className="text-lg font-black leading-tight uppercase tracking-tight">Environmental Filter</h3>
-            <p className="text-xs text-slate-405 leading-relaxed max-w-xl font-semibold">
+            <p className="text-xs text-slate-400 leading-relaxed max-w-xl font-semibold">
               You have completed the Level 0 Module 0.7 Forex Roadway. You have shifted your perspective from chasing individual candles to auditing the overall Forex environment. You now understand that session rhythm, Asia compression ranges, London expansion quality, New York shifts, USD counterweight context, and related-pair confirmations dictate the validity of every technical setup.
             </p>
           </div>
