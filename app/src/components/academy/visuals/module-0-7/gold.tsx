@@ -255,12 +255,12 @@ export const GoldVolatilityConditionMap = () => {
               key={k}
               onClick={() => setActiveWeather(k)}
               className={cn(
-                "py-3 px-2 rounded-lg text-left transition-all duration-200 flex flex-col justify-between h-16 shadow-sm font-mono",
+                "py-3 px-2 rounded-lg text-left transition-all duration-200 flex flex-col justify-between h-16 shadow-sm font-mono min-w-0 w-full",
                 activeWeather === k ? "bg-[#0B1528] text-white border-transparent scale-102" : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
               )}
             >
-              <span className="text-[8px] font-black uppercase text-slate-400 leading-none">Weather Condition</span>
-              <span className="text-[9px] font-bold text-slate-400 mt-1 leading-none">{conditions[k as keyof typeof conditions].title}</span>
+              <span className={cn("text-[8px] font-black uppercase leading-none break-words whitespace-normal", activeWeather === k ? "text-slate-300" : "text-slate-400")}>Weather Condition</span>
+              <span className={cn("text-[9px] font-bold mt-1 leading-none break-words whitespace-normal", activeWeather === k ? "text-white" : "text-slate-700")}>{conditions[k as keyof typeof conditions].title}</span>
             </button>
           ))}
         </div>
@@ -894,14 +894,14 @@ export const GoldConditionFirstWorkflow = () => {
                 key={idx}
                 onClick={() => setActiveStep(idx)}
                 className={cn(
-                  "p-3 rounded-xl border text-left transition-all duration-205 flex items-center justify-between shadow-sm font-mono",
+                  "p-3 rounded-xl border text-left transition-all duration-205 flex items-center justify-between shadow-sm font-mono min-w-0",
                   activeStep === idx 
                     ? "bg-[#0B1528] text-white border-transparent scale-102" 
-                    : "bg-white border-slate-200 hover:bg-slate-50 text-slate-600"
+                    : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                 )}
               >
-                <span className="text-xs font-black uppercase tracking-wider">{s.label}</span>
-                <ChevronRight size={14} className={activeStep === idx ? "text-amber-400" : "text-slate-300"} />
+                <span className="text-xs font-black uppercase tracking-wider break-words whitespace-normal">{s.label}</span>
+                <ChevronRight size={14} className={cn("shrink-0", activeStep === idx ? "text-amber-400" : "text-slate-300")} />
               </button>
             ))}
           </div>

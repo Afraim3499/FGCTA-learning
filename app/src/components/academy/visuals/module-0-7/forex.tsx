@@ -256,12 +256,12 @@ export const ForexSessionConditionMap = () => {
               key={k}
               onClick={() => setActiveSession(k)}
               className={cn(
-                "py-3 px-2 rounded-lg text-left transition-all duration-200 flex flex-col justify-between h-16 shadow-sm",
+                "py-3 px-2 rounded-lg text-left transition-all duration-200 flex flex-col justify-between h-16 shadow-sm min-w-0 w-full",
                 activeSession === k ? "bg-[#071B36] text-white border-transparent scale-102" : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
               )}
             >
-              <span className="text-[8px] font-black uppercase text-slate-400 leading-none">{sessions[k as keyof typeof sessions].name}</span>
-              <span className="text-[9px] font-bold text-slate-400 mt-1 leading-none">{sessions[k as keyof typeof sessions].clock}</span>
+              <span className={cn("text-[8px] font-black uppercase leading-none break-words whitespace-normal", activeSession === k ? "text-slate-300" : "text-slate-400")}>{sessions[k as keyof typeof sessions].name}</span>
+              <span className={cn("text-[9px] font-bold mt-1 leading-none break-words whitespace-normal", activeSession === k ? "text-white" : "text-slate-700")}>{sessions[k as keyof typeof sessions].clock}</span>
             </button>
           ))}
         </div>
@@ -872,23 +872,23 @@ export const ForexUsdConditionContext = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Panels Display */}
-          <div className="md:col-span-7 grid grid-cols-3 gap-2 bg-white border border-slate-200 rounded-[2rem] p-6 shadow-sm min-h-[220px]">
-            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50">
+          <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-2 bg-white border border-slate-200 rounded-[2rem] p-4 sm:p-6 shadow-sm min-h-fit sm:min-h-[220px]">
+            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50 min-h-[90px] sm:min-h-0 min-w-0">
               <span className="text-[8px] font-black uppercase text-slate-400">EUR/USD</span>
-              <span className="text-[10px] font-black text-[#071B36] uppercase leading-tight">{current.eurText}</span>
-              <Info size={14} className="text-slate-300" />
+              <span className="text-[10px] font-black text-[#071B36] uppercase leading-tight break-words whitespace-normal">{current.eurText}</span>
+              <Info size={14} className="text-slate-300 shrink-0" />
             </div>
             
-            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50">
+            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-slate-50/50 min-h-[90px] sm:min-h-0 min-w-0">
               <span className="text-[8px] font-black uppercase text-slate-400">GBP/USD</span>
-              <span className="text-[10px] font-black text-[#071B36] uppercase leading-tight">{current.gbpText}</span>
-              <Info size={14} className="text-slate-300" />
+              <span className="text-[10px] font-black text-[#071B36] uppercase leading-tight break-words whitespace-normal">{current.gbpText}</span>
+              <Info size={14} className="text-slate-300 shrink-0" />
             </div>
 
-            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-[#071B36] text-white">
+            <div className="border border-slate-100 rounded-xl p-3 flex flex-col justify-between bg-[#071B36] text-white min-h-[90px] sm:min-h-0 min-w-0">
               <span className="text-[8px] font-black uppercase text-slate-400">DXY (USD Index)</span>
-              <span className="text-[10px] font-black text-teal-400 uppercase leading-tight">{current.dxyText}</span>
-              <Globe size={14} className="text-teal-400" />
+              <span className="text-[10px] font-black text-teal-400 uppercase leading-tight break-words whitespace-normal">{current.dxyText}</span>
+              <Globe size={14} className="text-teal-400 shrink-0" />
             </div>
           </div>
 

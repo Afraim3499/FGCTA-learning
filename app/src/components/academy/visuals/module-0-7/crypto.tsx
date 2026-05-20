@@ -255,12 +255,12 @@ export const CryptoBtcConditionMap = () => {
               key={k}
               onClick={() => setActiveWeather(k)}
               className={cn(
-                "py-3 px-2 rounded-lg text-left transition-all duration-200 flex flex-col justify-between h-16 shadow-sm font-mono",
+                "py-3 px-2 rounded-lg text-left transition-all duration-200 flex flex-col justify-between h-16 shadow-sm font-mono min-w-0 w-full",
                 activeWeather === k ? "bg-[#0B1528] text-white border-transparent scale-102" : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
               )}
             >
-              <span className="text-[8px] font-black uppercase text-slate-400 leading-none">Weather Condition</span>
-              <span className="text-[9px] font-bold text-slate-400 mt-1 leading-none">{conditions[k as keyof typeof conditions].title}</span>
+              <span className={cn("text-[8px] font-black uppercase leading-none break-words whitespace-normal", activeWeather === k ? "text-slate-300" : "text-slate-400")}>Weather Condition</span>
+              <span className={cn("text-[9px] font-bold mt-1 leading-none break-words whitespace-normal", activeWeather === k ? "text-white" : "text-slate-700")}>{conditions[k as keyof typeof conditions].title}</span>
             </button>
           ))}
         </div>
@@ -388,17 +388,17 @@ export const CryptoSpotPerpConditionBoard = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Venues Display */}
-          <div className="md:col-span-7 grid grid-cols-2 gap-4 bg-white border border-slate-200 rounded-[2rem] p-6 shadow-sm min-h-[220px]">
-            <div className="border border-slate-100 rounded-xl p-4 flex flex-col justify-between bg-slate-50/50">
+          <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white border border-slate-200 rounded-[2rem] p-4 sm:p-6 shadow-sm min-h-fit sm:min-h-[220px]">
+            <div className="border border-slate-100 rounded-xl p-4 flex flex-col justify-between bg-slate-50/50 min-h-[90px] sm:min-h-0 min-w-0">
               <span className="text-[8px] font-black uppercase text-slate-400 font-mono">Spot Order Books</span>
-              <span className="text-[10px] font-black text-[#0B1528] uppercase leading-tight font-mono">{current.spotVolume}</span>
-              <Info size={14} className="text-slate-300" />
+              <span className="text-[10px] font-black text-[#0B1528] uppercase leading-tight font-mono break-words whitespace-normal">{current.spotVolume}</span>
+              <Info size={14} className="text-slate-300 shrink-0" />
             </div>
             
-            <div className="border border-slate-100 rounded-xl p-4 flex flex-col justify-between bg-[#0B1528] text-white">
+            <div className="border border-slate-100 rounded-xl p-4 flex flex-col justify-between bg-[#0B1528] text-white min-h-[90px] sm:min-h-0 min-w-0">
               <span className="text-[8px] font-black uppercase text-slate-400 font-mono">Perp Open Interest</span>
-              <span className="text-[10px] font-black text-amber-400 uppercase leading-tight font-mono">{current.perpOI}</span>
-              <Zap size={14} className="text-amber-400 animate-pulse" />
+              <span className="text-[10px] font-black text-amber-400 uppercase leading-tight font-mono break-words whitespace-normal">{current.perpOI}</span>
+              <Zap size={14} className="text-amber-400 animate-pulse shrink-0" />
             </div>
           </div>
 
@@ -923,14 +923,14 @@ export const CryptoConditionFirstWorkflow = () => {
                 key={idx}
                 onClick={() => setActiveStep(idx)}
                 className={cn(
-                  "p-3 rounded-xl border text-left transition-all duration-205 flex items-center justify-between shadow-sm",
+                  "p-3 rounded-xl border text-left transition-all duration-205 flex items-center justify-between shadow-sm min-w-0",
                   activeStep === idx 
                     ? "bg-[#0B1528] text-white border-transparent scale-102" 
                     : "bg-white border-slate-200 hover:bg-slate-50 text-slate-600"
                 )}
               >
-                <span className="text-xs font-black uppercase tracking-wider font-mono">{s.label}</span>
-                <ChevronRight size={14} className={activeStep === idx ? "text-amber-400" : "text-slate-300"} />
+                <span className="text-xs font-black uppercase tracking-wider font-mono break-words whitespace-normal">{s.label}</span>
+                <ChevronRight size={14} className={cn("shrink-0", activeStep === idx ? "text-amber-400" : "text-slate-300")} />
               </button>
             ))}
           </div>

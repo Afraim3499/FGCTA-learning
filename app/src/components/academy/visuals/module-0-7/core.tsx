@@ -426,20 +426,20 @@ export const TransitionConditionMap = () => {
         </div>
 
         {/* Stepper */}
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           {steps.map((s, idx) => (
             <button
               key={idx}
               onClick={() => setTransitionStep(idx)}
               className={cn(
-                "p-3 rounded-xl border text-left transition-all duration-300 flex flex-col justify-between shadow-sm",
+                "p-3 rounded-xl border text-left transition-all duration-300 flex flex-col justify-between shadow-sm min-w-0 w-full",
                 transitionStep === idx 
                   ? "bg-[#071B36] text-white border-transparent scale-102" 
                   : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
               )}
             >
-              <span className="text-[8px] font-black uppercase text-slate-400">{s.label.split(". ")[0]}</span>
-              <h4 className="text-[10px] font-black uppercase leading-tight mt-1">{s.label.split(". ")[1]}</h4>
+              <span className="text-[8px] font-black uppercase text-slate-400 break-words whitespace-normal">{s.label.split(". ")[0]}</span>
+              <h4 className="text-[10px] font-black uppercase leading-tight mt-1 break-words whitespace-normal">{s.label.split(". ")[1]}</h4>
             </button>
           ))}
         </div>
@@ -799,13 +799,13 @@ export const SameCandleDifferentCondition = () => {
         </div>
 
         {/* Tab Selectors */}
-        <div className="grid grid-cols-4 gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
           {Object.keys(cases).map((k) => (
             <button
               key={k}
               onClick={() => setSelectedCase(k)}
               className={cn(
-                "py-2 px-3 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all",
+                "py-2 px-3 text-[9px] font-black uppercase tracking-wider rounded-lg transition-all min-w-0 w-full break-words whitespace-normal text-center",
                 selectedCase === k ? "bg-[#071B36] text-white shadow-sm" : "text-slate-600 hover:text-[#071B36]"
               )}
             >
@@ -882,19 +882,19 @@ export const ConditionFirstWorkflow = () => {
                 key={idx}
                 onClick={() => setActiveStep(idx)}
                 className={cn(
-                  "w-full p-4 rounded-xl border text-left transition-all duration-300 flex items-center justify-between shadow-sm",
+                  "w-full p-4 rounded-xl border text-left transition-all duration-300 flex items-center justify-between shadow-sm min-w-0",
                   activeStep === idx 
                     ? "bg-[#071B36] text-white border-transparent scale-102" 
                     : "bg-white border-slate-200 hover:bg-slate-50 text-slate-700"
                 )}
               >
-                <div className="space-y-0.5">
-                  <span className={cn("text-[8px] font-black uppercase tracking-widest", activeStep === idx ? "text-teal-400" : "text-slate-400")}>
+                <div className="space-y-0.5 min-w-0">
+                  <span className={cn("text-[8px] font-black uppercase tracking-widest block break-words whitespace-normal", activeStep === idx ? "text-teal-400" : "text-slate-400")}>
                     Step {idx + 1}
                   </span>
-                  <h4 className="text-xs font-black uppercase leading-tight">{s.title.split(". ")[0]}</h4>
+                  <h4 className="text-xs font-black uppercase leading-tight break-words whitespace-normal">{s.title.split(". ")[1]}</h4>
                 </div>
-                <ChevronRight size={14} className={activeStep === idx ? "text-teal-400" : "text-slate-300"} />
+                <ChevronRight size={14} className={cn("shrink-0", activeStep === idx ? "text-teal-400" : "text-slate-300")} />
               </button>
             ))}
           </div>
