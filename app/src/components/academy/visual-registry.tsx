@@ -318,6 +318,32 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "gold-condition-practice-drill": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldConditionPracticeDrill), { loading: VisualLoading }),
   "gold-condition-debrief": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldConditionDebrief), { loading: VisualLoading }),
 
+  // --- MODULE 0.8 CORE ---
+  "location-gives-evidence-weight": dynamic(() => import("./visuals/module-0-8").then(m => m.LocationGivesEvidenceWeight), { loading: VisualLoading }),
+  "chart-area-priority-map": dynamic(() => import("./visuals/module-0-8").then(m => m.ChartAreaPriorityMap), { loading: VisualLoading }),
+  "reaction-zones-not-lines": dynamic(() => import("./visuals/module-0-8").then(m => m.ReactionZonesNotLines), { loading: VisualLoading }),
+  "edge-vs-middle-location": dynamic(() => import("./visuals/module-0-8").then(m => m.EdgeVsMiddleLocation), { loading: VisualLoading }),
+  "prior-swing-location-reference": dynamic(() => import("./visuals/module-0-8").then(m => m.PriorSwingLocationReference), { loading: VisualLoading }),
+  "acceptance-rejection-location": dynamic(() => import("./visuals/module-0-8").then(m => m.AcceptanceRejectionLocation), { loading: VisualLoading }),
+  "bad-location-weakens-evidence": dynamic(() => import("./visuals/module-0-8").then(m => m.BadLocationWeakensEvidence), { loading: VisualLoading }),
+  "htf-location-changes-story": dynamic(() => import("./visuals/module-0-8").then(m => m.HtfLocationChangesStory), { loading: VisualLoading }),
+  "location-first-workflow": dynamic(() => import("./visuals/module-0-8").then(m => m.LocationFirstWorkflow), { loading: VisualLoading }),
+  "location-quality-practice-drill": dynamic(() => import("./visuals/module-0-8").then(m => m.LocationQualityPracticeDrill), { loading: VisualLoading }),
+  "location-reading-debrief": dynamic(() => import("./visuals/module-0-8").then(m => m.LocationReadingDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.8 FOREX ---
+  "forex-location-foundation": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexLocationFoundation), { loading: VisualLoading }),
+  "forex-session-high-low-location": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexSessionHighLowLocation), { loading: VisualLoading }),
+  "forex-session-middle-zone-noise": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexSessionMiddleZoneNoise), { loading: VisualLoading }),
+  "forex-london-expansion-location": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexLondonExpansionLocation), { loading: VisualLoading }),
+  "forex-new-york-location-shift": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexNewYorkLocationShift), { loading: VisualLoading }),
+  "forex-pair-swing-location": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexPairSwingLocation), { loading: VisualLoading }),
+  "forex-usd-location-context": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexUsdLocationContext), { loading: VisualLoading }),
+  "forex-related-pair-location": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexRelatedPairLocation), { loading: VisualLoading }),
+  "forex-location-first-workflow": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexLocationFirstWorkflow), { loading: VisualLoading }),
+  "forex-location-quality-practice-drill": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexLocationQualityPracticeDrill), { loading: VisualLoading }),
+  "forex-location-debrief": dynamic(() => import("./visuals/module-0-8").then(m => m.ForexLocationDebrief), { loading: VisualLoading }),
+
   // --- ALIASES (Backward Compatibility) ---
   // These keys ensure that legacy data in the database still renders correctly 
   // during the transition to standardized keys.
