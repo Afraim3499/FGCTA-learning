@@ -227,9 +227,9 @@ export const GoldSpeedVsClarity = () => {
         </div>
 
         {/* Visual Showcase */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-5 gap-6 items-center bg-white p-6 rounded-3xl border border-slate-200">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-white p-5 rounded-3xl border border-slate-200">
           {/* Left: Candle representation */}
-          <div className="md:col-span-2 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[180px]">
+          <div className="md:col-span-3 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[180px]">
             <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-3">Candle Render</span>
             <MiniGoldCandle 
               color={active.candleColor} 
@@ -241,7 +241,7 @@ export const GoldSpeedVsClarity = () => {
           </div>
 
           {/* Right: Analysis */}
-          <div className="md:col-span-3 flex flex-col gap-4 text-left">
+          <div className="md:col-span-9 flex flex-col gap-4 text-left">
             <div className="flex items-center justify-between gap-4">
               <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight whitespace-normal break-words">
                 {active.title}
@@ -364,9 +364,9 @@ export const GoldReactionZoneLab = () => {
         </div>
 
         {/* Simulation Dashboard */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 text-left items-stretch">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-4 bg-white p-5 rounded-3xl border border-slate-200 text-left items-stretch">
           {/* Steps Description */}
-          <div className="md:col-span-7 flex flex-col gap-3 justify-between">
+          <div className="md:col-span-9 flex flex-col gap-3 justify-between">
             <div>
               <div className="flex items-center justify-between gap-4 mb-2">
                 <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight whitespace-normal break-words">
@@ -395,7 +395,7 @@ export const GoldReactionZoneLab = () => {
           </div>
 
           {/* Candle Preview Area */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+          <div className="md:col-span-3 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
             <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">Simulated Price</span>
             
             <div className="relative w-full h-32 border-y border-dashed border-slate-300 flex items-center justify-around px-4">
@@ -571,9 +571,9 @@ export const GoldSweepDisciplineLab = () => {
         </div>
 
         {/* Side-by-side or Toggled Content */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-4 bg-white p-5 rounded-3xl border border-slate-200 items-center">
           {/* Graphic Side */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+          <div className="md:col-span-3 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
             <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">Chart Model</span>
             
             <div className="relative w-full h-36 flex flex-col justify-between items-center px-6">
@@ -607,7 +607,7 @@ export const GoldSweepDisciplineLab = () => {
           </div>
 
           {/* Details Side */}
-          <div className="md:col-span-7 text-left flex flex-col gap-4">
+          <div className="md:col-span-9 text-left flex flex-col gap-4">
             {activeTab === "sweep" ? (
               <>
                 <div className="flex items-center justify-between gap-4">
@@ -682,9 +682,9 @@ export const GoldCloseQualityLab = () => {
         </div>
 
         {/* Content Box */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-4 bg-white p-5 rounded-3xl border border-slate-200 items-center">
           {/* Visual candle representation */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+          <div className="md:col-span-3 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
             <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">Candle Close</span>
             
             <div className="relative w-full h-36 border-y border-slate-200 flex items-center justify-center px-4">
@@ -708,7 +708,7 @@ export const GoldCloseQualityLab = () => {
           </div>
 
           {/* Details Side */}
-          <div className="md:col-span-7 text-left flex flex-col gap-4">
+          <div className="md:col-span-9 text-left flex flex-col gap-4">
             {selectedQuality === "strong" ? (
               <>
                 <div className="flex items-center justify-between gap-4">
@@ -819,9 +819,9 @@ export const GoldMacroDistortionLab = () => {
         </div>
 
         {/* Visual Box */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-4 bg-white p-5 rounded-3xl border border-slate-200 items-center">
           {/* Left: Graphic representation */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+          <div className="md:col-span-3 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
             <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">CPI Event Render</span>
             
             <div className="relative w-full h-36 flex flex-col justify-center items-center">
@@ -836,7 +836,7 @@ export const GoldMacroDistortionLab = () => {
           </div>
 
           {/* Right: Text details */}
-          <div className="md:col-span-7 text-left flex flex-col gap-4">
+          <div className="md:col-span-9 text-left flex flex-col gap-4">
             <h5 className="text-xs font-black uppercase text-[#071B36] tracking-tight">
               {active.title}
             </h5>
@@ -887,9 +887,9 @@ export const GoldFollowThroughLab = () => {
         </div>
 
         {/* Timeline Visualization */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 bg-white p-5 rounded-3xl border border-slate-200 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-4 bg-white p-5 rounded-3xl border border-slate-200 items-center">
           {/* Visual Timeline Graphic */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
+          <div className="md:col-span-3 flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-200 rounded-2xl min-h-[220px]">
             <span className="text-[8px] font-mono text-slate-600 uppercase tracking-widest mb-4">Candle Timeline</span>
             
             <div className="relative w-full h-36 border-b border-dashed border-slate-300 flex items-end justify-around pb-4 px-4">
@@ -933,7 +933,7 @@ export const GoldFollowThroughLab = () => {
           </div>
 
           {/* Details Side */}
-          <div className="md:col-span-7 text-left flex flex-col gap-4">
+          <div className="md:col-span-9 text-left flex flex-col gap-4">
             {selectedTimeline === "valid" ? (
               <>
                 <div className="flex items-center justify-between gap-4">
