@@ -4,6 +4,7 @@ import { module03 } from "./module-0-3";
 import { module04 } from "./module-0-4";
 import { module05 } from "./module-0-5";
 import { module06 } from "./module-0-6";
+import { module07 } from "./module-0-7";
 import { AcademyModule } from "../../types/curriculum";
 
 export const level0Curriculum: AcademyModule[] = [
@@ -12,5 +13,6 @@ export const level0Curriculum: AcademyModule[] = [
   module03,
   module04,
   module05,
-  module06
+  module06,
+  module07
 ];

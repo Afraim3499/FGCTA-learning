@@ -266,6 +266,58 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "gold-evidence-audit-practice-drill": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldEvidenceAuditPracticeDrill), { loading: VisualLoading }),
   "gold-evidence-audit-debrief": dynamic(() => import("./visuals/module-0-6").then(m => m.GoldEvidenceAuditDebrief), { loading: VisualLoading }),
 
+  // --- MODULE 0.7 CORE ---
+  "market-conditions-foundation": dynamic(() => import("./visuals/module-0-7").then(m => m.MarketConditionsFoundation), { loading: VisualLoading }),
+  "trend-condition-environment": dynamic(() => import("./visuals/module-0-7").then(m => m.TrendConditionEnvironment), { loading: VisualLoading }),
+  "range-condition-environment": dynamic(() => import("./visuals/module-0-7").then(m => m.RangeConditionEnvironment), { loading: VisualLoading }),
+  "transition-condition-map": dynamic(() => import("./visuals/module-0-7").then(m => m.TransitionConditionMap), { loading: VisualLoading }),
+  "compression-condition-board": dynamic(() => import("./visuals/module-0-7").then(m => m.CompressionConditionBoard), { loading: VisualLoading }),
+  "expansion-condition-board": dynamic(() => import("./visuals/module-0-7").then(m => m.ExpansionConditionBoard), { loading: VisualLoading }),
+  "choppy-condition-warning": dynamic(() => import("./visuals/module-0-7").then(m => m.ChoppyConditionWarning), { loading: VisualLoading }),
+  "same-candle-different-condition": dynamic(() => import("./visuals/module-0-7").then(m => m.SameCandleDifferentCondition), { loading: VisualLoading }),
+  "condition-first-workflow": dynamic(() => import("./visuals/module-0-7").then(m => m.ConditionFirstWorkflow), { loading: VisualLoading }),
+  "market-condition-practice-drill": dynamic(() => import("./visuals/module-0-7").then(m => m.MarketConditionPracticeDrill), { loading: VisualLoading }),
+  "market-condition-debrief": dynamic(() => import("./visuals/module-0-7").then(m => m.MarketConditionDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.7 FOREX ---
+  "forex-condition-foundation": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexConditionFoundation), { loading: VisualLoading }),
+  "forex-session-condition-map": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexSessionConditionMap), { loading: VisualLoading }),
+  "forex-asia-range-compression": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexAsiaRangeCompression), { loading: VisualLoading }),
+  "forex-london-expansion-quality": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexLondonExpansionQuality), { loading: VisualLoading }),
+  "forex-new-york-condition-shift": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexNewYorkConditionShift), { loading: VisualLoading }),
+  "forex-trend-condition-session-support": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexTrendConditionSessionSupport), { loading: VisualLoading }),
+  "forex-range-condition-rotation": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexRangeConditionRotation), { loading: VisualLoading }),
+  "forex-usd-condition-context": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexUsdConditionContext), { loading: VisualLoading }),
+  "forex-choppy-condition-warning": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexChoppyConditionWarning), { loading: VisualLoading }),
+  "forex-condition-practice-drill": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexConditionPracticeDrill), { loading: VisualLoading }),
+  "forex-condition-debrief": dynamic(() => import("./visuals/module-0-7").then(m => m.ForexConditionDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.7 CRYPTO ---
+  "crypto-condition-foundation": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoConditionFoundation), { loading: VisualLoading }),
+  "crypto-btc-condition-map": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoBtcConditionMap), { loading: VisualLoading }),
+  "crypto-spot-perp-condition-board": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoSpotPerpConditionBoard), { loading: VisualLoading }),
+  "crypto-compression-condition": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoCompressionCondition), { loading: VisualLoading }),
+  "crypto-expansion-quality": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoExpansionQuality), { loading: VisualLoading }),
+  "crypto-liquidation-condition": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoLiquidationCondition), { loading: VisualLoading }),
+  "crypto-thin-liquidity-condition": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoThinLiquidityCondition), { loading: VisualLoading }),
+  "crypto-choppy-condition-warning": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoChoppyConditionWarning), { loading: VisualLoading }),
+  "crypto-condition-first-workflow": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoConditionFirstWorkflow), { loading: VisualLoading }),
+  "crypto-condition-practice-drill": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoConditionPracticeDrill), { loading: VisualLoading }),
+  "crypto-condition-debrief": dynamic(() => import("./visuals/module-0-7").then(m => m.CryptoConditionDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.7 GOLD ---
+  "gold-condition-foundation": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldConditionFoundation), { loading: VisualLoading }),
+  "gold-volatility-condition-map": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldVolatilityConditionMap), { loading: VisualLoading }),
+  "gold-reaction-zone-condition": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldReactionZoneCondition), { loading: VisualLoading }),
+  "gold-compression-condition": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldCompressionCondition), { loading: VisualLoading }),
+  "gold-expansion-quality": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldExpansionQuality), { loading: VisualLoading }),
+  "gold-macro-condition-distortion": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldMacroConditionDistortion), { loading: VisualLoading }),
+  "gold-trend-condition-structure": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldTrendConditionStructure), { loading: VisualLoading }),
+  "gold-choppy-condition-warning": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldChoppyConditionWarning), { loading: VisualLoading }),
+  "gold-condition-first-workflow": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldConditionFirstWorkflow), { loading: VisualLoading }),
+  "gold-condition-practice-drill": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldConditionPracticeDrill), { loading: VisualLoading }),
+  "gold-condition-debrief": dynamic(() => import("./visuals/module-0-7").then(m => m.GoldConditionDebrief), { loading: VisualLoading }),
+
   // --- ALIASES (Backward Compatibility) ---
   // These keys ensure that legacy data in the database still renders correctly 
   // during the transition to standardized keys.
