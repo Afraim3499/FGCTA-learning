@@ -24,16 +24,16 @@ import { InstitutionalFrame, MentorInsight, MiniCandle } from "./shared";
 // CARD 1: ForexLocationFoundation
 // ==========================================
 export const ForexLocationFoundation = () => {
-  const [selectedLoc, setSelectedLoc] = useState<string>("asia");
+  const [selectedLoc, setSelectedLoc] = useState<string>("session");
 
   const elements = [
     {
-      id: "asia",
-      name: "Asia Session Range",
-      time: "00:00 - 08:00 UTC",
-      purpose: "Initial Boundary",
+      id: "session",
+      name: "Layer 1: Session Structure",
+      time: "Intraday Boundaries",
+      purpose: "Timeline Limits",
       color: "slate",
-      desc: "The session where price establishes the day's baseline. Its high and low become the first major location coordinates for the London open to test.",
+      desc: "Intraday coordinates established by session highs and lows (Asia Range, London Open, NY Open). Tells you where short-term order density is clustered.",
       candles: [
         { color: "teal", h: 15, uw: 5, lw: 5 },
         { color: "rose", h: 10, uw: 10, lw: 10 },
@@ -41,36 +41,36 @@ export const ForexLocationFoundation = () => {
       ]
     },
     {
-      id: "london",
-      name: "London Expansion Edge",
-      time: "08:00 - 12:00 UTC",
-      purpose: "Breakout / Sweep Area",
+      id: "pair",
+      name: "Layer 2: Pair Structure",
+      time: "Multi-Day swings",
+      purpose: "Historical Memory",
       color: "teal",
-      desc: "European volume pushes price outside the Asia range. The location of this expansion high/low determines if the trend is accepted or trapped.",
+      desc: "Prior swing highs and lows printed on daily/4-hour timeframes. These macro coordinates override local session lines and determine daily trend zones.",
       candles: [
         { color: "teal", h: 40, uw: 15, lw: 5 },
         { color: "teal", h: 30, uw: 5, lw: 5 }
       ]
     },
     {
-      id: "ny",
-      name: "New York Reaction Zone",
-      time: "12:00 - 16:00 UTC",
-      purpose: "Transition / Reversal",
+      id: "usd",
+      name: "Layer 3: USD Context",
+      time: "DXY Index alignment",
+      purpose: "Macro Anchor",
       color: "amber",
-      desc: "US liquidity enters. It tests the London session boundaries. This location often triggers deep pullbacks or session-reclaiming reversals.",
+      desc: "The value coordinates of the US Dollar Index. Major USD pairs must align with DXY support/resistance coordinates to prove institutional backing.",
       candles: [
         { color: "rose", h: 35, uw: 10, lw: 25 },
         { color: "rose", h: 20, uw: 5, lw: 40 }
       ]
     },
     {
-      id: "swing",
-      name: "Prior Swing High/Low",
-      time: "Daily / Multi-Day",
-      purpose: "Structural Floor",
+      id: "related",
+      name: "Layer 4: Related-Pair Context",
+      time: "Correlation status",
+      purpose: "Broad Movement",
       color: "purple",
-      desc: "Historical coordinates where order imbalances previously turned price. These locations override daily session-specific lines.",
+      desc: "Cross-reference coordinates of sibling majors (like GBP/USD). Verifies if the move is broad and institutional or isolated retail noise.",
       candles: [
         { color: "teal", h: 15, uw: 5, lw: 35 }
       ]
@@ -80,10 +80,10 @@ export const ForexLocationFoundation = () => {
   const active = elements.find(e => e.id === selectedLoc) || elements[0];
 
   return (
-    <InstitutionalFrame label="Forex Location Map" status="FOUNDATION SCANNER">
+    <InstitutionalFrame label="Forex Location Audit Map" status="FOUR-LAYER SCANNER">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
-          Interactive Map: Select a session or structural location below to audit its coordinate role on the daily timeline.
+          Interactive Map: Select a location layer to audit its coordinate role in the Forex reading process.
         </p>
 
         {/* Timeline representation */}
@@ -104,7 +104,7 @@ export const ForexLocationFoundation = () => {
                   }`}
                 >
                   <span className="text-[7px] font-mono text-slate-400 text-center leading-none mb-2 break-words max-w-full uppercase font-bold">
-                    {el.name.split(" ")[0]}
+                    {el.name.split(":")[0]}
                   </span>
                   
                   {/* Candlestick Graphic representation */}
@@ -134,10 +134,10 @@ export const ForexLocationFoundation = () => {
           </div>
 
           <div className="w-full flex justify-between border-t border-slate-800/60 pt-2 text-[8px] font-mono text-slate-500">
-            <span>00:00 UTC</span>
-            <span>08:00 London</span>
-            <span>12:00 NY Open</span>
-            <span>16:00 Close</span>
+            <span>Layer 1: Session</span>
+            <span>Layer 2: Pair</span>
+            <span>Layer 3: USD Context</span>
+            <span>Layer 4: Related-Pair</span>
           </div>
         </div>
 
@@ -161,8 +161,8 @@ export const ForexLocationFoundation = () => {
         </div>
 
         <MentorInsight 
-          text="Before you ask what the candle is doing, ask where it formed. A EUR/USD breakout candle printed inside a session transition has completely different odds than one printed in isolation." 
-          analogy="A police block on a quiet side-street is a normal checkpoint. A police block set up right on the border of two rival cities is a major boundary event."
+          text="Before you ask what the candle is doing, locate the pair across session structure, pair structure, USD context, and related-pair context. Never read a candle in isolation." 
+          analogy="A cargo ship's single signal light means nothing. You must check its GPS coordinates, local harbor limits, weather context, and the position of surrounding ships to read the situation."
         />
       </div>
     </InstitutionalFrame>
@@ -178,26 +178,26 @@ export const ForexSessionHighLowLocation = () => {
   const behaviors = [
     {
       id: "reject",
-      name: "Session Limit Rejection",
+      name: "Limit Rejection Wick",
       status: "DEFENDED EDGE",
       color: "teal",
       candles: [
         { color: "teal", h: 30, uw: 5, lw: 5 },
         { color: "rose", h: 10, uw: 40, lw: 5 } // Long upper wick spike
       ],
-      desc: "Price spikes past the Asia range ceiling to trigger resting buy stop orders, but immediately encounters selling defense. It closes back below the level, leaving a clear wick. Rejection confirmed."
+      desc: "Price spikes past the Asia range ceiling to trigger resting buy stops, but encounters selling defense. It closes back below the level, leaving a clear wick. Rejection coordinate confirmed."
     },
     {
       id: "overshoot",
       name: "Overshoot & Return Inside",
-      status: "FALSE BREAKOUT",
+      status: "FALSE EXPANSION",
       color: "rose",
       candles: [
         { color: "teal", h: 35, uw: 10, lw: 5 },
         { color: "rose", h: 15, uw: 45, lw: 10 }, // Big wick through ceiling
         { color: "rose", h: 25, uw: 5, lw: 5 }
       ],
-      desc: "Price breaks the Asia high by 10 pips, creating the illusion of a trend expansion. However, the next candle returns inside the Asia range. The breakout location is declared false."
+      desc: "Price breaks the Asia high by 10 pips, creating the illusion of a trend expansion. However, the next candle returns inside. The breakout location is declared false."
     },
     {
       id: "accept",
@@ -216,7 +216,7 @@ export const ForexSessionHighLowLocation = () => {
   const active = behaviors.find(b => b.id === selectedBehavior) || behaviors[0];
 
   return (
-    <InstitutionalFrame label="Session Boundary Tester" status="BOUNDARY SCENARIOS">
+    <InstitutionalFrame label="Layer 1: Session Boundary Test" status="BOUNDARY SCENARIOS">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Audit: Select a boundary reaction behavior to view its candle structure and details.
@@ -309,7 +309,7 @@ export const ForexSessionMiddleZoneNoise = () => {
   const [activeSide, setActiveSide] = useState<"edge" | "middle">("edge");
 
   return (
-    <InstitutionalFrame label="Forex Range Classifier" status="ZONE QUALITY">
+    <InstitutionalFrame label="Session Structure Filter" status="LOCATION QUALITY">
       <div className="w-full flex flex-col gap-6 items-center">
         <div className="flex bg-slate-100 p-1 rounded-xl shrink-0">
           <button
@@ -320,7 +320,7 @@ export const ForexSessionMiddleZoneNoise = () => {
                 : "text-slate-600 hover:text-[#071B36]"
             }`}
           >
-            Structure Edge (High Quality)
+            Session Edges (High Quality)
           </button>
           <button
             onClick={() => setActiveSide("middle")}
@@ -397,7 +397,7 @@ export const ForexSessionMiddleZoneNoise = () => {
               <div>
                 <h5 className="text-xs font-black text-teal-800 uppercase mb-1">Edges Ask Clean Questions</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  Because key buy/sell orders cluster at the session high and low, the market is forced to show its hand here. Candles will either clearly reject the level (proving defense) or close outside it (proving breakout). Reading quality is peak.
+                  Because key institutional buy/sell orders cluster at session boundaries, price is forced to show defense or breakout acceptance here. Reading quality is peak.
                 </p>
               </div>
             </div>
@@ -407,7 +407,7 @@ export const ForexSessionMiddleZoneNoise = () => {
               <div>
                 <h5 className="text-xs font-black text-amber-800 uppercase mb-1">The Midpoint Equilibrium Vacuum</h5>
                 <p className="text-xs text-slate-600 leading-relaxed whitespace-normal break-words">
-                  The middle of a session range contains no historical support or resistance memory. Price swings here are highly random, driven by minor retail order matching. A beautiful engulfing candle here is noise. Ignore it.
+                  The middle of a session range contains no historical memory. Price swings here are highly random, driven by minor retail order matching. A beautiful candle here is noise. Ignore it.
                 </p>
               </div>
             </div>
@@ -434,7 +434,7 @@ export const ForexLondonExpansionLocation = () => {
         { color: "slate", h: 10, uw: 5, lw: 5 }, // Hold doji
         { color: "teal", h: 25, uw: 5, lw: 5 }
       ],
-      desc: "London volume pushes price clearly past the Asia ceiling. Price consolidates with small bodies above the level, showing buyers have accepted the higher location. Valid trend continuation."
+      desc: "London volume pushes price clearly past the Asia ceiling. Price consolidates with small bodies above, proving buyers have accepted the higher location. Valid trend continuation."
     },
     {
       id: "return",
@@ -444,7 +444,7 @@ export const ForexLondonExpansionLocation = () => {
         { color: "teal", h: 30, uw: 15, lw: 5 }, // Break attempt
         { color: "rose", h: 35, uw: 5, lw: 10 } // Immediate engulf back inside
       ],
-      desc: "Price spikes past the Asia high, but fails to sustain. Within the next hour, a large red candle sweeps back inside the Asia range. The location rejected expansion, turning it into a trap."
+      desc: "Price spikes past the Asia high, but fails to sustain. Within the next hour, a large red candle sweeps back inside. The location rejected expansion, turning it into a trap."
     },
     {
       id: "stall",
@@ -454,14 +454,14 @@ export const ForexLondonExpansionLocation = () => {
         { color: "teal", h: 20, uw: 20, lw: 5 }, // Spike above Asia high
         { color: "slate", h: 5, uw: 15, lw: 15 } // Doji stalling right at edge
       ],
-      desc: "Price extends slightly above the Asia ceiling but immediately stalls. Candles become tiny, leaving long wicks on both sides. The location lacks follow-through. Reading is mixed and low quality."
+      desc: "Price extends slightly above the Asia ceiling but immediately stalls. Candles become tiny, leaving wicks on both sides. The location lacks follow-through. Reading is mixed and low quality."
     }
   ];
 
   const active = outcomes.find(o => o.id === selectedOutcome) || outcomes[0];
 
   return (
-    <InstitutionalFrame label="London Expansion Lab" status="EXPANSION AUDITOR">
+    <InstitutionalFrame label="Layer 2: London Expansion Audit" status="EXPANSION SCATTER">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Lab: Click the outcomes below to audit the location of London's expansion relative to the Asia range.
@@ -581,7 +581,7 @@ export const ForexNewYorkLocationShift = () => {
   const active = paths.find(p => p.id === selectedPath) || paths[0];
 
   return (
-    <InstitutionalFrame label="New York Shift Board" status="NY TRANSITION SCANNERS">
+    <InstitutionalFrame label="Session Handoff Analyzer" status="NY TRANSITION SCANNERS">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Paths: Select a New York scenario to see how US volume handles the London breakout location.
@@ -679,7 +679,7 @@ export const ForexPairSwingLocation = () => {
         { color: "teal", h: 10, uw: 5, lw: 35 }, // Long rejection wick
         { color: "teal", h: 25, uw: 5, lw: 5 }
       ],
-      desc: "EUR/USD returns to yesterday's swing low. Price temporarily spikes below but wicks back aggressively, closing above the level. Shows buying inventory defense."
+      desc: "EUR/USD returns to yesterday's swing low. Price temporarily spikes below but wicks back aggressively, closing above the level. Shows buying inventory defense at Layer 3."
     },
     {
       id: "accept",
@@ -690,7 +690,7 @@ export const ForexPairSwingLocation = () => {
         { color: "rose", h: 35, uw: 5, lw: 5 },
         { color: "rose", h: 40, uw: 5, lw: 5 } // Solid close below support line
       ],
-      desc: "Price cuts cleanly through the prior swing low with a solid red body candle that closes below the line. Sellers have accepted value below the previous floor."
+      desc: "Price cuts cleanly through the prior swing low with a solid red body candle that closes below. Sellers have accepted value below the previous floor."
     },
     {
       id: "overshoot",
@@ -702,14 +702,14 @@ export const ForexPairSwingLocation = () => {
         { color: "rose", h: 12, uw: 5, lw: 45 }, // Deep spike sweeping support
         { color: "teal", h: 35, uw: 10, lw: 5 }
       ],
-      desc: "Price overshoots the swing low by 15 pips to trigger sell-stops, but rejects instantly to close above the swing line. High-probability trap."
+      desc: "Price overshoots the swing low by 15 pips to trigger sell-stops, but rejects instantly to close above. High-probability trap."
     }
   ];
 
   const active = swings.find(s => s.id === selectedSwing) || swings[0];
 
   return (
-    <InstitutionalFrame label="Swing Coordinate Scanner" status="SWING DYNAMICS">
+    <InstitutionalFrame label="Layer 3: Prior Swing Coordinates" status="SWING DYNAMICS">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Scenarios: Select a scenario to see how the pair responds to a prior multi-day swing low.
@@ -832,7 +832,7 @@ export const ForexUsdLocationContext = () => {
   const active = contexts.find(c => c.id === selectedContext) || contexts[0];
 
   return (
-    <InstitutionalFrame label="USD Context Analyzer" status="DXY ALIGNMENT">
+    <InstitutionalFrame label="Layer 4: DXY Anchor Audit" status="DXY ALIGNMENT">
       <div className="w-full flex flex-col gap-6 items-center">
         <p className="text-xs text-slate-500 max-w-xl text-center leading-relaxed whitespace-normal break-words">
           Interactive Context: Toggle DXY index scenarios to see how macro USD context modifies the EUR/USD support floor reading quality.
@@ -930,7 +930,7 @@ export const ForexRelatedPairLocation = () => {
   const [isAligned, setIsAligned] = useState<boolean>(true);
 
   return (
-    <InstitutionalFrame label="Related-Pair Auditor" status="CORRELATION SCANNER">
+    <InstitutionalFrame label="Layer 5: Sibling Pair Check" status="CORRELATION SCANNER">
       <div className="w-full flex flex-col gap-6 items-center">
         <div className="flex bg-slate-100 p-1 rounded-xl shrink-0">
           <button
@@ -1118,7 +1118,7 @@ export const ForexLocationQualityPracticeDrill = () => {
         id: "A",
         text: "Clear bullish reading because EUR/USD printed a strong candle closing near its high, showing buyer control.",
         isCorrect: false,
-        feedback: "Incorrect. The candle may be active, but its location in the middle of the session range lowers the reading quality to noise."
+        feedback: "Incorrect. The candle may be active, but its location in the middle of the session range devalues the reading quality to midpoint noise."
       },
       {
         id: "B",
@@ -1241,7 +1241,7 @@ export const ForexLocationDebrief = () => {
     {
       id: "coordinates",
       title: "Locational Coordinates",
-      habit: "Identify session boundaries before candles.",
+      habit: "Identify session and pair boundaries before candles.",
       desc: "Never look at a candle in isolation. Always begin your chart analysis by mapping where the pair is trading relative to the Asia high/low and prior daily swings.",
       icon: MapPin
     },
@@ -1255,7 +1255,7 @@ export const ForexLocationDebrief = () => {
     {
       id: "context",
       title: "USD & Related Context",
-      habit: "Verify setups using correlated flows.",
+      habit: "Verify setups using DXY and sibling correlations.",
       desc: "Ensure the US Dollar Index (DXY) is compatible with your local pair level, and check related pairs (like GBP/USD) to ensure the breakout location is broad, not isolated.",
       icon: DollarSign
     }
