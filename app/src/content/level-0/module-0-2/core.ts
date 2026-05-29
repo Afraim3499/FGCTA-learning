@@ -93,7 +93,7 @@ export const coreCards: LessonCard[] = [
     type: "visual_intro",
     title: "The Intent Rule",
     label: "Logic",
-    visualKey: "intent-logic",
+    visualKey: "intent-logic-board",
     body: "A pattern is not the cause. It is the visible result of orders and pressure. A Lurnava learner studies the behavior behind the pattern, not the shape alone.",
     context: {
       keyTerms: [

@@ -25,6 +25,7 @@ export const cryptoCards: LessonCard[] = [
   {
     type: "concept",
     title: "Crypto Market Mechanics",
+    visualKey: "crypto-market-mechanics-visual",
     label: "Market Mechanics",
     body: "Crypto moves can come from actual buying, contract pressure, forced exits, BTC-wide movement, or thin exchange conditions. Before trusting a fast move, check what may be driving it.",
     items: [

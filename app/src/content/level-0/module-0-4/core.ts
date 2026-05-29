@@ -46,7 +46,7 @@ export const coreCards: LessonCard[] = [
         { term: "Structural Gravity", definition: "The tendency of price to obey big-timeframe levels over small-timeframe ones." },
         { term: "Consensus", definition: "When the majority of market participants agree on a direction." }
       ],
-      whyThisMatters: "A $750 student doesn't 'guess'; they stack evidence. A Daily rejection is 100x more powerful than a 5-minute rejection. We prioritize our reading from the top down.",
+      whyThisMatters: "A disciplined learner doesn't 'guess'; they stack evidence. A Daily rejection is 100x more powerful than a 5-minute rejection. We prioritize our reading from the top down.",
       realLifeExample: "Trying to stop a moving train (HTF) vs. stopping a rolling bicycle (LTF). The weight defines the difficulty.",
       commonMistake: "Ignoring the 'Gravity' of the higher timeframe and trying to trade against it.",
       "quickNote": "Always check the weight before you take a side."
@@ -57,13 +57,13 @@ export const coreCards: LessonCard[] = [
     title: "Signature vs. Noise",
     label: "Participant Roles",
     visualKey: "htf-ltf-roles",
-    body: "To read like a pro, you must separate the **Whales** from the **Minnows**.\n\n* **The Signature (HTF)**: The clear footprints of Banks and Sovereign Funds. They move with strategy.\n* **The Noise (LTF)**: The frantic wiggles of Algorithms and Retail Emotions. They move with panic.",
+    body: "To read like a pro, you must separate **stronger market participation** from **short-term noise**.\n\n* **The Signature (HTF)**: The clear footprints of Banks and Sovereign Funds. They move with strategy.\n* **The Noise (LTF)**: The frantic wiggles of Algorithms and Retail Emotions. They move with panic.",
     context: {
       keyTerms: [
         { term: "Institutional Signature", definition: "High-weight evidence left by massive capital flows." },
         { term: "Retail Noise", definition: "Unstable movement driven by speculation and high-frequency bots." }
       ],
-      whyThisMatters: "Institutions use the 'Noise' to hide their true 'Signature.' If you only watch the noise, you are the exit liquidity for the whales.",
+      whyThisMatters: "Institutions use the 'Noise' to hide their true 'Signature.' If you only watch the noise, you are being caught on the wrong side of stronger market pressure.",
       realLifeExample: "The Compass (Signature) shows you where the island is. The Microscope (Noise) only shows you the dust on the deck of the ship.",
       commonMistake: "Watching the 1-minute chart and thinking you are seeing the 'Truth' of the market.",
       "quickNote": "Follow the Signature, ignore the Noise."
@@ -80,7 +80,7 @@ export const coreCards: LessonCard[] = [
         { term: "Mixed Evidence", definition: "When your timeframe layers are telling different stories." },
         { term: "Wait for Alignment", definition: "Staying out of the market until the layers agree." }
       ],
-      whyThisMatters: "Most losses happen during 'Conflict.' By simply identifying conflict and walking away, you instantly become more profitable than 90% of retail traders.",
+      whyThisMatters: "Most losses happen during 'Conflict.' By simply identifying conflict and walking away, you reduce one common source of weak readings.",
       realLifeExample: "A red light (HTF) and a green light (LTF) at the same intersection. The disciplined driver waits for clarity.",
       commonMistake: "Forcing a decision when the data is clearly messy.",
       "quickNote": "If the layers fight, you stay out."
@@ -133,7 +133,7 @@ export const coreCards: LessonCard[] = [
         { term: "Outside-In Audit", definition: "Starting from the Daily/4H and zooming in to the 5m." },
         { term: "Evidence Stack", definition: "A collection of facts from multiple layers that all point the same way." }
       ],
-      whyThisMatters: "Most gamblers start on the 1-minute chart and 'hallucinate' a reason to buy. The $750 student starts on the Daily and 'verifies' a reason to act.",
+      whyThisMatters: "Most untrained learners start on the 1-minute chart and 'hallucinate' a reason to buy. The disciplined learner starts on the Daily and 'verifies' a reason to act.",
       realLifeExample: "Checking the weather (HTF) before you check the engine (LTF) of your plane. Both matter, but one defines the mission.",
       commonMistake: "Starting at the bottom and hoping the top agrees.",
       "quickNote": "Narrative first. Detail last."
@@ -165,9 +165,9 @@ export const coreCards: LessonCard[] = [
     title: "Module Debrief: The Hierarchy of Evidence",
     label: "Module Recap",
     visualKey: "timeframe-debrief-board",
-    body: "You have successfully completed the **Institutional Reset**. You no longer see charts as 'just bars'—you see them as a stack of Narrative layers. You now have the filter to separate real market movement from retail noise.\n\n### Your New Competencies:\n\n* [x] Identify **Whale Signatures** vs. **Retail Noise**\n* [x] Audit the market from the **Outside-In**\n* [x] Resolve **Mixed Evidence** by staying patient\n* [x] Respect **Structural Gravity**\n\n**Next**: We map the market's skeleton: **Basic Structure**.",
+    body: "You have successfully completed the **Timeframe Alignment Reset**. You no longer see charts as 'just bars'—you see them as a stack of Narrative layers. You now have the filter to separate real market movement from retail noise.\n\n### Your New Competencies:\n\n* [x] Identify **Institutional Signatures** vs. **Retail Noise**\n* [x] Audit the market from the **Outside-In**\n* [x] Resolve **Mixed Evidence** by staying patient\n* [x] Respect **Structural Gravity**\n\n**Next**: We map the market's skeleton: **Basic Structure**.",
     context: {
-      whyThisMatters: "This 'Evidence Filter' is what separates you from the gambling crowd. You are now reading the same data as the banks.",
+      whyThisMatters: "This 'Evidence Filter' is what separates you from the speculative crowd. You are now reading the market using institutional structure filters.",
       quickNote: "You are now an Evidence Auditor."
     }
   }

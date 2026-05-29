@@ -8,7 +8,12 @@ export const coreCards: LessonCard[] = [
     label: "Mission Brief",
     body: "Welcome to the Academy. Most people enter the market looking for 'tips,' 'secret strategies,' or 'signals' that tell them when to click a button. This is the fastest route to failure. Imagine a foundation-stage learner who spends an entire evening watching short, high-energy trading content online. One video explains a candle pattern; another talks about a liquidity concept; a third mentions crypto funding. The learner feels informed, productive, and confident. However, as soon as they open a live price chart, they realize they cannot explain what evidence they are actually looking for. Their confidence was not built on skill; it was **borrowed conviction** from a screen.\n\nLurnava is not a library of content; it is a **structured training system**. We are here to prevent the 'Random Learner' trap—the habit of consuming endless information without ever building a repeatable process. You are not here to watch; you are here to be trained in **Structured Market Reading**. This requires moving past the desire for shortcuts and committing to an academy process of observation, simulation, and audit. This module prevents the most common failure in early-stage development: having a head full of facts but no system to apply them. You are here to stop guessing and start reading.",
     context: {
-      keyTerms: ["Borrowed conviction", "Structured training system", "Market reading", "Training path"],
+      keyTerms: [
+        { term: "Borrowed conviction", definition: "Relying on another person's confidence or signals instead of your own analysis and process." },
+        { term: "Structured training system", definition: "A learning path that combines concept study, simulated practice, and written reviews to build repeatable skills." },
+        { term: "Market reading", definition: "The process of analyzing price charts using objective structure and evidence, rather than guessing or reacting to speed." },
+        { term: "Training path", definition: "The progressive sequence of modules and drills designed to take a learner from basic observations to integrated market analysis." }
+      ],
       whyThisMatters: "Many learners feel productive after watching content, but they still cannot explain what they are seeing when a live chart opens. Lurnava trains the learner to build a repeatable process instead of collecting disconnected ideas.",
       realLifeExample: "A learner watches one video about candles, another about liquidity, and another about crypto funding. They feel informed, but when the chart opens, they cannot name the evidence they are looking for.",
       commonMistake: "Thinking “I have seen this before” means “I understand this.” Recognition without explanation is not skill.",
@@ -23,7 +28,13 @@ export const coreCards: LessonCard[] = [
     body: "The loop matters because understanding alone is not training. Lurnava uses practice, missions, and review notes to turn a lesson into a repeatable learning process.",
     objective: "Understand the four-step loop every Lurnava lesson uses to turn information into trained judgment.",
     context: {
-      keyTerms: ["Training loop", "Practice action", "Mission", "Review note", "Feedback loop"],
+      keyTerms: [
+        { term: "Training loop", definition: "The structured four-step process of studying a concept, simulating it in practice, completing a mission, and writing a review note." },
+        { term: "Practice action", definition: "A controlled exercise inside the simulator designed to test a specific concept, rather than arbitrary trading." },
+        { term: "Mission", definition: "A structured task within the training flow that requires the learner to locate or analyze specific market behavior." },
+        { term: "Review note", definition: "The written record of a learner's rationale and evidence behind a decision, used to identify errors." },
+        { term: "Feedback loop", definition: "The continuous cycle of taking action, receiving outcomes, reviewing the results, and adjusting future decisions." }
+      ],
       whyThisMatters: "Reading can give a learner vocabulary, but practice and review turn that vocabulary into usable judgment. The loop exists so the learner does not stop at “I understood the lesson” and mistake that feeling for skill.",
       realLifeExample: "A learner studies one concept, then opens a controlled practice screen to identify it. After the mission, they write what they saw, what evidence supported it, and what confused them. The review note becomes the record that helps them improve next time.",
       commonMistake: "Finishing a lesson and immediately jumping to the next topic. That creates the feeling of progress, but it skips the practice and review needed to expose weak understanding.",
@@ -37,7 +48,13 @@ export const coreCards: LessonCard[] = [
     label: "Behavioral Shift",
     body: "The difference between a struggling learner and a developing market reader is not talent or luck. The difference is whether the learner has a repeatable process that creates a feedback loop. One path leads to confusion; the other leads to clarity.",
     context: {
-      keyTerms: ["Random learner", "Trained learner", "Feedback loop", "Evidence", "Review habit"],
+      keyTerms: [
+        { term: "Random learner", definition: "A person who consumes endless content and switches strategies frequently without a consistent, trackable practice loop." },
+        { term: "Trained learner", definition: "A person who follows a structured process, focuses on one concept at a time, and records their reasoning for review." },
+        { term: "Feedback loop", definition: "The process of using outcomes and written review notes to systematically improve future decisions." },
+        { term: "Evidence", definition: "Objective, observable chart data (like structure or volume) that supports a reading, as opposed to feelings or guesses." },
+        { term: "Review habit", definition: "The discipline of writing down and checking one's trading logic after every practice session." }
+      ],
       whyThisMatters: "Many learners confuse activity with progress. A person can watch, click, and switch methods every day without building a repeatable process.",
       realLifeExample: "A learner practices for one week but changes strategy every two days. At the end of the week, they have spent time, but they cannot say what improved.",
       commonMistake: "Thinking effort alone creates progress. Effort only becomes useful when it creates feedback.",

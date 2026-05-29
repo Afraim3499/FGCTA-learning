@@ -46,7 +46,7 @@ export const goldCards: LessonCard[] = [
   {
     type: "visual_intro",
     title: "The 'Urgency' Trap",
-    visualKey: "gold-urgency-trap",
+    visualKey: "gold-urgency-trap-visual",
     label: "Mistake Pattern",
     body: "Gold often moves quickly and leaves dramatic wicks. A rushed learner treats that urgency as proof. A trained learner treats the wick as a clue and waits for structural confirmation before forming a reading.",
     context: {
@@ -65,7 +65,7 @@ export const goldCards: LessonCard[] = [
   {
     type: "practice",
     title: "Gold Mini Drill: Noise vs. Clue",
-    visualKey: "gold-noise-decision",
+    visualKey: "gold-noise-decision-board",
     label: "Practical Drill",
     body: "Gold forms a large candle with long wicks in both directions during a highly volatile period. The move looks dramatic, but the candle also shows rejection on both sides.",
     taskData: {

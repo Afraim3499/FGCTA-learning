@@ -173,6 +173,7 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
 
   // Crypto 0.1
   "crypto-mechanics-map": dynamic(() => import("./visuals/crypto/module-0-1").then(m => m.CryptoMechanicsMap), { loading: VisualLoading }),
+  "crypto-market-mechanics-visual": dynamic(() => import("./visuals/crypto/module-0-1").then(m => m.CryptoMarketMechanicsVisual), { loading: VisualLoading }),
   "hype-trap-path": dynamic(() => import("./visuals/crypto/module-0-1").then(m => m.HypeTrapPath), { loading: VisualLoading }),
   "crypto-drill-board": dynamic(() => import("./visuals/crypto/module-0-1").then(m => m.CryptoDrillBoard), { loading: VisualLoading }),
   "crypto-hype-filtering-drill": dynamic(() => import("./visuals/crypto/module-0-1").then(m => m.CryptoHypeFilteringDrill), { loading: VisualLoading }),
@@ -382,6 +383,20 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "gold-reading-sequence": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldReadingSequence), { loading: VisualLoading }),
   "gold-reading-lab-practice-drill": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldReadingLabPracticeDrill), { loading: VisualLoading }),
   "gold-reading-lab-debrief": dynamic(() => import("./visuals/module-0-9").then(m => m.GoldReadingLabDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.10 FOREX SPECIALIZED ---
+  "forex-reading-lab-foundation": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexReadingLabFoundation), { loading: VisualLoading }),
+  "forex-pair-pressure-map": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexPairPressureMap), { loading: VisualLoading }),
+  "forex-session-context-lab": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexSessionContextLab), { loading: VisualLoading }),
+  "forex-session-handoff-lab": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexSessionHandoffLab), { loading: VisualLoading }),
+  "forex-dxy-mirror-trap": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexDxyMirrorTrap), { loading: VisualLoading }),
+  "forex-related-pair-lab": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexRelatedPairLab), { loading: VisualLoading }),
+  "forex-adr-caution-filter": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexAdrCautionFilter), { loading: VisualLoading }),
+  "forex-news-distortion-lab": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexNewsDistortionLab), { loading: VisualLoading }),
+  "forex-verification-sequence": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexVerificationSequence), { loading: VisualLoading }),
+  "forex-reading-lab-practice-drill": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexReadingLabPracticeDrill), { loading: VisualLoading }),
+  "forex-reading-lab-debrief": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexReadingLabDebrief), { loading: VisualLoading }),
+
 
   // --- ALIASES (Backward Compatibility) ---
   // These keys ensure that legacy data in the database still renders correctly 

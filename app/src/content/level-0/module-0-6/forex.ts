@@ -187,52 +187,52 @@ export const forexCards: LessonCard[] = [
   },
   {
     type: "practice",
-    title: "Practice Drill: Is This Forex Reading Clear, Mixed, or Unclear?",
+    title: "Practice Drill: Auditing Evidence Conflict",
     label: "Practice Drill",
     visualKey: "forex-evidence-audit-practice-drill",
-    body: "Let's put your audit skills to the test. In this drill, we present a realistic Forex market scenario containing both positive signs and active warnings. Your task is to evaluate the evidence objectively and select the disciplined reading classification. Remember: do not chase the most exciting option, chase the most realistic check of the evidence.",
+    body: "Let's put your audit skills to the test. In this drill, we analyze a scenario during the New York morning session. GBP/USD has surged to break a local swing high, appearing strongly bullish. However, you must audit the related context layers (EUR/USD and DXY) before drawing a conclusion.",
     taskData: {
       type: "choice_block",
-      question: "EUR/USD breaks above the Asian session range during London. The breakout candle closes above the Asian high, but the close is near the middle of the candle, leaving a long upper wick. Meanwhile, GBP/USD is not confirming the breakout, and the USD index context is only slightly weak. The next candle hesitates right near the breakout line. What is the disciplined Forex evidence-audit reading?",
+      question: "During the New York morning, GBP/USD pushes above a local swing high with a strong green candle. You audit the context: EUR/USD is completely flat, stuck in a narrow range. The US Dollar Index (DXY) is hitting a major daily support level and printing rejection wicks (showing buying interest). What is the disciplined reading of this GBP/USD move?",
       options: [
         {
           id: "A",
-          text: "Clear bullish reading because EUR/USD broke above the Asia high.",
+          text: "Clear bullish reading because GBP/USD broke a swing high with strong momentum.",
           isCorrect: false,
-          feedback: "Incorrect. A break above the Asian range high is a supportive clue, but you cannot classify this as clear when you have a poor candle close (middle close, upper wick), no related-pair confirmation, and a flat USD index."
+          feedback: "Incorrect. While GBP/USD has local momentum, the lack of confirmation from EUR/USD and the USD index hitting daily support create significant conflict. This is not a clear reading."
         },
         {
           id: "B",
-          text: "Mixed evidence because the break happened, but close quality, related-pair confirmation, and follow-through are not strong yet.",
+          text: "Mixed evidence due to related-pair divergence and USD context conflict at major support.",
           isCorrect: true,
-          feedback: "Correct! The evidence is mixed. While the local breakout is active, the weak candle close, the lack of confirmation from GBP/USD, and the flat USD context are significant limiting factors that prevent a clear reading."
+          feedback: "Correct! The evidence is mixed and conflicting. GBP/USD is moving in isolation while EUR/USD is flat, and DXY is hitting a major daily support floor. A strength reaction on the Dollar Index could quickly reverse the GBP/USD breakout, so a disciplined reader classifies this as mixed and waits for alignment."
         },
         {
           id: "C",
-          text: "Guaranteed reversal because the next candle hesitated.",
+          text: "Guaranteed reversal because the Dollar Index is at support.",
           isCorrect: false,
-          feedback: "Incorrect. Hesitation near a breakout area is a limiting clue, but it does not guarantee a reversal. Avoid predictive, absolute statements."
+          feedback: "Incorrect. A support level on the Dollar Index suggests potential USD strength, but it does not guarantee an immediate reversal. A disciplined learner avoids predicting absolute reversals and instead remains patient."
         },
         {
           id: "D",
-          text: "Unclear because Forex pairs cannot be read.",
+          text: "Ignore the other charts since GBP/USD is the only pair being traded.",
           isCorrect: false,
-          feedback: "Incorrect. Forex pairs can be read systematically, but we must audit the session context, USD pressure, and related pairs together rather than dismissing them."
+          feedback: "Incorrect. Forex pairs are currency relationships. Ignoring the Dollar Index and closely related pairs leads to trading blind and missing institutional context."
         }
       ]
     },
     context: {
       keyTerms: [
         { term: "Disciplined Reading", definition: "A chart assessment that accepts and logs conflicting clues." },
-        { term: "Asia Range Break", definition: "Price moving outside the consolidation boundaries of the Asian session." },
-        { term: "Weak Close Quality", definition: "A breakout candle that closes near the middle of its range, indicating selling pressure." },
-        { term: "Divergent Breakout", definition: "When one pair breaks out while a highly correlated pair remains inside range." },
+        { term: "Related-Pair Divergence", definition: "When closely correlated pairs (like EUR/USD and GBP/USD) move in opposite directions or fail to confirm each other's breakouts." },
+        { term: "USD Support Reaction", definition: "When the US Dollar Index reaches a historical support zone, suggesting a potential dollar rally that could pressure other pairs." },
+        { term: "Isolated Move", definition: "A price breakout on one currency pair that is not supported by market-wide currency trends." },
         { term: "Evidence Checklist", definition: "The mental or written list of factors monitored during an audit." }
       ],
       whyThisMatters: "This scenario trains you to notice warning signs rather than just seeing what you want to see.",
-      realLifeExample: "You notice EUR/USD breaks high, but you look at the wicks, check GBP/USD, and see the Dollar is flat. You label the read as mixed and wait for London's overlap, saving your account from a false breakout trap.",
-      commonMistake: "Ignoring the lack of related pair confirmation because the EUR/USD breakout looks fast.",
-      quickNote: "A break without confirmation and follow-through is just an invitation to wait."
+      realLifeExample: "You notice GBP/USD rallies, but EUR/USD is flat and the Dollar Index is bouncing off daily support. You label the read as mixed and wait, saving your account from a false breakout trap as the Dollar Index rises and pushes GBP/USD back down.",
+      commonMistake: "Ignoring the lack of related pair confirmation because the GBP/USD breakout looks fast.",
+      quickNote: "A breakout without related-pair confirmation and facing USD support is a warning to wait."
     }
   },
   {

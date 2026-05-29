@@ -439,3 +439,146 @@ export const CryptoHypeFilteringDrill = () => {
     </InstitutionalFrame>
   );
 };
+
+/**
+ * 0.1 - Crypto Market Mechanics
+ */
+export const CryptoMarketMechanicsVisual = () => {
+  const [activeTab, setActiveTab] = useState<"spot" | "perp" | "leverage" | "funding" | "liquidation" | "noise">("spot");
+
+  const tabData = {
+    spot: {
+      title: "Spot Engine (Asset Ownership)",
+      tag: "1:1 Underpinning",
+      color: "emerald",
+      desc: "In the spot market, you buy and own the actual underlying digital asset. There is no leverage, no funding rate cost, and zero liquidation risk. Your holdings represent real reserves.",
+      details: [
+        { label: "Ownership", val: "Actual Asset" },
+        { label: "Risk Profile", val: "Asset Price Only" },
+        { label: "Leverage Limit", val: "1x (No Leverage)" },
+      ]
+    },
+    perp: {
+      title: "Perpetual Engine (Derivative)",
+      tag: "Synthetic Track",
+      color: "blue",
+      desc: "Perpetuals (perps) are contracts tracking asset price without physical transfers. They enable synthetic exposure, long/short flexibility, and leverage, but introduce ongoing fees and liquidation risk.",
+      details: [
+        { label: "Ownership", val: "Synthetic Contract" },
+        { label: "Risk Profile", val: "Liquidation & Fees" },
+        { label: "Leverage Limit", val: "Up to 100x" },
+      ]
+    },
+    leverage: {
+      title: "Leverage Mechanics",
+      tag: "Borrowed Exposure",
+      color: "rose",
+      desc: "Leverage lets you control a larger position using a smaller deposit (collateral). For example, 10x leverage turns $100 of collateral into a $1,000 market position, amplifying both gains and loss speeds.",
+      details: [
+        { label: "Collateral", val: "$100 (10%)" },
+        { label: "Exposure", val: "$1,000 (100%)" },
+        { label: "Margin Ratio", val: "10x Leverage" },
+      ]
+    },
+    funding: {
+      title: "Funding Rate Pressure",
+      tag: "Premium Balancing",
+      color: "amber",
+      desc: "Funding rates are periodic payments exchanged between long and short perp traders to keep the contract price aligned with the spot price. High positive funding shows crowded bullish leverage.",
+      details: [
+        { label: "Directional Flow", val: "Longs pay Shorts (or vice versa)" },
+        { label: "Purpose", val: "Align Perp with Spot" },
+        { label: "Interval", val: "Usually every 8 Hours" },
+      ]
+    },
+    liquidation: {
+      title: "Liquidation Pressure",
+      tag: "Forced Exit",
+      color: "red",
+      desc: "If price moves against your leveraged perp position and your collateral drops below the maintenance margin, the exchange forced-liquidation engine closes your position, wiping out your collateral.",
+      details: [
+        { label: "Trigger condition", val: "Margin limit breached" },
+        { label: "Execution speed", val: "Instant Automated Sell" },
+        { label: "Risk level", val: "Complete Collateral Loss" },
+      ]
+    },
+    noise: {
+      title: "Exchange & Venue Noise",
+      tag: "Liquidity Gaps",
+      color: "purple",
+      desc: "Because crypto is fragmented across separate centralized and decentralized venues, thin order books can cause sudden, dramatic price spikes on one exchange that do not reflect the broader market.",
+      details: [
+        { label: "Liquidity depth", val: "Thin or Fragmented" },
+        { label: "Slippage risk", val: "High during spikes" },
+        { label: "Confirmation rule", val: "Cross-check other venues" },
+      ]
+    }
+  };
+
+  const current = tabData[activeTab];
+
+  return (
+    <InstitutionalFrame label="Crypto Mechanics Hub: Engine Components" id="LN-0.1-AUD-CRYPTO-MECHANICS-HUB">
+      <div className="w-full max-w-4xl mx-auto py-2">
+        <div className="flex flex-col lg:flex-row gap-6 items-stretch">
+          {/* Navigation Tabs */}
+          <div className="w-full lg:w-1/3 flex flex-col gap-2 shrink-0">
+            {Object.keys(tabData).map((key) => {
+              const tab = tabData[key as keyof typeof tabData];
+              const isSelected = activeTab === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setActiveTab(key as any)}
+                  className={cn(
+                    "p-4 rounded-2xl border text-left transition-all duration-300 outline-none w-full flex items-center justify-between",
+                    isSelected 
+                      ? "bg-slate-900 border-slate-900 text-white shadow-md scale-[1.01]" 
+                      : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
+                  )}
+                >
+                  <span className="text-[10px] font-black uppercase tracking-wider">{tab.title.split(" (")[0]}</span>
+                  <span className={cn(
+                    "text-[8px] font-black px-2 py-0.5 rounded-md uppercase tracking-tight",
+                    isSelected ? "bg-slate-800 text-amber-400" : "bg-slate-100 text-slate-500"
+                  )}>
+                    {tab.tag}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Details Panel */}
+          <div className="flex-1 p-6 rounded-[2.5rem] bg-white border border-slate-200 shadow-sm flex flex-col justify-between min-h-[300px]">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className={cn(
+                  "w-2 h-8 rounded-full",
+                  current.color === "emerald" && "bg-emerald-500",
+                  current.color === "blue" && "bg-blue-500",
+                  current.color === "rose" && "bg-rose-500",
+                  current.color === "amber" && "bg-amber-500",
+                  current.color === "red" && "bg-red-550",
+                  current.color === "purple" && "bg-purple-500"
+                )} />
+                <h3 className="text-sm font-black text-slate-900 uppercase tracking-tight">{current.title}</h3>
+              </div>
+              <p className="text-xs text-slate-650 leading-relaxed font-semibold mb-6">{current.desc}</p>
+            </div>
+
+            <div className="space-y-3 pt-4 border-t border-slate-100">
+              {current.details.map((detail, idx) => (
+                <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider">{detail.label}</span>
+                  <span className="text-[10px] font-bold text-slate-800 uppercase tracking-tight">{detail.val}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </InstitutionalFrame>
+  );
+};
+

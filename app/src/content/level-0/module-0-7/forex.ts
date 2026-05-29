@@ -70,14 +70,15 @@ export const forexCards: LessonCard[] = [
     title: "London Expansion Must Prove Quality",
     label: "London Expansion",
     visualKey: "forex-london-expansion-quality",
-    body: "When London opens, a wave of institutional volume (heavy volume from large financial institutions) enters the market. If the pair has been compressing during Asia, this new volume will often push price outside the Asia range boundaries. This shift is an expansion condition. However, expansion is not automatically a clean trend. You must audit the quality of the move. Did the breakout candle close cleanly outside the range? Does the next candle hold above the boundary, or does it immediately snap back inside? In Forex, expansion starts the question; follow-through holds provide the answer.",
+    body: "When London opens, a wave of institutional volume (heavy volume from large financial institutions) enters the market. If the pair has been compressing during Asia, this new volume will often push price outside the Asia range boundaries. This shift is an expansion condition. However, expansion is not automatically a clean trend. You must audit the quality of the move. Did the breakout candle close cleanly outside the range? Does the next candle hold above the boundary, or does it immediately snap back inside? In Forex, expansion starts the question; follow-through holds provide the answer. Additionally, a professional reader checks the **Average Daily Range (ADR)**. ADR does not mean price must reverse. It only tells the learner that fresh continuation needs stronger proof if the pair has already moved most of its typical daily range.",
     context: {
       keyTerms: [
         { term: "London Expansion", definition: "The release of volume at London open that pushes price outside Asia session boundaries." },
         { term: "Close Quality", definition: "Checking if a breakout candle closes strongly outside a boundary rather than leaving a long wick." },
         { term: "Hold Verification", definition: "Verifying if subsequent candles stay outside the broken level to confirm the move." },
         { term: "Fake Expansion", definition: "A false breakout where price spikes outside a boundary but quickly closes back inside." },
-        { term: "Liquidity Grab", definition: "A quick spike past a boundary to clear out orders before reversing price in the opposite direction." }
+        { term: "Liquidity Grab", definition: "A quick spike past a boundary to clear out orders before reversing price in the opposite direction." },
+        { term: "ADR (Average Daily Range)", definition: "The average distance a currency pair travels from high to low in a single day. Used as a caution filter when a pair has already moved most of its daily range." }
       ],
       whyThisMatters: "Waiting to verify expansion quality saves you from buying the absolute top of a fake breakout and getting trapped.",
       realLifeExample: "GBP/USD spikes 15 pips above the Asia high at the London open. You wait for the hourly close. The candle closes strongly outside, and the next candle holds. This is a high-quality expansion condition.",
@@ -187,52 +188,52 @@ export const forexCards: LessonCard[] = [
   },
   {
     type: "practice",
-    title: "Practice Drill: What Forex Condition Is This Pair In?",
+    title: "Practice Drill: Reading Session Transition and Chop",
     label: "Practice Drill",
     visualKey: "forex-condition-practice-drill",
-    body: "Let's put your Forex condition-reading skills to the test. In this drill, we present a realistic market scenario involving session dynamics, related pairs, and USD context. Read the clues carefully, apply your environmental filters, and choose the most disciplined reading.",
+    body: "Let's put your Forex condition-reading skills to the test. In this drill, we present a realistic market scenario during the New York afternoon session. Apply your environmental and session timing filters to identify the active condition.",
     taskData: {
       type: "choice_block",
-      question: "EUR/USD forms a tight Asia range. During London, price breaks above the range high and closes outside, but the next candle hesitates. GBP/USD is not confirming strongly (it remains inside its Asia range), and USD context (DXY) is completely flat and unclear. Later, EUR/USD starts moving back toward the top of the Asia range instead of continuing cleanly. What is the most disciplined Forex condition reading?",
+      question: "During the New York afternoon (post-London Close), EUR/USD consolidates in a tight 12-pip band. The hourly candles are overlapping heavily, printing wicks on both sides. The US Dollar Index (DXY) is completely flat, and there are no scheduled economic reports. What is the disciplined Forex condition reading?",
       options: [
         {
           id: "A",
-          text: "Clean expansion condition because price broke above the Asia range.",
+          text: "Clean trend condition because price moved up earlier in the day.",
           isCorrect: false,
-          feedback: "Incorrect. The break matters, but expansion is not clean until the pair proves quality after the break. Here, follow-through is weak, GBP/USD is not confirming, and DXY is flat."
+          feedback: "Incorrect. A trend condition requires active session support and follow-through. Late New York afternoon features low volume, and the current overlapping candles indicate that the prior trend is no longer active."
         },
         {
           id: "B",
-          text: "Clean trend condition because London created a bullish breakout candle.",
-          isCorrect: false,
-          feedback: "Incorrect. One London candle does not create a full trend condition. Trends require session support and structured follow-through, which are missing here."
+          text: "Choppy / messy condition because of overlapping candles, wicks on both sides, and a flat USD index during low-volume hours.",
+          isCorrect: true,
+          feedback: "Correct! The overlapping candles, wicks on both sides, and flat USD index during the late New York session (after European markets have closed) are classic signs of a choppy, low-volume condition. There is no structural edge, so a disciplined reader labels the reading unclear and stands aside."
         },
         {
           id: "C",
-          text: "Mixed / transition condition because expansion started, but follow-through, related-pair context, and USD context are not clean.",
-          isCorrect: true,
-          feedback: "Correct! The pair attempted expansion, but the lack of follow-through, the divergence with GBP/USD, and the flat USD context mean the evidence is conflicting. The condition is mixed/transition."
+          text: "Guaranteed breakout pending because price has compressed into a tight range.",
+          isCorrect: false,
+          feedback: "Incorrect. While compression can lead to expansion, late New York afternoon is a low-liquidity window where price is highly likely to drift sideways in chop rather than break out cleanly. Predicting a guaranteed breakout is speculative."
         },
         {
           id: "D",
-          text: "Guaranteed reversal because price hesitated after the break.",
+          text: "Trade the range edges aggressively because the boundaries are very narrow.",
           isCorrect: false,
-          feedback: "Incorrect. Hesitation and a pullback do not guarantee a reversal. They only lower the quality of the condition reading. Avoid predicting absolute reversals."
+          feedback: "Incorrect. Trading narrow afternoon ranges is extremely high-risk because spreads can widen in low liquidity, and the wicks on both sides can trigger entries and exit levels without clean movement."
         }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Divergent Breakout", definition: "When one pair breaks a level but a closely related pair remains trapped in sideways movement." },
-        { term: "Unconfirmed Expansion", definition: "A breakout attempt that lacks follow-through verification from the US Dollar or related pairs." },
-        { term: "Mixed Evidence", definition: "A state where some clues are bullish (like a breakout) but others are flat or opposing." },
-        { term: "Risk Mitigation", definition: "Lowering your reading quality rating to mixed to avoid trading in unconfirmed environments." },
-        { term: "Transition Audit", definition: "Checking if a breakout is failing and returning back inside the range boundaries." }
+        { term: "Afternoon Chop", definition: "A state of low-volume, sideways price decay that often occurs during the late New York session after European markets close." },
+        { term: "Overlapping Candles", definition: "Candles whose bodies repeatedly open and close within the space of previous candles, indicating a lack of directional momentum." },
+        { term: "Low-Volume Environment", definition: "A period with few active market participants, making price movement noisy and spreads wider." },
+        { term: "Stand-Aside Filter", definition: "The choice to stop analyzing and close the chart when the condition is choppy or unreadable." },
+        { term: "Condition Classification", definition: "Labeling the market state (Trend, Range, Chop) to determine whether an edge exists." }
       ],
-      whyThisMatters: "This drill trains you to cross-reference multiple Forex layers so you don't fall for isolated breakouts that lack broad support.",
-      realLifeExample: "EUR/USD spikes up, but GBP/USD doesn't budge and the Dollar index is stable. You realize this is a divergent, low-quality expansion. You stand aside, avoiding a loss as EUR/USD drops back.",
-      commonMistake: "Buying a EUR/USD breakout based solely on the chart in front of you, without checking related pairs or USD context.",
-      quickNote: "Before you buy a breakout, check the team. If the dollar and pound aren't playing, stay on the bench."
+      whyThisMatters: "This drill trains you to recognize session transitions and avoid forcing trades when institutional volume leaves the market.",
+      realLifeExample: "You open the chart at 3:00 PM EST and see EUR/USD drifting sideways in overlapping 15-minute bars. Instead of searching for a setup, you recognize the afternoon chop condition, label it unclear, and walk away.",
+      commonMistake: "Forcing trades in the late afternoon, expecting the market to trend cleanly when the session environment is naturally low-momentum.",
+      quickNote: "When the session volume leaves, the technical edge goes with it. Stand aside."
     }
   },
   {

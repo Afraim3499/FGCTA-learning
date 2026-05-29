@@ -27,9 +27,10 @@ export const forexCards: LessonCard[] = [
     title: "Pip Range, Body, and Wick",
     visualKey: "forex-pip-candle-board",
     label: "Forex Candle Mechanics",
-    body: "In Forex, candle size should be read in pips and context. A large-looking candle on one pair may be normal, while the same pip movement on another pair may be unusual. Read the body, wick, close, and range together.",
+    body: "In Forex, candle size should be read in pips and context. A large-looking candle on one pair may be normal, while the same pip movement on another pair may be unusual. Read the body, wick, close, and range together. Note that JPY (Japanese Yen) pairs use a 2-decimal pip exception where the second decimal place (0.01) represents one pip, unlike standard pairs that use the fourth decimal place (0.0001) as one pip.",
     context: {
       keyTerms: [
+        { term: "JPY Pip Exception", definition: "Japanese Yen pairs are quoted to 2 decimal places (0.01 is 1 pip), unlike standard pairs quoted to 4 decimal places (0.0001 is 1 pip)." },
         { term: "Pip Range", definition: "The total distance from High to Low measured in pips." },
         { term: "Body Size", definition: "The distance between Open and Close, showing net commitment." },
         { term: "Upper Wick", definition: "Price movement above the body that was rejected." },

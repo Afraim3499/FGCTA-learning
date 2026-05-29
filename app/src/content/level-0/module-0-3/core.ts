@@ -111,7 +111,11 @@ export const coreCards: LessonCard[] = [
       ]
     },
     context: {
-      keyTerms: ["Evidence-First", "Discipline", "Context Check"],
+      keyTerms: [
+        { term: "Evidence-First", definition: "The discipline of identifying clear, objective chart facts before forming a reading, instead of acting on assumptions." },
+        { term: "Discipline", definition: "The commitment to wait for completed records and confirmed context rather than chasing fast price movements." },
+        { term: "Context Check", definition: "The process of verifying where a candle forms (such as key levels or ranges) before assigning meaning to its shape." }
+      ],
       whyThisMatters: "This prevents 'impulse trading' based on single candle shapes.",
       realLifeExample: "Waiting for the 'Evidence Stack'. A professional sees a bullish candle at a key level but waits to see if the next candle confirms the commitment. They are treating the first candle as a piece of evidence, not a finished signal.",
       commonMistake: "Emotional 'Front-Running'. Seeing a candle starting to look like a 'Hammer' and entering a trade before the candle even closes. The record is not final until the period is over. Anything can happen in the last 10 seconds.",
@@ -125,7 +129,11 @@ export const coreCards: LessonCard[] = [
     label: "Module Debrief",
     body: "You have successfully moved from 'Shape Recognition' to 'Record Reading.' You now understand that a candle is a visual summary of participant interaction.\n\n### Your New Foundation:\n\n* [x] Candles are **Records**, not magic signals\n* [x] **Anatomy** (OHLC) provides the evidence\n* [x] **Context** (Location) creates the meaning\n* [x] **Patterns** are just named behavioral records\n\n**Next**: We see how these records interact across different zoom levels: **Timeframes**.",
     context: {
-      keyTerms: ["Participant Interaction", "Behavioral Record", "Contextual Foundation"],
+      keyTerms: [
+        { term: "Participant Interaction", definition: "The buying and selling activity of traders that determines price direction and forms candle anatomy." },
+        { term: "Behavioral Record", definition: "The objective trace of market participant decisions, stored in the open, high, low, and close values of a candle." },
+        { term: "Contextual Foundation", definition: "The structural framework of key price levels and ranges that gives meaning to individual candle records." }
+      ],
       whyThisMatters: "This foundation allows you to understand every future concept in the academy with much higher clarity.",
       realLifeExample: "The Multi-Asset Audit. If you see a strong record on EUR/USD (Euro vs. US Dollar), a disciplined learner checks if the same behavior is recorded on GBP/USD (British Pound vs. US Dollar) or the DXY (US Dollar Index). This turns a single record into a 'cluster' of evidence.",
       commonMistake: "Thinking you are 'done' learning candles. Reading candles is a life-long skill. As you move to higher levels, you will see that every advanced concept (like Order Blocks) is just a more sophisticated way of reading candle records.",

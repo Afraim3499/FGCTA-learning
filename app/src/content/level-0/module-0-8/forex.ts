@@ -131,9 +131,10 @@ export const forexCards: LessonCard[] = [
     title: "Layer 4: USD Context (The Macro DXY Anchor)",
     label: "USD Location Context",
     visualKey: "forex-usd-location-context",
-    body: "Because the US Dollar anchors over 80% of all Forex transactions, you cannot read any major pair in isolation. This is Layer 4: USD Context. The US Dollar Index (DXY) represents the aggregate strength of the USD. If EUR/USD is testing a local support floor, but DXY is trading in midpoint noise or breaking out of its own support floor, the EUR/USD floor is unstable. A high-quality location requires alignment: a pair at support must be backed by the USD index sitting at resistance.",
+    body: "Because the US Dollar anchors over 80% of all Forex transactions, you cannot read any major pair in isolation. This is Layer 4: USD Context. The US Dollar Index (DXY) represents the aggregate strength of the USD. If EUR/USD is testing a local support floor, but DXY is trading in midpoint noise or breaking out of its own support floor, the EUR/USD floor is unstable. A high-quality location requires alignment: a pair at support must be backed by the USD index sitting at resistance. However, be aware of the **DXY Mirror Effect**: because the Euro makes up approximately 57.6% of the DXY index's weight, EUR/USD and DXY will move as almost exact mathematical mirror images, meaning DXY is not always an independent second confirmation for EUR/USD.",
     context: {
       keyTerms: [
+        { term: "DXY Mirror Effect", definition: "Because the DXY index is heavily weighted toward the Euro (~57.6%), EUR/USD and DXY will move as almost exact mathematical mirror images, which can create a false sense of independent confirmation." },
         { term: "US Dollar Index (DXY)", definition: "A measure of the value of the US Dollar relative to a basket of foreign currencies." },
         { term: "Macro Anchor", definition: "Using the DXY index to determine the true strength or weakness driving major USD pairs." },
         { term: "Chart Alignment", definition: "When DXY is at resistance while a major USD pair (like EUR/USD) is at support." },
