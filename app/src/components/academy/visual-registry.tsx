@@ -397,6 +397,18 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "forex-reading-lab-practice-drill": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexReadingLabPracticeDrill), { loading: VisualLoading }),
   "forex-reading-lab-debrief": dynamic(() => import("./visuals/module-0-10").then(m => m.ForexReadingLabDebrief), { loading: VisualLoading }),
 
+  // --- MODULE 0.11 CRYPTO SPECIALIZED ---
+  "crypto-venue-fragmentation-lab-foundation": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoVenueFragmentationLabFoundation), { loading: VisualLoading }),
+  "crypto-cex-spot-check": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoCexSpotCheck), { loading: VisualLoading }),
+  "crypto-dex-price-impact-lab": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoDexPriceImpactLab), { loading: VisualLoading }),
+  "crypto-exchange-disagreement-lab": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoExchangeDisagreementLab), { loading: VisualLoading }),
+  "crypto-venue-alignment-lab": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoVenueAlignmentLab), { loading: VisualLoading }),
+  "crypto-btc-context-lab-check": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoBtcContextLabCheck), { loading: VisualLoading }),
+  "crypto-local-spike-vs-broad-move": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoLocalSpikeVsBroadMove), { loading: VisualLoading }),
+  "crypto-post-spike-follow-through": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoPostSpikeFollowThrough), { loading: VisualLoading }),
+  "crypto-cross-venue-verification-sequence": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoCrossVenueVerificationSequence), { loading: VisualLoading }),
+  "crypto-venue-lab-practice-drill": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoVenueLabPracticeDrill), { loading: VisualLoading }),
+  "crypto-venue-lab-debrief": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoVenueLabDebrief), { loading: VisualLoading }),
 
   // --- ALIASES (Backward Compatibility) ---
   // These keys ensure that legacy data in the database still renders correctly 
