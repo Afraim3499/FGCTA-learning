@@ -8,22 +8,18 @@ import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
 import { StatsBar } from "@/components/marketing/stats-bar";
 import { CTABanner } from "@/components/marketing/cta-banner";
+import { level0Curriculum, level0Stages } from "@/content/level-0";
 
 /* ── Data ── */
 
 const levels = [
   {
-    id: "L0", name: "Market Foundations", skill: "Beginner", prereq: "None",
-    purpose: "Build absolute baseline understanding. No strategy content yet.",
-    outcome: "You can navigate a trading platform, read basic charts, and understand instrument mechanics.",
+    id: "L0", name: "Market Reading Foundations", skill: "Beginner", prereq: "None",
+    purpose: "Level 0 teaches the foundation of market reading before execution. Learners study how price records movement, how structure forms, how evidence is checked, and how practice becomes reviewable.",
+    outcome: "You can observe price, read candlestick records, map structure, audit evidence, classify conditions and locations, and write structured practice notes.",
     unlocks: "Level 1",
-    modules: [
-      { id: "0.1", title: "What Is Trading", desc: "Market participants, bid/ask, spread, Method, edge defined", families: "None (foundational)" },
-      { id: "0.2", title: "Instrument Mechanics", desc: "How Forex pairs, crypto tokens, and gold contracts work", families: "None (foundational)", adaptations: { forex: "Pairs, pips, lots, swap rates", crypto: "Tokens, gas fees, CEX vs DEX, wallet setup", gold: "XAU/USD spot, GC futures, GLD ETF" } },
-      { id: "0.3", title: "Chart Reading Fundamentals", desc: "Candlestick anatomy, timeframes, volume basics, chart types", families: "None (foundational)" },
-      { id: "0.4", title: "Trading Platform Orientation", desc: "Order types, margin, leverage intro, P&L calculation", families: "None (foundational)", adaptations: { forex: "MT4/MT5 orientation", crypto: "CEX (Binance/Bybit) + DEX", gold: "Futures platform + spot broker" } },
-    ],
-    gate: { test: "Mission 1 Completion", unlockText: "Unlocks Level 1" },
+    modules: level0Curriculum,
+    gate: { test: "Final Level 0 Capstone Mission", unlockText: "Unlocks Level 1" },
     free: true,
   },
   {
@@ -163,8 +159,226 @@ const skillColors: Record<string, string> = {
   "All Levels": "text-amber-400 bg-amber-500/10 border-amber-500/20",
 };
 
+function getModuleOutcome(moduleNumber: string, fallback: string): string {
+  const outcomes: Record<string, string> = {
+    "0.1": "Master the Lurnava training loop: study, simulate, complete missions, and write reviews.",
+    "0.2": "Observe bid, ask, spread, and transaction matching without bias.",
+    "0.3": "Move from candlestick shape recognition to objective chart record reading.",
+    "0.4": "Understand the weight and hierarchy of higher vs lower timeframe data layers.",
+    "0.5": "Map how candles form swings and swings form structure to identify market direction.",
+    "0.6": "Combine separate candle, timeframe, and structure clues into a unified reading.",
+    "0.7": "Classify market conditions so evidence is judged inside the right environment.",
+    "0.8": "Learn how price location changes evidence quality before judging movement.",
+    "0.9": "Combine Gold volatility, wicks, USD context, and pressuring sweeps into a reading.",
+    "0.10": "Deconstruct pair pressure, sessions, related-pair moves, and news in Forex.",
+    "0.11": "Identify venue fragmentation and local liquidity spikes in Crypto.",
+    "0.12": "Evaluate funding pressure, open interest, and liquidation flushes in Crypto derivatives.",
+    "0.13": "Establish simulation discipline, outcome-bias control, and active stand-aside.",
+    "0.14": "Write structured practice notes separating facts from feelings for process audits.",
+    "0.15": "Complete the final capstone synthesis: build a complete, audited market reading."
+  };
+  return outcomes[moduleNumber] || fallback;
+}
+
 function LevelCard({ level, index }: { level: typeof levels[0]; index: number }) {
   const [isOpen, setIsOpen] = useState(index === 0);
+
+  if (level.id === "L0") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-30px" }}
+        transition={{ delay: index * 0.03 }}
+        className="border border-[var(--ln-border)] rounded-3xl overflow-hidden hover:border-[var(--ln-border-hover)] transition-all bg-white shadow-sm hover:shadow-md"
+      >
+        {/* Header — always visible */}
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-full px-6 md:px-8 py-6 flex items-center gap-4 md:gap-6 text-left group"
+        >
+          {/* Level badge */}
+          <div className={cn(
+            "w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border",
+            level.free
+              ? "bg-[var(--color-profit)]/10 border-[var(--color-profit)]/20"
+              : "bg-[var(--color-brand-500)]/10 border-[var(--color-brand-500)]/20"
+          )}>
+            <span className={cn("text-sm font-extrabold", level.free ? "text-[var(--color-profit)]" : "text-[var(--color-brand-400)]")}>
+              {level.id}
+            </span>
+          </div>
+
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-3 flex-wrap">
+              <h3 className="text-base md:text-lg font-bold text-[var(--ln-navy-900)]">{level.name}</h3>
+              <span className={cn("text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-md border", skillColors[level.skill] || "text-[var(--color-text-muted)]")}>
+                {level.skill}
+              </span>
+              {level.free && (
+                <span className="text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-md text-[var(--color-profit)] bg-[var(--color-profit)]/10 border border-[var(--color-profit)]/20">
+                  Free Trial
+                </span>
+              )}
+            </div>
+            <p className="text-xs text-[var(--ln-text-secondary)] mt-1 font-medium">{level.purpose}</p>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="text-[9px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)] hidden md:block">
+              {level.modules.length} modules
+            </span>
+            <ChevronDown size={18} className={cn("text-[var(--ln-text-muted)] transition-transform duration-300", isOpen && "rotate-180")} />
+          </div>
+        </button>
+
+        {/* Expanded content */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <div className="px-6 md:px-8 pb-8 space-y-8 border-t border-[var(--ln-border-soft)] pt-6">
+                {/* Info strip */}
+                <div className="flex flex-wrap gap-4 text-[10px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)]">
+                  <span>Prereq: {level.prereq}</span>
+                  <span>•</span>
+                  <span>Unlocks: {level.unlocks}</span>
+                </div>
+
+                {/* positioning layout: Teaches / Doesn't Teach */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* Left: What Level 0 teaches */}
+                  <div className="bg-slate-50/50 p-6 rounded-2xl border border-slate-100/80">
+                    <h4 className="text-[11px] font-black uppercase tracking-wider text-[var(--ln-teal-600)] mb-4">What Level 0 Teaches</h4>
+                    <ul className="space-y-2.5">
+                      {[
+                        "Observe price without guessing",
+                        "Read candles as records, not signals",
+                        "Understand timeframe hierarchy",
+                        "Map market structure",
+                        "Audit evidence",
+                        "Classify condition and location",
+                        "Understand Forex, Gold, and Crypto-specific traps",
+                        "Practice without random clicking",
+                        "Write useful practice notes",
+                        "Complete a final Level 0 mission"
+                      ].map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs text-[var(--ln-text-secondary)] font-medium">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--ln-teal-500)] mt-1.5 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Right: What Level 0 does NOT teach yet */}
+                  <div className="bg-slate-50/50 p-6 rounded-2xl border border-slate-100/80">
+                    <h4 className="text-[11px] font-black uppercase tracking-wider text-rose-600 mb-4">What Level 0 Does Not Teach Yet</h4>
+                    <ul className="space-y-2.5">
+                      {[
+                        "No buy/sell signal promises",
+                        "No profit guarantees",
+                        "No shortcut strategy",
+                        "No live execution system yet",
+                        "No advanced risk model yet"
+                      ].map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs text-[var(--ln-text-secondary)] font-medium">
+                          <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* 6-Stage Journey Timeline */}
+                <div className="space-y-4">
+                  <h4 className="text-xs font-black uppercase tracking-wider text-[var(--ln-navy-900)]">The 6-Stage Journey</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {level0Stages.map((stage) => (
+                      <div key={stage.number} className="p-5 bg-white border border-[var(--ln-border)] rounded-2xl space-y-2 relative overflow-hidden group hover:border-[var(--ln-teal-500)]/30 transition-colors">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-black uppercase tracking-widest text-[var(--ln-teal-600)]">Stage {stage.number}</span>
+                          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tight">Modules {stage.modules.join('–')}</span>
+                        </div>
+                        <h5 className="text-sm font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">{stage.title}</h5>
+                        <p className="text-xs text-[var(--ln-text-secondary)] font-medium leading-relaxed">{stage.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 15 Modules Cards */}
+                <div className="space-y-4">
+                  <h4 className="text-xs font-black uppercase tracking-wider text-[var(--ln-navy-900)]">15 Foundation Modules</h4>
+                  <div className="space-y-3">
+                    {level0Curriculum.map((mod) => {
+                      const modNum = parseFloat(mod.moduleNumber);
+                      const isSpecialized = modNum >= 0.9 && modNum <= 0.15;
+                      
+                      // Determine track label
+                      let trackLabel = "";
+                      if (mod.moduleNumber === "0.9") trackLabel = "Gold Specialized Lab";
+                      else if (mod.moduleNumber === "0.10") trackLabel = "Forex Specialized Lab";
+                      else if (mod.moduleNumber === "0.11") trackLabel = "Crypto Venue Lab";
+                      else if (mod.moduleNumber === "0.12") trackLabel = "Crypto Derivatives Lab";
+                      else if (mod.moduleNumber === "0.13") trackLabel = "Practice Discipline Lab";
+                      else if (mod.moduleNumber === "0.14") trackLabel = "Practice Note Lab";
+                      else if (mod.moduleNumber === "0.15") trackLabel = "Final Foundation Mission";
+
+                      const outcome = getModuleOutcome(mod.moduleNumber, mod.objective);
+
+                      return (
+                        <div key={mod.moduleNumber} className="p-5 bg-[var(--ln-bg-soft)] border border-[var(--ln-border-soft)] hover:bg-white hover:border-[var(--ln-border-hover)] rounded-2xl space-y-2 transition-all">
+                          <div className="flex items-start justify-between gap-4 flex-wrap">
+                            <div className="flex items-center gap-2">
+                              <span className="text-[10px] font-mono font-black text-[var(--ln-teal-500)]">{mod.moduleNumber}</span>
+                              <h5 className="text-sm font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">{mod.title}</h5>
+                            </div>
+                            {isSpecialized ? (
+                              <span className="text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-50 border border-amber-200 text-amber-600">
+                                {trackLabel}
+                              </span>
+                            ) : (
+                              <div className="flex items-center gap-1.5 flex-wrap">
+                                {["core", "forex", "gold", "crypto"].map((track) => (
+                                  <span key={track} className="text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.25 rounded-md bg-slate-100 text-slate-500">
+                                    {track}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                          <p className="text-xs text-[var(--ln-text-secondary)] font-medium mt-1 leading-relaxed">
+                            <span className="font-bold text-[var(--ln-navy-900)]">Outcome:</span> {outcome}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Gate */}
+                <div className="flex items-center gap-3 p-4 bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] rounded-xl">
+                  <Lock size={16} className="text-[var(--ln-text-muted)] shrink-0" />
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--ln-text-muted)]">Gate Requirement</p>
+                    <p className="text-xs text-[var(--ln-text-secondary)]">{level.gate.test} → {level.gate.unlockText}</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -176,6 +390,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
     >
       {/* Header — always visible */}
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-6 md:px-8 py-6 flex items-center gap-4 md:gap-6 text-left group"
       >
@@ -245,22 +460,22 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
 
               {/* Modules */}
               <div className="space-y-3">
-                {level.modules.map((mod) => (
-                  <div key={mod.id} className="p-4 bg-[var(--ln-bg-soft)] border border-[var(--ln-border-soft)] rounded-xl space-y-2">
+                {level.modules.map((mod: any) => (
+                  <div key={mod.id || mod.moduleNumber} className="p-4 bg-[var(--ln-bg-soft)] border border-[var(--ln-border-soft)] rounded-xl space-y-2">
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-mono font-bold text-[var(--ln-teal-500)]">{mod.id}</span>
+                          <span className="text-[10px] font-mono font-bold text-[var(--ln-teal-500)]">{mod.id || mod.moduleNumber}</span>
                           <h4 className="text-sm font-bold text-[var(--ln-navy-900)]">{mod.title}</h4>
                         </div>
-                        <p className="text-xs text-[var(--ln-text-secondary)] mt-1">{mod.desc}</p>
+                        <p className="text-xs text-[var(--ln-text-secondary)] mt-1">{mod.desc || mod.objective}</p>
                       </div>
                     </div>
 
                     {/* Market adaptations */}
-                    {"adaptations" in mod && mod.adaptations && (
+                    {mod.adaptations && (
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-2 border-t border-[var(--ln-border-soft)] mt-2">
-                        {Object.entries(mod.adaptations).map(([market, text]) => (
+                        {Object.entries(mod.adaptations as Record<string, string>).map(([market, text]) => (
                           <div key={market} className="flex items-start gap-2 text-[10px]">
                             <span className={cn(
                               "font-bold uppercase tracking-widest shrink-0 mt-0.5",
@@ -299,6 +514,7 @@ function LevelCard({ level, index }: { level: typeof levels[0]; index: number })
     </motion.div>
   );
 }
+
 
 /* ── Page ── */
 

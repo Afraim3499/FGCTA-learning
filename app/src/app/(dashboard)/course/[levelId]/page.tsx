@@ -112,6 +112,26 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
         )}
       </header>
 
+      {/* Syllabus banner/prompt for Level 0 */}
+      {levelId === 0 && (
+        <div className="p-6 bg-gradient-to-br from-teal-50/40 via-teal-50/10 to-white border border-[var(--ln-border)] rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="space-y-2 flex-1 text-center sm:text-left">
+            <span className="text-[10px] font-black uppercase tracking-[0.25em] text-teal-600">Syllabus Guide</span>
+            <h2 className="text-xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">Interactive Syllabus Map</h2>
+            <p className="text-sm text-[var(--ln-text-secondary)] leading-relaxed max-w-xl font-medium">
+              Explore Level 0's complete 6-stage learning journey and 15-module card mapping, presented in detail by Nava.
+            </p>
+          </div>
+          <Link
+            href="/course/0/syllabus"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[var(--ln-navy-900)] hover:bg-slate-800 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md shrink-0 active:scale-95"
+          >
+            Open Syllabus Guide
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      )}
+
       <div className="relative space-y-4">
         <div className="absolute left-[27px] top-8 bottom-8 w-[2px] bg-[var(--ln-border-soft)] hidden md:block" />
 

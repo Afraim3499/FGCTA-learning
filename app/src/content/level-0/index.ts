@@ -9,6 +9,10 @@ import { module08 } from "./module-0-8";
 import { module09 } from "./module-0-9";
 import { module010 } from "./module-0-10";
 import { module011 } from "./module-0-11";
+import { module012 } from "./module-0-12";
+import { module013 } from "./module-0-13";
+import { module014 } from "./module-0-14";
+import { module015 } from "./module-0-15";
 import { AcademyModule } from "../../types/curriculum";
 
 export const level0Curriculum: AcademyModule[] = [
@@ -22,7 +26,13 @@ export const level0Curriculum: AcademyModule[] = [
   module08,
   module09,
   module010,
-  module011
+  module011,
+  module012,
+  module013,
+  module014,
+  module015
 ];
+
+export * from "./stages";
 
 

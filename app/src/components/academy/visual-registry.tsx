@@ -410,6 +410,58 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "crypto-venue-lab-practice-drill": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoVenueLabPracticeDrill), { loading: VisualLoading }),
   "crypto-venue-lab-debrief": dynamic(() => import("./visuals/module-0-11").then(m => m.CryptoVenueLabDebrief), { loading: VisualLoading }),
 
+  // --- MODULE 0.12 CRYPTO DERIVATIVES ---
+  "crypto-derivatives-lab-foundation": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoDerivativesLabFoundation), { loading: VisualLoading }),
+  "crypto-open-interest-reading-lab": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoOpenInterestReadingLab), { loading: VisualLoading }),
+  "crypto-price-oi-combination-board": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoPriceOiCombinationBoard), { loading: VisualLoading }),
+  "crypto-funding-pressure-reading": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoFundingPressureReading), { loading: VisualLoading }),
+  "crypto-crowded-positioning-fragility": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoCrowdedPositioningFragility), { loading: VisualLoading }),
+  "crypto-liquidation-flush-lab": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoLiquidationFlushLab), { loading: VisualLoading }),
+  "crypto-long-short-squeeze-board": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoLongShortSqueezeBoard), { loading: VisualLoading }),
+  "crypto-post-liquidation-settlement": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoPostLiquidationSettlement), { loading: VisualLoading }),
+  "crypto-derivatives-verification-sequence": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoDerivativesVerificationSequence), { loading: VisualLoading }),
+  "crypto-derivatives-practice-drill": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoDerivativesPracticeDrill), { loading: VisualLoading }),
+  "crypto-derivatives-lab-debrief": dynamic(() => import("./visuals/module-0-12").then(m => m.CryptoDerivativesLabDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.13 PRACTICE DISCIPLINE ---
+  "practice-discipline-lab-foundation": dynamic(() => import("./visuals/module-0-13").then(m => m.PracticeDisciplineLabFoundation), { loading: VisualLoading }),
+  "simulator-not-video-game": dynamic(() => import("./visuals/module-0-13").then(m => m.SimulatorNotVideoGame), { loading: VisualLoading }),
+  "valid-practice-attempt-board": dynamic(() => import("./visuals/module-0-13").then(m => m.ValidPracticeAttemptBoard), { loading: VisualLoading }),
+  "outcome-bias-practice-lab": dynamic(() => import("./visuals/module-0-13").then(m => m.OutcomeBiasPracticeLab), { loading: VisualLoading }),
+  "active-idle-stand-aside-lab": dynamic(() => import("./visuals/module-0-13").then(m => m.ActiveIdleStandAsideLab), { loading: VisualLoading }),
+  "boredom-clicking-warning-board": dynamic(() => import("./visuals/module-0-13").then(m => m.BoredomClickingWarningBoard), { loading: VisualLoading }),
+  "chasing-speed-practice-trap": dynamic(() => import("./visuals/module-0-13").then(m => m.ChasingSpeedPracticeTrap), { loading: VisualLoading }),
+  "reading-vs-execution-skill-board": dynamic(() => import("./visuals/module-0-13").then(m => m.ReadingVsExecutionSkillBoard), { loading: VisualLoading }),
+  "scenario-replay-protocol-board": dynamic(() => import("./visuals/module-0-13").then(m => m.ScenarioReplayProtocol), { loading: VisualLoading }),
+  "practice-discipline-drill": dynamic(() => import("./visuals/module-0-13").then(m => m.PracticeDisciplineDrill), { loading: VisualLoading }),
+  "practice-discipline-lab-debrief": dynamic(() => import("./visuals/module-0-13").then(m => m.PracticeDisciplineLabDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.14 PRACTICE NOTES ---
+  "practice-note-lab-foundation": dynamic(() => import("./visuals/module-0-14").then(m => m.PracticeNoteLabFoundation), { loading: VisualLoading }),
+  "standard-practice-note-template": dynamic(() => import("./visuals/module-0-14").then(m => m.StandardPracticeNoteTemplate), { loading: VisualLoading }),
+  "facts-vs-feelings-note-board": dynamic(() => import("./visuals/module-0-14").then(m => m.FactsVsFeelingsNoteBoard), { loading: VisualLoading }),
+  "pre-action-reasoning-note": dynamic(() => import("./visuals/module-0-14").then(m => m.PreActionReasoningNote), { loading: VisualLoading }),
+  "review-condition-writing-lab": dynamic(() => import("./visuals/module-0-14").then(m => m.ReviewConditionWritingLab), { loading: VisualLoading }),
+  "process-quality-note-audit": dynamic(() => import("./visuals/module-0-14").then(m => m.ProcessQualityNoteAudit), { loading: VisualLoading }),
+  "mistake-tagging-framework": dynamic(() => import("./visuals/module-0-14").then(m => m.MistakeTaggingFramework), { loading: VisualLoading }),
+  "stand-aside-note-format": dynamic(() => import("./visuals/module-0-14").then(m => m.StandAsideNoteFormat), { loading: VisualLoading }),
+  "replay-missed-opportunity-note": dynamic(() => import("./visuals/module-0-14").then(m => m.ReplayMissedOpportunityNote), { loading: VisualLoading }),
+  "practice-note-rewrite-drill": dynamic(() => import("./visuals/module-0-14").then(m => m.PracticeNoteRewriteDrill), { loading: VisualLoading }),
+  "practice-note-lab-debrief": dynamic(() => import("./visuals/module-0-14").then(m => m.PracticeNoteLabDebrief), { loading: VisualLoading }),
+
+  // --- MODULE 0.15 FOUNDATION MISSION ---
+  "level-0-foundation-mission-brief": dynamic(() => import("./visuals/module-0-15").then(m => m.Level0FoundationMissionBrief), { loading: VisualLoading }),
+  "raw-observation-mission-layer": dynamic(() => import("./visuals/module-0-15").then(m => m.RawObservationMissionLayer), { loading: VisualLoading }),
+  "timeframe-structure-mission-map": dynamic(() => import("./visuals/module-0-15").then(m => m.TimeframeStructureMissionMap), { loading: VisualLoading }),
+  "condition-location-mission-crosscheck": dynamic(() => import("./visuals/module-0-15").then(m => m.ConditionLocationMissionCrosscheck), { loading: VisualLoading }),
+  "foundation-evidence-stack-builder": dynamic(() => import("./visuals/module-0-15").then(m => m.FoundationEvidenceStackBuilder), { loading: VisualLoading }),
+  "asset-specific-trap-check": dynamic(() => import("./visuals/module-0-15").then(m => m.AssetSpecificTrapCheck), { loading: VisualLoading }),
+  "verification-question-mission-board": dynamic(() => import("./visuals/module-0-15").then(m => m.VerificationQuestionMissionBoard), { loading: VisualLoading }),
+  "practice-decision-mission-gate": dynamic(() => import("./visuals/module-0-15").then(m => m.PracticeDecisionMissionGate), { loading: VisualLoading }),
+  "review-note-prep-mission-board": dynamic(() => import("./visuals/module-0-15").then(m => m.ReviewNotePrepMissionBoard), { loading: VisualLoading }),
+  "level-0-final-reading-drill": dynamic(() => import("./visuals/module-0-15").then(m => m.Level0FinalReadingDrill), { loading: VisualLoading }),
+  "level-0-foundation-mission-debrief": dynamic(() => import("./visuals/module-0-15").then(m => m.Level0FoundationMissionDebrief), { loading: VisualLoading }),
+
   // --- ALIASES (Backward Compatibility) ---
   // These keys ensure that legacy data in the database still renders correctly 
   // during the transition to standardized keys.
