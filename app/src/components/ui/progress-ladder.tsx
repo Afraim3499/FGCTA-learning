@@ -17,17 +17,18 @@ export interface ProgressLadderProps {
 }
 
 const levels = [
-  { id: 1, title: "Level 1: Core Logic", description: "Market fundamentals and market behavior." },
-  { id: 2, title: "Level 2: Edge Mechanics", description: "Defining high-probability setups." },
-  { id: 3, title: "Level 3: Common Mistakes", description: "Identifying and avoiding common market errors." },
-  { id: 4, title: "Level 4: Entry Logic", description: "Step-by-step entry and exit techniques." },
-  { id: 5, title: "Level 5: Risk Architecture", description: "Advanced position sizing and management." },
-  { id: 6, title: "Level 6: Performance Psychology", description: "Discipline and mental performance." },
-  { id: 7, title: "Level 7: Market Flow", description: "Understanding high timeframe behavior." },
-  { id: 8, title: "Level 8: Academy Graduation", description: "The final learning evaluation." },
+  { id: 1, title: "Level 1: Planning Foundation", description: "Master written plan rules, Areas of Interest, and target paths." },
+  { id: 2, title: "Level 2: Execution Mechanics", description: "Master price feed delivery, structure shifts, and session windows." },
+  { id: 3, title: "Level 3: Institutional Order Flow", description: "Master Order Blocks, Fair Value Gaps, and footprint imbalances." },
+  { id: 4, title: "Level 4: Time & Price Cycles", description: "Master PO3 accumulation/distribution cycles and Killzones." },
+  { id: 5, title: "Level 5: Risk Architecture", description: "Master dynamic position sizing, trailing stops, and drawdown limits." },
+  { id: 6, title: "Level 6: Scenario Planning", description: "Master if-then decision branch trees for dynamic conditions." },
+  { id: 7, title: "Level 7: Strategy Playbook Mastery", description: "Compile sweeps, shifts, and mitigations into strategy playbooks." },
+  { id: 8, title: "Level 8: Management and Review", description: "Set up trade journals and statistical performance reviews." },
+  { id: 9, title: "Level 9: Certification & Crucible", description: "Complete the final capstone tests to earn your certification." },
 ];
 
-export function ProgressLadder({ currentLevel, totalLevels = 8, onLevelClick }: ProgressLadderProps) {
+export function ProgressLadder({ currentLevel, totalLevels = 9, onLevelClick }: ProgressLadderProps) {
   return (
     <div className="relative space-y-10 py-6">
       {/* Background Line */}

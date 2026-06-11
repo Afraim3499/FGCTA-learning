@@ -40,15 +40,16 @@ export default async function AcademyPage() {
 
 function getLevelDescription(level: number): string {
   const descriptions: Record<number, string> = {
-    0: "Establish your core market understanding. Learn the essential mechanics and set up your safe Practice Environment.",
-    1: "Building your chart-reading foundation. Master basic concepts and begin interpreting market behavior.",
-    2: "Exploring market mechanics. Understand the relationship between price action and market participants.",
-    3: "Applying your knowledge. Learn to read advanced market interactions and practice within guided scenarios.",
-    4: "Planned: Advanced timing and price interaction concepts.",
-    5: "Planned: Risk management frameworks and capital preservation concepts.",
-    6: "Planned: Macro narrative building and market correlation analysis.",
-    7: "Planned: Synthesis of core pillars into a repeatable practice framework.",
-    8: "Planned: Advanced decision-making and performance review."
+    0: "Establish your core market reading foundation. Learn OHLCV delivery, wicks, timeframe compression, and build an Evidence Stack.",
+    1: "Master the rules of written planning. Learn how to define Areas of Interest, activation triggers, invalidation zones, and target paths.",
+    2: "Understand execution mechanics, price feed delivery (DMA vs B-Book), structure swings, range boundaries, and session windows.",
+    3: "Identify institutional footprints. Master Order Blocks, Fair Value Gaps, Breaker Blocks, and Volume Imbalances.",
+    4: "Coordinate execution with time. Master the Daily Cycle (Asia consolidation, London Open, NY Open), PO3, and Killzones.",
+    5: "Build your risk architecture. Learn position sizing, scaling out, capital protection, and drawdown limits.",
+    6: "Develop scenario logic. Learn to build if-then decision branch trees for multiple market conditions.",
+    7: "Synthesize setups into playbooks. Compile sweep, shift, and mitigation rules into repeatable strategies.",
+    8: "Create management and review loops. Set up trade logs, journals, and statistical performance checks.",
+    9: "Enter the final Crucible. Pass assessment scenarios and earn your institutional certification."
   };
   return descriptions[level] || "Academy level currently in planning.";
 }

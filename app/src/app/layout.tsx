@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
   title: "Lurnava Academy — Learn the Market With Structure",
   description:
     "Lurnava is a visual-first market education platform that helps beginners learn chart reading, risk discipline, and structured decision-making without hype.",

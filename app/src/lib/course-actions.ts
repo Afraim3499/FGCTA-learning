@@ -57,7 +57,7 @@ export async function getCourseLevels() {
   const currentLevel = progress?.currentLevel ?? 0;
 
   // Format the output
-  const levels = [0, 1, 2, 3, 4, 5, 6, 7, 8].map((level) => {
+  const levels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((level) => {
     const stats = levelStats[level] || { total: 0, completed: 0 };
     const completionPct = stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0;
     
@@ -303,12 +303,12 @@ function getLevelTitle(level: number): string {
     0: "Market Reading Foundations",
     1: "Planning Foundation",
     2: "Execution Mechanics",
-    3: "Risk Architecture",
-    4: "Scenario Planning",
-    5: "Strategy Playbook Mastery",
-    6: "Management and Review",
-    7: "Asset Specialization",
-    8: "Pressure Testing",
+    3: "Institutional Order Flow",
+    4: "Time & Price Cycles",
+    5: "Risk Architecture",
+    6: "Scenario Planning",
+    7: "Strategy Playbook Mastery",
+    8: "Management and Review",
     9: "Certification",
   };
   return titles[level] || `Level ${level}`;
