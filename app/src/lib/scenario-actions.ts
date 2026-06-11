@@ -339,6 +339,23 @@ export async function submitChartScenarioAttempt(
     }
   }
 
+  // Dual-gate check for Level 4 unlock (mirrors Level 3 pattern)
+  if (isPassed && (attempt.scenario.slug === "l4-mission-4a" || attempt.scenario.slug === "l4-mission-4b")) {
+    const testData = await prisma.knowledgeTest.findUnique({ where: { level: 4 } });
+    if (testData) {
+      const testPassed = await prisma.testAttempt.findFirst({
+        where: { userId: user.id, testId: testData.id, passed: true },
+      });
+      const progress = await prisma.userProgress.findUnique({ where: { userId: user.id } });
+      if (testPassed && progress && progress.currentLevel === 4) {
+        await prisma.userProgress.update({
+          where: { userId: user.id },
+          data: { currentLevel: Math.max(progress.currentLevel, 5) },
+        });
+      }
+    }
+  }
+
   // Dual-gate check for Level 2 unlock (existing logic preserved)
   if (isPassed && attempt.scenario.slug === "m2-level-2-map-review-v1") {
     const testData = await prisma.knowledgeTest.findUnique({ where: { level: 2 } });

@@ -210,6 +210,25 @@ export async function submitTest(level: number, selectedAnswers: { questionId: s
         }
       }
 
+      if (level === 4) {
+        // Dual-gate logic for Level 4 → Level 5
+        // BOTH the Level 4 Knowledge Test AND either Level 4 Final Scenario (l4-mission-4a or l4-mission-4b) must be passed.
+        const scenarioPassed = await tx.scenarioAttempt.findFirst({
+          where: {
+            userId: user.id,
+            scenario: { slug: { in: ["l4-mission-4a", "l4-mission-4b"] } },
+            status: "passed",
+          }
+        });
+
+        if (!scenarioPassed) {
+          shouldUnlockNextLevel = false;
+          returnMessage = "Test passed. Complete either Level 4 Final Scenario (Module 4.15) to unlock Level 5.";
+        } else {
+          returnMessage = "Level 5 Unlocked! You are ready for Risk Architecture.";
+        }
+      }
+
       if (progress && progress.currentLevel === level && shouldUnlockNextLevel) {
         const nextLevel = Math.max(progress.currentLevel, level + 1);
         

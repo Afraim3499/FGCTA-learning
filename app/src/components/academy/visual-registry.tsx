@@ -1026,5 +1026,156 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "forex-multi-pair-orderflow": dynamic(() => import("./visuals/shared-l3").then(m => m.Level3ReviewVisual), { loading: VisualLoading }),
   "gold-comex-orderflow": dynamic(() => import("./visuals/shared-l3").then(m => m.Level3ReviewVisual), { loading: VisualLoading }),
   "crypto-cex-orderflow": dynamic(() => import("./visuals/shared-l3").then(m => m.Level3ReviewVisual), { loading: VisualLoading }),
+
+  // --- LEVEL 4 TIME & PRICE CYCLES ---
+  // Module 4.1
+  "daily-cycle-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.DailyCycleBasicsVisual), { loading: VisualLoading }),
+  "asia-london-ny-flow": dynamic(() => import("./visuals/shared-l4").then(m => m.DailyCycleBasicsVisual), { loading: VisualLoading }),
+  "judas-swing-basics": dynamic(() => import("./visuals/shared-l4").then(m => m.DailyCycleBasicsVisual), { loading: VisualLoading }),
+  "distribution-mechanics": dynamic(() => import("./visuals/shared-l4").then(m => m.DailyCycleBasicsVisual), { loading: VisualLoading }),
+  "daily-cycle-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.DailyCycleBasicsVisual), { loading: VisualLoading }),
+  "forex-daily-cycle": dynamic(() => import("./visuals/shared-l4").then(m => m.DailyCycleBasicsVisual), { loading: VisualLoading }),
+  "gold-daily-cycle": dynamic(() => import("./visuals/shared-l4").then(m => m.DailyCycleBasicsVisual), { loading: VisualLoading }),
+  "crypto-daily-cycle": dynamic(() => import("./visuals/shared-l4").then(m => m.DailyCycleBasicsVisual), { loading: VisualLoading }),
+
+  // Module 4.2
+  "asia-range-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.AsianRangeVisual), { loading: VisualLoading }),
+  "asian-boundaries": dynamic(() => import("./visuals/shared-l4").then(m => m.AsianRangeVisual), { loading: VisualLoading }),
+  "range-extension-traps": dynamic(() => import("./visuals/shared-l4").then(m => m.AsianRangeVisual), { loading: VisualLoading }),
+  "equilibrium-reference": dynamic(() => import("./visuals/shared-l4").then(m => m.AsianRangeVisual), { loading: VisualLoading }),
+  "asia-range-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.AsianRangeVisual), { loading: VisualLoading }),
+  "forex-asia-range": dynamic(() => import("./visuals/shared-l4").then(m => m.AsianRangeVisual), { loading: VisualLoading }),
+  "gold-asia-range": dynamic(() => import("./visuals/shared-l4").then(m => m.AsianRangeVisual), { loading: VisualLoading }),
+  "crypto-asia-range": dynamic(() => import("./visuals/shared-l4").then(m => m.AsianRangeVisual), { loading: VisualLoading }),
+
+  // Module 4.3
+  "london-open-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonOpenVisual), { loading: VisualLoading }),
+  "judas-swing-mechanics": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonOpenVisual), { loading: VisualLoading }),
+  "sweep-rejection-signatures": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonOpenVisual), { loading: VisualLoading }),
+  "london-low-high-day": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonOpenVisual), { loading: VisualLoading }),
+  "london-open-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonOpenVisual), { loading: VisualLoading }),
+  "forex-london-open": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonOpenVisual), { loading: VisualLoading }),
+  "gold-london-open": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonOpenVisual), { loading: VisualLoading }),
+  "crypto-london-open": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonOpenVisual), { loading: VisualLoading }),
+
+  // Module 4.4
+  "ny-open-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.NyOpenOverlapVisual), { loading: VisualLoading }),
+  "london-reversal-signs": dynamic(() => import("./visuals/shared-l4").then(m => m.NyOpenOverlapVisual), { loading: VisualLoading }),
+  "ny-continuation-mechanics": dynamic(() => import("./visuals/shared-l4").then(m => m.NyOpenOverlapVisual), { loading: VisualLoading }),
+  "session-handoffs": dynamic(() => import("./visuals/shared-l4").then(m => m.NyOpenOverlapVisual), { loading: VisualLoading }),
+  "ny-open-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.NyOpenOverlapVisual), { loading: VisualLoading }),
+  "forex-ny-open": dynamic(() => import("./visuals/shared-l4").then(m => m.NyOpenOverlapVisual), { loading: VisualLoading }),
+  "gold-ny-open": dynamic(() => import("./visuals/shared-l4").then(m => m.NyOpenOverlapVisual), { loading: VisualLoading }),
+  "crypto-ny-open": dynamic(() => import("./visuals/shared-l4").then(m => m.NyOpenOverlapVisual), { loading: VisualLoading }),
+
+  // Module 4.5
+  "po3-template-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.Po3CandleBuilder), { loading: VisualLoading }),
+  "ohlc-phase-mapping": dynamic(() => import("./visuals/shared-l4").then(m => m.Po3CandleBuilder), { loading: VisualLoading }),
+  "accumulation-phase": dynamic(() => import("./visuals/shared-l4").then(m => m.Po3CandleBuilder), { loading: VisualLoading }),
+  "manipulation-sweeps": dynamic(() => import("./visuals/shared-l4").then(m => m.Po3CandleBuilder), { loading: VisualLoading }),
+  "po3-template-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.Po3CandleBuilder), { loading: VisualLoading }),
+  "forex-po3-template": dynamic(() => import("./visuals/shared-l4").then(m => m.Po3CandleBuilder), { loading: VisualLoading }),
+  "gold-po3-template": dynamic(() => import("./visuals/shared-l4").then(m => m.Po3CandleBuilder), { loading: VisualLoading }),
+  "crypto-po3-template": dynamic(() => import("./visuals/shared-l4").then(m => m.Po3CandleBuilder), { loading: VisualLoading }),
+
+  // Module 4.6
+  "midnight-open-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.MidnightOpenAnchorVisual), { loading: VisualLoading }),
+  "midnight-price-anchor": dynamic(() => import("./visuals/shared-l4").then(m => m.MidnightOpenAnchorVisual), { loading: VisualLoading }),
+  "above-below-midnight": dynamic(() => import("./visuals/shared-l4").then(m => m.MidnightOpenAnchorVisual), { loading: VisualLoading }),
+  "true-day-direction": dynamic(() => import("./visuals/shared-l4").then(m => m.MidnightOpenAnchorVisual), { loading: VisualLoading }),
+  "midnight-open-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.MidnightOpenAnchorVisual), { loading: VisualLoading }),
+  "forex-midnight-open": dynamic(() => import("./visuals/shared-l4").then(m => m.MidnightOpenAnchorVisual), { loading: VisualLoading }),
+  "gold-midnight-open": dynamic(() => import("./visuals/shared-l4").then(m => m.MidnightOpenAnchorVisual), { loading: VisualLoading }),
+  "crypto-midnight-open": dynamic(() => import("./visuals/shared-l4").then(m => m.MidnightOpenAnchorVisual), { loading: VisualLoading }),
+
+  // Module 4.7
+  "london-killzone-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonKillzoneVisual), { loading: VisualLoading }),
+  "london-hours-window": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonKillzoneVisual), { loading: VisualLoading }),
+  "london-liquidity-sweeps": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonKillzoneVisual), { loading: VisualLoading }),
+  "london-setup-filters": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonKillzoneVisual), { loading: VisualLoading }),
+  "london-killzone-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonKillzoneVisual), { loading: VisualLoading }),
+  "forex-london-killzone": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonKillzoneVisual), { loading: VisualLoading }),
+  "gold-london-killzone": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonKillzoneVisual), { loading: VisualLoading }),
+  "crypto-london-killzone": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonKillzoneVisual), { loading: VisualLoading }),
+
+  // Module 4.8
+  "ny-killzone-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.NyKillzoneVisual), { loading: VisualLoading }),
+  "ny-hours-window": dynamic(() => import("./visuals/shared-l4").then(m => m.NyKillzoneVisual), { loading: VisualLoading }),
+  "ny-macro-overlaps": dynamic(() => import("./visuals/shared-l4").then(m => m.NyKillzoneVisual), { loading: VisualLoading }),
+  "ny-news-filters": dynamic(() => import("./visuals/shared-l4").then(m => m.NyKillzoneVisual), { loading: VisualLoading }),
+  "ny-killzone-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.NyKillzoneVisual), { loading: VisualLoading }),
+  "forex-ny-killzone": dynamic(() => import("./visuals/shared-l4").then(m => m.NyKillzoneVisual), { loading: VisualLoading }),
+  "gold-ny-killzone": dynamic(() => import("./visuals/shared-l4").then(m => m.NyKillzoneVisual), { loading: VisualLoading }),
+  "crypto-ny-killzone": dynamic(() => import("./visuals/shared-l4").then(m => m.NyKillzoneVisual), { loading: VisualLoading }),
+
+  // Module 4.9
+  "london-close-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonCloseVisual), { loading: VisualLoading }),
+  "london-close-hours": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonCloseVisual), { loading: VisualLoading }),
+  "counter-trend-retracements": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonCloseVisual), { loading: VisualLoading }),
+  "position-unwinding": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonCloseVisual), { loading: VisualLoading }),
+  "london-close-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonCloseVisual), { loading: VisualLoading }),
+  "forex-london-close": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonCloseVisual), { loading: VisualLoading }),
+  "gold-london-close": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonCloseVisual), { loading: VisualLoading }),
+  "crypto-london-close": dynamic(() => import("./visuals/shared-l4").then(m => m.LondonCloseVisual), { loading: VisualLoading }),
+
+  // Module 4.10
+  "macro-windows-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.MacroWindowsVisual), { loading: VisualLoading }),
+  "macro-time-frames": dynamic(() => import("./visuals/shared-l4").then(m => m.MacroWindowsVisual), { loading: VisualLoading }),
+  "algo-spoofing-signs": dynamic(() => import("./visuals/shared-l4").then(m => m.MacroWindowsVisual), { loading: VisualLoading }),
+  "liquidity-run-macro": dynamic(() => import("./visuals/shared-l4").then(m => m.MacroWindowsVisual), { loading: VisualLoading }),
+  "macro-windows-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.MacroWindowsVisual), { loading: VisualLoading }),
+  "forex-macro-windows": dynamic(() => import("./visuals/shared-l4").then(m => m.MacroWindowsVisual), { loading: VisualLoading }),
+  "gold-macro-windows": dynamic(() => import("./visuals/shared-l4").then(m => m.MacroWindowsVisual), { loading: VisualLoading }),
+  "crypto-macro-windows": dynamic(() => import("./visuals/shared-l4").then(m => m.MacroWindowsVisual), { loading: VisualLoading }),
+
+  // Module 4.11
+  "weekly-cycles-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.WeeklyCyclesVisual), { loading: VisualLoading }),
+  "mon-tue-low-high": dynamic(() => import("./visuals/shared-l4").then(m => m.WeeklyCyclesVisual), { loading: VisualLoading }),
+  "mid-week-reversals": dynamic(() => import("./visuals/shared-l4").then(m => m.WeeklyCyclesVisual), { loading: VisualLoading }),
+  "weekly-range-expansion": dynamic(() => import("./visuals/shared-l4").then(m => m.WeeklyCyclesVisual), { loading: VisualLoading }),
+  "weekly-cycles-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.WeeklyCyclesVisual), { loading: VisualLoading }),
+  "forex-weekly-cycles": dynamic(() => import("./visuals/shared-l4").then(m => m.WeeklyCyclesVisual), { loading: VisualLoading }),
+  "gold-weekly-cycles": dynamic(() => import("./visuals/shared-l4").then(m => m.WeeklyCyclesVisual), { loading: VisualLoading }),
+  "crypto-weekly-cycles": dynamic(() => import("./visuals/shared-l4").then(m => m.WeeklyCyclesVisual), { loading: VisualLoading }),
+
+  // Module 4.12
+  "confluence-tp-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceConfluencesVisual), { loading: VisualLoading }),
+  "session-anchor-confluence": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceConfluencesVisual), { loading: VisualLoading }),
+  "time-price-stacking": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceConfluencesVisual), { loading: VisualLoading }),
+  "high-prob-windows": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceConfluencesVisual), { loading: VisualLoading }),
+  "confluence-tp-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceConfluencesVisual), { loading: VisualLoading }),
+  "forex-confluence-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceConfluencesVisual), { loading: VisualLoading }),
+  "gold-confluence-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceConfluencesVisual), { loading: VisualLoading }),
+  "crypto-confluence-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceConfluencesVisual), { loading: VisualLoading }),
+
+  // Module 4.13
+  "time-invalidation-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.TimeInvalidationVisual), { loading: VisualLoading }),
+  "window-expiration-rules": dynamic(() => import("./visuals/shared-l4").then(m => m.TimeInvalidationVisual), { loading: VisualLoading }),
+  "time-decay-plan": dynamic(() => import("./visuals/shared-l4").then(m => m.TimeInvalidationVisual), { loading: VisualLoading }),
+  "inactive-session-pass": dynamic(() => import("./visuals/shared-l4").then(m => m.TimeInvalidationVisual), { loading: VisualLoading }),
+  "time-invalidation-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.TimeInvalidationVisual), { loading: VisualLoading }),
+  "forex-time-invalidation": dynamic(() => import("./visuals/shared-l4").then(m => m.TimeInvalidationVisual), { loading: VisualLoading }),
+  "gold-time-invalidation": dynamic(() => import("./visuals/shared-l4").then(m => m.TimeInvalidationVisual), { loading: VisualLoading }),
+  "crypto-time-invalidation": dynamic(() => import("./visuals/shared-l4").then(m => m.TimeInvalidationVisual), { loading: VisualLoading }),
+
+  // Module 4.14
+  "tp-checklist-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceChecklistsVisual), { loading: VisualLoading }),
+  "session-readiness-checks": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceChecklistsVisual), { loading: VisualLoading }),
+  "narrative-continuity": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceChecklistsVisual), { loading: VisualLoading }),
+  "timing-checks": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceChecklistsVisual), { loading: VisualLoading }),
+  "tp-checklist-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceChecklistsVisual), { loading: VisualLoading }),
+  "forex-tp-checklist": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceChecklistsVisual), { loading: VisualLoading }),
+  "gold-tp-checklist": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceChecklistsVisual), { loading: VisualLoading }),
+  "crypto-tp-checklist": dynamic(() => import("./visuals/shared-l4").then(m => m.TimePriceChecklistsVisual), { loading: VisualLoading }),
+
+  // Module 4.15
+  "level4-review-intro": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
+  "weekly-narrative-audit": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
+  "time-price-checklist": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
+  "exam-prep-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
+  "level4-review-debrief": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
+  "forex-multi-pair-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
+  "gold-comex-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
+  "crypto-cex-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
 };
 
