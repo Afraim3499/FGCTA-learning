@@ -1,5 +1,6 @@
 import { level0Curriculum } from "../../content/level-0";
 import { level1Curriculum } from "../../content/level-1";
+import { level2Curriculum } from "../../content/level-2";
 import fs from "fs";
 import path from "path";
 
@@ -20,7 +21,7 @@ async function validate() {
   
   const registryContent = fs.readFileSync(registryPath, "utf-8");
 
-  const allModules = [...level0Curriculum, ...level1Curriculum];
+  const allModules = [...level0Curriculum, ...level1Curriculum, ...level2Curriculum];
 
   for (const module of allModules) {
     console.log(`\nValidating Module ${module.moduleNumber}: ${module.title}`);

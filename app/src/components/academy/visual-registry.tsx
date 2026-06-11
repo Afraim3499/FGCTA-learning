@@ -724,4 +724,156 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "crypto-market-engines": dynamic(() => import("./visuals/crypto/module-0-2").then(m => m.CryptoMarketEnginesVisual), { loading: VisualLoading }),
   "crypto-liquidity-fragmentation": dynamic(() => import("./visuals/crypto/module-0-2").then(m => m.CryptoLiquidityFragmentationVisual), { loading: VisualLoading }),
   "crypto-venue-noise-drill": dynamic(() => import("./visuals/crypto/module-0-2").then(m => m.CryptoVenueNoiseDrillVisual), { loading: VisualLoading }),
+
+  // --- LEVEL 2 EXECUTION MECHANICS ---
+  // Module 2.1
+  "chart-basics-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.ChartBasicsVisual), { loading: VisualLoading }),
+  "candle-anatomy": dynamic(() => import("./visuals/shared-l2").then(m => m.ChartBasicsVisual), { loading: VisualLoading }),
+  "ohlc-delivery": dynamic(() => import("./visuals/shared-l2").then(m => m.ChartBasicsVisual), { loading: VisualLoading }),
+  "timeframe-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.ChartBasicsVisual), { loading: VisualLoading }),
+  "chart-basics-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.ChartBasicsVisual), { loading: VisualLoading }),
+  "forex-pip-value": dynamic(() => import("./visuals/shared-l2").then(m => m.ChartBasicsVisual), { loading: VisualLoading }),
+  "gold-spread-volatility": dynamic(() => import("./visuals/shared-l2").then(m => m.ChartBasicsVisual), { loading: VisualLoading }),
+  "crypto-venue-mismatch": dynamic(() => import("./visuals/shared-l2").then(m => m.ChartBasicsVisual), { loading: VisualLoading }),
+
+  // Module 2.2
+  "fractal-nature-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.FractalNatureVisual), { loading: VisualLoading }),
+  "swing-mirroring": dynamic(() => import("./visuals/shared-l2").then(m => m.FractalNatureVisual), { loading: VisualLoading }),
+  "multi-timeframe-scaling": dynamic(() => import("./visuals/shared-l2").then(m => m.FractalNatureVisual), { loading: VisualLoading }),
+  "structure-fractions": dynamic(() => import("./visuals/shared-l2").then(m => m.FractalNatureVisual), { loading: VisualLoading }),
+  "fractal-nature-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.FractalNatureVisual), { loading: VisualLoading }),
+  "forex-h4-m15-scaling": dynamic(() => import("./visuals/shared-l2").then(m => m.FractalNatureVisual), { loading: VisualLoading }),
+  "gold-wick-clusters-scaling": dynamic(() => import("./visuals/shared-l2").then(m => m.FractalNatureVisual), { loading: VisualLoading }),
+  "crypto-venue-spikes-scaling": dynamic(() => import("./visuals/shared-l2").then(m => m.FractalNatureVisual), { loading: VisualLoading }),
+
+  // Module 2.3
+  "price-feeds-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.PrimaryPriceFeedsVisual), { loading: VisualLoading }),
+  "direct-market-access": dynamic(() => import("./visuals/shared-l2").then(m => m.PrimaryPriceFeedsVisual), { loading: VisualLoading }),
+  "b-book-broker": dynamic(() => import("./visuals/shared-l2").then(m => m.PrimaryPriceFeedsVisual), { loading: VisualLoading }),
+  "spread-slippage": dynamic(() => import("./visuals/shared-l2").then(m => m.PrimaryPriceFeedsVisual), { loading: VisualLoading }),
+  "price-feeds-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.PrimaryPriceFeedsVisual), { loading: VisualLoading }),
+  "forex-stp-execution": dynamic(() => import("./visuals/shared-l2").then(m => m.PrimaryPriceFeedsVisual), { loading: VisualLoading }),
+  "gold-comex-futures-feeds": dynamic(() => import("./visuals/shared-l2").then(m => m.PrimaryPriceFeedsVisual), { loading: VisualLoading }),
+  "crypto-cex-dex-fragmentation": dynamic(() => import("./visuals/shared-l2").then(m => m.PrimaryPriceFeedsVisual), { loading: VisualLoading }),
+
+  // Module 2.4
+  "range-model-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.RangeModelVisual), { loading: VisualLoading }),
+  "dealing-range-bounds": dynamic(() => import("./visuals/shared-l2").then(m => m.RangeModelVisual), { loading: VisualLoading }),
+  "equilibrium-line": dynamic(() => import("./visuals/shared-l2").then(m => m.RangeModelVisual), { loading: VisualLoading }),
+  "discount-premium-arrays": dynamic(() => import("./visuals/shared-l2").then(m => m.RangeModelVisual), { loading: VisualLoading }),
+  "range-model-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.RangeModelVisual), { loading: VisualLoading }),
+  "forex-adr-stretch-range": dynamic(() => import("./visuals/shared-l2").then(m => m.RangeModelVisual), { loading: VisualLoading }),
+  "gold-volatility-adjusted-zones": dynamic(() => import("./visuals/shared-l2").then(m => m.RangeModelVisual), { loading: VisualLoading }),
+  "crypto-perp-funding-premium": dynamic(() => import("./visuals/shared-l2").then(m => m.RangeModelVisual), { loading: VisualLoading }),
+
+  // Module 2.5
+  "structure-part1-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructurePart1Visual), { loading: VisualLoading }),
+  "protected-swings": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructurePart1Visual), { loading: VisualLoading }),
+  "swing-validation": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructurePart1Visual), { loading: VisualLoading }),
+  "market-structure-breaks": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructurePart1Visual), { loading: VisualLoading }),
+  "structure-part1-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructurePart1Visual), { loading: VisualLoading }),
+  "forex-session-structure-limits": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructurePart1Visual), { loading: VisualLoading }),
+  "gold-wick-structure-sweeps": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructurePart1Visual), { loading: VisualLoading }),
+  "crypto-venue-confirmed-structure": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructurePart1Visual), { loading: VisualLoading }),
+
+  // Module 2.6
+  "mss-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructureShiftVisual), { loading: VisualLoading }),
+  "displacement-confirm": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructureShiftVisual), { loading: VisualLoading }),
+  "swing-invalidation": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructureShiftVisual), { loading: VisualLoading }),
+  "change-of-character": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructureShiftVisual), { loading: VisualLoading }),
+  "mss-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructureShiftVisual), { loading: VisualLoading }),
+  "forex-london-open-mss": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructureShiftVisual), { loading: VisualLoading }),
+  "gold-rapid-sweeps-mss": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructureShiftVisual), { loading: VisualLoading }),
+  "crypto-funding-oi-shift": dynamic(() => import("./visuals/shared-l2").then(m => m.MarketStructureShiftVisual), { loading: VisualLoading }),
+
+  // Module 2.7
+  "trend-fallacy-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.TrendFallacyVisual), { loading: VisualLoading }),
+  "liquidity-to-liquidity": dynamic(() => import("./visuals/shared-l2").then(m => m.TrendFallacyVisual), { loading: VisualLoading }),
+  "retail-trend-traps": dynamic(() => import("./visuals/shared-l2").then(m => m.TrendFallacyVisual), { loading: VisualLoading }),
+  "order-matching-flow": dynamic(() => import("./visuals/shared-l2").then(m => m.TrendFallacyVisual), { loading: VisualLoading }),
+  "trend-fallacy-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.TrendFallacyVisual), { loading: VisualLoading }),
+  "forex-session-rotation-fallacy": dynamic(() => import("./visuals/shared-l2").then(m => m.TrendFallacyVisual), { loading: VisualLoading }),
+  "gold-safe-haven-sweeps": dynamic(() => import("./visuals/shared-l2").then(m => m.TrendFallacyVisual), { loading: VisualLoading }),
+  "crypto-tokenomics-sweeps": dynamic(() => import("./visuals/shared-l2").then(m => m.TrendFallacyVisual), { loading: VisualLoading }),
+
+  // Module 2.8
+  "internal-external-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.InternalExternalStructureVisual), { loading: VisualLoading }),
+  "minor-pullbacks": dynamic(() => import("./visuals/shared-l2").then(m => m.InternalExternalStructureVisual), { loading: VisualLoading }),
+  "major-dealing-ranges": dynamic(() => import("./visuals/shared-l2").then(m => m.InternalExternalStructureVisual), { loading: VisualLoading }),
+  "layer-filtering": dynamic(() => import("./visuals/shared-l2").then(m => m.InternalExternalStructureVisual), { loading: VisualLoading }),
+  "internal-external-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.InternalExternalStructureVisual), { loading: VisualLoading }),
+  "forex-session-vs-macro-structure": dynamic(() => import("./visuals/shared-l2").then(m => m.InternalExternalStructureVisual), { loading: VisualLoading }),
+  "gold-wicks-vs-daily-anchors": dynamic(() => import("./visuals/shared-l2").then(m => m.InternalExternalStructureVisual), { loading: VisualLoading }),
+  "crypto-altcoin-vs-btc-structure": dynamic(() => import("./visuals/shared-l2").then(m => m.InternalExternalStructureVisual), { loading: VisualLoading }),
+
+  // Module 2.9
+  "displacement-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.DisplacementVisual), { loading: VisualLoading }),
+  "body-to-wick-ratio": dynamic(() => import("./visuals/shared-l2").then(m => m.DisplacementVisual), { loading: VisualLoading }),
+  "volume-displacement": dynamic(() => import("./visuals/shared-l2").then(m => m.DisplacementVisual), { loading: VisualLoading }),
+  "commitment-candles": dynamic(() => import("./visuals/shared-l2").then(m => m.DisplacementVisual), { loading: VisualLoading }),
+  "displacement-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.DisplacementVisual), { loading: VisualLoading }),
+  "forex-london-breakout-displacement": dynamic(() => import("./visuals/shared-l2").then(m => m.DisplacementVisual), { loading: VisualLoading }),
+  "gold-news-displacement-wicks": dynamic(() => import("./visuals/shared-l2").then(m => m.DisplacementVisual), { loading: VisualLoading }),
+  "crypto-perp-liquidation-displacement": dynamic(() => import("./visuals/shared-l2").then(m => m.DisplacementVisual), { loading: VisualLoading }),
+
+  // Module 2.10
+  "breakouts-failed-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.BreakoutsFailedBreaksVisual), { loading: VisualLoading }),
+  "close-quality-validation": dynamic(() => import("./visuals/shared-l2").then(m => m.BreakoutsFailedBreaksVisual), { loading: VisualLoading }),
+  "sweep-rejection-signs": dynamic(() => import("./visuals/shared-l2").then(m => m.BreakoutsFailedBreaksVisual), { loading: VisualLoading }),
+  "breakout-confirmation-rules": dynamic(() => import("./visuals/shared-l2").then(m => m.BreakoutsFailedBreaksVisual), { loading: VisualLoading }),
+  "breakouts-failed-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.BreakoutsFailedBreaksVisual), { loading: VisualLoading }),
+  "forex-session-breakout-fade": dynamic(() => import("./visuals/shared-l2").then(m => m.BreakoutsFailedBreaksVisual), { loading: VisualLoading }),
+  "gold-stop-sweeps-rejections": dynamic(() => import("./visuals/shared-l2").then(m => m.BreakoutsFailedBreaksVisual), { loading: VisualLoading }),
+  "crypto-spot-perp-deviations": dynamic(() => import("./visuals/shared-l2").then(m => m.BreakoutsFailedBreaksVisual), { loading: VisualLoading }),
+
+  // Module 2.11
+  "boundary-areas-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.BoundaryAreasVisual), { loading: VisualLoading }),
+  "bsl-mapping": dynamic(() => import("./visuals/shared-l2").then(m => m.BoundaryAreasVisual), { loading: VisualLoading }),
+  "ssl-mapping": dynamic(() => import("./visuals/shared-l2").then(m => m.BoundaryAreasVisual), { loading: VisualLoading }),
+  "resting-liquidity-pools": dynamic(() => import("./visuals/shared-l2").then(m => m.BoundaryAreasVisual), { loading: VisualLoading }),
+  "boundary-areas-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.BoundaryAreasVisual), { loading: VisualLoading }),
+  "forex-session-extremes-liquidity": dynamic(() => import("./visuals/shared-l2").then(m => m.BoundaryAreasVisual), { loading: VisualLoading }),
+  "gold-wicks-liquidity-pools": dynamic(() => import("./visuals/shared-l2").then(m => m.BoundaryAreasVisual), { loading: VisualLoading }),
+  "crypto-liquidation-heatmap-zones": dynamic(() => import("./visuals/shared-l2").then(m => m.BoundaryAreasVisual), { loading: VisualLoading }),
+
+  // Module 2.12
+  "external-boundary-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.ExternalRangeBoundaryVisual), { loading: VisualLoading }),
+  "htf-range-extremes": dynamic(() => import("./visuals/shared-l2").then(m => m.ExternalRangeBoundaryVisual), { loading: VisualLoading }),
+  "boundary-acceptance": dynamic(() => import("./visuals/shared-l2").then(m => m.ExternalRangeBoundaryVisual), { loading: VisualLoading }),
+  "boundary-rejection": dynamic(() => import("./visuals/shared-l2").then(m => m.ExternalRangeBoundaryVisual), { loading: VisualLoading }),
+  "external-boundary-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.ExternalRangeBoundaryVisual), { loading: VisualLoading }),
+  "forex-daily-adr-bands": dynamic(() => import("./visuals/shared-l2").then(m => m.ExternalRangeBoundaryVisual), { loading: VisualLoading }),
+  "gold-monthly-range-bounds": dynamic(() => import("./visuals/shared-l2").then(m => m.ExternalRangeBoundaryVisual), { loading: VisualLoading }),
+  "crypto-cex-dex-margin-bounds": dynamic(() => import("./visuals/shared-l2").then(m => m.ExternalRangeBoundaryVisual), { loading: VisualLoading }),
+
+  // Module 2.13
+  "htf-anchors-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.HtfAnchorsVisual), { loading: VisualLoading }),
+  "daily-weekly-levels": dynamic(() => import("./visuals/shared-l2").then(m => m.HtfAnchorsVisual), { loading: VisualLoading }),
+  "anchor-strength-metrics": dynamic(() => import("./visuals/shared-l2").then(m => m.HtfAnchorsVisual), { loading: VisualLoading }),
+  "confluence-anchors": dynamic(() => import("./visuals/shared-l2").then(m => m.HtfAnchorsVisual), { loading: VisualLoading }),
+  "htf-anchors-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.HtfAnchorsVisual), { loading: VisualLoading }),
+  "forex-dxy-structure-anchors": dynamic(() => import("./visuals/shared-l2").then(m => m.HtfAnchorsVisual), { loading: VisualLoading }),
+  "gold-treasury-yield-levels": dynamic(() => import("./visuals/shared-l2").then(m => m.HtfAnchorsVisual), { loading: VisualLoading }),
+  "crypto-btc-macro-levels": dynamic(() => import("./visuals/shared-l2").then(m => m.HtfAnchorsVisual), { loading: VisualLoading }),
+
+  // Module 2.14
+  "session-windows-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.SessionWindowsVisual), { loading: VisualLoading }),
+  "london-ny-opens": dynamic(() => import("./visuals/shared-l2").then(m => m.SessionWindowsVisual), { loading: VisualLoading }),
+  "volume-overlap-windows": dynamic(() => import("./visuals/shared-l2").then(m => m.SessionWindowsVisual), { loading: VisualLoading }),
+  "timing-rules-execution": dynamic(() => import("./visuals/shared-l2").then(m => m.SessionWindowsVisual), { loading: VisualLoading }),
+  "session-windows-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.SessionWindowsVisual), { loading: VisualLoading }),
+  "forex-session-overlaps": dynamic(() => import("./visuals/shared-l2").then(m => m.SessionWindowsVisual), { loading: VisualLoading }),
+  "gold-comex-open-window": dynamic(() => import("./visuals/shared-l2").then(m => m.SessionWindowsVisual), { loading: VisualLoading }),
+  "crypto-funding-settlement-times": dynamic(() => import("./visuals/shared-l2").then(m => m.SessionWindowsVisual), { loading: VisualLoading }),
+
+  // Module 2.15
+  "level2-review-intro": dynamic(() => import("./visuals/shared-l2").then(m => m.Level2ReviewVisual), { loading: VisualLoading }),
+  "execution-mechanics-checklist": dynamic(() => import("./visuals/shared-l2").then(m => m.Level2ReviewVisual), { loading: VisualLoading }),
+  "interactive-terminal-prep": dynamic(() => import("./visuals/shared-l2").then(m => m.Level2ReviewVisual), { loading: VisualLoading }),
+  "exam-rubric-overview": dynamic(() => import("./visuals/shared-l2").then(m => m.Level2ReviewVisual), { loading: VisualLoading }),
+  "level2-review-debrief": dynamic(() => import("./visuals/shared-l2").then(m => m.Level2ReviewVisual), { loading: VisualLoading }),
+  "forex-multi-pair-audit": dynamic(() => import("./visuals/shared-l2").then(m => m.Level2ReviewVisual), { loading: VisualLoading }),
+  "gold-macro-checklist": dynamic(() => import("./visuals/shared-l2").then(m => m.Level2ReviewVisual), { loading: VisualLoading }),
+  "crypto-spot-futures-checklist": dynamic(() => import("./visuals/shared-l2").then(m => m.Level2ReviewVisual), { loading: VisualLoading }),
 };
+
