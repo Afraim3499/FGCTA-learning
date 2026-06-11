@@ -1,4 +1,5 @@
 import { level0Curriculum } from "../../content/level-0";
+import { level1Curriculum } from "../../content/level-1";
 import fs from "fs";
 import path from "path";
 
@@ -19,7 +20,9 @@ async function validate() {
   
   const registryContent = fs.readFileSync(registryPath, "utf-8");
 
-  for (const module of level0Curriculum) {
+  const allModules = [...level0Curriculum, ...level1Curriculum];
+
+  for (const module of allModules) {
     console.log(`\nValidating Module ${module.moduleNumber}: ${module.title}`);
 
     if (!module.tracks.core || module.tracks.core.length === 0) {

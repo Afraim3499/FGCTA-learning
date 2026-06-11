@@ -300,15 +300,16 @@ export async function completeModule(
 // Helper function to map level number to blueprint title
 function getLevelTitle(level: number): string {
   const titles: Record<number, string> = {
-    0: "Market Foundations",
-    1: "Market Basics",
-    2: "Market Mechanics",
-    3: "Structure & Imbalance",
-    4: "Time & Price",
-    5: "Exposure Mgmt",
-    6: "Macro",
-    7: "Synthesis",
-    8: "Advanced Practice",
+    0: "Market Reading Foundations",
+    1: "Planning Foundation",
+    2: "Execution Mechanics",
+    3: "Risk Architecture",
+    4: "Scenario Planning",
+    5: "Strategy Playbook Mastery",
+    6: "Management and Review",
+    7: "Asset Specialization",
+    8: "Pressure Testing",
+    9: "Certification",
   };
   return titles[level] || `Level ${level}`;
 }
