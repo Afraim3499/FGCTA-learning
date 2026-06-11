@@ -53,7 +53,7 @@ async function sync() {
       // Helper to wrap cards in the expected block format
       const wrap = (cards: any[]) => cards && cards.length > 0 ? `:::lesson-cards\n${JSON.stringify(cards, null, 2)}\n:::` : "";
 
-      const dbData = {
+      const dbData: any = {
         level: mod.level,
         moduleNumber: mod.moduleNumber,
         title: mod.title,
@@ -66,6 +66,14 @@ async function sync() {
         cryptoAdaptation: wrap(mod.tracks.crypto || []),
         marketTrack: "core" as ModuleTrack // Default track
       };
+
+      if (mod.moduleNumber === "3.15") {
+        dbData.interactiveTaskType = "scenario_link";
+        dbData.interactiveTaskData = { scenarioSlug: "level-3-final-gate", passThreshold: 80 };
+      } else if (mod.moduleNumber === "3.10") {
+        dbData.interactiveTaskType = null;
+        dbData.interactiveTaskData = null;
+      }
 
       const existing = await prisma.courseModule.findUnique({
         where: { level_moduleNumber: { level: mod.level, moduleNumber: mod.moduleNumber } }
@@ -100,6 +108,37 @@ async function sync() {
       console.log("\nDRY RUN COMPLETE: No data was changed.");
     } else {
       console.log("\nLIVE SYNC COMPLETE: Database updated.");
+      
+      console.log("\nUpdating Scenario Links for Level 3 Final Gate...");
+      const mod315 = await prisma.courseModule.findFirst({
+        where: { level: 3, moduleNumber: "3.15" }
+      });
+      const mod310 = await prisma.courseModule.findFirst({
+        where: { level: 3, moduleNumber: "3.10" }
+      });
+      const scenario = await prisma.trainingScenario.findUnique({
+        where: { slug: "level-3-final-gate" }
+      });
+
+      if (scenario) {
+        if (mod310) {
+          await prisma.moduleScenarioLink.deleteMany({
+            where: { moduleId: mod310.id, scenarioId: scenario.id }
+          });
+          console.log(`   Removed link between scenario ${scenario.slug} and old module 3.10.`);
+        }
+
+        if (mod315) {
+          await prisma.moduleScenarioLink.upsert({
+            where: { moduleId_scenarioId: { moduleId: mod315.id, scenarioId: scenario.id } },
+            update: { requiredForProgress: true, sortOrder: 1 },
+            create: { moduleId: mod315.id, scenarioId: scenario.id, requiredForProgress: true, sortOrder: 1 }
+          });
+          console.log(`   Linked scenario ${scenario.slug} to new module 3.15.`);
+        }
+      } else {
+        console.warn("   Warning: TrainingScenario 'level-3-final-gate' not found in database.");
+      }
     }
 
   } catch (error) {
