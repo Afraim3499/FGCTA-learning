@@ -24,66 +24,74 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import { useMentorNote } from "../../lesson-workspace/MentorNoteContext";
+
 // L4Frame uses a Midnight-Blue "Time & Price Matrix Clocks" theme matching institutional clock dials
 const L4Frame = ({ 
   children, 
   title, 
   id, 
-  mentorText = "Wait for session windows to open before planning executions. High-probability liquidity sweeps only exist when supported by volatility clocks.",
-  mentorAnalogy = "A ship captain does not exit port during low tide. The tide is the clock of the sea, and Killzones are the tide of the market." 
+  mentorText: defaultMentorText = "Wait for session windows to open before planning executions. High-probability liquidity sweeps only exist when supported by volatility clocks.",
+  mentorAnalogy: defaultMentorAnalogy = "A ship captain does not exit port during low tide. The tide is the clock of the sea, and Killzones are the tide of the market." 
 }: { 
   children: React.ReactNode; 
   title: string; 
   id: string; 
   mentorText?: string; 
   mentorAnalogy?: string; 
-}) => (
-  <div className="w-full bg-[#0A1128] border border-[#1C2D42] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-xl text-left min-h-[500px] text-white">
-    {/* Grid Background Effect */}
-    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#1E293B_1px,transparent_1px)] bg-[length:24px_24px] opacity-65" />
-    
-    {/* Top Header Row */}
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-[#1C2D42] pb-4 shrink-0">
-      <div className="flex flex-col text-left">
-        <div className="flex items-center gap-1.5 mb-1">
-          <Clock size={10} className="text-cyan-400 animate-spin" style={{ animationDuration: '6s' }} />
-          <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Time & Price Matrix</span>
-        </div>
-        <h4 className="text-sm font-black text-cyan-400 uppercase tracking-tight italic leading-tight">{title}</h4>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Matrix Ref</span>
-          <span className="text-[10px] font-mono text-cyan-200 font-bold">{id}</span>
-        </div>
-      </div>
-    </div>
-    
-    {/* Dynamic Content Center Stage */}
-    <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
-      {children}
-    </div>
+}) => {
+  const context = useMentorNote();
+  const activeMentorText = context.mentorText || defaultMentorText;
+  const activeMentorAnalogy = context.mentorAnalogy !== undefined ? context.mentorAnalogy : defaultMentorAnalogy;
 
-    {/* Mentor Blueprint Insight at the Bottom */}
-    <div className="w-full mt-6 pt-5 border-t border-[#1C2D42] flex flex-col gap-2 shrink-0 text-left relative z-10">
-      <div className="flex items-center gap-2">
-        <div className="px-2 py-1 bg-cyan-950 text-cyan-400 text-[8px] font-black uppercase tracking-widest rounded-sm border border-cyan-800">Mentor Blueprint</div>
-        <div className="h-px flex-1 bg-[#1C2D42]" />
+  return (
+    <div className="w-full bg-[#0A1128] border border-[#1C2D42] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-xl text-left min-h-[500px] text-white">
+      {/* Grid Background Effect */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#1E293B_1px,transparent_1px)] bg-[length:24px_24px] opacity-65" />
+      
+      {/* Top Header Row */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-[#1C2D42] pb-4 shrink-0">
+        <div className="flex flex-col text-left">
+          <div className="flex items-center gap-1.5 mb-1">
+            <Clock size={10} className="text-cyan-400 animate-spin" style={{ animationDuration: '6s' }} />
+            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Time & Price Matrix</span>
+          </div>
+          <h4 className="text-sm font-black text-cyan-400 uppercase tracking-tight italic leading-tight">{title}</h4>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="flex flex-col items-end">
+            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Matrix Ref</span>
+            <span className="text-[10px] font-mono text-cyan-200 font-bold">{id}</span>
+          </div>
+        </div>
       </div>
-      <div className="flex gap-4">
-         <div className="flex-1">
-            <p className="text-xs font-bold text-slate-200 leading-relaxed">{mentorText}</p>
-            {mentorAnalogy && (
-              <p className="mt-1.5 text-[11px] text-slate-400 italic leading-snug">
-                <span className="font-black uppercase text-[9px] mr-2 text-cyan-400 not-italic">Concept Analogy:</span>
-                {mentorAnalogy}
-              </p>
-            )}
-         </div>
+      
+      {/* Dynamic Content Center Stage */}
+      <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
+        {children}
+      </div>
+
+      {/* Mentor Blueprint Insight at the Bottom */}
+      <div className="w-full mt-6 pt-5 border-t border-[#1C2D42] flex flex-col gap-2 shrink-0 text-left relative z-10">
+        <div className="flex items-center gap-2">
+          <div className="px-2 py-1 bg-cyan-950 text-cyan-400 text-[8px] font-black uppercase tracking-widest rounded-sm border border-cyan-800">Mentor Blueprint</div>
+          <div className="h-px flex-1 bg-[#1C2D42]" />
+        </div>
+        <div className="flex gap-4">
+           <div className="flex-1">
+              <p className="text-xs font-bold text-slate-200 leading-relaxed">{activeMentorText}</p>
+              {activeMentorAnalogy && (
+                <p className="mt-1.5 text-[11px] text-slate-400 italic leading-snug">
+                  <span className="font-black uppercase text-[9px] mr-2 text-cyan-400 not-italic">Concept Analogy:</span>
+                  {activeMentorAnalogy}
+                </p>
+              )}
+           </div>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // --- MODULE 4.1 VISUALS ---
 export const DailyCycleBasicsVisual = () => {

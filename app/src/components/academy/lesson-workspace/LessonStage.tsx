@@ -26,6 +26,7 @@ import {
 import { VISUAL_REGISTRY } from "../visual-registry";
 import { ChoiceBlockPractice } from "../interactive/choice-block-practice";
 import { ScenarioDecisionEngine } from "../interactive/scenario-decision-engine";
+import { MentorNoteProvider } from "./MentorNoteContext";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -57,11 +58,13 @@ interface CardData {
   };
   taskData?: any;
   context?: {
-    keyTerms?: string[];
+    keyTerms?: any[];
     whyThisMatters?: string;
     realLifeExample?: string;
     commonMistake?: string;
     quickNote?: string;
+    mentorText?: string;
+    mentorAnalogy?: string;
   };
   objective?: string;
   stepperLabel?: string;
@@ -169,48 +172,56 @@ export function LessonStage({
   const renderVisual = (name?: string) => {
     if (!name) return null;
 
+    let component = null;
+
     // Direct registry check
     const RegistryComponent = VISUAL_REGISTRY[name];
     if (RegistryComponent) {
-      return <RegistryComponent />;
+      component = <RegistryComponent mentorText={card.context?.mentorText} mentorAnalogy={card.context?.mentorAnalogy} />;
+    } else {
+      // Legacy mapping support
+      const legacyMap: Record<string, string> = {
+        "candle-anatomy": "candle-anatomy-board",
+        "record-vs-signal": "record-vs-signal-board",
+        "training-cockpit": "system-map",
+        "learner-profiles": "behavior-flow",
+        "forex-instruments": "forex-instrument-panel",
+        "forex-mini-drill": "forex-mini-drill-board",
+        "crypto-mechanics": "crypto-mechanics-map",
+        "gold-driver-map": "gold-context-driver-map",
+        "gold-urgency-trap": "gold-urgency-trap-visual",
+        "gold-noise-decision": "gold-noise-decision-board",
+        "intent-logic": "intent-logic-board",
+        "transaction-mechanism": "transaction-mechanism-mini",
+        "market-mechanism-recap": "market-mechanism-recap-visual",
+        "crypto-venue-map": "crypto-venue-map-visual",
+        "crypto-market-engines": "crypto-market-engines-visual",
+        "crypto-liquidity-fragmentation": "crypto-liquidity-fragmentation-visual",
+        "crypto-venue-noise-drill": "crypto-venue-noise-drill-visual",
+        "gold-market-map": "gold-market-map-visual",
+        "gold-otc-bilateral": "gold-otc-bilateral-visual",
+        "gold-futures-mechanics": "gold-futures-mechanics-visual",
+        "gold-market-layer-drill": "gold-market-layer-drill-visual",
+        "forex-quote-record": "forex-candle-quote-record-board",
+        "forex-pip-candle": "forex-pip-candle-board",
+        "forex-distorted-candle": "forex-distorted-candle-board",
+        "forex-candle-decision": "forex-candle-decision-board"
+      };
+
+      const mappedName = legacyMap[name];
+      if (mappedName && VISUAL_REGISTRY[mappedName]) {
+        const MappedComponent = VISUAL_REGISTRY[mappedName];
+        component = <MappedComponent mentorText={card.context?.mentorText} mentorAnalogy={card.context?.mentorAnalogy} />;
+      }
     }
 
-    // Legacy mapping support
-    const legacyMap: Record<string, string> = {
-      "candle-anatomy": "candle-anatomy-board",
-      "record-vs-signal": "record-vs-signal-board",
-      "training-cockpit": "system-map",
-      "learner-profiles": "behavior-flow",
-      "forex-instruments": "forex-instrument-panel",
-      "forex-mini-drill": "forex-mini-drill-board",
-      "crypto-mechanics": "crypto-mechanics-map",
-      "gold-driver-map": "gold-context-driver-map",
-      "gold-urgency-trap": "gold-urgency-trap-visual",
-      "gold-noise-decision": "gold-noise-decision-board",
-      "intent-logic": "intent-logic-board",
-      "transaction-mechanism": "transaction-mechanism-mini",
-      "market-mechanism-recap": "market-mechanism-recap-visual",
-      "crypto-venue-map": "crypto-venue-map-visual",
-      "crypto-market-engines": "crypto-market-engines-visual",
-      "crypto-liquidity-fragmentation": "crypto-liquidity-fragmentation-visual",
-      "crypto-venue-noise-drill": "crypto-venue-noise-drill-visual",
-      "gold-market-map": "gold-market-map-visual",
-      "gold-otc-bilateral": "gold-otc-bilateral-visual",
-      "gold-futures-mechanics": "gold-futures-mechanics-visual",
-      "gold-market-layer-drill": "gold-market-layer-drill-visual",
-      "forex-quote-record": "forex-candle-quote-record-board",
-      "forex-pip-candle": "forex-pip-candle-board",
-      "forex-distorted-candle": "forex-distorted-candle-board",
-      "forex-candle-decision": "forex-candle-decision-board"
-    };
+    if (!component) return null;
 
-    const mappedName = legacyMap[name];
-    if (mappedName && VISUAL_REGISTRY[mappedName]) {
-      const MappedComponent = VISUAL_REGISTRY[mappedName];
-      return <MappedComponent />;
-    }
-
-    return null;
+    return (
+      <MentorNoteProvider value={{ mentorText: card.context?.mentorText, mentorAnalogy: card.context?.mentorAnalogy }}>
+        {component}
+      </MentorNoteProvider>
+    );
   };
 
   const renderIcon = (name?: string) => {

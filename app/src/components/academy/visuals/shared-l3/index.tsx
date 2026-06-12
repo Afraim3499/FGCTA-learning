@@ -38,66 +38,74 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import { useMentorNote } from "../../lesson-workspace/MentorNoteContext";
+
 // L3Frame uses a Slate-Blue "Footprint Console" styling matching the institutional delta ledger theme
 const L3Frame = ({ 
   children, 
   title, 
   id, 
-  mentorText = "Wait for order book footprint delta to confirm institutional support. Do not attempt to frontrun central matches.",
-  mentorAnalogy = "A police investigator does not arrest suspects without tracking their footprints at the crime scene. Order blocks are those exact physical traces." 
+  mentorText: defaultMentorText = "Wait for order book footprint delta to confirm institutional support. Do not attempt to frontrun central matches.",
+  mentorAnalogy: defaultMentorAnalogy = "A police investigator does not arrest suspects without tracking their footprints at the crime scene. Order blocks are those exact physical traces." 
 }: { 
   children: React.ReactNode; 
   title: string; 
   id: string; 
   mentorText?: string; 
   mentorAnalogy?: string; 
-}) => (
-  <div className="w-full bg-[#FCFDFD] border border-slate-200 rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm text-left min-h-[500px]">
-    {/* Grid Background Effect */}
-    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E8ECEF_1px,transparent_1px)] bg-[length:24px_24px]" />
-    
-    {/* Top Header Row */}
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
-      <div className="flex flex-col text-left">
-        <div className="flex items-center gap-1.5 mb-1">
-          <Activity size={10} className="text-sky-600 animate-pulse" />
-          <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Order Flow Delta Console</span>
-        </div>
-        <h4 className="text-sm font-black text-[#0C2340] uppercase tracking-tighter italic leading-tight">{title}</h4>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Delta Ref</span>
-          <span className="text-[10px] font-mono text-[#0C2340] font-bold">{id}</span>
-        </div>
-      </div>
-    </div>
-    
-    {/* Dynamic Content Center Stage */}
-    <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
-      {children}
-    </div>
+}) => {
+  const context = useMentorNote();
+  const activeMentorText = context.mentorText || defaultMentorText;
+  const activeMentorAnalogy = context.mentorAnalogy !== undefined ? context.mentorAnalogy : defaultMentorAnalogy;
 
-    {/* Mentor Blueprint Insight at the Bottom */}
-    <div className="w-full mt-6 pt-5 border-t border-slate-200 flex flex-col gap-2 shrink-0 text-left relative z-10">
-      <div className="flex items-center gap-2">
-        <div className="px-2 py-1 bg-[#0C2340] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Blueprint</div>
-        <div className="h-px flex-1 bg-slate-200" />
+  return (
+    <div className="w-full bg-[#FCFDFD] border border-slate-200 rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm text-left min-h-[500px]">
+      {/* Grid Background Effect */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E8ECEF_1px,transparent_1px)] bg-[length:24px_24px]" />
+      
+      {/* Top Header Row */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
+        <div className="flex flex-col text-left">
+          <div className="flex items-center gap-1.5 mb-1">
+            <Activity size={10} className="text-sky-600 animate-pulse" />
+            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Order Flow Delta Console</span>
+          </div>
+          <h4 className="text-sm font-black text-[#0C2340] uppercase tracking-tighter italic leading-tight">{title}</h4>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="flex flex-col items-end">
+            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Delta Ref</span>
+            <span className="text-[10px] font-mono text-[#0C2340] font-bold">{id}</span>
+          </div>
+        </div>
       </div>
-      <div className="flex gap-4">
-         <div className="flex-1">
-            <p className="text-xs font-bold text-[#0C2340] leading-relaxed">{mentorText}</p>
-            {mentorAnalogy && (
-              <p className="mt-1.5 text-[11px] text-slate-500 italic leading-snug">
-                <span className="font-black uppercase text-[9px] mr-2 text-sky-600 not-italic">Concept Analogy:</span>
-                {mentorAnalogy}
-              </p>
-            )}
-         </div>
+      
+      {/* Dynamic Content Center Stage */}
+      <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
+        {children}
+      </div>
+
+      {/* Mentor Blueprint Insight at the Bottom */}
+      <div className="w-full mt-6 pt-5 border-t border-slate-200 flex flex-col gap-2 shrink-0 text-left relative z-10">
+        <div className="flex items-center gap-2">
+          <div className="px-2 py-1 bg-[#0C2340] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Blueprint</div>
+          <div className="h-px flex-1 bg-slate-200" />
+        </div>
+        <div className="flex gap-4">
+           <div className="flex-1">
+              <p className="text-xs font-bold text-[#0C2340] leading-relaxed">{activeMentorText}</p>
+              {activeMentorAnalogy && (
+                <p className="mt-1.5 text-[11px] text-slate-500 italic leading-snug">
+                  <span className="font-black uppercase text-[9px] mr-2 text-sky-600 not-italic">Concept Analogy:</span>
+                  {activeMentorAnalogy}
+                </p>
+              )}
+           </div>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // --- MODULE 3.1 VISUALS ---
 export const ObIntroVisual = () => {

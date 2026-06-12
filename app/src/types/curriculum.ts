@@ -24,6 +24,8 @@ export interface CardContext {
   realLifeExample?: string;
   commonMistake?: string;
   quickNote?: string;
+  mentorText?: string;
+  mentorAnalogy?: string;
   defaultExpanded?: string[];
 }
 

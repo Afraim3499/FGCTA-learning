@@ -3,204 +3,239 @@ import { LessonCard } from "../../../types/curriculum";
 export const forexCards: LessonCard[] = [
   {
     "type": "mission_brief",
-    "title": "Forex roadway: Market Structure: Part 1 (1)",
-    "label": "Forex Track Pillar",
-    "visualKey": "forex-session-structure-limits",
-    "body": "### Currency Execution Adaptations\n\nIn Forex, currency pairs are traded across decentralized STP/ECN networks. The execution of **Market Structure: Part 1** requires calculating exact pip values and accounting for spread shifts across session openings.\n\n* **FX Execution**: Synchronize entries with peak London or New York volume.",
+    "title": "Mapping Session Structure Boundaries",
+    "label": "Forex Track",
+    "body": "### Forex Session Structure: Identifying Boundaries\nSession structure boundaries define critical price levels during trading hours. This card focuses on **how to identify these boundaries to enhance market structure analysis**.\n\n* **Session Highs and Lows**: During the Asian session, identify swing highs and lows by observing price action around 12:00 AM to 6:00 AM EST, where liquidity is typically lower, creating more pronounced price movements.\n* **Overlap Analysis**: Monitor the overlap between the Asian and London sessions from 3:00 AM to 5:00 AM EST, as this period often produces significant volatility, marking potential swing points.\n* **Session Breakouts**: Recognize that breakouts from established session boundaries during the London session (5:00 AM to 12:00 PM EST) can signal new trends, thus requiring immediate structural reassessment.",
     "context": {
       "keyTerms": [
         {
-          "term": "STP Broker",
-          "definition": "Straight-Through Processing broker routing orders directly to liquidity providers."
-        },
-        {
-          "term": "Pip Value",
-          "definition": "The monetary value of a single digit price movement based on lot size."
+          "term": "Session Structure Boundaries",
+          "definition": "Critical price levels that define the high and low points during specific trading sessions."
         }
       ],
-      "whyThisMatters": "Forex spreads widen dramatically at session handoffs. Executing then increases frictional costs.",
-      "realLifeExample": "Executing a EUR/USD long position precisely at the London open when spreads compress to minimums.",
-      "commonMistake": "Trading large lot sizes on minor pairs during low-liquidity Asian hours.",
-      "quickNote": "Forex execution demands session alignment and spread awareness."
-    }
+      "whyThisMatters": "Identifying session structure boundaries allows traders to pinpoint potential reversal or breakout points, enhancing decision-making accuracy.",
+      "realLifeExample": "EURUSD shows a swing low at 1.1000 during the Asian session, followed by a breakout above 1.1050 at the London open, indicating a potential trend shift.",
+      "commonMistake": "Failing to account for low liquidity during the Asian session can lead to misinterpretation of price movements.",
+      "quickNote": "Session boundaries are pivotal in defining market structure and potential trading opportunities.",
+      "mentorText": "When mapping session boundaries, focus on the price action during the Asian session. If you see a swing low forming, be prepared for potential movement as the London session opens.",
+      "mentorAnalogy": "Think of session boundaries like the walls of a building; they define the space where activity occurs, and breaking through them can signify a shift in the environment."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-structure-limits"
   },
   {
     "type": "concept",
-    "title": "Forex roadway: Market Structure: Part 1 (2)",
-    "label": "Forex Track Pillar",
-    "visualKey": "forex-session-structure-limits",
-    "body": "### Currency Execution Adaptations\n\nIn Forex, currency pairs are traded across decentralized STP/ECN networks. The execution of **Market Structure: Part 1** requires calculating exact pip values and accounting for spread shifts across session openings.\n\n* **FX Execution**: Synchronize entries with peak London or New York volume.",
+    "title": "Validating Structural Points During London Open",
+    "label": "Forex Track",
+    "body": "### London Open: Validating Swing Points\nThe London open is a critical period for validating swing highs and lows. This card details **how to leverage volume expansion during this session to confirm structural points**.\n\n* **Volume Spike Confirmation**: During the first hour of the London session (5:00 AM to 6:00 AM EST), monitor for volume spikes that accompany price movements. A swing high is validated if the volume exceeds the 10-day average by 20% or more.\n* **Price Action Patterns**: Look for specific price action patterns, such as pin bars or engulfing candles, at key levels during the London open. These patterns, combined with high volume, reinforce the validity of swing points.\n* **Timeframe Alignment**: Validate swing points across multiple timeframes. A swing high on the 15-minute chart should align with a higher timeframe (e.g., 1-hour) to confirm its significance during the London session.",
     "context": {
       "keyTerms": [
         {
-          "term": "STP Broker",
-          "definition": "Straight-Through Processing broker routing orders directly to liquidity providers."
-        },
-        {
-          "term": "Pip Value",
-          "definition": "The monetary value of a single digit price movement based on lot size."
+          "term": "Volume Expansion",
+          "definition": "A significant increase in trading volume that often accompanies price movements, indicating strong market interest."
         }
       ],
-      "whyThisMatters": "Forex spreads widen dramatically at session handoffs. Executing then increases frictional costs.",
-      "realLifeExample": "Executing a EUR/USD long position precisely at the London open when spreads compress to minimums.",
-      "commonMistake": "Trading large lot sizes on minor pairs during low-liquidity Asian hours.",
-      "quickNote": "Forex execution demands session alignment and spread awareness."
-    }
+      "whyThisMatters": "Validating swing points during the London open can enhance the reliability of trading decisions, as this session often sets the tone for the day.",
+      "realLifeExample": "GBPUSD shows a swing high at 1.3000 with a volume spike of 150% during the London open, confirming the strength of the resistance level.",
+      "commonMistake": "Ignoring volume analysis can lead to false confirmations of swing points, resulting in poor trading decisions.",
+      "quickNote": "Volume spikes during the London open are critical for confirming swing highs and lows.",
+      "mentorText": "During the London open, always check for volume spikes. If you see a swing high forming with strong volume, it’s likely to hold as resistance.",
+      "mentorAnalogy": "Validating swing points is like a surgeon confirming the viability of a procedure; without proper checks, the outcome can be disastrous."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-structure-limits"
   },
   {
     "type": "concept",
-    "title": "Forex roadway: Market Structure: Part 1 (3)",
-    "label": "Forex Track Pillar",
-    "visualKey": "forex-session-structure-limits",
-    "body": "### Currency Execution Adaptations\n\nIn Forex, currency pairs are traded across decentralized STP/ECN networks. The execution of **Market Structure: Part 1** requires calculating exact pip values and accounting for spread shifts across session openings.\n\n* **FX Execution**: Synchronize entries with peak London or New York volume.",
+    "title": "Validating Structural Points During NY Open",
+    "label": "Forex Track",
+    "body": "### NY Open: Validating Swing Points\nThe New York open presents unique characteristics for validating swing points. This card explains **how to identify and confirm swing highs and lows during this session**.\n\n* **Market Sentiment Shift**: The NY open (8:00 AM to 9:00 AM EST) often reflects shifts in market sentiment. Pay attention to economic news releases scheduled during this time, as they can create volatility and validate swing points.\n* **Liquidity Considerations**: The first 30 minutes of the NY session typically experience increased liquidity. A swing low formed at this time should be considered valid if it coincides with high trading volume and a subsequent price rally.\n* **Cross-Session Analysis**: Compare swing points established during the London session with those formed at the NY open. If a swing high from London is tested and rejected during the NY open, it reinforces the structural integrity of that level.",
     "context": {
       "keyTerms": [
         {
-          "term": "STP Broker",
-          "definition": "Straight-Through Processing broker routing orders directly to liquidity providers."
-        },
-        {
-          "term": "Pip Value",
-          "definition": "The monetary value of a single digit price movement based on lot size."
+          "term": "Market Sentiment Shift",
+          "definition": "A change in trader sentiment that can significantly impact price movements, often influenced by economic news."
         }
       ],
-      "whyThisMatters": "Forex spreads widen dramatically at session handoffs. Executing then increases frictional costs.",
-      "realLifeExample": "Executing a EUR/USD long position precisely at the London open when spreads compress to minimums.",
-      "commonMistake": "Trading large lot sizes on minor pairs during low-liquidity Asian hours.",
-      "quickNote": "Forex execution demands session alignment and spread awareness."
-    }
+      "whyThisMatters": "Understanding how to validate swing points during the NY open allows traders to capitalize on increased volatility and liquidity.",
+      "realLifeExample": "USDJPY forms a swing low at 110.50 during the NY open, coinciding with a positive non-farm payroll release, validating the price action with increased volume.",
+      "commonMistake": "Overlooking the impact of economic news releases can lead to misinterpretation of swing points during the NY open.",
+      "quickNote": "The NY open is crucial for validating swing points due to its unique liquidity and sentiment dynamics.",
+      "mentorText": "When the NY session opens, watch for any economic news. If a swing low forms right after a positive release, it’s a strong signal that the market is reacting favorably.",
+      "mentorAnalogy": "Validating swing points during the NY open is like a pilot checking instruments before takeoff; accurate readings are essential for a successful flight."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-structure-limits"
   },
   {
     "type": "concept",
-    "title": "Forex roadway: Market Structure: Part 1 (4)",
-    "label": "Forex Track Pillar",
-    "visualKey": "forex-session-structure-limits",
-    "body": "### Currency Execution Adaptations\n\nIn Forex, currency pairs are traded across decentralized STP/ECN networks. The execution of **Market Structure: Part 1** requires calculating exact pip values and accounting for spread shifts across session openings.\n\n* **FX Execution**: Synchronize entries with peak London or New York volume.",
+    "title": "Analyzing Volume During Key Sessions",
+    "label": "Forex Track",
+    "body": "### Volume Analysis: Key Trading Sessions\nAnalyzing volume during key trading sessions enhances the understanding of market structure. This card focuses on **how to utilize volume analysis to confirm swing highs and lows**.\n\n* **Volume Divergence**: Identify instances where price makes a new high or low but volume decreases. This divergence can indicate a weakening trend and signal potential reversals at swing points.\n* **Session Volume Comparison**: Compare the volume of the current session to the average volume of the previous 10 sessions. A significant increase in volume during a swing point can validate its strength and potential continuation.\n* **Volume Clusters**: Look for volume clusters at specific price levels. If a swing high is accompanied by a volume cluster, it reinforces the likelihood of that level holding as resistance.",
     "context": {
       "keyTerms": [
         {
-          "term": "STP Broker",
-          "definition": "Straight-Through Processing broker routing orders directly to liquidity providers."
-        },
-        {
-          "term": "Pip Value",
-          "definition": "The monetary value of a single digit price movement based on lot size."
+          "term": "Volume Divergence",
+          "definition": "A situation where price moves in one direction while volume moves in the opposite direction, indicating potential trend weakness."
         }
       ],
-      "whyThisMatters": "Forex spreads widen dramatically at session handoffs. Executing then increases frictional costs.",
-      "realLifeExample": "Executing a EUR/USD long position precisely at the London open when spreads compress to minimums.",
-      "commonMistake": "Trading large lot sizes on minor pairs during low-liquidity Asian hours.",
-      "quickNote": "Forex execution demands session alignment and spread awareness."
-    }
+      "whyThisMatters": "Volume analysis is critical for confirming swing points, as it provides insight into the strength of price movements.",
+      "realLifeExample": "AUDCAD shows a swing high at 0.9500 with a volume increase of 25% compared to the previous session, confirming the strength of the resistance level.",
+      "commonMistake": "Failing to analyze volume can lead to false confirmations of swing points, resulting in poor trading decisions.",
+      "quickNote": "Volume analysis is essential for confirming the validity of swing highs and lows.",
+      "mentorText": "Always check the volume when you see a swing point. If the volume is high, it’s a clear sign that the market is backing that price level.",
+      "mentorAnalogy": "Analyzing volume is like an architect reviewing building plans; without understanding the foundation, the structure may not hold."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-structure-limits"
   },
   {
     "type": "concept",
-    "title": "Forex roadway: Market Structure: Part 1 (5)",
-    "label": "Forex Track Pillar",
-    "visualKey": "forex-session-structure-limits",
-    "body": "### Currency Execution Adaptations\n\nIn Forex, currency pairs are traded across decentralized STP/ECN networks. The execution of **Market Structure: Part 1** requires calculating exact pip values and accounting for spread shifts across session openings.\n\n* **FX Execution**: Synchronize entries with peak London or New York volume.",
+    "title": "Identifying Structure Shifts Across Sessions",
+    "label": "Forex Track",
+    "body": "### Market Structure: Identifying Structure Shifts Across Sessions\nMarket structure shifts can occur at the opening and closing of trading sessions, significantly impacting price action. This card focuses on **how to identify these shifts and their implications for trading strategies**.\n\n* **Session Overlap Analysis**: Pay attention to the overlap between the London and New York sessions, as this period often sees increased volatility and clearer structure shifts. Look for significant price movements that break previous swing highs or lows during this overlap.\n* **Session Close Dynamics**: The last hour of a trading session can reveal shifts in market sentiment. If a swing high is established just before session close, it may indicate a potential reversal or continuation pattern for the next session.\n* **Timeframe Alignment**: Utilize multiple timeframes to confirm structure shifts. For instance, a shift on the hourly chart should be corroborated by a similar signal on the daily chart to validate the strength of the change in market structure.",
     "context": {
       "keyTerms": [
         {
-          "term": "STP Broker",
-          "definition": "Straight-Through Processing broker routing orders directly to liquidity providers."
+          "term": "Session Overlap",
+          "definition": "The period when two major trading sessions coincide, typically leading to increased market activity."
         },
         {
-          "term": "Pip Value",
-          "definition": "The monetary value of a single digit price movement based on lot size."
+          "term": "Session Close",
+          "definition": "The final hour of a trading session, often critical for determining market sentiment."
+        },
+        {
+          "term": "Timeframe Alignment",
+          "definition": "The practice of confirming signals across different timeframes to enhance trading accuracy."
         }
       ],
-      "whyThisMatters": "Forex spreads widen dramatically at session handoffs. Executing then increases frictional costs.",
-      "realLifeExample": "Executing a EUR/USD long position precisely at the London open when spreads compress to minimums.",
-      "commonMistake": "Trading large lot sizes on minor pairs during low-liquidity Asian hours.",
-      "quickNote": "Forex execution demands session alignment and spread awareness."
-    }
+      "whyThisMatters": "Understanding session shifts allows traders to capitalize on volatility and adjust their strategies accordingly.",
+      "realLifeExample": "On a Wednesday at 8:00 AM EST, the EURUSD breaks a swing low of 1.1000 during the London session overlap with New York, indicating a potential bearish trend for the day.",
+      "commonMistake": "Failing to recognize that significant price movements during session overlaps can lead to false breakouts if not confirmed by subsequent price action.",
+      "quickNote": "Monitor session overlaps for potential shifts in market structure.",
+      "mentorText": "When the London and New York sessions overlap, you need to be alert. This is when the market often reveals its true intentions. Watch for breaks of key levels during this time.",
+      "mentorAnalogy": "Think of trading sessions like shifts in a factory. When two shifts overlap, production ramps up, revealing inefficiencies and opportunities that wouldn't be visible during regular hours."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-structure-limits"
   },
   {
     "type": "concept",
-    "title": "Forex roadway: Market Structure: Part 1 (6)",
-    "label": "Forex Track Pillar",
-    "visualKey": "forex-session-structure-limits",
-    "body": "### Currency Execution Adaptations\n\nIn Forex, currency pairs are traded across decentralized STP/ECN networks. The execution of **Market Structure: Part 1** requires calculating exact pip values and accounting for spread shifts across session openings.\n\n* **FX Execution**: Synchronize entries with peak London or New York volume.",
+    "title": "Awareness of Session Traps",
+    "label": "Forex Track",
+    "body": "### Market Structure: Awareness of Session Traps\nSession transitions can create traps that mislead traders regarding swing analysis. This card emphasizes **the importance of recognizing these traps to avoid costly mistakes**.\n\n* **False Breakouts**: During the transition from one session to another, price may briefly break a swing high or low before reversing. Identify these false breakouts by waiting for confirmation on the next candle before acting.\n* **Liquidity Gaps**: Be aware of liquidity gaps that can occur at session openings, leading to erratic price movements. Avoid placing trades immediately after a session opens until the market stabilizes.\n* **News Impact**: Economic news releases often coincide with session transitions, creating volatility that can distort market structure. Always check the economic calendar and be cautious around these times.",
     "context": {
       "keyTerms": [
         {
-          "term": "STP Broker",
-          "definition": "Straight-Through Processing broker routing orders directly to liquidity providers."
+          "term": "False Breakouts",
+          "definition": "Price movements that temporarily exceed a swing high or low but reverse quickly, misleading traders."
         },
         {
-          "term": "Pip Value",
-          "definition": "The monetary value of a single digit price movement based on lot size."
+          "term": "Liquidity Gaps",
+          "definition": "Periods of low trading volume that can lead to erratic price movements, especially at session openings."
+        },
+        {
+          "term": "News Impact",
+          "definition": "The influence of economic news releases on market volatility and structure."
         }
       ],
-      "whyThisMatters": "Forex spreads widen dramatically at session handoffs. Executing then increases frictional costs.",
-      "realLifeExample": "Executing a EUR/USD long position precisely at the London open when spreads compress to minimums.",
-      "commonMistake": "Trading large lot sizes on minor pairs during low-liquidity Asian hours.",
-      "quickNote": "Forex execution demands session alignment and spread awareness."
-    }
+      "whyThisMatters": "Recognizing session traps helps traders avoid entering trades based on misleading price action, preserving capital.",
+      "realLifeExample": "On a Tuesday at 5:00 PM EST, the GBPUSD spikes above 1.3000 due to a news release, only to drop back below that level within 15 minutes, indicating a false breakout.",
+      "commonMistake": "Entering trades immediately after a session opens without waiting for price confirmation can lead to unnecessary losses.",
+      "quickNote": "Stay vigilant for false breakouts and liquidity gaps during session transitions.",
+      "mentorText": "Don't rush into trades just because the market is moving. Wait for confirmation after a session opens to avoid falling into traps.",
+      "mentorAnalogy": "Imagine a surgeon preparing for a critical operation. They must assess the situation carefully before making any incisions, just as you should before entering a trade during session transitions."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-structure-limits"
   },
   {
     "type": "practice",
-    "title": "Forex roadway: Market Structure: Part 1 (7)",
-    "label": "Forex Track Pillar",
-    "visualKey": "forex-session-structure-limits",
-    "body": "### Currency Execution Adaptations\n\nIn Forex, currency pairs are traded across decentralized STP/ECN networks. The execution of **Market Structure: Part 1** requires calculating exact pip values and accounting for spread shifts across session openings.\n\n* **FX Execution**: Synchronize entries with peak London or New York volume.",
+    "title": "Practical Application of Session Structure Analysis",
+    "label": "Forex Track",
+    "body": "### Market Structure: Practical Application of Session Structure Analysis\nThis card provides practical exercises to reinforce session structure analysis techniques. Engage with real market scenarios to solidify your understanding of session dynamics.\n\n* **Exercise 1: Identify Structure Shifts**: Analyze a 1-hour chart of the AUDUSD for the last two trading sessions. Mark any significant swing highs and lows that coincide with session openings and closings.\n* **Exercise 2: Recognize Session Traps**: Review a 15-minute chart of the USDJPY during the transition from the Asian to the London session. Identify any false breakouts and liquidity gaps, noting the price action following these events.\n* **Exercise 3: Timeframe Confirmation**: Select a currency pair and observe its price action across the 15-minute, 1-hour, and daily charts. Document any instances where session shifts align across these timeframes and how they influenced your trading decisions.",
     "context": {
       "keyTerms": [
         {
-          "term": "STP Broker",
-          "definition": "Straight-Through Processing broker routing orders directly to liquidity providers."
+          "term": "Structure Shifts",
+          "definition": "Changes in market direction indicated by new swing highs or lows."
         },
         {
-          "term": "Pip Value",
-          "definition": "The monetary value of a single digit price movement based on lot size."
+          "term": "Session Dynamics",
+          "definition": "The behavior of price action during different trading sessions."
+        },
+        {
+          "term": "Timeframe Confirmation",
+          "definition": "The process of validating trading signals across multiple timeframes."
         }
       ],
-      "whyThisMatters": "Forex spreads widen dramatically at session handoffs. Executing then increases frictional costs.",
-      "realLifeExample": "Executing a EUR/USD long position precisely at the London open when spreads compress to minimums.",
-      "commonMistake": "Trading large lot sizes on minor pairs during low-liquidity Asian hours.",
-      "quickNote": "Forex execution demands session alignment and spread awareness."
+      "whyThisMatters": "Practical application of session structure analysis enhances your ability to make informed trading decisions under real market conditions.",
+      "realLifeExample": "While analyzing the EURUSD, you identify a swing high at 1.1200 during the London session and a subsequent swing low at 1.1150 during the New York session, confirming a bearish structure shift.",
+      "commonMistake": "Overlooking the importance of analyzing multiple timeframes can lead to missed opportunities or false signals.",
+      "quickNote": "Engage in practical exercises to master session structure analysis.",
+      "mentorText": "Practice makes perfect. By analyzing past sessions, you can better understand how market structure shifts occur and how to react appropriately.",
+      "mentorAnalogy": "Consider a pilot reviewing flight data before takeoff. They must analyze past flights to ensure a safe and efficient journey, just as you must analyze price action to navigate the market effectively."
     },
     "taskData": {
       "type": "choice_block",
-      "question": "What is the disciplined Forex response for Market Structure: Part 1?",
+      "question": "During the London session, the EURUSD breaks a swing high of 1.1200 but quickly retraces to 1.1180. What should you do next?",
       "options": [
         {
           "id": "0",
-          "text": "Wait for the execution parameters to align perfectly with your pre-written plan.",
-          "isCorrect": true,
-          "feedback": "Correct! Execution must be rule-based, not emotional."
+          "text": "Enter a long position immediately at 1.1180.",
+          "isCorrect": false,
+          "feedback": "Entering immediately without confirmation can lead to losses if this is a false breakout."
         },
         {
           "id": "1",
-          "text": "Execute immediately to avoid missing a fast-moving price candle.",
+          "text": "Wait for the next candle to close above 1.1200 before entering a long position.",
+          "isCorrect": true,
+          "feedback": "Waiting for confirmation helps ensure that the breakout is valid and not a false signal."
+        },
+        {
+          "id": "2",
+          "text": "Set a sell limit order at 1.1175.",
           "isCorrect": false,
-          "feedback": "Incorrect. Impulse execution is a gambler's trap."
+          "feedback": "Setting a sell limit order without confirmation of a bearish structure shift is premature."
+        },
+        {
+          "id": "3",
+          "text": "Ignore the price action and continue with your current strategy.",
+          "isCorrect": false,
+          "feedback": "Ignoring significant price movements can lead to missed trading opportunities."
         }
       ]
-    }
+    },
+    "visualKey": "forex-session-structure-limits"
   },
   {
     "type": "summary",
-    "title": "Forex roadway: Market Structure: Part 1 (8)",
-    "label": "Forex Track Pillar",
-    "visualKey": "forex-session-structure-limits",
-    "body": "### Currency Execution Adaptations\n\nIn Forex, currency pairs are traded across decentralized STP/ECN networks. The execution of **Market Structure: Part 1** requires calculating exact pip values and accounting for spread shifts across session openings.\n\n* **FX Execution**: Synchronize entries with peak London or New York volume.",
+    "title": "Summary of Forex Session Insights",
+    "label": "Forex Track",
+    "body": "### Market Structure: Summary of Forex Session Insights\nThis card summarizes the essential insights regarding session structure and its impact on swing points. Understanding these concepts is vital for effective trading.\n\n* **Key Takeaways on Structure Shifts**: Recognizing shifts in market structure during session overlaps can enhance trading strategies. Pay close attention to price action during these critical times.\n* **Avoiding Session Traps**: Awareness of false breakouts and liquidity gaps is crucial. Always seek confirmation before acting on price movements during session transitions.\n* **Practical Application**: Engage in regular analysis of session dynamics across multiple timeframes to reinforce your understanding and improve decision-making in live trading scenarios.",
     "context": {
       "keyTerms": [
         {
-          "term": "STP Broker",
-          "definition": "Straight-Through Processing broker routing orders directly to liquidity providers."
+          "term": "Key Takeaways",
+          "definition": "Essential insights that summarize the main concepts learned."
         },
         {
-          "term": "Pip Value",
-          "definition": "The monetary value of a single digit price movement based on lot size."
+          "term": "Session Dynamics",
+          "definition": "The behavior of price action during different trading sessions."
+        },
+        {
+          "term": "Practical Application",
+          "definition": "The act of applying learned concepts to real market situations."
         }
       ],
-      "whyThisMatters": "Forex spreads widen dramatically at session handoffs. Executing then increases frictional costs.",
-      "realLifeExample": "Executing a EUR/USD long position precisely at the London open when spreads compress to minimums.",
-      "commonMistake": "Trading large lot sizes on minor pairs during low-liquidity Asian hours.",
-      "quickNote": "Forex execution demands session alignment and spread awareness."
-    }
+      "whyThisMatters": "Summarizing key insights solidifies understanding and prepares traders for practical application in the market.",
+      "realLifeExample": "After reviewing the insights, a trader identifies a consistent pattern of false breakouts during the Asian session, allowing them to adjust their strategy accordingly.",
+      "commonMistake": "Failing to integrate session insights into trading strategies can lead to missed opportunities and increased risk.",
+      "quickNote": "Summarize key insights to enhance trading strategies.",
+      "mentorText": "Reflect on what you've learned about session structure. These insights are your toolkit for navigating the market effectively.",
+      "mentorAnalogy": "Just as an architect reviews blueprints before construction, you must review session insights to build a solid trading strategy."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-structure-limits"
   }
 ];

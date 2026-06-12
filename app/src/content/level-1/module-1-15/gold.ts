@@ -3,204 +3,239 @@ import { LessonCard } from "../../../types/curriculum";
 export const goldCards: LessonCard[] = [
   {
     "type": "mission_brief",
-    "title": "Gold roadway: Level 1 Planning Mission (1)",
-    "label": "Gold Track Pillar",
-    "visualKey": "gold-level-1-gate-drill",
-    "body": "### Commodity Macro Adaptations\n\nGold (XAU/USD) is a highly volatile, macro-sensitive asset class. Implementing **Level 1 Planning Mission** means we must coordinate yields and inflation expectations. We use Treasury yields as a fundamental filter.\n\n* **Gold Gating**: Filter out setups if yields are coiling at range extremes.",
+    "title": "Gold Planning Mission Overview",
+    "label": "Gold Track",
+    "body": "### Gold Planning Mission Overview\nDevelop a comprehensive Gold yield-and-volatility planning thesis. This mission requires synthesizing learned concepts into a cohesive strategy.\n\n* **Objective Definition**: Clearly define your trading objectives, focusing on yield expectations and volatility management. These objectives should guide your entire planning process.\n* **Data Integration**: Integrate historical yield data and volatility metrics to support your thesis. Use quantitative analysis to back your strategic decisions.\n* **Risk Management Framework**: Establish a robust risk management framework tailored to gold's unique market characteristics. This includes setting stop-loss levels and position sizing based on volatility assessments.",
     "context": {
       "keyTerms": [
         {
-          "term": "Real Yields",
-          "definition": "Interest rates adjusted for inflation; inversely correlated with Gold."
-        },
-        {
-          "term": "Wick Sweep",
-          "definition": "Rapid spikes through support to consume resting liquidity."
+          "term": "Planning Thesis",
+          "definition": "A structured approach to formulating a trading strategy based on data analysis and market conditions."
         }
       ],
-      "whyThisMatters": "Gold wicks are deep and fast. Stopping out prematurely occurs when wicks are ignored.",
-      "realLifeExample": "Mapping an invalidation level 30 pips below obvious support to accommodate Gold's sweep volatility.",
-      "commonMistake": "Using tight stop-losses suited for major currency pairs on Gold.",
-      "quickNote": "Gold requires real yield correlation and wide sweep buffers."
-    }
+      "whyThisMatters": "A well-defined planning thesis is essential for disciplined trading and effective risk management in the gold market.",
+      "realLifeExample": "A trader develops a thesis based on historical gold yield data and current volatility, setting a target to capture a 2% yield over a month with a maximum drawdown of 1%.",
+      "commonMistake": "Failing to align the planning thesis with realistic market conditions and personal risk tolerance.",
+      "quickNote": "Your thesis is your roadmap; ensure it's data-driven and realistic.",
+      "mentorText": "Think of your planning thesis as a blueprint. It's not just about having a plan, but ensuring every element is backed by solid data and clear objectives.",
+      "mentorAnalogy": "Just like an architect designs a building with precise calculations and safety standards, your trading plan must be meticulously crafted with data and risk assessments."
+    },
+    "taskData": null,
+    "visualKey": "gold-level-1-gate-drill"
   },
   {
     "type": "concept",
-    "title": "Gold roadway: Level 1 Planning Mission (2)",
-    "label": "Gold Track Pillar",
-    "visualKey": "gold-synthesis-debrief",
-    "body": "### Commodity Macro Adaptations\n\nGold (XAU/USD) is a highly volatile, macro-sensitive asset class. Implementing **Level 1 Planning Mission** means we must coordinate yields and inflation expectations. We use Treasury yields as a fundamental filter.\n\n* **Gold Gating**: Filter out setups if yields are coiling at range extremes.",
+    "title": "Yield Analysis in Gold Trading",
+    "label": "Gold Track",
+    "body": "### Yield Analysis in Gold Trading\nAnalyze yield patterns in gold to inform your planning thesis. Understanding these patterns is crucial for setting realistic profit targets.\n\n* **Historical Yield Trends**: Examine past yield trends to identify consistent patterns. This involves analyzing monthly and yearly returns to determine average yield expectations.\n* **Yield Volatility Correlation**: Assess how yield correlates with market volatility. Higher volatility often impacts yield potential, necessitating adjustments in strategy.\n* **Yield Impact Factors**: Identify external factors that influence gold yields, such as geopolitical events, interest rate changes, and currency fluctuations.",
     "context": {
       "keyTerms": [
         {
-          "term": "Real Yields",
-          "definition": "Interest rates adjusted for inflation; inversely correlated with Gold."
-        },
-        {
-          "term": "Wick Sweep",
-          "definition": "Rapid spikes through support to consume resting liquidity."
+          "term": "Yield Patterns",
+          "definition": "Recurring trends in the returns generated by an asset over time."
         }
       ],
-      "whyThisMatters": "Gold wicks are deep and fast. Stopping out prematurely occurs when wicks are ignored.",
-      "realLifeExample": "Mapping an invalidation level 30 pips below obvious support to accommodate Gold's sweep volatility.",
-      "commonMistake": "Using tight stop-losses suited for major currency pairs on Gold.",
-      "quickNote": "Gold requires real yield correlation and wide sweep buffers."
-    }
+      "whyThisMatters": "Yield analysis helps traders set realistic profit targets and adapt strategies to changing market conditions.",
+      "realLifeExample": "Analyzing gold's yield during periods of geopolitical tension reveals a 3% increase in average monthly returns, guiding a trader's strategic adjustments.",
+      "commonMistake": "Ignoring external factors that can significantly alter yield expectations.",
+      "quickNote": "Yield patterns are your compass; use them to navigate profit targets.",
+      "mentorText": "Your yield analysis is like reading a map. It tells you where the opportunities lie and how to adjust your course when conditions change.",
+      "mentorAnalogy": "Just as a sailor uses wind patterns to chart a course, you must use yield patterns to guide your trading strategy."
+    },
+    "taskData": null,
+    "visualKey": "gold-synthesis-debrief"
   },
   {
     "type": "concept",
-    "title": "Gold roadway: Level 1 Planning Mission (3)",
-    "label": "Gold Track Pillar",
-    "visualKey": "gold-level-1-gate-drill",
-    "body": "### Commodity Macro Adaptations\n\nGold (XAU/USD) is a highly volatile, macro-sensitive asset class. Implementing **Level 1 Planning Mission** means we must coordinate yields and inflation expectations. We use Treasury yields as a fundamental filter.\n\n* **Gold Gating**: Filter out setups if yields are coiling at range extremes.",
+    "title": "Understanding Gold Volatility Patterns",
+    "label": "Gold Track",
+    "body": "### Understanding Gold Volatility Patterns\nExplore the unique volatility patterns in gold markets and their impact on trading strategies. Volatility is a double-edged sword that can enhance or erode returns.\n\n* **Volatility Metrics**: Utilize metrics such as Average True Range (ATR) and Bollinger Bands to quantify gold's volatility. These tools help in setting stop-loss levels and position sizes.\n* **Volatility Cycles**: Identify cyclical volatility patterns, such as increased activity during economic announcements or geopolitical events. Recognizing these cycles aids in timing entries and exits.\n* **Volatility and Liquidity**: Understand the relationship between volatility and market liquidity. High volatility often coincides with reduced liquidity, affecting trade execution and slippage.",
     "context": {
       "keyTerms": [
         {
-          "term": "Real Yields",
-          "definition": "Interest rates adjusted for inflation; inversely correlated with Gold."
-        },
-        {
-          "term": "Wick Sweep",
-          "definition": "Rapid spikes through support to consume resting liquidity."
+          "term": "Volatility Patterns",
+          "definition": "Recurring fluctuations in an asset's price that can impact trading decisions."
         }
       ],
-      "whyThisMatters": "Gold wicks are deep and fast. Stopping out prematurely occurs when wicks are ignored.",
-      "realLifeExample": "Mapping an invalidation level 30 pips below obvious support to accommodate Gold's sweep volatility.",
-      "commonMistake": "Using tight stop-losses suited for major currency pairs on Gold.",
-      "quickNote": "Gold requires real yield correlation and wide sweep buffers."
-    }
+      "whyThisMatters": "Understanding volatility patterns allows traders to manage risk effectively and optimize entry and exit points.",
+      "realLifeExample": "A trader observes increased gold volatility during a Federal Reserve announcement, adjusting their stop-loss to accommodate a 1.5x ATR move.",
+      "commonMistake": "Overlooking the impact of reduced liquidity during high volatility periods.",
+      "quickNote": "Volatility is your risk barometer; measure it precisely.",
+      "mentorText": "Think of volatility as the weather forecast for your trading day. It tells you when to carry an umbrella or when to stay indoors.",
+      "mentorAnalogy": "Just like a pilot checks weather patterns before a flight, you must assess volatility patterns to ensure a safe trading journey."
+    },
+    "taskData": null,
+    "visualKey": "gold-level-1-gate-drill"
   },
   {
     "type": "concept",
-    "title": "Gold roadway: Level 1 Planning Mission (4)",
-    "label": "Gold Track Pillar",
-    "visualKey": "gold-synthesis-debrief",
-    "body": "### Commodity Macro Adaptations\n\nGold (XAU/USD) is a highly volatile, macro-sensitive asset class. Implementing **Level 1 Planning Mission** means we must coordinate yields and inflation expectations. We use Treasury yields as a fundamental filter.\n\n* **Gold Gating**: Filter out setups if yields are coiling at range extremes.",
+    "title": "Correlations in Gold Markets",
+    "label": "Gold Track",
+    "body": "### Correlations in Gold Markets\nExamine how gold correlates with other markets and the implications for your trading plan. Correlations can provide insights into potential market movements.\n\n* **Intermarket Relationships**: Analyze gold's correlation with currencies, particularly USD, and other commodities like silver and oil. These relationships can signal potential price movements.\n* **Correlation Coefficient Analysis**: Use statistical tools to calculate correlation coefficients, identifying strong or weak relationships that can inform trading decisions.\n* **Dynamic Correlations**: Recognize that correlations are not static. Monitor changes over time, especially during economic shifts or policy changes, to adjust your strategy accordingly.",
     "context": {
       "keyTerms": [
         {
-          "term": "Real Yields",
-          "definition": "Interest rates adjusted for inflation; inversely correlated with Gold."
-        },
-        {
-          "term": "Wick Sweep",
-          "definition": "Rapid spikes through support to consume resting liquidity."
+          "term": "Correlation",
+          "definition": "A statistical measure that describes the extent to which two assets move in relation to each other."
         }
       ],
-      "whyThisMatters": "Gold wicks are deep and fast. Stopping out prematurely occurs when wicks are ignored.",
-      "realLifeExample": "Mapping an invalidation level 30 pips below obvious support to accommodate Gold's sweep volatility.",
-      "commonMistake": "Using tight stop-losses suited for major currency pairs on Gold.",
-      "quickNote": "Gold requires real yield correlation and wide sweep buffers."
-    }
+      "whyThisMatters": "Understanding correlations helps traders anticipate market movements and diversify risk effectively.",
+      "realLifeExample": "A trader notes a strong inverse correlation between gold and USD during a period of dollar strength, adjusting their gold positions accordingly.",
+      "commonMistake": "Assuming correlations are constant and failing to adjust strategies as they change.",
+      "quickNote": "Correlations are your market compass; they guide your strategic adjustments.",
+      "mentorText": "Think of correlations as the gears in a machine. When one moves, others follow, and understanding this movement is key to keeping the machine running smoothly.",
+      "mentorAnalogy": "Just as a conductor understands the relationship between different sections of an orchestra, you must grasp how gold interacts with other markets to harmonize your trading strategy."
+    },
+    "taskData": null,
+    "visualKey": "gold-synthesis-debrief"
   },
   {
     "type": "concept",
-    "title": "Gold roadway: Level 1 Planning Mission (5)",
-    "label": "Gold Track Pillar",
-    "visualKey": "gold-level-1-gate-drill",
-    "body": "### Commodity Macro Adaptations\n\nGold (XAU/USD) is a highly volatile, macro-sensitive asset class. Implementing **Level 1 Planning Mission** means we must coordinate yields and inflation expectations. We use Treasury yields as a fundamental filter.\n\n* **Gold Gating**: Filter out setups if yields are coiling at range extremes.",
+    "title": "Risk Management for Gold Trading",
+    "label": "Gold Track",
+    "body": "### Gold Risk Management: Tailored Strategies\nGold's volatility and liquidity require specific risk management approaches. This card outlines **how to implement risk management strategies tailored to gold trading**.\n\n* **Volatility Buffer**: Allocate a volatility buffer of at least 1.5 times the average true range (ATR) of gold to accommodate sudden price swings without triggering premature stop-losses.\n* **Position Sizing**: Calculate position sizes based on a fixed percentage of account equity, ensuring no single trade exceeds 2% risk exposure. Adjust for gold's higher volatility compared to other commodities.\n* **Liquidity Consideration**: Avoid placing trades during low liquidity periods, such as between the New York close and the Asian open, to prevent slippage and unfavorable fills.",
     "context": {
       "keyTerms": [
         {
-          "term": "Real Yields",
-          "definition": "Interest rates adjusted for inflation; inversely correlated with Gold."
+          "term": "Volatility Buffer",
+          "definition": "An additional margin added to stop-loss levels to account for expected volatility."
         },
         {
-          "term": "Wick Sweep",
-          "definition": "Rapid spikes through support to consume resting liquidity."
+          "term": "Position Sizing",
+          "definition": "The process of determining the amount of capital to allocate to a single trade."
+        },
+        {
+          "term": "Liquidity Consideration",
+          "definition": "The assessment of market liquidity to avoid trading during periods of low activity."
         }
       ],
-      "whyThisMatters": "Gold wicks are deep and fast. Stopping out prematurely occurs when wicks are ignored.",
-      "realLifeExample": "Mapping an invalidation level 30 pips below obvious support to accommodate Gold's sweep volatility.",
-      "commonMistake": "Using tight stop-losses suited for major currency pairs on Gold.",
-      "quickNote": "Gold requires real yield correlation and wide sweep buffers."
-    }
+      "whyThisMatters": "Gold's unique market behavior demands precise risk management to protect capital and optimize returns.",
+      "realLifeExample": "A trader sets a stop-loss 30 pips below the entry on a gold trade during a volatile session, using a 1.5 ATR buffer to prevent being stopped out prematurely.",
+      "commonMistake": "Failing to adjust risk parameters for gold's higher volatility, leading to frequent stop-loss hits.",
+      "quickNote": "Gold's volatility requires a larger buffer to manage risk effectively.",
+      "mentorText": "Think of gold trading like handling a high-performance vehicle. You need to adjust your speed and braking distance based on the road conditions.",
+      "mentorAnalogy": "Managing risk in gold trading is akin to a pilot adjusting flight controls for turbulence. You need to anticipate and buffer against sudden changes in altitude."
+    },
+    "taskData": null,
+    "visualKey": "gold-level-1-gate-drill"
   },
   {
     "type": "concept",
-    "title": "Gold roadway: Level 1 Planning Mission (6)",
-    "label": "Gold Track Pillar",
-    "visualKey": "gold-synthesis-debrief",
-    "body": "### Commodity Macro Adaptations\n\nGold (XAU/USD) is a highly volatile, macro-sensitive asset class. Implementing **Level 1 Planning Mission** means we must coordinate yields and inflation expectations. We use Treasury yields as a fundamental filter.\n\n* **Gold Gating**: Filter out setups if yields are coiling at range extremes.",
+    "title": "Presenting Your Gold Planning Thesis",
+    "label": "Gold Track",
+    "body": "### Gold Thesis Presentation: Effective Communication\nCommunicating your gold trading thesis requires clarity and precision. This card focuses on **developing skills to effectively present and defend your gold yield-and-volatility planning thesis**.\n\n* **Structured Argumentation**: Organize your thesis with a clear introduction, supporting evidence, and a logical conclusion. Ensure each part flows seamlessly into the next.\n* **Data-Driven Justification**: Use historical data and statistical analysis to back your claims. Highlight key metrics such as yield curves and volatility indices.\n* **Anticipate Counterarguments**: Prepare for potential questions or challenges by considering alternative scenarios and their implications on your thesis.",
     "context": {
       "keyTerms": [
         {
-          "term": "Real Yields",
-          "definition": "Interest rates adjusted for inflation; inversely correlated with Gold."
+          "term": "Structured Argumentation",
+          "definition": "A methodical approach to presenting an argument with a clear structure."
         },
         {
-          "term": "Wick Sweep",
-          "definition": "Rapid spikes through support to consume resting liquidity."
+          "term": "Data-Driven Justification",
+          "definition": "Supporting claims with empirical data and statistical analysis."
+        },
+        {
+          "term": "Counterarguments",
+          "definition": "Potential opposing views or challenges to a presented thesis."
         }
       ],
-      "whyThisMatters": "Gold wicks are deep and fast. Stopping out prematurely occurs when wicks are ignored.",
-      "realLifeExample": "Mapping an invalidation level 30 pips below obvious support to accommodate Gold's sweep volatility.",
-      "commonMistake": "Using tight stop-losses suited for major currency pairs on Gold.",
-      "quickNote": "Gold requires real yield correlation and wide sweep buffers."
-    }
+      "whyThisMatters": "A well-presented thesis demonstrates professionalism and enhances credibility, crucial for gaining stakeholder confidence.",
+      "realLifeExample": "A trader presents a gold trading thesis, citing specific yield curve shifts and volatility spikes from past FOMC meetings to support their strategy.",
+      "commonMistake": "Relying on vague statements without data support, weakening the thesis's credibility.",
+      "quickNote": "Structure and data are your allies in defending a gold thesis.",
+      "mentorText": "Presenting your thesis is like arguing a case in court. You need evidence, a clear narrative, and readiness for cross-examination.",
+      "mentorAnalogy": "Think of your thesis presentation as a scientist defending a hypothesis. You need to show your data, explain your methods, and anticipate peer review questions."
+    },
+    "taskData": null,
+    "visualKey": "gold-synthesis-debrief"
   },
   {
     "type": "practice",
-    "title": "Gold roadway: Level 1 Planning Mission (7)",
-    "label": "Gold Track Pillar",
-    "visualKey": "gold-level-1-gate-drill",
-    "body": "### Commodity Macro Adaptations\n\nGold (XAU/USD) is a highly volatile, macro-sensitive asset class. Implementing **Level 1 Planning Mission** means we must coordinate yields and inflation expectations. We use Treasury yields as a fundamental filter.\n\n* **Gold Gating**: Filter out setups if yields are coiling at range extremes.",
+    "title": "Gold Plan Defense Practice",
+    "label": "Gold Track",
+    "body": "### Gold Plan Defense: Practice Sessions\nEngage in practice sessions to refine your defense of the gold planning thesis. This card provides scenarios to test your ability to articulate and defend your strategy.\n\n* **Scenario Analysis**: Practice defending your thesis against hypothetical market changes, such as unexpected geopolitical events affecting gold prices.\n* **Peer Review Sessions**: Participate in peer review sessions where you present your thesis and receive feedback on clarity and data usage.\n* **Role-Playing Exercises**: Engage in role-playing exercises where you must defend your thesis to a skeptical audience, simulating real-world challenges.",
     "context": {
       "keyTerms": [
         {
-          "term": "Real Yields",
-          "definition": "Interest rates adjusted for inflation; inversely correlated with Gold."
+          "term": "Scenario Analysis",
+          "definition": "Evaluating potential outcomes based on hypothetical changes in market conditions."
         },
         {
-          "term": "Wick Sweep",
-          "definition": "Rapid spikes through support to consume resting liquidity."
+          "term": "Peer Review Sessions",
+          "definition": "Collaborative feedback sessions to critique and improve a presented thesis."
+        },
+        {
+          "term": "Role-Playing Exercises",
+          "definition": "Simulated exercises to practice defending a thesis in a realistic setting."
         }
       ],
-      "whyThisMatters": "Gold wicks are deep and fast. Stopping out prematurely occurs when wicks are ignored.",
-      "realLifeExample": "Mapping an invalidation level 30 pips below obvious support to accommodate Gold's sweep volatility.",
-      "commonMistake": "Using tight stop-losses suited for major currency pairs on Gold.",
-      "quickNote": "Gold requires real yield correlation and wide sweep buffers."
+      "whyThisMatters": "Practicing thesis defense enhances your ability to communicate strategies effectively under pressure.",
+      "realLifeExample": "A trader role-plays defending their gold strategy against a scenario where a sudden interest rate hike impacts gold's volatility.",
+      "commonMistake": "Failing to prepare for unexpected questions, leading to a weak defense.",
+      "quickNote": "Practice makes your thesis defense robust and adaptable.",
+      "mentorText": "Think of these sessions like a dress rehearsal for a play. You need to know your lines and be ready for anything unexpected.",
+      "mentorAnalogy": "Defending your thesis is like a lawyer preparing for a trial. You need to anticipate the prosecutor's questions and have your answers ready."
     },
     "taskData": {
       "type": "choice_block",
-      "question": "What is the disciplined Gold response for Level 1 Planning Mission?",
+      "question": "During a practice session, you are asked how your gold trading thesis accounts for a sudden geopolitical crisis. What is the best response?",
       "options": [
         {
           "id": "0",
-          "text": "Verify structural context first, write a plan, and wait for confirmation.",
+          "text": "Highlight historical data showing gold's reaction to similar past events.",
           "isCorrect": true,
-          "feedback": "Correct! Deliberate process over quick reaction."
+          "feedback": "Using historical data provides a solid foundation for your thesis and demonstrates preparedness."
         },
         {
           "id": "1",
-          "text": "React immediately to the candle spikes to prevent missing the move.",
+          "text": "Dismiss the question as irrelevant to your thesis.",
           "isCorrect": false,
-          "feedback": "Incorrect. Chasing is a gambler's trap."
+          "feedback": "Ignoring potential scenarios weakens your thesis defense."
+        },
+        {
+          "id": "2",
+          "text": "Speculate on possible outcomes without data support.",
+          "isCorrect": false,
+          "feedback": "Speculation without data undermines your credibility."
+        },
+        {
+          "id": "3",
+          "text": "Change the topic to avoid the question.",
+          "isCorrect": false,
+          "feedback": "Avoiding the question shows a lack of confidence in your thesis."
         }
       ]
-    }
+    },
+    "visualKey": "gold-level-1-gate-drill"
   },
   {
     "type": "summary",
-    "title": "Gold roadway: Level 1 Planning Mission (8)",
-    "label": "Gold Track Pillar",
-    "visualKey": "gold-synthesis-debrief",
-    "body": "### Commodity Macro Adaptations\n\nGold (XAU/USD) is a highly volatile, macro-sensitive asset class. Implementing **Level 1 Planning Mission** means we must coordinate yields and inflation expectations. We use Treasury yields as a fundamental filter.\n\n* **Gold Gating**: Filter out setups if yields are coiling at range extremes.",
+    "title": "Finalizing Your Gold Planning Thesis",
+    "label": "Gold Track",
+    "body": "### Gold Thesis Finalization: Consolidation and Submission\nConsolidate your gold planning thesis for final submission, ensuring it meets all objectives and criteria. This card guides you through the final steps.\n\n* **Comprehensive Review**: Conduct a thorough review of your thesis, checking for logical consistency, data accuracy, and alignment with your initial objectives.\n* **Objective Alignment**: Ensure your thesis aligns with the strategic objectives set at the beginning of the planning process, reflecting any necessary adjustments.\n* **Submission Checklist**: Use a checklist to verify that all components, including data analysis, risk management strategies, and contingency plans, are included and well-documented.",
     "context": {
       "keyTerms": [
         {
-          "term": "Real Yields",
-          "definition": "Interest rates adjusted for inflation; inversely correlated with Gold."
+          "term": "Comprehensive Review",
+          "definition": "A detailed examination of a thesis to ensure quality and completeness."
         },
         {
-          "term": "Wick Sweep",
-          "definition": "Rapid spikes through support to consume resting liquidity."
+          "term": "Objective Alignment",
+          "definition": "Ensuring that a thesis aligns with the initial strategic goals."
+        },
+        {
+          "term": "Submission Checklist",
+          "definition": "A list of criteria to verify before finalizing and submitting a thesis."
         }
       ],
-      "whyThisMatters": "Gold wicks are deep and fast. Stopping out prematurely occurs when wicks are ignored.",
-      "realLifeExample": "Mapping an invalidation level 30 pips below obvious support to accommodate Gold's sweep volatility.",
-      "commonMistake": "Using tight stop-losses suited for major currency pairs on Gold.",
-      "quickNote": "Gold requires real yield correlation and wide sweep buffers."
-    }
+      "whyThisMatters": "A well-prepared thesis submission demonstrates professionalism and readiness for real-world trading challenges.",
+      "realLifeExample": "A trader uses a checklist to ensure their gold thesis includes all necessary risk management strategies and aligns with their market outlook.",
+      "commonMistake": "Submitting a thesis with incomplete data analysis or missing components, leading to rejection.",
+      "quickNote": "A thorough review ensures your thesis is submission-ready.",
+      "mentorText": "Finalizing your thesis is like a pilot's pre-flight checklist. Every detail must be checked before takeoff.",
+      "mentorAnalogy": "Think of finalizing your thesis like an architect reviewing blueprints before construction. Every detail must be precise and accounted for."
+    },
+    "taskData": null,
+    "visualKey": "gold-synthesis-debrief"
   }
 ];

@@ -38,66 +38,74 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import { useMentorNote } from "../../lesson-workspace/MentorNoteContext";
+
 // Standard MentorInsight UI Component integrated into L2Frame
 const L2Frame = ({ 
   children, 
   title, 
   id, 
-  mentorText = "Wait for execution parameters to align perfectly with your pre-written plan. A professional trader does not chase price.",
-  mentorAnalogy = "A sniper waits patiently for the target to step exactly into the crosshairs. They do not fire wildly hoping for a hit." 
+  mentorText: defaultMentorText = "Wait for execution parameters to align perfectly with your pre-written plan. A professional trader does not chase price.",
+  mentorAnalogy: defaultMentorAnalogy = "A sniper waits patiently for the target to step exactly into the crosshairs. They do not fire wildly hoping for a hit." 
 }: { 
   children: React.ReactNode; 
   title: string; 
   id: string; 
   mentorText?: string; 
   mentorAnalogy?: string; 
-}) => (
-  <div className="w-full bg-[#FAFDFD] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm text-left min-h-[500px]">
-    {/* Grid Background Effect */}
-    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
-    
-    {/* Top Header Row */}
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
-      <div className="flex flex-col text-left">
-        <div className="flex items-center gap-1.5 mb-1">
-          <Zap size={10} className="text-emerald-600 animate-pulse" />
-          <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Execution Engine Console</span>
-        </div>
-        <h4 className="text-sm font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{title}</h4>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="flex flex-col items-end">
-          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Execution Ref</span>
-          <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
-        </div>
-      </div>
-    </div>
-    
-    {/* Dynamic Content Center Stage */}
-    <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
-      {children}
-    </div>
+}) => {
+  const context = useMentorNote();
+  const activeMentorText = context.mentorText || defaultMentorText;
+  const activeMentorAnalogy = context.mentorAnalogy !== undefined ? context.mentorAnalogy : defaultMentorAnalogy;
 
-    {/* Mentor Blueprint Insight at the Bottom */}
-    <div className="w-full mt-6 pt-5 border-t border-slate-200 flex flex-col gap-2 shrink-0 text-left relative z-10">
-      <div className="flex items-center gap-2">
-        <div className="px-2 py-1 bg-[#071B36] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Blueprint</div>
-        <div className="h-px flex-1 bg-slate-200" />
+  return (
+    <div className="w-full bg-[#FAFDFD] border border-[#E2E8F0] rounded-[2rem] p-6 md:p-8 flex flex-col relative overflow-hidden shadow-sm text-left min-h-[500px]">
+      {/* Grid Background Effect */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] bg-[length:24px_24px]" />
+      
+      {/* Top Header Row */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10 border-b border-slate-200 pb-4 shrink-0">
+        <div className="flex flex-col text-left">
+          <div className="flex items-center gap-1.5 mb-1">
+            <Zap size={10} className="text-emerald-600 animate-pulse" />
+            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Execution Engine Console</span>
+          </div>
+          <h4 className="text-sm font-black text-[#071B36] uppercase tracking-tighter italic leading-tight">{title}</h4>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="flex flex-col items-end">
+            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Execution Ref</span>
+            <span className="text-[10px] font-mono text-[#071B36] font-bold">{id}</span>
+          </div>
+        </div>
       </div>
-      <div className="flex gap-4">
-         <div className="flex-1">
-            <p className="text-xs font-bold text-[#071B36] leading-relaxed">{mentorText}</p>
-            {mentorAnalogy && (
-              <p className="mt-1.5 text-[11px] text-slate-500 italic leading-snug">
-                <span className="font-black uppercase text-[9px] mr-2 text-emerald-600 not-italic">Concept Analogy:</span>
-                {mentorAnalogy}
-              </p>
-            )}
-         </div>
+      
+      {/* Dynamic Content Center Stage */}
+      <div className="flex-1 flex flex-col items-center justify-center relative z-10 w-full min-h-0">
+        {children}
+      </div>
+
+      {/* Mentor Blueprint Insight at the Bottom */}
+      <div className="w-full mt-6 pt-5 border-t border-slate-200 flex flex-col gap-2 shrink-0 text-left relative z-10">
+        <div className="flex items-center gap-2">
+          <div className="px-2 py-1 bg-[#071B36] text-white text-[8px] font-black uppercase tracking-widest rounded-sm">Mentor Blueprint</div>
+          <div className="h-px flex-1 bg-slate-200" />
+        </div>
+        <div className="flex gap-4">
+           <div className="flex-1">
+              <p className="text-xs font-bold text-[#071B36] leading-relaxed">{activeMentorText}</p>
+              {activeMentorAnalogy && (
+                <p className="mt-1.5 text-[11px] text-slate-500 italic leading-snug">
+                  <span className="font-black uppercase text-[9px] mr-2 text-emerald-600 not-italic">Concept Analogy:</span>
+                  {activeMentorAnalogy}
+                </p>
+              )}
+           </div>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // --- MODULE 2.1 VISUALS ---
 export const ChartBasicsVisual = () => {
