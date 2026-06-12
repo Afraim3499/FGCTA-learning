@@ -3,6 +3,7 @@ import { level1Curriculum } from "../../content/level-1";
 import { level2Curriculum } from "../../content/level-2";
 import { level3Curriculum } from "../../content/level-3";
 import { level4Curriculum } from "../../content/level-4";
+import { level5Curriculum } from "../../content/level-5";
 import fs from "fs";
 import path from "path";
 
@@ -23,7 +24,14 @@ async function validate() {
   
   const registryContent = fs.readFileSync(registryPath, "utf-8");
 
-  const allModules = [...level0Curriculum, ...level1Curriculum, ...level2Curriculum, ...level3Curriculum, ...level4Curriculum];
+  const allModules = [
+    ...level0Curriculum,
+    ...level1Curriculum,
+    ...level2Curriculum,
+    ...level3Curriculum,
+    ...level4Curriculum,
+    ...level5Curriculum
+  ];
 
   for (const module of allModules) {
     console.log(`\nValidating Module ${module.moduleNumber}: ${module.title}`);

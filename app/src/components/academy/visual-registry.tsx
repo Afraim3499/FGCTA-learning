@@ -1177,5 +1177,22 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "forex-multi-pair-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
   "gold-comex-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
   "crypto-cex-tp": dynamic(() => import("./visuals/shared-l4").then(m => m.Level4ReviewVisual), { loading: VisualLoading }),
+
+  // --- LEVEL 5 RISK ARCHITECTURE MODULES ---
+  "kelly-criterion-basics": dynamic(() => import("./visuals/shared-l5").then(m => m.DynamicRiskCalculatorVisual), { loading: VisualLoading }),
+  "volatility-sizing": dynamic(() => import("./visuals/shared-l5").then(m => m.DynamicRiskCalculatorVisual), { loading: VisualLoading }),
+  "dynamic-calculator-drill": dynamic(() => import("./visuals/shared-l5").then(m => m.DynamicRiskCalculatorVisual), { loading: VisualLoading }),
+  "scaling-out-basics": dynamic(() => import("./visuals/shared-l5").then(m => m.RiskFreeFundingVisual), { loading: VisualLoading }),
+  "scaling-in-pyramiding": dynamic(() => import("./visuals/shared-l5").then(m => m.PyramidingVisual), { loading: VisualLoading }),
+  "stop-loss-placement": dynamic(() => import("./visuals/shared-l5").then(m => m.RiskFreeFundingVisual), { loading: VisualLoading }),
+  "break-even-protocols": dynamic(() => import("./visuals/shared-l5").then(m => m.RiskFreeFundingVisual), { loading: VisualLoading }),
+  "trailing-stop-architectures": dynamic(() => import("./visuals/shared-l5").then(m => m.PyramidingVisual), { loading: VisualLoading }),
+  "asymmetric-gear-shift": dynamic(() => import("./visuals/shared-l5").then(m => m.AsymmetricGearShiftVisual), { loading: VisualLoading }),
+  "daily-circuit-breaker": dynamic(() => import("./visuals/shared-l5").then(m => m.CircuitBreakerVisual), { loading: VisualLoading }),
+  "weekly-circuit-breaker": dynamic(() => import("./visuals/shared-l5").then(m => m.CircuitBreakerVisual), { loading: VisualLoading }),
+  "capital-defense-basics": dynamic(() => import("./visuals/shared-l5").then(m => m.AsymmetricGearShiftVisual), { loading: VisualLoading }),
+  "correlation-portfolio-risk": dynamic(() => import("./visuals/shared-l5").then(m => m.CorrelationPortfolioRiskVisual), { loading: VisualLoading }),
+  "risk-checklists": dynamic(() => import("./visuals/shared-l5").then(m => m.CircuitBreakerVisual), { loading: VisualLoading }),
+  "level-5-debrief-recap": dynamic(() => import("./visuals/shared-l5").then(m => m.AsymmetricGearShiftVisual), { loading: VisualLoading }),
 };
 

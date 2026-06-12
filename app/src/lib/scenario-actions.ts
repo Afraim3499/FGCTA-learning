@@ -356,6 +356,23 @@ export async function submitChartScenarioAttempt(
     }
   }
 
+  // Dual-gate check for Level 5 unlock (mirrors Level 4 pattern)
+  if (isPassed && attempt.scenario.slug === "drawdown-crucible") {
+    const testData = await prisma.knowledgeTest.findUnique({ where: { level: 5 } });
+    if (testData) {
+      const testPassed = await prisma.testAttempt.findFirst({
+        where: { userId: user.id, testId: testData.id, passed: true },
+      });
+      const progress = await prisma.userProgress.findUnique({ where: { userId: user.id } });
+      if (testPassed && progress && progress.currentLevel === 5) {
+        await prisma.userProgress.update({
+          where: { userId: user.id },
+          data: { currentLevel: Math.max(progress.currentLevel, 6) },
+        });
+      }
+    }
+  }
+
   // Dual-gate check for Level 2 unlock (existing logic preserved)
   if (isPassed && attempt.scenario.slug === "m2-level-2-map-review-v1") {
     const testData = await prisma.knowledgeTest.findUnique({ where: { level: 2 } });

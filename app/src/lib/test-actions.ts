@@ -229,6 +229,25 @@ export async function submitTest(level: number, selectedAnswers: { questionId: s
         }
       }
 
+      if (level === 5) {
+        // Dual-gate logic for Level 5 → Level 6
+        // BOTH the Level 5 Knowledge Test AND the Level 5 Final Scenario (drawdown-crucible) must be passed.
+        const scenarioPassed = await tx.scenarioAttempt.findFirst({
+          where: {
+            userId: user.id,
+            scenario: { slug: "drawdown-crucible" },
+            status: "passed",
+          }
+        });
+
+        if (!scenarioPassed) {
+          shouldUnlockNextLevel = false;
+          returnMessage = "Test passed. Complete the Level 5 Final Scenario (Drawdown Crucible) to unlock Level 6.";
+        } else {
+          returnMessage = "Level 6 Unlocked! Proceed to Scenario Planning.";
+        }
+      }
+
       if (progress && progress.currentLevel === level && shouldUnlockNextLevel) {
         const nextLevel = Math.max(progress.currentLevel, level + 1);
         
