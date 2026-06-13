@@ -1211,6 +1211,23 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "crypto-scenario-checklist": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
   "journal-process-audit": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
   "level-6-debrief-recap": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+
+  // --- LEVEL 7 LIVE EXECUTION MASTERY MODULES ---
+  "execution-os-framework": dynamic(() => import("./visuals/shared-l7").then(m => m.ExecutionOSFramework), { loading: VisualLoading }),
+  "pre-session-checklist": dynamic(() => import("./visuals/shared-l7").then(m => m.ExecutionOSFramework), { loading: VisualLoading }),
+  "order-entry-simulator": dynamic(() => import("./visuals/shared-l7").then(m => m.OrderEntrySimulator), { loading: VisualLoading }),
+  "live-price-reader": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
+  "open-trade-manager": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
+  "partial-profit-engine": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
+  "news-event-protocol": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
+  "spread-slippage-meter": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
+  "execution-debrief-log": dynamic(() => import("./visuals/shared-l7").then(m => m.ExecutionDebriefLog), { loading: VisualLoading }),
+  "habit-execution-stack": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
+  "multi-pair-exec-grid": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
+  "gold-exec-specifics": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
+  "crypto-exec-specifics": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
+  "execution-error-recovery": dynamic(() => import("./visuals/shared-l7").then(m => m.ExecutionDebriefLog), { loading: VisualLoading }),
+  "level-7-debrief-recap": dynamic(() => import("./visuals/shared-l7").then(m => m.ExecutionOSFramework), { loading: VisualLoading }),
 };
 
 
