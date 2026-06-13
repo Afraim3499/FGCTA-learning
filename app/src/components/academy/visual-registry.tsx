@@ -1194,5 +1194,23 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "correlation-portfolio-risk": dynamic(() => import("./visuals/shared-l5").then(m => m.CorrelationPortfolioRiskVisual), { loading: VisualLoading }),
   "risk-checklists": dynamic(() => import("./visuals/shared-l5").then(m => m.CircuitBreakerVisual), { loading: VisualLoading }),
   "level-5-debrief-recap": dynamic(() => import("./visuals/shared-l5").then(m => m.AsymmetricGearShiftVisual), { loading: VisualLoading }),
+
+  // --- LEVEL 6 SCENARIO PLANNING MODULES ---
+  "decision-branching-logic": dynamic(() => import("./visuals/shared-l6").then(m => m.BranchingLogicSimulator), { loading: VisualLoading }),
+  "htf-narrative-anchors": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "primary-scenario-map": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "alternative-scenario-map": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "invalidation-boundaries": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "time-invalidation-clocks": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "structural-conflict-zones": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "mid-session-audit-log": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "dxy-correlation-grid": dynamic(() => import("./visuals/shared-l6").then(m => m.DXYCorrelationGrid), { loading: VisualLoading }),
+  "smt-divergence-charts": dynamic(() => import("./visuals/shared-l6").then(m => m.SMTDivergenceSimulator), { loading: VisualLoading }),
+  "forex-scenario-checklist": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "gold-scenario-checklist": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "crypto-scenario-checklist": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "journal-process-audit": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
+  "level-6-debrief-recap": dynamic(() => import("./visuals/shared-l6").then(m => m.Level6PlaceholderVisual), { loading: VisualLoading }),
 };
+
 
