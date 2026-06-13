@@ -1245,6 +1245,23 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "crypto-metric-dashboard": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
   "cognitive-habit-stack": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
   "final-crucible-recap": dynamic(() => import("./visuals/shared-l8").then(m => m.CognitiveBiasModeler), { loading: VisualLoading }),
+
+  // --- LEVEL 9 CERTIFICATION MODULES ---
+  "cert-scorecard-model": dynamic(() => import("./visuals/shared-l9").then(m => m.CertificationScorecard), { loading: VisualLoading }),
+  "portfolio-risk-model": dynamic(() => import("./visuals/shared-l9").then(m => m.PortfolioRiskSimulator), { loading: VisualLoading }),
+  "live-capital-planner": dynamic(() => import("./visuals/shared-l9").then(m => m.LiveCapitalPlanner), { loading: VisualLoading }),
+  "execution-speed-monitor": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "stress-test-model": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "prop-rulebook-checker": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "multi-asset-allocator": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "sharpe-optimizer": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "leverage-gate-calculator": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "performance-drift-monitor": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "multi-venue-auditor": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "desk-setup-diagram": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "multi-strategy-builder": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "capital-reporting-grid": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
+  "final-certification-crucible": dynamic(() => import("./visuals/shared-l9").then(m => m.Level9PlaceholderVisual), { loading: VisualLoading }),
 };
 
 
