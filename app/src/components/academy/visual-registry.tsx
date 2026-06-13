@@ -1228,6 +1228,23 @@ export const VISUAL_REGISTRY: Record<string, React.ComponentType<any>> = {
   "crypto-exec-specifics": dynamic(() => import("./visuals/shared-l7").then(m => m.Level7PlaceholderVisual), { loading: VisualLoading }),
   "execution-error-recovery": dynamic(() => import("./visuals/shared-l7").then(m => m.ExecutionDebriefLog), { loading: VisualLoading }),
   "level-7-debrief-recap": dynamic(() => import("./visuals/shared-l7").then(m => m.ExecutionOSFramework), { loading: VisualLoading }),
+
+  // --- LEVEL 8 MANAGEMENT & REVIEW MODULES ---
+  "recency-bias-model": dynamic(() => import("./visuals/shared-l8").then(m => m.CognitiveBiasModeler), { loading: VisualLoading }),
+  "expectancy-calculator-l8": dynamic(() => import("./visuals/shared-l8").then(m => m.PerformanceMetricsDashboard), { loading: VisualLoading }),
+  "greed-cycle-flow": dynamic(() => import("./visuals/shared-l8").then(m => m.CognitiveBiasModeler), { loading: VisualLoading }),
+  "pre-market-prep-card": dynamic(() => import("./visuals/shared-l8").then(m => m.MasterTradingPlanBuilder), { loading: VisualLoading }),
+  "focus-session-monitor": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
+  "trade-journal-mockup": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
+  "metric-database-grid": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
+  "performance-analytics-chart": dynamic(() => import("./visuals/shared-l8").then(m => m.PerformanceMetricsDashboard), { loading: VisualLoading }),
+  "drawdown-recovery-model": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
+  "trading-plan-builder": dynamic(() => import("./visuals/shared-l8").then(m => m.MasterTradingPlanBuilder), { loading: VisualLoading }),
+  "strategy-audit-sampler": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
+  "gold-metric-dashboard": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
+  "crypto-metric-dashboard": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
+  "cognitive-habit-stack": dynamic(() => import("./visuals/shared-l8").then(m => m.Level8PlaceholderVisual), { loading: VisualLoading }),
+  "final-crucible-recap": dynamic(() => import("./visuals/shared-l8").then(m => m.CognitiveBiasModeler), { loading: VisualLoading }),
 };
 
 

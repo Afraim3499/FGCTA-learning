@@ -6,6 +6,7 @@ import { level4Curriculum } from "../../content/level-4";
 import { level5Curriculum } from "../../content/level-5";
 import { level6Curriculum } from "../../content/level-6";
 import { level7Curriculum } from "../../content/level-7";
+import { level8Curriculum } from "../../content/level-8";
 import fs from "fs";
 import path from "path";
 
@@ -34,7 +35,8 @@ async function validate() {
     ...level4Curriculum,
     ...level5Curriculum,
     ...level6Curriculum,
-    ...level7Curriculum
+    ...level7Curriculum,
+    ...level8Curriculum
   ];
 
   for (const module of allModules) {
