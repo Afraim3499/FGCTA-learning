@@ -59,7 +59,7 @@ async function sync() {
         moduleNumber: mod.moduleNumber,
         title: mod.title,
         objective: mod.objective,
-        skillLevel: mod.skillLevel as SkillLevel,
+        skillLevel: (mod.skillLevel === "expert" ? "institutional" : mod.skillLevel) as SkillLevel,
         orderIndex: mod.orderIndex,
         content: wrap(mod.tracks.core),
         forexAdaptation: wrap(mod.tracks.forex || []),
