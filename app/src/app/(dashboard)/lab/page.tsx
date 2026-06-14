@@ -50,6 +50,15 @@ export default async function StrategyLabPage() {
     select: { id: true, moduleNumber: true, level: true, title: true }
   });
 
+  console.log("--- STRATEGY LAB DIAGNOSTIC LOG ---", {
+    userId: user.id,
+    userTrack: profile?.marketTrack,
+    userLevel: currentLevel,
+    dbStrategiesCount: dbStrategies.length,
+    staticStrategiesCount: 25,
+    modulesCount: modules.length
+  });
+
   return (
     <div className="space-y-8 pb-10 h-[calc(100vh-140px)]">
       {/* Header */}

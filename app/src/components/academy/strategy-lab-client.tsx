@@ -441,14 +441,13 @@ export function StrategyLabClient({
                         return (
                           <button
                             key={s.logicId}
-                            disabled={isLocked}
-                            onClick={() => !isLocked && handleSelectStrategy(s)}
+                            onClick={() => handleSelectStrategy(s)}
                             className={cn(
                               "w-full text-left p-4 rounded-2xl border transition-all group relative",
-                              isLocked
-                                ? "bg-slate-50 border-[var(--ln-border)] opacity-60 cursor-not-allowed"
-                                : selectedStrategy?.logicId === s.logicId && !isPracticing
-                                  ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 border-l-4 border-l-[var(--ln-teal-500)]" 
+                              selectedStrategy?.logicId === s.logicId && !isPracticing
+                                ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 border-l-4 border-l-[var(--ln-teal-500)]" 
+                                : isLocked
+                                  ? "bg-slate-50/70 border-[var(--ln-border)] opacity-70 hover:bg-slate-50"
                                   : "bg-white border-[var(--ln-border)] hover:border-[var(--ln-teal-500)]/20 hover:bg-slate-50"
                             )}
                           >
@@ -663,13 +662,33 @@ export function StrategyLabClient({
 
                 {/* 8: CTA */}
                 <div className="pt-6 border-t border-slate-100">
-                   <button 
-                     onClick={() => setIsPracticing(true)}
-                     data-nava-target="practice-concept-cta"
-                     className="w-full md:w-auto px-8 py-3.5 bg-[var(--ln-teal-500)] text-white rounded-xl text-sm font-bold shadow-md shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all flex items-center justify-center gap-2"
-                   >
-                      <Target size={18} /> Practice This Concept
-                   </button>
+                   {currentLevel < selectedStrategy.level ? (
+                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+                       <div className="flex items-center gap-2.5">
+                         <div className="p-2 bg-slate-200 text-slate-500 rounded-xl">
+                           <Lock size={18} />
+                         </div>
+                         <div>
+                           <p className="text-xs font-extrabold text-slate-500 uppercase tracking-widest leading-none">Practice Locked</p>
+                           <p className="text-xs text-slate-400 font-medium mt-1">Achieve curriculum Level {selectedStrategy.level} to unlock practice mode.</p>
+                         </div>
+                       </div>
+                       <button
+                         disabled
+                         className="px-6 py-2.5 bg-slate-200 text-slate-400 font-bold text-xs rounded-xl cursor-not-allowed flex items-center gap-1.5 uppercase tracking-wider shrink-0"
+                       >
+                         Locked
+                       </button>
+                     </div>
+                   ) : (
+                     <button 
+                       onClick={() => setIsPracticing(true)}
+                       data-nava-target="practice-concept-cta"
+                       className="w-full md:w-auto px-8 py-3.5 bg-[var(--ln-teal-500)] text-white rounded-xl text-sm font-bold shadow-md shadow-[var(--ln-teal-500)]/20 hover:bg-[var(--ln-teal-600)] transition-all flex items-center justify-center gap-2"
+                     >
+                        <Target size={18} /> Practice This Concept
+                     </button>
+                   )}
                 </div>
 
              </div>
