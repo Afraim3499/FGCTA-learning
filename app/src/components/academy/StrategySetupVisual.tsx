@@ -12,56 +12,55 @@ interface CandleData {
 }
 
 export function StrategySetupVisual() {
-  // SVG coordinates: Width = 500, Height = 250
-  // Values are defined in pixels from the top (0 = top, 250 = bottom)
+  // SVG coordinates: Width = 500, Height = 180 (More compact)
+  // Values are defined in pixels from the top (0 = top, 180 = bottom)
   
-  // Define zones (higher pixel value means lower price)
-  const targetZone = { top: 20, bottom: 60, label: "Target Zone (R:R Target)" };
-  const entryZone = { top: 110, bottom: 130, label: "Entry Trigger Area" };
-  const invalidationLine = 175; // Red line
-  const warningZone = { top: 175, bottom: 210, label: "Trap / Sweep Zone" };
+  const targetZone = { top: 15, bottom: 45, label: "Target Zone (R:R Target)" };
+  const entryZone = { top: 80, bottom: 100, label: "Entry Trigger Area" };
+  const invalidationLine = 135; // Red line
+  const warningZone = { top: 135, bottom: 165, label: "Trap / Sweep Zone" };
 
   const candles: CandleData[] = [
-    { x: 30, open: 140, high: 120, low: 150, close: 130 },  // 1: Green
-    { x: 70, open: 130, high: 110, low: 140, close: 120 },  // 2: Green (reaches entry area first time)
-    { x: 110, open: 120, high: 115, low: 150, close: 145 }, // 3: Red (pullback)
-    { x: 150, open: 145, high: 135, low: 185, close: 170 }, // 4: Red (sweeps below support, wicks into trap zone)
-    { x: 190, open: 170, high: 125, low: 175, close: 130 }, // 5: Green (strong rejection candle, closes in entry zone)
-    { x: 230, open: 130, high: 110, low: 140, close: 115 }, // 6: Green (entry confirmed, moving up)
-    { x: 270, open: 115, high: 90, low: 120, close: 95 },   // 7: Green
-    { x: 310, open: 95, high: 90, low: 110, close: 105 },   // 8: Red (small pause)
-    { x: 350, open: 105, high: 70, low: 110, close: 75 },   // 9: Green
-    { x: 390, open: 75, high: 45, low: 80, close: 50 },     // 10: Green (enters target zone)
-    { x: 430, open: 50, high: 25, low: 60, close: 35 },     // 11: Green (fully in target zone)
+    { x: 30, open: 110, high: 95, low: 120, close: 102 },   // 1: Green
+    { x: 70, open: 102, high: 82, low: 110, close: 90 },    // 2: Green
+    { x: 110, open: 90, high: 85, low: 120, close: 115 },   // 3: Red
+    { x: 150, open: 115, high: 105, low: 145, close: 130 }, // 4: Red (wicks into trap zone)
+    { x: 190, open: 130, high: 95, low: 135, close: 100 }, // 5: Green (strong rejection)
+    { x: 230, open: 100, high: 80, low: 110, close: 85 },   // 6: Green
+    { x: 270, open: 85, high: 65, low: 90, close: 70 },     // 7: Green
+    { x: 310, open: 70, high: 65, low: 80, close: 75 },     // 8: Red (small pause)
+    { x: 350, open: 75, high: 50, low: 80, close: 55 },    // 9: Green
+    { x: 390, open: 55, high: 30, low: 60, close: 35 },     // 10: Green
+    { x: 430, open: 35, high: 15, low: 45, close: 25 },     // 11: Green (fully in target)
   ];
 
   return (
-    <div className="w-full bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden p-4 md:p-6 space-y-4">
-      <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
+    <div className="w-full bg-white border border-slate-200/80 rounded-2xl overflow-hidden p-4 md:p-5 space-y-3 shadow-sm">
+      <div className="flex items-center justify-between border-b border-slate-100 pb-2">
         <div className="space-y-0.5">
-          <h4 className="text-xs font-extrabold text-[var(--ln-navy-900)] uppercase tracking-wider">
+          <h4 className="text-[10px] font-black text-[var(--ln-navy-900)] uppercase tracking-wider">
             Setup Blueprint Schema
           </h4>
-          <p className="text-[10px] text-slate-400 font-medium">
+          <p className="text-[9px] text-slate-400 font-semibold">
             Non-directional reference diagram illustrating structural zones.
           </p>
         </div>
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 text-[9px] font-bold">
-          <Info className="w-3 h-3" />
-          <span>Educational Model</span>
+        <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 text-[8px] font-extrabold uppercase tracking-wide">
+          <Info className="w-2.5 h-2.5" />
+          <span>Study Model</span>
         </div>
       </div>
 
-      <div className="relative w-full overflow-x-auto bg-slate-900 border border-slate-800 rounded-xl p-2 select-none">
+      <div className="relative w-full overflow-hidden bg-slate-950 border border-slate-900 rounded-xl p-2 select-none shadow-inner">
         <svg 
-          viewBox="0 0 500 250" 
-          className="w-full min-w-[450px] h-auto font-sans"
+          viewBox="0 0 500 180" 
+          className="w-full h-auto font-sans"
         >
           {/* Grid lines */}
-          <line x1="0" y1="50" x2="500" y2="50" stroke="#1e293b" strokeWidth="1" strokeDasharray="3 3" />
-          <line x1="0" y1="100" x2="500" y2="100" stroke="#1e293b" strokeWidth="1" strokeDasharray="3 3" />
-          <line x1="0" y1="150" x2="500" y2="150" stroke="#1e293b" strokeWidth="1" strokeDasharray="3 3" />
-          <line x1="0" y1="200" x2="500" y2="200" stroke="#1e293b" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="0" y1="35" x2="500" y2="35" stroke="#1e293b" strokeWidth="0.5" strokeDasharray="3 3" />
+          <line x1="0" y1="70" x2="500" y2="70" stroke="#1e293b" strokeWidth="0.5" strokeDasharray="3 3" />
+          <line x1="0" y1="105" x2="500" y2="105" stroke="#1e293b" strokeWidth="0.5" strokeDasharray="3 3" />
+          <line x1="0" y1="140" x2="500" y2="140" stroke="#1e293b" strokeWidth="0.5" strokeDasharray="3 3" />
 
           {/* Zones */}
           
@@ -78,8 +77,8 @@ export function StrategySetupVisual() {
             y1={targetZone.top} 
             x2="500" 
             y2={targetZone.top} 
-            stroke="rgba(16, 185, 129, 0.4)" 
-            strokeWidth="1" 
+            stroke="rgba(16, 185, 129, 0.3)" 
+            strokeWidth="0.5" 
             strokeDasharray="2 2"
           />
           <line 
@@ -87,15 +86,15 @@ export function StrategySetupVisual() {
             y1={targetZone.bottom} 
             x2="500" 
             y2={targetZone.bottom} 
-            stroke="rgba(16, 185, 129, 0.4)" 
-            strokeWidth="1" 
+            stroke="rgba(16, 185, 129, 0.3)" 
+            strokeWidth="0.5" 
             strokeDasharray="2 2"
           />
           <text 
             x="490" 
-            y={targetZone.top + 25} 
+            y={targetZone.top + 18} 
             fill="rgb(52, 211, 153)" 
-            fontSize="8" 
+            fontSize="7" 
             fontWeight="bold" 
             textAnchor="end"
             opacity="0.8"
@@ -116,22 +115,22 @@ export function StrategySetupVisual() {
             y1={entryZone.top} 
             x2="500" 
             y2={entryZone.top} 
-            stroke="rgba(20, 184, 166, 0.3)" 
-            strokeWidth="1"
+            stroke="rgba(20, 184, 166, 0.2)" 
+            strokeWidth="0.5"
           />
           <line 
             x1="0" 
             y1={entryZone.bottom} 
             x2="500" 
             y2={entryZone.bottom} 
-            stroke="rgba(20, 184, 166, 0.3)" 
-            strokeWidth="1"
+            stroke="rgba(20, 184, 166, 0.2)" 
+            strokeWidth="0.5"
           />
           <text 
             x="490" 
-            y={entryZone.top + 13} 
+            y={entryZone.top + 12} 
             fill="rgb(45, 212, 191)" 
-            fontSize="8" 
+            fontSize="7" 
             fontWeight="bold" 
             textAnchor="end"
             opacity="0.8"
@@ -145,15 +144,15 @@ export function StrategySetupVisual() {
             y1={invalidationLine} 
             x2="500" 
             y2={invalidationLine} 
-            stroke="rgba(239, 68, 68, 0.7)" 
-            strokeWidth="1.5" 
+            stroke="rgba(239, 68, 68, 0.6)" 
+            strokeWidth="1.2" 
             strokeDasharray="4 3"
           />
           <text 
             x="490" 
-            y={invalidationLine - 5} 
+            y={invalidationLine - 4} 
             fill="rgb(248, 113, 113)" 
-            fontSize="8" 
+            fontSize="7" 
             fontWeight="bold" 
             textAnchor="end"
             opacity="0.9"
@@ -167,13 +166,13 @@ export function StrategySetupVisual() {
             y={warningZone.top} 
             width="500" 
             height={warningZone.bottom - warningZone.top} 
-            fill="rgba(245, 158, 11, 0.06)" 
+            fill="rgba(245, 158, 11, 0.05)" 
           />
           <text 
             x="490" 
-            y={warningZone.top + 22} 
+            y={warningZone.top + 18} 
             fill="rgb(251, 191, 36)" 
-            fontSize="8" 
+            fontSize="7" 
             fontWeight="bold" 
             textAnchor="end"
             opacity="0.7"
@@ -183,28 +182,26 @@ export function StrategySetupVisual() {
 
           {/* Candlesticks */}
           {candles.map((c, i) => {
-            const isGreen = c.close < c.open; // Remember: 0 is top, so close < open means price went UP
+            const isGreen = c.close < c.open; // 0 is top
             const color = isGreen ? "rgb(45, 212, 191)" : "rgb(248, 113, 113)";
-            const wickColor = isGreen ? "rgba(45, 212, 191, 0.7)" : "rgba(248, 113, 113, 0.7)";
+            const wickColor = isGreen ? "rgba(45, 212, 191, 0.6)" : "rgba(248, 113, 113, 0.6)";
             const bodyY = Math.min(c.open, c.close);
-            const bodyHeight = Math.max(2, Math.abs(c.open - c.close));
+            const bodyHeight = Math.max(1.5, Math.abs(c.open - c.close));
 
             return (
               <g key={i}>
-                {/* Wick */}
                 <line 
                   x1={c.x} 
                   y1={c.high} 
                   x2={c.x} 
                   y2={c.low} 
                   stroke={wickColor} 
-                  strokeWidth="1.5" 
+                  strokeWidth="1.2" 
                 />
-                {/* Body */}
                 <rect 
-                  x={c.x - 6} 
+                  x={c.x - 5} 
                   y={bodyY} 
-                  width="12" 
+                  width="10" 
                   height={bodyHeight} 
                   fill={color} 
                   rx="1"
@@ -215,10 +212,9 @@ export function StrategySetupVisual() {
         </svg>
       </div>
 
-      {/* Educational disclaimer */}
-      <div className="flex gap-2 p-3 bg-amber-50/60 border border-amber-100 rounded-xl">
-        <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-        <p className="text-[10px] text-amber-800/80 leading-relaxed font-semibold">
+      <div className="flex gap-2 p-2.5 bg-amber-50/50 border border-amber-100 rounded-xl">
+        <ShieldAlert className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+        <p className="text-[9px] text-amber-800/80 leading-relaxed font-semibold">
           Disclaimer: This diagram is for structural study only. Actual setups require confluence matching, strict volume filters, and session parameters. Never trade purely off zone touches.
         </p>
       </div>

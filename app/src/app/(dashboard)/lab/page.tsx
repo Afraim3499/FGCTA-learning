@@ -60,7 +60,7 @@ export default async function StrategyLabPage() {
   });
 
   return (
-    <div className="space-y-8 pb-10 h-[calc(100vh-140px)]">
+    <div className="flex flex-col gap-6 h-[calc(100vh-110px)] pb-6 overflow-hidden">
       {/* Header */}
       <section className="flex items-center justify-between shrink-0">
         <div className="space-y-2">

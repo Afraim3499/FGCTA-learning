@@ -9,6 +9,7 @@ import {
   Target, 
   AlertTriangle, 
   ChevronRight, 
+  ChevronDown,
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
@@ -445,74 +446,89 @@ export function StrategyLabClient({
                   )}
                 </div>
 
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-2.5">
                   {/* Asset Class */}
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-slate-400 uppercase">Asset Class</label>
-                    <select 
-                      value={assetFilter}
-                      onChange={(e) => setAssetFilter(e.target.value)}
-                      className="w-full text-xs font-semibold bg-white border border-slate-200 rounded-lg p-1.5 focus:outline-none focus:border-[var(--ln-teal-500)]/50 cursor-pointer"
-                    >
-                      <option value="all">All Assets</option>
-                      <option value="forex">Forex</option>
-                      <option value="crypto">Crypto</option>
-                      <option value="gold">Gold</option>
-                    </select>
+                    <label className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">Asset Class</label>
+                    <div className="relative">
+                      <select 
+                        value={assetFilter}
+                        onChange={(e) => setAssetFilter(e.target.value)}
+                        className="w-full text-xs font-semibold bg-white border border-slate-200 rounded-lg p-2 pr-8 focus:outline-none focus:border-[var(--ln-teal-500)]/50 cursor-pointer appearance-none shadow-sm"
+                      >
+                        <option value="all">All Assets</option>
+                        <option value="forex">Forex</option>
+                        <option value="crypto">Crypto</option>
+                        <option value="gold">Gold</option>
+                      </select>
+                      <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    </div>
                   </div>
 
                   {/* Level */}
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-slate-400 uppercase">Level</label>
-                    <select 
-                      value={levelFilter}
-                      onChange={(e) => setLevelFilter(e.target.value)}
-                      className="w-full text-xs font-semibold bg-white border border-slate-200 rounded-lg p-1.5 focus:outline-none focus:border-[var(--ln-teal-500)]/50 cursor-pointer"
-                    >
-                      <option value="all">All Levels</option>
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(lvl => (
-                        <option key={lvl} value={String(lvl)}>Level {lvl}</option>
-                      ))}
-                    </select>
+                    <label className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">Level</label>
+                    <div className="relative">
+                      <select 
+                        value={levelFilter}
+                        onChange={(e) => setLevelFilter(e.target.value)}
+                        className="w-full text-xs font-semibold bg-white border border-slate-200 rounded-lg p-2 pr-8 focus:outline-none focus:border-[var(--ln-teal-500)]/50 cursor-pointer appearance-none shadow-sm"
+                      >
+                        <option value="all">All Levels</option>
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(lvl => (
+                          <option key={lvl} value={String(lvl)}>Level {lvl}</option>
+                        ))}
+                      </select>
+                      <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    </div>
                   </div>
 
                   {/* Difficulty */}
                   <div className="space-y-1">
-                    <label className="text-[9px] font-bold text-slate-400 uppercase">Difficulty</label>
-                    <select 
-                      value={difficultyFilter}
-                      onChange={(e) => setDifficultyFilter(e.target.value)}
-                      className="w-full text-xs font-semibold bg-white border border-slate-200 rounded-lg p-1.5 focus:outline-none focus:border-[var(--ln-teal-500)]/50 cursor-pointer"
-                    >
-                      <option value="all">All</option>
-                      <option value="LOW">Low</option>
-                      <option value="MED">Medium</option>
-                      <option value="HIGH">High</option>
-                      <option value="ELITE">Elite</option>
-                    </select>
+                    <label className="text-[9px] font-bold text-slate-400 uppercase tracking-wide">Difficulty</label>
+                    <div className="relative">
+                      <select 
+                        value={difficultyFilter}
+                        onChange={(e) => setDifficultyFilter(e.target.value)}
+                        className="w-full text-xs font-semibold bg-white border border-slate-200 rounded-lg p-2 pr-8 focus:outline-none focus:border-[var(--ln-teal-500)]/50 cursor-pointer appearance-none shadow-sm"
+                      >
+                        <option value="all">All</option>
+                        <option value="LOW">Low</option>
+                        <option value="MED">Medium</option>
+                        <option value="HIGH">High</option>
+                        <option value="ELITE">Elite</option>
+                      </select>
+                      <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    </div>
                   </div>
 
-                  {/* Checkbox filters */}
-                  <div className="flex flex-col justify-end gap-1">
-                    <label className="flex items-center gap-1.5 text-[9px] font-bold text-slate-500 cursor-pointer select-none">
-                      <input 
-                        type="checkbox" 
-                        checked={unlockedOnly}
-                        onChange={(e) => setUnlockedOnly(e.target.checked)}
-                        className="rounded border-slate-300 text-[var(--ln-teal-500)] focus:ring-[var(--ln-teal-500)]/30 w-3 h-3 cursor-pointer"
-                      />
-                      <span>Unlocked Only</span>
-                    </label>
+                  {/* Pill Toggles */}
+                  <div className="col-span-2 flex gap-2 pt-1">
+                    <button
+                      onClick={() => setUnlockedOnly(!unlockedOnly)}
+                      className={cn(
+                        "flex-1 py-2 rounded-lg border text-[10px] font-bold uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm active:scale-[0.98]",
+                        unlockedOnly 
+                          ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 text-[var(--ln-teal-600)]"
+                          : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
+                      )}
+                    >
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      Unlocked
+                    </button>
                     
-                    <label className="flex items-center gap-1.5 text-[9px] font-bold text-slate-500 cursor-pointer select-none">
-                      <input 
-                        type="checkbox" 
-                        checked={bookmarkedOnly}
-                        onChange={(e) => setBookmarkedOnly(e.target.checked)}
-                        className="rounded border-slate-300 text-[var(--ln-teal-500)] focus:ring-[var(--ln-teal-500)]/30 w-3 h-3 cursor-pointer"
-                      />
-                      <span>Bookmarked Only</span>
-                    </label>
+                    <button
+                      onClick={() => setBookmarkedOnly(!bookmarkedOnly)}
+                      className={cn(
+                        "flex-1 py-2 rounded-lg border text-[10px] font-bold uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm active:scale-[0.98]",
+                        bookmarkedOnly 
+                          ? "bg-amber-50 border-amber-500/30 text-amber-600"
+                          : "bg-white border-slate-200 text-slate-500 hover:bg-slate-50"
+                      )}
+                    >
+                      <Bookmark className={cn("w-3.5 h-3.5", bookmarkedOnly && "fill-current")} />
+                      Bookmarked
+                    </button>
                   </div>
                 </div>
               </div>
