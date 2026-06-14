@@ -18,6 +18,7 @@ import {
 import { cn } from "@/lib/utils";
 import { signOut } from "@/lib/auth-actions";
 import { useUser } from "@/components/user-provider";
+import { useUiStore } from "@/lib/store/useUiStore";
 
 const NAV_ITEMS = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -31,11 +32,14 @@ export function Sidebar() {
   const pathname = usePathname();
   const user = useUser();
   const progress = user?.progress;
+  const { isSidebarOpen, setSidebarOpen } = useUiStore();
 
   // Focus Mode: hide the full sidebar entirely while inside a learning module.
   // The LessonTopBar (hamburger) replaces it in the layout.
   const isLessonMode = pathname?.startsWith('/course/module/');
   if (isLessonMode) return null;
+
+  const isStrategyPage = pathname?.startsWith('/lab') || pathname?.startsWith('/trading');
 
   // Calculate XP threshold for current level progress bar
   const xpTotal = progress?.xpTotal || 0;
@@ -47,8 +51,8 @@ export function Sidebar() {
 
   const streakDays = progress?.streakDays || 0;
 
-  return (
-    <div className="hidden md:flex w-64 h-screen bg-white border-r border-[var(--ln-border)] flex flex-col fixed left-0 top-0 z-50">
+  const sidebarContent = (
+    <>
       <div className="p-6">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl border border-[var(--ln-border)] flex items-center justify-center overflow-hidden bg-white">
@@ -68,6 +72,9 @@ export function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => {
+                if (isStrategyPage) setSidebarOpen(false);
+              }}
               className={cn(
                 "flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold transition-all group relative",
                 isActive
@@ -147,6 +154,31 @@ export function Sidebar() {
           Logout
         </button>
       </div>
+    </>
+  );
+
+  if (isStrategyPage) {
+    return (
+      <>
+        {isSidebarOpen && (
+          <div
+            className="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-50 animate-in fade-in duration-200"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+        <div className={cn(
+          "fixed top-0 left-0 h-screen w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out flex flex-col border-r border-[var(--ln-border)] shadow-xl",
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        )}>
+          {sidebarContent}
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <div className="hidden md:flex w-64 h-screen bg-white border-r border-[var(--ln-border)] flex flex-col fixed left-0 top-0 z-50">
+      {sidebarContent}
     </div>
   );
 }

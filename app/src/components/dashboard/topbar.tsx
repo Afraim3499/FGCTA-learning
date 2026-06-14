@@ -6,8 +6,9 @@ import { useUser } from "@/components/user-provider";
 import { signOut } from "@/lib/auth-actions";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useUiStore } from "@/lib/store/useUiStore";
 
-export function Topbar() {
+export function Topbar({ showStrategySidebarHamburger = false }: { showStrategySidebarHamburger?: boolean }) {
   const user = useUser();
   const router = useRouter();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -80,37 +81,49 @@ export function Topbar() {
   const userInitial = user?.name?.[0] || user?.email?.[0] || "U";
   const progress = user?.progress;
 
+  const { toggleSidebar } = useUiStore();
+
   return (
     <header className="h-20 border-b border-[var(--ln-border)] bg-white/80 backdrop-blur-xl flex items-center justify-between px-4 md:px-8 sticky top-0 z-50">
       <div className="flex items-center gap-4 md:gap-8">
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden relative" ref={mobileMenuRef}>
+        {showStrategySidebarHamburger ? (
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 text-slate-500 hover:text-[var(--ln-navy-900)] transition-colors"
+            onClick={() => toggleSidebar()}
+            className="p-2 text-slate-500 hover:text-[var(--ln-navy-900)] hover:bg-slate-100 rounded-xl transition-all flex items-center justify-center"
+            title="Toggle Menu"
           >
             <Menu className="w-6 h-6" />
           </button>
+        ) : (
+          /* Mobile Menu Toggle */
+          <div className="md:hidden relative" ref={mobileMenuRef}>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-slate-500 hover:text-[var(--ln-navy-900)] transition-colors"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
 
-          {isMobileMenuOpen && (
-            <div className="absolute left-0 mt-4 w-64 bg-white border border-[var(--ln-border)] rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200 z-50">
-              <nav className="flex flex-col py-2">
-                <Link href="/dashboard" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-navy-900)] hover:bg-[var(--ln-surface-soft)]">
-                  <LayoutDashboard className="w-5 h-5 text-[var(--ln-text-dim)]" /> Dashboard
-                </Link>
-                <Link href="/course" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
-                  <BookOpen className="w-5 h-5 text-[var(--ln-text-dim)]" /> Academy
-                </Link>
-                <Link href="/practice" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
-                  <Target className="w-5 h-5 text-[var(--ln-text-dim)]" /> Chart Practice
-                </Link>
-                <Link href="/dashboard/records" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
-                  <BarChart className="w-5 h-5 text-[var(--ln-text-dim)]" /> Progress
-                </Link>
-              </nav>
-            </div>
-          )}
-        </div>
+            {isMobileMenuOpen && (
+              <div className="absolute left-0 mt-4 w-64 bg-white border border-[var(--ln-border)] rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200 z-50">
+                <nav className="flex flex-col py-2">
+                  <Link href="/dashboard" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-navy-900)] hover:bg-[var(--ln-surface-soft)]">
+                    <LayoutDashboard className="w-5 h-5 text-[var(--ln-text-dim)]" /> Dashboard
+                  </Link>
+                  <Link href="/course" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
+                    <BookOpen className="w-5 h-5 text-[var(--ln-text-dim)]" /> Academy
+                  </Link>
+                  <Link href="/practice" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
+                    <Target className="w-5 h-5 text-[var(--ln-text-dim)]" /> Chart Practice
+                  </Link>
+                  <Link href="/dashboard/records" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
+                    <BarChart className="w-5 h-5 text-[var(--ln-text-dim)]" /> Progress
+                  </Link>
+                </nav>
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="hidden md:block relative group" ref={searchContainerRef}>
           <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-[var(--ln-text-dim)] group-focus-within:text-[var(--ln-teal-500)] transition-colors" />

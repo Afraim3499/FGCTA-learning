@@ -15,6 +15,7 @@ import { LessonTopBar } from "@/components/academy/lesson-workspace/LessonTopBar
 export function TopbarRouter() {
   const pathname = usePathname();
   const isLessonMode = pathname?.startsWith("/course/module/");
+  const isStrategyPage = pathname?.startsWith("/lab") || pathname?.startsWith("/trading");
 
   if (isLessonMode) {
     return (
@@ -32,6 +33,26 @@ export function TopbarRouter() {
             margin: 0 !important;
           }
         `}</style>
+      </>
+    );
+  }
+
+  if (isStrategyPage) {
+    return (
+      <>
+        <style>{`
+          /* Remove sidebar offset on strategy pages */
+          .lesson-layout-shell {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+          }
+          .main-content-wrapper {
+            max-width: 100% !important;
+            margin: 0 auto;
+            padding: 1.5rem;
+          }
+        `}</style>
+        <Topbar showStrategySidebarHamburger={true} />
       </>
     );
   }
