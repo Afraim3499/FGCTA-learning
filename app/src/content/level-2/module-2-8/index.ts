@@ -7,9 +7,9 @@ import { AcademyModule } from "../../../types/curriculum";
 export const module28: AcademyModule = {
   moduleNumber: "2.8",
   level: 2,
-  title: "Internal vs External Structure",
-  objective: "Filter minor internal pullbacks from major external dealing ranges.",
-  skillLevel: "beginner",
+  title: "Displacement",
+  objective: "Measure raw displacement using large body-to-wick ratios and volume.",
+  skillLevel: "intermediate",
   orderIndex: 8,
   tracks: {
     core: coreCards,

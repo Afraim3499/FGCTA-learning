@@ -122,7 +122,7 @@ export const cryptoCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "summary",
     "title": "Evaluating Crypto Strategies in the Killzone",
     "label": "Crypto Track",
     "body": "### Summary of Crypto Strategies in the Killzone\nThis card summarizes essential strategies and insights for trading cryptocurrencies during the London Killzone, reinforcing effective execution.\n\n* **Key Strategy Recap**: Focus on breakout strategies during the Killzone, particularly around major news releases or market openings. For example, observe Bitcoin's price action around 3:00 AM EST when European markets open.\n* **Execution Timing**: Emphasize the importance of timing your trades within the Killzone. Enter positions within the first hour of the session to capitalize on initial volatility.\n* **Market Sentiment Analysis**: Continuously monitor market sentiment indicators, such as social media trends or trading volume spikes, to inform your trading decisions.",

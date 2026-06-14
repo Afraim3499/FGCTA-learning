@@ -166,7 +166,7 @@ export const forexCards: LessonCard[] = [
     "visualKey": "invalidation-boundaries"
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Simulations for Practicing Invalidation Marking",
     "label": "Forex Track",
     "body": "### Core Scenario: Invalidation Marking Simulations\nEngaging in trading simulations allows you to practice marking session swing extremes as invalidation points, reinforcing your understanding of the concept. This card focuses on **how to effectively simulate invalidation marking in real-time scenarios**.\n\n* **Session Swing Identification**: Use historical data to identify swing highs and lows during a trading session, marking them as potential invalidation points based on price action.\n* **Scenario Analysis**: Create scenarios where price approaches these marked levels; analyze how the market reacts and whether your invalidation holds or fails.\n* **Feedback Loop**: After each simulation, review your decisions and the outcomes, refining your criteria for marking invalidation points based on performance metrics.",

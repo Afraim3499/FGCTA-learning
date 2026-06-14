@@ -150,7 +150,7 @@ export const cryptoCards: LessonCard[] = [
     "visualKey": "gold-scenario-checklist"
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Crypto Trading Checklist Development",
     "label": "Crypto Track",
     "body": "### Core Scenario: Checklist Creation\nDeveloping a comprehensive trading checklist is essential for systematic execution. This card guides you through **creating a tailored checklist for trading gold within the cryptocurrency market**.\n\n* **Market Conditions**: Include criteria for assessing current market conditions, such as gold price trends and crypto market sentiment. For instance, if gold is trending upward and crypto sentiment is bullish, mark this as a favorable condition for entry.\n* **Technical Indicators**: Incorporate specific technical indicators relevant to both gold and crypto. For example, use the 50-day moving average of gold prices alongside the RSI of Bitcoin to determine entry and exit points.\n* **Risk Management Protocols**: Establish clear risk management rules, such as setting stop-loss levels based on gold price volatility. If gold's ATR (Average True Range) is 10, consider setting your crypto stop-loss at a level that reflects this volatility.",

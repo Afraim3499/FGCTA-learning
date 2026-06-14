@@ -2,99 +2,181 @@ import { LessonCard } from "../../../types/curriculum";
 
 export const cryptoCards: LessonCard[] = [
   {
-    type: "visual_intro",
-    title: "Crypto Candles Are Venue Records",
-    visualKey: "crypto-candle-source-map",
-    label: "Venue Fragmentation",
-    body: "In Forex, price is smoothed across major banks. In Crypto, price is fragmented across dozens of venues. A single BTC (Bitcoin) move can look like a clean trend on one exchange and a massive, distorted spike on another. You must never trust a candle until you know which venue produced it and whether it represents real asset ownership (Spot) or synthetic pressure (Perpetual [Perp] contract / DEX [decentralized exchange]).",
-    context: {
-      keyTerms: [
-        { term: "Venue", definition: "The market or platform where the price is formed, such as a spot exchange, perpetual exchange, DEX pool, or aggregated feed." },
-        { term: "CEX Spot Candle", definition: "A candle built from actual spot trades on a centralized exchange." },
-        { term: "Perpetual Candle", definition: "A candle built from perpetual contract price movement, often affected by leverage, funding, and liquidation pressure." },
-        { term: "DEX Candle", definition: "A candle built from swaps against liquidity pools on a decentralized exchange." },
-        { term: "Aggregated Feed", definition: "A price view built from more than one source or venue." },
-        { term: "Index Price", definition: "A reference price built from selected markets, often used to represent a broader price view." },
-        { term: "Mark Price", definition: "A risk-management price often used in perpetual markets to reduce manipulation and calculate liquidation conditions." }
+    "type": "concept",
+    "title": "Introduction to Crypto Price Feeds",
+    "label": "Crypto Track",
+    "body": "### Introduction to Crypto Price Feeds\nCrypto price feeds are continuous streams of live data displaying the buying and selling prices of digital assets like Bitcoin (BTC) or Ethereum (ETH).\n\n* **Price Source**: Price feeds are aggregated from multiple centralized or decentralized exchanges, reflecting real-time transactions.\n* **Base vs Quote Asset**: In a pair like BTC/USDT, BTC is the base asset being priced, and USDT is the quote asset used to value it.\n* **24/7 Availability**: Unlike traditional markets, crypto price feeds run continuously without closing, meaning price wicks and gaps can form at any hour.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Price Feed",
+          "definition": "A real-time data stream of buy and sell prices for an asset."
+        },
+        {
+          "term": "Base Asset",
+          "definition": "The first asset in a trading pair, representing the currency being valued."
+        }
       ],
-      whyThisMatters: "A crypto candle may not represent the whole market. The same asset can trade across spot exchanges, perpetual venues, DEX pools, and aggregated feeds. If a learner reads one candle without knowing where it came from, they may mistake one venue’s movement for broad market evidence.",
-      realLifeExample: "BTC shows a sharp candle on a perpetual exchange, but spot exchanges move less aggressively. A rushed learner treats the candle as full confirmation. A trained learner first asks whether the move is spot-supported, derivatives-driven, or specific to that venue.",
-      commonMistake: "Thinking one crypto candle equals the whole crypto market.",
-      quickNote: "In crypto, first ask: where did this candle come from?"
-    }
+      "whyThisMatters": "Understanding how crypto price feeds operate is the first step to reading price charts and executing trades.",
+      "realLifeExample": "A live feed shows BTC/USDT trading at $60,000, meaning one Bitcoin is valued at 60,000 Tether dollars at this moment.",
+      "commonMistake": "Beginners assume crypto markets close on weekends, missing major weekend volatility sweeps.",
+      "quickNote": "Crypto price feeds never sleep; they run 24 hours a day, 7 days a week.",
+      "mentorText": "Get used to watching the live feed ticker. In crypto, momentum can shift at 2:00 AM on a Sunday just as easily as 2:00 PM on a Tuesday."
+    },
+    "taskData": null,
+    "visualKey": "crypto-cex-dex-fragmentation"
   },
   {
-    type: "visual_intro",
-    title: "The Two Market Engines",
-    visualKey: "two-candle-engines-board",
-    label: "Spot vs Perpetual",
-    body: "Crypto has two primary market engines: the **Spot Engine** (Asset trades) and the **Perpetual Engine** (Contract/Leverage pressure - also known as Perpetual [Perp] contracts). A spot candle is driven by supply and demand for the asset itself. A perpetual candle is often driven by speculative leverage and forced exits. To read crypto accurately, you must prioritize the Spot Engine as the 'True' record and treat Perp-only moves as potential noise.",
-    context: {
-      keyTerms: [
-        { term: "Spot Market", definition: "A market where the actual crypto asset is bought and sold." },
-        { term: "Perpetual Market", definition: "A derivatives market where traders take price exposure without owning the underlying asset." },
-        { term: "Leverage", definition: "Using borrowed exposure to control a larger position than the account balance alone." },
-        { term: "Funding Pressure", definition: "Pressure created by the cost or imbalance between long and short positions in perpetual markets." },
-        { term: "Liquidation Risk", definition: "The risk that leveraged positions are forcibly closed when margin conditions fail." },
-        { term: "Contract Price", definition: "The price of a derivative contract, which may not perfectly match spot price at every moment." },
-        { term: "Spot Confirmation", definition: "Support from actual spot market movement, not only derivative-market movement." }
+    "type": "concept",
+    "title": "Bids, Asks, and the Crypto Order Book",
+    "label": "Crypto Track",
+    "body": "### Bids, Asks, and the Crypto Order Book\nThe price you see on a crypto chart is determined by the interaction of buy and sell orders in the order book.\n\n* **Bid Price**: The highest price buyers are willing to pay for a cryptocurrency at this moment.\n* **Ask Price**: The lowest price sellers are willing to accept for that same cryptocurrency.\n* **Order Book**: A ledger of all resting buy (bid) and sell (ask) limit orders waiting to be executed.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Bid Price",
+          "definition": "The maximum price a buyer is willing to pay."
+        },
+        {
+          "term": "Ask Price",
+          "definition": "The minimum price a seller is willing to accept."
+        }
       ],
-      whyThisMatters: "A spot candle and a perpetual candle can look similar, but the pressure behind them may be different. Spot movement reflects actual asset trading on that venue. Perpetual movement can also reflect leverage, contract positioning, funding pressure, and liquidation risk. A learner who reads them the same way may miss the source of the candle.",
-      realLifeExample: "A large green candle forms on a BTC perpetual chart while spot movement is smaller. A rushed learner sees strength. A trained learner checks whether spot markets also support the move or whether the candle is mainly shaped by leveraged contract pressure.",
-      commonMistake: "Reading spot and perpetual candles as if they always carry the same meaning.",
-      quickNote: "Same shape. Different market engine. Different reading."
-    }
+      "whyThisMatters": "Every execution interacts directly with the order book's bids and asks, determining your entry price.",
+      "realLifeExample": "If you buy BTC immediately, your order fills at the current lowest ask price ($60,000.50), not the bid price ($60,000.00).",
+      "commonMistake": "Expecting to buy at the bid price when executing a market order, resulting in an entry price slightly higher than expected.",
+      "quickNote": "Bids are buyers, asks are sellers. The chart price sits between them.",
+      "mentorText": "Always look at the order book depth. It shows you where large buy or sell walls are waiting, which acts as immediate support or resistance."
+    },
+    "taskData": null,
+    "visualKey": "crypto-cex-dex-fragmentation"
   },
   {
-    type: "visual_intro",
-    title: "Diagnosing Mechanical Wicks",
-    visualKey: "wick-source-diagnostic-board",
-    label: "Wick Diagnosis",
-    body: "Crypto wicks are often 'mechanical anomalies' rather than price rejections. A massive wick can be caused by **Thin Liquidity** (a small order hitting an empty book) or a **Liquidation Cascade** (forced exits triggering each other). Before assuming a wick shows 'rejection,' you must diagnose its source. If there is no corresponding spot volume, the wick is likely mechanical noise.",
-    context: {
-      keyTerms: [
-        { term: "Wick", definition: "The part of a candle showing where price travelled beyond the body but did not close there." },
-        { term: "Liquidation Wick", definition: "A wick that may be shaped by forced closing of leveraged positions." },
-        { term: "Thin Liquidity", definition: "A condition where fewer available orders allow price to move quickly and sharply." },
-        { term: "Stop Cascade", definition: "A chain reaction where triggered exits accelerate price movement." },
-        { term: "Venue-Specific Print", definition: "A candle movement that appears strongly on one venue but is not broadly confirmed elsewhere." },
-        { term: "Clean Rejection", definition: "A possible reading where price tests an area and fails to hold, but only when context supports that interpretation." },
-        { term: "Mechanical Movement", definition: "Movement shaped heavily by market mechanics such as liquidations, thin liquidity, forced exits, or venue-specific pressure." }
+    "type": "concept",
+    "title": "Understanding the Crypto Bid-Ask Spread",
+    "label": "Crypto Track",
+    "body": "### Understanding the Crypto Bid-Ask Spread\nThe bid-ask spread is the price difference between the highest bid and the lowest ask in the order book.\n\n* **Spread Calculation**: Spread = Ask Price - Bid Price. For example, if BTC ask is $60,000.10 and bid is $60,000.00, the spread is $0.10.\n* **Liquidity and Spread**: High-liquidity pairs like BTC/USDT have extremely tight spreads (cents), while low-liquidity coins have wide spreads (dollars).\n* **Volatility impact**: During sudden price surges or flushes, spreads can temporarily widen as market makers pull their resting orders.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Bid-Ask Spread",
+          "definition": "The difference between the bid and ask price of a trading pair."
+        }
       ],
-      whyThisMatters: "Crypto wicks can be dramatic, but dramatic does not mean clean. A long wick may show rejection, but it may also come from thin liquidity, liquidation pressure, or a venue-specific spike. The learner must diagnose what created the wick before trusting it as evidence.",
-      realLifeExample: "A token drops quickly, leaves a long lower wick, and recovers. A rushed learner calls it strong rejection. A trained learner checks whether the wick came from spot demand, liquidation pressure, thin liquidity, or only one noisy venue.",
-      commonMistake: "Calling every long crypto wick “rejection” without checking liquidity, leverage, and venue confirmation.",
-      quickNote: "In crypto, diagnose the wick before reading the candle."
-    }
+      "whyThisMatters": "The spread is an implicit transaction cost. A wider spread means you start your trade further in a temporary loss.",
+      "realLifeExample": "On a major exchange, BTC/USDT has a spread of $0.05. On a smaller decentralized swap, a minor token might have a spread of $2.50, representing a high entry cost.",
+      "commonMistake": "Trading illiquid crypto assets during high-volatility news events, leading to massive spread costs.",
+      "quickNote": "Tight spreads indicate healthy, high-liquidity market environments.",
+      "mentorText": "Before you click buy, glance at the spread. If the spread is too wide, it's a sign that liquidity is thin and slippage could be high."
+    },
+    "taskData": null,
+    "visualKey": "crypto-cex-dex-fragmentation"
   },
   {
-    type: "practice",
-    title: "Drill: Real Move or Mechanical Noise?",
-    visualKey: "crypto-candle-decision-board",
-    label: "Disciplined Reading",
-    body: "Observe the verification board. We have a sudden spike on a Perpetual venue. Use the diagnostic checklist to determine if this move represents a real structural shift or mechanical noise.",
-    taskData: {
-      type: "choice_block",
-      question: "Based on the verification data (Bybit Perpetual [Perp] contract source, Weak Spot Confirmation, High Vol Delta), what is the most disciplined reading of this spike?",
-      options: [
-        { id: "opt1", text: "This is a bullish breakout. The high volume confirms strong buyer intent.", isCorrect: false, feedback: "Incorrect. The 'High Vol Delta' is coming from liquidations, not buyers." },
-        { id: "opt2", text: "This is mechanical noise. The lack of spot confirmation and presence of liquidations suggest a temporary spike.", isCorrect: true, feedback: "Correct. You correctly identified that the move lacks 'Real Evidence' from the Spot Engine." }
+    "type": "concept",
+    "title": "Crypto Tick Size and Price Precision",
+    "label": "Crypto Track",
+    "body": "### Crypto Tick Size and Price Precision\nTick size is the minimum price increment by which a cryptocurrency's price can move on a specific venue.\n\n* **Tick Size Definition**: The smallest possible price change for a trading pair. On most major exchanges, BTC/USDT has a tick size of $0.01.\n* **Asset Scaling**: Higher-priced assets like BTC have tick sizes of $0.01 or $0.10, while low-priced altcoins can have tick sizes with many decimals (e.g., $0.000001).\n* **Order Placement**: You cannot place a limit order with a price increment smaller than the designated tick size.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Tick Size",
+          "definition": "The smallest increment of price movement allowed for an asset."
+        }
+      ],
+      "whyThisMatters": "Tick sizes dictate price precision and impact how wicks and bodies are mapped on the chart.",
+      "realLifeExample": "If BTC is at $60,000.01, the next tick up is $60,000.02. You cannot submit an order at $60,000.015.",
+      "commonMistake": "Forgetting that altcoins require different decimal precisions, leading to rejected order submissions.",
+      "quickNote": "Tick size ensures order books remain standardized and clean.",
+      "mentorText": "Price precision is key. Understanding the minimum tick size prevents you from trying to place unfillable orders."
+    },
+    "taskData": null,
+    "visualKey": "crypto-cex-dex-fragmentation"
+  },
+  {
+    "type": "concept",
+    "title": "Market Spreads and Liquidity Variations",
+    "label": "Crypto Track",
+    "body": "### Market Spreads and Liquidity Variations\nCrypto spreads can vary between exchanges depending on the liquidity available at each venue.\n\n* **Exchange Liquidity**: Major exchanges with millions of active users have deep liquidity and tight spreads. Smaller platforms have thinner order books and wider spreads.\n* **Trading Volume**: High daily trading volume generally correlates with tighter, more consistent spreads.\n* **Feed Stability**: Stable exchanges provide smooth, uninterrupted price feeds, while smaller platforms can experience data lags or erratic price jumps.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Market Liquidity",
+          "definition": "The ease with which an asset can be bought or sold without causing a significant price change."
+        }
+      ],
+      "whyThisMatters": "Knowing where spreads are thinnest helps you select the best exchanges to execute your trades efficiently.",
+      "realLifeExample": "During a BTC surge, Binance maintains a $0.10 spread, while a minor swap shows a $5.00 spread due to thin order books.",
+      "commonMistake": "Trading on platforms with low volume, resulting in paying high spread costs on market execution.",
+      "quickNote": "Higher trading volume leads to tighter spreads and better execution pricing."
+    },
+    "taskData": null,
+    "visualKey": "crypto-cex-dex-fragmentation"
+  },
+  {
+    "type": "concept",
+    "title": "Crypto Bid-Ask Spread Dynamics in Volatility",
+    "label": "Crypto Track",
+    "body": "### Crypto Bid-Ask Spread Dynamics in Volatility\nSpreads are not static; they expand and contract dynamically as market conditions shift.\n\n* **Volatility Expansion**: When BTC prices move rapidly in a few seconds, market makers pull their orders to avoid being filled at bad prices. This causes spreads to widen.\n* **Spread Normalization**: Once price action stabilizes, orders return to the book, and the spread narrows back to its default state.\n* **Execution Protection**: If you execute a market order during a volatility spike, the wide spread can lead to entering at a much worse price.",
+    "context": {
+      "whyThisMatters": "Anticipating spread expansion during high volatility protects you from unnecessary execution costs.",
+      "realLifeExample": "Just before a major economic release, the spread on ETH/USDT widens from $0.02 to $0.80, then snaps back to $0.02 ten seconds later.",
+      "commonMistake": "Executing market orders right as a major price move starts, buying at the peak of a widened spread."
+    },
+    "taskData": null,
+    "visualKey": "crypto-cex-dex-fragmentation"
+  },
+  {
+    "type": "practice",
+    "title": "Practical Analysis of Crypto Spreads",
+    "label": "Crypto Track",
+    "body": "### Practical Analysis of Crypto Spreads\nLet's apply spread calculations to real-time crypto order book feeds to reinforce your understanding of execution costs.\n\n* **Spread Identification**: Locate the highest bid and lowest ask in the order book.\n* **Implicit Cost calculation**: Calculate the spread to determine the immediate cost of executing a market buy.",
+    "context": {
+      "whyThisMatters": "Performing quick spread calculations ensures you can evaluate trading conditions before committing capital.",
+      "realLifeExample": "An order book shows BTC highest bid at $60,000.00 and lowest ask at $60,000.50. The spread is $0.50.",
+      "commonMistake": "Assuming spreads are negligible on all pairs, leading to unexpected losses on lower-volume altcoins."
+    },
+    "taskData": {
+      "type": "choice_block",
+      "question": "You see a BTC order book showing a highest bid of $60,000.00 and a lowest ask of $60,000.50. What is the bid-ask spread?",
+      "options": [
+        {
+          "id": "0",
+          "text": "$0.50",
+          "isCorrect": true,
+          "feedback": "Correct! The spread is calculated as Ask ($60,000.50) - Bid ($60,000.00) = $0.50."
+        },
+        {
+          "id": "1",
+          "text": "$5.00",
+          "isCorrect": false,
+          "feedback": "Incorrect. Check your subtraction. $60,000.50 minus $60,000.00 is $0.50, not $5.00."
+        },
+        {
+          "id": "2",
+          "text": "$0.05",
+          "isCorrect": false,
+          "feedback": "Incorrect. The difference is 50 cents ($0.50), not 5 cents ($0.05)."
+        },
+        {
+          "id": "3",
+          "text": "$50.00",
+          "isCorrect": false,
+          "feedback": "Incorrect. The difference is 50 cents ($0.50), not 50 dollars ($50.00)."
+        }
       ]
     },
-    context: {
-      keyTerms: [
-        { term: "Mechanical Candle", definition: "A candle shaped heavily by market mechanics such as liquidations, thin liquidity, spread, or venue-specific pressure." },
-        { term: "Spot Confirmation", definition: "Support from actual spot market movement." },
-        { term: "Cross-Venue Confirmation", definition: "Evidence that the move appears across multiple markets or venues." },
-        { term: "Liquidation Pressure", definition: "Forced closing of leveraged positions that can accelerate movement." },
-        { term: "Venue-Specific Movement", definition: "Movement that is strong on one venue but weak or absent elsewhere." },
-        { term: "Dramatic Candle", definition: "A candle that looks visually strong but may not be reliable without context." },
-        { term: "Incomplete Evidence", definition: "A market clue that needs more confirmation before becoming a stronger reading." }
-      ],
-      whyThisMatters: "Crypto creates dramatic candles often. The learner’s job is not to be impressed by candle size. The learner’s job is to identify whether the movement is broadly supported or mechanically distorted by venue, leverage, liquidity, or liquidation pressure.",
-      realLifeExample: "A perpetual chart prints a large wick during a liquidation event, while spot charts move less. A rushed learner treats the candle as clean rejection. A trained learner classifies it as incomplete until spot movement, liquidity, and cross-venue confirmation are reviewed.",
-      commonMistake: "Trusting the most dramatic crypto candle without checking what created it.",
-      quickNote: "In crypto, candle shape plus market mechanics creates the reading."
-    }
+    "visualKey": "crypto-cex-dex-fragmentation"
+  },
+  {
+    "type": "summary",
+    "title": "Summary of Crypto Price Feed Insights",
+    "label": "Crypto Track",
+    "body": "### Summary: Crypto Price Feed Insights\nUnderstanding how crypto price feeds, order books, and spreads interact is essential for trading digital assets safely.\n\n* **Price Feeds**: Real-time continuous streams running 24/7 without close.\n* **Order Books**: Interaction of bids (buyers) and asks (sellers) determines chart prices.\n* **Spreads**: The ask-minus-bid gap represents the entry cost and widens during high volatility.",
+    "context": {
+      "whyThisMatters": "Consolidating these concepts ensures you have the prerequisite knowledge to analyze candlestick structures in the next module."
+    },
+    "taskData": null,
+    "visualKey": "crypto-cex-dex-fragmentation"
   }
 ];

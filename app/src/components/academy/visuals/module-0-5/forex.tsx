@@ -1127,7 +1127,5 @@ export const ForexStructureRoadwayDebrief = () => {
  * Standard Placeholder Visual for Fallbacks
  */
 export const ForexPlaceholderVisual = () => (
-  <div className="p-8 text-center text-slate-500">
-    Placeholder for Module 0.5 Forex.
-  </div>
+  <ForexStructureRoadwayDebrief />
 );

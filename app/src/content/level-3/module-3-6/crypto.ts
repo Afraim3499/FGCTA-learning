@@ -150,7 +150,7 @@ export const cryptoCards: LessonCard[] = [
     "visualKey": "crypto-fvg-liquidations"
   },
   {
-    "type": "practice",
+    "type": "summary",
     "title": "Summary of Fair Value Gaps in Crypto",
     "label": "Crypto Track",
     "body": "### Fair Value Gaps: Summary of Key Concepts\nThis card summarizes the essential concepts related to Fair Value Gaps (FVG) in crypto trading, focusing on funding imbalances and perpetual liquidations. A thorough understanding of these elements is vital for executing informed trades.\n\n* **Funding Imbalances**: Regularly monitor funding rates across major exchanges. A significant funding rate discrepancy can indicate potential FVG formations, prompting traders to adjust their strategies accordingly.\n* **Perpetual Liquidations**: Be aware of liquidation levels during high volatility. FVGs often align with these levels, creating opportunities for traders to capitalize on rapid price movements.\n* **Market Dynamics**: Recognize that FVGs are not standalone signals; they must be contextualized within broader market dynamics, including liquidity and sentiment analysis.",

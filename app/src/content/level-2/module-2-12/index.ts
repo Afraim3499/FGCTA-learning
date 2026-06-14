@@ -9,7 +9,7 @@ export const module212: AcademyModule = {
   level: 2,
   title: "External Range Boundary",
   objective: "Map the highest and lowest points of the HTF range to set boundaries.",
-  skillLevel: "beginner",
+  skillLevel: "intermediate",
   orderIndex: 12,
   tracks: {
     core: coreCards,

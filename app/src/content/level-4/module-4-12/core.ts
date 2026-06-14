@@ -310,7 +310,7 @@ export const coreCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "summary",
     "title": "Summary of Time & Price Confluences",
     "label": "Core Track",
     "body": "### Time & Price Confluences: Summary of Key Concepts\nSynthesizing killzone windows, order blocks, and Fair Value Gaps is critical for effective trading strategies. This card encapsulates the essential elements covered in this module.\n\n* **Killzone Windows**: Recognize that trading activity peaks during specific time frames, such as the overlap of London and New York sessions, enhancing the likelihood of price movement.\n* **Order Blocks**: Understand that order blocks represent significant supply and demand levels where institutional traders have placed large orders, often leading to price reversals.\n* **FVG Significance**: Fair Value Gaps indicate areas where price has moved rapidly, creating imbalances that can be exploited when price revisits these zones.",

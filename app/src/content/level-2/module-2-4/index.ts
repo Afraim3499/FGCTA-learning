@@ -7,9 +7,9 @@ import { AcademyModule } from "../../../types/curriculum";
 export const module24: AcademyModule = {
   moduleNumber: "2.4",
   level: 2,
-  title: "The Range Model",
-  objective: "Model price movement inside dealing ranges using equilibrium and discount/premium arrays.",
-  skillLevel: "beginner",
+  title: "Market Structure: Trend vs Range",
+  objective: "Determine whether the market environment is expanding in trends or consolidating in dealing ranges.",
+  skillLevel: "intermediate",
   orderIndex: 4,
   tracks: {
     core: coreCards,

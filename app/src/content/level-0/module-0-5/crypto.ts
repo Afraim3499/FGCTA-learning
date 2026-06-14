@@ -1,263 +1,241 @@
 import { LessonCard } from "../../../types/curriculum";
 
-/**
- * Module 0.5 - Crypto Track Cards
- * Focus: Crypto Structure: Fragmented Markets, Liquidity, and Break Quality
- */
 export const cryptoCards: LessonCard[] = [
   {
-    type: "mission_brief",
-    title: "Crypto Structure Is Fragmented Market Behavior",
-    label: "Crypto Structure Foundation",
-    visualKey: "crypto-fragmented-structure-skeleton",
-    body: "Crypto structure is the visible behavior of an asset across fragmented markets, not one universal chart truth. A crypto asset can trade across centralized spot exchanges, perpetual markets, DEX pools, and aggregate feeds. The chart visible to the learner is one representation of movement, but crypto structure may be supported, weakened, or distorted by venue differences. A trained learner audits the structure before trusting it.",
+    type: "visual_intro",
+    title: "Crypto Timeframes Run 24/7",
+    visualKey: "crypto-continuous-market-board",
+    label: "Crypto Foundation",
+    body: "A crypto timeframe is a candle duration inside a continuous market. The chart may keep printing candles all day and all weekend, but the quality of those candles can change with activity, liquidity, venue behavior, Bitcoin (BTC) context, and event pressure.",
     context: {
       keyTerms: [
-        { term: "Crypto Structure", definition: "The arrangement of price movement in a crypto asset across market conditions." },
-        { term: "Fragmented Market", definition: "A market where trading happens across multiple venues instead of one unified place." },
-        { term: "Venue", definition: "The place or market type where price movement forms, such as spot, perp, or DEX." },
-        { term: "Structure Reading", definition: "Classifying what price is building over time." },
-        { term: "Evidence Alignment", definition: "When multiple layers support the same reading." }
+        { term: "24/7 Market", definition: "A market that continues trading across days, nights, weekends, and holidays." },
+        { term: "Crypto Timeframe", definition: "The amount of time represented by one crypto candle." },
+        { term: "Market Condition", definition: "The environment behind the candle, such as active, quiet, thin, volatile, or event-driven." },
+        { term: "Candle Quality", definition: "How useful a candle is as evidence after considering the condition that created it." },
+        { term: "Continuous Trading", definition: "A market structure where candles keep forming without traditional daily closure." }
       ],
-      whyThisMatters: "Crypto learners often trust one chart too quickly. In crypto, one venue can move sharply while broader market evidence remains weak or mixed.",
-      realLifeExample: "A token breaks upward on one exchange, but spot volume is weak elsewhere and BTC is flat. The break happened, but the structure reading is not automatically clean.",
-      commonMistake: "Thinking one crypto chart represents the entire market structure.",
-      quickNote: "In crypto, structure must be audited across market layers."
+      whyThisMatters: "Crypto learners can become overconfident because there is always movement. But movement does not always mean clean evidence. A candle formed during a thin or unstable period may be weaker than it looks.",
+      realLifeExample: "BTC may form a sharp 15-minute candle late at night with low participation, then form another 15-minute candle during a high-activity period. Same timeframe, different quality of evidence.",
+      commonMistake: "Thinking crypto candles are equally meaningful just because the chart is always active.",
+      "quickNote": "Crypto never sleeps, but candle quality still changes."
     }
   },
   {
     type: "visual_intro",
-    title: "Crypto Swings Can Come From Different Engines",
-    label: "Swing Source",
-    visualKey: "crypto-swing-source-map",
-    body: "Crypto swings are visible turning points, but the source of the swing matters. A swing high or low may come from spot participation, perpetual pressure, liquidations, thin liquidity, or event movement. The trained learner marks the swing, then audits its quality.",
+    title: "The Crypto Day Has Activity Cycles",
+    visualKey: "crypto-activity-cycle-board",
+    label: "Activity Rhythm",
+    body: "Crypto does not follow the same session structure as Foreign Exchange (Forex), but it still has activity rhythms. Some windows attract more participation, some are quieter, and some become unstable because of events, funding pressure, or broader market attention.",
     context: {
       keyTerms: [
-        { term: "Swing High", definition: "A visible high point where price turned downward." },
-        { term: "Swing Low", definition: "A visible low point where price turned upward." },
-        { term: "Swing Source", definition: "The market condition that may have created a swing." },
-        { term: "Perp Pressure", definition: "Movement influenced by perpetual contract activity." },
-        { term: "Liquidation Sweep", definition: "Movement accelerated by forced position closures." },
-        { term: "Thin-Liquidity Wick", definition: "A sharp move created in weak market depth." }
+        { term: "Activity Cycle", definition: "A repeated change in market participation across time." },
+        { term: "Participation", definition: "The amount of activity behind price movement." },
+        { term: "Quiet Window", definition: "A period where movement may be thinner or less reliable." },
+        { term: "Active Window", definition: "A period where participation and volume may be stronger." },
+        { term: "Funding Time", definition: "A scheduled moment in perpetual markets that can influence positioning behavior." },
+        { term: "Event Window", definition: "A period around important announcements, listings, unlocks, or market-wide catalysts." }
       ],
-      whyThisMatters: "If a learner marks a swing without checking what created it, they may treat mechanical movement as clean structure.",
-      realLifeExample: "A token drops sharply and forms a swing low, but the move came during a liquidation cascade. The swing exists, but the learner should be cautious before treating it as clean support.",
-      commonMistake: "Assuming every swing point is equally meaningful.",
-      quickNote: "Mark the swing. Then audit the source."
+      whyThisMatters: "A learner who ignores activity rhythm may treat every candle as equal. Crypto movement can look similar on the chart but come from very different levels of participation.",
+      realLifeExample: "A token may barely move for hours, then suddenly expand when US market attention increases or when a major crypto event hits the market.",
+      commonMistake: "Assuming “24/7” means every hour has the same market quality.",
+      "quickNote": "Crypto is always open, but participation is not always equal."
     }
   },
   {
     type: "visual_intro",
-    title: "BTC Structure vs Altcoin Structure",
+    title: "Same Candle, Different Market Condition",
+    visualKey: "crypto-candle-quality-board",
+    label: "Candle Quality",
+    body: "A crypto candle gains meaning from the condition that created it. The same candle shape can be useful, weak, exaggerated, or unstable depending on liquidity, venue activity, spot support, perpetual contract (perp) pressure, and event context.",
+    context: {
+      keyTerms: [
+        { term: "Candle Condition", definition: "The market environment that created the candle." },
+        { term: "Spot Participation", definition: "Actual buying or selling of the asset in spot markets." },
+        { term: "Thin Liquidity", definition: "A condition where price can move sharply because available orders are limited." },
+        { term: "Perp-Driven Move", definition: "Movement strongly influenced by perpetual contract pressure." },
+        { term: "Event Spike", definition: "A fast candle caused by a sudden catalyst or market reaction." },
+        { term: "Evidence Quality", definition: "How reliable a candle is as part of a market reading." }
+      ],
+      whyThisMatters: "Crypto candles often look dramatic. A trained learner does not judge only the size or shape. They ask what produced the candle.",
+      realLifeExample: "A token prints a strong candle on one venue. If spot volume is strong across multiple exchanges, it may be useful evidence. If liquidity is thin and other venues do not confirm, the candle may be weaker than it looks.",
+      commonMistake: "Trusting the most dramatic crypto candle without checking what created it.",
+      "quickNote": "In crypto, the source of the candle matters as much as the shape."
+    }
+  },
+  {
+    type: "visual_intro",
+    title: "BTC Context Changes Timeframe Reading",
+    visualKey: "crypto-btc-context-board",
     label: "Market Context",
-    visualKey: "crypto-btc-alt-structure-context",
-    body: "An altcoin can build its own structure, but BTC context can change the quality of that reading. If an altcoin is breaking upward while BTC is weak or near resistance, the structure may be active but not fully aligned. A trained learner checks whether the move is asset-specific or market-supported.",
+    body: "In crypto, a candle on one asset is often connected to the broader market. Bitcoin (BTC) context can strengthen, weaken, or complicate the reading. A trained learner checks whether the move is asset-specific or part of wider market movement.",
     context: {
       keyTerms: [
-        { term: "BTC Context", definition: "Bitcoin’s broader structure and condition as a market reference." },
-        { term: "Altcoin Structure", definition: "The visible price structure of a non-BTC crypto asset." },
-        { term: "Market-Supported Move", definition: "A move supported by broader crypto context." },
-        { term: "Asset-Specific Move", definition: "A move mainly visible on one asset." },
-        { term: "Context Conflict", definition: "When the asset structure and broader market context do not align." }
+        { term: "BTC Context", definition: "The broader condition of Bitcoin, often used as a reference for crypto market direction." },
+        { term: "Altcoin Candle", definition: "A candle from a crypto asset other than Bitcoin." },
+        { term: "Broad Market Support", definition: "Evidence that the move is supported by wider market behavior." },
+        { term: "Asset-Specific Move", definition: "Movement that appears more connected to one asset than the entire market." },
+        { term: "Market Pull", definition: "When BTC or broader crypto movement influences other assets." }
       ],
-      whyThisMatters: "Many altcoin moves look strong until BTC context weakens. Learners need to know whether structure is supported or isolated.",
-      realLifeExample: "SOL makes higher highs on 15m, but BTC is still below resistance and not confirming. SOL may be active, but the broader reading is mixed.",
-      commonMistake: "Reading an altcoin structure as isolated strength without checking BTC context.",
-      quickNote: "Altcoin structure is stronger when broader market context supports it."
+      whyThisMatters: "Many altcoin (alternative cryptocurrency) candles look strong until Bitcoin (BTC) context changes. A learner who ignores BTC may mistake market-wide pull for asset-specific strength.",
+      realLifeExample: "Solana (SOL) prints a bullish candle while Bitcoin (BTC) is also moving strongly upward. That candle may have broad support. If Solana (SOL) spikes while Bitcoin (BTC) is weak and other assets are flat, the learner should investigate more carefully.",
+      commonMistake: "Reading an altcoin candle as isolated strength without checking Bitcoin (BTC) context.",
+      "quickNote": "In crypto, one asset’s candle often needs the market’s context."
     }
   },
   {
     type: "visual_intro",
-    title: "Spot, Perp, and DEX Structure Can Disagree",
-    label: "Venue Structure",
-    visualKey: "crypto-venue-structure-disagreement",
-    body: "Crypto structure can differ across venues. A perp chart may show a strong break while spot remains weaker. A DEX wick may be venue-specific. A trained learner does not treat one venue’s structure as the whole market until other evidence supports it.",
+    title: "Spot vs Perp Timeframe Behavior",
+    visualKey: "crypto-spot-perp-board",
+    label: "Market Type",
+    body: "A spot candle (from a market where assets are bought and sold immediately) and a perpetual (perp) contract candle (a type of derivative with no expiry date) can share the same timeframe but carry different information. Spot movement records asset trades. Perpetual (perp) movement may also include leverage pressure (borrowed funds), funding imbalance (scheduled fees paid between traders), liquidation risk (forced closures), and contract behavior.",
     context: {
       keyTerms: [
-        { term: "Spot Structure", definition: "Structure built from actual asset trades on a spot venue." },
-        { term: "Perp Structure", definition: "Structure built from perpetual contract price movement." },
-        { term: "DEX Structure", definition: "Structure visible through decentralized swap/liquidity pool pricing." },
-        { term: "Venue-Specific Move", definition: "Movement strong on one venue but not broadly confirmed." },
-        { term: "Cross-Venue Confirmation", definition: "Support across multiple relevant markets." }
+        { term: "Spot Candle", definition: "A candle formed from actual asset buying and selling on a venue." },
+        { term: "Perpetual Candle", definition: "A candle formed from perpetual contract price movement." },
+        { term: "Leverage Pressure", definition: "Movement affected by traders using borrowed exposure." },
+        { term: "Funding Imbalance", definition: "A condition where long or short positioning creates pressure in perpetual markets." },
+        { term: "Liquidation Sensitivity", definition: "The risk that forced closures influence candle movement." },
+        { term: "Market Engine", definition: "The mechanism producing the candle record." }
       ],
-      whyThisMatters: "Crypto learners often trust the most dramatic venue. That is dangerous when the move is not broadly confirmed.",
-      realLifeExample: "A perp chart breaks above a resistance area, but spot charts barely move and DEX liquidity remains thin. The structure is not clean yet.",
-      commonMistake: "Treating a perp-only break as full market confirmation.",
-      quickNote: "Crypto structure is cleaner when venues agree."
+      whyThisMatters: "A learner who treats spot and perpetual candles the same may miss the role of leverage. Perp movement can look strong while spot support remains weaker.",
+      realLifeExample: "BTC perpetuals print a strong candle during a liquidation event, but spot movement is smaller. The candle is real, but the reading is not the same as clean spot demand.",
+      commonMistake: "Reading a perpetual candle as if it always proves spot market strength.",
+      "quickNote": "Same timeframe does not mean same market engine."
     }
   },
   {
     type: "visual_intro",
-    title: "Trend and Range in Crypto Assets",
-    label: "Crypto Structure Types",
-    visualKey: "crypto-trend-range-structure",
-    body: "A crypto asset can trend, range, or become unclear. Trend structure comes from swing relationships. Range structure comes from repeated movement between upper and lower areas. Fast candles and dramatic wicks do not replace structure classification.",
+    title: "Weekend and Thin-Liquidity Timeframes",
+    visualKey: "crypto-liquidity-risk-board",
+    label: "Liquidity Risk",
+    body: "Crypto weekend candles can be useful, but they need careful reading. When liquidity is thinner, price can travel farther with less participation. A trained learner checks whether the move is broadly supported or only exaggerated by weak conditions.",
     context: {
       keyTerms: [
-        { term: "Crypto Trend", definition: "Directional structure built through swing relationships." },
-        { term: "Crypto Range", definition: "Structure where price rotates between upper and lower areas." },
-        { term: "Wick Noise", definition: "Sharp candle extensions that may not change structure." },
-        { term: "Unclear Structure", definition: "A condition where the asset does not show clean trend or range behavior." },
-        { term: "Structure Classification", definition: "Naming what price is building." }
+        { term: "Weekend Liquidity", definition: "The quality of market participation during weekend trading." },
+        { term: "Thin-Liquidity Move", definition: "Movement that may be exaggerated because there are fewer available orders." },
+        { term: "Participation Quality", definition: "How strong or reliable the market activity behind a candle appears." },
+        { term: "Confirmation", definition: "Additional evidence that supports the candle after it forms." },
+        { term: "Exaggerated Candle", definition: "A candle that looks strong partly because the market condition is thin." }
       ],
-      whyThisMatters: "Crypto movement can look dramatic even when the structure has not changed. Classification stops the learner from reacting to every sharp candle.",
-      realLifeExample: "A token produces several strong green candles but remains inside the same higher-timeframe range. The move is active, but the broader structure is still range-bound.",
-      commonMistake: "Calling every fast crypto push a new trend.",
-      quickNote: "Volatility is not structure. Structure is built through relationships."
+      whyThisMatters: "Crypto learners often chase weekend candles because the market is still open. But thinner conditions can make movement look cleaner than it is.",
+      realLifeExample: "A token jumps on Saturday with a sharp candle, but volume is low and other venues do not confirm strongly. A trained learner treats the move as incomplete until confirmation improves.",
+      commonMistake: "Assuming every weekend breakout has the same quality as a high-participation weekday move.",
+      "quickNote": "Weekend candles can matter, but they need liquidity context."
     }
   },
   {
     type: "visual_intro",
-    title: "Liquidity Zones, Not Magic Lines",
-    label: "Liquidity Areas",
-    visualKey: "crypto-liquidity-zones",
-    body: "Crypto reaction areas are not magic lines. They are zones where price has previously changed behavior, where liquidity may be sitting, or where traders may react. A trained learner watches behavior around the zone instead of assuming the line must hold.",
+    title: "News, Listings, and Event Candles",
+    visualKey: "crypto-event-pressure-board",
+    label: "Event Pressure",
+    body: "A crypto event candle may record important market reaction, but it can also be unstable. Listings, unlocks, exploits, headlines, and sudden catalysts can produce fast candles that need close-location review and follow-through before the reading becomes reliable.",
     context: {
       keyTerms: [
-        { term: "Liquidity Zone", definition: "An area where orders, reactions, or market interest may cluster." },
-        { term: "Reaction Area", definition: "A zone where price behavior has previously changed." },
-        { term: "Wick Through", definition: "Price briefly moves through an area without clean follow-through." },
-        { term: "Liquidity Cluster", definition: "A concentration of potential orders or interest around an area." },
-        { term: "Zone-Based Reading", definition: "Reading an area flexibly instead of as one exact price." }
+        { term: "Event Candle", definition: "A candle formed around a major catalyst or sudden market event." },
+        { term: "Catalyst", definition: "A piece of information or event that changes market behavior." },
+        { term: "Repricing", definition: "A fast adjustment in price after new information enters the market." },
+        { term: "FOMO Reaction", definition: "Emotional buying or chasing after rapid movement." },
+        { term: "Panic Reaction", definition: "Emotional selling or forced exit behavior after bad news." },
+        { term: "Follow-Through", definition: "What price does after the event candle closes." }
       ],
-      whyThisMatters: "Crypto wicks can easily pass through exact lines. If learners use rigid lines, they will misclassify many moves.",
-      realLifeExample: "ETH pushes below a prior low, wicks through the area, then quickly returns above it. A trained learner audits whether that was a sweep, a failed break, or unstable movement.",
-      commonMistake: "Expecting crypto support and resistance to behave like perfect walls.",
-      quickNote: "In crypto, areas matter more than perfect lines."
+      whyThisMatters: "Crypto reacts quickly to events. A candle can look decisive in the moment and still fail once the initial reaction fades.",
+      realLifeExample: "A token jumps after a listing announcement, leaves a large wick, and closes near the middle. A rushed learner sees a breakout. A trained learner waits to see whether the market holds the move.",
+      commonMistake: "Treating the first event candle as the final truth.",
+      "quickNote": "In crypto, event candles need follow-through."
     }
   },
   {
     type: "visual_intro",
-    title: "Perp-Driven Breaks and False Structure",
-    label: "Perp Pressure",
-    visualKey: "crypto-perp-break-false-structure",
-    body: "A perp-driven break can look powerful, but it is not automatically clean structure. Perpetual markets can move through leverage pressure, funding imbalance, or liquidations. A trained learner checks whether spot, BTC context, and follow-through support the break.",
+    title: "Multi-Timeframe Crypto Reading Process",
+    visualKey: "crypto-reading-stack-board",
+    label: "Crypto Workflow",
+    body: "A disciplined crypto reading starts with broader structure and market context before moving into lower-timeframe detail. The learner checks Bitcoin (BTC) context, venue type, liquidity condition, and timeframe alignment before trusting the candle.",
     context: {
       keyTerms: [
-        { term: "Perp-Driven Break", definition: "A break strongly influenced by perpetual contract movement." },
-        { term: "False Structure", definition: "A structure reading that weakens because the move fails or lacks confirmation." },
-        { term: "Spot Confirmation", definition: "Support from actual spot market movement." },
-        { term: "Leverage Pressure", definition: "Movement influenced by leveraged positioning." },
-        { term: "Funding Imbalance", definition: "Pressure from long/short positioning costs or imbalance." },
-        { term: "Follow-Through", definition: "What price does after the break." }
+        { term: "Crypto Top-Down Reading", definition: "A process for reading from broader context into local detail." },
+        { term: "HTF Structure", definition: "Higher-timeframe market location and broader movement." },
+        { term: "Venue Check", definition: "Identifying whether the candle comes from spot, perpetuals, decentralized exchanges (DEX), or an aggregated feed." },
+        { term: "Working Timeframe", definition: "The main chart used for current analysis." },
+        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." },
+        { term: "Alignment", definition: "When multiple layers support the same reading." }
       ],
-      whyThisMatters: "Crypto learners often trust the most dramatic perp move, but leverage can exaggerate structure.",
-      realLifeExample: "BTC perps break above a local range, but spot remains weak and price quickly returns inside. The break is not clean confirmation.",
-      commonMistake: "Assuming a perp breakout proves true market structure.",
-      quickNote: "Perp movement needs confirmation before it becomes structure."
-    }
-  },
-  {
-    type: "visual_intro",
-    title: "Thin Liquidity, Wicks, and Failed Breaks",
-    label: "Break Failure",
-    visualKey: "crypto-thin-liquidity-failed-break",
-    body: "Thin liquidity can make crypto structure look stronger than it is. Price may move beyond an area, print a dramatic wick, and return quickly. A trained learner checks whether the move held, closed well, and gained follow-through before calling it structure change.",
-    context: {
-      keyTerms: [
-        { term: "Thin Liquidity", definition: "A condition where limited available orders allow price to move sharply." },
-        { term: "Failed Break", definition: "Price moves beyond an area but cannot hold." },
-        { term: "Failed Hold", definition: "Price cannot remain beyond the broken area." },
-        { term: "Close Location", definition: "Where the candle closes inside its full range." },
-        { term: "Structure Failure", definition: "When movement does not create lasting structural change." }
-      ],
-      whyThisMatters: "Crypto creates many dramatic candles. Without liquidity awareness, learners may trust moves that were produced by weak depth.",
-      realLifeExample: "A small-cap token breaks above resistance during a quiet period, wicks hard, then closes back below. The visual break happened, but structure did not cleanly change.",
-      commonMistake: "Calling every wick beyond a level a confirmed breakout.",
-      quickNote: "A wick through the level is not enough. Structure needs hold and follow-through."
-    }
-  },
-  {
-    type: "visual_intro",
-    title: "Higher-Timeframe Crypto Location Comes First",
-    label: "Crypto Location",
-    visualKey: "crypto-htf-location-first",
-    body: "A lower-timeframe crypto move can be active and still incomplete. The higher timeframe shows where the asset is located in the broader structure. A trained learner checks location before trusting local movement.",
-    context: {
-      keyTerms: [
-        { term: "Higher-Timeframe Location", definition: "Where the asset sits in broader structure." },
-        { term: "Major Reaction Area", definition: "A zone where price has previously changed behavior." },
-        { term: "Local Move", definition: "Shorter-timeframe movement inside broader context." },
-        { term: "Context-Limited Move", definition: "A move that is active but restricted by broader structure." },
-        { term: "Broader Structure", definition: "The larger chart condition surrounding local movement." }
-      ],
-      whyThisMatters: "Crypto speed makes local movement feel more important than it may be. Higher-timeframe location prevents shallow readings.",
-      realLifeExample: "A token pumps on 15m, but the 4H chart is still pressing into a previous rejection area. The move is active, but the reading is not automatically clean.",
-      commonMistake: "Letting a fast lower-timeframe crypto move override higher-timeframe structure.",
-      quickNote: "In crypto, speed does not erase location."
+      whyThisMatters: "Crypto has many moving layers. Without a process, the learner can be pulled around by every dramatic candle.",
+      realLifeExample: "Ethereum (ETH) rallies on 15m. A trained learner checks the 4H structure, Bitcoin (BTC) condition, whether spot confirms, and whether the move appears across venues before treating it as clean.",
+      commonMistake: "Starting from the smallest chart and letting urgency control the reading.",
+      "quickNote": "Crypto reading needs structure before speed."
     }
   },
   {
     type: "practice",
-    title: "Practice Drill: Broad Break or Venue-Specific Trap?",
+    title: "Crypto Timeframe Conflict Drill",
+    visualKey: "crypto-conflict-drill-board",
     label: "Practice Drill",
-    visualKey: "crypto-structure-break-drill",
-    body: "This drill tests whether you can audit crypto structure across venue, liquidity, BTC context, and higher-timeframe location. A break on one venue is only the first clue. The trained learner checks whether the structure is broadly supported or only locally dramatic.",
+    body: "This drill tests whether you can separate active movement from aligned evidence. A crypto candle can be real and still incomplete. The trained learner checks timeframe, venue, BTC context, spot support, and liquidity before calling a reading clean.",
     taskData: {
       type: "choice_block",
-      question: "A token breaks above a local resistance area on a perpetual exchange. The perp candle is strong, but spot volume is weak, BTC is flat, and the DEX pool shows a large wick with thin liquidity. The 4H chart is still inside a broader range. What is the disciplined crypto structure reading?",
+      question: "A token shows a strong 15-minute candle on a perpetual exchange. The 4H chart is still under resistance, Bitcoin (BTC) is flat, spot movement is weaker, and the candle formed during a thin-liquidity period.",
       options: [
         {
           id: "A",
-          text: "It is a confirmed breakout because the perp chart broke resistance.",
+          text: "The 15-minute candle is strong, so the token is clearly bullish.",
           isCorrect: false,
-          feedback: "Wrong: A perp break alone does not prove full-market structure change."
+          feedback: "Not correct. A strong lower-timeframe candle does not automatically define the full market reading."
         },
         {
           id: "B",
-          text: "It is definitely bearish because DEX liquidity is thin.",
-          isCorrect: false,
-          feedback: "Wrong: Thin DEX liquidity adds caution, but it does not automatically create a bearish reading."
+          text: "The move should be treated carefully because the lower-timeframe candle is not fully supported by Bitcoin (BTC) context, spot confirmation, or higher-timeframe structure.",
+          isCorrect: true,
+          feedback: "Correct. The 15-minute move is active, but the broader evidence is not aligned. BTC is not supporting strongly, spot confirmation is weaker, and higher-timeframe structure is still limiting the reading. This is mixed evidence, not clean confirmation."
         },
         {
           id: "C",
-          text: "The break is active but mixed because spot, BTC context, DEX liquidity, and higher-timeframe structure do not fully support it.",
-          isCorrect: true,
-          feedback: "Correct! The perp break is active, but the supporting evidence is weak or mixed. Spot is not confirming strongly, BTC is flat, DEX liquidity is thin, and the 4H chart remains range-bound. This is mixed evidence, not a clean structure change."
+          text: "Perpetual candles always show the cleanest market truth.",
+          isCorrect: false,
+          feedback: "Not correct. Perpetual candles can be useful, but they can also be distorted by leverage and liquidation pressure."
         },
         {
           id: "D",
-          text: "The higher timeframe does not matter because crypto moves fast.",
+          text: "The higher timeframe does not matter because the 15-minute chart is more recent.",
           isCorrect: false,
-          feedback: "Wrong: Crypto speed makes higher-timeframe location more important, not less important."
+          feedback: "Not correct. Newer does not always mean more important. Lower-timeframe movement must be read inside broader context."
         }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Venue-Specific Break", definition: "A break visible strongly on one venue but not broadly confirmed." },
-        { term: "Mixed Evidence", definition: "Some clues support the move while other clues reduce clarity." },
-        { term: "Spot Confirmation", definition: "Support from actual spot market activity." },
-        { term: "Cross-Venue Support", definition: "Evidence across multiple market venues." },
-        { term: "Higher-Timeframe Limitation", definition: "Broader structure that weakens a local reading." },
-        { term: "Break Audit", definition: "Reviewing venue, liquidity, close, follow-through, and context." }
+        { term: "Mixed Evidence", definition: "A condition where some clues support the move while other layers reduce confidence." },
+        { term: "Spot Confirmation", definition: "Support from actual spot market movement." },
+        { term: "Perp Pressure", definition: "Movement influenced by perpetual contract activity." },
+        { term: "BTC Context", definition: "The broader Bitcoin condition affecting crypto market interpretation." },
+        { term: "Thin Liquidity", definition: "A weak market condition where price can move too easily." },
+        { term: "Clean Confirmation", definition: "Evidence that is supported across multiple relevant layers." }
       ],
-      whyThisMatters: "Crypto often creates dramatic one-venue moves. This drill trains learners to classify quality instead of reacting to drama.",
-      realLifeExample: "A token breaks up on perps while spot barely follows and BTC is flat. A rushed learner sees breakout. A trained learner marks it as mixed until broader evidence supports it.",
-      commonMistake: "Calling one venue’s break a full crypto market breakout.",
-      quickNote: "One venue can move. Structure needs support."
+      whyThisMatters: "Crypto often gives dramatic movement before clean confirmation. This drill teaches the learner to avoid chasing the loudest candle.",
+      realLifeExample: "A perp chart prints a large green candle, but spot volume is weak and BTC is flat. A rushed learner sees strength. A trained learner marks it as mixed until confirmation improves.",
+      commonMistake: "Calling a move clean because one crypto chart looks strong.",
+      "quickNote": "In crypto, active does not always mean confirmed."
     }
   },
   {
-    type: "debrief",
-    title: "Crypto Debrief: Reading Structure Through Venue, Liquidity, and Context",
+    type: "visual_intro",
+    title: "Crypto Debrief: Time, Venue, Liquidity, Alignment",
+    visualKey: "crypto-roadway-debrief",
     label: "Roadway Debrief",
-    visualKey: "crypto-structure-roadway-debrief",
-    body: "You are no longer reading crypto structure as one chart and one breakout. You now understand that crypto structure must be audited through venue, liquidity, BTC context, swing quality, break quality, and higher-timeframe location. The job is to classify evidence, not react to the loudest candle.\n\n### Your Crypto Competencies:\n\n* [x] Audit **Asset Behavior** across fragmented venues\n* [x] Audit **Swing Quality** and identify the underlying engine\n* [x] Layer **BTC Context** as a major market support filter\n* [x] Identify and resolve **Cross-Venue Disagreements**\n* [x] Use **Liquidity Zones** rather than rigid lines\n* [x] Filter out leverage-driven **Perp-Driven Breaks**\n* [x] Identify **Thin-Liquidity Wicks** and failed structure wicks\n* [x] Prioritize **HTF Location** and establish evidence alignment\n\n**Next**: Level 0 Synthesis & Verification.",
+    body: "You are no longer reading crypto candles as isolated shapes. You now understand that every crypto candle belongs to a timeframe, every timeframe forms inside a market condition, and every candle must be checked against venue, liquidity, Bitcoin (BTC) context, and broader structure.",
     context: {
       keyTerms: [
-        { term: "Crypto Structure", definition: "The arrangement of price movement in a crypto asset." },
-        { term: "Venue Check", definition: "Reviewing where the structure is forming." },
-        { term: "Liquidity Zone", definition: "Area where orders, reactions, or market interest may cluster." },
-        { term: "BTC Context", definition: "Bitcoin’s broader condition as market reference." },
-        { term: "Break Quality", definition: "How reliable a break appears after review." },
-        { term: "Cross-Venue Confirmation", definition: "Evidence across multiple relevant markets." },
-        { term: "Reading Quality", definition: "Clear, mixed, or unclear." }
+        { term: "Venue Source", definition: "The market or platform that produced the candle." },
+        { term: "Liquidity Condition", definition: "The depth and quality behind the movement." },
+        { term: "BTC Context", definition: "The broader Bitcoin condition surrounding the move." },
+        { term: "Timeframe Alignment", definition: "When multiple timeframes support the same reading." },
+        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." },
+        { term: "Crypto Evidence Stack", definition: "The combined review of timeframe, venue, BTC, liquidity, and structure." }
       ],
-      whyThisMatters: "Crypto structure reading protects learners from chasing one chart, one wick, or one perp-driven move without broader evidence.",
-      realLifeExample: "Two learners see the same crypto breakout. One reacts to the candle. The trained learner checks spot support, perp pressure, DEX liquidity, BTC context, and higher-timeframe location.",
-      commonMistake: "Leaving with breakout language but no process for auditing structure quality.",
-      quickNote: "Crypto structure is strongest when venue, liquidity, and context align."
+      whyThisMatters: "Crypto is fast, continuous, fragmented, and emotional. A learner needs a process that slows the reading down and checks the right layers.",
+      realLifeExample: "Two learners see the same 15m crypto candle. One reacts to the candle. The trained learner asks where it formed, which venue produced it, whether Bitcoin (BTC) supports it, and whether liquidity confirms it.",
+      commonMistake: "Leaving with the idea that “crypto is 24/7” but no actual process for reading crypto timeframes.",
+      "quickNote": "Crypto candles are read through time, venue, liquidity, and alignment."
     }
   }
 ];

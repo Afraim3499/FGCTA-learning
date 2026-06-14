@@ -106,7 +106,7 @@ export const forexCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Practice with Rollover Inversion Scenarios",
     "label": "Forex Track",
     "body": "### Scenario-Based Practice: London Close Inversion FVGs\nEngage in practical scenarios focusing on the application of London close rollover inversion FVGs. This card emphasizes **real-world application of learned strategies**.\n\n* **Scenario Analysis**: Given a chart where EURUSD shows a clear inversion FVG at 1.1200 during the London close, determine entry points and stop-loss placements based on market conditions.\n* **Volume Assessment**: Analyze volume spikes at the London close; identify whether they confirm or negate the inversion FVG signal before executing a trade.\n* **Trade Simulation**: Simulate a trade where GBPUSD breaches an inversion FVG at 1.3000; assess potential outcomes based on different liquidity conditions and market responses.",

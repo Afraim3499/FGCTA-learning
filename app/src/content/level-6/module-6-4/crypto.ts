@@ -158,7 +158,7 @@ export const cryptoCards: LessonCard[] = [
     "visualKey": "alternative-scenario-map"
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Designing a Hedging Scenario",
     "label": "Crypto Track",
     "body": "### Core Scenario: Designing a Hedging Scenario\nCreating a hedging scenario involves assessing current market conditions and determining appropriate hedging strategies. This card focuses on **designing a hedging scenario for your spot holdings**.\n\n* **Market Analysis**: Begin by analyzing the current market conditions, including price trends and volatility. For example, if Bitcoin is currently trading at $35,000 with a 7% ATR, this indicates heightened volatility.\n* **Hedging Instrument Selection**: Choose the appropriate hedging instrument, such as perpetual futures or options. If Bitcoin is expected to decline, consider shorting Bitcoin perpetual futures to hedge against potential losses.\n* **Position Sizing**: Determine the size of your hedge based on your spot holdings. If you hold 1 BTC, shorting 0.5 BTC in perpetual futures may provide adequate coverage without overexposing your portfolio.",

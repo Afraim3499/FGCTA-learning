@@ -249,6 +249,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
           interactiveTaskData={module.interactiveTaskData}
           onComplete={handleComplete}
           onNextModule={module.nextModuleId ? () => handleProceed(`/course/module/${module.nextModuleId}`) : undefined}
+          logicIds={module.logicIds}
         />
         {activeChartScenario && (
           <ChartScenarioModal

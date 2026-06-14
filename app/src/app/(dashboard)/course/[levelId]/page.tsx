@@ -1,13 +1,64 @@
 import { getModules, getCourseLevels } from "@/lib/course-actions";
 import Link from "next/link";
-import { ChevronLeft, CheckCircle2, Circle, ArrowRight, Award } from "lucide-react";
+import { ChevronLeft, CheckCircle2, Circle, ArrowRight, Award, Lock, FlaskConical, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NavaTrigger } from "@/components/nava/NavaTrigger";
+import { prisma } from "@/lib/prisma";
+import { getUser } from "@/lib/auth-actions";
+import { STRATEGIES_DATA, getStrategyLevel } from "@/lib/strategies-data";
 
 export default async function LevelPage({ params }: { params: Promise<{ levelId: string }> }) {
   const { levelId: levelIdStr } = await params;
   const levelId = parseInt(levelIdStr);
   
+  const user = await getUser();
+  if (!user) return <div>Unauthorized</div>;
+
+  const profile = await prisma.user.findUnique({
+    where: { id: user.id },
+    select: { 
+      progress: {
+        select: { currentLevel: true }
+      }
+    },
+  });
+
+  const userLevel = profile?.progress?.currentLevel ?? 0;
+
+  // Fetch strategies for this level
+  const dbStrategies = await prisma.strategy.findMany({
+    orderBy: { sequenceNumber: "asc" }
+  });
+
+  const staticNames = new Set(STRATEGIES_DATA.map(s => s.name.toLowerCase().trim()));
+
+  const mappedDb = dbStrategies
+    .filter(dbS => !staticNames.has(dbS.name.toLowerCase().trim()))
+    .map(dbS => {
+      const level = getStrategyLevel(dbS.parentFamily, dbS.assetClass, dbS.sequenceNumber);
+      const prefix = dbS.assetClass === "CRYPTO" ? "CR" : dbS.assetClass === "GOLD" ? "GD" : "FX";
+      const logicId = `${prefix}-${String(dbS.sequenceNumber).padStart(3, "0")}`;
+
+      return {
+        logicId,
+        name: dbS.name,
+        family: dbS.parentFamily,
+        level,
+        isDbStrategy: true,
+      };
+    });
+
+  const allStrategies = [...STRATEGIES_DATA, ...mappedDb];
+  const levelStrategies = allStrategies.filter(s => s.level === levelId);
+
+  // Group by family
+  const groupedStrategies: Record<string, typeof levelStrategies> = {};
+  levelStrategies.forEach(s => {
+    const fam = s.family || "Other";
+    if (!groupedStrategies[fam]) groupedStrategies[fam] = [];
+    groupedStrategies[fam].push(s);
+  });
+
   let modules: any[] = [];
   let allLevels: any[] = [];
   let currentLevel: any = null;
@@ -171,6 +222,61 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
           </Link>
         ))}
       </div>
+
+      {levelStrategies.length > 0 && (
+        <section className="space-y-6 pt-12 border-t border-[var(--ln-border)]">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2.5">
+              <div className="p-2 bg-[var(--ln-teal-soft)] rounded-xl text-[var(--ln-teal-500)]">
+                <FlaskConical className="w-5 h-5" />
+              </div>
+              <h2 className="text-2xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">Level {levelId} Playbook & Reference Tools</h2>
+            </div>
+            <p className="text-sm text-[var(--ln-text-secondary)] font-medium max-w-2xl">
+              Study and practice these concepts in the Strategy Lab once unlocked. Locking is determined by your current progress level.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {Object.entries(groupedStrategies).map(([family, list]) => {
+              return (
+                <div key={family} className="bg-white border border-[var(--ln-border)] rounded-3xl p-6 shadow-sm space-y-4">
+                  <h3 className="text-xs font-black uppercase tracking-wider text-[var(--ln-teal-600)] border-b border-slate-100 pb-2">{family}</h3>
+                  <div className="space-y-2.5">
+                    {list.map((strat) => {
+                      const isLocked = userLevel < levelId;
+                      return (
+                        <div key={strat.logicId} className={cn(
+                          "flex items-center justify-between p-3.5 rounded-2xl border transition-all",
+                          isLocked ? "bg-slate-50 border-slate-150 opacity-70" : "bg-white border-[var(--ln-border)] hover:border-[var(--ln-teal-500)]/25"
+                        )}>
+                          <div className="flex items-center gap-3">
+                            <span className="px-2 py-0.5 rounded bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] text-[9px] font-bold uppercase tracking-wider">{strat.logicId}</span>
+                            <span className="text-xs font-bold text-[var(--ln-navy-900)]">{strat.name}</span>
+                          </div>
+                          {isLocked ? (
+                            <div className="flex items-center gap-1.5 text-[10px] font-semibold text-slate-500 bg-slate-200/50 px-2 py-1 rounded">
+                              <Lock className="w-3 h-3 text-slate-400" />
+                              Lvl {levelId} Req
+                            </div>
+                          ) : (
+                            <Link
+                              href={`/lab?strategy=${strat.logicId}`}
+                              className="inline-flex items-center gap-1 px-3 py-1.5 bg-[var(--ln-teal-soft)] hover:bg-[var(--ln-teal-200)] text-[var(--ln-teal-600)] text-[10px] font-bold rounded-lg transition-all"
+                            >
+                              Open in Lab <ExternalLink size={10} />
+                            </Link>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

@@ -3,239 +3,207 @@ import { LessonCard } from "../../../types/curriculum";
 export const forexCards: LessonCard[] = [
   {
     "type": "mission_brief",
-    "title": "London Breakout Displacement Dynamics",
+    "title": "Session Breakout Fade Setups",
     "label": "Forex Track",
-    "body": "### London Breakout: Displacement Dynamics\nDisplacement during the London breakout is critical for identifying potential market direction. This card teaches **how to measure and interpret the expansion candle that exits the Asian consolidation range**.\n\n* **Body-to-Wick Ratio**: Measure the body-to-wick ratio of the first expansion candle post-breakout. A ratio of 2:1 or greater indicates strong displacement, suggesting a high probability of continuation.\n* **Consolidation Range**: Identify the Asian session's high and low to establish the consolidation range. The breakout must exceed this range by at least 20 pips to confirm displacement.\n* **Market Reaction**: Monitor price action within the first 30 minutes of the London session. A rapid move beyond the consolidation range with increased volume signals a valid displacement event.",
+    "body": "### Session Breakout Fade Setups\nIdentifying session breakout fade setups involves analyzing candle close quality to detect potential reversals in major Forex pairs. This card outlines **how to recognize and execute fade trades based on session dynamics**.\n\n* **Candle Close Analysis**: Focus on the last 15-minute candle of the session. If it closes below the previous session's high for EURUSD or GBPUSD, consider a fade setup.\n* **Volume Confirmation**: Ensure that the breakout candle's volume is below the average of the last 10 sessions. Low volume indicates a lack of conviction in the breakout.\n* **Price Action Context**: Look for price action patterns such as pin bars or engulfing candles at the session high. These formations signal potential reversals and strengthen the fade setup.",
     "context": {
       "keyTerms": [
         {
-          "term": "Expansion Candle",
-          "definition": "A candle that closes significantly outside the previous range, indicating strong market movement."
-        },
-        {
-          "term": "Body-to-Wick Ratio",
-          "definition": "The ratio of the candle's body size to its wick size, used to assess displacement strength."
+          "term": "Fade Setup",
+          "definition": "A trading strategy that capitalizes on price reversals after breakouts."
         }
       ],
-      "whyThisMatters": "Understanding displacement dynamics during the London breakout allows traders to capitalize on high-probability setups.",
-      "realLifeExample": "On EURUSD, the London session opened at 1.1000, with the Asian session high at 1.1010 and low at 1.0980. An expansion candle formed at 1.1025, with a body-to-wick ratio of 3:1, confirming strong displacement.",
-      "commonMistake": "Failing to measure the body-to-wick ratio accurately can lead to misinterpretation of displacement strength.",
-      "quickNote": "A strong body-to-wick ratio post-breakout signals potential continuation.",
-      "mentorText": "When you see that first expansion candle, measure it carefully. If the body is significantly larger than the wick, you’re likely witnessing a solid displacement. Don’t ignore the volume; it’s your confirmation.",
-      "mentorAnalogy": "Think of this like a rocket launch. The body of the candle is the rocket itself, and the wick is the exhaust trail. A strong launch means the rocket is moving away from the ground with power, just as a strong displacement candle moves away from the consolidation range."
+      "whyThisMatters": "Understanding session breakout fades allows traders to capitalize on false breakouts, enhancing risk management and trade profitability.",
+      "realLifeExample": "On a Tuesday at 10:45 AM EST, EURUSD closed at 1.1205 after hitting a session high of 1.1220. The last 15-minute candle showed a close below the previous high with low volume, indicating a potential fade opportunity.",
+      "commonMistake": "Traders often overlook the significance of volume in confirming fade setups, leading to premature entries.",
+      "quickNote": "Evaluate candle closes and volume to identify potential fade setups effectively.",
+      "mentorText": "When you see a candle close below the previous session high with low volume, think of it as a warning sign. This is your cue to prepare for a potential fade.",
+      "mentorAnalogy": "Consider a pilot assessing weather conditions before takeoff. Just as they look for clear skies and stable winds, you must analyze candle closes and volume before executing a fade."
     },
     "taskData": null,
-    "visualKey": "forex-london-breakout-displacement"
+    "visualKey": "forex-session-breakout-fade"
   },
   {
     "type": "concept",
-    "title": "Analyzing Asian Consolidation Patterns",
+    "title": "Analyzing London Session Extremes",
     "label": "Forex Track",
-    "body": "### Asian Consolidation: Analyzing Patterns\nAsian consolidation patterns provide critical insights into potential displacement during the London session. This card focuses on **how to analyze these patterns and their significance**.\n\n* **Pattern Recognition**: Identify consolidation patterns such as triangles or rectangles formed during the Asian session. These patterns indicate market indecision and set the stage for potential breakouts.\n* **Volume Analysis**: Assess the volume during the Asian session. Low volume typically accompanies consolidation, while a spike in volume at breakout signals increased participation and validates the move.\n* **Breakout Confirmation**: Wait for a close above or below the consolidation pattern with a body-to-wick ratio of at least 1.5:1 to confirm that displacement is occurring.",
+    "body": "### Analyzing London Session Extremes\nEvaluating candle closes in relation to London session extremes is essential for validating breakout setups. This card details **how to leverage session extremes to assess breakout reliability**.\n\n* **High and Low Reference Points**: Identify the high and low of the London session. A breakout above the session high or below the low should be confirmed by a strong close beyond these levels.\n* **Close Quality Assessment**: A close within 10 pips of the session high or low indicates potential weakness in the breakout. Aim for a close that is decisively outside this range for validation.\n* **Session Overlap Consideration**: Pay attention to the overlap with the New York session. Breakouts that occur during this overlap are generally more reliable due to increased liquidity.",
     "context": {
       "keyTerms": [
         {
-          "term": "Consolidation Pattern",
-          "definition": "A price formation indicating indecision, often preceding a breakout."
-        },
-        {
-          "term": "Volume Spike",
-          "definition": "A significant increase in trading volume, indicating heightened market activity."
+          "term": "London Session Extremes",
+          "definition": "The highest and lowest price points reached during the London trading session."
         }
       ],
-      "whyThisMatters": "Recognizing Asian consolidation patterns enhances the ability to predict potential displacement during the London session.",
-      "realLifeExample": "During the Asian session, GBPJPY formed a triangle pattern between 150.50 and 150.80. A breakout occurred at 150.85 with a volume spike, confirming the potential for displacement.",
-      "commonMistake": "Overlooking the significance of volume during consolidation can lead to false breakout assumptions.",
-      "quickNote": "Consolidation patterns serve as precursors to potential displacement.",
-      "mentorText": "Look for those tight ranges during the Asian session. They’re telling you something. When you see a breakout, check the volume; it’s your confirmation signal.",
-      "mentorAnalogy": "Imagine a tightly wound spring. The tighter it is, the more potential energy it holds. When released, that energy translates into movement, much like a breakout from a consolidation pattern."
+      "whyThisMatters": "Accurate analysis of session extremes enhances the ability to distinguish between genuine breakouts and false signals.",
+      "realLifeExample": "On a Wednesday at 3:00 AM EST, GBPUSD reached a high of 1.3100 during the London session. A subsequent breakout candle closed at 1.3125, well above the session high, confirming a valid breakout.",
+      "commonMistake": "Failing to consider the proximity of the close to session extremes can lead to misjudging breakout strength.",
+      "quickNote": "Use London session extremes as benchmarks for validating breakout trades.",
+      "mentorText": "When analyzing breakout potential, always refer back to the London session high and low. A strong close beyond these levels is your confirmation.",
+      "mentorAnalogy": "Think of a marathon runner who must cross a finish line. Just as crossing the line decisively confirms victory, a strong close beyond session extremes confirms breakout validity."
     },
     "taskData": null,
-    "visualKey": "forex-london-breakout-displacement"
+    "visualKey": "forex-session-breakout-fade"
   },
   {
     "type": "concept",
-    "title": "Expansion Candle Characteristics",
+    "title": "EURUSD Breakout Analysis Techniques",
     "label": "Forex Track",
-    "body": "### Expansion Candle: Characteristics\nExpansion candles are pivotal in identifying displacement. This card details **the characteristics of these candles and how to trade them effectively**.\n\n* **Candle Size**: An expansion candle should ideally be at least 30% larger than the average candle size over the previous 14 periods. This indicates a significant market move.\n* **Body Composition**: The body should occupy at least 70% of the total candle height, with minimal wicks. This ratio signifies strong buying or selling pressure.\n* **Follow-up Confirmation**: After the expansion candle, look for a second candle that closes in the same direction. This confirms the strength of the displacement and increases the probability of a successful trade.",
+    "body": "### EURUSD Breakout Analysis Techniques\nAnalyzing breakouts in the EURUSD pair requires a focus on close quality to confirm valid moves. This card outlines **specific techniques for evaluating breakout strength**.\n\n* **Close Above Resistance**: A valid breakout occurs when EURUSD closes above a defined resistance level with at least a 20-pip distance from the previous close. This distance indicates strong momentum.\n* **Candle Body Size**: Assess the size of the breakout candle's body. A larger body (greater than 30 pips) signifies strong buying interest, while a small body may indicate a lack of conviction.\n* **Follow-Up Confirmation**: Look for a follow-up candle that closes above the breakout level within the next two hours. This confirms that the breakout is not a false signal.",
     "context": {
       "keyTerms": [
         {
-          "term": "Candle Size",
-          "definition": "The total height of a candle, including both body and wicks."
-        },
-        {
-          "term": "Body Composition",
-          "definition": "The proportion of the candle's body relative to its total height."
+          "term": "Resistance Level",
+          "definition": "A price level where selling interest is strong enough to prevent the price from rising further."
         }
       ],
-      "whyThisMatters": "Identifying expansion candles allows traders to enter high-probability trades following significant market movements.",
-      "realLifeExample": "On AUDUSD, an expansion candle formed at 0.6750, measuring 45 pips tall with a body size of 35 pips. The following candle closed at 0.6760, confirming the displacement.",
-      "commonMistake": "Misjudging candle size can lead to missed opportunities or false signals.",
-      "quickNote": "Look for large bodies with minimal wicks to identify true expansion candles.",
-      "mentorText": "When you see an expansion candle, assess its size and body composition. If it’s significantly larger than previous candles, it’s likely a strong signal. Follow it up with another confirming candle for best results.",
-      "mentorAnalogy": "Think of an expansion candle like a strong gust of wind. If it’s powerful and sustained, it can move a sailboat far from its original position, just as a strong candle can push the market decisively."
+      "whyThisMatters": "Effective analysis of breakout techniques enhances the ability to enter trades with higher probability outcomes.",
+      "realLifeExample": "On a Friday at 9:15 AM EST, EURUSD broke above a resistance level at 1.1300, closing at 1.1325 with a 40-pip body. The subsequent candle closed at 1.1330, confirming the breakout.",
+      "commonMistake": "Traders often enter trades on the first breakout candle without waiting for confirmation, leading to potential losses.",
+      "quickNote": "Evaluate close quality and follow-up confirmation to validate EURUSD breakouts.",
+      "mentorText": "When you see a breakout, don't rush in. Wait for a strong close and confirmation before committing your capital.",
+      "mentorAnalogy": "Like a surgeon ensuring all instruments are accounted for before making an incision, you must confirm breakout strength before executing a trade."
     },
     "taskData": null,
-    "visualKey": "forex-london-breakout-displacement"
+    "visualKey": "forex-session-breakout-fade"
   },
   {
     "type": "concept",
-    "title": "Volume Analysis in the London Session",
+    "title": "GBPUSD Candle Close Strategies",
     "label": "Forex Track",
-    "body": "### London Session: Volume Analysis\nVolume plays a crucial role in confirming displacement during the London session. This card explores **the relationship between volume and displacement**.\n\n* **Volume Trends**: Analyze volume trends during the London session. A significant increase in volume compared to the Asian session indicates heightened interest and validates breakout moves.\n* **Volume Confirmation**: Look for volume spikes accompanying expansion candles. A volume increase of at least 50% over the average volume during the Asian session confirms the strength of the displacement.\n* **Volume Divergence**: Be cautious of volume divergence, where price moves in one direction while volume decreases. This often signals a potential reversal or weakening trend.",
+    "body": "### GBPUSD Candle Close Strategies\nEvaluating candle closes in GBPUSD is critical for differentiating between genuine breakouts and failed breaks. This card presents **strategies for assessing close quality**.\n\n* **Close Relative to Key Levels**: A close above a key resistance level should be at least 15 pips above the level to confirm breakout strength. Conversely, a close below a support level should also exceed 15 pips for validity.\n* **Wick Analysis**: Analyze the wicks of the breakout candle. Long upper wicks indicate selling pressure, while long lower wicks suggest buying pressure. A breakout with a long wick may signal a failed move.\n* **Timeframe Consideration**: Use multiple timeframes for analysis. A breakout confirmed on a 1-hour chart is more reliable than one confirmed on a 5-minute chart, as it reflects broader market sentiment.",
     "context": {
       "keyTerms": [
         {
-          "term": "Volume Trend",
-          "definition": "The pattern of volume movement over a specified period, indicating market interest."
-        },
-        {
-          "term": "Volume Divergence",
-          "definition": "A situation where price moves in one direction while volume decreases, signaling potential reversal."
+          "term": "Key Levels",
+          "definition": "Significant price points where buying or selling interest is strong."
         }
       ],
-      "whyThisMatters": "Understanding volume dynamics during the London session enhances the ability to validate displacement and improve trading decisions.",
-      "realLifeExample": "During the London session, USDCHF saw a volume spike of 70% at 1.0200, coinciding with an expansion candle that closed at 1.0220, confirming strong displacement.",
-      "commonMistake": "Ignoring volume analysis can lead to false confirmations of displacement and poor trading decisions.",
-      "quickNote": "Volume spikes validate displacement; always analyze volume alongside price action.",
-      "mentorText": "Pay close attention to volume during the London session. If you see a spike with an expansion candle, that’s your confirmation. Don’t let a lack of volume mislead you into false trades.",
-      "mentorAnalogy": "Consider volume like the audience at a concert. A loud, cheering crowd confirms that the performance is engaging. Similarly, high volume confirms that the market is reacting strongly to price movements."
+      "whyThisMatters": "Proper evaluation of candle closes helps traders avoid entering trades based on false breakouts, improving overall trade accuracy.",
+      "realLifeExample": "On a Thursday at 2:30 PM EST, GBPUSD closed at 1.2950 after breaking above a resistance level at 1.2935. The candle had a long upper wick, suggesting potential selling pressure and a possible failed breakout.",
+      "commonMistake": "Ignoring wick analysis can lead to misinterpretation of breakout strength and increased risk exposure.",
+      "quickNote": "Assess candle closes and wicks to differentiate between valid breakouts and failed breaks in GBPUSD.",
+      "mentorText": "Always scrutinize the close of your breakout candles. If there's a long wick, it’s a red flag that you should consider carefully.",
+      "mentorAnalogy": "Think of a chef checking the doneness of a dish. Just as they probe for the right texture, you must analyze candle closes to ensure breakout validity."
     },
     "taskData": null,
-    "visualKey": "forex-london-breakout-displacement"
+    "visualKey": "forex-session-breakout-fade"
   },
   {
     "type": "concept",
-    "title": "Common Breakout Traps: Misreading Displacement",
+    "title": "Session Overlap and Breakout Validity",
     "label": "Forex Track",
-    "body": "### Breakout Analysis: Identifying Common Traps\nTraders often misinterpret displacement during breakout scenarios, leading to significant financial losses. This card addresses **how to recognize and avoid common traps** associated with breakout trading.\n\n* **Body-to-Wick Ratio Misinterpretation**: A large body-to-wick ratio can indicate strong momentum; however, if the wick is disproportionately long, it may signal a false breakout. Analyze the ratio carefully before entering trades.\n* **Volume Confirmation**: A breakout accompanied by low volume can be misleading. Ensure that the breakout has at least a 20% increase in volume compared to the previous session to confirm validity.\n* **Market Sentiment Analysis**: Monitor sentiment indicators during breakouts. A divergence between price action and sentiment can indicate potential traps, leading to premature entries or exits.",
+    "body": "### Breakout Analysis: Session Overlap Dynamics\nSession overlaps create unique liquidity conditions that can validate or invalidate breakouts. This card focuses on **how to assess the quality of closes during these overlaps**.\n\n* **Overlap Timing**: Valid breakouts are more likely during the overlap of major trading sessions (e.g., London and New York) when liquidity peaks, enhancing breakout reliability.\n* **Close Quality Assessment**: A breakout candle must close above resistance with at least a 50% body-to-wick ratio to confirm strength; otherwise, consider it a potential false breakout.\n* **Volume Confirmation**: Look for a minimum of 20% increase in volume compared to the previous session to validate breakout strength during overlaps, as this indicates institutional participation.\n",
     "context": {
       "keyTerms": [
         {
-          "term": "Displacement",
-          "definition": "The measurement of price movement relative to volume and body-to-wick ratios."
-        },
-        {
-          "term": "False Breakout",
-          "definition": "A price movement that appears to break through a support or resistance level but reverses quickly."
+          "term": "Session Overlap",
+          "definition": "The period when two major trading sessions coincide, increasing market liquidity."
         }
       ],
-      "whyThisMatters": "Understanding common traps in breakout scenarios is essential for minimizing losses and improving trade execution.",
-      "realLifeExample": "During the EURUSD breakout at 3:00 AM EST, a large body formed but was followed by a 30-pip wick, indicating a false breakout as volume remained low.",
-      "commonMistake": "Traders often enter positions too quickly after a breakout without confirming the body-to-wick ratio and volume.",
-      "quickNote": "Always verify displacement metrics before executing breakout trades.",
-      "mentorText": "When you see a breakout, don't rush in. Look closely at the body-to-wick ratio and volume. If the wick is too long, it may be a trap waiting to catch you off guard.",
-      "mentorAnalogy": "Think of a pilot preparing for takeoff. They must check all instruments and signals before leaving the ground; rushing can lead to disaster."
+      "whyThisMatters": "Understanding session overlaps allows traders to identify high-probability breakout scenarios, reducing the risk of false signals.",
+      "realLifeExample": "On EURUSD, during the London-New York overlap at 10:00 AM EST, a breakout above 1.1200 with a close at 1.1215 and a 60% body-to-wick ratio confirmed a valid move.",
+      "commonMistake": "Failing to consider the session overlap can lead to misinterpreting breakouts during low liquidity periods.",
+      "quickNote": "Session overlaps enhance breakout reliability; assess close quality critically.",
+      "mentorText": "When evaluating breakouts, always check if they occur during session overlaps. If they do, analyze the close quality closely—this is where the real strength lies.",
+      "mentorAnalogy": "Think of session overlaps like rush hour traffic; the more cars on the road, the more likely a signal change (breakout) is valid."
     },
     "taskData": null,
-    "visualKey": "forex-london-breakout-displacement"
+    "visualKey": "forex-session-breakout-fade"
   },
   {
     "type": "concept",
-    "title": "Real-Time Displacement Monitoring in Forex",
+    "title": "Evaluating News Impact on Breakouts",
     "label": "Forex Track",
-    "body": "### Displacement Tracking: Techniques for the London Session\nEffective displacement monitoring is crucial during the London session, where volatility peaks. This card outlines **techniques for real-time analysis of displacement**.\n\n* **Use of Volume Indicators**: Implement volume indicators such as the On-Balance Volume (OBV) to assess displacement in real-time. A spike in OBV alongside price movement confirms strong displacement.\n* **Candlestick Patterns**: Monitor candlestick formations, particularly engulfing patterns, to gauge displacement. A bullish engulfing pattern with a significant body can indicate a strong upward displacement.\n* **Time-Based Alerts**: Set alerts for specific time intervals during the London session, such as 5-minute candles, to quickly assess displacement changes. This allows for timely decision-making and execution.",
+    "body": "### Economic News: Breakout Evaluation\nEconomic news releases can significantly impact breakout validity. This card details **how to assess the influence of news on candle closes**.\n\n* **News Release Timing**: Monitor scheduled news events (e.g., NFP, CPI) that can lead to increased volatility; breakouts occurring just after these releases require careful scrutiny.\n* **Candle Close Analysis**: A breakout candle that closes below the previous high after a news release may indicate a failed breakout, especially if the close is below 50% of the breakout candle's body.\n* **Market Sentiment**: Analyze the market reaction to news; if the breakout occurs but the sentiment is negative (e.g., bearish news), consider it a potential trap.\n",
     "context": {
       "keyTerms": [
         {
-          "term": "On-Balance Volume (OBV)",
-          "definition": "A technical indicator that uses volume flow to predict changes in stock price."
-        },
-        {
-          "term": "Engulfing Pattern",
-          "definition": "A candlestick pattern that indicates a potential reversal in price direction."
+          "term": "Economic News Release",
+          "definition": "Scheduled announcements that can influence market volatility and trader sentiment."
         }
       ],
-      "whyThisMatters": "Real-time monitoring of displacement allows traders to capitalize on market movements and manage risk effectively.",
-      "realLifeExample": "At 4:30 AM EST, GBPUSD showed a bullish engulfing pattern with a volume spike of 25%, indicating strong upward displacement, leading to a successful long position.",
-      "commonMistake": "Failing to utilize volume indicators can lead to misinterpretation of displacement, resulting in poor trade decisions.",
-      "quickNote": "Real-time monitoring of displacement is essential to capitalize on London session volatility.",
-      "mentorText": "Stay alert during the London session. Use volume indicators and candlestick patterns to track displacement in real-time. This is where you can make the most informed decisions.",
-      "mentorAnalogy": "Like a surgeon monitoring vital signs during an operation, you must keep a close eye on displacement metrics to ensure a successful trade."
+      "whyThisMatters": "Evaluating news impact helps traders discern between genuine breakouts and potential traps, enhancing decision-making.",
+      "realLifeExample": "On GBPUSD, a breakout above 1.3000 occurred at 8:30 AM EST during a positive GDP release but closed at 1.2985, indicating a failed breakout due to negative sentiment.",
+      "commonMistake": "Ignoring the impact of news releases can lead to misjudging breakout validity, resulting in losses.",
+      "quickNote": "News events can distort breakout signals; always analyze the close in context.",
+      "mentorText": "After a news release, watch how the candle closes. If it doesn’t hold above the breakout level, it’s likely a false move—stay disciplined.",
+      "mentorAnalogy": "Consider news releases like a sudden storm; they can change the landscape quickly, and you must assess the aftermath before proceeding."
     },
     "taskData": null,
-    "visualKey": "forex-london-breakout-displacement"
+    "visualKey": "forex-session-breakout-fade"
   },
   {
     "type": "practice",
-    "title": "Practical Exercises on London Breakout Displacement",
+    "title": "Forex Breakout Practice Scenarios",
     "label": "Forex Track",
-    "body": "### Practical Application: London Breakout Displacement Exercises\nEngaging in practical exercises reinforces the understanding of displacement concepts during London breakouts. This card provides **real-world scenarios for application**.\n\n* **Scenario Analysis**: Analyze a recent GBPJPY breakout at 5:00 AM EST. Identify the body-to-wick ratio and volume changes. Determine if the breakout was valid based on your analysis.\n* **Trade Simulation**: Simulate a trade based on a hypothetical breakout of AUDUSD at 6:15 AM EST. Calculate the expected displacement and decide on entry and exit points based on volume indicators.\n* **Reflection Exercise**: After each simulated trade, reflect on the displacement metrics used. Were they sufficient for decision-making? What could be improved in your analysis?",
+    "body": "### Breakout Identification: Practical Scenarios\nEngage in practical scenarios to test your ability to identify valid breakouts and failed breaks in Forex trading. This card emphasizes **real-time evaluation of breakout conditions**.\n\n* **Scenario 1**: EURJPY breaks above 130.50 during the London session with a close at 130.75. Assess the close quality and volume.\n* **Scenario 2**: AUDUSD breaks below 0.7500 after an economic news release but closes at 0.7520. Determine if this is a valid breakout or a failed attempt.\n* **Scenario 3**: USDCHF shows a breakout above 0.9200 during the New York session but closes at 0.9185. Evaluate the breakout's validity based on the close and session overlap.\n",
     "context": {
       "keyTerms": [
         {
-          "term": "Trade Simulation",
-          "definition": "A practice exercise where traders simulate trades based on market conditions."
-        },
-        {
-          "term": "Scenario Analysis",
-          "definition": "The process of analyzing potential future events by considering alternative possible outcomes."
+          "term": "Breakout",
+          "definition": "A price movement that surpasses a defined resistance or support level."
         }
       ],
-      "whyThisMatters": "Practical exercises solidify theoretical knowledge, enhancing decision-making skills in real trading environments.",
-      "realLifeExample": "In a simulated exercise, traders analyzed the GBPJPY breakout at 5:00 AM EST, noting a body-to-wick ratio of 3:1 and a volume increase of 40%, confirming a valid breakout.",
-      "commonMistake": "Neglecting to analyze the body-to-wick ratio and volume in practice scenarios can lead to poor trading decisions.",
-      "quickNote": "Practice makes perfect; engage in exercises to refine your displacement analysis skills.",
-      "mentorText": "Don't just learn the theory; put it into practice. Analyze real scenarios and simulate trades to see how displacement plays out in the market.",
-      "mentorAnalogy": "Like a pilot practicing flight maneuvers in a simulator, you must engage in realistic trading exercises to prepare for actual market conditions."
+      "whyThisMatters": "Practicing breakout scenarios sharpens analytical skills, allowing traders to differentiate between valid and failed breakouts effectively.",
+      "realLifeExample": "In a scenario where EURJPY breaks above 130.50, analyze the close at 130.75 and volume to confirm breakout strength.",
+      "commonMistake": "Rushing to execute trades without thoroughly analyzing the close quality and market context.",
+      "quickNote": "Practice identifying breakouts and failed breaks to enhance your trading acumen.",
+      "mentorText": "In these scenarios, take your time to analyze the closes and volume. This is where you’ll find the truth behind the breakout.",
+      "mentorAnalogy": "Think of evaluating breakouts like a forensic investigator; you must examine all evidence before concluding."
     },
     "taskData": {
       "type": "choice_block",
-      "question": "During a simulated GBPJPY breakout at 5:00 AM EST, the body-to-wick ratio is 3:1 with a volume increase of 40%. What does this indicate?",
+      "question": "In the scenario where AUDUSD breaks below 0.7500 after a news release but closes at 0.7520, what should you conclude?",
       "options": [
         {
           "id": "0",
-          "text": "The breakout is likely valid and indicates strong momentum.",
-          "isCorrect": true,
-          "feedback": "A 3:1 body-to-wick ratio with a significant volume increase confirms a strong breakout."
+          "text": "This is a valid breakout since it broke below support.",
+          "isCorrect": false,
+          "feedback": "Incorrect. The close above 0.7500 indicates a potential failed breakout."
         },
         {
           "id": "1",
-          "text": "The breakout is false and should be ignored.",
-          "isCorrect": false,
-          "feedback": "This interpretation overlooks the strong body-to-wick ratio and volume increase."
+          "text": "This is a failed breakout as the close is above the breakout level.",
+          "isCorrect": true,
+          "feedback": "Correct. The close above 0.7500 suggests the breakout was not sustained."
         },
         {
           "id": "2",
-          "text": "The market is uncertain and should be approached with caution.",
+          "text": "This breakout is valid since it occurred after a news release.",
           "isCorrect": false,
-          "feedback": "While caution is important, the metrics indicate a valid breakout."
+          "feedback": "Incorrect. The timing does not validate the breakout; the close does."
         },
         {
           "id": "3",
-          "text": "The breakout is likely to reverse immediately.",
+          "text": "The breakout is inconclusive and requires further analysis.",
           "isCorrect": false,
-          "feedback": "The metrics do not support an immediate reversal; they indicate strong momentum."
+          "feedback": "While further analysis is always beneficial, the close already indicates a failed breakout."
         }
       ]
     },
-    "visualKey": "forex-london-breakout-displacement"
+    "visualKey": "forex-session-breakout-fade"
   },
   {
     "type": "summary",
-    "title": "Summary of London Breakout Displacement",
+    "title": "Forex Track Summary",
     "label": "Forex Track",
-    "body": "### Key Insights: London Breakout Displacement Summary\nThis card summarizes the essential strategies and insights regarding displacement during the London breakout. Understanding these concepts is critical for effective trading.\n\n* **Displacement Metrics**: Focus on body-to-wick ratios and volume changes to assess breakout validity. A ratio above 2:1 with increased volume typically indicates a strong breakout.\n* **Common Traps**: Be aware of common traps such as false breakouts, often indicated by long wicks and low volume. Always verify displacement before executing trades.\n* **Real-Time Monitoring**: Utilize volume indicators and candlestick patterns for real-time displacement analysis during the London session. This enables timely and informed trading decisions.",
+    "body": "### Summary of Breakouts and Candle Closes\nThis summary encapsulates the critical concepts regarding breakout validity and the evaluation of candle closes. Key takeaways include:\n\n* **Session Overlap Importance**: Breakouts during session overlaps are more reliable; assess close quality for confirmation.\n* **Impact of Economic News**: News releases can distort breakout signals; always analyze the close in context to determine validity.\n* **Practical Application**: Regular practice in identifying breakouts and failed breaks sharpens analytical skills and enhances decision-making.\n",
     "context": {
       "keyTerms": [
         {
-          "term": "Breakout Validity",
-          "definition": "The confirmation that a breakout is genuine based on displacement metrics."
-        },
-        {
-          "term": "Volume Changes",
-          "definition": "The fluctuations in trading volume that can indicate market strength."
+          "term": "Candle Close",
+          "definition": "The final price at which a trading instrument is settled at the end of a specific time period."
         }
       ],
-      "whyThisMatters": "Summarizing key insights helps reinforce learning and prepares traders for effective execution in live markets.",
-      "realLifeExample": "In the recent London session, GBPUSD showed a valid breakout with a body-to-wick ratio of 3:1 and a volume increase of 35%, confirming the strategy discussed.",
-      "commonMistake": "Traders often overlook the importance of summarizing key metrics, leading to inconsistent trading performance.",
-      "quickNote": "Master the key insights of displacement for successful trading during the London breakout.",
-      "mentorText": "Review the key metrics and strategies we've discussed. These are your tools for navigating the London breakout effectively. Keep them in mind as you trade.",
-      "mentorAnalogy": "Like an architect reviewing blueprints before construction, you must summarize and understand your strategies before entering the market."
+      "whyThisMatters": "Summarizing these concepts reinforces the critical skills needed to navigate breakouts effectively in Forex trading.",
+      "realLifeExample": "Reviewing EURUSD breakouts during session overlaps and news releases highlights the importance of close quality in confirming trades.",
+      "commonMistake": "Neglecting to analyze the close quality can lead to misjudging breakout validity.",
+      "quickNote": "Focus on session overlaps, news impact, and practical scenarios to master breakout evaluation.",
+      "mentorText": "Remember, the quality of the close is your best indicator of breakout validity. Keep practicing these concepts to refine your skills.",
+      "mentorAnalogy": "Think of your trading strategy as a well-tuned engine; each component, like session overlaps and candle closes, must work together for optimal performance."
     },
     "taskData": null,
-    "visualKey": "forex-london-breakout-displacement"
+    "visualKey": "forex-session-breakout-fade"
   }
 ];

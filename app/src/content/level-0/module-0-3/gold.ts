@@ -2,100 +2,153 @@ import { LessonCard } from "../../../types/curriculum";
 
 export const goldCards: LessonCard[] = [
   {
-    type: "visual_intro",
-    title: "Gold Candles Are Volatility Records",
-    visualKey: "gold-candle-context-board",
-    label: "Gold Candle Foundation",
-    body: "A Gold candle records XAU/USD movement during one selected period. But in Gold, the candle’s quality depends heavily on volatility, session activity, USD/rate context, news pressure, and liquidity. Read the candle and the environment together.",
-    context: {
-      keyTerms: [
-        { term: "XAU/USD Candle", definition: "A candle that records Gold priced against the US Dollar during one selected timeframe." },
-        { term: "Volatility", definition: "How quickly and sharply price moves." },
-        { term: "Session Activity", definition: "The market time window in which the candle forms, such as Asia, London, or New York." },
-        { term: "USD Context", definition: "The broader strength or weakness of the US Dollar (USD), which can influence Gold pricing." },
-        { term: "Rate Expectations", definition: "Market expectations around interest rates, which can affect demand for Gold." },
-        { term: "News Window", definition: "A period around major economic events where candles may become unusually fast or unstable." },
-        { term: "Liquidity Condition", definition: "How clean or thin the market environment is when the candle forms." }
+    "type": "concept",
+    "title": "Introduction to Gold Price Feeds",
+    "label": "Gold Track",
+    "body": "### Introduction to Gold Price Feeds\nGold price feeds are live streams of data displaying the buying and selling prices of gold in international markets, typically quoted as XAU/USD (Ounce of Gold in US Dollars).\n\n* **Asset Quote**: XAU/USD represents the price of one troy ounce of gold in U.S. dollars.\n* **COMEX Reference**: The Commodity Exchange (COMEX) gold futures market serves as the primary price benchmark for global gold trading.\n* **Volatility Catalysts**: Gold prices are highly sensitive to global economic changes, central bank announcements, and interest rate shifts.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "XAU/USD",
+          "definition": "The financial ticker representing the price of gold per troy ounce in U.S. dollars."
+        },
+        {
+          "term": "COMEX",
+          "definition": "The Commodity Exchange, the primary futures exchange where gold contracts are traded."
+        }
       ],
-      whyThisMatters: "Gold candles can look powerful because Gold moves quickly. But speed alone does not make the candle reliable. A learner must know whether the candle formed in a clean environment or during unstable volatility.",
-      realLifeExample: "Gold forms a large candle during New York session after major economic data. A rushed learner sees only the candle size. A trained learner checks whether the move was supported by USD context, rate expectations, liquidity, and the candle close.",
-      commonMistake: "Judging a Gold candle only by size or color without checking the environment that created it.",
-      quickNote: "In Gold, candle quality depends on context."
-    }
+      "whyThisMatters": "Understanding the XAU/USD quote is essential for tracking gold price movements and establishing market value.",
+      "realLifeExample": "A live feed shows XAU/USD at $1,850.00, meaning one ounce of gold costs 1,850 U.S. dollars.",
+      "commonMistake": "Confounding the troy ounce (used for gold pricing) with a standard ounce, which has different weight specifications.",
+      "quickNote": "COMEX futures prices are the global standard for pricing physical and paper gold."
+    },
+    "taskData": null,
+    "visualKey": "gold-comex-futures-feeds"
   },
   {
-    type: "visual_intro",
-    title: "News Candle vs. Structured Candle",
-    visualKey: "gold-candle-quality-board",
-    label: "Candle Quality",
-    body: "A Gold news candle may record real activity, but it can also record unstable repricing. A structured candle is easier to read when the close, level, follow-through, and context support the move.",
-    context: {
-      keyTerms: [
-        { term: "News Candle", definition: "A candle formed during or near a major economic event." },
-        { term: "Structured Candle", definition: "A candle whose body, close, location, and follow-through create clearer evidence." },
-        { term: "Follow-Through", definition: "What price does after the candle closes." },
-        { term: "Close Location", definition: "Where the candle finishes inside its full high-to-low range." },
-        { term: "Event Volatility", definition: "Fast movement caused by major data, announcements, or macro repricing." },
-        { term: "Repricing", definition: "A fast adjustment in price when the market reacts to new information." }
+    "type": "concept",
+    "title": "Gold Bids, Asks, and Spreads",
+    "label": "Gold Track",
+    "body": "### Gold Bids, Asks, and Spreads\nTrading gold involves executing orders at prices determined by the bid-ask spread in the gold order book.\n\n* **Bid Price**: The highest price buyers are currently offering for XAU/USD.\n* **Ask Price**: The lowest price sellers are currently demanding for XAU/USD.\n* **Spread**: The difference between the ask price and bid price, representing the immediate cost of entry.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Bid Price",
+          "definition": "The highest price a buyer is willing to pay for gold."
+        },
+        {
+          "term": "Ask Price",
+          "definition": "The lowest price a seller is willing to accept for gold."
+        }
       ],
-      whyThisMatters: "Many Gold learners get trapped by large candles during news. The candle may look important, but if it forms inside unstable conditions, the learner must wait for structure before forming a strong reading.",
-      realLifeExample: "Gold spikes after a major data release, leaves a long wick, and closes in the middle of the range. A rushed learner calls direction immediately. A trained learner waits to see whether the next candles confirm structure.",
-      commonMistake: "Thinking a large Gold candle during news automatically gives a clear reading.",
-      quickNote: "A dramatic candle is not always a clean candle."
-    }
+      "whyThisMatters": "Knowing bids and asks is critical for calculating entry costs and avoiding execution slippage.",
+      "realLifeExample": "If the bid is $1,850.00 and the ask is $1,850.30, you pay $1,850.30 to buy gold immediately via a market order.",
+      "commonMistake": "Expecting to buy gold at the bid price when executing an immediate buy, which results in entering at the ask price.",
+      "quickNote": "The spread on XAU/USD is usually tight during liquid hours, but widens during news releases."
+    },
+    "taskData": null,
+    "visualKey": "gold-comex-futures-feeds"
   },
   {
-    type: "visual_intro",
-    title: "Gold Wick Diagnosis",
-    visualKey: "gold-wick-diagnostic-board",
-    label: "Wick Mechanics",
-    body: "A Gold wick can suggest rejection, but it can also come from a liquidity sweep, news spike, or thin market condition. A Lurnava learner diagnoses the wick before trusting it as evidence.",
-    context: {
-      keyTerms: [
-        { term: "Wick", definition: "The part of a candle showing where price travelled beyond the body but did not close there." },
-        { term: "Clean Rejection", definition: "A possible reading where price tests an area and fails to hold, supported by context." },
-        { term: "Liquidity Sweep", definition: "A move beyond a visible area that may trigger orders before price returns." },
-        { term: "News Spike", definition: "A fast candle movement caused by major data or market repricing." },
-        { term: "Thin Liquidity", definition: "A condition where fewer available orders make price easier to move." },
-        { term: "Follow-Through", definition: "The price behavior after the wick forms." },
-        { term: "Wick Diagnosis", definition: "The process of identifying what may have created the wick." }
+    "type": "concept",
+    "title": "Gold Tick Size and Contract Multipliers",
+    "label": "Gold Track",
+    "body": "### Gold Tick Size and Contract Multipliers\nTick size is the minimum increment by which the gold price can move, which affects order placement and price charting.\n\n* **COMEX Tick Size**: The minimum tick size for COMEX gold futures is $0.10 per ounce, representing a $10.00 value per standard contract (100 oz).\n* **Retail Spread Pricing**: Retail brokers often quote gold to two decimals (e.g., $1,850.05), allowing price increments of $0.01.\n* **Standard Contract Sizing**: One standard gold futures contract represents 100 troy ounces of gold.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Tick Size",
+          "definition": "The minimum allowed price movement of a trading instrument."
+        }
       ],
-      whyThisMatters: "Gold often creates dramatic wicks. A learner who calls every wick rejection will misread many candles. The correct habit is to ask what created the wick and whether the next price behavior supports the reading.",
-      realLifeExample: "Gold pushes above a previous high, leaves a long upper wick, and falls back. A rushed learner says “reversal.” A trained learner checks whether it was clean rejection, a liquidity sweep, news volatility, or a thin-liquidity spike.",
-      commonMistake: "Treating every long Gold wick as a confirmed reversal signal.",
-      quickNote: "A Gold wick is a clue, not a verdict."
-    }
+      "whyThisMatters": "Calculating tick size and contract value allows you to set precise stop-loss and take-profit targets.",
+      "realLifeExample": "If gold moves from $1,850.00 to $1,850.10, it has moved exactly one COMEX tick ($0.10).",
+      "commonMistake": "Miscalculating position value by forgetting that one standard lot represents 100 ounces, resulting in excessive risk."
+    },
+    "taskData": null,
+    "visualKey": "gold-comex-futures-feeds"
   },
   {
-    type: "practice",
-    title: "Gold Mini Drill: Clean Rejection or Event Noise?",
-    visualKey: "gold-candle-decision-board",
-    label: "Practical Drill",
-    body: "Observe the decision board. We have a sudden spike on XAU/USD (Gold vs. US Dollar) during a high-volatility news window. Use the checklist to determine if this move represents a real structural breakout or mechanical noise.\n\n**What is the disciplined Gold candle reading?**",
-    taskData: {
-      type: "choice_block",
-      question: "What is the disciplined Gold reading?",
-      options: [
-        { id: "A", text: "The upper wick guarantees rejection, so the reading is complete.", isCorrect: false, feedback: "Not correct. A wick does not guarantee rejection. In Gold, a wick can come from news volatility, liquidity sweep, or unstable movement." },
-        { id: "B", text: "Treat the candle carefully because it formed during unstable conditions and needs context, close-location review, and follow-through.", isCorrect: true, feedback: "Correct. A Gold wick during a news window can be useful evidence, but it is not complete by itself. The learner must check close location, context, liquidity, and follow-through before forming a stronger reading." },
-        { id: "C", text: "The candle is large, so it must be high-quality evidence.", isCorrect: false, feedback: "Not correct. A large candle is not automatically high-quality evidence. Gold can move dramatically and still remain unclear." },
-        { id: "D", text: "Ignore the news window and read only the candle shape.", isCorrect: false, feedback: "Not correct. News context matters. A candle formed during an unstable event window needs extra caution." }
+    "type": "concept",
+    "title": "Macro Factors Impacting Gold Price Feeds",
+    "label": "Gold Track",
+    "body": "### Macro Factors Impacting Gold Price Feeds\nGold prices are highly reactive to macroeconomic events, which shape price feed trends and volatility.\n\n* **Interest Rates**: Gold has an inverse relationship with interest rates; rising rates increase the opportunity cost of holding gold, often driving prices down.\n* **US Dollar Index (DXY)**: Gold is typically priced in USD, meaning a stronger Dollar often pushes gold prices lower, and a weaker Dollar pushes them higher.\n* **Safe-Haven Demand**: During periods of geopolitical uncertainty or high inflation, investor demand for gold rises, driving prices up.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Safe-Haven Asset",
+          "definition": "An asset that is expected to retain or increase in value during times of market turbulence."
+        }
+      ],
+      "whyThisMatters": "Understanding these macro drivers helps you anticipate major trends and avoid entering during high-risk news events.",
+      "realLifeExample": "Following an announcement of interest rate hikes by the Federal Reserve, the gold price feed experiences a sharp downward swing.",
+      "commonMistake": "Trading gold during major news releases without adjusting risk parameters, leading to severe slippage."
+    },
+    "taskData": null,
+    "visualKey": "gold-comex-futures-feeds"
+  },
+  {
+    "type": "concept",
+    "title": "Gold Liquidity Pools and Spreads",
+    "label": "Gold Track",
+    "body": "### Gold Liquidity Pools and Spreads\nLiquidity in the gold market fluctuates dynamically throughout the trading day, directly impacting spreads.\n\n* **London and NY Session Peak**: Liquidity is highest during the London and New York session overlap, when spreads are thinnest.\n* **Off-Peak Spreads**: During the Asian session, lower trading volume can lead to wider spreads and slower price movement.\n* **Order Execution**: Liquid markets ensure that market orders are filled with minimal slippage."
+  },
+  {
+    "type": "concept",
+    "title": "Introduction to Gold Spreads and Volatility",
+    "label": "Gold Track",
+    "body": "### Introduction to Gold Spreads and Volatility\nVolatile market events cause spreads to expand and contract dynamically.\n\n* **Spread Expansion**: When high-impact news is released, market makers pull their orders, widening the spread to protect themselves from rapid price movements.\n* **Safe Trading Rules**: Avoid entering trades with market orders during these spread expansions, as the exit/entry prices will be less favorable.\n* **Limit Orders**: Utilizing limit orders protects you from buying at unfavorable prices during spread spikes."
+  },
+  {
+    "type": "practice",
+    "title": "Practical Analysis of Gold Spreads",
+    "label": "Gold Track",
+    "body": "### Practical Analysis of Gold Spreads\nLet's apply spread calculations to real-time gold price feeds to ensure you can evaluate transaction costs accurately.\n\n* **Spread Identification**: Locate the current bid and ask prices on the feed.\n* **Cost Calculation**: Calculate the difference to determine the spread value.",
+    "context": {
+      "whyThisMatters": "Calculating spreads ensures you can identify whether current conditions are suitable for trade execution.",
+      "realLifeExample": "A price feed shows XAU/USD bid at $1,850.00 and ask at $1,850.30. The spread is $0.30."
+    },
+    "taskData": {
+      "type": "choice_block",
+      "question": "You see a gold price feed showing XAU/USD bidding at $1,850.00 and asking at $1,850.30. What is the bid-ask spread?",
+      "options": [
+        {
+          "id": "0",
+          "text": "$0.30",
+          "isCorrect": true,
+          "feedback": "Correct! The spread is calculated as Ask ($1,850.30) - Bid ($1,850.00) = $0.30."
+        },
+        {
+          "id": "1",
+          "text": "$3.00",
+          "isCorrect": false,
+          "feedback": "Incorrect. Check your math. $1,850.30 minus $1,850.00 is 30 cents ($0.30), not 3 dollars ($3.00)."
+        },
+        {
+          "id": "2",
+          "text": "$0.03",
+          "isCorrect": false,
+          "feedback": "Incorrect. The difference is 30 cents ($0.30), not 3 cents ($0.03)."
+        },
+        {
+          "id": "3",
+          "text": "$30.00",
+          "isCorrect": false,
+          "feedback": "Incorrect. The difference is 30 cents ($0.30), not 30 dollars ($30.00)."
+        }
       ]
     },
-    context: {
-      keyTerms: [
-        { term: "Event Noise", definition: "Unstable movement created around major economic or market events." },
-        { term: "Clean Rejection", definition: "A possible reading where price tests an area and fails to hold, supported by structure and follow-through." },
-        { term: "Close-Location Review", definition: "Checking where the candle closed inside its full range." },
-        { term: "Follow-Through", definition: "What price does after the candle closes." },
-        { term: "Unclear Condition", definition: "A market condition where the candle does not provide enough evidence yet." },
-        { term: "News Window", definition: "The time around major data or announcements when Gold movement may become unstable." },
-        { term: "Structure Confirmation", definition: "Additional chart behavior that supports the reading." }
-      ],
-      whyThisMatters: "Gold often creates candles that look decisive but are actually unstable. A learner who can label unclear conditions honestly will avoid forcing weak readings from dramatic candles.",
-      realLifeExample: "A gold candle (XAU/USD - Gold vs. US Dollar) opens at $2,000, spikes to $2,020 during a major news window, drops to $1,980, and closes at $1,995. The candle records that massive price movement in dollars, but the structure is incomplete until future candles confirm a trend.",
-      commonMistake: "Turning a news-driven Gold wick into a complete reversal conclusion.",
-      quickNote: "In Gold, unclear is a professional answer."
-    }
+    "visualKey": "gold-comex-futures-feeds"
+  },
+  {
+    "type": "summary",
+    "title": "Summary of Gold Price Feed Concepts",
+    "label": "Gold Track",
+    "body": "### Summary: Gold Price Feed Concepts\nUnderstanding XAU/USD quotes, bids, asks, and how spreads react to liquidity is crucial for gold trading.\n\n* **XAU/USD Quote**: The price of one ounce of gold in U.S. dollars.\n* **Bids and Asks**: Buy/sell levels in the book that determine execution.\n* **Spread Costs**: The ask-bid gap which fluctuates based on sessions and economic data.",
+    "context": {
+      "whyThisMatters": "Consolidating these concepts prepares you to analyze gold candlestick patterns and wicks in the next module."
+    },
+    "taskData": null,
+    "visualKey": "gold-comex-futures-feeds"
   }
 ];

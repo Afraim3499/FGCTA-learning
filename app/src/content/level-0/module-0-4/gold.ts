@@ -2,217 +2,142 @@ import { LessonCard } from "../../../types/curriculum";
 
 export const goldCards: LessonCard[] = [
   {
-    type: "visual_intro",
-    title: "Gold Timeframes Are Volatility Records",
-    visualKey: "gold-volatility-record-board",
-    label: "Gold Foundation",
-    body: "A Gold timeframe does not exist by itself. A 15-minute candle records 15 minutes of Gold vs. US Dollar (XAU/USD) movement, but its quality depends on volatility, liquidity, market window, macro context, and where the candle forms inside the broader structure.",
-    context: {
-      keyTerms: [
-        { term: "XAU/USD Timeframe", definition: "The amount of time represented by one Gold candle." },
-        { term: "Volatility Condition", definition: "The speed and intensity of price movement during the candle period." },
-        { term: "Candle Quality", definition: "How useful a candle is as evidence after checking the environment that created it." },
-        { term: "Market Window", definition: "A period of the trading day where activity, liquidity, or event pressure changes." },
-        { term: "Unstable Candle", definition: "A candle that looks strong but forms in fast, unclear, or distorted conditions." }
+    "type": "concept",
+    "title": "Introduction to Gold Price Charts",
+    "label": "Gold Track",
+    "body": "### Introduction to Gold Price Charts\nGold price charts visually display price changes for XAU/USD over specific intervals of time, enabling analysis of market trends.\n\n* **Chart Purpose**: Helps identify key support and resistance zones where buyers or sellers historically entered the market.\n* **Timeframe Intervals**: Charts are viewed in daily (1D), hourly (1H), or minute (15m, 5m, 1m) timeframes. A 1-hour chart groups price action into hourly bars.\n* **Session Structure**: Gold charts show distinct behaviors depending on the active trading session (London, New York, or Asia).",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Price Chart",
+          "definition": "A visual timeline representing price changes over time."
+        },
+        {
+          "term": "Timeframe",
+          "definition": "The specific time interval represented by each segment of the chart (e.g., 1 hour)."
+        }
       ],
-      whyThisMatters: "Gold can make a candle look important simply because it moves fast. If the learner ignores the condition behind the candle, they may confuse volatility with clarity.",
-      realLifeExample: "Gold forms a large 15-minute candle during a quiet period and another large 15-minute candle after major US data. Same timeframe, different market condition.",
-      commonMistake: "Judging a Gold candle only by size or color without checking the environment that created it.",
-      "quickNote": "In Gold, candle size is not enough. Condition creates meaning."
-    }
+      "whyThisMatters": "Charts provide the visual canvas where you perform structural analysis and define trading setups.",
+      "realLifeExample": "A 1-hour chart of XAU/USD shows gold trading within a steady channel between $1,840 and $1,860 over a 48-hour period.",
+      "commonMistake": "Ignoring the timeframe being viewed, leading to taking a short-term trade that conflicts with the long-term trend."
+    },
+    "taskData": null,
+    "visualKey": "gold-spread-volatility"
   },
   {
-    type: "visual_intro",
-    title: "Gold Does Not Move Equally All Day",
-    visualKey: "gold-market-rhythm-board",
-    label: "Market Rhythm",
-    body: "Gold may print candles across long trading hours, but not every hour carries the same reading quality. Activity, liquidity, macro attention, and event timing can change how much trust a learner should place in a candle.",
-    context: {
-      keyTerms: [
-        { term: "Market Rhythm", definition: "The way activity changes across the trading day." },
-        { term: "Active Window", definition: "A period where participation and movement may increase." },
-        { term: "Quiet Window", definition: "A period where movement may be slower, thinner, or less reliable." },
-        { term: "Overlap Activity", definition: "A period where major market participation can increase." },
-        { term: "Event Window", definition: "A period around scheduled or sudden information that can create unstable movement." }
+    "type": "concept",
+    "title": "Anatomy of a Gold Candlestick",
+    "label": "Gold Track",
+    "body": "### Anatomy of a Gold Candlestick\nEach candlestick on a gold chart summarizes four key prices (Open, High, Low, Close) for a chosen timeframe interval.\n\n* **Candle Body**: The thick rectangular part representing the price range between the open (start price) and the close (end price).\n* **Wicks (Shadows)**: The thin lines extending above and below the body, showing the highest and lowest prices reached during that period.\n* **OHLC Data**: Open, High, Low, and Close prices define the structure of every candlestick.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Candle Body",
+          "definition": "The central part of the candlestick representing the range between open and close."
+        },
+        {
+          "term": "Candle Wick",
+          "definition": "The thin lines showing price extremes (highs and lows) during the candle's duration."
+        }
       ],
-      whyThisMatters: "A learner who treats every hour the same will overread weak candles and underprepare for unstable candles.",
-      realLifeExample: "Gold may stay narrow for hours, then expand sharply during New York data. The timeframe did not change, but the environment did.",
-      commonMistake: "Thinking Gold candles carry the same quality just because they have the same timeframe.",
-      "quickNote": "Gold has timeframes, but it also has rhythm."
-    }
+      "whyThisMatters": "Learning to read wicks and bodies is fundamental to structural analysis and identifying price rejection.",
+      "realLifeExample": "A 1-hour gold candle opens at $1,850.00 and closes at $1,855.00, with a high of $1,858.00 and a low of $1,848.00.",
+      "commonMistake": "Only looking at the candle body, which ignores the price extremes (wicks) where key liquidity sits."
+    },
+    "taskData": null,
+    "visualKey": "gold-spread-volatility"
   },
   {
-    type: "visual_intro",
-    title: "Same Candle, Different Gold Window",
-    visualKey: "gold-window-comparison-board",
-    label: "Candle Weight",
-    body: "A Gold candle gains meaning from the window that created it. The same candle shape can be weak, useful, unstable, or structurally important depending on liquidity, market activity, news pressure, and location.",
-    context: {
-      keyTerms: [
-        { term: "Evidence Weight", definition: "The relative importance of a candle after considering context." },
-        { term: "Gold Window", definition: "The time and condition in which a Gold candle forms." },
-        { term: "Structural Location", definition: "Where the candle forms inside the broader chart." },
-        { term: "Thin Movement", definition: "Movement that may happen with weaker participation or lower depth." },
-        { term: "Unstable Evidence", definition: "A candle that looks important but forms in conditions where clarity is low." }
+    "type": "concept",
+    "title": "Bullish vs. Bearish Gold Candles",
+    "label": "Gold Track",
+    "body": "### Bullish vs. Bearish Gold Candles\nCandle colors indicate whether the price closed higher or lower than its opening level.\n\n* **Bullish (Green) Candle**: Price closed higher than it opened (Close > Open), indicating that buying pressure dominated.\n* **Bearish (Red) Candle**: Price closed lower than it opened (Close < Open), indicating that selling pressure dominated.\n* **Doji (Neutral) Candle**: The open and close prices are nearly identical, leaving a thin line as a body, indicating indecision in the market.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Bullish",
+          "definition": "Indicating or expecting an upward movement in price."
+        },
+        {
+          "term": "Bearish",
+          "definition": "Indicating or expecting a downward movement in price."
+        }
       ],
-      whyThisMatters: "Gold learners often react to candle shape too quickly. This card teaches them to judge candle quality before trusting the candle.",
-      realLifeExample: "A long upper wick at a major level during active conditions may matter. The same wick during news may simply be event noise until follow-through appears.",
-      commonMistake: "Thinking the same Gold candle shape has the same meaning in every market window.",
-      "quickNote": "Gold candle shape needs Gold context."
-    }
+      "whyThisMatters": "The color and size of candle bodies provide instant feedback on market control (buyers vs. sellers).",
+      "realLifeExample": "Four consecutive large green daily candles on XAU/USD show strong buying pressure, indicating a bullish trend.",
+      "commonMistake": "Trading against a series of large, strong-colored candles, assuming a reversal is imminent without structural evidence."
+    },
+    "taskData": null,
+    "visualKey": "gold-spread-volatility"
   },
   {
-    type: "visual_intro",
-    title: "Macro News Can Distort Gold Timeframes",
-    visualKey: "gold-event-distortion-board",
-    label: "Event Pressure",
-    body: "A Gold candle formed during a macro news window can record real repricing, but it can also contain unstable movement, violent wicks, and unclear follow-through. The disciplined learner waits for structure and close-location evidence before trusting the move.",
-    context: {
-      keyTerms: [
-        { term: "Macro News Window", definition: "A period around economic data, central bank comments, or market-moving information." },
-        { term: "Repricing", definition: "A fast adjustment in price after new information enters the market." },
-        { term: "Event Volatility", definition: "Fast and sometimes unstable movement caused by a major event." },
-        { term: "Follow-Through", definition: "What price does after the event candle closes." },
-        { term: "Close-Location Review", definition: "Checking where the candle finished inside its full range." },
-        { term: "Fake Clarity", definition: "A situation where a candle looks decisive but the context is unstable." }
-      ],
-      whyThisMatters: "Gold can move sharply around data. If the learner treats every news candle as clean evidence, they may confuse volatility with confirmation.",
-      realLifeExample: "Gold spikes after inflation data, leaves a long wick, and closes near the middle. A rushed learner calls direction. A trained learner waits to see whether price follows through or rejects the move.",
-      commonMistake: "Treating the first large Gold candle after news as the final truth.",
-      "quickNote": "News can make Gold loud before it becomes clear."
-    }
+    "type": "concept",
+    "title": "Gold Wicks as Price Rejection Indicators",
+    "label": "Gold Track",
+    "body": "### Gold Wicks as Price Rejection Indicators\nIn the gold market, long wicks often indicate areas of price rejection where opposing orders entered aggressively.\n\n* **Upper Wick Rejection**: A long top wick shows that buyers pushed the price up, but sellers stepped in to drive it back down before the candle closed.\n* **Lower Wick Rejection**: A long bottom wick shows that sellers pushed the price down, but buyers stepped in to drive it back up.\n* **Volatility Sweeps**: Due to gold's volatility, wicks often sweep stops above swing highs or below swing lows before reversing."
   },
   {
-    type: "visual_intro",
-    title: "London, New York, and Futures Participation",
-    visualKey: "gold-participation-board",
-    label: "Participation Windows",
-    body: "Gold candles can become more meaningful when stronger participation enters the market, especially around major activity windows. But participation is not a signal. The learner still needs structure, location, close behavior, and follow-through.",
-    context: {
-      keyTerms: [
-        { term: "Participation Window", definition: "A time period where market involvement may increase." },
-        { term: "Futures Participation", definition: "Activity in futures markets that may influence visible Gold movement." },
-        { term: "Retail XAU/USD Candle", definition: "The Gold vs. US Dollar (XAU/USD) candle visible on a retail chart or platform." },
-        { term: "Liquidity Attention", definition: "The level of market activity around a price move." },
-        { term: "Macro Attention", definition: "Market focus on USD, yields, inflation, rates, and risk conditions." }
-      ],
-      whyThisMatters: "Gold can look more convincing during active windows, but the learner must not treat activity as automatic clarity.",
-      realLifeExample: "Gold moves sharply during New York after US data while futures participation increases. A trained learner checks whether the move closes cleanly and follows through, not only that it moved fast.",
-      commonMistake: "Thinking more activity automatically means a cleaner reading.",
-      "quickNote": "Participation adds weight, not certainty."
-    }
+    "type": "concept",
+    "title": "Candle Body Size and Trend Momentum",
+    "label": "Gold Track",
+    "body": "### Gold Candle Body Size and Trend Momentum\nThe size of a gold candle body relative to its wicks indicates the strength of momentum, reflecting capital allocation in XAUUSD.\n\n* **Decisive Bodies**: Large candle bodies with short wicks show strong, unimpeded gold buying or selling pressure, typically driven by macroeconomic flows or USD yield adjustments.\n* **Consolidating Bodies**: Small candle bodies with long wicks represent indecision or range-bound trading, common during session overlaps or pre-news windows.\n* **Volume Confirmation**: Gold trend momentum is highly validated when large body candles occur alongside a significant volume spike on the COMEX futures exchange."
   },
   {
-    type: "visual_intro",
-    title: "Higher-Timeframe Gold Location Comes First",
-    visualKey: "gold-location-context-board",
-    label: "Gold Location",
-    body: "In Gold, a lower-timeframe move can look powerful and still be incomplete. The higher timeframe shows where price is located in the broader structure. A trained learner checks location before trusting local movement.",
-    context: {
-      keyTerms: [
-        { term: "Higher-Timeframe Location", definition: "Where Gold is positioned in the broader chart structure." },
-        { term: "Major Level", definition: "A price area where the market has previously reacted." },
-        { term: "Range Boundary", definition: "The upper or lower area of a broader sideways structure." },
-        { term: "Local Move", definition: "Shorter-term movement inside the higher-timeframe context." },
-        { term: "Context-Limited Move", definition: "A move that is active but still restricted by broader location." }
-      ],
-      whyThisMatters: "Gold’s speed can make local movement feel more important than it is. Higher-timeframe location protects the learner from overreacting.",
-      realLifeExample: "Gold rallies hard on 5m, but the 4H chart shows price entering a previous rejection zone. The move is real, but not automatically clean.",
-      commonMistake: "Trusting a dramatic lower-timeframe Gold candle without checking higher-timeframe location.",
-      "quickNote": "In Gold, location comes before reaction."
-    }
+    "type": "concept",
+    "title": "Timeframe Relationships on Gold Charts",
+    "label": "Gold Track",
+    "body": "### Timeframe Relationships on Gold Charts\nEvery candlestick contains data from smaller timeframes, showing a fractal relationship.\n\n* **Candle Nesting**: One 4-hour (4H) candle is composed of four 1-hour (1H) candles.\n* **Trend Divergence**: Price can appear in a minor downtrend on a 5-minute chart while being in a major uptrend on the Daily chart.\n* **Analysis Rule**: Always verify the higher timeframe direction before looking for entry patterns on lower timeframes."
   },
   {
-    type: "visual_intro",
-    title: "Lower-Timeframe Gold Behavior: Wicks, Sweeps, and Reaction",
-    visualKey: "gold-local-behavior-board",
-    label: "Local Behavior",
-    body: "Lower-timeframe Gold charts are useful when they explain behavior inside a known location. They become dangerous when the learner treats every fast wick or candle as the full market story. Detail should refine the reading, not replace context.",
-    context: {
-      keyTerms: [
-        { term: "Local Behavior", definition: "Shorter-term price behavior inside a broader context." },
-        { term: "Liquidity Sweep", definition: "A move beyond a visible area that may trigger orders before price returns." },
-        { term: "Failed Break", definition: "A move beyond a level that does not hold." },
-        { term: "Behavior Lens", definition: "Using a smaller timeframe to observe how price is reacting now." },
-        { term: "Refinement", definition: "Adding detail to a broader reading." },
-        { term: "Gold Wick Reaction", definition: "A wick that may show a test, rejection, sweep, or unstable movement depending on context." }
-      ],
-      whyThisMatters: "Gold lower timeframes create many emotional traps. This card teaches learners to observe behavior without letting speed control the reading.",
-      realLifeExample: "Gold reaches a higher-timeframe level. The 5m chart shows a sweep above the level and a quick return. A trained learner treats this as behavior to review, not an automatic reversal call.",
-      commonMistake: "Using lower-timeframe Gold movement to create the main opinion instead of refining the broader reading.",
-      "quickNote": "Lower timeframes explain behavior. They do not replace context."
-    }
-  },
-  {
-    type: "visual_intro",
-    title: "Multi-Timeframe Gold Reading Process",
-    visualKey: "gold-reading-stack-board",
-    label: "Gold Workflow",
-    body: "A disciplined Gold reading starts with broader location and market condition before moving into lower-timeframe behavior. The learner checks volatility, macro context, structure, and follow-through before trusting a fast candle.",
-    context: {
-      keyTerms: [
-        { term: "Gold Top-Down Reading", definition: "A process for reading Gold from broader context into local behavior." },
-        { term: "Market Window", definition: "The condition and timing around the candle." },
-        { term: "Macro Context", definition: "USD, rate expectations, inflation data, risk sentiment, or news pressure." },
-        { term: "Working Structure", definition: "The main chart structure used for the current reading." },
-        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." },
-        { term: "Evidence Audit", definition: "Checking what supports and weakens a reading before forming a conclusion." }
-      ],
-      whyThisMatters: "Gold’s speed can pull learners into emotional decisions. A fixed reading process slows the learner down and improves evidence quality.",
-      realLifeExample: "Gold forms a fast candle on 15m. A trained learner checks 4H location, macro timing, market window, 1H structure, and lower-timeframe behavior before judging the move.",
-      commonMistake: "Starting from the fastest Gold chart and letting urgency control the reading.",
-      "quickNote": "Gold reading must move from context to behavior."
-    }
-  },
-  {
-    type: "practice",
-    title: "Gold Timeframe Conflict Drill",
-    visualKey: "gold-conflict-drill-board",
-    label: "Practice Drill",
-    body: "This drill tests whether you can separate fast Gold movement from aligned evidence. A Gold candle can be active and still incomplete. The trained learner checks timeframe, location, close behavior, market window, and follow-through before calling the reading clean.",
-    taskData: {
-      type: "choice_block",
-      question: "Gold forms a strong 15-minute bullish candle during New York activity. The 1-hour chart is still inside a range, the 4-hour chart is near a previous rejection area, and the candle closes below the top of its range. What is the disciplined Gold reading?",
-      options: [
-        { id: "A", text: "The 15-minute candle is strong, so Gold is clearly bullish.", isCorrect: false, feedback: "Not correct. A strong lower-timeframe Gold candle does not automatically define the full reading." },
-        { id: "B", text: "New York activity means the move must continue.", isCorrect: false, feedback: "Not correct. New York activity can increase movement, but it does not guarantee continuation." },
-        { id: "C", text: "The lower-timeframe move is active, but higher-timeframe location and close behavior reduce clarity. This is a mixed reading until structure confirms.", isCorrect: true, feedback: "Correct. The 15-minute move is active, but the 1-hour range, 4-hour rejection area, and imperfect close reduce clarity. This is a mixed reading until Gold shows stronger structure and follow-through." },
-        { id: "D", text: "The higher timeframe does not matter because Gold moves fast.", isCorrect: false, feedback: "Not correct. Gold’s speed makes higher-timeframe context more important, not less important." }
+    "type": "practice",
+    "title": "Practical Application of Gold Candlestick Reading",
+    "label": "Gold Track",
+    "body": "### Practical Application: Calculating Gold Body and Wick Sizes\nLet's apply candlestick calculations to real-time gold price feeds to ensure you can evaluate candle body sizes accurately.\n\n* **Body Size**: Body Size = Close Price - Open Price (for bullish candles) or Open Price - Close Price (for bearish candles).\n* **Wick Size**: Upper Wick = High - Max(Open, Close); Lower Wick = Min(Open, Close) - Low.",
+    "context": {
+      "whyThisMatters": "Calculating body and wick sizes helps you determine if a candle represents strong trend expansion or price rejection.",
+      "realLifeExample": "A 1-hour gold candle has an open of $1,850.00, close of $1,855.00, high of $1,858.00, and low of $1,848.00. The body size is $5.00."
+    },
+    "taskData": {
+      "type": "choice_block",
+      "question": "A 1-hour gold candle opens at $1,850.00 and closes at $1,855.00. The high of the hour was $1,858.00 and the low was $1,848.00. What is the size of the candle body?",
+      "options": [
+        {
+          "id": "0",
+          "text": "$5.00",
+          "isCorrect": true,
+          "feedback": "Correct! The body size is the absolute difference between the open and close: $1,855.00 - $1,850.00 = $5.00."
+        },
+        {
+          "id": "1",
+          "text": "$10.00",
+          "isCorrect": false,
+          "feedback": "Incorrect. $10.00 is the total range of the candle (High - Low: $1,858.00 - $1,848.00), not the body size."
+        },
+        {
+          "id": "2",
+          "text": "$3.00",
+          "isCorrect": false,
+          "feedback": "Incorrect. $3.00 is the size of the upper wick (High - Close: $1,858.00 - $1,855.00), not the body size."
+        },
+        {
+          "id": "3",
+          "text": "$2.00",
+          "isCorrect": false,
+          "feedback": "Incorrect. $2.00 is the size of the lower wick (Open - Low: $1,850.00 - $1,848.00), not the body size."
+        }
       ]
     },
-    context: {
-      keyTerms: [
-        { term: "Mixed Reading", definition: "A condition where some evidence supports the move but other layers reduce clarity." },
-        { term: "Alignment", definition: "When multiple timeframes and conditions support the same reading." },
-        { term: "Close Behavior", definition: "Where the candle finishes inside its range." },
-        { term: "Active but Incomplete", definition: "Movement that is worth observing but not strong enough for a clean conclusion." },
-        { term: "Follow-Through", definition: "What price does after the candle closes." }
-      ],
-      whyThisMatters: "Gold often creates convincing lower-timeframe candles that are not fully aligned with the broader chart.",
-      realLifeExample: "Gold jumps during New York, but the 4H chart is still near a previous rejection zone. A rushed learner calls it bullish. A trained learner marks it as active but not fully confirmed.",
-      commonMistake: "Confusing Gold’s speed with full multi-timeframe alignment.",
-      "quickNote": "In Gold, fast is not the same as confirmed."
-    }
+    "visualKey": "gold-spread-volatility"
   },
   {
-    type: "visual_intro",
-    title: "Gold Debrief: Time, Volatility, Context, Alignment",
-    visualKey: "gold-roadway-debrief",
-    label: "Roadway Debrief",
-    body: "You are no longer reading Gold candles as isolated fast moves. You now understand that every Gold candle belongs to a timeframe, every timeframe forms inside a volatility condition, and every move must be checked against market window, macro context, structure, and follow-through.",
-    context: {
-      keyTerms: [
-        { term: "Volatility Condition", definition: "The movement environment behind the candle." },
-        { term: "Market Window", definition: "The time and condition in which the Gold candle forms." },
-        { term: "Macro Context", definition: "USD, rates, inflation, risk sentiment, and event pressure around Gold." },
-        { term: "Timeframe Alignment", definition: "When multiple timeframes support the same reading." },
-        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." },
-        { term: "Gold Evidence Stack", definition: "The combined review of timeframe, volatility, window, macro context, location, and behavior." }
-      ],
-      whyThisMatters: "Gold is fast enough to punish shallow reading. A learner needs a process that separates evidence from urgency.",
-      realLifeExample: "Two learners see the same 15m Gold candle. One reacts to speed. The trained learner checks market window, 4H location, macro context, close behavior, and follow-through.",
-      commonMistake: "Leaving with the idea that Gold is fast but no actual process for reading Gold timeframes.",
-      "quickNote": "Gold candles are read through time, volatility, context, and alignment."
-    }
+    "type": "summary",
+    "title": "Summary of Gold Candlestick Anatomy",
+    "label": "Gold Track",
+    "body": "### Summary: Gold Candlestick Anatomy\nUnderstanding wicks, bodies, timeframes, and colors is essential for reading gold price action.\n\n* **OHLC Anatomy**: The body represents the open-to-close range; wicks represent the extreme prices reached.\n* **Bullish/Bearish**: Green candles show price rose; red candles show price fell.\n* **Rejections**: Long wicks represent rejected price levels; large bodies represent solid momentum.",
+    "context": {
+      "whyThisMatters": "You are now ready to progress to identifying higher timeframe support/resistance levels and market structure patterns."
+    },
+    "taskData": null,
+    "visualKey": "gold-spread-volatility"
   }
 ];

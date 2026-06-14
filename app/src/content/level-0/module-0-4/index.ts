@@ -7,14 +7,14 @@ import { AcademyModule } from "../../../types/curriculum";
 export const module04: AcademyModule = {
   moduleNumber: "0.4",
   level: 0,
-  title: "The Hierarchy of Evidence",
-  objective: "Understand the weight and hierarchy of market data layers.",
+  title: "Chart Basics & Candlestick Anatomy",
+  objective: "Master the OHLC candlestick anatomy, reading bodies and wicks as records of market interaction.",
   skillLevel: "beginner",
   orderIndex: 4,
   tracks: {
     core: coreCards,
     forex: forexCards,
     gold: goldCards,
-    crypto: cryptoCards
-  }
+    crypto: cryptoCards,
+  },
 };

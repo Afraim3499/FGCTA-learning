@@ -9,7 +9,7 @@ export const module213: AcademyModule = {
   level: 2,
   title: "HTF Anchors",
   objective: "Anchor key support and resistance zones on Daily and Weekly charts.",
-  skillLevel: "beginner",
+  skillLevel: "intermediate",
   orderIndex: 13,
   tracks: {
     core: coreCards,

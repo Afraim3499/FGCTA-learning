@@ -7,9 +7,9 @@ import { AcademyModule } from "../../../types/curriculum";
 export const module211: AcademyModule = {
   moduleNumber: "2.11",
   level: 2,
-  title: "Boundary Areas (BSL/SSL)",
-  objective: "Map buy-side and sell-side liquidity clusters where resting orders sit.",
-  skillLevel: "beginner",
+  title: "Boundary Areas: Sell Side Liquidity (SSL)",
+  objective: "Locate and audit clusters of sell stop liquidity below swing lows.",
+  skillLevel: "intermediate",
   orderIndex: 11,
   tracks: {
     core: coreCards,

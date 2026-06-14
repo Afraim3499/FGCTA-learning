@@ -177,7 +177,7 @@ export function LessonStage({
     // Direct registry check
     const RegistryComponent = VISUAL_REGISTRY[name];
     if (RegistryComponent) {
-      component = <RegistryComponent mentorText={card.context?.mentorText} mentorAnalogy={card.context?.mentorAnalogy} />;
+      component = <RegistryComponent visualKey={name} mentorText={card.context?.mentorText} mentorAnalogy={card.context?.mentorAnalogy} />;
     } else {
       // Legacy mapping support
       const legacyMap: Record<string, string> = {
@@ -211,7 +211,7 @@ export function LessonStage({
       const mappedName = legacyMap[name];
       if (mappedName && VISUAL_REGISTRY[mappedName]) {
         const MappedComponent = VISUAL_REGISTRY[mappedName];
-        component = <MappedComponent mentorText={card.context?.mentorText} mentorAnalogy={card.context?.mentorAnalogy} />;
+        component = <MappedComponent visualKey={mappedName} mentorText={card.context?.mentorText} mentorAnalogy={card.context?.mentorAnalogy} />;
       }
     }
 

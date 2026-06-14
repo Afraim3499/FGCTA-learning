@@ -1,261 +1,257 @@
 import { LessonCard } from "../../../types/curriculum";
 
 /**
- * Module 0.11 - Specialized Crypto Reading Lab Core Cards
+ * Module 0.10 - Specialized Forex Reading Lab Core Cards
  */
 export const coreCards: LessonCard[] = [
   {
     type: "mission_brief",
-    title: "Crypto Moves Must Be Verified Across Venues",
-    label: "Crypto Lab Foundation",
-    visualKey: "crypto-venue-fragmentation-lab-foundation",
-    body: "Crypto can show different price movements on different venues. A move on one exchange, one DEX pool, or one feed may be real, but it may not represent the whole market. A disciplined learner checks whether the move is broad, local, fragile, or unclear before drawing a conclusion. In this Crypto Reading Lab, you will learn to cross-check CEX spot charts, DEX pools, BTC context, venue agreement, and next-candle follow-through to verify what price is actually proving.",
+    title: "Forex Reading Needs Pair Pressure Discipline",
+    label: "Forex Lab Foundation",
+    visualKey: "forex-reading-lab-foundation",
+    body: "Forex (Foreign Exchange) is not one asset moving alone. A currency pair moves because the balance of pressure shifts between two different national economies. A disciplined Forex learner does not react to a single fast candle or a session range break first. They check what pressure is moving the pair, when the move formed, what wider USD/DXY context supports it, whether related pairs are confirming the story, and what must happen next to verify it. In this Forex Reading Lab, you will learn to combine these layers into a clinical, evidence-based reading process.",
     context: {
       keyTerms: [
-        { term: "Venue verification", definition: "Checking price behavior across multiple exchanges or pools to confirm a move." },
-        { term: "Broad movement", definition: "Price action that happens across multiple exchanges with broad support." },
-        { term: "Local distortion", definition: "Price movement that occurs only on a single exchange or trading pool." },
-        { term: "Fragile movement", definition: "Price action that spikes quickly but lacks volume support or BTC alignment, making it highly likely to reverse." },
-        { term: "Unclear reading", definition: "A market state where different exchanges disagree or BTC is conflicting, providing no clear evidence." }
+        { term: "Forex Pair", definition: "A relationship between two currencies where the first currency is compared to the second." },
+        { term: "Pair Pressure", definition: "The shifting balance of demand and supply between the two sides of a currency pair." },
+        { term: "Session Context", definition: "The active trading window (Asia, London, New York) that defines participation levels." },
+        { term: "Verification", definition: "The process of waiting for secondary evidence or next-candle behavior to confirm a reading." },
+        { term: "Reading Discipline", definition: "Avoiding emotional reactions to speed and systematically auditing structural context." }
       ],
-      whyThisMatters: "Without a venue verification process, you will constantly chase isolated wicks and spikes, treating venue-specific noise as market-wide trend confirmation.",
-      realLifeExample: "A token spikes 7% on Uniswap, but the Coinbase spot price remains flat. The move was local, and it fades completely within minutes. A disciplined reader stays safe by ignoring it.",
-      commonMistake: "Treating the price on one exchange as the absolute, single truth of the entire crypto market.",
-      quickNote: "Crypto has no single home. Always check if other venues agree before trusting the move."
+      whyThisMatters: "Without a structured reading discipline, you will constantly chase single-candle moves that have no real institutional backing.",
+      realLifeExample: "EUR/USD spikes up 30 pips. A beginner buys the breakout instantly. A disciplined reader audits DXY, related pairs, and session context before assigning a reading.",
+      commonMistake: "Treating a currency pair as a single stock that moves on its own isolated news.",
+      quickNote: "A currency pair is always a tug-of-war. Always identify both sides before deciding who is pulling."
     }
   },
   {
     type: "visual_intro",
-    title: "CEX Spot Is the First Broad-Market Check",
-    label: "CEX Spot Check",
-    visualKey: "crypto-cex-spot-check",
-    body: "A CEX spot chart shows actual asset trading on major centralized platforms. It is not perfect, but because these exchanges have deep order books, they serve as a reliable broad-market reference. If a token shows a sudden breakout on a smaller venue, but CEX spot stays flat with thin volume, the move is likely a local anomaly. Always check the CEX spot charts first to see if major buyers are participating.",
+    title: "The Pair Pressure Map",
+    label: "Pair Pressure",
+    visualKey: "forex-pair-pressure-map",
+    body: "When a currency pair moves, it is the result of relative forces. If the EUR/USD pair rises, it does not automatically mean the Euro is strong. The move could be driven by Euro strength, US Dollar weakness, or a combination of both. To interpret a move, you must map the individual pressure on both sides. A clean trend occurs when the two currencies pull in opposite directions (e.g., EUR strong and USD weak). If both are strong or both are weak, price tends to churn in mixed pressure, creating low-quality evidence.",
     context: {
       keyTerms: [
-        { term: "CEX Spot", definition: "A centralized exchange where actual cryptocurrencies are bought and sold directly." },
-        { term: "Order Book Depth", definition: "The volume of buy and sell orders waiting at different price levels on an exchange." },
-        { term: "Broad-Market Reference", definition: "An index or exchange chart used to check general market participation." },
-        { term: "Local Wick", definition: "A price spike on a single exchange chart that is not confirmed elsewhere." },
-        { term: "Reading Quality", definition: "The reliability score of a chart reading based on supporting evidence." }
+        { term: "Base Currency", definition: "The first currency listed in a pair (e.g., EUR in EUR/USD). It is the asset being priced." },
+        { term: "Quote Currency", definition: "The second currency listed in a pair (e.g., USD in EUR/USD). It is the money used to price the asset." },
+        { term: "Relative Strength", definition: "The strength of one currency compared directly to another rather than in isolation." },
+        { term: "Opposing Pressure", definition: "When one currency in a pair is strongly demanded while the other is actively sold." },
+        { term: "Mixed Pressure", definition: "When both currencies in a pair are moving in the same direction, leading to sideways chop." }
       ],
-      whyThisMatters: "CEX spot volume represents real asset trading and is less prone to temporary localized spikes than thin pools.",
-      realLifeExample: "An altcoin wicks up on a smaller exchange due to a localized order. You check Binance spot and find it is flat with no volume. You classify the move as a local wick trap.",
-      commonMistake: "Assuming a fast green candle on one chart means major spot exchanges are also buying.",
-      quickNote: "Start your check with CEX spot. If the big exchanges aren't buying, the move lacks a foundation."
+      whyThisMatters: "Mapping individual currency strength keeps you from misinterpreting a USD-driven move as base currency strength.",
+      realLifeExample: "EUR/USD and GBP/USD both rise. This indicates the move is likely driven by USD weakness rather than independent Euro and Pound strength.",
+      commonMistake: "Assuming EUR/USD is rising solely because European economic data was positive.",
+      quickNote: "EUR/USD rises because EUR is strong OR USD is weak. Check DXY to find out which."
     }
   },
   {
     type: "visual_intro",
-    title: "DEX Pool Wicks Can Come From Price Impact",
-    label: "DEX Price Impact",
-    visualKey: "crypto-dex-price-impact-lab",
-    body: "On decentralized exchanges (DEXs), price is set by automated smart contracts based on the reserves in a liquidity pool. When a pool is thin, even a single moderate swap can cause a large price change. This is called price impact. A dramatic DEX wick does not mean the wider market agreed with the move; it only means one buyer hit a thin pool. Check CEX spot to see if the price change is broad.",
+    title: "Session Context Changes Forex Evidence",
+    label: "Session Context",
+    visualKey: "forex-session-context-lab",
+    body: "Forex is a 24-hour market, but it does not behave the same way all day. The market day is divided into major trading sessions: Asia, London, New York, and overlaps. A candle printed during a quiet Asian session does not carry the same institutional weight as one printed during the highly active London/New York overlap. Session context does not give you an instruction to trade; it helps you judge whether a move was created by quiet compression, active expansion, or late-session consolidation.",
     context: {
       keyTerms: [
-        { term: "DEX Pool", definition: "A decentralized liquidity pool where smart contracts handle token trades automatically." },
-        { term: "Price Impact", definition: "The price change caused by a single transaction relative to the pool size." },
-        { term: "Pool Liquidity", definition: "The reserve of tokens held inside a smart contract to enable swapping." },
-        { term: "AMM", definition: "Automated Market Maker; the algorithm that automatically sets prices in a liquidity pool based on its reserves." },
-        { term: "Slippage", definition: "The price difference between when a swap is requested and when it is completed." }
+        { term: "Asia Session", definition: "The Tokyo trading window, typically characterized by lower volume and range compression." },
+        { term: "London Session", definition: "The European trading window, where major institutional participation and expansion begins." },
+        { term: "New York Session", definition: "The North American trading window, which overlaps with the late London session." },
+        { term: "Session Overlap", definition: "The 4-hour window where London and New York are open at the same time, producing maximum volume." },
+        { term: "Late-Session Chop", definition: "The final hours of the New York session where volume drains and price often moves sideways." }
       ],
-      whyThisMatters: "Understanding price impact prevents you from misinterpreting a DEX liquidity pool wick as a major trend change.",
-      realLifeExample: "A buyer swaps $50k of a token on Uniswap, causing a 12% wick on the chart due to thin pool liquidity. CEX spot doesn't budge. The wick is just a local pool distortion.",
-      commonMistake: "Reading a DEX wick like a deep, institutional order book move.",
-      quickNote: "Price impact means one trade can push a thin pool more than the wider market moved."
+      whyThisMatters: "Understanding session clocks prevents you from treating a slow, low-volume Asia breakout as highly reliable evidence.",
+      realLifeExample: "Price breaks out of a range at 8 PM New York time. Because it is late Asia, you classify the breakout as high-risk noise rather than expansion.",
+      commonMistake: "Expecting clean trends and major follow-through during the quietest trading hours of the day.",
+      quickNote: "Time of day determines market participation. Always check the session clock before reading the candle."
     }
   },
   {
     type: "visual_intro",
-    title: "Exchange Disagreement Is a Warning, Not a Signal",
-    label: "Venue Disagreement",
-    visualKey: "crypto-exchange-disagreement-lab",
-    body: "When a move begins, it does not always start everywhere at once. However, if Exchange A shows a strong price spike while Exchange B shows only a small bounce and Exchange C remains completely flat, the reading is conflicted. This exchange disagreement is a warning to slow down, not a signal to trade. You must monitor whether the move spreads to other exchanges, fades away, or remains isolated.",
+    title: "Session Handoff Can Change the Reading",
+    label: "Session Handoff",
+    visualKey: "forex-session-handoff-lab",
+    body: "A session handoff occurs when one major trading region becomes less active as another takes over. The transition from London to New York is the most important handoff. A move created by London participants is not guaranteed to continue when New York opens. New York can choose to continue the London move, reject it entirely, or stall it into range chop. A disciplined reader does not assume continuation; they wait to see how New York interacts with the levels established by London.",
     context: {
       keyTerms: [
-        { term: "Exchange Disagreement", definition: "A situation where different exchanges print conflicting price movements." },
-        { term: "Isolated Spike", definition: "A price jump that happens on only one venue and does not spread." },
-        { term: "Spread Risk", definition: "The risk of trading a move that hasn't expanded to other exchanges." },
-        { term: "Order Disbalance", definition: "A temporary gap between buy and sell orders on a single venue." },
-        { term: "Caution Filter", definition: "A rule that tells the learner to slow down when exchange prices diverge." }
+        { term: "Session Handoff", definition: "The transition period where trading volume and control shift from one region to another." },
+        { term: "London Range", definition: "The high and low boundaries established during the active European session." },
+        { term: "Handoff Continuation", definition: "When a new session confirms and extends the directional movement of the previous session." },
+        { term: "Handoff Rejection", definition: "When a new session reverses the direction of the previous session's move at a key level." },
+        { term: "Stall and Consolidation", definition: "When a new session lacks the participation to continue a move, leading to range behavior." }
       ],
-      whyThisMatters: "Exchange disagreement shows that the move lacks broad consensus, making it highly fragile.",
-      realLifeExample: "A token rallies on one minor exchange. You check major exchanges and see they are flat. You wait for others to catch up before drawing a reading, avoiding a false breakout.",
-      commonMistake: "Assuming a move is valid because one exchange is printing a large green candle.",
-      quickNote: "Disagreement means wait. Consensus is what makes a crypto move clean."
+      whyThisMatters: "Monitoring handoffs keeps you from getting caught on the wrong side when New York rejects a late London move.",
+      realLifeExample: "London pushes GBP/USD up 40 pips. New York opens, sweeps the London high, and immediately closes back inside. New York has rejected the London move.",
+      commonMistake: "Assuming a trend started in London must automatically continue through the New York session.",
+      quickNote: "A new session brings new capital. Let the new session confirm its intent before updating your reading."
     }
   },
   {
     type: "visual_intro",
-    title: "Market Alignment Can Resolve Venue Gaps",
-    label: "Venue Alignment",
-    visualKey: "crypto-venue-alignment-lab",
-    body: "When a price gap forms between exchanges, active traders and market makers work to resolve it. This process is called venue alignment. If a token jumps on one exchange, other venues may catch up as market makers buy on the cheaper exchange and sell on the more expensive one (arbitrage). If the gap does not resolve quickly through convergence, the move may fade, or price may remain unstable.",
+    title: "The DXY Mirror Trap",
+    label: "DXY Awareness",
+    visualKey: "forex-dxy-mirror-trap",
+    body: "The US Dollar Index (DXY) is a measure of the Dollar's value against a basket of six major currencies. DXY provides vital context for USD strength. However, because the Euro makes up 57.6% of the DXY basket, EUR/USD and DXY often move as near-perfect mirrors. If EUR/USD rises and DXY falls, the learner must not treat this as two independent pieces of confirmation. That is a mirror trap. Double-counting the same relationship leads to false confidence; you must cross-check other USD pairs to confirm true Dollar direction.",
     context: {
       keyTerms: [
-        { term: "Venue Alignment", definition: "When price differences across exchanges decrease and prices align." },
-        { term: "Arbitrage", definition: "The practice of buying on one exchange at a lower price and selling on another at a higher price to capture the difference." },
-        { term: "Market Maker", definition: "A participant that provides constant buy and sell orders to keep markets liquid." },
-        { term: "Price Convergence", definition: "When prices on different platforms move toward the same value." },
-        { term: "Venue Gap", definition: "A price difference for the same asset between two exchanges." }
+        { term: "US Dollar Index (DXY)", definition: "An index tracking the USD against a basket of six foreign currencies (weighted heavily toward the Euro)." },
+        { term: "Basket Weight", definition: "The percentage share of a currency in an index (Euro is 57.6%, Yen is 13.6%, Pound is 11.9%)." },
+        { term: "Mirror Correlation", definition: "When two assets move in near-exact opposite directions due to shared structural drivers." },
+        { term: "Double-Counting", definition: "Treating correlated price movements as independent confirmation of a reading." },
+        { term: "Independent Check", definition: "Using USD/JPY or USD/CAD to verify if USD strength/weakness is broad or isolated to EUR." }
       ],
-      whyThisMatters: "Understanding venue alignment helps you see why price gaps are usually temporary and why unaligned wicks tend to fade.",
-      realLifeExample: "A token is priced at $1.00 on Coinbase and spikes to $1.10 on Bybit. Arbitrageurs sell on Bybit and buy on Coinbase. The gap resolves, and the price settles at $1.02.",
-      commonMistake: "Thinking a temporary price difference between exchanges is a permanent trend change.",
-      quickNote: "Venue gaps usually close. Let the market align before you trust the price."
+      whyThisMatters: "Avoiding the mirror trap ensures you do not mistake a simple Euro-specific move for broad US Dollar weakness.",
+      realLifeExample: "EUR/USD rises and DXY falls, but USD/JPY is rising. This shows USD is not broadly weak; the move is Euro-specific.",
+      commonMistake: "Viewing DXY weakness as a separate, independent confirmation of a EUR/USD upward move.",
+      quickNote: "EUR/USD and DXY are mostly the same coin. Look at USD/JPY to check if the Dollar is really moving."
     }
   },
   {
     type: "visual_intro",
-    title: "BTC Context Separates Asset Strength From Market Drift",
-    label: "BTC Context Check",
-    visualKey: "crypto-btc-context-lab-check",
-    body: "Bitcoin is the primary gravity of the crypto market. If an altcoin spikes while Bitcoin is consolidating comfortably, the move has a supportive environment. But if Bitcoin is actively dropping or hitting a major weekly resistance ceiling, an altcoin breakout is highly fragile. In a conflicting BTC environment, you should demand much stronger venue agreement and next-candle proof before calling the move clean.",
+    title: "Related Pairs Can Confirm or Challenge the Story",
+    label: "Related-Pair Context",
+    visualKey: "forex-related-pair-lab",
+    body: "Related pairs (such as EUR/USD, GBP/USD, and AUD/USD) share the same quote currency and are driven by broad USD capital flows. A broad market move is stronger when related pairs confirm the direction. If GBP/USD pushes strongly upward but EUR/USD remains flat and USD/JPY does not support Dollar weakness, the move on GBP/USD is isolated. An isolated move is more likely to be a fake-out. Comparing related pairs helps you avoid tunnel vision and identify mixed evidence early.",
     context: {
       keyTerms: [
-        { term: "BTC Context", definition: "Bitcoin's general structural location and trend direction." },
-        { term: "Market Gravity", definition: "Bitcoin's strong influence over the direction of other cryptocurrencies." },
-        { term: "Altcoin Breakout", definition: "An upward price move on an alternative cryptocurrency past a previous high." },
-        { term: "Trend Alignment", definition: "When an altcoin and Bitcoin move in the same direction, strengthening the reading." },
-        { term: "Context Conflict", definition: "When an altcoin attempts to rise while Bitcoin is falling or hitting resistance." }
+        { term: "Related Pairs", definition: "Pairs that share a common currency (e.g., EUR/USD, GBP/USD, AUD/USD all share the USD)." },
+        { term: "Broad Movement", definition: "Price movement that occurs across multiple related pairs at the same time, showing market consensus." },
+        { term: "Isolated Movement", definition: "When only one pair moves while related pairs remain flat or move in the opposite direction." },
+        { term: "Relative Divergence", definition: "A disagreement between related pairs, signaling that the move lacks broad institutional backing." },
+        { term: "Consensus Check", definition: "Auditing multiple USD pairs to confirm if institutional capital is moving the entire Dollar basket." }
       ],
-      whyThisMatters: "Bitcoin drives general market sentiment. When Bitcoin rejects resistance, it often drags down even active altcoins.",
-      realLifeExample: "SOL breaks its local high, but BTC is rejecting its daily ceiling. Minutes later, BTC drops, and SOL's breakout fails, pulling price back inside.",
-      commonMistake: "Trading an altcoin breakout without looking at where BTC is located on the daily map.",
-      quickNote: "Check Bitcoin's posture. If the market leader is weak, altcoin moves are highly fragile."
+      whyThisMatters: "Checking related pairs prevents you from chasing an isolated spike that the rest of the market does not support.",
+      realLifeExample: "GBP/USD spikes up, but EUR/USD and AUD/USD are completely flat. You classify the GBP/USD move as isolated and wait for verification.",
+      commonMistake: "Trading a breakout on one pair while ignoring the fact that all related pairs are in tight consolidation.",
+      quickNote: "Whales move indices and baskets, not just single pairs. Look for consensus among related pairs."
     }
   },
   {
     type: "visual_intro",
-    title: "Local Spike vs Broad Move",
-    label: "Broad or Local",
-    visualKey: "crypto-local-spike-vs-broad-move",
-    body: "To read crypto cleanly, you must separate local spikes from broad moves. A local spike is restricted to a single exchange or DEX pool, lacks spot support, occurs when BTC is flat or weak, and has poor hold quality. A broad move appears simultaneously across all major spot venues, matches DEX activity, aligns with a supportive BTC context, and consolidates cleanly above the broken level.",
+    title: "ADR Is a Caution Filter, Not a Reversal Signal",
+    label: "ADR Check",
+    visualKey: "forex-adr-caution-filter",
+    body: "Average Daily Range (ADR) measures the average distance a currency pair travels from its high to its low over a typical trading day (measured in pips). ADR is a caution filter, not a reversal signal. If a pair has already moved 90% of its typical daily range, it has 'stretched' its resources. While price does not have to reverse, any fresh continuation attempt requires much stronger evidence to be considered clean. Buying or selling at the extreme edges of a pair's ADR is a low-probability action.",
     context: {
       keyTerms: [
-        { term: "Local Spike", definition: "A rapid price jump limited to a single exchange or pool." },
-        { term: "Broad Move", definition: "A price trend that is visible and supported across all major exchanges." },
-        { term: "Volume Confirmation", definition: "Expanding trade activity that validates price movement." },
-        { term: "Market Consensus", definition: "Broad agreement across different venues and market participants." },
-        { term: "Structure Validity", definition: "The strength of a chart pattern based on its supporting environment." }
+        { term: "Average Daily Range (ADR)", definition: "The average high-to-low pip range of a pair calculated over a set number of days (usually 5 to 20)." },
+        { term: "Daily Stretch", definition: "How much of the typical daily range a pair has already consumed during the current trading day." },
+        { term: "Exhaustion Zone", definition: "The price levels near the extreme edges of the daily range where momentum typically slows." },
+        { term: "Caution Filter", definition: "A rule that advises against chasing moves when price has reached its typical daily limit." },
+        { term: "Continuation Proof", definition: "The requirement for stronger-than-usual volume or structural break to validate a move at ADR limits." }
       ],
-      whyThisMatters: "Classifying the move quality prevents you from buying local spikes that lack institutional order backing.",
-      realLifeExample: "You see two charts. Asset A spikes on Bybit perps only (local spike). Asset B rises on Coinbase spot, Binance spot, Uniswap, and BTC is trending (broad move). You devalue Asset A and study Asset B.",
-      commonMistake: "Assuming every fast price pump has the same level of market participation.",
-      quickNote: "Local spikes fade. Broad moves have the volume and consensus to hold."
+      whyThisMatters: "Using ADR as a filter prevents you from buying the absolute top or selling the absolute bottom of a daily move.",
+      realLifeExample: "EUR/USD average range is 80 pips. Today it has moved 75 pips and is breaking a minor high. You avoid buying because the daily stretch is at 94%.",
+      commonMistake: "Assuming a pair must immediately reverse because it has reached 100% of its ADR.",
+      quickNote: "ADR tells you when the market is tired. Do not ask a tired market to run a marathon."
     }
   },
   {
     type: "visual_intro",
-    title: "Follow-Through Proves Whether the Spike Survived",
-    label: "Post-Spike Proof",
-    visualKey: "crypto-post-spike-follow-through",
-    body: "The initial breakout candle only shows that orders were executed. Next-candle follow-through proves whether price accepted the new level. If price immediately stalls, wicks back, or fades after a venue spike, the reading remains mixed or unclear. If price holds outside the broken level across major venues and builds a consolidation base, acceptance is confirmed.",
+    title: "News Can Distort the First Forex Move",
+    label: "News Pressure",
+    visualKey: "forex-news-distortion-lab",
+    body: "Macroeconomic news releases (such as inflation data, interest rate decisions, and jobs reports) inject rapid capital into the Forex market. This news pressure creates large candles and thinned liquidity, leading to sudden price spikes. The first reaction to a news event is often distorted by algorithms sweeping stop-losses. A disciplined reader does not chase the immediate news spike. They wait for the stabilization period—usually 15 to 30 minutes—to analyze the candle close and subsequent follow-through.",
     context: {
       keyTerms: [
-        { term: "Follow-Through", definition: "The subsequent candles that show if price sustains its breakout direction." },
-        { term: "Hold Quality", definition: "How well price maintains its position outside a broken range." },
-        { term: "Fade", definition: "When price quickly reverses and returns to its original starting area." },
-        { term: "Acceptance Base", definition: "A cluster of stable candles formed outside a broken boundary." },
-        { term: "Drifting Chop", definition: "Sideways, overlapping candle movement with no clear direction." }
+        { term: "News Pressure", definition: "The immediate volatility and order flow generated by high-impact economic data releases." },
+        { term: "Thinned Liquidity", definition: "When market makers withdraw orders before news, causing price to jump easily on lower volume." },
+        { term: "Stop-Sweep Spike", definition: "A rapid price spike designed to trigger stop-loss orders before returning to the original range." },
+        { term: "Stabilization Period", definition: "The window after a news release where price settles and normal order matching resumes." },
+        { term: "Post-News Hold", definition: "When price maintains its news-driven levels after stabilization, confirming institutional acceptance." }
       ],
-      whyThisMatters: "Waiting for follow-through stops you from entering at the absolute peak of a temporary price spike.",
-      realLifeExample: "A token spikes 6% out of its range. You wait. The next candle close returns 5% back inside the range. Because follow-through failed, you label it a false break.",
-      commonMistake: "Chasing a breakout candle before it closes, expecting continuation without waiting for hold proof.",
-      quickNote: "The spike is the first step. Let the next candles hold the level to confirm the move."
+      whyThisMatters: "Waiting for post-news stabilization protects you from being caught in violent whipsaw movements.",
+      realLifeExample: "Interest rate news causes USD/JPY to drop 50 pips in one minute, only to reverse and rally 80 pips by the end of the hourly close.",
+      commonMistake: "Assuming the first rapid candle reaction to news represents the true institutional direction for the day.",
+      quickNote: "News spikes are questions. Wait for the post-news close to see the real answer."
     }
   },
   {
     type: "visual_intro",
-    title: "The Cross-Venue Verification Sequence",
+    title: "The Forex Verification Sequence",
     label: "Verification Workflow",
-    visualKey: "crypto-cross-venue-verification-sequence",
-    body: "A disciplined crypto reading uses a structured cross-venue verification sequence. Before you trust a move, run this workflow: 1. Identify which venue moved first. 2. Check if CEX spot confirms. 3. Check if DEX wicks were caused by thin pool price impact. 4. Verify if major exchanges align. 5. Overlay BTC context. 6. Observe follow-through. 7. Classify the reading as broad, local, fragile, or unclear.",
+    visualKey: "forex-verification-sequence",
+    body: "To read a Forex chart like a professional, you must follow a systematic verification sequence. Never let your eyes jump directly to the candle shapes or speed first. Instead, apply the checklist in order: 1. Audit the Pair Pressure. 2. Verify Session Context. 3. Check Structure & Location. 4. Cross-check USD/DXY context. 5. Confirm related pairs consensus. 6. Check ADR stretch. 7. Assess news pressure. 8. Observe next-candle follow-through. Only then do you classify the reading.",
     context: {
       keyTerms: [
-        { term: "Verification Sequence", definition: "A step-by-step checklist to verify the quality of a price move." },
-        { term: "Cross-Venue Audit", definition: "Checking multiple exchange feeds to verify a breakout." },
-        { term: "Price Impact Filter", definition: "Checking if a move was caused by a single swap in a thin pool." },
-        { term: "Macro Alignment", definition: "Cross-checking if the broader market (BTC) supports the move." },
-        { term: "Reading Quality Classification", definition: "Grading a chart setup as clear, mixed, or unclear." }
+        { term: "Verification Sequence", definition: "The chronological checklist used to analyze and confirm a market reading." },
+        { term: "Structure Audit", definition: "Mapping the swing highs, swing lows, and dealing range on the active timeframe." },
+        { term: "Consensus Check", definition: "Verifying if related currency pairs are showing aligned movement." },
+        { term: "Follow-Through Check", definition: "Waiting for the subsequent candle to confirm or invalidate the initial reaction." },
+        { term: "Reading Classification", definition: "Labeling the analysis as Clear (high quality), Mixed (conflicting evidence), or Unclear (insufficient data)." }
       ],
-      whyThisMatters: "Following a sequence keeps you objective and prevents you from reacting emotionally to speed.",
-      realLifeExample: "EUR/USD has Forex sessions. Crypto has venue layers. When a token spikes, you check CEX spot, DEX pools, BTC, and follow-through in order before drawing your conclusion.",
-      commonMistake: "Analyzing a chart in isolation without running the venue verification checks first.",
-      quickNote: "Never read a crypto candle without verifying its source and market alignment."
+      whyThisMatters: "Following a sequence keeps you clinical and structured, preventing emotional bias from distorting your analysis.",
+      realLifeExample: "Price spikes up. Instead of reacting, you check: Session? Overlap. Related pairs? Flat. ADR? Stretched. Verdict: Mixed reading. You stand aside.",
+      commonMistake: "Skipping structural and context checks because a candle looks large and green.",
+      quickNote: "Always check the coordinate stack before deciding if a move has institutional backing."
     }
   },
   {
     type: "practice",
-    title: "Practice Drill: Broad Move or Local Distortion?",
+    title: "Practice Drill: Build the Forex Reading",
     label: "Practice Drill",
-    visualKey: "crypto-venue-lab-practice-drill",
-    body: "Let's put your venue verification skills to the test. A mid-cap token has printed a sharp wick upward on a DEX pool after a large buy. CEX spot shows only a slight uptick. Another major exchange remains flat. BTC is sitting directly below daily resistance and is flat. The next two candles on the DEX return near the original price. How should you read this?",
+    visualKey: "forex-reading-lab-practice-drill",
+    body: "Let's put your Forex reading discipline to the test. In this drill, you will analyze a complex New York morning session. GBP/USD has pushed upward from a prior support zone, but related pairs and macro context show significant conflicts. Review the scenario variables carefully, inspect the visual model, and select the most disciplined reading classification.",
     taskData: {
       type: "choice_block",
-      question: "Based on the verification data, what is the most disciplined crypto reading?",
+      question: "During the New York morning session, GBP/USD pushes upward from a prior reaction zone. EUR/USD remains flat near the middle of its range. DXY is sitting near a daily support area and has not clearly broken lower. GBP/USD has already consumed 80% of its typical Daily Range (ADR). There was a USD news release 10 minutes ago, and the subsequent candle hesitates. What is the most disciplined Forex reading?",
       options: [
         {
-          id: "opt1",
-          text: "Clear bullish reading because the DEX wick moved sharply upward.",
+          id: "A",
+          text: "Clear bullish reading because GBP/USD pushed upward from a reaction area.",
           isCorrect: false,
-          grade: "poor",
-          feedback: "Incorrect. A sharp DEX wick is evidence, but it is not enough without broader confirmation."
+          feedback: "Incorrect. While GBP/USD moved, EUR/USD is flat and DXY is at support. An isolated move near ADR limits with news distortion is not a clear reading."
         },
         {
-          id: "opt2",
-          text: "Broad market confirmation because one large trade moved the pool.",
-          isCorrect: false,
-          grade: "poor",
-          feedback: "Incorrect. One large trade can move a thin pool without proving broad market agreement."
-        },
-        {
-          id: "opt3",
-          text: "Local distortion / mixed reading because the move happened mainly in a thin DEX pool, CEX spot did not confirm, other venues stayed flat, BTC context was not supportive, and follow-through failed.",
+          id: "B",
+          text: "Mixed reading because the move exists, but related pairs, DXY location, ADR stretch, news pressure, and weak follow-through limit confidence.",
           isCorrect: true,
-          grade: "best",
-          feedback: "Correct! This is a local distortion or mixed reading. The move was mostly venue-specific and failed to gain wider support."
+          feedback: "Correct! This is a mixed reading. There is conflict between the GBP/USD move and DXY support, related-pair flatness, ADR limits, and lack of follow-through. Standing aside is the correct action."
         },
         {
-          id: "opt4",
-          text: "Guaranteed reversal because DEX wicks always reverse.",
+          id: "C",
+          text: "Guaranteed reversal because GBP/USD has moved most of its daily range.",
           isCorrect: false,
-          grade: "poor",
-          feedback: "Incorrect. DEX wicks do not always reverse. They need context, venue checks, and follow-through."
+          feedback: "Incorrect. ADR is a caution filter, not an automatic reversal signal. Reversals still require structural shifts and fresh evidence."
+        },
+        {
+          id: "D",
+          text: "Ignore the reading completely because Forex cannot be read during New York.",
+          isCorrect: false,
+          feedback: "Incorrect. Forex can be read during New York, but you must systematically identify conflicts and classify the reading as mixed when evidence is not clean."
         }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Mid-Cap Token", definition: "A cryptocurrency with medium market capitalization and moderate liquidity." },
-        { term: "DEX Pool Wick", definition: "A long wick printed on a decentralized pool chart." },
-        { term: "Exchange Neutrality", definition: "When major exchanges show flat, inactive price behavior." },
-        { term: "Resistance Hurdle", definition: "A historical price ceiling where sellers are active." },
-        { term: "Local Distortion", definition: "Price movement that remains isolated to one thin market." }
+        { term: "Session Conflict", definition: "When different sessions or timeframes display opposing market behavior." },
+        { term: "Isolated Spike", definition: "A rapid price move in one pair that is not reflected in related pairs." },
+        { term: "News Distortion", definition: "Temporary price spikes and thinned spreads caused by recent high-impact news releases." },
+        { term: "Range Caution", definition: "Avoiding new positions when price is near the extreme limit of its typical daily range." },
+        { term: "Verification Failure", definition: "When next-candle behavior stalls, proving that a price reaction lacks continuation backing." }
       ],
-      whyThisMatters: "This drill trains you to verify multiple venue layers before accepting a breakout as valid.",
-      realLifeExample: "You see a token spike on Uniswap. You check Coinbase spot, see no volume, and note BTC is weak. You classify it as local distortion and stay safe.",
-      commonMistake: "Chasing a DEX spike because a single candle looked fast and strong.",
-      quickNote: "Check the venue stack. If the move is isolated and fails to hold, it is a local distortion."
+      whyThisMatters: "This drill trains you to accept mixed readings and stay disciplined instead of forcing high-conviction opinions on messy charts.",
+      realLifeExample: "GBP/USD rallies on news, but EUR/USD chops. You observe the related-pair conflict, note the ADR stretch, and classify it as mixed.",
+      commonMistake: "Forcing a bullish bias because one pair printed a large candle, ignoring the broader context of conflict.",
+      quickNote: "Conflict is high-quality information. When the stack is mixed, the pro action is to wait."
     }
   },
   {
     type: "debrief",
-    title: "Debrief: Crypto Needs Cross-Venue Proof",
-    label: "Crypto Lab Debrief",
-    visualKey: "crypto-venue-lab-debrief",
-    body: "Congratulations! You have completed the Crypto Reading Lab. You now understand that crypto price action is not a single chart. It is a fragmented network. A strong crypto reading checks whether a move is broad across major venues, supported by BTC context, not just DEX price impact, and confirmed by next-candle follow-through. By building this cross-venue habit, you protect your capital and read digital asset markets with professional objectivity.",
+    title: "Debrief: Forex Reading Is Pressure Under Context",
+    label: "Forex Lab Debrief",
+    visualKey: "forex-reading-lab-debrief",
+    body: "Congratulations! You have completed the Forex Reading Lab. You now understand that reading a currency pair is not about reacting to candle shape or session breaks. Forex must be audited through multiple layers of context: check pair pressure, identify session characteristics, map structure and location, audit DXY, check related pairs for consensus, monitor ADR daily stretch, allow news pressure to stabilize, and wait for follow-through. The habits you built here will protect your capital and ensure you analyze Forex with institutional objectivity.",
     context: {
       keyTerms: [
-        { term: "Cross-Venue Proof", definition: "Supporting evidence from multiple independent exchanges." },
-        { term: "Venue Verification Habit", definition: "The practice of checking other charts before drawing a conclusion." },
-        { term: "Market Consensus", definition: "General agreement in price direction across all exchanges." },
-        { term: "Reading Integrity", definition: "Maintaining an objective, evidence-based view of price action." },
-        { term: "Capital Protection", definition: "Avoiding entries in low-quality or isolated market moves." }
+        { term: "Forex Context", definition: "The complete set of background conditions (sessions, DXY, related pairs) surrounding a currency pair." },
+        { term: "Consensus Habits", definition: "The practice of verifying moves across related pairs to ensure broad market participation." },
+        { term: "ADR Filter Habit", definition: "Always checking daily stretch limits before assigning a clean reading to a continuation move." },
+        { term: "Handoff Respect", definition: "Slowing down analysis during session transitions to let the new session establish its intent." },
+        { term: "Objective Classifier", definition: "Classifying every chart as Clear, Mixed, or Unclear based on structured evidence rather than feeling." }
       ],
-      whyThisMatters: "Crypto moves can look dramatic. Developing a verification habit protects you from buying the top of temporary venue spikes.",
-      realLifeExample: "A Lurnava graduate audits an altcoin breakout. They check CEX spot (confirming), DEX pools (aligned), BTC context (supportive), and wait for a pullback hold. Only then do they verify the reading.",
-      commonMistake: "Trusting a crypto breakout because a single chart looked loud and fast.",
-      quickNote: "Do not trust a crypto move because one chart is loud. Verify it across the venue stack first."
+      whyThisMatters: "Forex pairs will frequently try to tempt you with rapid movements. These validation habits serve as your shield against impulse decisions.",
+      realLifeExample: "You watch EUR/USD spike during London close. You calmly check DXY and related pairs, note the session handoff, and wait for New York direction.",
+      commonMistake: "Chasing session transition breakouts without waiting to see if the new session validates the levels.",
+      quickNote: "Trust the reading only after the pair proves consensus and quality across the entire coordinate stack."
     }
   }
 ];

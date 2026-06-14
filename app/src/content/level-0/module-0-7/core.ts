@@ -1,258 +1,260 @@
 import { LessonCard } from "../../../types/curriculum";
 
 /**
- * Module 0.7 - Core Track Cards
- * Focus: Market Conditions: Reading the Environment Before Trusting the Move
+ * Module 0.6 - Core Track Cards
+ * Focus: Evidence Audit: Turning Chart Records Into a Reading
  */
 export const coreCards: LessonCard[] = [
   {
     type: "mission_brief",
-    title: "Market Conditions: Reading the Environment Before the Move",
+    title: "Evidence Audit Is the Trader’s Reading Process",
     label: "Core Foundation",
-    visualKey: "market-conditions-foundation",
-    body: "Beginners look at a chart and immediately ask: 'Is this candle bullish (going up) or bearish (going down)?' They look at the size of the body, the length of the wicks, and try to guess what happens next. This is a trap. A candlestick pattern does not exist in a vacuum. It is born inside a specific market environment. A strong green candle inside a clean uptrend (rising prices) means continuation; inside a flat range (price bouncing sideways), it means exhaustion; inside choppy noise (messy price movement with no direction), it means nothing at all. Before you trust any single candle, you must identify the environment. This module is where you build that filter.",
+    visualKey: "evidence-audit-foundation",
+    body: "An evidence audit is the disciplined process that turns raw chart records into a structured market reading. A professional reading is never a gut feeling or an emotional reaction to a single candle's color. Instead, it is an inspection of multiple technical layers—candle behavior, timeframe context, structure condition, location, and reaction—checked together before any conclusion is drawn.",
     context: {
       keyTerms: [
-        { term: "Market Environment", definition: "The overall state (like a trend, range, or messy sideways movement) that shapes how price moves." },
-        { term: "Condition Filter", definition: "The habit of checking the overall market environment before deciding what any single candle means." },
-        { term: "Isolated Candle Trap", definition: "The mistake of assuming a candle shape has a fixed, guaranteed meaning." },
-        { term: "Environment Priority", definition: "The rule that the overall environment determines whether local clues (like candles) are reliable." },
-        { term: "Reading Order", definition: "First check the environment, second find the key price levels (zones), and third check the candle." }
+        { term: "Evidence Audit", definition: "A structured check of all available chart records before forming a reading." },
+        { term: "Market Reading", definition: "A quality-classified assessment of current price behavior." },
+        { term: "Evidence Layer", definition: "A specific category of technical record (e.g., structure, location, timeframe)." },
+        { term: "Chart Record", definition: "Historical price and volume data displayed on the terminal." },
+        { term: "Reading Quality", definition: "The classification of how aligned or conflicting the gathered evidence is." }
       ],
-      whyThisMatters: "If you do not classify the environment first, you will constantly buy range tops (thinking they are trend breakouts) and sell pullback bottoms (thinking they are trend reversals).",
-      realLifeExample: "You see a huge green candle. If you identify the environment as a horizontal range, you expect rejection at the ceiling. If you identify it as a clean trend, you expect continuation. The candle is the same; the environment changes the decision.",
-      commonMistake: "Zooming in on a single candle's shape and speed before knowing if the overall market is trending, ranging, or compressing.",
-      quickNote: "Repeat this before every chart audit: Before I trust the candle, I must identify the environment."
+      whyThisMatters: "An evidence audit prevents traders from overreacting to isolated price movements and protects them from emotional bias.",
+      realLifeExample: "A learner sees a large green candle and immediately assumes price will continue rising. A disciplined trader audits the evidence and realizes the candle is hitting a higher-timeframe resistance zone inside a range, meaning the evidence is conflicting, not clear.",
+      commonMistake: "Treating a chart reading as a simple prediction of where price will go next, rather than an audit of current facts.",
+      quickNote: "Do not ask what the market will do. Ask what evidence you currently have."
     }
   },
   {
     type: "visual_intro",
-    title: "Trend Condition: Before You Trust the Pullback",
-    label: "Trend Environment",
-    visualKey: "trend-condition-environment",
-    body: "The Trap: You see three consecutive red candles dropping quickly. Your instinct screams 'the market is crashing, sell!' You react to the candle speed. The Reading: Before you trust those red candles, identify the environment. You zoom out and see price is in a clean uptrend, making higher highs and higher lows. Those red candles are not a crash; they are a structured pullback (a temporary price drop inside a rising market) returning to a previous high zone. In a trend condition, pullbacks are normal price adjustments. The environment tells you the downward candles are low-probability reversal signals (signs that the market is reversing, or changing direction).",
+    title: "One Clue Is Not Enough",
+    label: "Single-Clue Trap",
+    visualKey: "single-clue-vs-evidence-stack",
+    body: "The single-clue trap is one of the most common mistakes retail traders make. They see a single strong candle, a long wick, a local structure break, or a high-timeframe level, and build a full trading conclusion around it. In a disciplined reading, one clue can start a question or highlight an area, but it cannot complete the reading. A single record must be stacked against other layers to determine its true significance.",
     context: {
       keyTerms: [
-        { term: "Trend Environment", definition: "A clear state where price is actively moving in one main direction, making clean steps." },
-        { term: "Pullback Validation", definition: "Reading downward candles as temporary pullbacks rather than major reversals because the trend is strong." },
-        { term: "Structure Defense", definition: "When price drops back to a previous swing point (high or low) and new buying or selling orders step in to support it." },
-        { term: "Dominant Flow", definition: "The main price direction backed by large institutional orders." },
-        { term: "Sequence Integrity", definition: "The continuous pattern of higher peaks and higher bottoms that confirms a healthy trend." }
+        { term: "Single-Clue Trap", definition: "The mistake of drawing a full conclusion from one isolated candle or wick." },
+        { term: "Evidence Stack", definition: "The collection of multiple technical layers checked in sequence." },
+        { term: "Isolated Candle", definition: "A candle read without reference to surrounding structure or location." },
+        { term: "Contextual Bias", definition: "An emotional assumption built from seeing what one wants to see on a chart." },
+        { term: "Confirmation Bias", definition: "Searching only for clues that support a pre-existing assumption." }
       ],
-      whyThisMatters: "Identifying a trend environment saves you from panic-selling during a minor pullback inside a massive uptrend.",
-      realLifeExample: "Gold drops $15 in one hour. A beginner panics and sells. A Lurnava student identifies the clean hourly uptrend, locates the prior breakout structure, and waits for a hold. The trend environment overrides the scary red candles.",
-      commonMistake: "Treating a standard pullback inside a healthy trend as a market reversal.",
-      quickNote: "Before I trust those red candles, I must check if the environment is a healthy trend."
+      whyThisMatters: "Forcing a reading from a single clue leads to low-probability decisions and unexpected losses.",
+      realLifeExample: "A long bottom wick forms, showing rejection. However, price is in a strong downtrend and has not reached a key location. Chasing this single clue fails because the trend structure limits its significance.",
+      commonMistake: "Declaring a breakout or reversal based solely on the size or color of the latest candle.",
+      quickNote: "One candle is a record of a moment. An evidence stack is the context of that moment."
     }
   },
   {
     type: "visual_intro",
-    title: "Range Condition: Before You Buy the Breakout",
-    label: "Range Environment",
-    visualKey: "range-condition-environment",
-    body: "The Trap: You see a massive green candle surge upward with speed, closing near its highs. You buy immediately, expecting a massive breakout (price breaking out of a sideways box to start a new trend). The Reading: Before you trust that strong green candle, identify the environment. You zoom out and see price has been rotating sideways between $2,020 and $2,040 for three days. You are inside a range condition. Inside a range, strong candles pushing toward boundaries are usually exhaustion sweeps (quick moves that run out of steam and rapidly reverse), not breakouts. The environment tells you that strong candle is highly likely to fail and rotate backward.",
+    title: "The Evidence Layer Stack",
+    label: "Evidence Layers",
+    visualKey: "evidence-layer-stack",
+    body: "To conduct a proper audit, you must check the six core layers of evidence in sequence. Each layer adds weight to or limits the confidence of your reading. By reviewing these layers in order—Candle Record, Timeframe Context, Structure Condition, Location, Reaction, and Follow-Through—you build a complete picture of market conditions and avoid skipping critical details.",
     context: {
       keyTerms: [
-        { term: "Range Environment", definition: "A balanced state where price bounces sideways between a ceiling and a floor." },
-        { term: "Exhaustion Sweep", definition: "A fast price move toward a range boundary that runs out of buyers or sellers and rapidly reverses." },
-        { term: "Ping-Pong Rotation", definition: "The path of price bouncing from the floor (support) to the ceiling (resistance) and back again." },
-        { term: "Boundary Liquidation", definition: "A quick spike that triggers automatic exit orders (stops) located just outside the range boundary before returning inside." },
-        { term: "Containment Rule", definition: "The expectation that range boundaries will keep price contained until a breakout is verified." }
+        { term: "Candle Record", definition: "The shape and close of the immediate candle under review." },
+        { term: "Timeframe Context", definition: "The broader trend or range condition on the higher-timeframe chart." },
+        { term: "Structure Condition", definition: "The current swing relationship (higher highs, lower lows, range)." },
+        { term: "Location", definition: "The position of price relative to key reaction areas." },
+        { term: "Reaction", definition: "Price behavior (such as sweeps or rejections) when entering a location." },
+        { term: "Follow-Through", definition: "The subsequent candles that verify or weaken the initial reaction." }
       ],
-      whyThisMatters: "Classifying a range environment stops you from buying at the absolute high or selling at the absolute low.",
-      realLifeExample: "Price has bounced off $2,040 four times. A trader sees a strong green candle hit $2,041 and buys. The next candle drops back to $2,030. They fell for an exhaustion sweep because they didn't respect the range environment.",
-      commonMistake: "Applying trend-continuation rules inside a market that is clearly in a horizontal range.",
-      quickNote: "Before I buy that strong candle, I must identify if the environment is a range ceiling."
+      whyThisMatters: "Structuring your analysis into layers ensures that you never miss a conflicting high-timeframe level or range boundary.",
+      realLifeExample: "Before entering a trade, a trader reviews the stack: 1. Candle is strong green. 2. Timeframe is a daily range. 3. Local structure is uptrend. 4. Location is daily range high (resistance). 5. Reaction is a quick wick. 6. Follow-through is negative. The stack shows a weak and conflicting setup.",
+      commonMistake: "Skipping straight to reading wicks before confirming the broader structure or location.",
+      quickNote: "A complete stack check turns guess-work into a systematic audit."
     }
   },
   {
     type: "visual_intro",
-    title: "Transition Condition: Before You Force Certainty",
-    label: "Transition Environment",
-    visualKey: "transition-condition-map",
-    body: "The Trap: You are looking at a chart trying to decide if you should buy or sell. The candles are messy and overlapping. You feel frustrated because the direction isn't obvious, but you force a decision anyway. The Reading: Before you force a reading, identify the environment. The prior uptrend recently failed to make a new high, and the subsequent pullback was unusually deep. The clean trend sequence is broken. The market is in a transition condition (the state where the market is shifting from one environment to another, like from a trend to a range). In transition, evidence is naturally mixed and direction is unclear. The environment is telling you to lower your confidence and wait.",
+    title: "Alignment: When Evidence Supports the Same Reading",
+    label: "Evidence Alignment",
+    visualKey: "evidence-alignment-board",
+    body: "Evidence alignment occurs when multiple layers of the stack support the same market reading. For example, if a strong candle closes at its highs (Candle), while local structure is making higher highs (Structure), the daily chart is in a clear uptrend (Timeframe), and price is bouncing off a previous swing low (Location), the evidence is aligned. Alignment increases reading quality, but remember: it does not guarantee direction.",
     context: {
       keyTerms: [
-        { term: "Transition Environment", definition: "A state of change where the market is shifting from one condition to another." },
-        { term: "Trend Decay", definition: "The weakening of a trend, marked by smaller swings and deeper pullbacks." },
-        { term: "Overlapping Swings", definition: "When price waves cross over each other's boundaries instead of making clean steps, ending the trend." },
-        { term: "State Shift", definition: "The transition from a trend to a range, or from compression (squeezing) to expansion (breaking out)." },
-        { term: "Auditor Patience", definition: "The discipline to stand aside and wait when chart clues are mixed and unclear." }
+        { term: "Evidence Alignment", definition: "When multiple separate layers support the same market reading." },
+        { term: "Confluence", definition: "The intersection of several independent technical clues." },
+        { term: "Aligned Reading", definition: "A high-quality reading where layers do not contradict each other." },
+        { term: "Directional Bias", definition: "A disciplined assessment of market pressure based on aligned evidence." },
+        { term: "Structural Support", definition: "Structure swings and levels that align with immediate price behavior." }
       ],
-      whyThisMatters: "Transition zones are where traders lose the most money by trying to trade trends that are actively dying or ranges that are not yet formed.",
-      realLifeExample: "A trend starts making overlapping swings. An emotional trader keeps trying to buy pullbacks and gets chopped up. A Lurnava student identifies transition, lowers reading quality to mixed, and waits.",
-      commonMistake: "Demanding a clear directional bias from a market that is actively transitioning between states.",
-      quickNote: "Before I force a direction, I must identify if the environment is in transition."
+      whyThisMatters: "Recognizing alignment helps you identify when market pressure is clear, without relying on guaranteed predictions.",
+      realLifeExample: "Price drops to a major support level on the daily chart. On the 15m chart, price sweeps the low, closes strong, and begins building higher lows. Structure, location, and candle layers are aligned.",
+      commonMistake: "Assuming that aligned evidence means a trade is 100% guaranteed to succeed.",
+      quickNote: "Alignment improves reading quality; it does not eliminate risk."
     }
   },
   {
     type: "visual_intro",
-    title: "Compression: Before You Predict the Squeeze",
-    label: "Compression",
-    visualKey: "compression-condition-board",
-    body: "The Trap: Price swings are getting smaller and smaller, forming a tight wedge. You feel certain it is going to break upward, so you buy inside the squeeze. The Reading: Before you guess the breakout direction, identify the environment. It is compression (when price swings get smaller and smaller, narrowing into a tight wedge). Buyers and sellers are packing buying and selling orders into a narrowing price corridor. Price volatility is contracting (swings are shrinking). Compression builds massive energy for a future breakout, but it does not predict direction by itself. The environment tells you to wait for the breakout rather than gambling on the squeeze.",
+    title: "Conflict: When Evidence Disagrees",
+    label: "Evidence Conflict",
+    visualKey: "evidence-conflict-map",
+    body: "Evidence conflict is a normal market condition where different layers of the stack suggest opposing readings. For instance, local price action might show a strong breakout (supporting evidence), but price is immediately approaching a major weekly resistance zone (limiting evidence). A trained learner does not ignore conflict; they identify and name it, classifying the reading as mixed rather than trying to force a simple answer.",
     context: {
       keyTerms: [
-        { term: "Compression Environment", definition: "A state where price swings become progressively smaller and tighter." },
-        { term: "Order Packing", definition: "The build-up of matching buy and sell orders within a shrinking space." },
-        { term: "Energy Accumulation", definition: "The build-up of market pressure before a large move." },
-        { term: "Directional Neutrality", definition: "Accepting that a tight squeeze does not guarantee which direction the breakout will go." },
-        { term: "Squeeze Boundaries", definition: "The narrowing high and low lines that outline the compression area." }
+        { term: "Evidence Conflict", definition: "A condition where different layers suggest opposing readings." },
+        { term: "Limiting Evidence", definition: "Clues that reduce the quality or confidence of a reading." },
+        { term: "Supporting Evidence", definition: "Clues that strengthen the quality of a reading." },
+        { term: "Mixed Reading", definition: "A classification where supporting and limiting clues are balanced." },
+        { term: "Divergence", definition: "When two related market metrics (like spot vs. futures behavior) disagree." }
       ],
-      whyThisMatters: "Buying or selling inside a compression zone means you are locking up capital in a sideways market and risking a massive fakeout.",
-      realLifeExample: "Price swings contract from $20 to $10 to $3. A trader buys, guessing it breaks up. It immediately spikes down, trapping them. A Lurnava student identifies compression and waits for a confirmed break.",
-      commonMistake: "Gambling on the direction of a compression squeeze instead of waiting for the market to choose.",
-      quickNote: "Before I trust a breakout prediction, I must identify if the environment is still compressing."
+      whyThisMatters: "Ignoring conflicting evidence is a primary cause of retail traders entering low-probability breakout traps.",
+      realLifeExample: "Price breaks a local swing high, but volume is declining and price is sitting directly under a higher-timeframe range high. The local structure is bullish, but location and volume are bearish.",
+      commonMistake: "Hiding or ignoring limiting evidence because you desperately want to take a trade.",
+      quickNote: "When evidence conflicts, the reading is mixed. The discipline is to wait or lower your expectations."
     }
   },
   {
     type: "visual_intro",
-    title: "Expansion: Before You Chase the Spike",
-    label: "Expansion",
-    visualKey: "expansion-condition-board",
-    body: "The Trap: Price suddenly explodes out of compression with a massive green candle. You jump in immediately out of FOMO (fear of missing out), chasing the fast spike. The Reading: Before you chase the speed, identify the environment. The market has shifted from compression to expansion (a sudden breakout and release of energy from compression). But expansion is not automatically a clean new trend. Is it a fakeout sweep (a false breakout that immediately reverses) that will snap back inside, or is it a genuine expansion that will hold? The environment tells you that the first candle is just the question. You must wait to see if the next candle holds outside the squeeze boundary.",
+    title: "Clear, Mixed, and Unclear Readings",
+    label: "Reading Quality",
+    visualKey: "reading-quality-classifier",
+    body: "Not every chart provides a clear story, and a disciplined learner accepts this. We classify reading quality into three states: Clear (multiple layers align with minimal conflict), Mixed (some layers support, while others actively limit confidence), and Unclear (random or highly volatile price behavior with no defined structure). Understanding this classification helps you decide when to act and when to stand aside.",
     context: {
       keyTerms: [
-        { term: "Expansion State", definition: "A sudden, rapid move as price leaves a compressed or sideways zone." },
-        { term: "Initial Spike", definition: "The first large candle that breaks out past a range or compression boundary." },
-        { term: "Fakeout Trap", definition: "When price spikes outside a boundary but quickly closes back inside, trapping late buyers or sellers." },
-        { term: "Follow-Through Check", definition: "Checking subsequent candles to see if they hold the new price level." },
-        { term: "Breakout Verification", definition: "The rule that price must stay outside the broken boundary to prove the breakout is real." }
+        { term: "Clear Reading", definition: "A condition where multiple layers are aligned with minimal conflict." },
+        { term: "Mixed Reading", definition: "A condition where evidence is present but is actively countered by other layers." },
+        { term: "Unclear Reading", definition: "A condition with poor structure definition or highly noisy price action." },
+        { term: "Noise", definition: "Random or low-quality price fluctuations that lack structural significance." },
+        { term: "Reading Classification", definition: "Naming the quality of a chart setup rather than predicting its direction." }
       ],
-      whyThisMatters: "Waiting for follow-through verification prevents you from buying the absolute top of a fake breakout spike.",
-      realLifeExample: "Gold spikes $12 out of a squeeze. A trader chases it. The next candle drops $11 back into the squeeze. They got trapped. A Lurnava student waits for the next candle to hold, sees it fail, and stays safe.",
-      commonMistake: "Confusing a fast expansion spike with a confirmed, structured trend environment.",
-      quickNote: "Before I chase the expansion spike, I must identify if the market is holding outside the boundary."
+      whyThisMatters: "Recognizing that a chart is mixed or unclear protects your capital from being chopped up in poor market conditions.",
+      realLifeExample: "During low-liquidity holiday hours, price moves in jagged spikes without respecting key levels or structure. The disciplined learner classifies this as unclear and closes the terminal.",
+      commonMistake: "Believing you must have a directional prediction for every chart you look at.",
+      quickNote: "A professional trader spends most of their time classifying charts as mixed or unclear."
     }
   },
   {
     type: "visual_intro",
-    title: "Choppy Conditions: Before You Over-Analyze",
-    label: "Chop and Noise",
-    visualKey: "choppy-condition-warning",
-    body: "The Trap: You see a pin bar candle (a candle with a long wick showing price rejection), then an engulfing candle (a large candle that completely covers the previous candle's body), then a wick sweep (a quick spike past a high or low that immediately returns). You try to draw support and resistance lines around every swing, looking for a trade. The Reading: Before you trust any of those candle patterns, identify the environment. Swings are overlapping constantly, wicks are forming on both sides of every candle, and price is moving sideways with no clean boundaries. The environment is choppy. In chop, candle patterns are random noise. The environment tells you that no local evidence can be trusted, and your reading quality must be classified as unclear.",
+    title: "Verification: What Must Happen Next?",
+    label: "Verification Logic",
+    visualKey: "verification-checkpoint-flow",
+    body: "Instead of predicting what price will do, a disciplined reader defines what must happen next to verify or weaken their reading. By establishing clear verification checkpoints—such as price holding above a specific low, or a breakout candle showing immediate follow-through—you transform passive chart watching into an active check of structural rules.",
     context: {
       keyTerms: [
-        { term: "Choppy Environment", definition: "A messy sideways state with overlapping swings, wicks on both sides, and no clear structure." },
-        { term: "Market Noise", definition: "Random price movements that do not reflect the direction of big players." },
-        { term: "Pattern Degradation", definition: "The breakdown of standard candle patterns, making them highly unreliable inside a messy environment." },
-        { term: "Stand Aside Filter", definition: "The choice to stop analyzing and walk away from the chart when the market is choppy." },
-        { term: "Reading Quality: Unclear", definition: "Classifying the market as unreadable because the clues are completely mixed." }
+        { term: "Verification", definition: "The process of waiting for specific behavior to confirm a reading." },
+        { term: "Invalidation Checkpoint", definition: "A price level or behavior that proves a reading is incorrect." },
+        { term: "Weakening Sign", definition: "Early behavior that limits the probability of a reading's scenario." },
+        { term: "Confirmation Behavior", definition: "Price action that supports and completes a developing structure." },
+        { term: "Chasing Price", definition: "Entering a market without waiting for proper verification." }
       ],
-      whyThisMatters: "Recognizing a choppy environment prevents you from over-trading and losing capital in random, sideways noise.",
-      realLifeExample: "Gold has printed six overlapping, wick-heavy candles in a tight $3 range. A trader keeps trying to predict the next direction. A Lurnava student identifies chop, labels the reading unclear, and walks away.",
-      commonMistake: "Forcing yourself to find a clear reading in a market that is objectively messy and unstructured.",
-      quickNote: "Before I trust this candle pattern, I must identify if the environment is just choppy noise."
+      whyThisMatters: "Verification logic stops you from guessing breakout success and forces you to wait for market confirmation.",
+      realLifeExample: "Price breaks a local swing high. Instead of entering immediately, you define the verification: 'I need to see the next candle close above this break, and price must hold the broken level on a pullback.'",
+      commonMistake: "Treating a break as confirmed before the breakout candle even closes.",
+      quickNote: "Never chase. Establish your checkpoints and let the market prove itself."
     }
   },
   {
     type: "visual_intro",
-    title: "The Same Candle Changes Meaning by Condition",
-    label: "Condition Changes Meaning",
-    visualKey: "same-candle-different-condition",
-    body: "This is the ultimate proof that you cannot trust a candle shape by itself. A strong green candle with tiny wicks looks highly bullish (likely to go up). But look at where it stands. In a clean trend, it means the trend is continuing. At a range ceiling, it is a temporary surge that is running out of steam. In compression, it is a breakout attempt. In chop, it is random noise. The candle shape has not changed at all, but the environment completely changes its meaning. Before you trust the candle, you must identify the environment.",
+    title: "When Early Evidence Breaks Down",
+    label: "Reading Failure",
+    visualKey: "reading-failure-diagnostic",
+    body: "A reading is not a promise. It is an assessment that can change with the very next candle. When early evidence breaks down—for example, when a breakout candle is immediately followed by a large opposing candle (often called an engulfing candle) that pushes back inside structure—the disciplined learner does not defend their initial read. They update their classification immediately to mixed or unclear, accepting that the market story has changed.",
     context: {
       keyTerms: [
-        { term: "Contextual Auditing", definition: "The discipline of reading candle clues strictly based on the surrounding market condition." },
-        { term: "Candle Meaning Shift", definition: "How the same candle shape changes from bullish to bearish depending on where it sits." },
-        { term: "Environment Priority", definition: "The rule that the overall environment overrides the look of any single candle." },
-        { term: "Evidence Weighting", definition: "Giving more or less importance to wicks and candle closes based on the environment." },
-        { term: "Reading Consistency", definition: "Making sure your analysis matches the specific rules of the environment you identified." }
+        { term: "Evidence Breakdown", definition: "When follow-through fails and invalidates the previous reading." },
+        { term: "Reading Update", definition: "Changing the classification of a chart as new records arrive." },
+        { term: "Ego Bias", definition: "The emotional attachment to a previous reading despite new conflicting evidence." },
+        { term: "Invalidation", definition: "When price crosses a predefined boundary, erasing the reading's thesis." },
+        { term: "Behavior Shift", definition: "A sudden change in candle characteristics or swing structure." }
       ],
-      whyThisMatters: "Failing to change your interpretation of candle shapes across different conditions leads to constant reading errors.",
-      realLifeExample: "You see a strong hourly green candle. In a clean uptrend, you read it as high-quality bullish. In a horizontal range, you read it as potential high-boundary exhaustion. Same candle, opposite interpretations.",
-      commonMistake: "Using a single rulebook for candle shapes instead of adapting your reading to the market's condition.",
-      quickNote: "The candle is just the word. The market condition is the sentence that gives it meaning."
+      whyThisMatters: "Holding onto a failed reading out of pride leads to expanding stops, revenge trading, and large losses.",
+      realLifeExample: "A trader reads a local structure break as clear. The next candle spikes down, breaking the swing low that supported the move. The trader immediately invalidates their bullish read and steps aside.",
+      commonMistake: "Hoping or waiting for price to 'come back' to prove your original reading was right.",
+      quickNote: "When the evidence changes, your reading must change. The market does not care about your ego."
     }
   },
   {
     type: "visual_intro",
-    title: "Condition First, Evidence Second",
+    title: "The Full Core Reading Workflow",
     label: "Reading Workflow",
-    visualKey: "condition-first-workflow",
-    body: "How does a professional read a chart? They do not look at the current candle first. They follow a strict workflow: Zoom out. Classify the environment. Mark the zones relevant to that environment. Zoom in. Audit the local candle evidence. Determine the reading quality. Define the verification. The environment sets the rules. The zones show the stage. The candle is just the final clue. Condition first, evidence second. Before you trust the candle, you must identify the environment.",
+    visualKey: "core-reading-workflow-map",
+    body: "To read a market professionally, you must combine all these lessons into a repeatable, step-by-step workflow. By following a structured checklist—observing raw candle behavior, mapping higher-timeframe context, analyzing swing structure, identifying key locations, reviewing local reactions, and checking follow-through—you arrive at a disciplined classification and clear verification checkpoints.",
     context: {
       keyTerms: [
-        { term: "Analysis Order", definition: "The step-by-step checklist starting from the broad environment down to the individual candle." },
-        { term: "Zoom Out Habit", definition: "Starting your chart reading with a wider view to establish the overall environment first." },
-        { term: "Zone Marking", definition: "Drawing key support, resistance, or squeeze areas based on the environment." },
-        { term: "Reading Quality", definition: "Classifying the final reading as clear, mixed, or unclear based on how well the clues align." },
-        { term: "Verification Plan", definition: "Stating what price levels or checkpoints must hold to prove your reading is correct." }
+        { term: "Reading Workflow", definition: "The step-by-step process of auditing evidence to classify reading quality." },
+        { term: "Observation Layer", definition: "Recording raw candle behaviors before labeling them." },
+        { term: "Location Check", definition: "Mapping price relative to major reaction zones." },
+        { term: "Structure Review", definition: "Auditing high-timeframe and low-timeframe swing points." },
+        { term: "Follow-Through Assessment", definition: "Evaluating the strength of movement after a reaction." }
       ],
-      whyThisMatters: "Following this workflow prevents confirmation bias, where you search for local clues to support a trade you already want to take.",
-      realLifeExample: "You open a chart. Before looking at the current hourly candle, you verify the market is in a 4-hour range condition. You then apply range rules to the local candles, avoiding a false breakout buy.",
-      commonMistake: "Zooming straight into a 5-minute candle and drawing support lines around it without knowing the broader condition.",
-      quickNote: "Never audit a candle until you have named the room it is standing in."
+      whyThisMatters: "Following a workflow ensures consistency in your analysis. You cannot expect consistent trading outcomes from a random reading process.",
+      realLifeExample: "A trader opens a chart and systematically works through the workflow: daily range check, local swing labeling, key reaction area identification, immediate candle check. They find mixed evidence and log it.",
+      commonMistake: "Jumping straight to looking for entry points without completing the foundational workflow steps.",
+      quickNote: "A professional reading is a systematic inspection, not a quick glance."
     }
   },
   {
     type: "practice",
-    title: "Practice Drill: What Condition Is This Market In?",
+    title: "Practice Drill: Clear, Mixed, or Unclear?",
     label: "Practice Drill",
-    visualKey: "market-condition-practice-drill",
-    body: "Let's put your condition-reading skills to the test. In this drill, we present a realistic market scenario where a previously clean trend starts exhibiting mixed, sideways behavior. Your goal is to evaluate the changes in structure, apply the correct classification lens, and decide the disciplined reading. Read the scenario details carefully before making your choice.",
+    visualKey: "evidence-audit-practice-drill",
+    body: "This drill tests whether you can apply evidence-audit logic to a realistic chart reading scenario. A market will often show attractive clues mixed with warning signs. Your goal is to determine the disciplined reading quality classification rather than chasing the most exciting possibility.",
     taskData: {
       type: "choice_block",
-      question: "Price was previously moving upward with clear higher highs and higher lows on the hourly chart. Recently, the last upward push made only a weak new high, and the subsequent pullback dipped below the previous swing low. Price is now moving sideways, with swings overlapping each other. There is no clean trend continuation, but it has not established a clean horizontal range yet. What is the most disciplined condition reading?",
+      question: "A chart shows a strong green candle breaking above a local structure resistance level. However, the higher-timeframe chart remains inside a broader sideways range, the breakout candle closes near the middle of its range (leaving a long upper wick), and the subsequent candle shows weak follow-through. What is the disciplined evidence-audit reading?",
       options: [
         {
           id: "A",
-          text: "Clean trend condition because price was previously moving upward.",
+          text: "Confirmed bullish breakout because price crossed the local structure area.",
           isCorrect: false,
-          feedback: "Incorrect. The prior trend matters, but the recent shallow high, deeper pullback, and overlapping swings indicate the clean trend condition is no longer active. You must adapt to the new clues."
+          feedback: "Not correct. Crossing a local level is not enough to confirm a breakout, especially with a weak close and a higher-timeframe range blocking the move."
         },
         {
           id: "B",
-          text: "Clean range condition because price is moving sideways now.",
+          text: "Guaranteed reversal because follow-through is weak.",
           isCorrect: false,
-          feedback: "Incorrect. While price is moving sideways, it has not yet established clear, respected horizontal support and resistance boundaries. Classifying it as a clean range is premature."
+          feedback: "Not correct. Weak follow-through limits the breakout's strength, but it does not guarantee a reversal. Avoid predictive, absolute statements."
         },
         {
           id: "C",
-          text: "Transition condition because the previous trend is weakening and the current structure is mixed.",
+          text: "Mixed evidence because the local break is active, but the higher-timeframe range, the middle close, and weak follow-through limit clarity.",
           isCorrect: true,
-          feedback: "Correct! The prior trend has broken its sequence (shallow high, deeper pullback), and a clean range has not formed yet. The market is in a transition condition, creating mixed evidence."
+          feedback: "Correct! The evidence is mixed. While the local break is a supportive clue, the higher-timeframe range, poor candle close, and lack of follow-through are active limiting factors that prevent a clear reading."
         },
         {
           id: "D",
-          text: "Guaranteed reversal because the latest pullback was deeper.",
+          text: "Unclear because candles never provide useful evidence.",
           isCorrect: false,
-          feedback: "Incorrect. A deeper pullback shows trend weakness and shifts the condition to transition, but it does not guarantee a reversal. Avoid predictive, absolute statements."
+          feedback: "Not correct. Candle shapes and structure details do provide useful, objective records, but they must be audited collectively rather than dismissed."
         }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Trend Interruption", definition: "A break in the sequential pattern of higher highs and higher lows, signaling a change in the environment." },
-        { term: "Overlapping Swings", definition: "Price movements that cross over each other, indicating a loss of trend structure." },
-        { term: "Transition State", definition: "The middle zone between a trend and a range where clues are highly mixed." },
-        { term: "Sideways Noise", definition: "Messy sideways price waves that have not yet formed clean boundary levels." },
-        { term: "Disciplined Classification", definition: "Naming the environment based strictly on current structure rather than hoping for old trends to continue." }
+        { term: "Disciplined Reading", definition: "A chart reading that accepts mixed or unclear conditions." },
+        { term: "Local Break", definition: "A price move beyond a lower-timeframe structure point." },
+        { term: "High-Timeframe Range", definition: "The broader trading boundary on a higher-timeframe chart." },
+        { term: "Weak Follow-Through", definition: "Immediate pause or reversal candles after a structure break." },
+        { term: "Evidence Classification", definition: "The final step of labeling a chart's quality as clear, mixed, or unclear." }
       ],
-      whyThisMatters: "This drill trains you to spot the early signs of a weakening trend so you don't keep expecting clean continuation when the market has shifted.",
-      realLifeExample: "You notice a trend starts to overlap. Recognizing it as a transition, you stop buying pullbacks and wait for a clean range or a new trend to declare itself.",
-      commonMistake: "Treating a decaying trend as if it is still clean, leading to losses as price enters a sideways chop.",
-      quickNote: "When the sequence breaks and overlaps begin, the trend is over. You are in transition."
+      whyThisMatters: "This drill trains you to identify limiting clues rather than only focusing on signs of movement.",
+      realLifeExample: "Price breaks above a local high but immediately stalls and forms small indecisive candles. Recognizing this as mixed evidence saves you from buying the top of a range.",
+      commonMistake: "Focusing only on the green breakout candle while ignoring the higher-timeframe range and weak follow-through.",
+      quickNote: "Audit both supporting and limiting clues before deciding the reading quality."
     }
   },
   {
     type: "debrief",
-    title: "Debrief: Read the Environment Before the Evidence",
+    title: "Debrief: Read Evidence Before You Trust Direction",
     label: "Core Debrief",
-    visualKey: "market-condition-debrief",
-    body: "Congratulations! You have completed Module 0.7 Core Concept. You have shifted your mindset from reacting to individual price candles to classifying the broader market environment first. You now understand that trends, ranges, transitions, compressions, expansions, and chop dictate what candle evidence actually means. With this condition-reading framework, you are ready to explore the asset-specific roadways.",
+    visualKey: "evidence-audit-debrief",
+    body: "You have completed Level 0. You are no longer looking at charts hoping for a magic signal. You have learned that candles are records, timeframes change the story, structure gives movement meaning, and an evidence audit combines them into a disciplined reading. By building this systematic habit, you protect yourself from retail traps and build a professional trading foundation.",
     context: {
       keyTerms: [
-        { term: "Condition Literacy", definition: "The ability to accurately name the market's environment under any chart condition." },
-        { term: "Environment Priority", definition: "The rule that the overall market state always overrules local candle patterns." },
-        { term: "Workflow Habit", definition: "The habit of starting every chart analysis with a wide view to classify the environment." },
-        { term: "Evidence Weighting", definition: "Adjusting the importance of wicks, candle bodies, and closes based on the overall condition." },
-        { term: "Capital Preservation", definition: "Protecting your funds by standing aside when the market environment is choppy or transitioning." }
+        { term: "Disciplined Trader", definition: "A trader who audits evidence before formulating any expectation." },
+        { term: "Market Clues", definition: "Individual data points that must be combined to form a reading." },
+        { term: "Audit Process", definition: "The checklist approach to analyzing charts." },
+        { term: "Objectivity", definition: "Evaluating chart records without emotional projection." },
+        { term: "Verification Habit", definition: "The practice of always defining the next validation step." },
+        { term: "Price Records", definition: "Historical candles that show market participant actions." }
       ],
-      whyThisMatters: "Condition awareness is the ultimate filter. It separates high-probability trading environments from expensive market noise.",
-      realLifeExample: "A Lurnava graduate opens a chart, identifies compression, marks the squeeze, and waits for a verified expansion. They do not guess; they read the environment.",
-      commonMistake: "Forgetting to classify the condition and jumping straight into local candle analysis.",
-      quickNote: "Do not ask what the candle is doing. Ask where the candle is standing."
+      whyThisMatters: "A trading career is built on systematic execution. Developing an objective evidence audit habit at Level 0 is the single most important step in that journey.",
+      realLifeExample: "An untrained trader opens a chart, gets excited, and trades immediately. The Lurnava graduate audits the layers, writes down verification checkpoints, and acts only when conditions are clear.",
+      commonMistake: "Slipping back into looking for quick, single-candle triggers once you start trading live.",
+      quickNote: "Do not predict first. Audit first."
     }
   }
 ];

@@ -106,7 +106,7 @@ export const cryptoCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Practice with Crypto Inversion Scenarios",
     "label": "Crypto Track",
     "body": "### Scenario-Based Practice: Funding Rate Flips\nEngage in practice scenarios focused on funding rate flips and perpetual leverage to reinforce learning and strategy application. This card provides a practical exercise.\n\n* **Scenario Question**: Given a situation where Bitcoin's funding rate spikes to 0.15% while the price approaches a previous inversion gap at $30,000, what should your entry strategy be?\n* **Options**: Analyze the following choices:\n  - **Option A**: Enter a long position immediately at $30,000.  \n  - **Option B**: Wait for a confirmation candle above $30,500 before entering.  \n  - **Option C**: Short the market anticipating a rejection at $30,000.  \n  - **Option D**: Set a limit order at $29,800 to capture a potential dip.\n\n* **Feedback**: Each option will be evaluated based on the context of funding rate trends and market conditions.",

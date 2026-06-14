@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNava } from "@/hooks/useNava";
-import { STRATEGIES_DATA, StrategyDefinition } from "@/lib/strategies-data";
+import { STRATEGIES_DATA, StrategyDefinition, getStrategyLevel } from "@/lib/strategies-data";
 import { 
   Search, 
   BookOpen, 
@@ -13,22 +13,34 @@ import {
   ArrowRight,
   ShieldCheck,
   RotateCcw,
-  X
+  X,
+  Lock
 } from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { AcademyButton } from "@/components/ui/academy-button";
 import { DataBadge } from "@/components/ui/data-badge";
 import { AcademyCard, AcademyCardContent, AcademyCardHeader, AcademyCardTitle } from "@/components/ui/academy-card";
 import { ChartPractice } from "@/components/academy/interactive/chart-practice-engine"; 
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import { generateMockCandles, getConceptCandles } from "@/lib/utils/market";
+import { 
+  LivePriceReaderVisual, 
+  OpenTradeManagerVisual, 
+  OrderEntrySimulator, 
+  ExecutionOSFramework 
+} from "./visuals/shared-l7";
 
 interface StrategyLabClientProps {
   userTrack: string;
+  currentLevel: number;
   completedModuleNumbers: Set<string>;
   initialSavedAnalyses: any[];
   dbStrategies: any[];
+  modules: any[];
 }
 
 const PRIMARY_TABS = ["Core Concepts", "Market Logic", "Risk & Bias", "Saved"] as const;
@@ -53,17 +65,47 @@ const CATEGORY_MAP: Record<string, PrimaryTab> = {
   "VM": "Risk & Bias",
 };
 
+
+function getSetupSummary(coreLogic: string): string {
+  if (!coreLogic) return "";
+  const lines = coreLogic.split('\n');
+  const coreLogicLine = lines.find(l => l.includes('**Core Logic**:') || l.includes('Core Logic:'));
+  if (coreLogicLine) {
+    return coreLogicLine.replace(/.*?\*\*Core Logic\*\*:\s*/i, '').replace(/.*?\*?Core Logic:\s*/i, '').trim();
+  }
+  return lines[0].replace(/^\*?\s*/, '').trim();
+}
+
+function getStrategyVisual(family: string, name: string) {
+  const fam = (family || "").toLowerCase();
+  const n = (name || "").toLowerCase();
+
+  if (fam.includes("risk") || fam.includes("management") || fam.includes("logic") || n.includes("position") || n.includes("size") || n.includes("risk")) {
+    return <OpenTradeManagerVisual />;
+  }
+  if (fam.includes("breakout") || fam.includes("session") || fam.includes("protocol") || n.includes("breakout") || n.includes("london")) {
+    return <OrderEntrySimulator />;
+  }
+  if (fam.includes("on-chain") || fam.includes("derivatives") || fam.includes("funding") || fam.includes("liquidity") || n.includes("volume") || n.includes("order book")) {
+    return <LivePriceReaderVisual />;
+  }
+  return <ExecutionOSFramework />;
+}
+
 export function StrategyLabClient({ 
   userTrack, 
+  currentLevel,
   completedModuleNumbers, 
   initialSavedAnalyses,
-  dbStrategies 
+  dbStrategies,
+  modules
 }: StrategyLabClientProps) {
   const { triggerMessage, setSuppressed } = useNava();
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<PrimaryTab>("Core Concepts");
   const [search, setSearch] = useState("");
   const [allScenarios, setAllScenarios] = useState<any[]>([]);
-  const [selectedStrategy, setSelectedStrategy] = useState<StrategyDefinition | null>(null);
+  const [selectedStrategy, setSelectedStrategy] = useState<any | null>(null);
 
   // Fetch all scenarios for search
   useEffect(() => {
@@ -110,23 +152,109 @@ export function StrategyLabClient({
     }
   }, [activeTab, savedAnalyses.length, triggerMessage]);
 
-  // Filter strategies
-  const availableStrategies = STRATEGIES_DATA.filter(s => 
-    s.track === "core" || s.track === userTrack || userTrack === "multi"
-  );
+  // Merge and deduplicate database strategies
+  const combinedStrategies = useMemo(() => {
+    const staticNames = new Set(STRATEGIES_DATA.map(s => s.name.toLowerCase().trim()));
 
-  const filteredStrategies = availableStrategies.filter(s => {
-    const safeLower = (val: unknown) => (typeof val === 'string' ? val.toLowerCase() : '');
-    const query = search.toLowerCase();
-    const matchesSearch = safeLower(s.name).includes(query) || 
-                          safeLower(s.logicId).includes(query);
-    
-    // Fallback unmapped to Core Concepts
-    const mappedTab = CATEGORY_MAP[s.family] || "Core Concepts";
-    const matchesTab = mappedTab === activeTab;
-    
-    return matchesSearch && matchesTab;
-  });
+    const mappedDb = dbStrategies
+      .filter(dbS => !staticNames.has(dbS.name.toLowerCase().trim()))
+      .map(dbS => {
+        const track: "crypto" | "gold" | "forex" = dbS.assetClass === "CRYPTO" ? "crypto" : dbS.assetClass === "GOLD" ? "gold" : "forex";
+        const level = getStrategyLevel(dbS.parentFamily, dbS.assetClass, dbS.sequenceNumber);
+        const prefix = dbS.assetClass === "CRYPTO" ? "CR" : dbS.assetClass === "GOLD" ? "GD" : "FX";
+        const logicId = `${prefix}-${String(dbS.sequenceNumber).padStart(3, "0")}`;
+
+        return {
+          logicId,
+          name: dbS.name,
+          family: dbS.parentFamily,
+          track,
+          level,
+          setupSummary: getSetupSummary(dbS.coreLogic),
+          checklists: {
+            entry: [],
+            exit: [],
+            invalidation: []
+          },
+          riskNotes: dbS.trapMechanics || "",
+          metrics: {
+            winRate: "50%",
+            avgR: "2.0",
+            complexity: "MED" as const
+          },
+          linkedModuleNumber: "N/A",
+          isDbStrategy: true,
+          coreLogic: dbS.coreLogic,
+          trapMechanics: dbS.trapMechanics,
+          practiceConfig: {
+            prompt: `Practice identification for ${dbS.name}`,
+            guideSteps: ["Locate critical structural context.", "Identify standard entry points.", "Note key rejection signals."],
+            reflection: ["Is this setup fully aligned?", "What is the primary driver?"],
+            selfReview: ["I identified the core setup."],
+            validationMode: "self" as const
+          }
+        };
+      });
+
+    const all = [...STRATEGIES_DATA, ...mappedDb];
+    return all.filter(s => 
+      s.track === "core" || s.track === userTrack || userTrack === "multi"
+    );
+  }, [dbStrategies, userTrack]);
+
+  const paramStrategy = searchParams.get("strategy");
+
+  // Deep linking logic: select strategy on parameter match
+  useEffect(() => {
+    if (paramStrategy && combinedStrategies.length > 0) {
+      const match = combinedStrategies.find(
+        (s) => s.logicId.toLowerCase() === paramStrategy.toLowerCase() ||
+               s.name.toLowerCase().trim() === paramStrategy.toLowerCase().trim()
+      );
+      if (match) {
+        setSelectedStrategy(match);
+        setIsPracticing(false);
+        setViewingAnalysis(null);
+        resetPracticeState();
+        setPracticeCandles(getConceptCandles(match.logicId));
+
+        // Switch to the correct tab based on level
+        if (match.level === 2) {
+          setActiveTab("Core Concepts");
+        } else if (match.level >= 3 && match.level <= 5) {
+          setActiveTab("Market Logic");
+        } else if (match.level >= 6 && match.level <= 9) {
+          setActiveTab("Risk & Bias");
+        } else {
+          setActiveTab(CATEGORY_MAP[match.family] || "Core Concepts");
+        }
+      }
+    }
+  }, [paramStrategy, combinedStrategies]);
+
+  const filteredStrategies = useMemo(() => {
+
+    return combinedStrategies.filter(s => {
+      const safeLower = (val: unknown) => (typeof val === 'string' ? val.toLowerCase() : '');
+      const query = search.toLowerCase();
+      const matchesSearch = safeLower(s.name).includes(query) || 
+                            safeLower(s.logicId).includes(query);
+      
+      let mappedTab: PrimaryTab = "Core Concepts";
+      if (s.level === 2) {
+        mappedTab = "Core Concepts";
+      } else if (s.level >= 3 && s.level <= 5) {
+        mappedTab = "Market Logic";
+      } else if (s.level >= 6 && s.level <= 9) {
+        mappedTab = "Risk & Bias";
+      } else {
+        mappedTab = CATEGORY_MAP[s.family] || "Core Concepts";
+      }
+      const matchesTab = mappedTab === activeTab;
+      
+      return matchesSearch && matchesTab;
+    });
+  }, [combinedStrategies, search, activeTab]);
 
   // Filter missions
   const filteredMissions = allScenarios.filter(s => {
@@ -180,7 +308,7 @@ export function StrategyLabClient({
     // Candles will be set when selecting strategy
   };
 
-  const handleSelectStrategy = (s: StrategyDefinition) => {
+  const handleSelectStrategy = (s: any) => {
     setSelectedStrategy(s);
     setIsPracticing(false);
     setViewingAnalysis(null);
@@ -199,8 +327,28 @@ export function StrategyLabClient({
 
   const effectiveStrategy = selectedStrategy || 
     (viewingAnalysis?.chartState?.logicId ? 
-      STRATEGIES_DATA.find(s => s.logicId === viewingAnalysis.chartState.logicId) : 
+      combinedStrategies.find(s => s.logicId === viewingAnalysis.chartState.logicId) : 
       null);
+
+  // Group filteredStrategies by level
+  const groupedByLevel = useMemo(() => {
+    const groups: Record<number, any[]> = {};
+    filteredStrategies.forEach(s => {
+      if (!groups[s.level]) groups[s.level] = [];
+      groups[s.level].push(s);
+    });
+    return groups;
+  }, [filteredStrategies]);
+
+  // Find matching module for the selected strategy
+  const linkedModule = useMemo(() => {
+    if (!selectedStrategy) return null;
+    let match = modules?.find(m => m.moduleNumber === selectedStrategy.linkedModuleNumber);
+    if (!match) {
+      match = modules?.find(m => m.level === selectedStrategy.level);
+    }
+    return match;
+  }, [selectedStrategy, modules]);
 
   return (
     <div className="flex flex-col h-full gap-6 overflow-hidden">
@@ -278,23 +426,53 @@ export function StrategyLabClient({
               </div>
             )}
             {activeTab !== "Saved" ? (
-              filteredStrategies.length > 0 ? filteredStrategies.map((s) => (
-                <button
-                  key={s.logicId}
-                  onClick={() => handleSelectStrategy(s)}
-                  className={cn(
-                    "w-full text-left p-4 rounded-2xl border transition-all group",
-                    selectedStrategy?.logicId === s.logicId && !isPracticing
-                      ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 border-l-4 border-l-[var(--ln-teal-500)]" 
-                      : "bg-white border-[var(--ln-border)] hover:border-[var(--ln-teal-500)]/20 hover:bg-slate-50"
-                  )}
-                >
-                  <div className="flex flex-col gap-1.5">
-                     <span className="text-[10px] font-bold text-[var(--ln-teal-600)] uppercase tracking-wider">{s.logicId}</span>
-                     <h4 className="font-bold text-[var(--ln-navy-900)] text-sm">{s.name}</h4>
+              filteredStrategies.length > 0 ? Object.keys(groupedByLevel).sort((a, b) => parseInt(a) - parseInt(b)).map(lvlStr => {
+                const lvl = parseInt(lvlStr);
+                const strategies = groupedByLevel[lvl];
+                return (
+                  <div key={lvl} className="space-y-2 mb-6">
+                    <div className="flex items-center justify-between px-2 pb-1 border-b border-slate-100">
+                      <h5 className="text-[10px] font-bold text-[var(--ln-teal-600)] uppercase tracking-wider">Level {lvl}</h5>
+                      <span className="text-[9px] text-slate-400 font-bold">{strategies.length} concepts</span>
+                    </div>
+                    <div className="space-y-2">
+                      {strategies.map((s) => {
+                        const isLocked = currentLevel < s.level;
+                        return (
+                          <button
+                            key={s.logicId}
+                            disabled={isLocked}
+                            onClick={() => !isLocked && handleSelectStrategy(s)}
+                            className={cn(
+                              "w-full text-left p-4 rounded-2xl border transition-all group relative",
+                              isLocked
+                                ? "bg-slate-50 border-[var(--ln-border)] opacity-60 cursor-not-allowed"
+                                : selectedStrategy?.logicId === s.logicId && !isPracticing
+                                  ? "bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 border-l-4 border-l-[var(--ln-teal-500)]" 
+                                  : "bg-white border-[var(--ln-border)] hover:border-[var(--ln-teal-500)]/20 hover:bg-slate-50"
+                            )}
+                          >
+                            <div className="flex flex-col gap-1.5 pr-6">
+                              <div className="flex items-center justify-between">
+                                <span className="text-[10px] font-bold text-[var(--ln-teal-600)] uppercase tracking-wider">{s.logicId}</span>
+                                {isLocked && (
+                                  <span className="text-[9px] font-semibold text-slate-500 bg-slate-200 px-1.5 py-0.5 rounded">Lvl {s.level} Req</span>
+                                )}
+                              </div>
+                              <h4 className="font-bold text-[var(--ln-navy-900)] text-sm">{s.name}</h4>
+                            </div>
+                            {isLocked && (
+                              <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                                <Lock className="w-4 h-4 text-slate-400" />
+                              </div>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
-                </button>
-              )) : (
+                );
+              }) : (
                 <div className="p-6 text-center text-sm text-slate-400 italic">No concepts found.</div>
               )
             ) : (
@@ -365,56 +543,123 @@ export function StrategyLabClient({
                    <div className="flex items-center gap-2">
                       <span className="px-2.5 py-1 rounded bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] text-[10px] font-bold uppercase tracking-wider">Concept ID: {selectedStrategy.logicId}</span>
                       <span className="text-[11px] font-semibold text-slate-500">{selectedStrategy.family}</span>
+                      <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">Level {selectedStrategy.level}</span>
                    </div>
                    <h2 className="text-2xl md:text-3xl font-bold text-[var(--ln-navy-900)] tracking-tight">{selectedStrategy.name}</h2>
-                </div>
+                </div>                 {selectedStrategy.isDbStrategy ? (
+                   <div className="space-y-8">
+                     <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-4">
+                       <h3 className="text-sm font-bold text-[var(--ln-teal-600)] uppercase tracking-wider font-extrabold">Core Strategy Logic</h3>
+                       <div className="prose prose-slate text-sm text-[var(--ln-text-secondary)] leading-relaxed font-medium">
+                         <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                           {selectedStrategy.coreLogic || ""}
+                         </ReactMarkdown>
+                       </div>
+                     </div>
 
-                {/* 3: Concept Summary */}
-                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
-                   <p className="text-sm md:text-base text-[var(--ln-text-secondary)] leading-relaxed font-medium">
-                     {selectedStrategy.setupSummary}
-                   </p>
-                </div>
+                     {/* Interactive Visualizer */}
+                     <div className="space-y-3">
+                       <h3 className="text-sm font-bold text-[var(--ln-teal-600)] uppercase tracking-wider font-extrabold">Interactive Setup Visual</h3>
+                       {getStrategyVisual(selectedStrategy.family, selectedStrategy.name)}
+                     </div>
 
-                {/* 4 & 5: Criteria */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                   <div className="space-y-4">
-                      <h4 className="text-sm font-bold text-[var(--ln-teal-600)] flex items-center gap-2">
-                         <CheckCircle2 size={18} /> Decision Criteria
-                      </h4>
-                      <ul className="space-y-2">
-                         {selectedStrategy.checklists.entry.map((step, i) => (
-                           <li key={i} className="p-4 bg-white border border-slate-200 rounded-xl text-xs md:text-sm text-slate-600 leading-relaxed shadow-sm">
-                              {step}
-                            </li>
-                         ))}
-                      </ul>
+                     {selectedStrategy.trapMechanics && (
+                       <div className="p-6 bg-amber-50 border border-amber-100 rounded-2xl space-y-3">
+                         <h3 className="text-xs font-bold text-amber-800 uppercase tracking-wider flex items-center gap-2 font-extrabold">
+                           <AlertTriangle size={16} /> Market Trap Mechanics
+                         </h3>
+                         <div className="prose prose-amber text-sm text-amber-900/80 leading-relaxed font-medium">
+                           <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                             {selectedStrategy.trapMechanics}
+                           </ReactMarkdown>
+                         </div>
+                       </div>
+                     )}
+                     <div className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-xl mt-4">
+                        <div className="flex items-center gap-2">
+                           <span className="text-sm font-semibold text-slate-500">Related Lesson:</span>
+                           <span className="text-sm font-bold text-[var(--ln-navy-900)] text-xs md:text-sm">
+                             {linkedModule ? `Level ${linkedModule.level} Module ${linkedModule.moduleNumber} — ${linkedModule.title}` : `Level ${selectedStrategy.level} Module`}
+                           </span>
+                        </div>
+                        {linkedModule && (
+                          <Link 
+                            href={`/course/module/${linkedModule.id}`}
+                            className="px-4 py-2 bg-[var(--ln-teal-soft)] hover:bg-[var(--ln-teal-200)] text-[var(--ln-teal-600)] text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 shrink-0"
+                          >
+                            Go to Lesson <ArrowRight size={14} />
+                          </Link>
+                        )}
+                     </div>
                    </div>
-                   <div className="space-y-4">
-                      <h4 className="text-sm font-bold text-rose-500 flex items-center gap-2">
-                         <AlertTriangle size={18} /> Review Conditions
-                      </h4>
-                      <ul className="space-y-2">
-                         {selectedStrategy.checklists.invalidation.map((step, i) => (
-                           <li key={i} className="p-4 bg-white border border-slate-200 rounded-xl text-xs md:text-sm text-slate-600 leading-relaxed shadow-sm">
-                              {step}
-                            </li>
-                         ))}
-                      </ul>
-                   </div>
-                </div>
+                 ) : (
+                   <>
+                     {/* 3: Concept Summary */}
+                     <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                        <p className="text-sm md:text-base text-[var(--ln-text-secondary)] leading-relaxed font-medium">
+                          {selectedStrategy.setupSummary}
+                        </p>
+                     </div>
 
-                {/* 6 & 7: Mistake & Links */}
-                <div className="flex flex-col gap-4">
-                   <div className="p-5 bg-amber-50 border border-amber-100 rounded-2xl">
-                      <h4 className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-2">Common Mistake</h4>
-                      <p className="text-sm text-amber-900/80">{selectedStrategy.riskNotes}</p>
-                   </div>
-                   <div className="flex items-center gap-2 mt-4">
-                      <span className="text-sm font-medium text-slate-500">Related Lesson:</span>
-                      <span className="text-sm font-bold text-[var(--ln-navy-900)]">Module {selectedStrategy.linkedModuleNumber}</span>
-                   </div>
-                </div>
+                     {/* Interactive Visualizer */}
+                     <div className="space-y-3">
+                       <h3 className="text-sm font-bold text-[var(--ln-teal-600)] uppercase tracking-wider font-extrabold">Interactive Setup Visual</h3>
+                       {getStrategyVisual(selectedStrategy.family, selectedStrategy.name)}
+                     </div>
+
+                     {/* 4 & 5: Criteria */}
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-4">
+                           <h4 className="text-sm font-bold text-[var(--ln-teal-600)] flex items-center gap-2">
+                              <CheckCircle2 size={18} /> Decision Criteria
+                           </h4>
+                           <ul className="space-y-2">
+                              {selectedStrategy.checklists.entry.map((step: string, i: number) => (
+                                <li key={i} className="p-4 bg-white border border-slate-200 rounded-xl text-xs md:text-sm text-slate-600 leading-relaxed shadow-sm">
+                                   {step}
+                                 </li>
+                              ))}
+                           </ul>
+                        </div>
+                        <div className="space-y-4">
+                           <h4 className="text-sm font-bold text-rose-500 flex items-center gap-2">
+                              <AlertTriangle size={18} /> Review Conditions
+                           </h4>
+                           <ul className="space-y-2">
+                              {selectedStrategy.checklists.invalidation.map((step: string, i: number) => (
+                                <li key={i} className="p-4 bg-white border border-slate-200 rounded-xl text-xs md:text-sm text-slate-600 leading-relaxed shadow-sm">
+                                   {step}
+                                 </li>
+                              ))}
+                           </ul>
+                        </div>
+                     </div>
+
+                     {/* 6 & 7: Mistake & Links */}
+                     <div className="flex flex-col gap-4">
+                        <div className="p-5 bg-amber-50 border border-amber-100 rounded-2xl">
+                           <h4 className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-2">Common Mistake</h4>
+                           <p className="text-sm text-amber-900/80">{selectedStrategy.riskNotes}</p>
+                        </div>
+                        <div className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-xl mt-4">
+                           <div className="flex items-center gap-2">
+                              <span className="text-sm font-semibold text-slate-500">Related Lesson:</span>
+                              <span className="text-sm font-bold text-[var(--ln-navy-900)] text-xs md:text-sm">
+                                {linkedModule ? `Level ${linkedModule.level} Module ${linkedModule.moduleNumber} — ${linkedModule.title}` : `Level ${selectedStrategy.level} Module`}
+                              </span>
+                           </div>
+                           {linkedModule && (
+                             <Link 
+                               href={`/course/module/${linkedModule.id}`}
+                               className="px-4 py-2 bg-[var(--ln-teal-soft)] hover:bg-[var(--ln-teal-200)] text-[var(--ln-teal-600)] text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 shrink-0"
+                             >
+                               Go to Lesson <ArrowRight size={14} />
+                             </Link>
+                           )}
+                        </div>
+                     </div>
+                   </>
+                 )}
 
                 {/* 8: CTA */}
                 <div className="pt-6 border-t border-slate-100">
@@ -493,7 +738,7 @@ export function StrategyLabClient({
                               "I checked price behavior for the concept.",
                               "I wrote a clear reasoning.",
                               "I reviewed common mistakes."
-                            ]).map((item, idx) => (
+                            ]).map((item: string, idx: number) => (
                               <button
                                 key={idx}
                                 disabled={!!viewingAnalysis}

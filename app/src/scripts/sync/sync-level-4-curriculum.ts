@@ -3,6 +3,7 @@ import { PrismaClient, SkillLevel, ModuleTrack } from "@prisma/client";
 import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
 import dotenv from "dotenv";
+import crypto from "crypto";
 
 dotenv.config();
 
@@ -104,11 +105,61 @@ async function sync() {
     console.log(`Modules Created: ${createCount}`);
     console.log(`Total Operations: ${updateCount + createCount}`);
     
+    const scenariosData = [
+      {
+        slug: "l4-mission-4a",
+        title: "Level 4: Main Structural Break",
+        description: "Identify the primary break area that shifted the chart context.",
+        scenarioType: "structure_annotation" as any,
+        status: "active" as any,
+        marketTrack: "multi" as any,
+        level: 4,
+        instrument: "EURUSD",
+        timeframe: "1H",
+        candleSourceType: "curated" as any,
+        prompt: "Identify the main structural break area that changed the structural reading.",
+        passThreshold: 80,
+        xpAward: 250,
+        expectedActions: { interactionMode: "chart_markup_v1" } as any,
+        gradingRubric: { rules: ["accurate_zone_placement"] } as any,
+        metadata: {
+          interactionMode: "chart_markup_v1",
+          validationZones: [{ label: "Structural Break", timeStart: "2024-01-08", timeEnd: "2024-01-10", priceMin: 105, priceMax: 110 }],
+          feedbackOnPass: "Verification complete. You correctly identified the primary structural shift.",
+          feedbackOnFail: "Identification incomplete. Review the major anchors and identify where price displacement occurred."
+        } as any
+      },
+      {
+        slug: "l4-mission-4b",
+        title: "Level 4: Reversal Review Area",
+        description: "Identify the area where the previous structure needed review.",
+        scenarioType: "structure_annotation" as any,
+        status: "active" as any,
+        marketTrack: "multi" as any,
+        level: 4,
+        instrument: "XAUUSD",
+        timeframe: "4H",
+        candleSourceType: "curated" as any,
+        prompt: "Identify the area where the previous structural reading was invalidated.",
+        passThreshold: 80,
+        xpAward: 250,
+        expectedActions: { interactionMode: "chart_markup_v1" } as any,
+        gradingRubric: { rules: ["logic_verification"] } as any,
+        metadata: {
+          interactionMode: "chart_markup_v1",
+          validationZones: [{ label: "Review Area", timeStart: "2024-01-15", timeEnd: "2024-01-17", priceMin: 115, priceMax: 120 }],
+          feedbackOnPass: "Logic confirmed. You identified the area where structural invalidation occurred.",
+          feedbackOnFail: "Review the evidence. A reversal requires a confirmed break of a major anchor."
+        } as any
+      }
+    ];
+
     if (isDryRun) {
-      console.log("\nDRY RUN COMPLETE: No data was changed.");
+      for (const sc of scenariosData) {
+        console.log(`\n[DRY] WOULD UPSERT SCENARIO: ${sc.slug}`);
+        console.log(`[DRY] WOULD LINK SCENARIO ${sc.slug} to Module 4.15`);
+      }
     } else {
-      console.log("\nLIVE SYNC COMPLETE: Database updated.");
-      
       console.log("\nUpdating Scenario Links for Level 4 Final Gate...");
       
       const mod415 = await prisma.courseModule.findFirst({
@@ -118,11 +169,14 @@ async function sync() {
         where: { level: 4, moduleNumber: "4.8" }
       });
       
-      const slugs = ["l4-mission-4a", "l4-mission-4b"];
-
-      for (const slug of slugs) {
-        const scenario = await prisma.trainingScenario.findUnique({
-          where: { slug }
+      for (const sc of scenariosData) {
+        const scenario = await prisma.trainingScenario.upsert({
+          where: { slug: sc.slug },
+          update: sc,
+          create: {
+            id: crypto.randomUUID(),
+            ...sc
+          }
         });
 
         if (scenario) {
@@ -130,7 +184,7 @@ async function sync() {
             await prisma.moduleScenarioLink.deleteMany({
               where: { moduleId: mod48.id, scenarioId: scenario.id }
             });
-            console.log(`   Removed link between scenario ${slug} and old module 4.8.`);
+            console.log(`   Removed link between scenario ${sc.slug} and old module 4.8.`);
           }
 
           if (mod415) {
@@ -139,12 +193,12 @@ async function sync() {
               update: { requiredForProgress: true, sortOrder: 1 },
               create: { moduleId: mod415.id, scenarioId: scenario.id, requiredForProgress: true, sortOrder: 1 }
             });
-            console.log(`   Linked scenario ${slug} to new module 4.15.`);
+            console.log(`   Linked scenario ${sc.slug} to new module 4.15.`);
           }
-        } else {
-          console.warn(`   Warning: TrainingScenario '${slug}' not found in database.`);
         }
       }
+      console.log("\nLIVE SYNC COMPLETE: Database updated.");
+    }
 
       // --- Level 4 Knowledge Test Upsert ---
       console.log("\nSyncing Level 4 Knowledge Test (Time & Price Cycles)...");
@@ -183,7 +237,6 @@ async function sync() {
       } else {
         console.log("   [DRY] WOULD UPSERT: Level 4 Knowledge Test (Time & Price Cycles)");
       }
-    }
   } catch (error) {
     console.error("\nSYNC FAILED:", error);
     process.exit(1);

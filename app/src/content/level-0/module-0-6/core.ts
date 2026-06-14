@@ -1,260 +1,260 @@
 import { LessonCard } from "../../../types/curriculum";
 
 /**
- * Module 0.6 - Core Track Cards
- * Focus: Evidence Audit: Turning Chart Records Into a Reading
+ * Module 0.5 - Core Track Cards
+ * Focus: [Placeholder for Module 0.5 Topic]
  */
 export const coreCards: LessonCard[] = [
   {
     type: "mission_brief",
-    title: "Evidence Audit Is the Trader’s Reading Process",
+    title: "Structure Is the Market’s Skeleton",
     label: "Core Foundation",
-    visualKey: "evidence-audit-foundation",
-    body: "An evidence audit is the disciplined process that turns raw chart records into a structured market reading. A professional reading is never a gut feeling or an emotional reaction to a single candle's color. Instead, it is an inspection of multiple technical layers—candle behavior, timeframe context, structure condition, location, and reaction—checked together before any conclusion is drawn.",
+    visualKey: "structure-skeleton-intro",
+    body: "Market structure is the arrangement of price movement over time. A candle is one record, but structure is the relationship between many records. Without structure, every candle feels more important than it really is.",
     context: {
       keyTerms: [
-        { term: "Evidence Audit", definition: "A structured check of all available chart records before forming a reading." },
-        { term: "Market Reading", definition: "A quality-classified assessment of current price behavior." },
-        { term: "Evidence Layer", definition: "A specific category of technical record (e.g., structure, location, timeframe)." },
-        { term: "Chart Record", definition: "Historical price and volume data displayed on the terminal." },
-        { term: "Reading Quality", definition: "The classification of how aligned or conflicting the gathered evidence is." }
+        { term: "Market Structure", definition: "The arrangement of price movement over time." },
+        { term: "Swing", definition: "A visible push or turn in price." },
+        { term: "Structure", definition: "The relationship between swings, highs, lows, and reaction areas." },
+        { term: "Context", definition: "The bigger situation that gives meaning to movement." },
+        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." }
       ],
-      whyThisMatters: "An evidence audit prevents traders from overreacting to isolated price movements and protects them from emotional bias.",
-      realLifeExample: "A learner sees a large green candle and immediately assumes price will continue rising. A disciplined trader audits the evidence and realizes the candle is hitting a higher-timeframe resistance zone inside a range, meaning the evidence is conflicting, not clear.",
-      commonMistake: "Treating a chart reading as a simple prediction of where price will go next, rather than an audit of current facts.",
-      quickNote: "Do not ask what the market will do. Ask what evidence you currently have."
+      whyThisMatters: "Without structure, learners overreact to individual candles and miss the bigger price story.",
+      realLifeExample: "A green candle can look strong by itself, but inside a broader downtrend or range, it may only be a small reaction.",
+      commonMistake: "Reading candles one by one without seeing what they are building together.",
+      quickNote: "Candles show movement. Structure shows the story."
     }
   },
   {
     type: "visual_intro",
-    title: "One Clue Is Not Enough",
-    label: "Single-Clue Trap",
-    visualKey: "single-clue-vs-evidence-stack",
-    body: "The single-clue trap is one of the most common mistakes retail traders make. They see a single strong candle, a long wick, a local structure break, or a high-timeframe level, and build a full trading conclusion around it. In a disciplined reading, one clue can start a question or highlight an area, but it cannot complete the reading. A single record must be stacked against other layers to determine its true significance.",
+    title: "Swings: The Building Blocks of Structure",
+    label: "Swing Logic",
+    visualKey: "swing-logic-visual",
+    body: "Swings are the building blocks of structure. A swing high shows where price pushed up and turned. A swing low shows where price pushed down and turned. Once you can see swings, the chart becomes less random.",
     context: {
       keyTerms: [
-        { term: "Single-Clue Trap", definition: "The mistake of drawing a full conclusion from one isolated candle or wick." },
-        { term: "Evidence Stack", definition: "The collection of multiple technical layers checked in sequence." },
-        { term: "Isolated Candle", definition: "A candle read without reference to surrounding structure or location." },
-        { term: "Contextual Bias", definition: "An emotional assumption built from seeing what one wants to see on a chart." },
-        { term: "Confirmation Bias", definition: "Searching only for clues that support a pre-existing assumption." }
+        { term: "Swing High", definition: "A visible high point where price turned downward." },
+        { term: "Swing Low", definition: "A visible low point where price turned upward." },
+        { term: "Turn", definition: "A change in local direction." },
+        { term: "Leg", definition: "A movement from one swing point to another." },
+        { term: "Structure Point", definition: "A swing point that helps define the market story." }
       ],
-      whyThisMatters: "Forcing a reading from a single clue leads to low-probability decisions and unexpected losses.",
-      realLifeExample: "A long bottom wick forms, showing rejection. However, price is in a strong downtrend and has not reached a key location. Chasing this single clue fails because the trend structure limits its significance.",
-      commonMistake: "Declaring a breakout or reversal based solely on the size or color of the latest candle.",
-      quickNote: "One candle is a record of a moment. An evidence stack is the context of that moment."
+      whyThisMatters: "If learners cannot identify swings, they cannot identify trends, ranges, breaks, or structure changes.",
+      realLifeExample: "Price pushes up, pauses, and turns down. That turn creates a swing high. Later, price drops and turns upward, creating a swing low.",
+      commonMistake: "Marking every tiny candle movement as a meaningful swing.",
+      quickNote: "Structure starts when you can separate meaningful swings from noise."
     }
   },
   {
     type: "visual_intro",
-    title: "The Evidence Layer Stack",
-    label: "Evidence Layers",
-    visualKey: "evidence-layer-stack",
-    body: "To conduct a proper audit, you must check the six core layers of evidence in sequence. Each layer adds weight to or limits the confidence of your reading. By reviewing these layers in order—Candle Record, Timeframe Context, Structure Condition, Location, Reaction, and Follow-Through—you build a complete picture of market conditions and avoid skipping critical details.",
+    title: "Higher Highs, Higher Lows, Lower Highs, Lower Lows",
+    label: "Structure Language",
+    visualKey: "structure-language-visual",
+    body: "Structure has a language. Higher highs, higher lows, lower highs, and lower lows help describe how price is building. These labels do not predict the future, but they help the learner describe the current structure clearly.",
     context: {
       keyTerms: [
-        { term: "Candle Record", definition: "The shape and close of the immediate candle under review." },
-        { term: "Timeframe Context", definition: "The broader trend or range condition on the higher-timeframe chart." },
-        { term: "Structure Condition", definition: "The current swing relationship (higher highs, lower lows, range)." },
-        { term: "Location", definition: "The position of price relative to key reaction areas." },
-        { term: "Reaction", definition: "Price behavior (such as sweeps or rejections) when entering a location." },
-        { term: "Follow-Through", definition: "The subsequent candles that verify or weaken the initial reaction." }
+        { term: "Higher High", definition: "A swing high above a previous swing high." },
+        { term: "Higher Low", definition: "A swing low above a previous swing low." },
+        { term: "Lower High", definition: "A swing high below a previous swing high." },
+        { term: "Lower Low", definition: "A swing low below a previous swing low." },
+        { term: "Overlapping Structure", definition: "A condition where highs and lows do not create clear direction." }
       ],
-      whyThisMatters: "Structuring your analysis into layers ensures that you never miss a conflicting high-timeframe level or range boundary.",
-      realLifeExample: "Before entering a trade, a trader reviews the stack: 1. Candle is strong green. 2. Timeframe is a daily range. 3. Local structure is uptrend. 4. Location is daily range high (resistance). 5. Reaction is a quick wick. 6. Follow-through is negative. The stack shows a weak and conflicting setup.",
-      commonMistake: "Skipping straight to reading wicks before confirming the broader structure or location.",
-      quickNote: "A complete stack check turns guess-work into a systematic audit."
+      whyThisMatters: "A learner cannot read trend, range, or structure change without first naming the swing relationships correctly.",
+      realLifeExample: "If price makes a new high and then pulls back but stays above the previous low, the structure may be building upward.",
+      commonMistake: "Calling any upward candle movement a higher high without checking the previous swing point.",
+      quickNote: "Structure reading begins with correct swing language."
     }
   },
   {
     type: "visual_intro",
-    title: "Alignment: When Evidence Supports the Same Reading",
-    label: "Evidence Alignment",
-    visualKey: "evidence-alignment-board",
-    body: "Evidence alignment occurs when multiple layers of the stack support the same market reading. For example, if a strong candle closes at its highs (Candle), while local structure is making higher highs (Structure), the daily chart is in a clear uptrend (Timeframe), and price is bouncing off a previous swing low (Location), the evidence is aligned. Alignment increases reading quality, but remember: it does not guarantee direction.",
+    title: "Trend Structure: Direction Through Swings",
+    label: "Trend Structure",
+    visualKey: "trend-structure-visual",
+    body: "A trend is a relationship between swings. In an uptrend, price generally builds higher highs and higher lows. In a downtrend, price generally builds lower lows and lower highs. One candle does not define a trend.",
     context: {
       keyTerms: [
-        { term: "Evidence Alignment", definition: "When multiple separate layers support the same market reading." },
-        { term: "Confluence", definition: "The intersection of several independent technical clues." },
-        { term: "Aligned Reading", definition: "A high-quality reading where layers do not contradict each other." },
-        { term: "Directional Bias", definition: "A disciplined assessment of market pressure based on aligned evidence." },
-        { term: "Structural Support", definition: "Structure swings and levels that align with immediate price behavior." }
+        { term: "Uptrend", definition: "A structure of generally higher highs and higher lows." },
+        { term: "Downtrend", definition: "A structure of generally lower lows and lower highs." },
+        { term: "Trend Leg", definition: "A movement that contributes to directional structure." },
+        { term: "Continuation", definition: "When price keeps building in the same structural direction." },
+        { term: "Trend Evidence", definition: "Swing relationships that support directional reading." }
       ],
-      whyThisMatters: "Recognizing alignment helps you identify when market pressure is clear, without relying on guaranteed predictions.",
-      realLifeExample: "Price drops to a major support level on the daily chart. On the 15m chart, price sweeps the low, closes strong, and begins building higher lows. Structure, location, and candle layers are aligned.",
-      commonMistake: "Assuming that aligned evidence means a trade is 100% guaranteed to succeed.",
-      quickNote: "Alignment improves reading quality; it does not eliminate risk."
+      whyThisMatters: "Learners often call direction too early. Structure forces them to check whether the market is actually building directional evidence.",
+      realLifeExample: "A market can print a strong green candle inside a downtrend. That candle is not an uptrend unless the swing structure changes.",
+      commonMistake: "Calling a trend from one strong candle.",
+      quickNote: "Trend is swing relationship, not candle emotion."
     }
   },
   {
     type: "visual_intro",
-    title: "Conflict: When Evidence Disagrees",
-    label: "Evidence Conflict",
-    visualKey: "evidence-conflict-map",
-    body: "Evidence conflict is a normal market condition where different layers of the stack suggest opposing readings. For instance, local price action might show a strong breakout (supporting evidence), but price is immediately approaching a major weekly resistance zone (limiting evidence). A trained learner does not ignore conflict; they identify and name it, classifying the reading as mixed rather than trying to force a simple answer.",
+    title: "Range Structure: When Price Moves Sideways",
+    label: "Range Structure",
+    visualKey: "range-structure-visual",
+    body: "A range is not a broken market. It is a structure where price moves between upper and lower areas without clear directional control. A trained learner does not force a trend reading inside a range.",
     context: {
       keyTerms: [
-        { term: "Evidence Conflict", definition: "A condition where different layers suggest opposing readings." },
-        { term: "Limiting Evidence", definition: "Clues that reduce the quality or confidence of a reading." },
-        { term: "Supporting Evidence", definition: "Clues that strengthen the quality of a reading." },
-        { term: "Mixed Reading", definition: "A classification where supporting and limiting clues are balanced." },
-        { term: "Divergence", definition: "When two related market metrics (like spot vs. futures behavior) disagree." }
+        { term: "Range", definition: "A structure where price moves between upper and lower areas." },
+        { term: "Upper Boundary", definition: "The top area of a range." },
+        { term: "Lower Boundary", definition: "The bottom area of a range." },
+        { term: "Rotation", definition: "Movement from one side of a range toward the other." },
+        { term: "Balance", definition: "A condition where neither side has clear control." }
       ],
-      whyThisMatters: "Ignoring conflicting evidence is a primary cause of retail traders entering low-probability breakout traps.",
-      realLifeExample: "Price breaks a local swing high, but volume is declining and price is sitting directly under a higher-timeframe range high. The local structure is bullish, but location and volume are bearish.",
-      commonMistake: "Hiding or ignoring limiting evidence because you desperately want to take a trade.",
-      quickNote: "When evidence conflicts, the reading is mixed. The discipline is to wait or lower your expectations."
+      whyThisMatters: "Many learners keep forcing trend logic inside range conditions. That creates bad readings and emotional confusion.",
+      realLifeExample: "Price pushes upward several times but keeps returning to the middle of the same area. That is not clean trend behavior; it may be range behavior.",
+      commonMistake: "Treating every push inside a range as a new breakout.",
+      quickNote: "A range is structure. It is not random."
     }
   },
   {
     type: "visual_intro",
-    title: "Clear, Mixed, and Unclear Readings",
-    label: "Reading Quality",
-    visualKey: "reading-quality-classifier",
-    body: "Not every chart provides a clear story, and a disciplined learner accepts this. We classify reading quality into three states: Clear (multiple layers align with minimal conflict), Mixed (some layers support, while others actively limit confidence), and Unclear (random or highly volatile price behavior with no defined structure). Understanding this classification helps you decide when to act and when to stand aside.",
+    title: "Impulse and Pullback",
+    label: "Movement Rhythm",
+    visualKey: "impulse-pullback-visual",
+    body: "Structure often forms through impulse and pullback. An impulse shows stronger movement in one direction. A pullback is the market breathing back against that move. A pullback is not automatically a reversal.",
     context: {
       keyTerms: [
-        { term: "Clear Reading", definition: "A condition where multiple layers are aligned with minimal conflict." },
-        { term: "Mixed Reading", definition: "A condition where evidence is present but is actively countered by other layers." },
-        { term: "Unclear Reading", definition: "A condition with poor structure definition or highly noisy price action." },
-        { term: "Noise", definition: "Random or low-quality price fluctuations that lack structural significance." },
-        { term: "Reading Classification", definition: "Naming the quality of a chart setup rather than predicting its direction." }
+        { term: "Impulse", definition: "A stronger directional movement." },
+        { term: "Pullback", definition: "A movement against the previous impulse." },
+        { term: "Continuation", definition: "When price resumes the prior direction." },
+        { term: "Failure", definition: "When price cannot continue and structure weakens." },
+        { term: "Movement Rhythm", definition: "The push-and-pause behavior of price." }
       ],
-      whyThisMatters: "Recognizing that a chart is mixed or unclear protects your capital from being chopped up in poor market conditions.",
-      realLifeExample: "During low-liquidity holiday hours, price moves in jagged spikes without respecting key levels or structure. The disciplined learner classifies this as unclear and closes the terminal.",
-      commonMistake: "Believing you must have a directional prediction for every chart you look at.",
-      quickNote: "A professional trader spends most of their time classifying charts as mixed or unclear."
+      whyThisMatters: "Learners often panic during pullbacks because they think every opposite move means the whole structure has failed.",
+      realLifeExample: "In an uptrend, price pushes higher, then moves down for a while before trying to continue. That pullback may be normal unless structure breaks.",
+      commonMistake: "Thinking every pullback is a reversal.",
+      quickNote: "A pullback is a question. Structure decides the answer."
     }
   },
   {
     type: "visual_intro",
-    title: "Verification: What Must Happen Next?",
-    label: "Verification Logic",
-    visualKey: "verification-checkpoint-flow",
-    body: "Instead of predicting what price will do, a disciplined reader defines what must happen next to verify or weaken their reading. By establishing clear verification checkpoints—such as price holding above a specific low, or a breakout candle showing immediate follow-through—you transform passive chart watching into an active check of structural rules.",
+    title: "Reaction Areas, Not Magic Lines",
+    label: "Reaction Areas",
+    visualKey: "reaction-areas-visual",
+    body: "Reaction areas are places where price has previously changed behavior. They are not magic lines. A trained learner watches how price behaves near an area instead of assuming the area must hold.",
     context: {
       keyTerms: [
-        { term: "Verification", definition: "The process of waiting for specific behavior to confirm a reading." },
-        { term: "Invalidation Checkpoint", definition: "A price level or behavior that proves a reading is incorrect." },
-        { term: "Weakening Sign", definition: "Early behavior that limits the probability of a reading's scenario." },
-        { term: "Confirmation Behavior", definition: "Price action that supports and completes a developing structure." },
-        { term: "Chasing Price", definition: "Entering a market without waiting for proper verification." }
+        { term: "Reaction Area", definition: "A zone where price has previously changed behavior." },
+        { term: "Support", definition: "An area where price previously found buying reaction." },
+        { term: "Resistance", definition: "An area where price previously found selling reaction." },
+        { term: "Zone", definition: "A flexible area, not a perfect line." },
+        { term: "Test", definition: "Price moving into an area to see if reaction appears." }
       ],
-      whyThisMatters: "Verification logic stops you from guessing breakout success and forces you to wait for market confirmation.",
-      realLifeExample: "Price breaks a local swing high. Instead of entering immediately, you define the verification: 'I need to see the next candle close above this break, and price must hold the broken level on a pullback.'",
-      commonMistake: "Treating a break as confirmed before the breakout candle even closes.",
-      quickNote: "Never chase. Establish your checkpoints and let the market prove itself."
+      whyThisMatters: "Markets often react around areas, not exact mathematical lines. Rigid line thinking creates false confidence.",
+      realLifeExample: "Price touches near the same upper area three times, but not at the exact same price. The reaction area matters more than the exact line.",
+      commonMistake: "Expecting support or resistance to behave like a wall.",
+      quickNote: "Areas matter. Exact lines are often too rigid."
     }
   },
   {
     type: "visual_intro",
-    title: "When Early Evidence Breaks Down",
-    label: "Reading Failure",
-    visualKey: "reading-failure-diagnostic",
-    body: "A reading is not a promise. It is an assessment that can change with the very next candle. When early evidence breaks down—for example, when a breakout candle is immediately followed by a large opposing candle (often called an engulfing candle) that pushes back inside structure—the disciplined learner does not defend their initial read. They update their classification immediately to mixed or unclear, accepting that the market story has changed.",
+    title: "Breaks, Failed Breaks, and Structure Change",
+    label: "Structure Change",
+    visualKey: "structure-change-visual",
+    body: "A break is movement beyond a structure area. But movement beyond an area is not enough by itself. A trained learner checks whether the break closes well, follows through, and changes the structure.",
     context: {
       keyTerms: [
-        { term: "Evidence Breakdown", definition: "When follow-through fails and invalidates the previous reading." },
-        { term: "Reading Update", definition: "Changing the classification of a chart as new records arrive." },
-        { term: "Ego Bias", definition: "The emotional attachment to a previous reading despite new conflicting evidence." },
-        { term: "Invalidation", definition: "When price crosses a predefined boundary, erasing the reading's thesis." },
-        { term: "Behavior Shift", definition: "A sudden change in candle characteristics or swing structure." }
+        { term: "Break", definition: "Price moving beyond a structural area." },
+        { term: "Failed Break", definition: "Price moves beyond an area but cannot hold." },
+        { term: "Follow-Through", definition: "What price does after the break." },
+        { term: "Structure Change", definition: "A meaningful shift in the relationship between swings." },
+        { term: "Confirmation", definition: "Additional evidence that strengthens the reading." }
       ],
-      whyThisMatters: "Holding onto a failed reading out of pride leads to expanding stops, revenge trading, and large losses.",
-      realLifeExample: "A trader reads a local structure break as clear. The next candle spikes down, breaking the swing low that supported the move. The trader immediately invalidates their bullish read and steps aside.",
-      commonMistake: "Hoping or waiting for price to 'come back' to prove your original reading was right.",
-      quickNote: "When the evidence changes, your reading must change. The market does not care about your ego."
+      whyThisMatters: "This card prevents breakout addiction. The learner must stop treating every break as a clean opportunity.",
+      realLifeExample: "Price pushes above a range high, but closes back inside the range. That is not the same as a clean breakout with continuation.",
+      commonMistake: "Calling every move outside a line a confirmed breakout.",
+      quickNote: "A break is a clue. Follow-through decides its quality."
     }
   },
   {
     type: "visual_intro",
-    title: "The Full Core Reading Workflow",
-    label: "Reading Workflow",
-    visualKey: "core-reading-workflow-map",
-    body: "To read a market professionally, you must combine all these lessons into a repeatable, step-by-step workflow. By following a structured checklist—observing raw candle behavior, mapping higher-timeframe context, analyzing swing structure, identifying key locations, reviewing local reactions, and checking follow-through—you arrive at a disciplined classification and clear verification checkpoints.",
+    title: "Structure Across Timeframes",
+    label: "Multi-Timeframe Structure",
+    visualKey: "multi-timeframe-structure-visual",
+    body: "Structure changes with timeframe. A lower timeframe may show a clean trend inside a higher-timeframe range. That does not make either chart wrong. It means the learner must know which layer of structure they are reading.",
     context: {
       keyTerms: [
-        { term: "Reading Workflow", definition: "The step-by-step process of auditing evidence to classify reading quality." },
-        { term: "Observation Layer", definition: "Recording raw candle behaviors before labeling them." },
-        { term: "Location Check", definition: "Mapping price relative to major reaction zones." },
-        { term: "Structure Review", definition: "Auditing high-timeframe and low-timeframe swing points." },
-        { term: "Follow-Through Assessment", definition: "Evaluating the strength of movement after a reaction." }
+        { term: "Structure Layer", definition: "The timeframe layer where structure is being read." },
+        { term: "Local Trend", definition: "A smaller trend inside a broader chart." },
+        { term: "Broader Range", definition: "A higher-timeframe sideways structure." },
+        { term: "Alignment", definition: "When structure supports the same reading across layers." },
+        { term: "Conflict", definition: "When structure differs across timeframes." }
       ],
-      whyThisMatters: "Following a workflow ensures consistency in your analysis. You cannot expect consistent trading outcomes from a random reading process.",
-      realLifeExample: "A trader opens a chart and systematically works through the workflow: daily range check, local swing labeling, key reaction area identification, immediate candle check. They find mixed evidence and log it.",
-      commonMistake: "Jumping straight to looking for entry points without completing the foundational workflow steps.",
-      quickNote: "A professional reading is a systematic inspection, not a quick glance."
+      whyThisMatters: "This is where many learners become confused. They think one timeframe must be right and the other must be wrong.",
+      realLifeExample: "A 5m chart trends upward while the 4H chart remains inside a large range. The 5m trend is real, but it is still inside a broader structure.",
+      commonMistake: "Thinking the lower timeframe cancels the higher timeframe.",
+      quickNote: "Different structure layers can exist at the same time."
     }
   },
   {
     type: "practice",
-    title: "Practice Drill: Clear, Mixed, or Unclear?",
+    title: "Practice Drill: Trend, Range, or Mixed?",
     label: "Practice Drill",
-    visualKey: "evidence-audit-practice-drill",
-    body: "This drill tests whether you can apply evidence-audit logic to a realistic chart reading scenario. A market will often show attractive clues mixed with warning signs. Your goal is to determine the disciplined reading quality classification rather than chasing the most exciting possibility.",
+    visualKey: "structure-drill-visual",
+    body: "This drill tests whether you can classify structure without forcing certainty. A market can show local improvement while the broader structure remains unchanged. The trained learner names the condition accurately instead of choosing the most exciting chart.",
     taskData: {
       type: "choice_block",
-      question: "A chart shows a strong green candle breaking above a local structure resistance level. However, the higher-timeframe chart remains inside a broader sideways range, the breakout candle closes near the middle of its range (leaving a long upper wick), and the subsequent candle shows weak follow-through. What is the disciplined evidence-audit reading?",
+      question: "Price has made two higher lows on the lower timeframe, but the higher timeframe still shows price inside a wide range. The latest move is pushing toward the upper boundary of that range. What is the disciplined structure reading?",
       options: [
         {
           id: "A",
-          text: "Confirmed bullish breakout because price crossed the local structure area.",
+          text: "It is clearly a full uptrend because the lower timeframe has higher lows.",
           isCorrect: false,
-          feedback: "Not correct. Crossing a local level is not enough to confirm a breakout, especially with a weak close and a higher-timeframe range blocking the move."
+          feedback: "Not correct. A lower-timeframe structure does not automatically redefine the higher-timeframe structure."
         },
         {
           id: "B",
-          text: "Guaranteed reversal because follow-through is weak.",
+          text: "It is clearly bearish because price is near the upper boundary.",
           isCorrect: false,
-          feedback: "Not correct. Weak follow-through limits the breakout's strength, but it does not guarantee a reversal. Avoid predictive, absolute statements."
+          feedback: "Not correct. Being near an upper boundary does not automatically make the market bearish. You still need behavior and evidence."
         },
         {
           id: "C",
-          text: "Mixed evidence because the local break is active, but the higher-timeframe range, the middle close, and weak follow-through limit clarity.",
+          text: "The lower timeframe is showing local upward structure, but the broader chart is still range-bound. The reading is mixed until price changes the higher-timeframe structure.",
           isCorrect: true,
-          feedback: "Correct! The evidence is mixed. While the local break is a supportive clue, the higher-timeframe range, poor candle close, and lack of follow-through are active limiting factors that prevent a clear reading."
+          feedback: "Correct. The local structure is improving, but the broader structure has not changed yet. This is a mixed reading, not a clean full-trend conclusion."
         },
         {
           id: "D",
-          text: "Unclear because candles never provide useful evidence.",
+          text: "The range does not matter if the latest candle is green.",
           isCorrect: false,
-          feedback: "Not correct. Candle shapes and structure details do provide useful, objective records, but they must be audited collectively rather than dismissed."
+          feedback: "Not correct. One green candle does not erase the broader range structure."
         }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Disciplined Reading", definition: "A chart reading that accepts mixed or unclear conditions." },
-        { term: "Local Break", definition: "A price move beyond a lower-timeframe structure point." },
-        { term: "High-Timeframe Range", definition: "The broader trading boundary on a higher-timeframe chart." },
-        { term: "Weak Follow-Through", definition: "Immediate pause or reversal candles after a structure break." },
-        { term: "Evidence Classification", definition: "The final step of labeling a chart's quality as clear, mixed, or unclear." }
+        { term: "Mixed Structure", definition: "A condition where different layers show different readings." },
+        { term: "Local Structure", definition: "Structure on a lower timeframe." },
+        { term: "Broader Structure", definition: "Structure on a higher timeframe." },
+        { term: "Range-Bound", definition: "Price remains inside a larger range." },
+        { term: "Structure Confirmation", definition: "Evidence that a structure has meaningfully changed." }
       ],
-      whyThisMatters: "This drill trains you to identify limiting clues rather than only focusing on signs of movement.",
-      realLifeExample: "Price breaks above a local high but immediately stalls and forms small indecisive candles. Recognizing this as mixed evidence saves you from buying the top of a range.",
-      commonMistake: "Focusing only on the green breakout candle while ignoring the higher-timeframe range and weak follow-through.",
-      quickNote: "Audit both supporting and limiting clues before deciding the reading quality."
+      whyThisMatters: "The learner must practice not forcing clean answers when structure is mixed.",
+      realLifeExample: "A smaller chart starts trending upward, but the larger chart still has not broken out of its range.",
+      commonMistake: "Choosing the most exciting chart instead of the clearest structure.",
+      quickNote: "Mixed structure requires patience, not forced certainty."
     }
   },
   {
     type: "debrief",
-    title: "Debrief: Read Evidence Before You Trust Direction",
-    label: "Core Debrief",
-    visualKey: "evidence-audit-debrief",
-    body: "You have completed Level 0. You are no longer looking at charts hoping for a magic signal. You have learned that candles are records, timeframes change the story, structure gives movement meaning, and an evidence audit combines them into a disciplined reading. By building this systematic habit, you protect yourself from retail traps and build a professional trading foundation.",
+    title: "Module Debrief: Structure Gives Movement Meaning",
+    label: "Module Recap",
+    visualKey: "structure-debrief-visual",
+    body: "You are no longer reading price as isolated candles. You are learning to see the skeleton behind movement. Structure helps you understand whether price is trending, ranging, pausing, breaking, failing, or becoming unclear.",
     context: {
       keyTerms: [
-        { term: "Disciplined Trader", definition: "A trader who audits evidence before formulating any expectation." },
-        { term: "Market Clues", definition: "Individual data points that must be combined to form a reading." },
-        { term: "Audit Process", definition: "The checklist approach to analyzing charts." },
-        { term: "Objectivity", definition: "Evaluating chart records without emotional projection." },
-        { term: "Verification Habit", definition: "The practice of always defining the next validation step." },
-        { term: "Price Records", definition: "Historical candles that show market participant actions." }
+        { term: "Swing", definition: "A visible push or turn in price." },
+        { term: "Trend", definition: "Directional structure built through swing relationships." },
+        { term: "Range", definition: "Sideways structure between upper and lower areas." },
+        { term: "Reaction Area", definition: "A zone where price has previously changed behavior." },
+        { term: "Break", definition: "Movement beyond a structural area." },
+        { term: "Mixed Structure", definition: "A condition where the structure is not cleanly aligned." },
+        { term: "Structure Reading", definition: "Classifying what price is building." }
       ],
-      whyThisMatters: "A trading career is built on systematic execution. Developing an objective evidence audit habit at Level 0 is the single most important step in that journey.",
-      realLifeExample: "An untrained trader opens a chart, gets excited, and trades immediately. The Lurnava graduate audits the layers, writes down verification checkpoints, and acts only when conditions are clear.",
-      commonMistake: "Slipping back into looking for quick, single-candle triggers once you start trading live.",
-      quickNote: "Do not predict first. Audit first."
+      whyThisMatters: "Structure is the foundation for serious chart reading. Without it, learners chase candles. With it, they begin to read market behavior.",
+      realLifeExample: "Two learners see the same candle. One reacts to color. The trained learner checks where it formed inside the structure.",
+      commonMistake: "Leaving with labels like trend and range but no process for classifying them.",
+      quickNote: "Structure turns movement into meaning."
     }
   }
 ];

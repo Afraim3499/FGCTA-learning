@@ -306,7 +306,7 @@ export const coreCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Evaluating Risk Metrics with Branching Logic",
     "label": "Core Track",
     "body": "### Core Advanced Risk Management 14\nThis practice card focuses on applying branching logic to evaluate risk metrics in real-time trading scenarios. You will learn **how to assess risk based on market movements and adjust your strategies accordingly**.\n\n* **Scenario Analysis**: Analyze potential market scenarios and their impact on your positions. For example, if EURUSD moves 50 pips against your position, determine if your stop-loss should be adjusted or if the position should be exited entirely.\n* **Risk/Reward Ratio Evaluation**: Continuously evaluate the risk/reward ratio as market conditions change. If a trade on AUDJPY initially had a 1:3 ratio but market volatility increases, reassess whether the risk remains acceptable.\n* **Real-Time Decision Making**: Develop the ability to make quick decisions based on real-time data. If a news release causes a sudden spike in volatility, be prepared to adjust your stop-loss or take-profit levels immediately.",

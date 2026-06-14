@@ -274,7 +274,7 @@ export const coreCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "summary",
     "title": "Summary of Fair Value Gaps",
     "label": "Core Track",
     "body": "### Fair Value Gaps: Key Concepts Recap\nThis card summarizes critical elements of Fair Value Gaps (FVG) and their role in efficient pricing mechanics. Understanding these concepts is vital for professional trading strategies.\n\n* **Three-Candle Imbalance**: Recognize that a valid FVG is formed when three consecutive candles exhibit a clear imbalance, indicating a price inefficiency. For instance, an upward FVG may occur when the first candle closes bullish, followed by a bearish candle that fails to retrace fully, creating a gap.\n* **Efficient Pricing Mechanics**: Efficient pricing occurs when price revisits FVGs, allowing traders to capitalize on imbalances. For example, if a gap forms at 1.1500 on EURUSD, expect price action to return to this level for potential buy opportunities.\n* **Market Context**: Always consider the broader market context when analyzing FVGs. For example, during high-impact news releases, FVGs may behave differently due to increased volatility, necessitating a more cautious approach.",

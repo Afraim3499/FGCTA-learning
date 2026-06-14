@@ -1,259 +1,258 @@
 import { LessonCard } from "../../../types/curriculum";
 
 /**
- * Module 0.8 - Gold Roadway Track Cards
- * Focus: Gold Market Location: Reading Where XAU/USD Is Before Trusting the Move
- * Core habit: "Before judging the Gold move, locate the price first relative to reaction zones, prior highs/lows, range boundaries, macro event zones, and higher-timeframe boundaries."
+ * Module 0.7 - Gold Roadway Cards
+ * Focus: Gold Market Conditions: Reading XAU/USD Through Volatility, Zones, and Macro Pressure
  */
 export const goldCards: LessonCard[] = [
   {
     type: "mission_brief",
-    title: "Gold Location Starts With Where XAU/USD Is",
+    title: "Gold Conditions Begin With Volatility Discipline",
     label: "Gold Foundation",
-    visualKey: "gold-location-foundation",
-    body: "Before trusting a Gold move, you must locate Gold through reaction zones, prior highs and lows, wick behavior, sweep areas (where price temporarily spikes to trigger orders), macro context, higher-timeframe location, close quality, and follow-through. This is not about drawing simple support and resistance lines. It is about understanding that a candlestick's information value is entirely determined by its coordinates. A massive green candle is meaningless if it prints in the middle of range noise, while a tiny doji at a weekly sweep area carries high structural information. By mapping these dimensions first, you filter out random price noise and read Gold with clear context.",
+    visualKey: "gold-condition-foundation",
+    body: "In Gold trading (XAU/USD — the trading symbol for Gold priced in US Dollars), a candlestick pattern, structure break, or pullback does not exist in isolation. Every move is born inside a specific market condition. That condition might be trending, ranging, compressing, expanding, transitioning, choppy, or unstable. Because Gold moves quickly, beginners often react to price speed before reading the environment. A professional Gold reader does not look at a single breakout candle in isolation. Before they trust any move, they ask: 'What condition is this asset in, and does the broader context support it?' Let's build this essential Gold filter.",
     context: {
       keyTerms: [
-        { term: "Gold Location", definition: "The specific structural coordinate where Gold is trading relative to key reaction zones, prior highs and lows, and value boundaries." },
-        { term: "Reference Landmarks", definition: "Highly visible historical areas on the chart where price previously paused, reversed, or consolidated." },
-        { term: "Location-First Reading", definition: "The habit of identifying price coordinates on the chart before reading local candle wicks or bodies." },
-        { term: "Value Boundaries", definition: "The outer edges of a range or consolidation where institutional buyers and sellers are forced to make decisions." },
-        { term: "Noise Filtration", definition: "The process of ignoring active-looking price movement because it occurs in low-information areas." }
+        { term: "Gold Condition", definition: "The overall state (like a trend, range, or messy sideways movement) currently shaping Gold price action." },
+        { term: "Reaction Zone", definition: "A price area on the chart where buyers or sellers have repeatedly stepped in, acting as a magnet." },
+        { term: "Wick Quality", definition: "Evaluating the length of wicks compared to candle bodies to check if a move is running out of steam." },
+        { term: "Liquidity Sweep", definition: "A rapid spike past a key level to trigger exit orders (stops) before reversing price back." },
+        { term: "Macro Pressure", definition: "Directional force exerted on Gold by US economic reports, interest rate decisions, and government bond yields." }
       ],
-      whyThisMatters: "Locating XAU/USD first prevents you from chasing fast, volatile wicks that have no structural backing.",
-      realLifeExample: "Gold prints a massive 15-dollar green candle. Before reactively buying, you map the chart: if this candle formed in the dead center of a monthly range, you ignore it. If it formed right at a swept weekly low, you study it closely.",
-      commonMistake: "Focusing entirely on how fast or large a Gold candle looks while ignoring that it formed in a low-information middle zone.",
-      quickNote: "Good Gold reading starts by locating the asset first."
+      whyThisMatters: "Without identifying the Gold condition first, you will mistake aggressive, news-driven spikes for clean trend continuation, only to get trapped when they immediately reverse.",
+      realLifeExample: "You see Gold surge $15 in five minutes. If you identify the condition as a spot-supported expansion near a key reaction zone, you expect continuation. If you identify it as a news sweep during thin liquidity, you expect a reversal. The candle is the same; the condition changes the reading.",
+      commonMistake: "Buying a fast, green Gold candle solely because of its speed, without checking if it occurred inside a choppy horizontal range.",
+      quickNote: "Slow down and name the Gold condition first. Volatility is energy, but condition is the map."
     }
   },
   {
     type: "visual_intro",
-    title: "Reaction Zones Are Gold’s Main Location References",
-    label: "Reaction Zone Location",
-    visualKey: "gold-reaction-zone-location",
-    body: "Gold does not react to magic, thin lines. Instead, Gold responds to reaction zones—broad areas on the chart where price has previously changed behavior. When price returns to a reaction zone, you watch how it behaves: does price reject, accept, overshoot and return inside, or follow through? A reaction zone is not an instruction to buy or sell. It is simply a place of interest where price behavior becomes highly informative.",
+    title: "Volatility Changes the Gold Environment",
+    label: "Volatility Environment",
+    visualKey: "gold-volatility-condition-map",
+    body: "Gold's natural state is high volatility. Price can move sharply even when the market condition is not clean. A fast candle may appear during a trend, expansion, macro reaction, sweep, or chop. Speed tells the learner that volatility (the speed and size of price swings) has increased, but it does not prove the condition is clear. The learner must check location, close quality, and follow-through. Gold moving fast does not automatically mean Gold is moving clearly.",
     context: {
       keyTerms: [
-        { term: "Reaction Zones", definition: "Broad price regions where historical order flow previously shifted price direction." },
-        { term: "Area of Interest", definition: "A designated zone on the chart where you anticipate price will show rejection or acceptance behavior." },
-        { term: "Behavioral Test", definition: "How price behaves when it returns to a reaction zone, analyzed through candle closes and wicks." },
-        { term: "Rejection Defense", definition: "When price enters a zone but wicks out and closes outside it, indicating buyers or sellers defended the area." },
-        { term: "Acceptance Base", definition: "When price closes cleanly inside or beyond a zone and builds a new consolidation floor, confirming market movement." }
+        { term: "Calm Range", definition: "A quiet condition where price bounces sideways between support and resistance." },
+        { term: "Active Expansion", definition: "A fast price move where price pushes cleanly outside a range with high volume." },
+        { term: "Event Spike", definition: "A sudden, news-driven price spike that lacks structural validation and often reverses." },
+        { term: "Choppy Volatility", definition: "A messy environment where price swings rapidly up and down with no clear direction." },
+        { term: "Volatility Filter", definition: "Adjusting your technical expectations based on the speed and size of average candles." }
       ],
-      whyThisMatters: "Treating zones as areas to watch—rather than lines to trade—stops you from entering forced, premature positions.",
-      realLifeExample: "Gold drops into a daily reaction zone between $2010 and $2015. Instead of buying instantly, you watch the 4-hour candle. It spikes to $2008 but closes at $2013, showing strong rejection wicks.",
-      commonMistake: "Placing a limit order on a exact price line, expecting a perfect bounce, only to get stopped out as price sweeps through the zone.",
-      quickNote: "A reaction zone is not a wall. It is a place to observe behavior."
+      whyThisMatters: "Recognizing that volatility is not direction protects you from chasing sudden, low-quality spikes that occur inside quiet ranges.",
+      realLifeExample: "Gold jumps $10 at the London open. Instead of buying instantly, you check the environment and see price is in the middle of a choppy range. You recognize it as choppy volatility and stay out.",
+      commonMistake: "Confusing price speed with a clean trend breakout, leading to buying high-volatility exhaustion peaks.",
+      quickNote: "Do not chase the speed. Chase the structure. Gold moving fast does not mean it's moving clearly."
     }
   },
   {
     type: "visual_intro",
-    title: "The Middle of a Gold Range Can Be Misleading",
-    label: "Middle-Zone Noise",
-    visualKey: "gold-range-middle-noise",
-    body: "Gold is highly volatile and can print large, fast candles even when there is no real structural transition. When Gold moves in the middle of a range, away from the upper and lower reaction zones, the reading quality of these candles is heavily degraded. This middle zone represents price balance, where buyers and sellers swap orders without a clear advantage. Large candles here look important, but they are frequently traps that lead to immediate chop.",
+    title: "Reaction Zones Shape Gold Conditions",
+    label: "Reaction Zone Context",
+    visualKey: "gold-reaction-zone-condition",
+    body: "Gold moves between key reaction zones rather than exact, thin price levels. A move near a reaction zone carries different meaning from a move in empty space. The learner should ask whether Gold is testing, rejecting, accepting, overshooting, or returning inside the zone. A Gold zone is not a wall. It is an area where buyer and seller behavior deserves attention. By auditing behavior at the zone, you classify the condition.",
     context: {
       keyTerms: [
-        { term: "Range Midpoint", definition: "The center of a trading range where supply and demand are in price balance." },
-        { term: "Balanced Zone", definition: "An area of fair value where price chops back and forth without institutional urgency." },
-        { term: "Chop Zone", definition: "A region where candles frequently overlap, print alternating colors, and lack follow-through." },
-        { term: "Decoy Momentum", definition: "Fast-looking candles that print in the middle of a range but fail to create sustained trends." },
-        { term: "Location Devaluation", definition: "Downgrading the importance of a candle because it formed in a low-information area." }
+        { term: "Reaction Zone", definition: "A price area on the chart where buyers or sellers have historically stepped in." },
+        { term: "Zone Test", definition: "When price enters a zone to see if buyers or sellers will step in again." },
+        { term: "Zone Acceptance", definition: "When price breaks past a zone and holds on the other side, showing a strong breakout." },
+        { term: "Zone Rejection", definition: "When price enters a zone but quickly leaves a long wick and closes outside it, showing opposition." },
+        { term: "Overshoot Sweep", definition: "A quick spike that pushes past a zone to trigger exit orders before reversing back inside." }
       ],
-      whyThisMatters: "Devaluing midpoint price action protects your capital from being chopped up in random, directionless volatility.",
-      realLifeExample: "Gold is trading in a range between $2030 and $2070. Price is at $2050 and prints a strong 5-minute green candle. You ignore it because it sits directly in the middle of the range.",
-      commonMistake: "Assuming a fast green candle at the range midpoint means a breakout to the range high has already begun.",
-      quickNote: "The middle of a Gold range can look exciting, but it often gives fewer useful answers."
+      whyThisMatters: "Reading behavior around reaction zones prevents you from treating minor wicks inside empty space as major structural signals.",
+      realLifeExample: "Gold moves toward a major resistance zone at $2030. Price spikes to $2033, but leaves a long wick and closes the hourly candle at $2027. You recognize this as a zone rejection, not a breakout.",
+      commonMistake: "Expecting support or resistance to act as a perfect, pixel-perfect line on the chart, leading to premature stop-outs.",
+      quickNote: "Zones are buffers, not walls. Watch how price acts inside the zone to read the condition."
     }
   },
   {
     type: "visual_intro",
-    title: "Prior Highs and Lows Are Gold Reference Areas",
-    label: "Prior High / Prior Low",
-    visualKey: "gold-prior-high-low-location",
-    body: "Prior daily or weekly highs and lows are crucial coordinates. Because these landmarks are highly visible, they act as magnets for resting orders and stop-losses. When Gold returns to a prior high or low, you do not predict a reversal. Instead, you wait for price to test the coordinate. The reader checks whether price wicks past it and returns inside, or accepts the area by closing cleanly beyond it.",
+    title: "Gold Compression Can Tighten Before Fast Expansion",
+    label: "Gold Compression",
+    visualKey: "gold-compression-condition",
+    body: "Gold frequently enters periods of compression, where volatility drops and price swings tighten. During compression, buyers and sellers are coiled in balance. Compression (a quiet market state where price swings shrink) often precedes explosive expansion, but it does not predict the breakout direction by itself. A trained learner observes the compression condition and waits for expansion quality and follow-through. Do not treat compression as a directional signal.",
     context: {
       keyTerms: [
-        { term: "Prior Swing Landmarks", definition: "Recent daily or weekly highs and lows where major price reversals occurred." },
-        { term: "Liquidity Pool", definition: "A concentration of resting orders (automatic exit or entry orders) sitting just beyond key landmarks." },
-        { term: "Breakout Crossing", definition: "The temporary moment price crosses a prior high or low before the candle's close quality is confirmed." },
-        { term: "Overshoot Return", definition: "A quick price spike beyond a prior high or low that fails to hold and returns back inside." },
-        { term: "Sweep Test", definition: "A coordinate test that triggers resting orders and immediately reverses, confirming rejection." }
+        { term: "Gold Compression", definition: "A quiet market state where price swings shrink within a narrowing corridor." },
+        { term: "Volatility Contraction", definition: "The quiet period where price swings shrink right before a large breakout." },
+        { term: "Coiled Balance", definition: "A temporary balance between buying and selling pressure before a breakout." },
+        { term: "Expansion Catalyst", definition: "A news event or surge in volume that triggers a breakout from a squeeze." },
+        { term: "Directional Neutrality", definition: "Accepting that a squeeze does not tell you which direction price will break out." }
       ],
-      whyThisMatters: "Watching how Gold behaves at prior swing landmarks helps you differentiate between a false spike and a true breakout.",
-      realLifeExample: "Gold rises toward the prior weekly high of $2088. Price spikes to $2092 but closes the daily candle at $2084. You read this overshoot-and-return as a rejection of higher coordinates.",
-      commonMistake: "Buying a breakout immediately as price crosses a prior high, without waiting for the candle to close and confirm acceptance.",
-      quickNote: "Prior highs and lows are not automatic reversal walls. They are locations to observe behavior."
+      whyThisMatters: "Classifying the market as compressing stops you from placing high-risk trades inside a narrowing wedge where there is no trend edge.",
+      realLifeExample: "Gold consolidates in a tight $5 range during the late New York afternoon. You classify it as compression. You do not place any trades, waiting instead for London to expand.",
+      commonMistake: "Placing buy or sell orders inside the middle of a compression squeeze, assuming price must break in your favored direction.",
+      quickNote: "Compression is not a prediction. It is a condition that says, 'Wait to see what price proves next.'"
     }
   },
   {
     type: "visual_intro",
-    title: "Gold Wicks Need Location Before Meaning",
-    label: "Wick Location",
-    visualKey: "gold-wick-location-meaning",
-    body: "Gold prints some of the largest wicks in the trading world. Beginners are often taught that a long wick always means a reversal is coming. This is false. A wick's meaning is dictated by its location. A long upper wick that forms directly at a daily reaction zone or a prior weekly high holds high reading quality. That same upper wick printing in the middle of range noise or during low-volume hours is likely just random spread volatility.",
+    title: "Gold Expansion Must Prove It Is Clean",
+    label: "Gold Expansion",
+    visualKey: "gold-expansion-quality",
+    body: "Gold expansion happens when price moves strongly away from compression, a range, or a reaction zone. But expansion is not automatically clean. It may be supported by USD context and follow-through, or it may be an unstable spike that leaves a long wick and returns inside the range. Close quality and follow-through decide whether the condition becomes clean or stays unstable. The move happened. Now check whether Gold held the move.",
     context: {
       keyTerms: [
-        { term: "Wick Clues", definition: "The thin line on a candlestick representing within-candle price rejection at specific coordinates." },
-        { term: "Location Filter", definition: "Evaluating where a wick formed on the structural map before assigning it meaning." },
-        { term: "Wick at Edge", definition: "A wick that forms at a major range boundary or reaction zone, holding high reading quality." },
-        { term: "Mid-Range Wick", definition: "A wick that prints in the center of a range, holding low reading quality." },
-        { term: "Close Quality", definition: "Where a candle closes relative to its wicks and the key structural level it tested." }
+        { term: "Gold Expansion", definition: "The sudden release of price movement past a consolidation zone." },
+        { term: "Close Quality", definition: "Checking if a breakout candle closes strongly outside a boundary rather than leaving a long wick." },
+        { term: "Follow-through Hold", definition: "Verifying that subsequent candles hold the new price level to confirm a breakout." },
+        { term: "Unstable Spike", definition: "A rapid breakout attempt that leaves a long wick and fails to hold." },
+        { term: "Range Return", definition: "When price spikes outside a range but quickly closes back inside." }
       ],
-      whyThisMatters: "Ignoring mid-range wicks prevents you from taking bad counter-trend trades during normal consolidation chop.",
-      realLifeExample: "You notice a 4-hour candle with a large lower wick on XAU/USD. You check the location: price is at the range midpoint, not at support. You ignore the wick as random noise.",
-      commonMistake: "Shorting Gold because you see a single upper wick, without checking if the wick actually tested a significant reaction zone.",
-      quickNote: "A wick is a clue. Location tells you whether the clue deserves attention."
+      whyThisMatters: "Distinguishing clean expansion from unstable spikes prevents you from buying breakouts that are about to fail.",
+      realLifeExample: "Gold breaks above a range high at $2050. The breakout candle closes strongly at $2054 with almost no upper wick, and the next candle holds. You classify this as clean expansion.",
+      commonMistake: "FOMO-buying a fast Gold breakout spike while the candle is still open, only for it to close as a massive rejection wick.",
+      quickNote: "The move happened. Now check whether Gold held the move. A wick is a clue, not a final answer."
     }
   },
   {
     type: "visual_intro",
-    title: "Sweep Locations Are Questions, Not Answers",
-    label: "Sweep Location",
-    visualKey: "gold-sweep-location-audit",
-    body: "In Gold trading, price regularly sweeps above prior highs or below prior lows to trigger resting orders. This is a common institutional order-matching event. However, a sweep location is a question, not an answer. A sweep does not guarantee a reversal. The reader waits for behavior: does price return inside the range on a strong close (proving rejection), or does it hold its ground outside the boundary (suggesting breakout acceptance)?",
+    title: "Macro Pressure Can Distort Gold Conditions",
+    label: "Macro Pressure",
+    visualKey: "gold-macro-condition-distortion",
+    body: "As a global reserve asset, Gold reacts strongly to US interest rate expectations, inflation data, bond yields, and the US Dollar Index. During high-impact macro events (like CPI or FOMC releases — inflation and interest rate reports), Gold prints massive, fast candles that sweep both sides of key zones. This movement is real, but the condition is often highly unstable. A trained learner does not trade the immediate news spike. They wait for close quality and follow-through to appear before classifying the new condition.",
     context: {
       keyTerms: [
-        { term: "Liquidity Sweep", definition: "Price temporarily breaching a key level to trigger stop orders (automatic exits) and match large buy/sell orders." },
-        { term: "Sweep and Return", definition: "When price spikes past a swing landmark but closes the candle back inside the boundary." },
-        { term: "Acceptance Alternative", definition: "When price sweeps past a high, but instead of reversing, it consolidates above it, confirming a breakout." },
-        { term: "Fake Breakout", definition: "A sweep that retail traders mistake for a breakout, trapping them as price reverses." },
-        { term: "Order Matching", definition: "The process of institutional traders matching their large orders against triggered retail stops." }
+        { term: "Macro Distortion", definition: "Price spikes and confusion caused by high-impact economic news releases." },
+        { term: "Yield Correlation", definition: "The rule where rising government bond yields naturally depress Gold prices." },
+        { term: "USD Counterweight", definition: "The pricing rule where US Dollar strength naturally depresses Gold prices, and vice versa." },
+        { term: "Dual Sweep", definition: "A news spike that shoots both up and down within minutes, clearing out orders on both sides." },
+        { term: "Post-News Settlement", definition: "Waiting for the news volatility to cool down so clean price levels can show up again." }
       ],
-      whyThisMatters: "Waiting for close confirmation after a sweep keeps you from buying the absolute top of a fake breakout.",
-      realLifeExample: "Gold spikes above the daily high of $2060, reaching $2065. It looks like a breakout, but the 1-hour candle closes at $2058. This sweep-and-return warns you not to buy.",
-      commonMistake: "Failing to check the candle close after price sweeps a prior high, resulting in buying right into a trap.",
-      quickNote: "A sweep is a location clue that needs close and follow-through confirmation."
+      whyThisMatters: "Understanding macro pressure prevents you from trading news wicks that represent temporary panic rather than structural direction.",
+      realLifeExample: "US CPI data is released. Gold spikes $20 down, then $30 up, clearing range limits. You recognize this as macro distortion and wait two hours for the market to settle.",
+      commonMistake: "Trying to predict news directions and placing trades right before high-impact economic releases.",
+      quickNote: "Macro events create fast waves. Let the water settle before you try to read the tide."
     }
   },
   {
     type: "visual_intro",
-    title: "Macro Location Can Distort Gold Reading",
-    label: "Macro Location",
-    visualKey: "gold-macro-location-distortion",
-    body: "Gold is highly sensitive to macroeconomic events such as inflation data (CPI), jobs reports (Non-Farm Payrolls, or NFP), interest rate decisions, and Treasury yield shifts. During these announcements, Gold will print massive, volatile candles. A macro-driven spike can overshoot a reaction zone by 20 dollars in seconds. To read these locations, you must practice extreme patience. Let the event noise settle, and check where the candle closes relative to the reaction zone.",
+    title: "Gold Trend Conditions Need Structure, Not Speed",
+    label: "Gold Trend Condition",
+    visualKey: "gold-trend-condition-structure",
+    body: "A clean Gold trend condition is not defined by a single aggressive candle. It is an environment where price builds a reliable sequence of higher highs and higher lows (or lower lows and lower highs). Inside a trend, pullbacks respect previous swing points, candle closes hold beyond broken levels, and follow-through is consistent. Gold can move fast inside a trend, but speed alone does not create structure. Look for structural alignment to confirm a trend.",
     context: {
       keyTerms: [
-        { term: "Macro Location", definition: "Price areas that become active or distorted during high-impact economic news releases." },
-        { term: "Yield Pressure", definition: "The negative correlation between US Treasury yields and Gold, forcing price shifts." },
-        { term: "USD Context", definition: "Checking if the US Dollar Index (DXY) is rejecting or accepting key coordinates during Gold moves." },
-        { term: "Event Spike", definition: "A rapid price spike during news that often clears out liquidity on both sides of a range." },
-        { term: "Close Stability", definition: "Evaluating where a macro candle finishes after the initial news volatility has subsided." }
+        { term: "Trend Condition", definition: "A market state where price consistently moves in a directional sequence of higher highs and lows." },
+        { term: "Structure Respect", definition: "When pullbacks hold above previous breakout points, showing buyers or sellers are defending value." },
+        { term: "Swing Sequence", definition: "The organized staircase pattern of highs and lows that confirms a healthy trend." },
+        { term: "Trend Pullback", definition: "A temporary price drop against the main trend direction before the trend continues." },
+        { term: "Directional Sustainability", definition: "Checking if a trend is supported by consistent volume and steps rather than a single spike." }
       ],
-      whyThisMatters: "Patience during macro spikes prevents you from trading the initial, highly random news reaction.",
-      realLifeExample: "NFP data is released, and Gold spikes $25 higher, clearing the range high at $2045. You wait. An hour later, price is trading back at $2038. The macro location was a trap.",
-      commonMistake: "Chasing a volatile news candle during the release, only to get trapped by a massive wick reversal.",
-      quickNote: "Macro news distort coordinates. Let the dust settle and check the close."
+      whyThisMatters: "Focusing on trend structure instead of speed stops you from calling a market trending when it is actually just printing one large news spike.",
+      realLifeExample: "Gold is trending up. Price breaks $2060, pulls back to test $2060 as support, holds it, and continues upward. This structural support confirms a clean trend environment.",
+      commonMistake: "Calling Gold trending bullish after a single large candle, ignoring the fact that it is still trapped inside a larger range.",
+      quickNote: "A real trend is a staircase, not a single elevator. Look for the steps."
     }
   },
   {
     type: "visual_intro",
-    title: "Higher-Timeframe Gold Location Changes the Lower-Timeframe Story",
-    label: "Higher-Timeframe Location",
-    visualKey: "gold-htf-location-context",
-    body: "A lower-timeframe Gold move can look incredibly strong, convincing, and clean until you check the higher-timeframe map. Gold may be pushing up on the 15-minute chart, but if it is running directly into a major daily reaction zone, that lower-timeframe push is in a high-risk location. The daily sellers are likely to step in, stalling the lower-timeframe trend. Always check the bigger map before trusting the smaller move.",
+    title: "Gold Chop Makes Strong Candles Less Trustworthy",
+    label: "Gold Chop",
+    visualKey: "gold-choppy-condition-warning",
+    body: "A choppy Gold condition occurs when price moves sideways with constant overlap, long wicks on both sides of candles, and failed breakouts. In this environment, even strong, large candles can mislead beginners because the overall condition is not clean. A trained learner does not force a directional trade in chop. They identify the messy environment, lower reading confidence to unclear, and protect capital by standing aside.",
     context: {
       keyTerms: [
-        { term: "HTF Location", definition: "The coordinate of price on the 4-hour, daily, or weekly charts." },
-        { term: "HTF Reaction Zone", definition: "A major historical reversal area identified on daily or weekly timeframes." },
-        { term: "Dual-Timeframe Context", definition: "Analyzing how a lower-timeframe trend aligns with higher-timeframe boundaries." },
-        { term: "Push Exhaustion", definition: "When a lower-timeframe trend runs out of steam upon meeting a higher-timeframe barrier." },
-        { term: "Reading Priority", definition: "Giving higher-timeframe coordinates priority over lower-timeframe candle patterns." }
+        { term: "Gold Chop", definition: "A messy sideways state with overlapping swings and no clear direction." },
+        { term: "Overlapping Swings", definition: "Price swings that cross over each other's paths instead of making clean steps." },
+        { term: "Wick Noise", definition: "Frequent wicks on both sides of candles, showing no clear control." },
+        { term: "Structure Degradation", definition: "When technical support and resistance levels are repeatedly crossed and ignored, making them useless." },
+        { term: "Reading Quality: Unclear", definition: "Classifying the market as unreadable when clues are highly conflicting." }
       ],
-      whyThisMatters: "Overlaying HTF locations prevents you from buying a lower-timeframe trend right at the point where it is most likely to exhaust.",
-      realLifeExample: "The 15-minute Gold chart shows a strong uptrend. However, you check the daily chart and see price is at the weekly resistance ceiling. You hold a cautious, mixed reading.",
-      commonMistake: "Trading a 5-minute breakout without realizing that the location is directly inside a daily resistance zone.",
-      quickNote: "The small chart shows the move. The bigger chart shows where the move is happening."
+      whyThisMatters: "Recognizing a choppy environment prevents you from getting chopped up by endless false breakouts and minor losses.",
+      realLifeExample: "Gold consolidates between $2015 and $2020 for three days, printing overlapping candles with wicks. You label the condition choppy, drop confidence to unclear, and close the platform.",
+      commonMistake: "Believing you must find a setup on every chart every day, even when Gold is in a highly choppy, noisy state.",
+      quickNote: "Chop is not a failure to understand. Sometimes Gold is simply not clean."
     }
   },
   {
     type: "visual_intro",
-    title: "Gold Location First, Candle Behavior Second",
-    label: "Location Workflow",
-    visualKey: "gold-location-first-workflow",
-    body: "To read Gold like a professional, you must follow a disciplined, repeatable mental checklist. Before trusting a Gold move, locate Gold through reaction zones, prior highs and lows, wick behavior, sweep areas, macro context, higher-timeframe location, close quality, and follow-through. Never focus on the color or size of a candle until you have audited its coordinates. By establishing this workflow on every chart, you filter out random movements and only trade when the location gives you a structural advantage.",
+    title: "Gold Condition First, Candle Second",
+    label: "Reading Workflow",
+    visualKey: "gold-condition-first-workflow",
+    body: "How does a professional audit a Gold chart? They do not look at a breakout candle first. They follow a disciplined checklist: Zoom out. Classify the overall Gold condition. Identify if price is near a reaction zone. Check if the move is news-driven or structural. Audit local candle close quality. Check for follow-through holds. Classify reading quality. By running this filter, you ensure you never trade an isolated candle without knowing the environment around it.",
     context: {
       keyTerms: [
-        { term: "Location Workflow", definition: "The step-by-step checklist of auditing price coordinates before analyzing candles." },
-        { term: "Coordinate Scan", definition: "Locating price relative to reaction zones, prior highs/lows, and range boundaries." },
-        { term: "Context Audit", definition: "Checking USD (DXY) alignment and macro events to confirm structural support." },
-        { term: "Close Quality Check", definition: "Evaluating the candle body close relative to the tested location boundaries." },
-        { term: "Reading Quality Verdict", definition: "Classifying the market condition as clear, mixed, or unclear based on location coordinates." }
+        { term: "Gold Workflow", definition: "The step-by-step audit process starting from Gold condition down to the individual candle." },
+        { term: "Environmental Priority", definition: "The rule that the overall market state always overrules local candle shapes." },
+        { term: "Zone Alignment", definition: "Checking if a candle breakout occurs near a key reaction zone." },
+        { term: "Close Quality Check", definition: "Checking where a candle closes relative to its highs and lows." },
+        { term: "Reading Quality Audit", definition: "Checking if clues align to give a clear, mixed, or unclear reading." }
       ],
-      whyThisMatters: "A repeatable workflow removes emotional reactivity and ensures you only judge candles that form in high-information zones.",
-      realLifeExample: "You open the Gold chart. Instead of looking at the current candle, you locate: weekly high, daily reaction zones, check DXY location, and then read the close quality.",
-      commonMistake: "Looking at a candle pattern first and then forcing support/resistance zones onto the chart to justify a trade.",
-      quickNote: "Gold location first, candle behavior second."
+      whyThisMatters: "Following this workflow prevents you from jumping into false setups driven by isolated, low-quality breakouts.",
+      realLifeExample: "You see Gold print a large green candle. You run the workflow: check zone (empty space), check macro (CPI news spike), check close (middle close). You classify it as mixed/unstable and stay out.",
+      commonMistake: "Jumping directly into a local breakout candle without checking if it occurred at a valid reaction zone first.",
+      quickNote: "Never audit a candle until you have named the room it is standing in."
     }
   },
   {
     type: "practice",
-    title: "Practice Drill: Is This Gold Location Useful or Weak?",
+    title: "Practice Drill: What Gold Condition Is This?",
     label: "Practice Drill",
-    visualKey: "gold-location-quality-practice-drill",
-    body: "Test your Gold location-reading discipline on this scenario: Gold prints a large green candle on the 15-minute chart, closing near its high. However, price is in the middle of a wide trading range. It is far from the upper reaction zone and far from the lower reaction zone. There are no prior highs, prior lows, or higher-timeframe areas nearby. How should you read this location?",
+    visualKey: "gold-condition-practice-drill",
+    body: "Let's put your Gold condition-reading skills to the test. In this drill, we present a realistic market scenario involving a Gold breakout attempt, reaction zones, close quality, and follow-through. Read the clues carefully, apply your environmental filters, and choose the most disciplined reading.",
     taskData: {
       type: "choice_block",
-      question: "Gold prints a large green candle on the 15-minute chart, closing near its high. However, price is in the middle of a wide trading range. It is far from the upper reaction zone and far from the lower reaction zone. There are no prior highs, prior lows, or higher-timeframe areas nearby. What is the most disciplined Gold location reading?",
+      question: "Gold compresses below a previous reaction zone during an active market window. Then it pushes above the zone with a large candle, but the candle leaves a long upper wick and closes near the middle. USD context is unclear, and the next candle hesitates instead of continuing upward. What is the most disciplined Gold condition reading?",
       options: [
         {
           id: "A",
-          text: "Clear bullish reading because Gold printed a large green candle, showing strong buyer dominance.",
+          text: "Clean expansion condition because Gold moved above the reaction zone.",
           isCorrect: false,
-          feedback: "Incorrect. The candle is active, but its location in the middle of the range devalues the reading quality to noise. There is no structural reference here."
+          feedback: "Incorrect. Moving above the zone matters, but expansion is not clean until Gold proves quality after the move. Here, the candle has a long upper wick, closed in the middle, and follow-through is weak."
         },
         {
           id: "B",
-          text: "Strong location because any large Gold candle represents high institutional volume and must be followed.",
+          text: "Clean trend condition because the candle was large.",
           isCorrect: false,
-          feedback: "Incorrect. Not all Gold chart areas are equal. Location changes how useful the evidence is; in the middle of a range, it is highly random."
+          feedback: "Incorrect. One large candle does not create a full trend condition. Trends require session support and structured follow-through, which are missing here."
         },
         {
           id: "C",
-          text: "Weak or low-quality location because the move formed in the middle of a wide range without a useful reference area.",
+          text: "Mixed / unstable expansion because the move happened, but wick behavior, close quality, USD context, and follow-through are not clean.",
           isCorrect: true,
-          feedback: "Correct! This is a weak or low-quality location. Gold moved in the middle of a wide range, away from reaction zones and useful reference areas, making it noise."
+          feedback: "Correct! The move occurred, but the long upper wick, middle close, flat USD context, and weak follow-through mean the condition is mixed or unstable. It is not a clean expansion."
         },
         {
           id: "D",
-          text: "Guaranteed reversal because Gold is inside a range and must reverse immediately back to the support floor.",
+          text: "Guaranteed reversal because the candle left an upper wick.",
           isCorrect: false,
-          feedback: "Incorrect. Being inside a range does not guarantee a reversal. It only means the location is low-quality, and you should stand aside."
+          feedback: "Incorrect. An upper wick does not guarantee reversal. It only gives a clue that must be audited. Avoid predictive, absolute statements."
         }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Mid-Range Decoy", definition: "A price move in the center of a range that appears strong but lacks order support." },
-        { term: "Coordinate Validation", definition: "Verifying if price is at a major weekly or daily landmark before reading wicks." },
-        { term: "Discipline Stand-Aside", definition: "Refusing to trade active-looking candles because they formed in weak locations." },
-        { term: "Close Quality", definition: "The location of a candle's close relative to range highs and lows rather than its own range." },
-        { term: "Confirmation Wait", definition: "Waiting for price to reach range extremes before forming a market reading." }
+        { term: "Divergent Breakout", definition: "When Gold breaks structure but the US Dollar is moving in the same direction." },
+        { term: "Exhaustion Wick", definition: "A long wick on a breakout candle showing a move is running out of steam." },
+        { term: "Middle Close", definition: "A candle closing near the middle of its range, showing balance rather than control." },
+        { term: "Unconfirmed Expansion", definition: "A breakout attempt that fails to hold and lacks follow-through." },
+        { term: "Mixed Evidence", definition: "A state where some clues are bullish (like a breakout attempt) but others are flat or opposing." }
       ],
-      whyThisMatters: "This drill trains you to resist the visual temptation of trading large candles that have no structural backup.",
-      realLifeExample: "You see Gold print a strong green candle. You note it is in the range center and has no nearby daily levels. You close the chart and do nothing.",
-      commonMistake: "Chasing a breakout inside range midpoint noise because a single candle looked fast.",
-      quickNote: "A big candle in the middle of a range is just noise trying to look like a move."
+      whyThisMatters: "This drill trains you to cross-reference multiple Gold layers so you don't fall for isolated wicks and spikes that lack broad support.",
+      realLifeExample: "Gold spikes above a zone, but leaves a long upper wick and DXY is flat. You recognize this as an unconfirmed expansion, avoiding a loss when price rotates back down.",
+      commonMistake: "Buying a Gold breakout based solely on the size of the candle, without checking close quality or follow-through.",
+      quickNote: "If the candle closes in the middle and the USD is flat, the breakout is likely built on sand."
     }
   },
   {
     type: "debrief",
-    title: "Debrief: Locate Gold Before Trusting the Move",
+    title: "Debrief: Read the Gold Condition Before the Move",
     label: "Gold Debrief",
-    visualKey: "gold-location-debrief",
-    body: "Congratulations! You have completed the Module 0.8 Gold Roadway track. You have built a critical filter: before trusting a Gold move, locate Gold through reaction zones, prior highs and lows, wick behavior, sweep areas, macro context, higher-timeframe location, close quality, and follow-through. By filtering out range midpoints, watching prior swing landmarks, overlaying higher-timeframe boundaries, and waiting for close quality and follow-through, you read Gold with institutional objectivity.",
+    visualKey: "gold-condition-debrief",
+    body: "Congratulations! You have completed the Level 0 Module 0.7 Gold Roadway. You have shifted your perspective from chasing individual candles to auditing the overall Gold environment. You now understand that volatility, reaction zones, macro pressure, USD context, close quality, structure, and follow-through dictate the validity of every technical setup. Carry this environmental filter with you whenever you open an XAU/USD chart.",
     context: {
       keyTerms: [
-        { term: "Location-First Habit", definition: "The automated habit of mapping chart boundaries before studying candle wicks or bodies." },
-        { term: "Boundary Check", definition: "Scanning the chart for range extremes and historical daily swing areas." },
-        { term: "Close Quality Audit", definition: "Checking if candle bodies closed outside or returned inside key coordinates." },
-        { term: "Macro Context Overlay", definition: "Waiting for news volatility to settle to see where coordinates are accepted." },
-        { term: "Reading Quality Verdict", definition: "Judging whether a setup is clear, mixed, or unclear based on its location coordinates." }
+        { term: "Environmental Filter", definition: "Naming the overall market environment and key price zones before looking at candles." },
+        { term: "Multi-Venue Audit", definition: "Evaluating Gold structure, US Dollar direction, reaction zones, and news together." },
+        { term: "Follow-through Verification", definition: "Checking if subsequent candles hold the new price level to confirm a breakout." },
+        { term: "Condition Adaptability", definition: "Changing your reading rules immediately when price shifts from trending to ranging." },
+        { term: "Capital Preservation", definition: "Protecting your trading funds by walking away when the market is choppy." }
       ],
-      whyThisMatters: "Location awareness is your ultimate shield. It prevents you from taking low-quality trades inside range chop, protecting your capital for prime conditions.",
-      realLifeExample: "A professional Gold trader opens a chart, notes that price is consolidating in the middle of its daily range, and logs out without trading.",
-      commonMistake: "Forgetting the location workflow when a fast candle prints, leading to impulsive trades in noisy areas.",
-      quickNote: "Do not ask only whether the Gold candle is big. Ask where Gold is."
+      whyThisMatters: "Condition awareness is the ultimate filter. It separates clean zone-supported moves from unstable macro traps.",
+      realLifeExample: "You open a Gold chart. Before looking at the current candle, you note that it's high-volatility chop and macro news is flat. You recognize wicks are likely noise and wait.",
+      commonMistake: "Forgetting to check the reaction zones and trading minor wicks as if they were major structural reversals.",
+      quickNote: "Do not ask what the Gold candle is doing. Ask what condition Gold is in, and what reaction zone created the move."
     }
   }
 ];

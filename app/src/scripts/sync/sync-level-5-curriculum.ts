@@ -3,6 +3,7 @@ import { PrismaClient, SkillLevel, ModuleTrack } from "@prisma/client";
 import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
 import dotenv from "dotenv";
+import crypto from "crypto";
 
 dotenv.config();
 
@@ -70,6 +71,12 @@ async function sync() {
       if (mod.moduleNumber === "5.15") {
         dbData.interactiveTaskType = "scenario_link";
         dbData.interactiveTaskData = { scenarioSlug: "drawdown-crucible", missionTitle: "Level 5 Final Gate", passThreshold: 80 };
+      } else if (mod.moduleNumber === "5.10") {
+        dbData.interactiveTaskType = "scenario_link";
+        dbData.interactiveTaskData = { scenarioSlug: "level-5-scenario-planning-gate", missionTitle: "Level 5 Synthesis Mission", passThreshold: 85 };
+      } else {
+        dbData.interactiveTaskType = null;
+        dbData.interactiveTaskData = null;
       }
 
       const existing = await prisma.courseModule.findUnique({
@@ -155,7 +162,36 @@ async function sync() {
       }
     };
 
+    const scenarioPlanningScenario = {
+      slug: "level-5-scenario-planning-gate",
+      title: "Level 5 Scenario Planning Review",
+      description: "Capstone synthesis mission for Level 5 — Evidence-Based Scenario Planning. Validates the learner's ability to identify the correct Review Area based on structural context, evidence stacking, and timeframe alignment.",
+      scenarioType: "structure_annotation" as any,
+      status: "active" as any,
+      marketTrack: "multi" as any,
+      level: 5,
+      instrument: "EURUSD",
+      timeframe: "1H",
+      candleSourceType: "curated" as any,
+      prompt: "Using the Scenario Planning Map workflow, identify the Review Area — the structural zone where the next meaningful delivery interaction will provide evidence for or against the current reading. This mission validates a single zone, not a complete scenario map. However, your zone selection should reflect the full evidence stack: HTF narrative, LTF alignment, and structural context.",
+      passThreshold: 85,
+      xpAward: 750,
+      expectedActions: { interactionMode: "chart_markup_v1" } as any,
+      gradingRubric: { rules: ["accurate_zone_placement"] } as any,
+      candleData: gateScenario.candleData,
+      metadata: {
+        interactionMode: "chart_markup_v1",
+        validationZones: [{ label: "Review Area", timeStart: "2024-01-20", timeEnd: "2024-01-22", priceMin: 1.0950, priceMax: 1.0980 }],
+        feedbackOnPass: "Level 5 complete. Your Review Area placement demonstrates structural understanding of the evidence stack and timeframe alignment. Complete your post-mission journal entry.",
+        feedbackOnFail: "Review Area placement does not align with the structural context."
+      } as any
+    };
+
     if (isDryRun) {
+      console.log("\n[DRY] WOULD UPSERT SCENARIO: drawdown-crucible");
+      console.log("[DRY] WOULD LINK SCENARIO drawdown-crucible to Module 5.15");
+      console.log("\n[DRY] WOULD UPSERT SCENARIO: level-5-scenario-planning-gate");
+      console.log("[DRY] WOULD LINK SCENARIO level-5-scenario-planning-gate to Module 5.10");
       console.log("\nDRY RUN COMPLETE: No data was changed.");
     } else {
       console.log("\nLIVE SYNC COMPLETE: Database updated.");
@@ -164,11 +200,11 @@ async function sync() {
       const scenario = await prisma.trainingScenario.upsert({
         where: { slug: gateScenario.slug },
         update: gateScenario as any,
-        create: gateScenario as any,
+        create: { id: crypto.randomUUID(), ...gateScenario as any },
       });
       console.log(`   Upserted scenario: ${scenario.title}`);
 
-      console.log("\nUpdating Scenario Links for Level 5 Final Gate...");
+      console.log("\nUpdating Scenario Links for Level 5 Final Gate (5.15)...");
       const mod515 = await prisma.courseModule.findFirst({
         where: { level: 5, moduleNumber: "5.15" }
       });
@@ -182,6 +218,30 @@ async function sync() {
         console.log(`   Linked scenario '${scenario.slug}' to module 5.15.`);
       } else {
         console.warn("   Warning: Module 5.15 not found in database.");
+      }
+
+      console.log("\nUpserting Scenario Planning Scenario: 'level-5-scenario-planning-gate'...");
+      const scenario2 = await prisma.trainingScenario.upsert({
+        where: { slug: scenarioPlanningScenario.slug },
+        update: scenarioPlanningScenario as any,
+        create: { id: crypto.randomUUID(), ...scenarioPlanningScenario as any },
+      });
+      console.log(`   Upserted scenario: ${scenario2.title}`);
+
+      console.log("\nUpdating Scenario Links for Level 5 Module 5.10...");
+      const mod510 = await prisma.courseModule.findFirst({
+        where: { level: 5, moduleNumber: "5.10" }
+      });
+
+      if (mod510) {
+        await prisma.moduleScenarioLink.upsert({
+          where: { moduleId_scenarioId: { moduleId: mod510.id, scenarioId: scenario2.id } },
+          update: { requiredForProgress: true, sortOrder: 1 },
+          create: { moduleId: mod510.id, scenarioId: scenario2.id, requiredForProgress: true, sortOrder: 1 }
+        });
+        console.log(`   Linked scenario '${scenario2.slug}' to module 5.10.`);
+      } else {
+        console.warn("   Warning: Module 5.10 not found in database.");
       }
 
       // --- Level 5 Knowledge Test Upsert ---

@@ -9,7 +9,7 @@ export const module215: AcademyModule = {
   level: 2,
   title: "Level 2 Review",
   objective: "Synthesize all Level 2 concepts to prepare for the Execution Mechanics exam.",
-  skillLevel: "beginner",
+  skillLevel: "intermediate",
   orderIndex: 15,
   tracks: {
     core: coreCards,

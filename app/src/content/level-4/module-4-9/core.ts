@@ -234,7 +234,7 @@ export const coreCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Identifying Position Unwinding Scenarios",
     "label": "Core Track",
     "body": "### London Close Killzone: Position Unwinding Scenarios\nAdvanced application of London Close concepts requires precise timing and an understanding of session dynamics. This card focuses on identifying unwinding scenarios during the critical London Close period.\n\n* **Timing Filters**: Use a combination of 5-minute and 15-minute charts to filter out noise and confirm unwinding signals, particularly around 10:30 AM EST when liquidity tends to spike.\n* **Session Dynamics**: Recognize that the London Close often coincides with U.S. market openings; thus, monitor correlated instruments like the S&P 500 for additional confirmation of unwinding moves.\n* **Market Sentiment Analysis**: Assess market sentiment through tools like the Commitment of Traders (COT) report to gauge potential unwinding pressure on positions, especially in major pairs like GBPUSD.",

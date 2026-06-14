@@ -2,99 +2,139 @@ import { LessonCard } from "../../../types/curriculum";
 
 export const forexCards: LessonCard[] = [
   {
-    type: "visual_intro",
-    title: "Forex Candles Are Quote Records",
-    visualKey: "forex-candle-quote-record-board",
-    label: "Forex Candle Foundation",
-    body: "A Forex (Foreign Exchange) candle is a time-boxed quote record. It shows where the quoted price opened, how high and low it travelled, and where it closed during that selected period. It is evidence from a price feed, not a universal signal.",
-    context: {
-      keyTerms: [
-        { term: "Forex Candle", definition: "A visual record of quoted price action for a currency pair." },
-        { term: "Currency Pair", definition: "The two currencies being exchanged, defining the quote value." },
-        { term: "Quote Feed", definition: "The stream of price data provided by a broker or liquidity provider." },
-        { term: "OHLC", definition: "Open, High, Low, Close; the four data points defining a candle." },
-        { term: "Pip", definition: "Percentage in Point; the standard unit of price change in Forex." },
-        { term: "Timeframe", definition: "The duration of activity recorded by a single candle." }
+    "type": "concept",
+    "title": "Introduction to Forex Price Feeds",
+    "label": "Forex Track",
+    "body": "### Introduction to Forex Price Feeds\nForex price feeds are live streams of data displaying the buying and selling prices of currency pairs in the global foreign exchange market, such as EUR/USD or GBP/USD.\n\n* **Currency Pair Sizing**: The first currency is the base currency (e.g. EUR), and the second is the quote currency (e.g. USD).\n* **Interbank Feeds**: Pricing is aggregated from major global banks and financial institutions, updating continuously during market hours.\n* **Trading Hours**: The forex market runs 24 hours a day, 5 days a week, starting Sunday evening EST and closing Friday afternoon EST.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Base Currency",
+          "definition": "The first currency in a currency pair, representing the asset being priced."
+        },
+        {
+          "term": "Quote Currency",
+          "definition": "The second currency in a currency pair, representing the unit of account."
+        }
       ],
-      whyThisMatters: "A learner may see a candle and assume it represents the entire Forex market. In reality, the candle is a record of quoted movement in a specific pair, timeframe, and platform environment. That context matters before interpretation.",
-      realLifeExample: "A 15-minute EUR/USD (Euro vs. US Dollar) candle opens at 1.0850, moves to 1.0872, drops to 1.0844, and closes at 1.0865. The candle records that quote movement in pips during that 15-minute window.",
-      commonMistake: "Thinking every Forex candle is a complete picture of the whole global market instead of a record from a specific quote environment.",
-      quickNote: "A Forex candle is a quote record first."
-    }
+      "whyThisMatters": "Understanding currency pair quotes is the foundation of analyzing price action and executing forex trades.",
+      "realLifeExample": "A price feed shows EUR/USD at 1.1000, meaning 1 Euro is worth 1.1000 U.S. Dollars.",
+      "commonMistake": "Thinking the forex market is open 7 days a week, forgetting that it closes on weekends.",
+      "quickNote": "Forex quotes are typically displayed to 4 or 5 decimal places for accuracy."
+    },
+    "taskData": null,
+    "visualKey": "forex-stp-execution"
   },
   {
-    type: "visual_intro",
-    title: "Pip Range, Body, and Wick",
-    visualKey: "forex-pip-candle-board",
-    label: "Forex Candle Mechanics",
-    body: "In Forex, candle size should be read in pips and context. A large-looking candle on one pair may be normal, while the same pip movement on another pair may be unusual. Read the body, wick, close, and range together. Note that JPY (Japanese Yen) pairs use a 2-decimal pip exception where the second decimal place (0.01) represents one pip, unlike standard pairs that use the fourth decimal place (0.0001) as one pip.",
-    context: {
-      keyTerms: [
-        { term: "JPY Pip Exception", definition: "Japanese Yen pairs are quoted to 2 decimal places (0.01 is 1 pip), unlike standard pairs quoted to 4 decimal places (0.0001 is 1 pip)." },
-        { term: "Pip Range", definition: "The total distance from High to Low measured in pips." },
-        { term: "Body Size", definition: "The distance between Open and Close, showing net commitment." },
-        { term: "Upper Wick", definition: "Price movement above the body that was rejected." },
-        { term: "Lower Wick", definition: "Price movement below the body that was rejected." },
-        { term: "Close Location", definition: "Where price ended relative to the candle's range." },
-        { term: "Pair Behavior", definition: "The typical movement characteristics of a specific currency pair." },
-        { term: "Volatility", definition: "The degree of variation in trading price over time." }
+    "type": "concept",
+    "title": "Forex Bids, Asks, and Spreads",
+    "label": "Forex Track",
+    "body": "### Forex Bids, Asks, and Spreads\nIn the forex market, you execute trades using two distinct prices displayed in the broker's order feed.\n\n* **Bid Price**: The highest price buyers are currently offering for a currency pair. You sell at the bid price.\n* **Ask Price**: The lowest price sellers are currently demanding for a currency pair. You buy at the ask price.\n* **Spread**: The difference between the ask price and bid price, representing the immediate cost of trade entry.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Bid Price",
+          "definition": "The price at which you can sell a currency pair."
+        },
+        {
+          "term": "Ask Price",
+          "definition": "The price at which you can buy a currency pair."
+        }
       ],
-      whyThisMatters: "Forex learners often judge candles by appearance only. But a candle’s size must be understood in pips, timeframe, and pair behavior. Without that, the learner may overreact to normal movement or ignore important movement.",
-      realLifeExample: "A 15-pip candle on EUR/USD during a quiet period may stand out. The same 15-pip movement on a more volatile pair or during an active session may be ordinary. The pip size needs context.",
-      commonMistake: "Comparing candle size visually without checking how many pips moved, what pair it happened on, and what timeframe it belongs to.",
-      quickNote: "In Forex, measure the candle before judging it."
-    }
+      "whyThisMatters": "Spreads represent the friction cost of executing trades. Tight spreads ensure cheaper executions.",
+      "realLifeExample": "If EUR/USD bid is 1.1000 and ask is 1.1001, the spread is 0.0001 (or 1.0 pip). You enter a buy at 1.1001.",
+      "commonMistake": "Failing to account for the spread when placing stop-losses, resulting in premature stop outs."
+    },
+    "taskData": null,
+    "visualKey": "forex-stp-execution"
   },
   {
-    type: "visual_intro",
-    title: "Spread and Session Can Distort Candles",
-    visualKey: "forex-distorted-candle-board",
-    label: "Quote Quality",
-    body: "A Forex candle should not be read without quote condition. During thin liquidity, rollover, or unstable spread, a wick may reflect poor quote quality as much as clean market intent. First check whether the candle formed in a reliable environment.",
-    context: {
-      keyTerms: [
-        { term: "Spread", definition: "The difference between the bid and ask price." },
-        { term: "Quote Quality", definition: "How accurately the candle record reflects actual market depth." },
-        { term: "Rollover", definition: "The period when positions are carried over to the next day, often featuring thin liquidity." },
-        { term: "Thin Liquidity", definition: "A state where few participants are active, causing unstable prices." },
-        { term: "Session Context", definition: "The specific trading session (e.g., London, NY) the candle formed in." },
-        { term: "Distorted Candle", definition: "A candle record impacted by technical quote noise rather than market intent." }
+    "type": "concept",
+    "title": "Understanding Pips and Fractional Pips",
+    "label": "Forex Track",
+    "body": "### Understanding Pips and Fractional Pips\nIn forex, price changes are measured in pips, which represent the standard unit of price movement.\n\n* **Pip Definition**: A pip is usually the 4th decimal place in a currency pair quote (e.g. 0.0001). For JPY pairs, it is the 2nd decimal place (e.g. 0.01).\n* **Pipette (Fractional Pip)**: The 5th decimal place (or 3rd for JPY pairs), representing 1/10th of a pip (e.g. 0.00001).\n* **Spread Calculation**: Spreads are calculated in pips. A spread of 10 fractional pips equals exactly 1.0 pip.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Pip",
+          "definition": "Percentage in Point; the standard unit of change in a forex exchange rate."
+        }
       ],
-      whyThisMatters: "Some Forex candles look dramatic because the market condition is weak, not because the move is clean. A learner who ignores spread and session context may mistake quote noise for strong evidence.",
-      realLifeExample: "A long wick appears near a quiet session or rollover period while spread is wider than usual. A rushed learner calls it rejection. A trained learner checks whether the wick came from clean price movement or weak quote conditions.",
-      commonMistake: "Treating every Forex wick as meaningful rejection without checking spread, session, and liquidity condition.",
-      quickNote: "A candle is only as useful as the condition it formed in."
-    }
+      "whyThisMatters": "Calculating pips is essential for assessing trade risk, sizing positions, and defining profit targets.",
+      "realLifeExample": "If EUR/USD moves from 1.1000 to 1.1015, the price has risen by 15 pips.",
+      "commonMistake": "Confusing pip values between USD pairs (4th decimal) and JPY pairs (2nd decimal), leading to huge risk errors."
+    },
+    "taskData": null,
+    "visualKey": "forex-stp-execution"
   },
   {
-    type: "practice",
-    title: "Forex Mini Drill: Clean Candle or Quote Noise?",
-    visualKey: "forex-candle-decision-board",
-    label: "Practical Drill",
-    body: "A learner sees a long upper wick on EUR/USD (Euro vs. US Dollar) and immediately says, 'This is rejection, so price should drop.' The candle formed during a low-liquidity period and the spread was wider than usual.\n\n**What is the disciplined Forex candle reading?**",
-    taskData: {
-      type: "choice_block",
-      question: "What is the disciplined Forex candle reading?",
-      options: [
-        { id: "A", text: "The long upper wick guarantees rejection, so the reading is complete.", isCorrect: false, feedback: "Not correct. A wick does not guarantee rejection. The candle formed in weak quote conditions, so the learner needs more context before forming a strong reading." },
-        { id: "B", text: "The candle should be treated carefully because spread and low-liquidity conditions may have distorted the wick.", isCorrect: true, feedback: "Correct. A long wick can be useful evidence, but in Forex it must be checked against spread, liquidity, session, and close location. Weak quote conditions can make a candle look more meaningful than it is." },
-        { id: "C", text: "The candle color is the only thing that matters.", isCorrect: false, feedback: "Not correct. Candle color is only one part of the record. Wick, body, close location, pip range, spread, and session context matter." },
-        { id: "D", text: "Forex candles do not need session or spread context.", isCorrect: false, feedback: "Not correct. Forex candles need quote context. Spread and session can change the quality of the candle record." }
+    "type": "concept",
+    "title": "Forex Volatility and Session Timing",
+    "label": "Forex Track",
+    "body": "### Forex Volatility and Session Timing\nForex price feeds fluctuate based on session activity, directly impacting spreads and volatility.\n\n* **Major Sessions**: The three main trading sessions are Tokyo (Asian), London (European), and New York (American).\n* **Overlap Volatility**: Spreads are tightest and volume is highest during session overlaps (e.g., London/New York overlap).\n* **Off-Peak Spread Widening**: Spreads often widen during session handoffs (such as New York close at 5:00 PM EST) when liquidity drops."
+  },
+  {
+    "type": "concept",
+    "title": "Pip Calculation Mechanics",
+    "label": "Forex Track",
+    "body": "### Pip Calculation Mechanics\nCalculating pip differences is key to measuring market movement and risk.\n\n* **Pip Math**: For most pairs, Pip = (Price B - Price A) / 0.0001.\n* **Example**: If EUR/USD drops from 1.1050 to 1.1010, the calculation is (1.1050 - 1.1010) / 0.0001 = 40 pips.\n* **Stop Placement**: Stop loss levels are placed a specific number of pips away from the entry price to limit risk."
+  },
+  {
+    "type": "concept",
+    "title": "Introduction to Forex Spreads and Volatility",
+    "label": "Forex Track",
+    "body": "### Introduction to Forex Spreads and Volatility\nForex spreads expand and contract dynamically based on market volatility and liquidity.\n\n* **Volatility Spikes**: During major economic releases (like NFP or CPI), spreads can widen significantly as liquidity providers adjust orders.\n* **Limit Order Advantage**: Using limit orders ensures execution only at your specified price or better, protecting you from spread spikes.\n* **Trading Rule**: Avoid entering trades with market orders during high-impact news releases due to wide spreads."
+  },
+  {
+    "type": "practice",
+    "title": "Practical Analysis of Forex Spreads",
+    "label": "Forex Track",
+    "body": "### Practical Analysis of Forex Spreads\nLet's apply pip and spread calculations to real-time forex price feeds to ensure you can evaluate transaction costs accurately.\n\n* **Spread Identification**: Locate the current bid and ask prices on the feed.\n* **Cost Calculation**: Calculate the difference to determine the spread value in pips.",
+    "context": {
+      "whyThisMatters": "Calculating spreads in pips ensures you can evaluate trading conditions before executing a trade.",
+      "realLifeExample": "A price feed shows EUR/USD bid at 1.10000 and ask at 1.10015. The spread is 1.5 pips."
+    },
+    "taskData": {
+      "type": "choice_block",
+      "question": "You see a forex price feed showing EUR/USD bidding at 1.10000 and asking at 1.10015. What is the bid-ask spread in pips?",
+      "options": [
+        {
+          "id": "0",
+          "text": "1.5 pips",
+          "isCorrect": true,
+          "feedback": "Correct! The spread is Ask (1.10015) - Bid (1.10000) = 0.00015, which is exactly 1.5 pips (or 15 pipettes)."
+        },
+        {
+          "id": "1",
+          "text": "15.0 pips",
+          "isCorrect": false,
+          "feedback": "Incorrect. 0.00015 represents 1.5 pips, not 15 pips. 15 pips would be 0.00150."
+        },
+        {
+          "id": "2",
+          "text": "0.15 pips",
+          "isCorrect": false,
+          "feedback": "Incorrect. The difference is 1.5 pips, not 0.15 pips."
+        },
+        {
+          "id": "3",
+          "text": "150 pips",
+          "isCorrect": false,
+          "feedback": "Incorrect. 150 pips is 0.01500, which is far wider than the actual spread."
+        }
       ]
     },
-    context: {
-      keyTerms: [
-        { term: "Clean Candle", definition: "A candle record formed in a high-liquidity, stable spread environment." },
-        { term: "Quote Noise", definition: "Price data that does not reflect meaningful market interaction." },
-        { term: "Spread Widening", definition: "When the gap between buy and sell prices increases, usually in low liquidity." },
-        { term: "Low-Liquidity Period", definition: "A time when few orders are in the market (e.g., session gaps)." },
-        { term: "Confirmation", definition: "The requirement for follow-through before trusting a piece of evidence." },
-        { term: "Candle Context", definition: "The combination of timeframe, session, and spread surrounding a record." }
-      ],
-      whyThisMatters: "Forex candles can look clean even when the quote environment is weak. A learner who checks spread, session, and pip range before interpreting the candle builds stronger reading discipline.",
-      realLifeExample: "A long wick appears on EUR/USD during a quiet period with wider spread. Instead of calling it rejection instantly, a trained learner treats the candle as incomplete evidence until the quote condition and follow-through are checked.",
-      commonMistake: "Turning a Forex wick into a full market conclusion without checking whether the candle formed in clean conditions.",
-      quickNote: "In Forex, candle shape plus quote condition creates the reading."
-    }
+    "visualKey": "forex-stp-execution"
+  },
+  {
+    "type": "summary",
+    "title": "Summary of Forex Price Feed Concepts",
+    "label": "Forex Track",
+    "body": "### Summary: Forex Price Feed Concepts\nUnderstanding currency quotes, bids, asks, and how pips are calculated is essential for forex trading.\n\n* **Currency Quotes**: The value of the base currency expressed in the quote currency.\n* **Bids and Asks**: Buy/sell levels in the feed that determine execution.\n* **Pips and Spreads**: The standard unit of price change and the entry friction cost.",
+    "context": {
+      "whyThisMatters": "Consolidating these concepts prepares you to analyze forex candlestick patterns and wicks in the next module."
+    },
+    "taskData": null,
+    "visualKey": "forex-stp-execution"
   }
 ];

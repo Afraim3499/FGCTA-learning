@@ -122,7 +122,7 @@ export const goldCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Practical Application of DXY in Gold Trading",
     "label": "Gold Track",
     "body": "### Core Scenario: DXY Analysis Exercises\nEngaging in practical exercises reinforces the application of DXY analysis in gold trading scenarios. This card provides a framework for situational analysis and decision-making.\n\n* **Scenario Analysis**: Given a scenario where DXY rises by 0.5% while gold prices drop by 1%, assess the implications for your gold trading strategy. Consider how this movement aligns with your established DXY thresholds.\n* **Trade Simulation**: Simulate a trade where DXY breaks above 93.00, and gold shows signs of weakness. Determine your entry and exit points based on this confirmation and evaluate potential risk-reward ratios.\n* **Reflection and Adjustment**: After executing trades based on DXY movements, reflect on the outcomes. Adjust your strategies based on the effectiveness of DXY as a confirmation filter, focusing on improving future decision-making.",

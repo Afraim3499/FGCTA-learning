@@ -182,7 +182,7 @@ export const goldCards: LessonCard[] = [
     "visualKey": "scaling-in-pyramiding"
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Common Pitfalls in Gold Pyramiding",
     "label": "Gold Track",
     "body": "### Pitfalls: Avoiding Common Mistakes in Gold Pyramiding\nUnderstanding the common pitfalls in pyramiding can significantly enhance trading performance. This card focuses on **identifying and avoiding emotional trading and misjudging market conditions**.\n\n* **Emotional Trading**: Avoid adding to positions out of fear of missing out (FOMO) or greed. Establish a clear set of criteria for when to pyramid, and stick to it, regardless of market noise.\n* **Misjudging Market Conditions**: Ensure that you are not pyramiding during periods of high volatility without a clear trend. For instance, adding to a position during a major economic release can lead to unexpected losses if the market reverses.\n* **Position Sizing Errors**: Maintain consistent position sizing when scaling in. A common mistake is to increase position size disproportionately, which can lead to excessive risk exposure.\n",

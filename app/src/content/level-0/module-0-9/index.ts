@@ -1,18 +1,20 @@
 import { coreCards } from "./core";
+import { forexCards } from "./forex";
+import { goldCards } from "./gold";
+import { cryptoCards } from "./crypto";
 import { AcademyModule } from "../../../types/curriculum";
 
 export const module09: AcademyModule = {
   moduleNumber: "0.9",
   level: 0,
-  title: "Gold Reading Lab: Volatility, Zones, Wicks, and Macro Pressure",
-  objective: "Teach learners how to combine Gold-specific volatility, reaction zones, wicks, sweeps, macro pressure, USD context, close quality, and follow-through into a disciplined XAU/USD reading.",
+  title: "Market Location: Knowing Where Price Is Before Judging What It Does",
+  objective: "Learn how price location changes evidence quality before judging candles, structure, and movement.",
   skillLevel: "beginner",
   orderIndex: 9,
   tracks: {
     core: coreCards,
-    forex: [],
-    gold: [],
-    crypto: []
-  }
+    forex: forexCards,
+    gold: goldCards,
+    crypto: cryptoCards,
+  },
 };
-export * from "./core";

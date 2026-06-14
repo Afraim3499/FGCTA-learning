@@ -7,9 +7,9 @@ import { AcademyModule } from "../../../types/curriculum";
 export const module210: AcademyModule = {
   moduleNumber: "2.10",
   level: 2,
-  title: "Breakouts vs Failed Breaks",
-  objective: "Evaluate close quality to differentiate valid breakouts from sweeps.",
-  skillLevel: "beginner",
+  title: "Boundary Areas: Buy Side Liquidity (BSL)",
+  objective: "Locate and audit clusters of buy stop liquidity above swing highs.",
+  skillLevel: "intermediate",
   orderIndex: 10,
   tracks: {
     core: coreCards,

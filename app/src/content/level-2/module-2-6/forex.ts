@@ -3,137 +3,223 @@ import { LessonCard } from "../../../types/curriculum";
 export const forexCards: LessonCard[] = [
   {
     "type": "mission_brief",
-    "title": "London Open Market Structure Shifts",
+    "title": "Session Rotation and Price Movement",
     "label": "Forex Track",
-    "body": "### London Open: Identifying Market Structure Shifts (MSS)\nThe London open presents unique volatility that can lead to significant market structure shifts. This card details **how to recognize MSS during this critical session**.\n\n* **Session Timing**: Focus on the first hour of the London session (3:00 AM - 4:00 AM EST) for heightened volatility and potential structure shifts, as liquidity increases significantly.\n* **Character Change Identification**: Look for a clear break of previous highs or lows within the first 30 minutes, indicating a change of character (ChoCh) that signals a potential MSS.\n* **Candle Patterns**: Identify bullish or bearish engulfing patterns during this timeframe, which often precede a confirmed market structure shift, validating the direction of the breakout.",
+    "body": "### Session Dynamics: Oscillation Between Highs and Lows\nForex price action often reflects oscillation between session highs and lows rather than adhering to a linear trend. This card explains **how session rotation influences price behavior**.\n\n* **Session Highs and Lows**: Prices typically move within defined ranges during trading sessions, with significant reversals occurring at session highs and lows, which are often influenced by liquidity availability.\n* **Market Participation**: The transition between major trading sessions (e.g., London to New York) creates volatility spikes as liquidity shifts, leading to price oscillations rather than sustained trends.\n* **Technical Analysis Implications**: Traders must adjust their strategies to account for these oscillations, recognizing that traditional trendlines may not accurately represent price behavior during session transitions.",
     "context": {
       "keyTerms": [
         {
-          "term": "Market Structure Shift (MSS)",
-          "definition": "A significant change in the price action that alters the prevailing trend."
-        },
-        {
-          "term": "Change of Character (ChoCh)",
-          "definition": "A shift in market behavior indicating a potential reversal or continuation of trend."
+          "term": "Session Rotation",
+          "definition": "The cyclical movement of price between defined high and low points during different trading sessions."
         }
       ],
-      "whyThisMatters": "Recognizing MSS at the London open can provide early entry points for trades aligned with the new market direction.",
-      "realLifeExample": "On March 15, 2023, the EURUSD broke above 1.0800 at 3:15 AM EST, confirming a bullish MSS after a prior downtrend during the Asian session.",
-      "commonMistake": "Failing to differentiate between a false breakout and a genuine MSS can lead to premature entries.",
-      "quickNote": "Focus on the first hour of the London session for identifying MSS.",
-      "mentorText": "During the London open, I look for clear breaks in price action. If the market breaches a significant level within the first hour, it’s a strong signal to reassess my positions.",
-      "mentorAnalogy": "Think of the London open like the ignition of an aircraft engine; once it starts, the plane can take off in a new direction, and you must be ready to adjust your flight path."
+      "whyThisMatters": "Understanding session rotation is essential for identifying potential reversal points and optimizing entry and exit strategies.",
+      "realLifeExample": "During the London session, EURUSD peaked at 1.1200 before retracing to 1.1150 as the New York session opened, illustrating the oscillation between session highs and lows.",
+      "commonMistake": "Traders often misinterpret session highs and lows as definitive trend indicators, leading to premature entries.",
+      "quickNote": "Price oscillates between session highs and lows, not along linear trends.",
+      "mentorText": "Think of price action like a pendulum swinging between two points. It’s not about a straight line; it’s about understanding where the price is likely to reverse.",
+      "mentorAnalogy": "Consider a commercial airplane taking off and landing. Just as it must adjust its altitude based on air traffic patterns, price must navigate between liquidity pools during session rotations."
     },
     "taskData": null,
-    "visualKey": "forex-london-open-mss"
+    "visualKey": "forex-session-rotation-fallacy"
   },
   {
     "type": "concept",
-    "title": "Breaking Asian Range Structure",
+    "title": "Understanding Liquidity Sweeps in Forex",
     "label": "Forex Track",
-    "body": "### London Session: Breaking the Asian Range Structure\nThe transition from the Asian to the London session often results in significant market shifts. This card explores **how to track shifts when the London session breaks the Asian range**.\n\n* **Asian Range Definition**: Identify the high and low of the Asian session (typically 7:00 PM - 3:00 AM EST) to establish the range that will be tested during the London open.\n* **Break Confirmation**: A break above the Asian high or below the Asian low during the first hour of the London session confirms a potential MSS, indicating a shift in market sentiment.\n* **Trade Implications**: Enter trades in the direction of the break, using the Asian range as a reference point for setting stop-loss levels and profit targets.",
+    "body": "### Liquidity Dynamics: The Mechanics of Sweeps\nLiquidity sweeps are critical movements that occur during session transitions, impacting price behavior. This card details **how to recognize and capitalize on liquidity sweeps**.\n\n* **Definition of Liquidity Sweep**: A liquidity sweep occurs when price rapidly moves through a liquidity pool, often triggering stop-loss orders and creating volatility spikes.\n* **Timing of Sweeps**: These sweeps frequently happen at the opening of a new session, where liquidity shifts can lead to rapid price movements, often reversing previous trends.\n* **Strategic Implications**: Traders should monitor key liquidity levels and be prepared to act quickly as price approaches these areas, as they often signal potential reversals or continuations.",
     "context": {
       "keyTerms": [
         {
-          "term": "Asian Range",
-          "definition": "The price range established during the Asian trading session."
-        },
-        {
-          "term": "Breakout",
-          "definition": "A price movement that surpasses a defined level of support or resistance."
+          "term": "Liquidity Sweep",
+          "definition": "A rapid price movement through a liquidity pool, often resulting in significant volatility."
         }
       ],
-      "whyThisMatters": "Tracking the break of the Asian range can provide critical insights into market sentiment and potential trading opportunities.",
-      "realLifeExample": "On April 10, 2023, the GBPJPY broke above the Asian high of 165.50 at 3:10 AM EST, leading to a bullish trend that reached 166.50 within the next hour.",
-      "commonMistake": "Traders often enter trades prematurely before confirming a break of the Asian range, leading to false signals.",
-      "quickNote": "Monitor the Asian high and low closely for breakout opportunities during the London session.",
-      "mentorText": "When the London session opens, I pay attention to the Asian range. A clean break above or below indicates a shift that I can capitalize on.",
-      "mentorAnalogy": "Consider the Asian range like a dam holding back water; when it breaks, the flow can surge in one direction, and you need to be ready to navigate the current."
+      "whyThisMatters": "Recognizing liquidity sweeps allows traders to anticipate price movements and adjust their strategies accordingly.",
+      "realLifeExample": "At 8:30 AM EST, the USDJPY experienced a liquidity sweep, moving from 110.50 to 111.00 as traders reacted to the U.S. employment report, triggering stop-loss orders along the way.",
+      "commonMistake": "Failing to account for liquidity sweeps can lead to unexpected losses, especially when stop-loss orders are triggered en masse.",
+      "quickNote": "Liquidity sweeps often signal rapid price movements during session transitions.",
+      "mentorText": "When you see price rapidly moving through a level, think of it as a stampede. It’s essential to understand where the liquidity is and how it can affect your trades.",
+      "mentorAnalogy": "Imagine a surgeon navigating through a crowded operating room. Just as they must be aware of the space and obstacles, traders must understand liquidity dynamics to avoid unexpected price movements."
     },
     "taskData": null,
-    "visualKey": "forex-london-open-mss"
+    "visualKey": "forex-session-rotation-fallacy"
   },
   {
     "type": "concept",
-    "title": "Displacement During London Session",
+    "title": "Price Rotation Between Highs and Lows",
     "label": "Forex Track",
-    "body": "### Identifying Displacement Candles in the London Session\nDisplacement candles during the London session can confirm market structure shifts. This card discusses **how to identify these candles and their implications**.\n\n* **Displacement Definition**: A displacement candle is characterized by a significant body size relative to previous candles, indicating strong momentum in a particular direction.\n* **Confirmation Criteria**: Look for displacement candles that close above the previous high or below the previous low, ideally with increased volume, to validate the market structure shift.\n* **Invalidation of Levels**: If a displacement candle breaks a key support or resistance level, it invalidates prior price action, signaling a potential trend change.",
+    "body": "### Price Mechanics: Highs and Lows Rotation\nPrice rotation often occurs between the previous session's highs and lows, challenging the notion of continuous trends. This card explores **the mechanics behind this behavior**.\n\n* **Daily Range Dynamics**: Prices frequently retrace to previous session highs and lows, creating a predictable range that traders can exploit for potential entries and exits.\n* **Market Sentiment Influence**: The sentiment of market participants during these rotations can lead to significant reversals, particularly when price approaches established highs or lows.\n* **Trendline Limitations**: Relying solely on trendlines can mislead traders, as price behavior often contradicts the expectations set by traditional technical analysis methods.",
     "context": {
       "keyTerms": [
         {
-          "term": "Displacement Candle",
-          "definition": "A candle that shows significant price movement, often indicating a strong market sentiment."
-        },
-        {
-          "term": "Momentum",
-          "definition": "The strength of price movement in a particular direction."
+          "term": "Price Rotation",
+          "definition": "The movement of price between established high and low points, often within a single trading session."
         }
       ],
-      "whyThisMatters": "Identifying displacement candles can help traders confirm the validity of a market structure shift and refine their entry points.",
-      "realLifeExample": "On May 5, 2023, the USDCHF formed a displacement candle at 8:00 AM EST, closing at 0.9350 after breaking the previous high of 0.9300, confirming a bullish shift.",
-      "commonMistake": "Traders often misinterpret smaller candles as displacement, leading to incorrect assumptions about market direction.",
-      "quickNote": "Focus on candle size and volume to identify true displacement during the London session.",
-      "mentorText": "When I see a candle that closes significantly higher or lower than the previous ones, I know momentum is shifting. That’s my cue to reassess my strategy.",
-      "mentorAnalogy": "Think of displacement candles like a jet engine’s thrust; when it fires up, the aircraft accelerates rapidly, indicating a clear direction."
+      "whyThisMatters": "Understanding price rotation helps traders identify key levels for potential reversals and optimize their trading strategies.",
+      "realLifeExample": "During the Asian session, GBPUSD rotated between 1.3500 and 1.3450, demonstrating how price can oscillate rather than trend continuously.",
+      "commonMistake": "Traders often misinterpret price rotations as trend confirmations, leading to incorrect positioning.",
+      "quickNote": "Price often rotates between established highs and lows, defying continuous trend expectations.",
+      "mentorText": "Think of price action as a game of tug-of-war. It doesn't always move in one direction; it shifts back and forth between established points.",
+      "mentorAnalogy": "Like a pendulum swinging between two fixed points, price rotation reflects the balance of market forces rather than a linear trend."
     },
     "taskData": null,
-    "visualKey": "forex-london-open-mss"
+    "visualKey": "forex-session-rotation-fallacy"
   },
   {
     "type": "concept",
-    "title": "Volume Analysis at London Open",
+    "title": "Behavior of Market Participants During Sessions",
     "label": "Forex Track",
-    "body": "### Analyzing Volume at the London Open\nVolume analysis is critical for confirming market structure shifts at the London open. This card outlines **how to leverage volume data to identify potential reversals**.\n\n* **Volume Spike Identification**: Monitor for volume spikes during the first hour of the London session, as increased trading activity often precedes significant price movements.\n* **Volume-Price Relationship**: A strong price movement accompanied by high volume indicates conviction in the move, reinforcing the likelihood of a market structure shift.\n* **Divergence Analysis**: Look for divergences between price action and volume; if price moves higher but volume decreases, it may signal a potential reversal rather than a continuation.",
+    "body": "### Market Psychology: Participant Reactions\nThe behavior of market participants during session rotations significantly impacts price movements and liquidity dynamics. This card analyzes **how these behaviors shape market conditions**.\n\n* **Participant Types**: Different market participants, including retail traders, institutional investors, and algorithmic traders, react differently during session transitions, influencing price volatility.\n* **Liquidity Provision**: Institutional traders often provide liquidity during peak session times, creating opportunities for retail traders to capitalize on price movements as they react to larger players' actions.\n* **Psychological Triggers**: Fear and greed often drive participant behavior, leading to rapid price movements as traders react to perceived opportunities or threats during session rotations.",
     "context": {
       "keyTerms": [
         {
-          "term": "Volume Spike",
-          "definition": "A sudden increase in trading volume, often indicating heightened market interest."
-        },
-        {
-          "term": "Divergence",
-          "definition": "A situation where price action and volume move in opposite directions."
+          "term": "Market Participants",
+          "definition": "Various entities involved in trading, including retail traders, institutional investors, and algorithms."
         }
       ],
-      "whyThisMatters": "Understanding volume dynamics at the London open can enhance the accuracy of identifying market structure shifts and potential trade setups.",
-      "realLifeExample": "On June 12, 2023, the AUDUSD experienced a volume spike at 3:30 AM EST, coinciding with a breakout above 0.6800, confirming a bullish MSS.",
-      "commonMistake": "Ignoring volume data can lead to false confirmations of market structure shifts, as price movements may lack conviction.",
-      "quickNote": "Always analyze volume alongside price action to confirm market structure shifts.",
-      "mentorText": "I always check the volume when the London session opens. If I see a spike, it tells me that traders are serious about the direction, and I need to pay attention.",
-      "mentorAnalogy": "Volume is like the fuel gauge on a plane; it tells you whether you have enough power to take off or if you’re running low and need to reassess your flight plan."
+      "whyThisMatters": "Understanding participant behavior allows traders to anticipate price movements and adjust their strategies accordingly.",
+      "realLifeExample": "As the New York session opened, a surge of retail buying in AUDUSD led to a rapid price increase from 0.7400 to 0.7450, driven by institutional liquidity provision.",
+      "commonMistake": "Traders often overlook the impact of market participant behavior, leading to misinterpretations of price movements.",
+      "quickNote": "Market participant behavior during sessions directly influences price dynamics and liquidity.",
+      "mentorText": "You need to understand who is in the market and how they react. Just like in a chess game, knowing your opponent's strategy can give you the upper hand.",
+      "mentorAnalogy": "Consider a symphony orchestra, where each musician plays a role. The collective behavior of market participants creates the market's rhythm, impacting price movements."
     },
     "taskData": null,
-    "visualKey": "forex-london-open-mss"
+    "visualKey": "forex-session-rotation-fallacy"
   },
   {
     "type": "concept",
-    "title": "Traps in the London Session",
+    "title": "Developing Strategies Around Session Rotations",
     "label": "Forex Track",
-    "body": "### London Session: Common Traps During Market Structure Shifts\nThe London session is notorious for liquidity spikes that can mislead traders regarding market structure. This card outlines **the common traps and strategies to mitigate their impact**.\n\n* **False Breakouts**: During the London open, price often breaks key support or resistance levels only to reverse quickly. Traders should wait for confirmation of a sustained breakout before entering positions.\n* **High Volatility**: Expect significant price swings within the first hour of the session. Utilize limit orders instead of market orders to avoid slippage during these volatile periods.\n* **News Impact**: Major economic releases can distort market structure. Always check the economic calendar for scheduled news events that may coincide with the London session to avoid being caught in a trap.",
-    "visualKey": "forex-london-open-mss",
-    "taskData": null
+    "body": "### Session Rotation: Strategy Development\nSession rotations create distinct liquidity environments that traders can exploit. This card focuses on **strategies that leverage session-specific price movements**.\n\n* **Session Overlap Analysis**: Identify periods when major sessions overlap (e.g., London and New York) to capitalize on increased volatility and liquidity. For example, during the overlap, EURUSD often experiences price spikes of 20-30 pips.\n* **Liquidity Pool Targeting**: Develop entry and exit strategies that target liquidity pools formed during session transitions. For instance, if the Asian session closes with a price at 1.1200, look for a breakout strategy targeting the liquidity pool above 1.1220 during the London session.\n* **Time-Based Execution**: Execute trades at specific times within a session, such as 30 minutes after the session opens, when price often retraces to fill liquidity gaps created by initial volatility.\n",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Session Overlap",
+          "definition": "Periods when two major trading sessions coincide, leading to increased market activity."
+        },
+        {
+          "term": "Liquidity Pool",
+          "definition": "Concentrated areas of buy or sell orders that can influence price movements."
+        }
+      ],
+      "whyThisMatters": "Understanding session rotations allows traders to align their strategies with periods of heightened liquidity and volatility, enhancing execution efficiency.",
+      "realLifeExample": "On March 15, 2023, during the London-New York overlap, EURUSD surged from 1.1200 to 1.1230 in 45 minutes, driven by increased trading volume.",
+      "commonMistake": "Failing to adjust trading strategies based on session characteristics, leading to missed opportunities during high liquidity periods.",
+      "quickNote": "Session rotations are critical for identifying optimal trading windows.",
+      "mentorText": "Focus on the overlap periods. They are where the action is. If you’re not trading during these times, you’re missing out on the best opportunities.",
+      "mentorAnalogy": "Think of session rotations like rush hour traffic patterns; knowing when the roads are busiest allows you to navigate effectively and avoid delays."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-rotation-fallacy"
   },
   {
     "type": "concept",
-    "title": "Momentum Shifts in London",
+    "title": "Case Studies of Session Rotation",
     "label": "Forex Track",
-    "body": "### London Session: Analyzing Momentum Shifts\nMomentum shifts during the London session can indicate a potential market structure shift. This card focuses on **how to identify and leverage these shifts in your trading strategy**.\n\n* **Volume Analysis**: A sudden increase in volume accompanying a price move can signal a momentum shift. Monitor volume indicators to confirm the strength of the move before acting on it.\n* **Divergence Signals**: Look for divergence between price action and momentum indicators like RSI or MACD. A momentum shift often occurs when price makes a new high or low while the indicator fails to do so, signaling a potential reversal.\n* **Session Overlap**: The overlap between the London and New York sessions often amplifies momentum shifts. Be prepared to adjust your strategy as liquidity increases during this period.",
-    "visualKey": "forex-london-open-mss",
-    "taskData": null
+    "body": "### Session Rotation: Case Study Analysis\nAnalyzing historical price movements during session rotations reveals actionable insights. This card examines **specific case studies that highlight successful trading strategies**.\n\n* **Case Study 1 - GBPUSD on Brexit Day**: On January 31, 2020, GBPUSD saw a sharp rally from 1.3000 to 1.3100 during the London session, driven by liquidity influx as traders reacted to Brexit news. This illustrates how news events during session rotations can create significant price movements.\n* **Case Study 2 - AUDUSD Post-Employment Data**: Following the Australian employment report release on February 17, 2023, AUDUSD jumped from 0.7100 to 0.7150 within the first hour of the Asian session, showcasing the impact of session-specific data releases on price dynamics.\n* **Case Study 3 - USDJPY During Tokyo Open**: On April 12, 2023, USDJPY experienced a pullback from 135.00 to 134.50 shortly after the Tokyo session opened, highlighting how initial volatility can lead to retracement opportunities for traders who understand session behavior.\n",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Volatility Spike",
+          "definition": "A sudden increase in price movement, often due to market events or news."
+        },
+        {
+          "term": "Retracement Opportunity",
+          "definition": "A price pullback that offers a favorable entry point for traders."
+        }
+      ],
+      "whyThisMatters": "Case studies provide concrete examples of how session rotations can be leveraged for strategic trading decisions, reinforcing theoretical concepts.",
+      "realLifeExample": "On February 17, 2023, AUDUSD's movement from 0.7100 to 0.7150 post-employment data exemplifies how session rotations can be capitalized on during news releases.",
+      "commonMistake": "Ignoring the context of market events during session rotations, leading to misinterpretation of price movements.",
+      "quickNote": "Historical case studies reveal patterns that can inform future trading strategies.",
+      "mentorText": "Look at the data. Each case study tells a story of opportunity. Analyze these movements to refine your approach and anticipate future price actions.",
+      "mentorAnalogy": "Consider these case studies as flight logs for pilots; they provide critical insights into past performance that inform future navigation strategies."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-rotation-fallacy"
   },
   {
     "type": "practice",
-    "title": "Practical Exercises for London MSS",
+    "title": "Practical Application of Session Rotations",
     "label": "Forex Track",
-    "body": "### London Session: Applying Market Structure Shift Knowledge\nEngaging in practical exercises can solidify your understanding of market structure shifts during the London session. This card presents **real-time scenarios for application**.\n\n* **Scenario Analysis**: Review historical price action of EURUSD during the London open on March 15, 2023. Identify any market structure shifts and analyze how momentum indicators behaved during that period.\n* **Trade Simulation**: Simulate a trading plan based on a hypothetical breakout of GBPJPY at 8:00 AM EST. Determine entry, stop-loss, and take-profit levels based on observed market structure shifts.\n* **Reflection Exercise**: After observing the London session for one week, document instances where you identified a market structure shift. Evaluate the effectiveness of your response to these shifts.",
-    "visualKey": "forex-london-open-mss"
+    "body": "### Session Rotation: Practical Exercises\nEngaging in practical exercises reinforces the understanding of session rotations and their impact on price movements. This card provides **scenario-based tasks to apply session rotation concepts**.\n\n* **Exercise 1 - Identify Overlap Opportunities**: Analyze the price action of EURUSD during the London-New York overlap on March 15, 2023. Determine entry and exit points based on volatility spikes.\n* **Exercise 2 - Liquidity Pool Mapping**: Chart the liquidity pools for GBPJPY during the Asian session on April 10, 2023. Identify potential breakout levels and plan trades accordingly.\n* **Exercise 3 - News Impact Assessment**: Review the AUDUSD price movement following the Australian employment report on February 17, 2023. Develop a trading plan that incorporates session rotation dynamics and expected volatility.\n",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Price Action Analysis",
+          "definition": "The study of historical price movements to inform future trading decisions."
+        },
+        {
+          "term": "Breakout Level",
+          "definition": "A price point at which an asset is expected to move significantly due to increased trading activity."
+        }
+      ],
+      "whyThisMatters": "Practical exercises solidify theoretical knowledge, enabling traders to effectively implement session rotation strategies in real-time trading scenarios.",
+      "realLifeExample": "During the London-New York overlap on March 15, 2023, EURUSD moved significantly, providing a practical example for traders to analyze and develop strategies.",
+      "commonMistake": "Relying solely on historical data without applying it to current market conditions, leading to ineffective trading strategies.",
+      "quickNote": "Hands-on practice is essential for mastering session rotation strategies.",
+      "mentorText": "Put theory into practice. Analyze these scenarios as if you were in the market, making decisions based on real-time data and session dynamics.",
+      "mentorAnalogy": "Think of these exercises as flight simulations for pilots; they prepare you for real-world conditions and decision-making under pressure."
+    },
+    "taskData": {
+      "type": "choice_block",
+      "question": "During the London-New York overlap, EURUSD shows a volatility spike. What should be your primary focus?",
+      "options": [
+        {
+          "id": "0",
+          "text": "Identify potential breakout levels above the current price.",
+          "isCorrect": true,
+          "feedback": "Correct. Focusing on breakout levels allows you to capitalize on increased volatility."
+        },
+        {
+          "id": "1",
+          "text": "Wait for a trend confirmation before entering a trade.",
+          "isCorrect": false,
+          "feedback": "Incorrect. Waiting for trend confirmation may cause you to miss the volatility opportunity."
+        },
+        {
+          "id": "2",
+          "text": "Set a fixed stop-loss without considering market conditions.",
+          "isCorrect": false,
+          "feedback": "Incorrect. Stop-losses should be adjusted based on current volatility and market behavior."
+        },
+        {
+          "id": "3",
+          "text": "Trade based on previous session patterns only.",
+          "isCorrect": false,
+          "feedback": "Incorrect. Relying solely on past patterns ignores current market dynamics."
+        }
+      ]
+    },
+    "visualKey": "forex-session-rotation-fallacy"
   },
   {
     "type": "summary",
-    "title": "Summary of London Open MSS",
+    "title": "Summary of Forex Session Concepts",
     "label": "Forex Track",
-    "body": "### London Session: Key Concepts Recap\nUnderstanding market structure shifts during the London open is critical for effective trading. This card summarizes **the essential strategies and concepts discussed**.\n\n* **Traps to Avoid**: Be vigilant of false breakouts and high volatility, especially during the first hour of the London session. Always confirm breakouts before entering trades.\n* **Momentum Indicators**: Utilize volume analysis and divergence signals to identify momentum shifts that may indicate a structure change. Pay attention to the overlap with the New York session for increased trading opportunities.\n* **Practical Application**: Engage in scenario analysis and trade simulations to reinforce your understanding of market structure shifts and improve your execution in real-time trading.",
-    "visualKey": "forex-london-open-mss",
-    "taskData": null
+    "body": "### Forex Session Concepts: Summary\nThis card summarizes the key concepts learned about session rotations and liquidity dynamics in Forex trading. Understanding these elements is essential for effective trading strategies.\n\n* **Session Dynamics**: Recognizing the distinct characteristics of each trading session enables traders to align their strategies with periods of increased liquidity and volatility.\n* **Liquidity Pools**: Identifying liquidity pools is crucial for executing trades effectively, as price often reacts to these concentrated areas of buy and sell orders.\n* **Strategic Execution**: Developing strategies that capitalize on session rotations allows traders to enhance their execution efficiency and improve overall trading performance.\n",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Execution Efficiency",
+          "definition": "The effectiveness of executing trades at desired prices with minimal slippage."
+        },
+        {
+          "term": "Market Dynamics",
+          "definition": "The forces that influence price movements in the market."
+        }
+      ],
+      "whyThisMatters": "A comprehensive understanding of session concepts empowers traders to make informed decisions, enhancing their trading outcomes.",
+      "realLifeExample": "Traders who effectively utilized session rotations during the London-New York overlap on March 15, 2023, capitalized on significant price movements.",
+      "commonMistake": "Overlooking the importance of session dynamics, leading to ineffective trading strategies.",
+      "quickNote": "Mastering session concepts is vital for successful Forex trading.",
+      "mentorText": "Review these concepts regularly. They form the backbone of your trading strategy and should guide your decision-making process.",
+      "mentorAnalogy": "Think of these concepts as the foundational blueprints for a skyscraper; without a solid understanding, the structure will not stand."
+    },
+    "taskData": null,
+    "visualKey": "forex-session-rotation-fallacy"
   }
 ];

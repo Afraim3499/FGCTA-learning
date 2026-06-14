@@ -122,7 +122,7 @@ export const cryptoCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "summary",
     "title": "Summary of Crypto Volatility Sizing",
     "label": "Crypto Track",
     "body": "### Key Concepts: Volatility-Adjusted Sizing in Crypto Trading\nThis card consolidates the critical aspects of volatility-adjusted sizing, emphasizing the application of ATR for effective risk management.\n\n* **ATR as a Sizing Tool**: The ATR serves as a dynamic measure of market volatility, guiding position sizing decisions. A higher ATR indicates greater volatility, necessitating smaller position sizes to mitigate risk.\n* **Risk Management Integration**: Integrate ATR with your overall risk management strategy. For example, if Bitcoin's ATR is $100, and you risk 1% of a $10,000 account, your position size should be adjusted accordingly to reflect this volatility.\n* **Continuous Monitoring**: Regularly monitor ATR and market conditions to adapt your position sizes. If market volatility increases, reassess your positions to ensure alignment with your risk tolerance.",

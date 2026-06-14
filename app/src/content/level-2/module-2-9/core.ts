@@ -3,433 +3,453 @@ import { LessonCard } from "../../../types/curriculum";
 export const coreCards: LessonCard[] = [
   {
     "type": "mission_brief",
-    "title": "Understanding Raw Algorithmic Displacement",
+    "title": "Understanding Breakouts vs Failed Breaks",
     "label": "Core Track",
-    "body": "### Displacement: Raw Algorithmic Displacement\nRaw algorithmic displacement quantifies market movements by analyzing body-to-wick ratios. This card emphasizes **how to measure significant price shifts** based on these ratios.\n\n* **Body-to-Wick Ratio Calculation**: Calculate the ratio by dividing the body length (close minus open) by the total candle length (high minus low). A ratio above 0.5 indicates strong momentum.\n* **Market Shift Identification**: Look for instances where the body-to-wick ratio exceeds 0.75, indicating a decisive market shift that may precede trend continuation or reversal.\n* **Algorithmic Relevance**: Understand that algorithmic trading systems often react to these ratios, amplifying price movements when certain thresholds are breached.",
+    "body": "### Breakout Analysis: Distinguishing Valid Movements\nEvaluating the distinction between true breakouts and failed breaks is essential for effective market participation. This card focuses on **the significance of candle close quality in identifying valid market movements**.\n\n* **Candle Close Evaluation**: A breakout is only valid if the candle closes above the resistance level with a minimum of 1% distance from the boundary. A close within 0.5% indicates a potential failed break.\n* **Volume Confirmation**: Ensure that the breakout candle is accompanied by at least a 30% increase in volume compared to the previous three candles. This confirms institutional interest in the move.\n* **Time Frame Consistency**: Analyze the breakout on multiple time frames; a valid breakout on the daily chart must also reflect strength on the 4-hour chart to avoid false signals.",
     "context": {
       "keyTerms": [
         {
-          "term": "Raw Algorithmic Displacement",
-          "definition": "The measurement of price shifts based on body-to-wick ratios in candlestick analysis."
+          "term": "Breakout",
+          "definition": "A price movement that exceeds a defined resistance level."
+        },
+        {
+          "term": "Failed Break",
+          "definition": "A price movement that initially exceeds a resistance level but closes below it."
         }
       ],
-      "whyThisMatters": "Accurate measurement of raw displacement allows traders to identify potential market reversals or continuations based on algorithmic behavior.",
-      "realLifeExample": "On the EURUSD, a daily candle closed at 1.1200 with a high of 1.1250 and a low of 1.1150, resulting in a body-to-wick ratio of 0.67, indicating strong bullish momentum.",
-      "commonMistake": "Failing to consider the context of the displacement, such as market news or events, which can skew the interpretation of the body-to-wick ratio.",
-      "quickNote": "A body-to-wick ratio above 0.5 signals potential market momentum.",
-      "mentorText": "When you see a body-to-wick ratio above 0.75, recognize that the market is likely reacting to a strong sentiment, and prepare to adjust your strategy accordingly.",
-      "mentorAnalogy": "Think of this like an aircraft's takeoff; a strong thrust (high body) relative to drag (wick) indicates a successful lift-off into a new altitude."
+      "whyThisMatters": "Accurate identification of breakouts versus failed breaks is critical for executing successful trades and managing risk effectively.",
+      "realLifeExample": "On EURUSD, a breakout occurred at 1.1200 with a close at 1.1225 and 40% higher volume at 10:00 AM EST, confirming the move's validity.",
+      "commonMistake": "Traders often mistake a price spike above resistance as a breakout without confirming the candle close quality.",
+      "quickNote": "Evaluate candle closes and volume to differentiate between true breakouts and failed breaks.",
+      "mentorText": "When assessing breakouts, focus on the candle's close. If it doesn't hold above resistance with sufficient volume, treat it with caution.",
+      "mentorAnalogy": "Think of a breakout like a plane taking off; it must clear the runway (resistance) and gain altitude (volume) to ensure a successful flight."
     },
     "taskData": null,
-    "visualKey": "displacement-intro"
+    "visualKey": "breakouts-failed-intro"
   },
   {
     "type": "concept",
-    "title": "High Body-to-Wick Ratio Commitment Candles",
+    "title": "Evaluating Candle Close Quality",
     "label": "Core Track",
-    "body": "### Displacement: High Body-to-Wick Ratio Commitment Candles\nHigh body-to-wick ratio commitment candles indicate robust market sentiment and potential price movements. This card details **how to identify and interpret these signals** for effective trading strategies.\n\n* **Identification Criteria**: Look for candles with a body-to-wick ratio exceeding 0.7, which suggests strong buying or selling pressure. This ratio indicates that the market is committing to a direction.\n* **Confirmation with Volume**: Validate commitment candles by ensuring that they occur with above-average volume, confirming that the market participants are actively engaging in the price movement.\n* **Contextual Analysis**: Analyze the preceding price action; commitment candles following a period of consolidation often signal a breakout, while those after a trend may indicate continuation or reversal.",
+    "body": "### Candle Close Quality: Assessing Validity\nThe quality of candle closes is pivotal in determining the legitimacy of breakouts versus sweeps. This card details **how to assess candle closes in relation to horizontal boundaries**.\n\n* **Close Above Resistance**: For a breakout to be valid, the candle must close at least 1% above the resistance level. A close below this threshold indicates potential weakness.\n* **Wick Analysis**: Analyze the upper wick; a long wick on a breakout candle suggests rejection. Ideally, wicks should be minimal to confirm strength.\n* **Body Size**: A breakout candle should have a body size at least 50% of the total candle height. This indicates strong buying or selling pressure supporting the breakout.",
     "context": {
       "keyTerms": [
         {
-          "term": "Commitment Candle",
-          "definition": "A candlestick with a high body-to-wick ratio indicating strong market sentiment."
+          "term": "Candle Close",
+          "definition": "The final price of an asset at the end of a specified time period."
+        },
+        {
+          "term": "Wick",
+          "definition": "The line extending from the body of a candle, indicating the high and low prices during the period."
         }
       ],
-      "whyThisMatters": "Recognizing commitment candles allows traders to align their strategies with prevailing market sentiment, enhancing trade accuracy.",
-      "realLifeExample": "On GBPJPY, a 4-hour candle closed at 150.50 with a high of 151.00 and a low of 149.50, achieving a body-to-wick ratio of 0.8 with a volume spike, signaling strong bullish commitment.",
-      "commonMistake": "Ignoring the importance of volume when assessing commitment candles, which can lead to false signals.",
-      "quickNote": "Commitment candles with a body-to-wick ratio above 0.7 indicate strong market sentiment.",
-      "mentorText": "When you spot a commitment candle, check the volume; if it’s above average, you’re likely seeing a significant market move that you should consider trading.",
-      "mentorAnalogy": "Imagine a surgeon making a decisive incision; the commitment candle is that precise cut, indicating a clear direction in the market's operation."
+      "whyThisMatters": "Candle close quality directly influences the reliability of breakout strategies, impacting entry and exit decisions.",
+      "realLifeExample": "On GBPJPY, a breakout candle closed at 150.50, 1.5% above resistance with minimal wicks, confirming a strong bullish sentiment at 2:00 PM EST.",
+      "commonMistake": "Traders often overlook wick lengths, misjudging the strength of a breakout based on body size alone.",
+      "quickNote": "A valid breakout candle must close significantly above resistance with minimal wicks.",
+      "mentorText": "Always scrutinize the candle's close. A strong close above resistance with minimal wicks is your confirmation of a valid breakout.",
+      "mentorAnalogy": "Evaluating candle closes is like assessing a car's speed before a race; it must be fast enough to clear the starting line and maintain momentum."
     },
     "taskData": null,
-    "visualKey": "body-to-wick-ratio"
+    "visualKey": "close-quality-validation"
   },
   {
     "type": "concept",
-    "title": "Volume-Weighted Displacement Analysis",
+    "title": "Identifying Signs of Sweep Rejections",
     "label": "Core Track",
-    "body": "### Displacement: Volume-Weighted Displacement Analysis\nVolume-weighted displacement analysis assesses the significance of volume alongside price movements. This card teaches **how to gauge market strength** using volume metrics.\n\n* **Volume Correlation**: Analyze the relationship between price movements and volume spikes; a price increase accompanied by high volume indicates strong market conviction.\n* **Displacement Thresholds**: Establish thresholds for volume relative to the average daily volume (ADV); a volume exceeding 150% of the ADV during a price movement signals potential continuation.\n* **Divergence Analysis**: Identify divergences where price moves in one direction while volume trends in another; this often indicates weakening momentum and potential reversal points.",
+    "body": "### Sweep Rejection Indicators: Recognizing Failures\nIdentifying signs of sweep rejections is crucial for traders to avoid false breakouts. This card outlines **key indicators that suggest a price sweep is being rejected**.\n\n* **Rapid Price Retracement**: A price that quickly retraces back below the breakout level within the same session indicates rejection. Monitor for a retracement exceeding 50% of the breakout candle's body.\n* **Increased Selling Volume**: A spike in selling volume following a breakout can signal rejection. Look for a volume increase of at least 25% compared to the breakout candle's volume.\n* **Candle Formation**: A bearish engulfing candle following a breakout is a strong rejection signal. This formation indicates that sellers have regained control.",
     "context": {
       "keyTerms": [
         {
-          "term": "Volume-Weighted Displacement",
-          "definition": "An analysis method that combines price movements with volume data to assess market strength."
+          "term": "Sweep Rejection",
+          "definition": "A price movement that initially breaks through a level but fails to maintain above it."
+        },
+        {
+          "term": "Bearish Engulfing",
+          "definition": "A candle pattern where a larger bearish candle completely engulfs the preceding bullish candle."
         }
       ],
-      "whyThisMatters": "Understanding volume-weighted displacement enhances the ability to make informed trading decisions based on market dynamics.",
-      "realLifeExample": "During a breakout on the NASDAQ index, the price surged 2% with volume at 200% of the ADV, confirming the strength of the upward movement.",
-      "commonMistake": "Failing to consider volume trends when interpreting price movements, which can lead to misjudging market strength.",
-      "quickNote": "Volume exceeding 150% of the ADV during price movements indicates strong market conviction.",
-      "mentorText": "Always check the volume when you see a price move; if the volume is high, it’s a sign that the market is serious about that direction.",
-      "mentorAnalogy": "Think of volume as the fuel in a race car; without enough fuel, even the fastest car can’t maintain speed, just like price movements need volume to sustain momentum."
+      "whyThisMatters": "Recognizing sweep rejections allows traders to adjust their strategies and manage risk effectively.",
+      "realLifeExample": "At 3:30 PM EST, AUDUSD broke above 0.7400, but within minutes retraced to 0.7380 with a bearish engulfing candle, indicating a sweep rejection.",
+      "commonMistake": "Traders often ignore volume spikes, leading to premature entries during potential sweep rejections.",
+      "quickNote": "Watch for rapid retracements and increased selling volume to identify sweep rejections.",
+      "mentorText": "If you see a rapid price drop after a breakout, don’t ignore it. Check for volume spikes and candle patterns to confirm rejection.",
+      "mentorAnalogy": "Identifying sweep rejections is like a goalie in soccer; they must quickly react to a shot on goal to prevent a score."
     },
     "taskData": null,
-    "visualKey": "volume-displacement"
+    "visualKey": "sweep-rejection-signs"
   },
   {
     "type": "concept",
-    "title": "Identifying Commitment Candles in Displacement",
+    "title": "Rules for Confirming Breakouts",
     "label": "Core Track",
-    "body": "### Displacement: Identifying Commitment Candles in Displacement\nIdentifying commitment candles is crucial for understanding strong market participation. This card explores **how these candles confirm displacement trends** across various trading contexts.\n\n* **Candle Characteristics**: Look for candles with a body-to-wick ratio above 0.7, indicating a strong commitment to price direction, and assess their placement within the trend.\n* **Trend Confirmation**: Use commitment candles to confirm existing trends; a commitment candle in the direction of the trend strengthens the case for continuation, while one against it may signal a reversal.\n* **Multi-Timeframe Analysis**: Validate commitment candles across multiple timeframes; a commitment candle on a higher timeframe can provide stronger confirmation for trades on lower timeframes.",
+    "body": "### Breakout Confirmation: Essential Rules\nEstablishing rules for confirming breakouts is vital for distinguishing valid market movements. This card explores **essential rules focusing on candle formations and volume analysis**.\n\n* **Multi-Candle Confirmation**: A valid breakout should be confirmed by at least two consecutive bullish candles following the breakout candle. This indicates sustained buying pressure.\n* **Volume Analysis**: Confirm that the breakout candle's volume is at least 30% higher than the average volume of the previous five candles. This validates institutional participation.\n* **Retest of Breakout Level**: After the initial breakout, a successful retest of the breakout level should hold. If the price returns to the breakout level and bounces back up, it confirms the breakout's strength.",
     "context": {
       "keyTerms": [
         {
-          "term": "Displacement Trend",
-          "definition": "A directional movement in price confirmed by commitment candles and volume."
+          "term": "Multi-Candle Confirmation",
+          "definition": "The requirement for multiple consecutive candles to validate a breakout."
+        },
+        {
+          "term": "Retest",
+          "definition": "A price movement returning to a previous level after a breakout."
         }
       ],
-      "whyThisMatters": "Identifying commitment candles allows traders to pinpoint entry and exit opportunities aligned with market sentiment.",
-      "realLifeExample": "On AUDCAD, a daily commitment candle formed with a body-to-wick ratio of 0.75 after a bullish trend, confirming the continuation of upward momentum.",
-      "commonMistake": "Overlooking the importance of candle placement within the trend, which can lead to false confirmations.",
-      "quickNote": "Commitment candles above 0.7 confirm strong market trends and potential entry points.",
-      "mentorText": "When you identify a commitment candle, assess its context; if it aligns with the trend, it’s a strong signal to consider entering the market.",
-      "mentorAnalogy": "Like a lighthouse guiding ships, commitment candles illuminate the path of market direction, helping traders navigate through uncertainty."
+      "whyThisMatters": "Establishing confirmation rules enhances the reliability of breakout strategies, reducing the risk of false entries.",
+      "realLifeExample": "At 11:00 AM EST, USDCHF broke out above 0.9000, followed by two bullish candles and a volume increase of 35%, confirming the breakout's validity.",
+      "commonMistake": "Traders often enter positions on the first breakout candle without waiting for confirmation, leading to potential losses.",
+      "quickNote": "Use multi-candle confirmation and volume analysis to validate breakouts.",
+      "mentorText": "Always wait for at least two bullish candles and check the volume before committing to a breakout trade. This is your safety net.",
+      "mentorAnalogy": "Confirming breakouts is like a safety check before a flight; you must ensure all systems are go before taking off."
     },
     "taskData": null,
-    "visualKey": "commitment-candles"
+    "visualKey": "breakout-confirmation-rules"
   },
   {
     "type": "concept",
-    "title": "Debriefing Displacement Patterns",
+    "title": "Debriefing Failed Breaks",
     "label": "Core Track",
-    "body": "### Displacement Patterns: Analyzing Body-to-Wick Ratios\nDisplacement patterns reveal market dynamics through the analysis of body-to-wick ratios and volume. This card synthesizes the critical insights necessary for interpreting these patterns effectively.\n\n* **Body-to-Wick Ratio Assessment**: A body-to-wick ratio exceeding 2:1 indicates strong bullish or bearish sentiment, suggesting potential continuation or reversal. Analyze these ratios across multiple time frames for confirmation.\n* **Volume Correlation**: High volume accompanying significant body-to-wick ratios confirms the strength of the displacement. A volume spike of over 150% relative to the 14-day average during a displacement pattern signals increased conviction.\n* **Pattern Recognition**: Identify displacement patterns by observing price action around key support and resistance levels. For instance, a bullish displacement pattern on GBPUSD at 1.3000 with a 3:1 body-to-wick ratio and 200% volume increase indicates a strong upward momentum.\n",
+    "body": "### Breakout Analysis: Debriefing Failed Breaks\nAnalyzing failed breakouts is essential for refining entry strategies. This card focuses on **identifying common pitfalls in failed breakouts and how to mitigate them**.\n\n* **Volume Discrepancy**: A failed breakout often occurs when the breakout lacks sufficient volume. Ensure that the breakout candle closes with volume at least 30% above the average volume of the last 14 days to validate the move.\n* **Support/Resistance Interaction**: Failed breaks frequently happen near key support or resistance levels. Confirm that the breakout candle closes at least 10 pips above resistance or below support to avoid false signals.\n* **Market Context**: Analyze the broader market context; failed breakouts can correlate with high-impact news events. For instance, a breakout on GBPUSD during a scheduled Bank of England announcement may lead to erratic price action, increasing the likelihood of a failed break.",
     "context": {
       "keyTerms": [
         {
-          "term": "Displacement Pattern",
-          "definition": "A market formation characterized by significant differences between the body and wick of price candles."
+          "term": "Volume Discrepancy",
+          "definition": "The difference between the breakout volume and the average volume of previous trading sessions."
         },
         {
-          "term": "Body-to-Wick Ratio",
-          "definition": "The ratio of the body of a price candle to its wick, indicating market sentiment."
+          "term": "Support/Resistance Interaction",
+          "definition": "The behavior of price action around established support and resistance levels."
         },
         {
-          "term": "Volume Spike",
-          "definition": "A sudden increase in trading volume that often accompanies significant price movements."
+          "term": "Market Context",
+          "definition": "The overall market conditions and events that influence price movements."
         }
       ],
-      "whyThisMatters": "Understanding displacement patterns allows traders to gauge market sentiment and make informed decisions based on price action and volume analysis.",
-      "realLifeExample": "On EURUSD, a displacement pattern formed at 1.1000 with a body-to-wick ratio of 2.5:1 and a volume spike of 180% during the European session, indicating strong bullish sentiment.",
-      "commonMistake": "Traders often overlook the importance of volume confirmation when analyzing body-to-wick ratios, leading to misinterpretation of market signals.",
-      "quickNote": "High body-to-wick ratios with volume spikes indicate strong market sentiment.",
-      "mentorText": "When you see a body-to-wick ratio that exceeds 2:1, pay close attention to the accompanying volume. This is your confirmation that the market is serious about the move.",
-      "mentorAnalogy": "Think of analyzing displacement patterns like a forensic investigator examining a crime scene; the body-to-wick ratios are the evidence, while volume is the witness testimony confirming the story."
+      "whyThisMatters": "Understanding failed breakouts allows traders to refine their strategies and avoid costly mistakes.",
+      "realLifeExample": "On EURUSD, a breakout above 1.2000 at 10:00 AM EST lacked volume, closing at 1.1995 with only 50% of the average volume, resulting in a swift reversal.",
+      "commonMistake": "Traders often enter positions on breakouts without confirming volume, leading to premature trades.",
+      "quickNote": "Always assess volume and market context before entering on a breakout.",
+      "mentorText": "When you see a breakout, look for the volume. If it’s not there, it’s like trying to take off in a plane without enough fuel. You’ll just crash.",
+      "mentorAnalogy": "Think of a failed breakout like a plane attempting to take off without sufficient runway. Without enough momentum, it will stall and fall back."
     },
     "taskData": null,
-    "visualKey": "displacement-debrief"
+    "visualKey": "breakouts-failed-debrief"
   },
   {
     "type": "concept",
-    "title": "Algorithmic Strategies for Measuring Displacement",
+    "title": "Candle Close Analysis Techniques",
     "label": "Core Track",
-    "body": "### Algorithmic Measurement: Displacement Strategies\nAlgorithmic strategies provide a systematic approach to measuring displacement in the markets. This card focuses on programming techniques to identify significant price movements and their implications.\n\n* **Displacement Detection Algorithm**: Implement a script that calculates body-to-wick ratios in real-time, flagging instances where the ratio exceeds a predefined threshold (e.g., 2:1) for immediate review.\n* **Volume-Weighted Displacement Metrics**: Incorporate volume analysis into your algorithm by calculating the average volume over a specified period and flagging displacements where current volume exceeds this average by 150% or more.\n* **Backtesting Framework**: Develop a backtesting framework to evaluate the effectiveness of your displacement detection algorithms across various market conditions. For example, test your algorithm on historical data from the S&P 500 to assess its predictive accuracy during high volatility periods.\n",
+    "body": "### Breakout Analysis: Candle Close Techniques\nCandle close analysis is critical for validating breakouts. This card explores **various techniques for interpreting candle closes and their implications for breakout success**.\n\n* **Close Above Resistance**: A breakout is only valid if the candle closes above the resistance level. Ensure the close is at least 5 pips above the resistance to confirm strength.\n* **Engulfing Patterns**: Look for engulfing candle patterns at breakout points. An engulfing bullish candle closing above resistance indicates strong buying pressure, whereas a bearish engulfing candle suggests rejection.\n* **Wick Analysis**: Analyze the wicks of breakout candles. A long wick on the breakout candle indicates rejection; thus, a close with a long wick should prompt caution in entering the trade.",
     "context": {
       "keyTerms": [
         {
-          "term": "Algorithmic Trading",
-          "definition": "The use of computer algorithms to automate trading strategies."
+          "term": "Close Above Resistance",
+          "definition": "The price action of a candle closing above a defined resistance level."
         },
         {
-          "term": "Backtesting",
-          "definition": "The process of testing a trading strategy on historical data to evaluate its performance."
+          "term": "Engulfing Patterns",
+          "definition": "A candlestick pattern where one candle completely engulfs the previous candle, indicating a potential reversal."
         },
         {
-          "term": "Volume-Weighted Metrics",
-          "definition": "Metrics that incorporate trading volume into the analysis of price movements."
+          "term": "Wick Analysis",
+          "definition": "The examination of the upper and lower shadows of a candle to assess market rejection or acceptance."
         }
       ],
-      "whyThisMatters": "Algorithmic strategies enhance precision in measuring displacement, allowing traders to capitalize on significant price movements systematically.",
-      "realLifeExample": "An algorithm identifies a displacement on AUDJPY with a body-to-wick ratio of 2.2:1 and alerts the trader when volume spikes above 160% during the Asian session, indicating a potential entry point.",
-      "commonMistake": "Failing to incorporate volume analysis into displacement algorithms can lead to false signals and poor trading decisions.",
-      "quickNote": "Use algorithms to automate the detection of significant displacement patterns and volume spikes.",
-      "mentorText": "When programming your displacement detection, ensure your algorithm flags both the body-to-wick ratio and volume. This dual confirmation is critical for accuracy.",
-      "mentorAnalogy": "Designing an algorithm for displacement is akin to creating a flight control system; it must monitor multiple variables in real-time to ensure a safe and efficient journey."
+      "whyThisMatters": "Effective candle close analysis enhances decision-making and reduces the likelihood of false breakouts.",
+      "realLifeExample": "On AUDJPY, a candle closed at 85.50, 6 pips above resistance, forming a bullish engulfing pattern, confirming the breakout's validity.",
+      "commonMistake": "Traders often overlook wick analysis, leading to entries based on false breakouts.",
+      "quickNote": "Always analyze the candle close in relation to key levels for breakout validation.",
+      "mentorText": "When assessing a breakout, focus on how the candle closes. A close above resistance with strong volume is your green light; anything else is a caution sign.",
+      "mentorAnalogy": "Imagine a surgeon checking vital signs before proceeding with an operation. A candle close is your vital sign; it tells you if the breakout is healthy."
     },
     "taskData": null,
-    "visualKey": "displacement-intro"
+    "visualKey": "breakouts-failed-intro"
   },
   {
     "type": "concept",
-    "title": "Market Sentiment and Displacement",
+    "title": "Market Sentiment and Breakout Validity",
     "label": "Core Track",
-    "body": "### Sentiment Analysis: Displacement Correlation\nMarket sentiment plays a pivotal role in displacement, influencing body-to-wick ratios and volume spikes. This card explores how trader psychology impacts these metrics.\n\n* **Psychological Resistance Levels**: Identify psychological price levels (e.g., round numbers) where traders exhibit heightened sentiment. A body-to-wick ratio of 3:1 near a psychological level indicates strong bullish or bearish sentiment.\n* **Volume and Sentiment Correlation**: Analyze the correlation between volume spikes and body-to-wick ratios during news events. For instance, a 200% volume increase with a 2.5:1 body-to-wick ratio during a Non-Farm Payroll release suggests strong market conviction.\n* **Sentiment Indicators**: Utilize sentiment indicators (e.g., COT reports) to gauge trader positioning. A shift in sentiment reflected in body-to-wick ratios can precede significant market movements, such as a bullish displacement on USDCHF at 0.9500.\n",
+    "body": "### Breakout Analysis: Market Sentiment\nMarket sentiment plays a pivotal role in breakout validity. This card examines **how to incorporate sentiment analysis into your trading strategy for better breakout assessment**.\n\n* **Sentiment Indicators**: Utilize sentiment indicators like the Commitment of Traders (COT) report to gauge market positioning. A high percentage of long positions in a breakout scenario may indicate overextension, suggesting caution.\n* **News Impact**: Major news releases can shift market sentiment rapidly. For example, if a breakout occurs just before a Non-Farm Payroll release, be wary of potential reversals due to sentiment shifts.\n* **Social Media Sentiment**: Monitor social media platforms for trader sentiment. A surge in bullish sentiment on platforms like Twitter during a breakout can validate the move, while excessive bearish sentiment may indicate a potential failure.",
     "context": {
       "keyTerms": [
-        {
-          "term": "Psychological Price Levels",
-          "definition": "Price levels that are significant to traders, often leading to increased buying or selling activity."
-        },
-        {
-          "term": "Volume Spike Analysis",
-          "definition": "The examination of sudden increases in trading volume to assess market sentiment."
-        },
         {
           "term": "Sentiment Indicators",
-          "definition": "Tools used to gauge the overall mood of market participants."
+          "definition": "Tools used to measure the overall sentiment of market participants."
+        },
+        {
+          "term": "News Impact",
+          "definition": "The effect of economic news releases on market sentiment and price action."
+        },
+        {
+          "term": "Social Media Sentiment",
+          "definition": "The collective opinion of traders expressed on social media platforms."
         }
       ],
-      "whyThisMatters": "Understanding the relationship between market sentiment and displacement allows traders to anticipate price movements based on trader psychology.",
-      "realLifeExample": "During a bullish displacement on GBPUSD at 1.3500, a body-to-wick ratio of 3:1 and a volume spike of 220% coincided with a positive economic report, reflecting strong market sentiment.",
-      "commonMistake": "Traders often misinterpret body-to-wick ratios without considering the broader market sentiment, leading to misguided trading decisions.",
-      "quickNote": "Market sentiment significantly influences body-to-wick ratios and volume spikes.",
-      "mentorText": "Always consider the psychological factors at play when analyzing displacement. A strong body-to-wick ratio near a psychological level can indicate a powerful market move.",
-      "mentorAnalogy": "Understanding market sentiment is like a weather forecast; just as meteorologists analyze atmospheric conditions, traders must assess psychological factors that influence market movements."
+      "whyThisMatters": "Incorporating sentiment analysis allows traders to better assess the likelihood of breakout success or failure.",
+      "realLifeExample": "During a breakout on SPX500, a surge in bullish sentiment was noted on social media, coinciding with a positive earnings report, reinforcing the breakout's validity.",
+      "commonMistake": "Traders often ignore sentiment analysis, leading to misjudgments about breakout strength.",
+      "quickNote": "Always assess market sentiment alongside technical indicators for breakout validation.",
+      "mentorText": "Sentiment is like the wind; it can change direction quickly. Always check the sentiment before you commit to a breakout trade.",
+      "mentorAnalogy": "Consider a weather forecast before a flight. Just as pilots check for wind conditions, you must assess market sentiment before executing trades."
     },
     "taskData": null,
-    "visualKey": "body-to-wick-ratio"
+    "visualKey": "close-quality-validation"
   },
   {
     "type": "concept",
-    "title": "Common Traps in Displacement Trading",
+    "title": "Timeframe Consistency in Breakout Analysis",
     "label": "Core Track",
-    "body": "### Displacement Trading: Identifying Common Traps\nTraders often fall into traps when interpreting displacement signals. This card highlights common pitfalls related to body-to-wick ratios and volume analysis.\n\n* **Misinterpretation of Body-to-Wick Ratios**: A body-to-wick ratio of 1.5:1 may appear significant, but without volume confirmation, it can lead to false signals. Always seek a volume spike of at least 150% to validate the ratio.\n* **Ignoring Contextual Factors**: Displacement patterns can be misleading if traders ignore broader market context, such as economic data releases. For example, a body-to-wick ratio of 2:1 on EURCAD during a major news event may not indicate true market sentiment.\n* **Overtrading on False Signals**: Traders may overreact to minor displacements, leading to overtrading. A body-to-wick ratio of 2.2:1 without significant volume should be approached with caution, as it may not reflect genuine market interest.\n",
+    "body": "### Breakout Analysis: Timeframe Consistency\nMaintaining consistency across timeframes is crucial for accurate breakout evaluations. This card discusses **the importance of aligning multiple timeframes when analyzing breakouts**.\n\n* **Multi-Timeframe Confirmation**: Always check at least two higher timeframes for confirmation of the breakout. A breakout on a 15-minute chart should be validated by the 1-hour and 4-hour charts closing above the same resistance level.\n* **Timeframe Divergence**: Be cautious of divergences between timeframes. If the 1-hour chart shows a breakout while the 4-hour chart remains below resistance, this may indicate a false breakout.\n* **Trend Alignment**: Ensure that the breakout aligns with the prevailing trend across multiple timeframes. A breakout against the trend on higher timeframes is more likely to fail.",
     "context": {
       "keyTerms": [
         {
-          "term": "False Signals",
-          "definition": "Market signals that appear significant but do not lead to expected price movements."
+          "term": "Multi-Timeframe Confirmation",
+          "definition": "The process of validating a breakout by checking multiple timeframes."
         },
         {
-          "term": "Contextual Analysis",
-          "definition": "The examination of market conditions surrounding a trading signal."
+          "term": "Timeframe Divergence",
+          "definition": "A situation where different timeframes show conflicting signals regarding a breakout."
+        },
+        {
+          "term": "Trend Alignment",
+          "definition": "The alignment of a breakout with the prevailing trend across various timeframes."
+        }
+      ],
+      "whyThisMatters": "Timeframe consistency enhances the accuracy of breakout assessments, reducing the risk of false entries.",
+      "realLifeExample": "A breakout on the 5-minute chart for USDJPY was confirmed by the 1-hour chart closing above 110.50, while the 4-hour chart also showed bullish momentum.",
+      "commonMistake": "Traders often rely on a single timeframe, missing critical confirmations from higher timeframes.",
+      "quickNote": "Always validate breakouts across multiple timeframes to ensure consistency.",
+      "mentorText": "Think of it like checking multiple gauges in an aircraft. If one gauge shows a problem while others are fine, you need to investigate further before taking off.",
+      "mentorAnalogy": "Just as a pilot checks various instruments before takeoff, you must analyze multiple timeframes to confirm breakout validity."
+    },
+    "taskData": null,
+    "visualKey": "sweep-rejection-signs"
+  },
+  {
+    "type": "concept",
+    "title": "Risk Management for Breakouts",
+    "label": "Core Track",
+    "body": "### Breakout Strategy: Effective Risk Management Techniques\nRisk management is critical when trading breakouts to safeguard capital against adverse market movements. This card outlines **specific strategies to mitigate risk during breakout trades**.\n\n* **Position Sizing**: Calculate position sizes based on a maximum risk percentage of your trading capital, typically not exceeding 2%. For example, with a $10,000 account, your maximum risk per trade should be $200.\n* **Stop-Loss Placement**: Set stop-loss orders just below the breakout level to limit losses. If trading a breakout on the S&P 500 at 4,200, place the stop-loss at 4,180 to protect against a failed breakout.\n* **Risk-Reward Ratio**: Aim for a minimum risk-reward ratio of 1:2. If your entry point is 4,200 with a target of 4,260, ensure your stop-loss is no more than 4,180 to maintain this ratio.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Position Sizing",
+          "definition": "Determining the amount of capital to allocate to a specific trade based on risk tolerance."
+        },
+        {
+          "term": "Stop-Loss Order",
+          "definition": "An order placed to sell a security when it reaches a certain price to limit losses."
+        },
+        {
+          "term": "Risk-Reward Ratio",
+          "definition": "A measure comparing the potential profit of a trade to its potential loss."
+        }
+      ],
+      "whyThisMatters": "Effective risk management strategies are essential to protect capital during volatile breakout scenarios, ensuring longevity in trading.",
+      "realLifeExample": "During a breakout of the EURUSD at 1.2000, a trader sets a stop-loss at 1.1980, risking 20 pips on a position size calculated to risk only 2% of their capital.",
+      "commonMistake": "Traders often neglect to adjust position sizes based on market volatility, leading to excessive risk exposure.",
+      "quickNote": "Always calculate position sizes and set stop-losses to manage risk effectively during breakouts.",
+      "mentorText": "When trading breakouts, I always emphasize the importance of knowing how much you can afford to lose before entering a trade. It’s not just about the potential gain; it’s about protecting your capital first.",
+      "mentorAnalogy": "Think of trading breakouts like a pilot preparing for takeoff. Just as a pilot checks fuel levels and weather conditions, you must assess your risk and set safeguards before entering a trade."
+    },
+    "taskData": null,
+    "visualKey": "breakout-confirmation-rules"
+  },
+  {
+    "type": "concept",
+    "title": "Psychological Factors in Breakout Trading",
+    "label": "Core Track",
+    "body": "### Breakout Trading: Managing Psychological Factors\nPsychological factors significantly influence decision-making during breakout trades. This card examines **how to manage emotions to enhance trading performance**.\n\n* **Fear of Missing Out (FOMO)**: Recognize the impulse to enter a trade impulsively when a breakout occurs. Establish a rule to wait for confirmation before entering, such as a close above the breakout level.\n* **Overtrading**: Avoid the tendency to enter multiple trades after a successful breakout. Stick to your trading plan and limit trades to those that meet your criteria, such as a clear breakout on the NASDAQ at 14,000.\n* **Loss Aversion**: Understand that the fear of losing can lead to premature exits. Set a predetermined exit strategy based on technical analysis rather than emotional reactions.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Fear of Missing Out (FOMO)",
+          "definition": "The anxiety that one might miss out on a profitable trade, leading to impulsive decisions."
         },
         {
           "term": "Overtrading",
-          "definition": "The act of executing too many trades based on insufficient evidence."
+          "definition": "Entering too many trades in a short period, often driven by emotional responses rather than strategy."
+        },
+        {
+          "term": "Loss Aversion",
+          "definition": "The tendency to prefer avoiding losses over acquiring equivalent gains."
         }
       ],
-      "whyThisMatters": "Recognizing common traps in displacement trading helps traders avoid costly mistakes and enhances decision-making accuracy.",
-      "realLifeExample": "A trader identifies a body-to-wick ratio of 2.3:1 on NZDJPY but fails to notice the lack of volume support, resulting in a premature entry that leads to a loss when the price retraces.",
-      "commonMistake": "Traders often act on body-to-wick ratios without volume confirmation, leading to misinformed trading decisions.",
-      "quickNote": "Always validate body-to-wick ratios with volume analysis to avoid common traps.",
-      "mentorText": "When you see a displacement, don’t jump in immediately. Check the volume and the context; if it doesn’t align, it’s a trap.",
-      "mentorAnalogy": "Navigating displacement trading is like sailing; without checking the wind direction (volume), you risk capsizing your boat (trading account) on false signals."
+      "whyThisMatters": "Understanding psychological factors helps traders maintain discipline and adhere to their strategies during high-pressure breakout scenarios.",
+      "realLifeExample": "After a breakout on GBPUSD at 1.3500, a trader feels compelled to enter immediately due to FOMO, disregarding their confirmation rule, leading to a loss when the price retraces.",
+      "commonMistake": "Traders often let emotions dictate their entry and exit points, resulting in inconsistent trading outcomes.",
+      "quickNote": "Maintain emotional discipline by adhering to your trading plan and avoiding impulsive decisions during breakouts.",
+      "mentorText": "I’ve seen many traders get caught up in the excitement of a breakout and jump in without waiting for confirmation. Stick to your rules; the market will always be there tomorrow.",
+      "mentorAnalogy": "Managing emotions in trading is like a surgeon maintaining focus during a critical operation. Precision and adherence to protocol are essential for successful outcomes."
     },
     "taskData": null,
-    "visualKey": "volume-displacement"
+    "visualKey": "breakouts-failed-debrief"
   },
   {
     "type": "concept",
-    "title": "Synthesis of Displacement Strategies",
+    "title": "Historical Patterns of Breakouts",
     "label": "Core Track",
-    "body": "### Displacement Strategy: Cohesive Trading Plan Synthesis\nEffective displacement trading requires the integration of body-to-wick ratios and volume analysis into a unified strategy. This card outlines **how to synthesize various displacement strategies for optimal decision-making**.\n\n* **Body-to-Wick Ratio Analysis**: Identify displacement candles with a body-to-wick ratio exceeding 2:1, indicating strong market commitment. For example, a bullish candle on GBPUSD with a body of 50 pips and a wick of 20 pips signals significant buying pressure.\n* **Volume Confirmation**: Ensure that the volume during displacement events is at least 30% above the 10-day average. This confirms that the price movement is supported by sufficient market participation, enhancing the reliability of the signal.\n* **Multi-Timeframe Alignment**: Confirm displacement signals across multiple timeframes. A bullish displacement on the 1-hour chart should align with a similar signal on the 4-hour chart to reinforce the trading decision.",
+    "body": "### Breakout Analysis: Historical Patterns\nAnalyzing historical patterns of breakouts can provide insights into future price movements. This card focuses on **identifying recurring themes in breakout behavior**.\n\n* **Volume Confirmation**: Successful breakouts often occur with increased volume. For instance, a breakout of the Dow Jones at 35,000 with a volume spike of 30% above the 10-day average indicates strong buying interest.\n* **Retest Patterns**: Many breakouts will retest the breakout level before continuing in the direction of the breakout. If the price breaks above $50 on a stock and then retraces to $50.50, this retest can confirm the breakout's validity.\n* **Time of Day Influence**: Breakouts occurring during high liquidity sessions, such as the London opening at 3:00 AM EST, tend to be more reliable than those during low-volume periods.",
     "context": {
       "keyTerms": [
         {
-          "term": "Body-to-Wick Ratio",
-          "definition": "The ratio of the body of a candle to its wick, indicating the strength of price movement."
+          "term": "Volume Confirmation",
+          "definition": "The increase in trading volume accompanying a price movement, indicating strength."
         },
         {
-          "term": "Volume Analysis",
-          "definition": "The examination of trading volume to confirm price movements and market commitment."
+          "term": "Retest Pattern",
+          "definition": "A price movement that revisits a breakout level to confirm its validity before continuing."
+        },
+        {
+          "term": "Liquidity Session",
+          "definition": "Periods during which trading volume is significantly higher, often leading to more reliable price movements."
         }
       ],
-      "whyThisMatters": "Synthesizing displacement strategies enhances decision-making accuracy and increases the probability of successful trades.",
-      "realLifeExample": "On EURUSD, a 1-hour candle shows a body of 60 pips and a wick of 20 pips, with volume at 150% of the average, indicating a strong bullish displacement.",
-      "commonMistake": "Failing to confirm displacement signals across multiple timeframes can lead to premature entries.",
-      "quickNote": "Integrate body-to-wick ratios and volume for cohesive displacement strategies.",
-      "mentorText": "When you see a strong body-to-wick ratio combined with high volume, it’s your cue to act. Always check multiple timeframes to ensure you’re not missing a larger trend.",
-      "mentorAnalogy": "Think of this like an architect ensuring that all structural elements of a building align before construction begins; every aspect must be cohesive for a solid outcome."
+      "whyThisMatters": "Recognizing historical patterns enables traders to make informed decisions based on past market behavior, enhancing predictive capabilities.",
+      "realLifeExample": "A trader notes that the last five breakouts of the EURJPY at 130.00 were followed by a retest at 129.80, confirming the breakout before a rally to 132.00.",
+      "commonMistake": "Traders often overlook the importance of volume and retest patterns, leading to false breakout entries.",
+      "quickNote": "Study historical breakout patterns to identify reliable signals and improve your trading strategy.",
+      "mentorText": "When I analyze breakouts, I always look back at how similar setups performed in the past. Patterns repeat, and understanding them can give you an edge.",
+      "mentorAnalogy": "Think of historical breakout analysis like an architect studying past building designs. By understanding what worked and what didn’t, you can create more robust structures in your trading."
     },
     "taskData": null,
-    "visualKey": "commitment-candles"
+    "visualKey": "breakouts-failed-intro"
   },
   {
     "type": "concept",
-    "title": "Historical Analysis of Displacement Events",
+    "title": "Integrating Breakout Analysis into Trading Plans",
     "label": "Core Track",
-    "body": "### Displacement Events: Historical Analysis\nAnalyzing historical displacement events provides insights into market behavior and trend formation. This card covers **how to leverage past displacement data to inform current trading strategies**.\n\n* **Event Cataloging**: Maintain a log of significant displacement events, noting the body-to-wick ratios and volume spikes. For instance, during the March 2020 market crash, observe how displacement candles on indices had body-to-wick ratios exceeding 3:1 with unprecedented volume.\n* **Trend Correlation**: Identify correlations between historical displacement events and subsequent market trends. For example, after a major displacement on the S&P 500, the following month often shows a continuation pattern, which can be statistically analyzed.\n* **Backtesting Strategies**: Implement backtesting on historical data to evaluate the effectiveness of displacement strategies. Use a dataset from the last five years to assess how often specific body-to-wick ratios led to profitable trades.",
+    "body": "### Breakout Strategy: Integrating Analysis into Trading Plans\nIncorporating breakout analysis into your trading plan ensures a structured approach to market engagement. This card outlines **how to effectively integrate breakout strategies**.\n\n* **Define Entry Criteria**: Establish clear criteria for entering trades based on breakout signals, such as a close above resistance with a volume increase. For example, entering a trade on the Russell 2000 when it closes above 2,300 with a volume increase of 20%.\n* **Set Exit Strategies**: Determine exit strategies based on technical indicators, such as trailing stops or fixed profit targets. If entering at 2,310, set a target at 2,350 and a trailing stop at 2,300 to lock in profits.\n* **Review and Adjust**: Regularly review your trading plan to incorporate lessons learned from past breakout trades. Adjust entry and exit criteria based on market conditions and performance metrics.",
     "context": {
       "keyTerms": [
         {
-          "term": "Event Cataloging",
-          "definition": "The systematic recording of significant market displacement events for analysis."
+          "term": "Entry Criteria",
+          "definition": "Specific conditions that must be met to initiate a trade."
         },
         {
-          "term": "Trend Correlation",
-          "definition": "The relationship between past displacement events and subsequent market movements."
+          "term": "Exit Strategies",
+          "definition": "Predefined plans for closing a trade to secure profits or limit losses."
+        },
+        {
+          "term": "Performance Metrics",
+          "definition": "Data used to evaluate the effectiveness of trading strategies over time."
         }
       ],
-      "whyThisMatters": "Understanding historical displacement events allows traders to anticipate potential market movements and refine their strategies.",
-      "realLifeExample": "In April 2020, a displacement event on the NASDAQ showed a body-to-wick ratio of 4:1, leading to a sustained bullish trend over the next quarter.",
-      "commonMistake": "Neglecting to analyze historical data can result in missed opportunities and repeated mistakes.",
-      "quickNote": "Leverage historical displacement data to refine trading strategies.",
-      "mentorText": "Look back at past displacement events; they tell a story about how the market reacts. Use that knowledge to shape your current strategies.",
-      "mentorAnalogy": "Like a historian studying past civilizations to predict future trends, you must analyze market history to understand potential outcomes."
+      "whyThisMatters": "Integrating breakout analysis into your trading plan creates a disciplined framework that enhances decision-making and consistency.",
+      "realLifeExample": "A trader sets an entry criterion for a breakout on Apple stock at $150, with a target of $155 and a trailing stop at $148, ensuring a structured approach to the trade.",
+      "commonMistake": "Failing to document and adjust trading plans based on past performance can lead to repeated mistakes and missed opportunities.",
+      "quickNote": "Establish clear entry and exit criteria in your trading plan to effectively manage breakout trades.",
+      "mentorText": "Your trading plan should be a living document. After each trade, analyze what worked and what didn’t, and adjust your strategies accordingly.",
+      "mentorAnalogy": "Creating a trading plan is like a flight plan for a pilot. Every detail matters, and adjustments must be made based on past flights to ensure a safe and successful journey."
     },
     "taskData": null,
-    "visualKey": "displacement-debrief"
+    "visualKey": "close-quality-validation"
   },
   {
     "type": "concept",
-    "title": "Real-Time Monitoring of Displacement",
+    "title": "Simulated Breakout Scenarios",
     "label": "Core Track",
-    "body": "### Displacement Monitoring: Real-Time Techniques\nReal-time monitoring of displacement events is critical for timely trading decisions. This card discusses **the tools and indicators necessary for effective real-time displacement tracking**.\n\n* **Indicator Setup**: Utilize custom indicators that highlight body-to-wick ratios in real-time. For example, set alerts for when a candle forms with a body-to-wick ratio greater than 2:1 on the 5-minute chart of USDJPY.\n* **Volume Oscillators**: Implement volume oscillators to detect spikes in trading volume that accompany displacement events. A sudden increase in volume on a breakout candle can signal a high-probability trade opportunity.\n* **Price Action Alerts**: Configure price action alerts on your trading platform to notify you when displacement candles form. For instance, an alert for a bullish engulfing candle with a significant body-to-wick ratio can prompt immediate analysis and potential entry.",
+    "body": "### Breakout Evaluation: Simulated Scenarios for Close Quality\nSimulated trading scenarios enhance your ability to discern valid breakouts from failed breaks based on close quality. This card focuses on **evaluating closing prices in various breakout scenarios**.\n\n* **Close Above Resistance**: A breakout is validated if the price closes above a resistance level with a minimum of 1% above the level, indicating strong buying pressure.\n* **Volume Confirmation**: Ensure that the breakout is accompanied by a volume increase of at least 30% above the 20-day average, confirming institutional interest.\n* **Rejection Signals**: Identify failed breaks by observing a close within 1% of the breakout level, especially if volume is below the average, indicating a lack of conviction.\n",
     "context": {
       "keyTerms": [
         {
-          "term": "Indicator Setup",
-          "definition": "The configuration of trading indicators to monitor specific market conditions in real-time."
+          "term": "Close Quality",
+          "definition": "The assessment of a price's closing position relative to key support or resistance levels."
         },
         {
-          "term": "Volume Oscillator",
-          "definition": "A tool that measures the change in volume over time to identify significant trading activity."
+          "term": "Breakout",
+          "definition": "A price movement that exceeds a defined resistance level."
         }
       ],
-      "whyThisMatters": "Real-time monitoring allows traders to react swiftly to market changes, maximizing profit potential during displacement events.",
-      "realLifeExample": "On AUDCAD, a real-time alert for a 5-minute candle with a body-to-wick ratio of 3:1 triggered a buy order just before a 50-pip upward movement.",
-      "commonMistake": "Relying solely on historical data without real-time monitoring can lead to missed trading opportunities.",
-      "quickNote": "Utilize real-time tools to monitor displacement events effectively.",
-      "mentorText": "Set up your alerts and indicators to catch displacement events as they happen. Timing is everything, and being proactive is key.",
-      "mentorAnalogy": "Like a pilot using instruments to monitor flight conditions in real-time, you must have the right tools to navigate market changes swiftly."
+      "whyThisMatters": "Accurate evaluation of close quality is essential for distinguishing between genuine breakouts and false signals, which can lead to significant trading losses.",
+      "realLifeExample": "On EURUSD, a simulated breakout above 1.2000 at 10:00 AM EST was followed by a close at 1.2025 with a volume spike, confirming the breakout. Conversely, a close at 1.1995 after a spike above 1.2000 indicated a failed breakout.",
+      "commonMistake": "Traders often misinterpret a single candle's breakout without considering the closing price and volume context.",
+      "quickNote": "Evaluate closing prices critically to confirm breakout validity.",
+      "mentorText": "When assessing a breakout, always look at the close. If it’s not convincingly above resistance with strong volume, it’s likely a trap.",
+      "mentorAnalogy": "Think of a pilot preparing for takeoff; they must ensure all systems are green before leaving the ground. Similarly, ensure all breakout conditions are met before entering a trade."
     },
     "taskData": null,
-    "visualKey": "displacement-intro"
-  },
-  {
-    "type": "concept",
-    "title": "Psychological Factors in Displacement Trading",
-    "label": "Core Track",
-    "body": "### Displacement Trading: Psychological Factors\nUnderstanding psychological factors during displacement events is essential for maintaining discipline. This card examines **how emotions like fear and greed can impact trading decisions**.\n\n* **Fear Management**: Recognize that fear can lead to premature exits during displacement. For example, if a trader sees a large bearish candle on GBPJPY, they may close their position too early, missing further profits.\n* **Greed Control**: Avoid the trap of greed by setting predefined profit targets based on body-to-wick ratios. If a trader identifies a bullish displacement with a 3:1 ratio, they should have a clear exit strategy rather than holding indefinitely for more gains.\n* **Emotional Journaling**: Maintain a trading journal to document emotional responses during displacement events. This practice helps identify patterns in behavior that can lead to improved decision-making in future trades.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Fear Management",
-          "definition": "Strategies to control fear that may lead to hasty trading decisions."
-        },
-        {
-          "term": "Emotional Journaling",
-          "definition": "The practice of recording emotional responses to trading events to improve future decision-making."
-        }
-      ],
-      "whyThisMatters": "Managing psychological factors is crucial for executing disciplined trading strategies during displacement events.",
-      "realLifeExample": "After a displacement event on NZDUSD, a trader who succumbed to fear closed their position at a 20-pip profit, only to watch the price continue to rise by another 100 pips.",
-      "commonMistake": "Ignoring emotional responses can lead to inconsistent trading results and missed opportunities.",
-      "quickNote": "Control fear and greed to maintain discipline during displacement trading.",
-      "mentorText": "Stay aware of your emotions; fear and greed can cloud your judgment. Stick to your plan and don’t let emotions dictate your trades.",
-      "mentorAnalogy": "Just as a surgeon must remain calm and focused during a critical operation, you must manage your emotions to execute your trading plan effectively."
-    },
-    "taskData": null,
-    "visualKey": "body-to-wick-ratio"
-  },
-  {
-    "type": "concept",
-    "title": "Advanced Techniques for Displacement Measurement",
-    "label": "Core Track",
-    "body": "### Displacement Measurement: Multi-Timeframe Analysis and Indicators\nAdvanced displacement measurement requires a nuanced approach that integrates multi-timeframe analysis with complex indicators. This card focuses on **enhancing body-to-wick ratio assessments through advanced techniques**.\n\n* **Multi-Timeframe Correlation**: Analyze displacement across at least three timeframes (e.g., daily, hourly, and 15-minute) to identify consistent displacement patterns. A significant displacement on a higher timeframe should correlate with similar patterns on lower timeframes to validate the signal.\n* **Volume-Weighted Displacement**: Utilize volume indicators such as the Volume Profile or On-Balance Volume (OBV) to assess the strength of displacement. A large body-to-wick ratio accompanied by high volume indicates stronger market conviction.\n* **Complex Indicators**: Incorporate indicators like the Average True Range (ATR) to gauge volatility and refine displacement measurements. A high ATR in conjunction with a large body-to-wick ratio suggests potential for significant price movement.\n",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Multi-Timeframe Analysis",
-          "definition": "The practice of analyzing price action across different timeframes to identify consistent trading signals."
-        },
-        {
-          "term": "Volume-Weighted Displacement",
-          "definition": "A method of measuring displacement that incorporates trading volume to assess market strength."
-        },
-        {
-          "term": "Average True Range (ATR)",
-          "definition": "An indicator that measures market volatility by decomposing the entire range of an asset price for a set period."
-        }
-      ],
-      "whyThisMatters": "Advanced techniques refine displacement measurements, leading to more accurate trading decisions based on market dynamics.",
-      "realLifeExample": "On the EURUSD daily chart, a body-to-wick ratio of 4:1 on a bullish candle coincided with a 1.5% increase in volume, confirmed by a similar pattern on the hourly chart, indicating strong bullish sentiment.",
-      "commonMistake": "Relying solely on body-to-wick ratios without considering volume or multi-timeframe analysis can lead to misleading signals.",
-      "quickNote": "Integrate multi-timeframe analysis and volume indicators for precise displacement measurement.",
-      "mentorText": "When measuring displacement, always check multiple timeframes. If you see a strong signal on the daily chart, confirm it with the hourly and 15-minute charts to ensure you're not missing critical context.",
-      "mentorAnalogy": "Think of displacement measurement like a structural engineer assessing a bridge. They don’t just look at one section; they analyze the entire structure from multiple angles to ensure stability and safety."
-    },
-    "taskData": null,
-    "visualKey": "volume-displacement"
+    "visualKey": "sweep-rejection-signs"
   },
   {
     "type": "practice",
-    "title": "Practical Application of Displacement Concepts",
+    "title": "Breakout Confirmation Rules",
     "label": "Core Track",
-    "body": "### Displacement Application: Real-World Scenario Exercises\nEngaging with practical exercises reinforces the understanding of displacement concepts through real-world scenarios. This card focuses on **applying displacement measurement techniques in live market conditions**.\n\n* **Scenario Analysis**: Examine a recent price action on the GBPJPY 4-hour chart where the body-to-wick ratio was 3:1. Assess the accompanying volume and determine if it supports a bullish or bearish displacement.\n* **Volume Confirmation**: After identifying a displacement candle, check the volume for that session. A displacement with volume exceeding the 14-day average by 50% strengthens the case for a valid trading signal.\n* **Trade Execution Plan**: Based on your analysis, outline a trade execution plan that includes entry, stop-loss, and target levels, ensuring they align with the displacement measurement findings.\n",
+    "body": "### Breakout Assessment: Key Confirmation Rules\nSummarizing the critical evaluation techniques for distinguishing breakouts from failed breaks, this card emphasizes the importance of close quality evaluation in trading decisions.\n\n* **Resistance Break Confirmation**: A breakout is confirmed when the price closes at least 1% above the resistance level, supported by a volume increase of 30% or more.\n* **Failed Break Identification**: A failed breakout occurs when the price closes within 1% of the breakout level with insufficient volume, suggesting a lack of follow-through.\n* **Contextual Analysis**: Always analyze the preceding price action; a strong bullish trend leading to a breakout increases the likelihood of success compared to a sideways market.\n",
     "context": {
       "keyTerms": [
         {
-          "term": "Scenario Analysis",
-          "definition": "The process of evaluating specific market conditions to determine potential trading opportunities."
+          "term": "Volume Spike",
+          "definition": "A significant increase in trading volume, indicating heightened interest in a security."
         },
         {
-          "term": "Volume Confirmation",
-          "definition": "The practice of validating a trading signal by analyzing the volume associated with it."
-        },
-        {
-          "term": "Trade Execution Plan",
-          "definition": "A detailed strategy outlining entry, exit, and risk management parameters for a trade."
+          "term": "Resistance Level",
+          "definition": "A price point where selling interest is strong enough to prevent the price from rising further."
         }
       ],
-      "whyThisMatters": "Practical application solidifies theoretical knowledge, enhancing decision-making skills in real trading environments.",
-      "realLifeExample": "On the GBPJPY 4-hour chart, a recent bullish candle with a body-to-wick ratio of 3:1 was accompanied by a volume spike of 60% above the 14-day average, indicating a strong buy signal.",
-      "commonMistake": "Failing to validate displacement signals with volume can lead to premature trade entries and increased risk.",
-      "quickNote": "Apply displacement concepts in real scenarios to enhance your trading proficiency.",
-      "mentorText": "When you spot a displacement candle, always check the volume. If it’s not supporting your analysis, reconsider your trade. A strong signal needs strong backing.",
-      "mentorAnalogy": "Consider a chef preparing a dish. They don’t just follow the recipe; they taste and adjust based on the ingredients' quality and freshness to ensure the final product is exceptional."
+      "whyThisMatters": "Understanding these confirmation rules is vital for making informed trading decisions and managing risk effectively.",
+      "realLifeExample": "During a breakout of GBPUSD at 1.3500, the price closed at 1.3525 with a volume spike of 40% above average, confirming the breakout. A subsequent close at 1.3480 after a brief spike above indicated a failed breakout.",
+      "commonMistake": "Failing to check volume alongside price action can lead to entering trades based on false breakouts.",
+      "quickNote": "Always confirm breakouts with close quality and volume metrics.",
+      "mentorText": "You must confirm a breakout with both price and volume. If either is lacking, reconsider your position.",
+      "mentorAnalogy": "Like a surgeon ensuring all instruments are sterile and ready before an operation, confirm all breakout conditions before executing a trade."
     },
     "taskData": {
       "type": "choice_block",
-      "question": "You observe a bullish candle on the AUDCAD 1-hour chart with a body-to-wick ratio of 5:1. The volume is 30% below the 14-day average. What should be your next step?",
+      "question": "You observe a breakout in AUDJPY above 80.00, closing at 80.25 with a volume increase of 20%. What does this indicate?",
       "options": [
         {
           "id": "0",
-          "text": "Enter a long position immediately.",
+          "text": "This is a confirmed breakout.",
           "isCorrect": false,
-          "feedback": "Entering without volume confirmation increases risk; the signal lacks strength."
+          "feedback": "The volume increase is below the required threshold, indicating insufficient confirmation."
         },
         {
           "id": "1",
-          "text": "Wait for volume to increase before considering a trade.",
-          "isCorrect": true,
-          "feedback": "Waiting for volume confirmation strengthens the validity of the displacement signal."
+          "text": "This is a failed breakout.",
+          "isCorrect": false,
+          "feedback": "The price closed above resistance, but the volume does not confirm the breakout."
         },
         {
           "id": "2",
-          "text": "Short the position since the volume is low.",
-          "isCorrect": false,
-          "feedback": "Shorting based on low volume without confirming the displacement signal is premature."
+          "text": "This is a valid breakout but requires further confirmation.",
+          "isCorrect": true,
+          "feedback": "The close above resistance is valid, but the volume increase must meet the threshold for full confirmation."
         },
         {
           "id": "3",
-          "text": "Analyze the higher timeframe for confirmation.",
+          "text": "This breakout is invalid regardless of the close.",
           "isCorrect": false,
-          "feedback": "While analyzing higher timeframes is beneficial, volume confirmation is essential before entering a trade."
+          "feedback": "The close above resistance is valid; however, confirmation is needed based on volume."
         }
       ]
     },
-    "visualKey": "commitment-candles"
+    "visualKey": "breakout-confirmation-rules"
   },
   {
     "type": "summary",
-    "title": "Summary of Displacement Insights",
+    "title": "Advanced Application of Breakouts vs Failed Breaks",
     "label": "Core Track",
-    "body": "### Displacement Insights: Key Takeaways\nThis card summarizes the essential insights and strategies for effective displacement measurement. Understanding these concepts is critical for professional trading.\n\n* **Body-to-Wick Ratios**: Utilize body-to-wick ratios as a primary measure of displacement, but enhance this analysis with volume and multi-timeframe validation for accuracy.\n* **Volume Analysis**: Always incorporate volume analysis to confirm displacement signals. High volume accompanying a strong body-to-wick ratio indicates market conviction.\n* **Multi-Timeframe Validation**: Cross-reference displacement measurements across multiple timeframes to ensure consistency and reliability in trading signals.\n",
+    "body": "### Advanced Breakout Analysis: Edge Cases and Nuances\nThis card delves into advanced applications of breakout concepts, focusing on edge cases and professional-level nuances in evaluating breakouts versus failed breaks.\n\n* **Contextual Market Conditions**: Analyze macroeconomic events that may influence breakout validity, such as major news releases or economic data that can skew market reactions.\n* **Timeframe Considerations**: Different timeframes yield varying breakout characteristics; a daily close may indicate stronger conviction than a 5-minute close.\n* **Psychological Levels**: Breakouts around psychological levels (e.g., round numbers) require heightened scrutiny, as traders may react more emotionally, leading to potential false breaks.\n",
     "context": {
       "keyTerms": [
         {
-          "term": "Body-to-Wick Ratio",
-          "definition": "The ratio of the body of a candle to its wick, indicating the strength of price movement."
+          "term": "Psychological Level",
+          "definition": "A price level that is significant to traders, often leading to increased buying or selling activity."
         },
         {
-          "term": "Volume Analysis",
-          "definition": "The examination of trading volume to validate price movements and signals."
-        },
-        {
-          "term": "Multi-Timeframe Validation",
-          "definition": "The process of confirming trading signals by analyzing price action across different timeframes."
+          "term": "Edge Case",
+          "definition": "A situation that occurs outside of the normal operating parameters, requiring special consideration."
         }
       ],
-      "whyThisMatters": "Summarizing key insights reinforces learning and ensures traders can apply effective displacement measurement techniques.",
-      "realLifeExample": "A trader successfully identified a bullish trend on USDCHF by applying body-to-wick ratios, confirming with volume spikes, and validating across daily and 4-hour charts.",
-      "commonMistake": "Overlooking the importance of volume in displacement analysis can lead to missed opportunities or false signals.",
-      "quickNote": "Integrate body-to-wick ratios, volume analysis, and multi-timeframe validation for effective displacement measurement.",
-      "mentorText": "Remember, displacement is not just about the candle size; it’s about the context. Always validate your findings with volume and check multiple timeframes to ensure you’re making informed decisions.",
-      "mentorAnalogy": "Think of displacement measurement like a pilot preparing for a flight. They don’t just check the plane's fuel; they assess weather conditions and air traffic to ensure a safe and successful journey."
+      "whyThisMatters": "Understanding these advanced nuances allows traders to refine their strategies and improve their decision-making processes in complex market conditions.",
+      "realLifeExample": "During the NFP release, USDJPY spiked above 110.00 but closed at 109.85 with low volume, indicating a failed breakout despite initial bullish momentum.",
+      "commonMistake": "Overlooking macroeconomic factors that can invalidate a breakout assessment.",
+      "quickNote": "Factor in market context and psychological levels when assessing breakouts.",
+      "mentorText": "Always consider the broader market context. A breakout in a vacuum can lead to misinterpretation; assess the surrounding conditions.",
+      "mentorAnalogy": "Like a weather forecaster analyzing multiple data points before predicting a storm, you must evaluate all market conditions before confirming a breakout."
     },
     "taskData": null,
-    "visualKey": "displacement-debrief"
+    "visualKey": "breakouts-failed-debrief"
   }
 ];

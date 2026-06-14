@@ -3,6 +3,7 @@ import { PrismaClient, SkillLevel, ModuleTrack } from "@prisma/client";
 import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
 import dotenv from "dotenv";
+import crypto from "crypto";
 
 dotenv.config();
 
@@ -104,11 +105,38 @@ async function sync() {
     console.log(`Modules Created: ${createCount}`);
     console.log(`Total Operations: ${updateCount + createCount}`);
     
+    const scenarioData = {
+      slug: "level-3-final-gate",
+      title: "Level 3 Entry Logic Assessment",
+      description: "Step through 5 chart situations and apply the Pre-Trade Checklist.",
+      scenarioType: "structure_annotation" as any,
+      status: "active" as any,
+      level: 3,
+      instrument: "EUR/USD",
+      timeframe: "1H",
+      candleSourceType: "curated" as any,
+      prompt: "Use your Pre-Trade Checklist to decide the correct action at each step.",
+      expectedActions: [
+        { step: 1, action: "WAIT", justification: "Price is at a Level 2 Zone but no rejection candle has formed yet." },
+        { step: 2, action: "ENTER", justification: "Price has produced a clear Level 3 rejection candle at the Level 2 Zone." },
+        { step: 3, action: "SKIP", justification: "Price has hit the Invalidation Zone. The trade idea is dead." },
+        { step: 4, action: "SKIP", justification: "Price is in the middle of a range with no Level 2 zone nearby." },
+        { step: 5, action: "ENTER", justification: "Price has successfully retested the broken level and shown confirmation." }
+      ] as any,
+      gradingRubric: {
+        perfect_score: 100,
+        passing_score: 80,
+        deduction_per_mistake: 20
+      } as any,
+      xpAward: 100,
+      metadata: {} as any
+    };
+
     if (isDryRun) {
+      console.log("\n[DRY] WOULD UPSERT SCENARIO: level-3-final-gate");
+      console.log("[DRY] WOULD LINK SCENARIO level-3-final-gate to Module 3.15");
       console.log("\nDRY RUN COMPLETE: No data was changed.");
     } else {
-      console.log("\nLIVE SYNC COMPLETE: Database updated.");
-      
       console.log("\nUpdating Scenario Links for Level 3 Final Gate...");
       const mod315 = await prisma.courseModule.findFirst({
         where: { level: 3, moduleNumber: "3.15" }
@@ -116,8 +144,13 @@ async function sync() {
       const mod310 = await prisma.courseModule.findFirst({
         where: { level: 3, moduleNumber: "3.10" }
       });
-      const scenario = await prisma.trainingScenario.findUnique({
-        where: { slug: "level-3-final-gate" }
+      const scenario = await prisma.trainingScenario.upsert({
+        where: { slug: "level-3-final-gate" },
+        update: scenarioData,
+        create: {
+          id: crypto.randomUUID(),
+          ...scenarioData
+        }
       });
 
       if (scenario) {
@@ -136,9 +169,8 @@ async function sync() {
           });
           console.log(`   Linked scenario ${scenario.slug} to new module 3.15.`);
         }
-      } else {
-        console.warn("   Warning: TrainingScenario 'level-3-final-gate' not found in database.");
       }
+      console.log("\nLIVE SYNC COMPLETE: Database updated.");
     }
 
   } catch (error) {

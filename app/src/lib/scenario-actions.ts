@@ -322,70 +322,40 @@ export async function submitChartScenarioAttempt(
     }
   }
 
-  // Dual-gate check for Level 3 unlock (mirrors Level 2 pattern)
-  if (isPassed && attempt.scenario.slug === "level-3-final-gate") {
-    const testData = await prisma.knowledgeTest.findUnique({ where: { level: 3 } });
-    if (testData) {
-      const testPassed = await prisma.testAttempt.findFirst({
-        where: { userId: user.id, testId: testData.id, passed: true },
-      });
-      const progress = await prisma.userProgress.findUnique({ where: { userId: user.id } });
-      if (testPassed && progress && progress.currentLevel === 3) {
-        await prisma.userProgress.update({
-          where: { userId: user.id },
-          data: { currentLevel: Math.max(progress.currentLevel, 4) },
-        });
-      }
-    }
-  }
+  // Dynamic dual-gate checks for level unlocks (Levels 0 to 9)
+  const SCENARIO_LEVELS: Record<string, number> = {
+    "level-0-foundation-review-mission": 0,
+    "level-1-planning-gate": 1,
+    "m2-level-2-map-review-v1": 2,
+    "level-3-final-gate": 3,
+    "l4-mission-4a": 4,
+    "l4-mission-4b": 4,
+    "drawdown-crucible": 5,
+    "scenario-planning-crucible": 6,
+    "execution-precision-crucible": 7,
+    "institutional-mastery-crucible": 8,
+    "final-certification-crucible": 9
+  };
 
-  // Dual-gate check for Level 4 unlock (mirrors Level 3 pattern)
-  if (isPassed && (attempt.scenario.slug === "l4-mission-4a" || attempt.scenario.slug === "l4-mission-4b")) {
-    const testData = await prisma.knowledgeTest.findUnique({ where: { level: 4 } });
+  const gateLevel = SCENARIO_LEVELS[attempt.scenario.slug];
+  if (isPassed && gateLevel !== undefined) {
+    const testData = await prisma.knowledgeTest.findUnique({ where: { level: gateLevel } });
     if (testData) {
       const testPassed = await prisma.testAttempt.findFirst({
         where: { userId: user.id, testId: testData.id, passed: true },
       });
       const progress = await prisma.userProgress.findUnique({ where: { userId: user.id } });
-      if (testPassed && progress && progress.currentLevel === 4) {
+      if (testPassed && progress && progress.currentLevel === gateLevel) {
         await prisma.userProgress.update({
           where: { userId: user.id },
-          data: { currentLevel: Math.max(progress.currentLevel, 5) },
+          data: { currentLevel: Math.max(progress.currentLevel, gateLevel + 1) },
         });
-      }
-    }
-  }
 
-  // Dual-gate check for Level 5 unlock (mirrors Level 4 pattern)
-  if (isPassed && attempt.scenario.slug === "drawdown-crucible") {
-    const testData = await prisma.knowledgeTest.findUnique({ where: { level: 5 } });
-    if (testData) {
-      const testPassed = await prisma.testAttempt.findFirst({
-        where: { userId: user.id, testId: testData.id, passed: true },
-      });
-      const progress = await prisma.userProgress.findUnique({ where: { userId: user.id } });
-      if (testPassed && progress && progress.currentLevel === 5) {
-        await prisma.userProgress.update({
-          where: { userId: user.id },
-          data: { currentLevel: Math.max(progress.currentLevel, 6) },
-        });
-      }
-    }
-  }
-
-  // Dual-gate check for Level 2 unlock (existing logic preserved)
-  if (isPassed && attempt.scenario.slug === "m2-level-2-map-review-v1") {
-    const testData = await prisma.knowledgeTest.findUnique({ where: { level: 2 } });
-    if (testData) {
-      const testPassed = await prisma.testAttempt.findFirst({
-        where: { userId: user.id, testId: testData.id, passed: true },
-      });
-      const progress = await prisma.userProgress.findUnique({ where: { userId: user.id } });
-      if (testPassed && progress && progress.currentLevel === 2) {
-        await prisma.userProgress.update({
-          where: { userId: user.id },
-          data: { currentLevel: Math.max(progress.currentLevel, 3) },
-        });
+        // Initialize prop phase if Level 2 is fully cleared (unlocking Level 3)
+        if (gateLevel === 2) {
+          const { initializePhase } = require("./trading-actions");
+          await initializePhase(1);
+        }
       }
     }
   }

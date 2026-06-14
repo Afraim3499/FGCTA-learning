@@ -1,263 +1,218 @@
 import { LessonCard } from "../../../types/curriculum";
 
-/**
- * Module 0.5 - Gold Track Cards
- * Focus: Gold Structure: Volatility, Reaction Areas, and Break Quality
- */
 export const goldCards: LessonCard[] = [
   {
-    type: "mission_brief",
-    title: "Gold Structure Is Volatility-Shaped Movement",
-    label: "Gold Structure Foundation",
-    visualKey: "gold-volatility-structure-skeleton",
-    body: "Gold structure is the visible arrangement of XAU/USD movement over time. It is built from swings, ranges, impulses, pullbacks, reaction areas, breaks, and failures. But because Gold can move sharply, the learner must separate true structure from volatility. Gold often moves faster and more violently than many learners expect. That means structure can look dramatic before it becomes clear. A trained learner does not trust speed alone. They ask whether the movement is building stable structure or only showing volatility.",
+    type: "visual_intro",
+    title: "Gold Timeframes Are Volatility Records",
+    visualKey: "gold-volatility-record-board",
+    label: "Gold Foundation",
+    body: "A Gold timeframe does not exist by itself. A 15-minute candle records 15 minutes of Gold vs. US Dollar (XAU/USD) movement, but its quality depends on volatility, liquidity, market window, macro context, and where the candle forms inside the broader structure.",
     context: {
       keyTerms: [
-        { term: "Gold Structure", definition: "The arrangement of XAU/USD movement over time." },
-        { term: "Volatility", definition: "The speed and intensity of price movement." },
-        { term: "Swing", definition: "A visible push or turn in price." },
-        { term: "Structure Reading", definition: "Classifying what Gold is building over time." },
-        { term: "Reading Quality", definition: "Whether evidence is clear, mixed, or unclear." }
+        { term: "XAU/USD Timeframe", definition: "The amount of time represented by one Gold candle." },
+        { term: "Volatility Condition", definition: "The speed and intensity of price movement during the candle period." },
+        { term: "Candle Quality", definition: "How useful a candle is as evidence after checking the environment that created it." },
+        { term: "Market Window", definition: "A period of the trading day where activity, liquidity, or event pressure changes." },
+        { term: "Unstable Candle", definition: "A candle that looks strong but forms in fast, unclear, or distorted conditions." }
       ],
-      whyThisMatters: "Gold can make weak structure look important because movement is fast. Without structure discipline, learners confuse speed with clarity.",
-      realLifeExample: "Gold prints a large candle on 15m, but the broader structure still shows price inside the same range. The candle is active, but the structure may not have changed.",
-      commonMistake: "Thinking fast movement automatically means strong structure.",
-      quickNote: "Gold’s speed is not structure. Structure is built through evidence."
+      whyThisMatters: "Gold can make a candle look important simply because it moves fast. If the learner ignores the condition behind the candle, they may confuse volatility with clarity.",
+      realLifeExample: "Gold forms a large 15-minute candle during a quiet period and another large 15-minute candle after major US data. Same timeframe, different market condition.",
+      commonMistake: "Judging a Gold candle only by size or color without checking the environment that created it.",
+      "quickNote": "In Gold, candle size is not enough. Condition creates meaning."
     }
   },
   {
     type: "visual_intro",
-    title: "Gold Swings Are Often Wick-Heavy Turning Points",
-    label: "Swing Quality",
-    visualKey: "gold-wick-heavy-swing-points",
-    body: "Gold swings are visible turning points, but they often include sharp wicks and fast reactions. A swing high shows where price pushed upward and turned. A swing low shows where price pushed downward and turned. But Gold swings can be wick-heavy, meaning the visible turn may include overshoots, liquidity sweeps, sharp reactions, or event volatility. The trained learner marks the swing, then audits its quality. A wick-heavy swing is not automatically a clean rejection.",
+    title: "Gold Does Not Move Equally All Day",
+    visualKey: "gold-market-rhythm-board",
+    label: "Market Rhythm",
+    body: "Gold may print candles across long trading hours, but not every hour carries the same reading quality. Activity, liquidity, macro attention, and event timing can change how much trust a learner should place in a candle.",
     context: {
       keyTerms: [
-        { term: "Swing High", definition: "A visible high point where Gold turned downward." },
-        { term: "Swing Low", definition: "A visible low point where Gold turned upward." },
-        { term: "Wick-Heavy Swing", definition: "A swing point with a large wick or sharp extension." },
-        { term: "Sweep", definition: "A move beyond an area followed by return." },
-        { term: "Swing Quality", definition: "How reliable the swing appears after checking context." }
+        { term: "Market Rhythm", definition: "The way activity changes across the trading day." },
+        { term: "Active Window", definition: "A period where participation and movement may increase." },
+        { term: "Quiet Window", definition: "A period where movement may be slower, thinner, or less reliable." },
+        { term: "Overlap Activity", definition: "A period where major market participation can increase." },
+        { term: "Event Window", definition: "A period around scheduled or sudden information that can create unstable movement." }
       ],
-      whyThisMatters: "Gold learners often see a wick and instantly call rejection. That is weak reading. The source and behavior after the wick matter.",
-      realLifeExample: "Gold pushes above a previous high, leaves a long upper wick, and returns. That may be rejection, sweep, or news volatility depending on context and follow-through.",
-      commonMistake: "Treating every Gold wick as a confirmed reversal.",
-      quickNote: "A Gold wick is a clue, not a verdict."
+      whyThisMatters: "A learner who treats every hour the same will overread weak candles and underprepare for unstable candles.",
+      realLifeExample: "Gold may stay narrow for hours, then expand sharply during New York data. The timeframe did not change, but the environment did.",
+      commonMistake: "Thinking Gold candles carry the same quality just because they have the same timeframe.",
+      "quickNote": "Gold has timeframes, but it also has rhythm."
     }
   },
   {
     type: "visual_intro",
-    title: "Trend and Range in Gold",
-    label: "Gold Structure Types",
-    visualKey: "gold-trend-range-structure",
-    body: "Gold can trend, range, or become unclear. Trend structure is built through swing relationships. Range structure is built through repeated reaction between upper and lower areas. Fast candles and long wicks do not replace structure classification. A Gold uptrend still requires higher highs and higher lows. A Gold downtrend still requires lower lows and lower highs. A Gold range still has upper and lower reaction areas. But Gold may produce violent candles and deep wicks inside those structures. The learner must not let one dramatic candle erase the structure too quickly.",
+    title: "Same Candle, Different Gold Window",
+    visualKey: "gold-window-comparison-board",
+    label: "Candle Weight",
+    body: "A Gold candle gains meaning from the window that created it. The same candle shape can be weak, useful, unstable, or structurally important depending on liquidity, market activity, news pressure, and location.",
     context: {
       keyTerms: [
-        { term: "Gold Trend", definition: "Directional structure built through swing relationships." },
-        { term: "Gold Range", definition: "Structure where price rotates between upper and lower areas." },
-        { term: "Wick Noise", definition: "Sharp extensions that may not change the broader structure." },
-        { term: "Overlapping Structure", definition: "Highs and lows that do not create clean direction." },
-        { term: "Structure Classification", definition: "Naming what Gold is building." }
+        { term: "Evidence Weight", definition: "The relative importance of a candle after considering context." },
+        { term: "Gold Window", definition: "The time and condition in which a Gold candle forms." },
+        { term: "Structural Location", definition: "Where the candle forms inside the broader chart." },
+        { term: "Thin Movement", definition: "Movement that may happen with weaker participation or lower depth." },
+        { term: "Unstable Evidence", definition: "A candle that looks important but forms in conditions where clarity is low." }
       ],
-      whyThisMatters: "Gold often looks more dramatic than it is structurally. Learners need to classify the condition instead of reacting to the latest candle.",
-      realLifeExample: "Gold makes several sharp pushes but keeps returning between the same upper and lower zones. That may still be a range, not a clean trend.",
-      commonMistake: "Calling every fast Gold push a new trend.",
-      quickNote: "Gold can move loudly inside the same structure."
+      whyThisMatters: "Gold learners often react to candle shape too quickly. This card teaches them to judge candle quality before trusting the candle.",
+      realLifeExample: "A long upper wick at a major level during active conditions may matter. The same wick during news may simply be event noise until follow-through appears.",
+      commonMistake: "Thinking the same Gold candle shape has the same meaning in every market window.",
+      "quickNote": "Gold candle shape needs Gold context."
     }
   },
   {
     type: "visual_intro",
-    title: "Gold Reaction Areas Are Zones, Not Lines",
-    label: "Reaction Areas",
-    visualKey: "gold-reaction-zones-not-lines",
-    body: "Gold reaction areas are not magic lines. They are zones where price has previously changed behavior. A trained learner watches how Gold behaves around the area instead of assuming one exact price must hold. Gold often reacts around areas rather than perfect prices. Because of volatility, spread, liquidity, and event pressure, Gold can overshoot a line, wick through it, and still respect the broader area. Learners should think in zones and behavior, not rigid lines.",
+    title: "Macro News Can Distort Gold Timeframes",
+    visualKey: "gold-event-distortion-board",
+    label: "Event Pressure",
+    body: "A Gold candle formed during a macro news window can record real repricing, but it can also contain unstable movement, violent wicks, and unclear follow-through. The disciplined learner waits for structure and close-location evidence before trusting the move.",
     context: {
       keyTerms: [
-        { term: "Reaction Area", definition: "A zone where price has previously changed behavior." },
-        { term: "Support Area", definition: "A zone where buying reaction previously appeared." },
-        { term: "Resistance Area", definition: "A zone where selling reaction previously appeared." },
-        { term: "Zone", definition: "A flexible area rather than one exact price." },
-        { term: "Test", definition: "Price moving into an area to see whether reaction appears." }
+        { term: "Macro News Window", definition: "A period around economic data, central bank comments, or market-moving information." },
+        { term: "Repricing", definition: "A fast adjustment in price after new information enters the market." },
+        { term: "Event Volatility", definition: "Fast and sometimes unstable movement caused by a major event." },
+        { term: "Follow-Through", definition: "What price does after the event candle closes." },
+        { term: "Close-Location Review", definition: "Checking where the candle finished inside its full range." },
+        { term: "Fake Clarity", definition: "A situation where a candle looks decisive but the context is unstable." }
       ],
-      whyThisMatters: "Gold can pierce exact lines often. If learners expect perfect line behavior, they will misread normal volatility.",
-      realLifeExample: "Gold reacts around the same resistance area several times, but not at the exact same price. The area matters more than the perfect line.",
-      commonMistake: "Expecting Gold support or resistance to behave like a wall.",
-      quickNote: "In Gold, mark the area. Then audit behavior."
+      whyThisMatters: "Gold can move sharply around data. If the learner treats every news candle as clean evidence, they may confuse volatility with confirmation.",
+      realLifeExample: "Gold spikes after inflation data, leaves a long wick, and closes near the middle. A rushed learner calls direction. A trained learner waits to see whether price follows through or rejects the move.",
+      commonMistake: "Treating the first large Gold candle after news as the final truth.",
+      "quickNote": "News can make Gold loud before it becomes clear."
     }
   },
   {
     type: "visual_intro",
-    title: "Sweeps, Wicks, and Failed Reactions",
-    label: "Sweep Logic",
-    visualKey: "gold-sweep-wick-failed-reaction",
-    body: "Gold can move through a visible area, leave a wick, and return. That may be a sweep, but the wick alone is not enough. A trained learner checks where the candle closes, what price does next, and whether the broader structure supports the reaction. Gold may move above a previous high or below a previous low, trigger reaction, and then return. This may be a sweep. But not every sweep is meaningful. A wick through an area must be judged by close location, follow-through, and broader structure. The learner must stop treating every sweep as a reversal and every wick as a signal.",
+    title: "London, New York, and Futures Participation",
+    visualKey: "gold-participation-board",
+    label: "Participation Windows",
+    body: "Gold candles can become more meaningful when stronger participation enters the market, especially around major activity windows. But participation is not a signal. The learner still needs structure, location, close behavior, and follow-through.",
     context: {
       keyTerms: [
-        { term: "Sweep", definition: "A move beyond a visible area followed by return." },
-        { term: "Wick", definition: "The part of a candle showing price travelled beyond the body." },
-        { term: "Failed Reaction", definition: "A reaction that does not gain follow-through." },
-        { term: "Close Location", definition: "Where the candle finishes inside its range." },
-        { term: "Follow-Through", definition: "What price does after the reaction." }
+        { term: "Participation Window", definition: "A time period where market involvement may increase." },
+        { term: "Futures Participation", definition: "Activity in futures markets that may influence visible Gold movement." },
+        { term: "Retail XAU/USD Candle", definition: "The Gold vs. US Dollar (XAU/USD) candle visible on a retail chart or platform." },
+        { term: "Liquidity Attention", definition: "The level of market activity around a price move." },
+        { term: "Macro Attention", definition: "Market focus on USD, yields, inflation, rates, and risk conditions." }
       ],
-      whyThisMatters: "Gold creates many sweeps and wicks. Learners who read them mechanically will keep forcing weak conclusions.",
-      realLifeExample: "Gold sweeps above a previous high, closes near the middle, then fails to continue down. The sweep happened, but the reaction quality is still unclear.",
-      commonMistake: "Calling every sweep a guaranteed reversal.",
-      quickNote: "A sweep starts the question. Follow-through answers it."
-    }
-  },
-  {
-    type: "visual_intro",
-    title: "Impulse and Pullback in Gold",
-    label: "Movement Rhythm",
-    visualKey: "gold-impulse-pullback-rhythm",
-    body: "Gold structure often forms through impulse and pullback. An impulse shows strong movement, while a pullback shows price moving back against that movement. The pullback is not automatically a reversal, and the impulse is not automatically a continuation. Structure decides the quality. Gold often moves through sharp impulses followed by pullbacks, pauses, or failed continuation. An impulse shows stronger movement, but it is not automatically a clean trend. A pullback may be normal structure, exhaustion, or a warning depending on context. The learner must learn to read rhythm, not chase speed.",
-    context: {
-      keyTerms: [
-        { term: "Impulse", definition: "A stronger directional movement." },
-        { term: "Pullback", definition: "Movement against the previous impulse." },
-        { term: "Continuation", definition: "When price resumes the prior direction." },
-        { term: "Failure", definition: "When price cannot continue and structure weakens." },
-        { term: "Movement Rhythm", definition: "The push-and-pause behavior of price." },
-        { term: "Exhaustion", definition: "A condition where strong movement begins to weaken." }
-      ],
-      whyThisMatters: "Gold’s impulses can pull learners into emotional readings. This card teaches them to wait for structure quality.",
-      realLifeExample: "Gold jumps sharply after an active window, then pulls back. The pullback may be normal if structure holds, or a warning if the move fails.",
-      commonMistake: "Chasing the impulse or panicking at the pullback.",
-      quickNote: "Gold impulse is not the answer. Structure is."
-    }
-  },
-  {
-    type: "visual_intro",
-    title: "News and Macro Events Can Fake Structure",
-    label: "Macro Distortion",
-    visualKey: "gold-macro-fake-structure",
-    body: "Macro events can make Gold look structurally clear before it actually is. A news candle may break a level, sweep a zone, or print a large wick, but the learner still needs close quality, follow-through, and structure confirmation before trusting it. Gold reacts strongly to macro information: inflation data, central bank comments, USD movement, rates, yields, and risk sentiment. A macro candle may break a level, sweep a zone, or print a large wick. That can be important, but it can also be fake clarity if follow-through does not appear. This card must teach caution, not fear.",
-    context: {
-      keyTerms: [
-        { term: "Macro Event", definition: "A market-moving economic or central bank event." },
-        { term: "Fake Structure", definition: "A move that appears structural but weakens after context is reviewed." },
-        { term: "Event Volatility", definition: "Fast movement caused by news or macro repricing." },
-        { term: "Repricing", definition: "Rapid adjustment after new information." },
-        { term: "Structure Confirmation", definition: "Evidence that the move meaningfully changed the structure." }
-      ],
-      whyThisMatters: "Gold can break areas violently during news and then reverse or stall. Learners need to avoid treating the first reaction as final truth.",
-      realLifeExample: "Gold breaks above resistance after inflation data, but closes back inside the prior area. The visual break happened, but structure confirmation is weak.",
-      commonMistake: "Treating the first macro candle as confirmed structure.",
-      quickNote: "News can create movement before it creates structure."
-    }
-  },
-  {
-    type: "visual_intro",
-    title: "Breaks and Failed Breaks Around Gold Levels",
-    label: "Break Quality",
-    visualKey: "gold-break-failure-quality",
-    body: "A Gold break is not automatically a structure change. Price can move beyond an area and still fail. A trained learner checks close quality, hold, follow-through, and broader context before treating the break as meaningful. A break happens when Gold moves beyond a reaction area, range boundary, or previous swing. But a break is not automatically a structure change. Gold can overshoot levels and return quickly. The learner must check whether the move holds, closes well, and follows through. This card should kill breakout addiction in Gold.",
-    context: {
-      keyTerms: [
-        { term: "Break", definition: "Price moving beyond a structural area." },
-        { term: "Failed Break", definition: "Price moves beyond an area but cannot hold." },
-        { term: "Hold", definition: "Price remains beyond the area after the break." },
-        { term: "Close Quality", definition: "Where and how the candle closes relative to the area." },
-        { term: "Follow-Through", definition: "What price does after the break." },
-        { term: "Break Quality", definition: "How reliable the break appears after review." }
-      ],
-      whyThisMatters: "Gold often crosses levels with force. The learner must check whether the break actually changed structure.",
-      realLifeExample: "Gold moves above a range high, but the next candle returns inside. That is different from a clean break that holds and continues.",
-      commonMistake: "Calling every move outside a Gold zone a confirmed breakout.",
-      quickNote: "Gold breaks need proof after the break."
+      whyThisMatters: "Gold can look more convincing during active windows, but the learner must not treat activity as automatic clarity.",
+      realLifeExample: "Gold moves sharply during New York after US data while futures participation increases. A trained learner checks whether the move closes cleanly and follows through, not only that it moved fast.",
+      commonMistake: "Thinking more activity automatically means a cleaner reading.",
+      "quickNote": "Participation adds weight, not certainty."
     }
   },
   {
     type: "visual_intro",
     title: "Higher-Timeframe Gold Location Comes First",
+    visualKey: "gold-location-context-board",
     label: "Gold Location",
-    visualKey: "gold-htf-location-first",
-    body: "A lower-timeframe Gold move can be active and still incomplete. The higher timeframe shows where price is located in the broader structure. A trained learner checks location before trusting local movement. Gold can create dramatic lower-timeframe structure while the higher timeframe remains near a major reaction area, previous high/low, range boundary, or macro-sensitive zone. The lower-timeframe move can be real but still context-limited. The learner must check location before trusting speed.",
+    body: "In Gold, a lower-timeframe move can look powerful and still be incomplete. The higher timeframe shows where price is located in the broader structure. A trained learner checks location before trusting local movement.",
     context: {
       keyTerms: [
-        { term: "Higher-Timeframe Location", definition: "Where Gold sits in broader structure." },
-        { term: "Major Reaction Area", definition: "A zone where price has previously changed behavior." },
-        { term: "Local Move", definition: "Shorter-timeframe movement inside broader context." },
-        { term: "Context-Limited Move", definition: "A move that is active but restricted by broader structure." },
-        { term: "Broader Structure", definition: "The larger chart condition around local movement." }
+        { term: "Higher-Timeframe Location", definition: "Where Gold is positioned in the broader chart structure." },
+        { term: "Major Level", definition: "A price area where the market has previously reacted." },
+        { term: "Range Boundary", definition: "The upper or lower area of a broader sideways structure." },
+        { term: "Local Move", definition: "Shorter-term movement inside the higher-timeframe context." },
+        { term: "Context-Limited Move", definition: "A move that is active but still restricted by broader location." }
       ],
-      whyThisMatters: "Gold’s speed can make local movement feel more important than the broader chart. Location protects the learner from shallow readings.",
+      whyThisMatters: "Gold’s speed can make local movement feel more important than it is. Higher-timeframe location protects the learner from overreacting.",
       realLifeExample: "Gold rallies hard on 5m, but the 4H chart shows price entering a previous rejection zone. The move is real, but not automatically clean.",
-      commonMistake: "Letting a fast lower-timeframe Gold move overrule higher-timeframe structure.",
-      quickNote: "In Gold, speed does not erase location."
+      commonMistake: "Trusting a dramatic lower-timeframe Gold candle without checking higher-timeframe location.",
+      "quickNote": "In Gold, location comes before reaction."
+    }
+  },
+  {
+    type: "visual_intro",
+    title: "Lower-Timeframe Gold Behavior: Wicks, Sweeps, and Reaction",
+    visualKey: "gold-local-behavior-board",
+    label: "Local Behavior",
+    body: "Lower-timeframe Gold charts are useful when they explain behavior inside a known location. They become dangerous when the learner treats every fast wick or candle as the full market story. Detail should refine the reading, not replace context.",
+    context: {
+      keyTerms: [
+        { term: "Local Behavior", definition: "Shorter-term price behavior inside a broader context." },
+        { term: "Liquidity Sweep", definition: "A move beyond a visible area that may trigger orders before price returns." },
+        { term: "Failed Break", definition: "A move beyond a level that does not hold." },
+        { term: "Behavior Lens", definition: "Using a smaller timeframe to observe how price is reacting now." },
+        { term: "Refinement", definition: "Adding detail to a broader reading." },
+        { term: "Gold Wick Reaction", definition: "A wick that may show a test, rejection, sweep, or unstable movement depending on context." }
+      ],
+      whyThisMatters: "Gold lower timeframes create many emotional traps. This card teaches learners to observe behavior without letting speed control the reading.",
+      realLifeExample: "Gold reaches a higher-timeframe level. The 5m chart shows a sweep above the level and a quick return. A trained learner treats this as behavior to review, not an automatic reversal call.",
+      commonMistake: "Using lower-timeframe Gold movement to create the main opinion instead of refining the broader reading.",
+      "quickNote": "Lower timeframes explain behavior. They do not replace context."
+    }
+  },
+  {
+    type: "visual_intro",
+    title: "Multi-Timeframe Gold Reading Process",
+    visualKey: "gold-reading-stack-board",
+    label: "Gold Workflow",
+    body: "A disciplined Gold reading starts with broader location and market condition before moving into lower-timeframe behavior. The learner checks volatility, macro context, structure, and follow-through before trusting a fast candle.",
+    context: {
+      keyTerms: [
+        { term: "Gold Top-Down Reading", definition: "A process for reading Gold from broader context into local behavior." },
+        { term: "Market Window", definition: "The condition and timing around the candle." },
+        { term: "Macro Context", definition: "USD, rate expectations, inflation data, risk sentiment, or news pressure." },
+        { term: "Working Structure", definition: "The main chart structure used for the current reading." },
+        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." },
+        { term: "Evidence Audit", definition: "Checking what supports and weakens a reading before forming a conclusion." }
+      ],
+      whyThisMatters: "Gold’s speed can pull learners into emotional decisions. A fixed reading process slows the learner down and improves evidence quality.",
+      realLifeExample: "Gold forms a fast candle on 15m. A trained learner checks 4H location, macro timing, market window, 1H structure, and lower-timeframe behavior before judging the move.",
+      commonMistake: "Starting from the fastest Gold chart and letting urgency control the reading.",
+      "quickNote": "Gold reading must move from context to behavior."
     }
   },
   {
     type: "practice",
-    title: "Practice Drill: Clean Break, Sweep, or Mixed?",
+    title: "Gold Timeframe Conflict Drill",
+    visualKey: "gold-conflict-drill-board",
     label: "Practice Drill",
-    visualKey: "gold-structure-break-drill",
-    body: "This drill tests whether you can audit Gold structure instead of reacting to speed. A move beyond an area is only the first clue. The trained learner checks close location, wick source, follow-through, and higher-timeframe context before classifying the structure.",
+    body: "This drill tests whether you can separate fast Gold movement from aligned evidence. A Gold candle can be active and still incomplete. The trained learner checks timeframe, location, close behavior, market window, and follow-through before calling the reading clean.",
     taskData: {
       type: "choice_block",
-      question: "Gold pushes above a previous reaction area during New York activity. The candle leaves a long upper wick and closes near the middle of its range. The next candle has not confirmed direction yet, and the 4H chart is still near a previous rejection zone. What is the disciplined Gold structure reading?",
+      question: "Gold forms a strong 15-minute bullish candle during New York activity. The 1-hour chart is still inside a range, the 4-hour chart is near a previous rejection area, and the candle closes below the top of its range. What is the disciplined Gold reading?",
       options: [
-        {
-          id: "A",
-          text: "It is a confirmed breakout because Gold moved above the reaction area.",
-          isCorrect: false,
-          feedback: "Not correct. Moving above an area is not enough. A break needs close quality, hold, and follow-through."
-        },
-        {
-          id: "B",
-          text: "It is a guaranteed reversal because the candle has an upper wick.",
-          isCorrect: false,
-          feedback: "Not correct. A wick does not guarantee reversal. It is a clue that needs context and follow-through."
-        },
-        {
-          id: "C",
-          text: "The move is active but mixed because the wick, middle close, missing follow-through, and higher-timeframe location reduce clarity.",
-          isCorrect: true,
-          feedback: "Correct! Gold moved above the area, but the upper wick, middle close, missing follow-through, and higher-timeframe location reduce clarity. This is mixed evidence, not a clean break or guaranteed reversal."
-        },
-        {
-          id: "D",
-          text: "The higher timeframe does not matter because Gold moves fast.",
-          isCorrect: false,
-          feedback: "Not correct. Gold’s speed makes higher-timeframe location more important, not less important."
-        }
+        { id: "A", text: "The 15-minute candle is strong, so Gold is clearly bullish.", isCorrect: false, feedback: "Not correct. A strong lower-timeframe Gold candle does not automatically define the full reading." },
+        { id: "B", text: "New York activity means the move must continue.", isCorrect: false, feedback: "Not correct. New York activity can increase movement, but it does not guarantee continuation." },
+        { id: "C", text: "The lower-timeframe move is active, but higher-timeframe location and close behavior reduce clarity. This is a mixed reading until structure confirms.", isCorrect: true, feedback: "Correct. The 15-minute move is active, but the 1-hour range, 4-hour rejection area, and imperfect close reduce clarity. This is a mixed reading until Gold shows stronger structure and follow-through." },
+        { id: "D", text: "The higher timeframe does not matter because Gold moves fast.", isCorrect: false, feedback: "Not correct. Gold’s speed makes higher-timeframe context more important, not less important." }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Mixed Evidence", definition: "Some clues support the move while other clues reduce clarity." },
-        { term: "Wick Source", definition: "The condition that may have created the wick." },
-        { term: "Middle Close", definition: "A candle close near the middle of its range." },
-        { term: "Failed Follow-Through", definition: "Price does not continue after the move." },
-        { term: "Break Audit", definition: "Reviewing close, hold, wick, follow-through, and context." },
-        { term: "Context-Limited Move", definition: "A move weakened by broader location." }
+        { term: "Mixed Reading", definition: "A condition where some evidence supports the move but other layers reduce clarity." },
+        { term: "Alignment", definition: "When multiple timeframes and conditions support the same reading." },
+        { term: "Close Behavior", definition: "Where the candle finishes inside its range." },
+        { term: "Active but Incomplete", definition: "Movement that is worth observing but not strong enough for a clean conclusion." },
+        { term: "Follow-Through", definition: "What price does after the candle closes." }
       ],
-      whyThisMatters: "Gold often creates dramatic moves that are neither clean breakouts nor confirmed reversals. The learner must classify quality.",
-      realLifeExample: "Gold spikes above resistance after New York activity, leaves a wick, and closes in the middle. A rushed learner calls direction. A trained learner marks it mixed until follow-through appears.",
-      commonMistake: "Choosing either “breakout” or “reversal” too quickly when the evidence is mixed.",
-      quickNote: "In Gold, mixed evidence is a valid professional reading."
+      whyThisMatters: "Gold often creates convincing lower-timeframe candles that are not fully aligned with the broader chart.",
+      realLifeExample: "Gold jumps during New York, but the 4H chart is still near a previous rejection zone. A rushed learner calls it bullish. A trained learner marks it as active but not fully confirmed.",
+      commonMistake: "Confusing Gold’s speed with full multi-timeframe alignment.",
+      "quickNote": "In Gold, fast is not the same as confirmed."
     }
   },
   {
-    type: "debrief",
-    title: "Gold Debrief: Reading Structure Through Volatility and Context",
+    type: "visual_intro",
+    title: "Gold Debrief: Time, Volatility, Context, Alignment",
+    visualKey: "gold-roadway-debrief",
     label: "Roadway Debrief",
-    visualKey: "gold-structure-roadway-debrief",
-    body: "You are no longer reading Gold structure as fast candles and dramatic wicks. You now understand that Gold structure must be audited through volatility, reaction areas, wick source, break quality, macro context, follow-through, and higher-timeframe location. The job is to classify evidence, not react to speed.\n\n### Your Gold Competencies:\n\n* [x] Audit **Gold Structure** shaped by volatility\n* [x] Mark and judge **Wick-Heavy Swings**\n* [x] Classify **Trend and Range** under volatility noise\n* [x] Map **Reaction Zones** rather than rigid lines\n* [x] Diagnose **Sweeps and Wicks** before calling reversal\n* [x] Audit **Impulse and Pullback** structural rhythm\n* [x] Identify and wait out **News & Macro Event Distortions**\n* [x] Grade **Break Quality** via close, hold, and follow-through\n* [x] Prioritize **HTF Location** context before local action\n* [x] Read and align **Evidence Quality**: Clear, Mixed, or Unclear\n\n**Next**: Level 0 Synthesis & Verification.",
+    body: "You are no longer reading Gold candles as isolated fast moves. You now understand that every Gold candle belongs to a timeframe, every timeframe forms inside a volatility condition, and every move must be checked against market window, macro context, structure, and follow-through.",
     context: {
       keyTerms: [
-        { term: "Gold Structure", definition: "The arrangement of XAU/USD movement over time." },
-        { term: "Volatility Condition", definition: "The speed and intensity behind movement." },
-        { term: "Reaction Area", definition: "A zone where price behavior may change." },
-        { term: "Wick Source", definition: "The condition that may have created the wick." },
-        { term: "Break Quality", definition: "How reliable a break appears after review." },
-        { term: "Higher-Timeframe Location", definition: "Gold’s broader structural position." },
-        { term: "Reading Quality", definition: "Clear, mixed, or unclear." }
+        { term: "Volatility Condition", definition: "The movement environment behind the candle." },
+        { term: "Market Window", definition: "The time and condition in which the Gold candle forms." },
+        { term: "Macro Context", definition: "USD, rates, inflation, risk sentiment, and event pressure around Gold." },
+        { term: "Timeframe Alignment", definition: "When multiple timeframes support the same reading." },
+        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." },
+        { term: "Gold Evidence Stack", definition: "The combined review of timeframe, volatility, window, macro context, location, and behavior." }
       ],
-      whyThisMatters: "Gold structure reading protects learners from reacting to speed, wicks, and news movement without context.",
-      realLifeExample: "Two learners see the same Gold wick. One calls reversal. The trained learner checks reaction area, close location, follow-through, macro context, and higher-timeframe location.",
-      commonMistake: "Leaving with Gold volatility awareness but no process for classifying structure.",
-      quickNote: "Gold structure is read through volatility, location, and proof."
+      whyThisMatters: "Gold is fast enough to punish shallow reading. A learner needs a process that separates evidence from urgency.",
+      realLifeExample: "Two learners see the same 15m Gold candle. One reacts to speed. The trained learner checks market window, 4H location, macro context, close behavior, and follow-through.",
+      commonMistake: "Leaving with the idea that Gold is fast but no actual process for reading Gold timeframes.",
+      "quickNote": "Gold candles are read through time, volatility, context, and alignment."
     }
   }
 ];

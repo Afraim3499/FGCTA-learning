@@ -1,259 +1,258 @@
 import { LessonCard } from "../../../types/curriculum";
 
 /**
- * Module 0.8 - Crypto Roadway Track Cards
- * Focus: Crypto Market Location: Reading Where a Crypto Asset Is Before Trusting the Move
- * Core habit: "Before judging the crypto move, locate the asset first relative to range structure, BTC context, spot/perp alignment, and liquidity zone."
+ * Module 0.7 - Crypto Roadway Cards
+ * Focus: Crypto Market Conditions: Reading 24/7, Fragmented, Liquidity-Driven Environments
  */
 export const cryptoCards: LessonCard[] = [
   {
     type: "mission_brief",
-    title: "Crypto Location Starts With Where the Asset Is",
+    title: "Crypto Conditions Begin With Market Layers",
     label: "Crypto Foundation",
-    visualKey: "crypto-location-foundation",
-    body: "In crypto markets, the exact same candlestick, volume surge, or liquidation wick carries a completely different meaning depending on where it forms. Beginners often make the mistake of chasing strong-looking candles in random zones. A professional trading reader starts by asking: Where is the asset trading? Is it at a prior high, a prior low, a range edge, a liquidation pool (an area where many traders' automated exit orders are placed), or drifting aimlessly in the middle of a choppy range? By locating the asset first across multiple market coordinates—including BTC's own structural position—you filter out random price noise and trade with context.",
+    visualKey: "crypto-condition-foundation",
+    body: "In crypto markets, a candlestick pattern or range break does not exist in isolation. Every move is born inside a layered environment. That environment might be trending, ranging, compressing, expanding, transitioning, or choppy. But in crypto, this condition is also shaped by four powerful layers: BTC context (Bitcoin's overall market direction), spot vs perp agreement (whether physical buyers and futures traders agree on a move), liquidity depth (the amount of buy and sell orders waiting in the order book), and leverage pressure (the amount of borrowed funds in the market). A professional crypto reader does not look at a single altcoin's breakout in isolation. Before they trust any move, they ask: 'What condition is this asset in, and does the broader market layers support it?' Let's build this essential crypto filter.",
     context: {
       keyTerms: [
-        { term: "Crypto Location", definition: "The specific structural coordinate where a crypto asset is trading relative to range boundaries, prior highs/lows, and liquidity zones (areas with high order concentration)." },
-        { term: "Asset coordinates", definition: "The mapping of price levels to identify whether price is at an edge of value or in a middle noise area." },
-        { term: "Location Filter", definition: "The discipline of rejecting any candle pattern that does not form at a high-information area." },
-        { term: "Reading Quality", definition: "The reliability of a chart reading, assessed by checking context coordinates before individual candles." },
-        { term: "Market Noise", definition: "Random price fluctuations that look active but occur away from major structural decision areas." }
+        { term: "Crypto Condition", definition: "The overall state (like a trend, range, or messy sideways movement) currently shaping an asset's price action." },
+        { term: "BTC Context", definition: "The price direction and stability of Bitcoin, which shapes the behavior of all other cryptocurrencies." },
+        { term: "Spot vs Perp Agreement", definition: "When buying in the spot market (buying the actual coin) matches activity in futures markets (speculating with leverage)." },
+        { term: "Liquidity Depth", definition: "The size and volume of buy and sell orders waiting in the order book, which helps stabilize price." },
+        { term: "Leverage Pressure", definition: "The build-up of borrowed money and forced sales that can distort normal price movement." }
       ],
-      whyThisMatters: "Locating the asset first prevents you from chasing random, volatile candles that have no institutional order backing.",
-      realLifeExample: "Solana prints a massive 5% green candle. Before buying, you map the chart: if this candle forms in the dead center of a weekly range, you ignore it. If it forms right at a swept range low, you study it closely.",
-      commonMistake: "Focusing entirely on how fast or large a candle looks while ignoring that it formed in a low-information middle zone.",
-      quickNote: "Good crypto reading starts by locating the asset first."
+      whyThisMatters: "Without identifying the crypto condition first, you will constantly buy perp-driven spikes (expecting trend continuation) and sell liquidation wicks (expecting structural reversals).",
+      realLifeExample: "You see SOL spike 5% in 10 minutes. If you identify the condition as a spot-supported expansion with BTC trending, you expect continuation. If you identify it as a perp-only spike during thin weekend liquidity, you expect it to fade. The candle is the same; the environment changes the reading.",
+      commonMistake: "Trading an altcoin breakout without checking if Bitcoin is in transition or if the breakout is purely driven by futures liquidations.",
+      quickNote: "Slow down and name the crypto condition first. The environment is the translator of the move."
     }
   },
   {
     type: "visual_intro",
-    title: "BTC Location Can Change the Altcoin Reading",
-    label: "BTC Location Context",
-    visualKey: "crypto-btc-location-context",
-    body: "Altcoins do not trade in a vacuum. Because Bitcoin commands the majority of crypto capital flows, BTC's structural location acts as a strong pulling force. If an altcoin looks like it is breaking out of a strong range, but BTC is sitting directly under a major daily resistance ceiling, the altcoin's breakout is unstable. A rejection at BTC's local resistance will pull the entire altcoin market down. To read an altcoin's location with high quality, you must always overlay BTC's context.",
+    title: "BTC Context Shapes the Crypto Environment",
+    label: "BTC Context",
+    visualKey: "crypto-btc-condition-map",
+    body: "Bitcoin is the index of the crypto market. It dictates the overall environment. An altcoin (any cryptocurrency other than Bitcoin) can print a beautiful structure break, but if Bitcoin is stuck below resistance, transitioning, or choppy, the altcoin's breakout is fragile. A clean altcoin trend condition requires a healthy, stable, or trending Bitcoin environment. If Bitcoin wobbles or rejects structure, the altcoin's reading quality immediately drops to mixed or unstable. BTC context is not there to confuse you. It helps you understand the market around the coin.",
     context: {
       keyTerms: [
-        { term: "BTC Gravity", definition: "Bitcoin's tendency to drag or push other cryptocurrencies with it depending on its own location." },
-        { term: "BTC Location Context", definition: "Checking where Bitcoin is trading relative to its own key ranges and daily swing extremes." },
-        { term: "Context Conflict", definition: "When an altcoin has a strong setup but BTC is at a high-risk, weak location, lowering the reading quality." },
-        { term: "Context Alignment", definition: "When both BTC and the altcoin are at compatible structural locations, supporting the move." },
-        { term: "Altcoin Dependency", definition: "The structural reality that altcoins rarely sustain independent breakouts when Bitcoin runs out of trend strength." }
+        { term: "BTC Dominance", definition: "Bitcoin's share of the total market value of all cryptocurrencies combined." },
+        { term: "Beta Relationship", definition: "How fast and far an altcoin moves compared to Bitcoin's price swings." },
+        { term: "Correlated Volatility", definition: "The tendency of other coins to mirror Bitcoin's sudden price swings with much larger moves." },
+        { term: "Market Sentiment Filter", definition: "Using Bitcoin's health to judge the risk appetite of the entire market." },
+        { term: "Altcoin Vulnerability", definition: "The danger of an altcoin's price collapsing solely because Bitcoin suddenly dropped." }
       ],
-      whyThisMatters: "Checking BTC location saves you from buying altcoin breakouts right as Bitcoin prepares to reject its daily highs.",
-      realLifeExample: "Ethereum is testing its range high. You check BTC and see it is consolidating comfortably above its support floor. This alignment increases the quality of the Ethereum breakout setup.",
-      commonMistake: "Trading an altcoin breakout in isolation without checking whether Bitcoin is at a major resistance ceiling.",
-      quickNote: "BTC location helps you avoid reading an altcoin like it lives alone."
+      whyThisMatters: "Respecting BTC context prevents you from buying clean altcoin breakouts right as Bitcoin is about to drop, which invalidates all local evidence.",
+      realLifeExample: "ETH attempts to break out of a range. You check BTC and see it has just hit its major range ceiling and is showing rejection. You recognize that the ETH breakout lacks supporting environment, so you stay aside.",
+      commonMistake: "Analyzing an altcoin in a vacuum, completely ignoring whether Bitcoin is in a stable or dangerous condition.",
+      quickNote: "BTC context helps you avoid reading an altcoin in isolation. When the king moves, the court follows."
     }
   },
   {
     type: "visual_intro",
-    title: "Crypto Range Edges Matter More Than the Middle",
-    label: "Range Edge vs Middle",
-    visualKey: "crypto-range-edge-vs-middle",
-    body: "Crypto assets spend a vast amount of time consolidating inside local ranges. Within these structures, the outer edges represent areas of high information, while the center zone is noise. Edges represent areas where buyers and sellers defend price or capitulate, providing clean behavioral coordinates. The middle of the range represents price balance, where retail buyers and sellers chop price back and forth. A strong candle in the middle of a range should be devalued because the location lacks order density.",
+    title: "Spot-Supported Conditions Are Cleaner Than Perp-Only Pushes",
+    label: "Spot vs Perp",
+    visualKey: "crypto-spot-perp-condition-board",
+    body: "Crypto price action is split between two major venues: spot markets (buying the actual asset) and perpetual futures (speculating with leverage). A high-quality, stable market condition is spot-supported, meaning physical buyers are actively accumulating. In contrast, perp-driven conditions are fueled by leverage, funding rate pressures (periodic fees paid between futures buyers and sellers), and short-term speculation. While perp-only spikes can look fast and powerful on a chart, they are highly fragile and tend to reverse completely. A trained learner checks whether a move is backed by real spot volume or perp pressure.",
     context: {
       keyTerms: [
-        { term: "Range Edges", definition: "The extreme high and low boundaries of a consolidation zone where institutional decisions happen." },
-        { term: "Middle Zone Noise", definition: "The center area of a range where price drifts randomly without structural significance." },
-        { term: "Equilibrium", definition: "A state of price balance where buying and selling pressures match, producing choppy, sideways behavior." },
-        { term: "Order Density", definition: "The clustering of buy and sell orders that naturally occurs at range extremes." },
-        { term: "Location Devaluation", definition: "Treating candle evidence as low priority because it forms away from range edges." }
+        { term: "Spot Market", definition: "Directly buying and owning the actual cryptocurrency tokens with no leverage." },
+        { term: "Perpetual Futures (Perps)", definition: "Futures contracts that never expire, allowing traders to bet on price using borrowed money." },
+        { term: "Spot Premium", definition: "A state where the actual coin price is higher than its futures contract price, showing real buying." },
+        { term: "Funding Rate Pressure", definition: "Periodic fees paid between buyers and sellers in the futures market that can force them to close trades." },
+        { term: "Leverage Exhaustion", definition: "A quick move driven by borrowed money that runs out of steam and rapidly reverses." }
       ],
-      whyThisMatters: "Focusing on range edges keeps you from overtrading inside mid-range chop where price has no directional advantage.",
-      realLifeExample: "Cardano is trading inside a range from $0.45 to $0.50. It prints a fast green candle at $0.475. You ignore it because it is in the noisy middle zone.",
-      commonMistake: "Chasing a large green candle in the middle of a range, only for price to instantly reverse back toward the center.",
-      quickNote: "The middle often gives fewer answers. In crypto, it can also be where noise looks more exciting than it is."
+      whyThisMatters: "Distinguishing spot-supported environments from perp-driven squeezes saves you from buying the absolute top of leverage-fueled pumps.",
+      realLifeExample: "SOL spikes 8%. You check spot order books and see very little buying, but futures open interest has jumped $50M. You classify the environment as an unstable perp-driven spike, expecting it to fade.",
+      commonMistake: "Chasing a high-speed breakout that is driven purely by perp leverage, ignoring the lack of spot participation.",
+      quickNote: "Perp movement can exaggerate what the wider market is doing. Look for spot agreement to confirm the condition."
     }
   },
   {
     type: "visual_intro",
-    title: "Prior Highs and Lows Become Crypto Location References",
-    label: "Prior High / Prior Low",
-    visualKey: "crypto-prior-high-low-location",
-    body: "Prior highs and lows are the coordinates of previous market turnarounds. In crypto, these landmarks are highly visible, attracting resting orders, liquidations, and stop-losses. However, they are not magic walls where price must reverse. Instead, they are reference zones to watch for behavior. When price tests a prior high, you must wait to see if price rejects, sweeps and returns inside, or accepts the location and consolidates above.",
+    title: "Crypto Compression Can Build Quiet Pressure",
+    label: "Crypto Compression",
+    visualKey: "crypto-compression-condition",
+    body: "Crypto markets are highly cyclical, moving from quiet compression to explosive expansion. Compression happens when price swings narrow, candles shrink in size, and volume fades. During compression, orders are accumulating on both CEX and DEX (centralized and decentralized exchange) order books. Beginners see a coin stuck in a flat squeeze and get bored, or they guess a breakout direction to force a trade. This is a gamble. Compression does not predict direction. It is a condition that says: 'Movement is tightening. Wait to see what price proves next.'",
     context: {
       keyTerms: [
-        { term: "Prior Swing Landmarks", definition: "Historical peaks or valleys where buying or selling pressure previously caused a reversal." },
-        { term: "Location Reference", definition: "Using historical boundaries to observe current behavior rather than predict immediate pivots." },
-        { term: "Breakout Acceptance", definition: "When price closes beyond a prior high and establishes a new consolidation base." },
-        { term: "Rejection Wick", definition: "A candle showing price tested a level but closed far from it, leaving a long upper/lower wick." },
-        { term: "Coordinate Test", definition: "The moment price returns to a historical swing high or low to test if buyers or sellers will defend it." }
+        { term: "Crypto Compression", definition: "A quiet market state where price swings shrink within a narrowing corridor." },
+        { term: "Volatility Cycle", definition: "The pattern of the market shifting from quiet contraction to explosive breakouts." },
+        { term: "Order Book Coiling", definition: "The build-up of buy and sell orders waiting in a very narrow price zone." },
+        { term: "Squeeze Trigger", definition: "The final point of compression where price is forced to break out." },
+        { term: "Directional Neutrality", definition: "Accepting that a tight squeeze does not tell you which direction the breakout will go." }
       ],
-      whyThisMatters: "Treating prior highs and lows as reference points instead of reversal lines prevents you from taking blind counter-trend trades.",
-      realLifeExample: "BTC rises to its prior weekly high. Instead of shorting immediately, you watch the 1-hour candles: if they wick and close back below, rejection behavior is confirmed.",
-      commonMistake: "Placing immediate buy or sell orders exactly at prior highs or lows without waiting for close behavior.",
-      quickNote: "A prior high is not a prediction of a bounce. It is a landmark to watch for behavior."
+      whyThisMatters: "Classifying a coin as compressing stops you from entering trades in a flat, sideways market with no momentum.",
+      realLifeExample: "BTC moves in a tiny $200 range for three days. You classify the condition as compression. You do not trade; you wait for a clean expansion push to verify direction.",
+      commonMistake: "Assuming a tightening wedge must break upward because you feel bullish, rather than waiting for the breakout to print.",
+      quickNote: "Compression is not a prediction. It is a condition that says, 'Wait to see what price proves next.'"
     }
   },
   {
     type: "visual_intro",
-    title: "Liquidity Areas Are Locations, Not Predictions",
-    label: "Liquidity Location",
-    visualKey: "crypto-liquidity-location",
-    body: "In crypto, liquidity clusters—resting stop-losses, buy stops, and liquidations—often build up around highly visible structures like equal highs and equal lows. The market frequently sweeps these areas to match orders. However, these zones do not guarantee a reversal. A sweep is simply an event at a coordinate. The Lurnava reader checks whether price returns inside the range after a sweep (proving rejection) or holds beyond it (proving acceptance).",
+    title: "Crypto Expansion Can Be Clean or Unstable",
+    label: "Crypto Expansion",
+    visualKey: "crypto-expansion-quality",
+    body: "When price exits a compression zone or range, the market shifts into an expansion condition. But crypto expansion is often wobbly. A clean expansion is supported by spot buying, stable funding rates, and a clean close that holds outside the breakout level. An unstable expansion is fueled by leveraged futures chasing, leaving long wicks, and failing to hold outside the boundary. A trained crypto learner does not chase the spike. They ask: 'Did expansion cleanly break, and does it hold?'",
     context: {
       keyTerms: [
-        { term: "Liquidity Sweep", definition: "A price spike that temporarily spikes past a key level, triggers resting stop orders, and then moves back." },
-        { term: "Equal Highs / Lows", definition: "Double tops or double bottoms that create highly obvious liquidity boundaries." },
-        { term: "Capitulation Volume", definition: "High volume during a sweep, indicating that traders who are forced to close their positions are matching with institutional buyers." },
-        { term: "Sweep and Hold", definition: "A sweep that fails to return inside, indicating the breakout has succeeded and accepted the new level." },
-        { term: "Stop Cluster", definition: "A concentration of automatic exit orders (stop-losses) sitting just outside obvious swing highs or lows." }
+        { term: "Crypto Expansion", definition: "The sudden release of price movement as it breaks past a squeeze boundary." },
+        { term: "Hold Verification", definition: "Checking if subsequent candles stay outside the broken boundary level." },
+        { term: "Expansion Quality", definition: "Classifying a breakout as clean (spot-supported) or unstable (perp-driven)." },
+        { term: "Breakout Fade", definition: "When a breakout spike fails to hold and collapses back inside the previous range." },
+        { term: "Leverage Chase", definition: "A rapid spike driven by futures traders chasing a breakout with borrowed money." }
       ],
-      whyThisMatters: "Understanding liquidity coordinates stops you from panic-selling sweeps that are actually institutional order matches.",
-      realLifeExample: "ETH drops below equal lows, triggers liquidations with a large wick, but closes the hourly candle back above the floor. You recognize this as a liquidity sweep rejection.",
-      commonMistake: "Assuming a sweep will always lead to a reversal, or selling a breakdown right into a major liquidity sweep floor.",
-      quickNote: "A liquidity area is not a prediction. It is a place to observe behavior."
+      whyThisMatters: "Evaluating expansion quality protects you from FOMO-buying a fake breakout that collapses the minute leverage exhausts.",
+      realLifeExample: "DOT spikes 10% above its range high. You check the next hour's close. The candle closes back inside the range, and futures funding is highly positive. You label the expansion unstable and stay safe.",
+      commonMistake: "Chasing the first fast breakout candle without waiting to see if subsequent candles hold the new price level.",
+      quickNote: "The move happened. Now check whether the market supports it. A fast move is not always a clean move."
     }
   },
   {
     type: "visual_intro",
-    title: "Spot and Perp Location Can Disagree",
-    label: "Spot vs Perp Location",
-    visualKey: "crypto-spot-perp-location-disagreement",
-    body: "Because crypto is heavily leveraged, derivative (perp) markets (leveraged contracts that track the spot price without ownership) can experience massive liquidation wicks or spikes that do not exist on the spot market. If you see a token break out on a perp chart, but the spot chart shows price remaining below the range edge, the location is conflicted. Leverage pressure is temporarily distorting the perp coordinates. High-quality location requires agreement between both spot and perp structures.",
+    title: "Liquidation Conditions Can Fake Clarity",
+    label: "Liquidation Environment",
+    visualKey: "crypto-liquidation-condition",
+    body: "Because crypto is heavily leveraged, sudden price moves often trigger liquidation cascades (forced liquidations of trading accounts). When short sellers are forced to buy back, or long buyers are forced to sell, price prints massive, fast candles with long wicks. Beginners look at these huge candles and assume a new trend has started. This is a trap. A liquidation move is a forced mechanical event, not organic institutional direction. Once the liquidation loop ends, price often snaps back completely. A liquidation condition is unstable until proven otherwise.",
     context: {
       keyTerms: [
-        { term: "Spot Market", definition: "The market where crypto is bought and sold for immediate delivery, representing real asset demand." },
-        { term: "Perpetual Futures (Perps)", definition: "Leveraged trading contracts that track the underlying asset price without expiration or ownership." },
-        { term: "Leverage Distortion", definition: "When perp prices briefly spike far beyond spot prices due to leverage and automated liquidations." },
-        { term: "Venue Disagreement", definition: "When different markets (spot and perps) display conflicting structures or boundaries." },
-        { term: "Structural Agreement", definition: "When spot and perp charts confirm the same location test and close quality simultaneously." }
+        { term: "Liquidation Cascade", definition: "A chain reaction of forced account closures that drives price rapidly in one direction." },
+        { term: "Forced Order Flow", definition: "Orders executed automatically by exchange computers rather than human decision." },
+        { term: "Liquidation Wick", definition: "A long wick left behind after a rapid spike and instant snapback." },
+        { term: "Open Interest Collapse", definition: "A sharp drop in total active futures contracts as leverage gets cleared out." },
+        { term: "Mechanical Distortion", definition: "Price spikes caused by automated systems rather than people buying or selling." }
       ],
-      whyThisMatters: "Cross-checking spot and perp locations protects you from buying fake perp breakouts driven purely by leverage-driven squeezes (when rising prices force sellers who borrowed assets to buy them back, causing a faster rally).",
-      realLifeExample: "SOL perp spikes above range high during a leverage-driven squeeze. You check the Coinbase spot chart and see price stayed 0.5% below the high. You ignore the perp breakout.",
-      commonMistake: "Trading perp charts in isolation without checking if spot volume is actually backing the breakout location.",
-      quickNote: "Spot and perp agreement can make a location reading cleaner."
+      whyThisMatters: "Understanding liquidation conditions stops you from chasing wicks and teaches you to wait for price to stabilize.",
+      realLifeExample: "ETH drops $100 in 2 minutes, leaving a massive lower wick, then returns to its original price. You recognize this as a liquidation cascade. You do not panic; you wait for structure to settle.",
+      commonMistake: "Panic-selling a sudden drop that is driven purely by a forced liquidation cascade, selling at the absolute bottom.",
+      quickNote: "A liquidation wick is a forced exit, not a fresh entry. Let the dust settle before you read the chart."
     }
   },
   {
     type: "visual_intro",
-    title: "DEX Location Can Be Thin and Misleading",
-    label: "DEX / CEX Location",
-    visualKey: "crypto-dex-cex-location",
-    body: "Crypto liquidity is fragmented. Small-cap altcoins trading on decentralized exchanges (DEXs — peer-to-peer trading platforms) can print extreme spikes and wicks due to low pool liquidity or single large swaps. These wicks reflect local pool imbalances, not global market agreements. If a token wicks 20% on a DEX but remains flat on centralized exchanges (CEXs), the DEX location is thin and misleading. Always check whether the wider market supports the venue-specific movement.",
+    title: "Low-Liquidity Conditions Make Crypto Noisier",
+    label: "Thin Liquidity",
+    visualKey: "crypto-thin-liquidity-condition",
+    body: "Crypto trades 24/7, but market participation is not equal. During weekends, holidays, or late New York hours, liquidity in order books dries up. In a thin liquidity environment, even small buy or sell orders can cause large, erratic price spikes. These moves look significant on a chart, but they represent very low market agreement. In thin liquidity conditions, candles are noisy, wicks are common, and follow-through is extremely rare. A trained learner lowers reading confidence when liquidity is low.",
     context: {
       keyTerms: [
-        { term: "DEX Liquidity Pool", definition: "A pool of locked funds on a decentralized platform that allows trading without a central broker." },
-        { term: "CEX Centralized Market", definition: "A centralized exchange (like Binance) where buy and sell orders are matched on a central database." },
-        { term: "Thin Liquidity Wick", definition: "An extreme price spike caused by a single transaction draining a shallow liquidity pool." },
-        { term: "Venue Discrepancy", definition: "A difference in price or wick extremes between DEX pools and centralized exchanges." },
-        { term: "Market Agreement", definition: "When multiple exchanges and pools print similar price coordinates, confirming broad flow." }
+        { term: "Thin Liquidity", definition: "A market state where there are very few buy or sell orders waiting in the order book." },
+        { term: "Order Book Spread", definition: "The gap between the highest buy order and the lowest sell order on an exchange." },
+        { term: "Weekend Volatility", definition: "Erratic price swings that happen on weekends when major banks and institutions are closed." },
+        { term: "Slippage Spike", definition: "A sudden price spike caused by an order eating through a thin order book." },
+        { term: "Market Agreement", definition: "The level of consensus and volume backing a specific price move." }
       ],
-      whyThisMatters: "Recognizing thin DEX wicks prevents you from interpreting local pool imbalances as significant market trends.",
-      realLifeExample: "A meme coin wicks down 15% on Uniswap due to a single large sell order, but Uniswap V3 and CEX order books show no drop. You ignore the Uniswap wick.",
-      commonMistake: "Panic-selling a major wick on a DEX chart without verifying if it exists on CEX charts or other liquid venues.",
-      quickNote: "A DEX wick may be real movement, but it may not represent the whole market."
+      whyThisMatters: "Identifying thin liquidity environments keeps you from trading weekend noise that will likely be reversed when institutions return on Monday.",
+      realLifeExample: "An altcoin spikes 6% on Sunday afternoon. You check order book depth and find it is extremely thin. You classify the environment as noisy and thin, ignoring the breakout.",
+      commonMistake: "Treating weekend or late-night spikes with the same confidence as high-volume, liquid weekday breakouts.",
+      quickNote: "If liquidity is thin, your confidence should drop. Low volume makes price move easily but hold poorly."
     }
   },
   {
     type: "visual_intro",
-    title: "Breakout Location Needs Acceptance, Not Just Crossing",
-    label: "Breakout Location",
-    visualKey: "crypto-breakout-location-acceptance",
-    body: "Crossing a range edge or prior high is only the beginning of a breakout question. In crypto, price frequently crosses a level briefly to tap liquidity, only to reverse. To confirm the new location is accepted, you must watch the behavior: does price close outside the edge with a solid body? Does it hold its value on subsequent candles? A breakout location without acceptance is simply an overshoot trap.",
+    title: "Crypto Chop Punishes Directional Assumptions",
+    label: "Crypto Chop",
+    visualKey: "crypto-choppy-condition-warning",
+    body: "A choppy crypto condition occurs when price moves sideways with no structure. Candles overlap constantly, wicks form on both sides, and mini-breaks are immediately reversed. This is where beginners lose the most money by trying to predict breakouts that never happen. A trained learner does not force a clear bias on a choppy chart. They accept that the market is messy, label the condition unclear, and protect their capital by standing aside.",
     context: {
       keyTerms: [
-        { term: "Breakout Crossing", definition: "The moment price crosses a key structural boundary, which is often a false breakout attempt." },
-        { term: "Acceptance Hold", definition: "When price consolidates outside a boundary, establishing a new support or resistance floor." },
-        { term: "Overshoot Trap", definition: "A brief breach of a boundary designed to trap breakout traders before reversing." },
-        { term: "Consolidation Base", definition: "A cluster of tight candles holding above a level, proving the price is accepted." },
-        { term: "Follow-through", definition: "Subsequent high-volume candles moving in the direction of the breakout, confirming trend." }
+        { term: "Crypto Chop", definition: "A messy sideways state with overlapping swings and no clear direction." },
+        { term: "Wick Noise", definition: "Frequent long wicks on both sides of candles, showing no clear control." },
+        { term: "Pattern Degradation", definition: "The breakdown of standard shapes (like ranges or triangles), making them useless." },
+        { term: "Capital Protection", definition: "Keeping your trading funds safe by avoiding choppy environments." },
+        { term: "Reading Quality: Unclear", definition: "Classifying the market as unreadable when clues are highly conflicting." }
       ],
-      whyThisMatters: "Waiting for proof of acceptance saves you from buying breakout wicks that instantly pull back inside the range.",
-      realLifeExample: "Polkadot crosses the range ceiling of $6.50. You do not buy. You wait for the 4-hour candle to close. It closes at $6.52, and the next candle consolidates. This proves acceptance.",
-      commonMistake: "Chasing a breakout the second price crosses a line, instead of waiting for candle closes to confirm acceptance.",
-      quickNote: "Crossing the line starts the question. Holding the location helps answer it."
+      whyThisMatters: "Recognizing a choppy environment prevents you from getting chopped up by endless false breakouts and small losses.",
+      realLifeExample: "SOL bounces between $100 and $103 for two days, printing overlapping wicks. You identify the chop condition, classify the reading as unclear, and close the chart.",
+      commonMistake: "Forcing a bullish or bearish trade on a chart that is clearly in a random, unstructured chop state.",
+      quickNote: "Chop is not a failure to understand. Sometimes the market is simply not clean."
     }
   },
   {
     type: "visual_intro",
-    title: "Crypto Location First, Market Layer Second",
-    label: "Location Workflow",
-    visualKey: "crypto-location-first-workflow",
-    body: "To read crypto like a professional, you must train your eyes to follow a strict top-down workflow. Never zoom in on individual candle shapes until you have mapped the coordinates. First, identify if the asset is at a range edge, prior swing high/low, or midpoint noise. Second, check BTC's current location. Third, cross-check spot vs perp coordinates. Fourth, evaluate if the location behavior is showing rejection or acceptance. Only then do you draw a conclusion.",
+    title: "Crypto Condition First, Break Second",
+    label: "Reading Workflow",
+    visualKey: "crypto-condition-first-workflow",
+    body: "How does a professional audit a crypto chart? They do not look at a breakout candle first. They follow a disciplined checklist: Zoom out. Classify the overall asset condition. Check BTC context. Verify spot vs perp support. Check liquidity depth. Zoom in. Audit the local candle close quality. Check for follow-through holds. Classify reading quality. By running this filter, you ensure you never trade an isolated candle without knowing the condition around it.",
     context: {
       keyTerms: [
-        { term: "Location Workflow", definition: "A systematic audit checklist that prioritizes price coordinates over candle shapes." },
-        { term: "Coordinate Scan", definition: "Mapping the asset's position relative to range limits, daily swings, and liquidity pools." },
-        { term: "BTC Overlay", definition: "Checking BTC's structural location to confirm if the macro trend supports the altcoin." },
-        { term: "Leverage Cross-Check", definition: "Comparing spot and perp charts to ensure the move is backed by real capital, not perp leverage." },
-        { term: "Behavior Verification", definition: "Analyzing local wicks and closes only after location quality has been approved." }
+        { term: "Crypto Workflow", definition: "The step-by-step audit process starting from BTC context down to the individual candle." },
+        { term: "Environmental Priority", definition: "The rule that the overall market state always overrules local candle shapes." },
+        { term: "Multi-Venue Verification", definition: "Checking both spot and futures markets to confirm if a breakout is real." },
+        { term: "Follow-through Hold", definition: "Verifying that subsequent candles stay outside the broken level." },
+        { term: "Reading Quality Audit", definition: "Checking if clues align to give a clear, mixed, or unclear reading." }
       ],
-      whyThisMatters: "Following a structured workflow ensures you remain objective and prevents you from forcing setups in low-information zones.",
-      realLifeExample: "You open the AVAX chart. Instead of looking at the green candle, you map: Asia session high, daily swing lows, check BTC's location, and cross-reference spot. Only then do you read the AVAX candles.",
-      commonMistake: "Analyzing candle wicks and bodies before identifying where they are on the daily map.",
-      quickNote: "Slow down and locate the asset first."
+      whyThisMatters: "Following this workflow prevents you from jumping into false setups driven by isolated, low-quality breakouts.",
+      realLifeExample: "You see an altcoin break a level. You follow the workflow: check BTC (choppy), check spot vs perp (perp-only), check liquidity (thin). You classify it as mixed/unstable and avoid the trap.",
+      commonMistake: "Jumping directly into a local breakout candle without checking BTC context or spot volume first.",
+      quickNote: "Never audit a candle until you have named the room it is standing in."
     }
   },
   {
     type: "practice",
-    title: "Practice Drill: Is This Crypto Location Useful or Weak?",
+    title: "Practice Drill: What Crypto Condition Is This Asset In?",
     label: "Practice Drill",
-    visualKey: "crypto-location-quality-practice-drill",
-    body: "Test your crypto location-reading discipline on this scenario: An altcoin prints a strong green candle on the 15-minute chart, closing near its high. However, price is in the middle of its local range. BTC is sitting directly under daily resistance, and the spot chart shows no confirmation of the perp movement. How should you read this location?",
+    visualKey: "crypto-condition-practice-drill",
+    body: "Let's put your crypto condition-reading skills to the test. In this drill, we present a realistic market scenario involving an altcoin breakout attempt, BTC context, spot/perp alignment, and liquidity. Read the clues carefully, apply your environmental filters, and choose the most disciplined reading.",
     taskData: {
       type: "choice_block",
-      question: "An altcoin prints a strong green candle on the 15-minute chart, closing near its high. However, price is in the middle of its local range. BTC is sitting directly under daily resistance, and the spot chart shows no confirmation of the perp movement. What is the most disciplined crypto location reading?",
+      question: "An altcoin was compressing inside a tight range. It suddenly breaks above the range with a strong candle. BTC is flat below a major resistance. The perp chart shows a much sharper move with rising open interest, but the spot chart shows very little buying volume. Liquidity looks thin on the order books, and the next candle stalls instead of continuing cleanly. What is the most disciplined crypto condition reading?",
       options: [
         {
           id: "A",
-          text: "Clear bullish reading because the altcoin printed a strong candle near its high, showing immediate buyer control.",
+          text: "Clean expansion condition because the altcoin broke above the range.",
           isCorrect: false,
-          feedback: "Incorrect. The candle is active, but its location in the middle of the range, combined with BTC's resistance hurdle, devalues the quality to noise."
+          feedback: "Incorrect. The break matters, but expansion is not clean until broader evidence supports it. Here, BTC is flat at resistance, spot volume is weak, perps are leading, and follow-through is stalling."
         },
         {
           id: "B",
-          text: "Strong location because any large crypto candle represents high institutional volume and must be traded.",
+          text: "Clean trend condition because the breakout candle was strong.",
           isCorrect: false,
-          feedback: "Incorrect. Not all crypto chart areas carry equal weight. Location changes how useful the evidence is; in the middle of a range, it is highly random."
+          feedback: "Incorrect. One strong candle does not create a full trend condition. Trends require session support and structured follow-through, which are missing here."
         },
         {
           id: "C",
-          text: "Weak or mixed location because the move formed in the middle of the range, BTC is at a difficult location, and spot/perp support is not clean.",
+          text: "Mixed / unstable expansion because the move happened, but BTC context, spot support, liquidity, and follow-through are not clean.",
           isCorrect: true,
-          feedback: "Correct! This is a weak or mixed location. The altcoin moved in the middle of its range, BTC is under daily resistance, and the move lacks spot market backing."
+          feedback: "Correct! The move occurred, but the flat BTC context, perp-driven leverage, thin liquidity, and stalled follow-through mean the condition is mixed or unstable. It is not a clean expansion."
         },
         {
           id: "D",
-          text: "Guaranteed reversal because BTC is under resistance and the altcoin must drop immediately.",
+          text: "Guaranteed reversal because the next candle stalled.",
           isCorrect: false,
-          feedback: "Incorrect. BTC resistance does not guarantee an immediate reversal. It only makes the altcoin reading more cautious, urging you to stand aside."
+          feedback: "Incorrect. Stalling and weak follow-through lower the quality of the condition reading, but they do not guarantee a reversal. Avoid predictive, absolute statements."
         }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Midpoint Noise", definition: "The central portion of a range where price action is highly random and lacks direction." },
-        { term: "BTC Resistance Barrier", definition: "A daily swing ceiling on BTC that acts as an obstacle for the entire altcoin market." },
-        { term: "Leverage Pump", definition: "A temporary price spike on perp markets driven by short liquidations, lacking spot market support." },
-        { term: "Discipline Stand-Aside", definition: "Refusing to take trades on active-looking candles due to poor location quality." },
-        { term: "Range Rotation Rule", definition: "The tendency of price to chop and rotate through range centers rather than expand." }
+        { term: "Divergent Breakout", definition: "When one coin breaks a level but Bitcoin is moving in the opposite direction." },
+        { term: "Leverage-Fueled Spike", definition: "A price spike driven by borrowed money rather than actual buying of the coin." },
+        { term: "Stalled Follow-Through", definition: "When price stops moving in the breakout direction immediately after the first candle." },
+        { term: "Unstable Condition", definition: "An environment that is highly vulnerable to rapid reversals." },
+        { term: "Disciplined Classifier", definition: "Naming the market environment based on clear evidence rather than FOMO (fear of missing out)." }
       ],
-      whyThisMatters: "This drill trains you to resist the visual temptation of trading large candles that have no structural backup.",
-      realLifeExample: "You see Solana print a green candle. You note it is in the range center and BTC is at weekly resistance. You close the chart and do nothing.",
-      commonMistake: "Chasing a breakout inside range midpoint noise because a single candle looked fast.",
-      quickNote: "A big candle in the middle of a range is just noise trying to look like a move."
+      whyThisMatters: "This drill trains you to cross-reference multiple crypto layers so you don't fall for isolated altcoin breakouts that lack organic market support.",
+      realLifeExample: "An altcoin breaks out, but spot volume is low and funding rates are extremely high. You classify it as unstable, avoiding a loss when price crashes back down.",
+      commonMistake: "Buying a breakout based solely on the altcoin's chart, without checking DXY, BTC, or futures open interest.",
+      quickNote: "If the spot volume is missing and BTC is flat, the breakout is likely built on sand."
     }
   },
   {
     type: "debrief",
-    title: "Debrief: Locate the Crypto Asset Before Trusting the Move",
+    title: "Debrief: Read the Crypto Condition Before the Move",
     label: "Crypto Debrief",
-    visualKey: "crypto-location-debrief",
-    body: "Congratulations! You have completed the Module 0.8 Crypto Roadway track. You have built a critical analytical filter: Location Awareness. Remember, a crypto candle is only as useful as the coordinate it occupies. By filtering out range midpoints, overlaying BTC context, cross-checking spot vs perp venues, and watching for behavioral acceptance, you read markets with institutional objectivity. Keep this checklist at the front of your mind.",
+    visualKey: "crypto-condition-debrief",
+    body: "Congratulations! You have completed the Level 0 Module 0.7 Crypto Roadway. You have shifted your perspective from chasing individual candles to auditing the overall crypto environment. You now understand that BTC context, spot/perp alignment, liquidity depth, leverage pressure, structure, and follow-through dictate the validity of every technical setup. Carry this environmental filter with you whenever you open a digital asset chart.",
     context: {
       keyTerms: [
-        { term: "Location Checklist", definition: "The habit of auditing range limits, BTC status, and spot/perp alignment before reading candles." },
-        { term: "BTC Overlay Filter", definition: "Using BTC's structural location to confirm if the market environment supports altcoin expansion." },
-        { term: "Spot/Perp Alignment", definition: "Verifying that derivative moves are supported by spot volume and actual asset demand." },
-        { term: "Consolidation Base", definition: "A cluster of candles proving price has accepted the area beyond a prior swing." },
-        { term: "Reading Quality", definition: "Classifying a chart setup as clear, mixed, or unclear based on structural locations." }
+        { term: "Environmental Filter", definition: "Naming the overall market environment and BTC context before auditing local candles." },
+        { term: "Multi-Venue Audit", definition: "Checking altcoin structure, BTC direction, and spot/futures volume together." },
+        { term: "Follow-through Verification", definition: "Checking if subsequent candles hold the new price level to confirm a breakout." },
+        { term: "Condition Adaptability", definition: "Changing your reading rules immediately when price shifts from trending to ranging." },
+        { term: "Capital Preservation", definition: "Protecting your trading funds by walking away when the market is choppy." }
       ],
-      whyThisMatters: "Location awareness is your ultimate shield. It prevents you from taking low-quality trades inside range chop, protecting your capital for prime conditions.",
-      realLifeExample: "A professional crypto trader opens a chart, notes that BTC is consolidating in the middle of its daily range, and logs out without trading.",
-      commonMistake: "Forgetting the location workflow when a fast candle prints, leading to impulsive trades in noisy areas.",
-      quickNote: "Do not ask only whether the crypto candle is strong. Ask where the asset is."
+      whyThisMatters: "Condition awareness is the ultimate filter. It separates clean spot-supported moves from unstable leverage traps.",
+      realLifeExample: "You open an altcoin chart. Before looking at the current candle, you note that BTC is choppy and funding is positive. You recognize wicks are likely noise and wait.",
+      commonMistake: "Forgetting to check the BTC context and trading altcoin ranges as if they were high-momentum trends.",
+      quickNote: "Do not ask what the crypto candle is doing. Ask what condition the asset is in, and what market layer created it."
     }
   }
 ];

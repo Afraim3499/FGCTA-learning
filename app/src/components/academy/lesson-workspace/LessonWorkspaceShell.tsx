@@ -48,6 +48,7 @@ interface LessonWorkspaceShellProps {
   onNextModule?: () => void;
   /** Each track's cards — used to switch content when track changes */
   trackCards?: Record<string, CardData[]>;
+  logicIds?: string[];
 }
 
 export function LessonWorkspaceShell({
@@ -63,6 +64,7 @@ export function LessonWorkspaceShell({
   interactiveTaskData,
   onComplete,
   onNextModule,
+  logicIds,
 }: LessonWorkspaceShellProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -221,6 +223,7 @@ export function LessonWorkspaceShell({
               context={currentCard.context}
               objective={currentCard.objective}
               cardType={currentCard.type}
+              logicIds={logicIds}
             />
           </div>
         </main>
@@ -231,6 +234,7 @@ export function LessonWorkspaceShell({
             context={currentCard.context}
             objective={currentCard.objective}
             cardType={currentCard.type}
+            logicIds={logicIds}
           />
         </div>
       </div>

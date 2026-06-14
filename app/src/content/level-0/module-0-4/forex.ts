@@ -2,211 +2,162 @@ import { LessonCard } from "../../../types/curriculum";
 
 export const forexCards: LessonCard[] = [
   {
-    type: "visual_intro",
-    title: "Forex Timeframes Are Session Records",
-    visualKey: "forex-session-timeframe-board",
-    label: "Forex Foundation",
-    body: "A 15-minute candle records 15 minutes of activity. But in the Foreign Exchange (Forex) market, those 15 minutes are not equal across the day. A candle formed during quiet Asia, London open, New York overlap, or major news does not carry the same environment. \n\n**The Formula**: timeframe + session = reading environment",
-    context: {
-      keyTerms: [
-        { term: "Forex Session", definition: "A major trading window such as Asia, London, or New York." },
-        { term: "Session Context", definition: "The market environment created by the active trading region and participation level." },
-        { term: "Reading Environment", definition: "The condition surrounding the candle: quiet, active, volatile, or mixed." },
-        { term: "Session Record", definition: "A candle understood through both its timeframe and the session that created it." }
+    "type": "concept",
+    "title": "Introduction to Forex Price Charts",
+    "label": "Forex Track",
+    "body": "### Introduction to Forex Price Charts\nForex price charts visually represent the exchange rate history between currency pairs like EUR/USD or GBP/USD over time.\n\n* **Chart Purpose**: Helps identify key support and resistance zones where institutional buyers or sellers historically entered the market.\n* **Timeframe Intervals**: Charts are viewed in daily (1D), hourly (1H), or minute (15m, 5m, 1m) timeframes. A 1-hour chart groups price action into hourly segments.\n* **Session Structure**: Forex markets operate 24/5. Charts display continuous price action that reacts dynamically to the major global sessions (London, New York, Tokyo).",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Exchange Rate",
+          "definition": "The value of one currency for the purpose of conversion to another."
+        },
+        {
+          "term": "Timeframe",
+          "definition": "The specific time interval represented by each segment of the chart (e.g., 1 hour)."
+        }
       ],
-      whyThisMatters: "If a learner reads only the candle duration, they miss the market environment behind the candle. Forex movement changes across the trading day.",
-      realLifeExample: "A 15-minute Euro vs. US Dollar (EUR/USD) candle during late Asia may be slow and narrow. A 15-minute EUR/USD candle after London opens may form inside a much more active environment.",
-      commonMistake: "Reading Forex candles as if every hour of the day has the same quality.",
-      quickNote: "In Forex, timeframe tells you how long. Session tells you what kind of market."
-    }
+      "whyThisMatters": "Charts provide the visual workspace where you perform structural analysis and map potential trade setups.",
+      "realLifeExample": "A 1-hour chart of EUR/USD shows the exchange rate fluctuating in a narrow band between 1.0850 and 1.0870 during the Asian session.",
+      "commonMistake": "Ignoring the timeframe being viewed, leading to taking a short-term trade that conflicts with the long-term trend."
+    },
+    "taskData": null,
+    "visualKey": "forex-pip-value"
   },
   {
-    type: "visual_intro",
-    title: "The Forex Trading Day Has Rhythms",
-    visualKey: "forex-trading-rhythm-board",
-    label: "Session Rhythm",
-    body: "Forex is a 24-hour market, but participation is not equal across all hours. The market has rhythm: Asia, London, New York, and overlaps. Some periods are quiet, some are active, and some are unstable because of economic releases. \n\n**The Rule**: Know the environment you are reading.",
-    context: {
-      keyTerms: [
-        { term: "Asia Session", definition: "A major trading window often associated with quieter movement in many major pairs." },
-        { term: "London Session", definition: "A major trading window often associated with stronger Forex participation." },
-        { term: "New York Session", definition: "A major trading window that can bring continuation, reversal, or news-driven movement." },
-        { term: "Session Rhythm", definition: "The changing activity pattern across the Forex trading day." },
-        { term: "Participation", definition: "The amount of market activity and involvement behind price movement." }
+    "type": "concept",
+    "title": "Anatomy of a Forex Candlestick",
+    "label": "Forex Track",
+    "body": "### Anatomy of a Forex Candlestick\nEach candlestick on a Forex chart summarizes four key exchange rates (Open, High, Low, Close) for a chosen timeframe interval.\n\n* **Candle Body**: The thick rectangular part representing the exchange rate range between the open (starting rate) and the close (ending rate).\n* **Wicks (Shadows)**: The thin lines extending above and below the body, showing the highest and lowest exchange rates reached during that period.\n* **OHLC Data**: Open, High, Low, and Close rates define the structure of every candlestick.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Candle Body",
+          "definition": "The central part of the candlestick representing the range between open and close."
+        },
+        {
+          "term": "Candle Wick",
+          "definition": "The thin lines showing rate extremes (highs and lows) during the candle's duration."
+        }
       ],
-      whyThisMatters: "A learner who ignores session rhythm may treat quiet movement, active movement, and event-driven movement as the same kind of evidence.",
-      realLifeExample: "A pair may stay tight during Asia, expand during London, and react sharply during New York data. The timeframe stayed the same, but the environment changed.",
-      commonMistake: "Thinking the market is equally active just because Forex is open.",
-      quickNote: "Forex is open for long hours, but activity comes in waves."
-    }
+      "whyThisMatters": "Learning to read wicks and bodies is fundamental to structural analysis and identifying price rejection.",
+      "realLifeExample": "A 1-hour EUR/USD candle opens at 1.1000 and closes at 1.1050, with a high of 1.1080 and a low of 1.0980.",
+      "commonMistake": "Only looking at the candle body, which ignores the price extremes (wicks) where key liquidity sits."
+    },
+    "taskData": null,
+    "visualKey": "forex-pip-value"
   },
   {
-    type: "visual_intro",
-    title: "Session Handoffs and Overlaps",
-    visualKey: "forex-handoff-overlap-board",
-    label: "Liquidity Windows",
-    body: "Session handoffs and overlaps can change how a timeframe behaves. A candle formed during an overlap may carry more participation than one formed during a quiet period. But activity alone is not enough. The learner still needs structure, context, and close-location review.",
-    context: {
-      keyTerms: [
-        { term: "Session Handoff", definition: "A transition period where one major trading region becomes less active and another becomes more active." },
-        { term: "Overlap", definition: "A time window where two major sessions are active at the same time." },
-        { term: "Liquidity Window", definition: "A period where market participation may be stronger." },
-        { term: "Activity Spike", definition: "A sudden increase in price movement or participation." },
-        { term: "Clean Movement", definition: "Movement that is easier to read because it has structure and follow-through." }
+    "type": "concept",
+    "title": "Bullish vs. Bearish Forex Candles",
+    "label": "Forex Track",
+    "body": "### Bullish vs. Bearish Forex Candles\nCandle colors indicate whether the exchange rate closed higher or lower than its opening level.\n\n* **Bullish (Green) Candle**: Exchange rate closed higher than it opened (Close > Open), indicating that buying pressure dominated.\n* **Bearish (Red) Candle**: Exchange rate closed lower than it opened (Close < Open), indicating that selling pressure dominated.\n* **Doji (Neutral) Candle**: The open and close rates are nearly identical, leaving a thin line as a body, indicating indecision in the market.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Bullish",
+          "definition": "Indicating or expecting an upward movement in price."
+        },
+        {
+          "term": "Bearish",
+          "definition": "Indicating or expecting a downward movement in price."
+        }
       ],
-      whyThisMatters: "Many Forex learners get excited when movement increases. But stronger activity can create useful evidence or unstable movement depending on context.",
-      realLifeExample: "London opens and EUR/USD starts moving faster. A trained learner does not call direction immediately. They check whether the move is breaking structure or only reacting to fresh activity.",
-      commonMistake: "Assuming every session overlap move is automatically clean.",
-      quickNote: "Overlap can increase activity. It does not guarantee clarity."
-    }
+      "whyThisMatters": "The color and size of candle bodies provide instant feedback on market control (buyers vs. sellers).",
+      "realLifeExample": "Four consecutive large green daily candles on GBP/USD show strong buying pressure, indicating a bullish trend.",
+      "commonMistake": "Trading against a series of large, strong-colored candles, assuming a reversal is imminent without structural evidence."
+    },
+    "taskData": null,
+    "visualKey": "forex-pip-value"
   },
   {
-    type: "visual_intro",
-    title: "Same Candle, Different Session Meaning",
-    visualKey: "forex-candle-weight-board",
-    label: "Candle Quality",
-    body: "A Forex candle gains meaning from the environment that produced it. The same candle shape can be weak, useful, or unstable depending on session activity, liquidity, and news pressure. Candle shape alone is not enough.",
-    context: {
-      keyTerms: [
-        { term: "Evidence Weight", definition: "The relative importance of a candle after considering timeframe and context." },
-        { term: "Candle Quality", definition: "How useful a candle is as market evidence." },
-        { term: "Thin Movement", definition: "Movement formed in a weaker or less active environment." },
-        { term: "Active Session Candle", definition: "A candle formed during stronger market participation." },
-        { term: "Unstable Candle", definition: "A candle formed in conditions where movement may be fast but not clean." }
-      ],
-      whyThisMatters: "Forex learners often memorize candle shapes. This card teaches them to judge the quality of the candle, not just the appearance.",
-      realLifeExample: "A strong-looking candle during London may matter more than the same shape printed during a quiet period. But if the candle forms during news, it may be unstable instead of clean.",
-      commonMistake: "Thinking the same candle shape has the same meaning in every trading hour.",
-      quickNote: "The candle shape is only part of the reading. The session gives it weight."
-    }
+    "type": "concept",
+    "title": "Forex Wicks as Price Rejection Indicators",
+    "label": "Forex Track",
+    "body": "### Forex Wicks as Price Rejection Indicators\nIn the Forex market, long wicks often indicate areas of price rejection where opposing orders entered aggressively.\n\n* **Upper Wick Rejection**: A long top wick shows that buyers pushed the exchange rate up, but sellers stepped in to drive it back down before the candle closed.\n* **Lower Wick Rejection**: A long bottom wick shows that sellers pushed the exchange rate down, but buyers stepped in to drive it back up.\n* **Volatility Sweeps**: Due to Forex's high liquidity, wicks often sweep stops above swing highs or below swing lows before reversing.",
+    "context": {
+      "whyThisMatters": "Understanding rejections helps you spot where large institutional buy or sell blocks are waiting.",
+      "realLifeExample": "EUR/USD spikes up to 1.1200 during the New York open, but quickly drops to close at 1.1150, leaving a long upper wick.",
+      "commonMistake": "Buying at the very peak of a long upper wick, entering a trade right as institutional rejection occurs."
+    },
+    "taskData": null,
+    "visualKey": "forex-pip-value"
   },
   {
-    type: "visual_intro",
-    title: "News Windows Distort Timeframe Reading",
-    visualKey: "forex-news-distortion-board",
-    label: "Event Pressure",
-    body: "A Forex candle formed during a major news window may record real market reaction, but it can also include unstable movement, spread changes (the widening gap between buying and selling prices), violent wicks, or fast repricing. The disciplined learner does not treat a news candle as clean until structure and follow-through appear.",
-    context: {
-      keyTerms: [
-        { term: "News Window", definition: "The time around major economic releases or central bank events." },
-        { term: "Repricing", definition: "A fast adjustment in price after new information enters the market." },
-        { term: "Spread Expansion", definition: "A widening difference between bid and ask during unstable conditions." },
-        { term: "Event Volatility", definition: "Fast movement caused by scheduled or unexpected events." },
-        { term: "Follow-Through", definition: "What price does after the event candle closes." }
-      ],
-      whyThisMatters: "Many Forex learners mistake fast news movement for high-quality evidence. Speed can create drama without clarity.",
-      realLifeExample: "The British Pound vs. US Dollar (GBP/USD) currency pair prints a huge candle after economic data. A rushed learner sees direction. A trained learner waits to see whether the next candles confirm the move or reject it.",
-      commonMistake: "Treating every large news candle as a clean directional reading.",
-      "quickNote": "News can make a candle loud before it becomes clear."
-    }
+    "type": "concept",
+    "title": "Candle Body Size and Trend Momentum",
+    "label": "Forex Track",
+    "body": "### Candle Body Size and Trend Momentum\nThe size of a candle body relative to its wicks indicates the strength of market momentum.\n\n* **Decisive Bodies**: Large candle bodies with short wicks show strong, unimpeded price momentum in one direction.\n* **Consolidating Bodies**: Small candle bodies with long wicks show indecision or balanced trading between buyers and sellers.\n* **Volume Confirmation**: Decisive momentum is highest when large body candles are backed by high trading volume.",
+    "context": {
+      "whyThisMatters": "Recognizing strong momentum versus consolidation helps you avoid trading when the market is slowing down.",
+      "realLifeExample": "A large bearish candle on GBP/USD breaks through a support level, indicating strong selling pressure and high momentum.",
+      "commonMistake": "Trading trend continuations when candle bodies are shrinking, which actually warns of trend exhaustion."
+    },
+    "taskData": null,
+    "visualKey": "forex-pip-value"
   },
   {
-    type: "visual_intro",
-    title: "Higher-Timeframe Location in Forex",
-    visualKey: "forex-location-context-board",
-    label: "Pair Location",
-    body: "In Forex, a lower-timeframe move can be active and still incomplete. The higher timeframe shows where the pair is located in the broader structure. A trained learner checks location before trusting local movement.",
-    context: {
-      keyTerms: [
-        { term: "Higher-Timeframe Location", definition: "Where price sits in the broader chart structure." },
-        { term: "Major Area", definition: "A zone that has mattered previously in the market." },
-        { term: "Local Movement", definition: "Shorter-term movement inside a broader context." },
-        { term: "Support / Resistance Area", definition: "A price zone where the market has previously reacted." },
-        { term: "Incomplete Reading", definition: "A reading that needs more context before becoming strong." }
-      ],
-      whyThisMatters: "Without location, learners overreact to local movement and miss the broader structure.",
-      realLifeExample: "EUR/USD rallies on 15m, but the 4H chart shows price pressing into a previous resistance zone. The rally is real, but the broader context still matters.",
-      commonMistake: "Trusting a small-timeframe move without checking where the pair is on the larger chart.",
-      "quickNote": "In Forex, location comes before reaction."
-    }
+    "type": "concept",
+    "title": "Timeframe Relationships on Forex Charts",
+    "label": "Forex Track",
+    "body": "### Timeframe Relationships on Forex Charts\nEvery candlestick contains data from smaller timeframes, showing a fractal relationship.\n\n* **Candle Nesting**: One 4-hour (4H) candle is composed of four 1-hour (1H) candles.\n* **Trend Divergence**: Price can appear in a minor downtrend on a 5-minute chart while being in a major uptrend on the Daily chart.\n* **Analysis Rule**: Always verify the higher timeframe direction before looking for entry patterns on lower timeframes.",
+    "context": {
+      "whyThisMatters": "Failing to check higher timeframes can lead to shorting a market that is fundamentally in a massive uptrend.",
+      "realLifeExample": "A EUR/USD 5-minute chart shows a minor bearish pullback, but the daily chart shows a strong bullish breakout from a key level."
+    },
+    "taskData": null,
+    "visualKey": "forex-pip-value"
   },
   {
-    type: "visual_intro",
-    title: "Lower-Timeframe Session Behavior",
-    visualKey: "forex-behavior-lens-board",
-    label: "Local Behavior",
-    body: "Lower timeframes are useful when they explain behavior inside a known context. They become dangerous when the learner treats them as the whole market. In Forex, lower-timeframe charts should refine the reading, not replace the broader reading.",
-    context: {
-      keyTerms: [
-        { term: "Local Behavior", definition: "Short-term price action inside a broader context." },
-        { term: "Behavior Lens", definition: "Using a smaller timeframe to observe how price is reacting now." },
-        { term: "Refinement", definition: "Adding detail to an existing reading." },
-        { term: "Noise", definition: "Movement that feels important but does not improve the broader reading." },
-        { term: "Reaction", definition: "How price behaves near an important area or condition." }
-      ],
-      whyThisMatters: "Lower timeframes are where many learners become emotional. This card teaches them how to use detail without becoming controlled by it.",
-      realLifeExample: "The 1H chart shows price near a zone. The 5m chart helps observe whether price is rejecting, slowing, or pushing through that zone.",
-      commonMistake: "Using lower timeframes to create the main opinion instead of refining an existing one.",
-      "quickNote": "Lower timeframes should explain behavior, not create blind confidence."
-    }
-  },
-  {
-    type: "visual_intro",
-    title: "Multi-Timeframe Forex Reading Process",
-    visualKey: "forex-reading-stack-board",
-    label: "Forex Workflow",
-    body: "Professional Forex reading moves through a structured audit. You start with the broader building (HTF Location), then check the environment (Session Timing & Events), and only then use the local detail (Structure & Behavior) to refine the reading.",
-    context: {
-      keyTerms: [
-        { term: "Forex Top-Down Reading", definition: "A process for reading from broader context into session behavior and local detail." },
-        { term: "HTF Location", definition: "Identifying the broader chart structure before local analysis." },
-        { term: "Session Timing", definition: "Audit of participation quality based on the current trading hour." },
-        { term: "Event Pressure", definition: "Checking for news-driven distortion or upcoming catalysts." },
-        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." }
-      ],
-      whyThisMatters: "Forex is fast and fragmented. A fixed process slows the learner down and improves the quality of the evidence they accept.",
-      realLifeExample: "EUR/USD pushes on 15m. A trained learner checks 4H location, London participation, and upcoming Consumer Price Index (CPI) inflation data before trusting the move.",
-      commonMistake: "Starting from the fastest chart and letting session speed control the reading.",
-      "quickNote": "Read Forex from session into behavior, not from speed into emotion."
-    }
-  },
-  {
-    type: "practice",
-    title: "Forex Timeframe Conflict Drill",
-    visualKey: "forex-timeframe-drill",
-    label: "Practice Drill",
-    body: "This drill tests whether you can separate active session movement from full timeframe alignment. A Forex move can be real and still incomplete. The trained learner does not call the reading clean until broader context, working structure, and session behavior support each other.",
-    taskData: {
-      type: "choice_block",
-      question: "GBP/USD shows a strong 15-minute bullish push during London session. The 1-hour chart is still inside a range, and the 4-hour chart shows price near a previous resistance area. \n\nWhat is the disciplined Forex reading?",
-      options: [
-        { id: "A", text: "The 15-minute candle is strong, so the pair is clearly bullish.", isCorrect: false, feedback: "Not correct. A strong lower-timeframe candle does not automatically define the whole pair. You still need higher-timeframe and session context." },
-        { id: "B", text: "London activity means the move must continue.", isCorrect: false, feedback: "Not correct. London activity can increase participation, but it does not guarantee continuation." },
-        { id: "C", text: "The lower-timeframe push is active, but higher-timeframe context is not fully aligned. This is a mixed reading until structure confirms.", isCorrect: true, feedback: "Correct. The 15-minute move is active and worth observing, but the 1-hour range and 4-hour resistance reduce clarity. This is a mixed reading until the pair shows stronger alignment across timeframe and structure." },
-        { id: "D", text: "The higher timeframe does not matter because the 15-minute chart is more recent.", isCorrect: false, feedback: "Not correct. Newer does not always mean more important. Lower-timeframe movement must be read inside broader context." }
+    "type": "practice",
+    "title": "Practical Application of Forex Candlestick Reading",
+    "label": "Forex Track",
+    "body": "### Practical Application: Calculating Forex Body and Wick Sizes\nLet's apply candlestick calculations to real-time Forex price feeds to ensure you can evaluate candle body sizes accurately in pips.\n\n* **Pips Definition**: In major pairs, 1 pip is represented by the fourth decimal place (0.0001). For example, a move from 1.1000 to 1.1050 is 50 pips.\n* **Body Size in Pips**: Body Size = |Close Rate - Open Rate| / 0.0001.\n* **Wicks in Pips**: Upper Wick = (High - Max(Open, Close)) / 0.0001; Lower Wick = (Min(Open, Close) - Low) / 0.0001.",
+    "context": {
+      "whyThisMatters": "Calculating body and wick sizes in pips helps you determine trade risk and reward targets accurately.",
+      "realLifeExample": "A 1-hour EUR/USD candle opens at 1.1000 and closes at 1.1050. The body size is 50 pips."
+    },
+    "taskData": {
+      "type": "choice_block",
+      "question": "A 1-hour EUR/USD candle opens at 1.1000 and closes at 1.1050. The high of the hour was 1.1080 and the low was 1.0980. What is the size of the candle body in pips?",
+      "options": [
+        {
+          "id": "0",
+          "text": "50 pips",
+          "isCorrect": true,
+          "feedback": "Correct! The body size is the absolute difference between the open and close rates: (1.1050 - 1.1000) / 0.0001 = 50 pips."
+        },
+        {
+          "id": "1",
+          "text": "100 pips",
+          "isCorrect": false,
+          "feedback": "Incorrect. 100 pips is the total range of the candle (High - Low: 1.1080 - 1.0980 = 100 pips), not the body size."
+        },
+        {
+          "id": "2",
+          "text": "30 pips",
+          "isCorrect": false,
+          "feedback": "Incorrect. 30 pips is the size of the upper wick (High - Close: 1.1080 - 1.1050 = 30 pips), not the body size."
+        },
+        {
+          "id": "3",
+          "text": "20 pips",
+          "isCorrect": false,
+          "feedback": "Incorrect. 20 pips is the size of the lower wick (Open - Low: 1.1000 - 1.0980 = 20 pips), not the body size."
+        }
       ]
     },
-    context: {
-      keyTerms: [
-        { term: "Mixed Reading", definition: "A condition where some evidence supports the move but other layers reduce clarity." },
-        { term: "Alignment", definition: "When multiple timeframes support the same reading." },
-        { term: "Active but Incomplete", definition: "Movement that is worth observing but not strong enough for a clean conclusion." },
-        { term: "Confirmation", definition: "Additional structure or behavior that strengthens the reading." }
-      ],
-      whyThisMatters: "Forex often produces active lower-timeframe moves during major sessions. The learner’s job is not to chase activity. The learner’s job is to judge alignment.",
-      realLifeExample: "GBP/USD pushes upward during London, but the 4H chart still shows resistance. A rushed learner calls it bullish. A trained learner marks it as active but not fully confirmed.",
-      commonMistake: "Confusing active session movement with full multi-timeframe alignment.",
-      "quickNote": "In Forex, active is not the same as aligned."
-    }
+    "visualKey": "forex-pip-value"
   },
   {
-    type: "summary",
-    title: "Forex Debrief: Time, Session, Structure",
-    visualKey: "forex-roadway-debrief",
-    label: "Roadway Debrief",
-    body: "You are no longer reading Forex candles as isolated shapes. You now understand that every candle belongs to a timeframe, every timeframe forms inside a session, and every session move must be checked against broader structure. This is how Forex reading becomes disciplined instead of reactive.",
-    context: {
-      keyTerms: [
-        { term: "Session Context", definition: "The trading environment behind the candle." },
-        { term: "Timeframe Alignment", definition: "When multiple timeframes support the same reading." },
-        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." },
-        { term: "Pair Location", definition: "Where the currency pair sits in broader structure." },
-        { term: "Top-Down Forex Reading", definition: "Reading from broader context into session behavior and local detail." }
-      ],
-      whyThisMatters: "Forex becomes much easier to misread when the learner ignores time, session, and structure. This roadway gives a repeatable process.",
-      realLifeExample: "Two learners see the same 15m candle. One reacts to the candle. The trained learner asks which session created it, where the pair is on 4H, and whether the move is aligned.",
-      commonMistake: "Leaving with session names but no reading process.",
-      "quickNote": "Forex candles are read through time, session, and structure together."
-    }
+    "type": "summary",
+    "title": "Summary of Forex Candlestick Anatomy",
+    "label": "Forex Track",
+    "body": "### Summary: Forex Candlestick Anatomy\nUnderstanding wicks, bodies, timeframes, and colors is essential for reading Forex price action.\n\n* **OHLC Anatomy**: The body represents the open-to-close range; wicks represent the extreme prices reached.\n* **Bullish/Bearish**: Green candles show exchange rate rose; red candles show exchange rate fell.\n* **Rejections**: Long wicks represent rejected exchange rates; large bodies represent solid momentum.",
+    "context": {
+      "whyThisMatters": "You are now ready to progress to identifying higher timeframe support/resistance levels and market structure patterns."
+    },
+    "taskData": null,
+    "visualKey": "forex-pip-value"
   }
 ];

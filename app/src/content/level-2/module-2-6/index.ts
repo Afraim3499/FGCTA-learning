@@ -7,9 +7,9 @@ import { AcademyModule } from "../../../types/curriculum";
 export const module26: AcademyModule = {
   moduleNumber: "2.6",
   level: 2,
-  title: "Market Structure Shift (MSS)",
-  objective: "Identify change of character (ChoCh) and displacement confirming a structure shift.",
-  skillLevel: "beginner",
+  title: "The Trend Fallacy",
+  objective: "Why price moves between liquidity pools rather than continuous trendlines.",
+  skillLevel: "intermediate",
   orderIndex: 6,
   tracks: {
     core: coreCards,

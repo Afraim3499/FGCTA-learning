@@ -150,7 +150,7 @@ export const goldCards: LessonCard[] = [
     "visualKey": "gold-fvg-yields"
   },
   {
-    "type": "practice",
+    "type": "summary",
     "title": "Summary of Fair Value Gaps in Gold",
     "label": "Gold Track",
     "body": "### Fair Value Gaps in Gold: Key Concepts Summary\nThis card summarizes the essential concepts regarding Fair Value Gaps (FVG) in gold trading, emphasizing yield spreads and their impact on pricing. Understanding these elements is crucial for effective trading.\n\n* **Yield Spread Analysis**: FVGs often correlate with yield spreads between gold and U.S. Treasury yields. A widening spread can indicate bullish sentiment for gold, while a narrowing spread may suggest bearish conditions.\n* **Imbalance Delivery Mechanism**: The three-candle formation is critical in identifying FVGs. A bullish FVG requires a bullish candle followed by two bearish candles, while a bearish FVG consists of a bearish candle followed by two bullish candles.\n* **Efficient Pricing Dynamics**: Recognizing FVGs allows traders to anticipate price corrections. Efficient pricing occurs when the market fills these gaps, leading to potential profit opportunities.",

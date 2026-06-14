@@ -122,7 +122,7 @@ export const forexCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Practical Exercises on EURUSD/GBPUSD Divergence",
     "label": "Forex Track",
     "body": "### Core Scenario: Hands-On Divergence Application\nEngaging in practical exercises reinforces the understanding of EURUSD and GBPUSD divergence. This card provides **real-world scenarios for application**.\n\n* **Scenario Analysis**: Review historical charts where divergence occurred between EURUSD and GBPUSD; identify entry and exit points based on the divergence and subsequent price action.\n* **Trade Simulation**: Simulate a trading session where you identify divergence in real-time, execute trades, and manage risk based on the strategies discussed.\n* **Performance Review**: After executing simulated trades, analyze the outcomes and refine your approach based on the effectiveness of your divergence strategy.",

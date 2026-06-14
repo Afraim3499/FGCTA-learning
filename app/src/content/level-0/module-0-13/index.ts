@@ -12,8 +12,6 @@ export const module013: AcademyModule = {
     core: coreCards,
     forex: [],
     gold: [],
-    crypto: []
-  }
+    crypto: [],
+  },
 };
-
-export * from "./core";

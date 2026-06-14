@@ -3,223 +3,239 @@ import { LessonCard } from "../../../types/curriculum";
 export const goldCards: LessonCard[] = [
   {
     "type": "mission_brief",
-    "title": "News-Driven Gold Displacement Analysis",
+    "title": "Rejection of COMEX Sweeps",
     "label": "Gold Track",
-    "body": "### Gold Displacement: News Impact Analysis\nMacroeconomic data releases significantly influence gold price movements, creating distinct wick formations. This card details **how to analyze displacement driven by news events**.\n\n* **Body-to-Wick Ratio**: Assess the ratio of the candle body to the wick length; a ratio exceeding 2:1 indicates strong displacement, suggesting a robust market reaction to news.\n* **Volume Confirmation**: Monitor volume spikes during news releases; a 50% increase in volume alongside a large body-to-wick ratio confirms the strength of the displacement.\n* **Session Timing**: Focus on key news releases, such as FOMC statements or CPI data, typically occurring at 8:30 AM EST or 2:00 PM EST, to capture significant displacement events.",
+    "body": "### Gold Breakouts: Evaluating COMEX Sweep Rejections\nEvaluating the rejection of COMEX sweeps is critical for determining the validity of gold price movements. This card focuses on **how to assess candle closes to differentiate between genuine breakouts and deceptive sweeps**.\n\n* **Candle Close Analysis**: A valid breakout requires a close above the previous resistance level on a 15-minute or hourly chart. If the candle closes below the breakout level, it indicates a potential rejection of the sweep.\n* **Timeframe Consideration**: Analyze the last 30 minutes of trading before the close of the COMEX session. A strong close above resistance with significant volume confirms breakout strength.\n* **Rejection Patterns**: Look for bearish engulfing patterns or pin bars at key resistance levels. These formations suggest that buyers are losing momentum, indicating a rejection of the sweep.",
     "context": {
       "keyTerms": [
         {
-          "term": "Body-to-Wick Ratio",
-          "definition": "The ratio comparing the size of the candle body to the length of its wick."
-        },
+          "term": "COMEX Sweeps",
+          "definition": "Rapid price movements that breach established support or resistance levels, often leading to false breakouts."
+        }
+      ],
+      "whyThisMatters": "Understanding COMEX sweeps helps traders avoid entering positions based on false breakout signals, preserving capital.",
+      "realLifeExample": "On March 15, 2023, gold surged to $1,950 during the COMEX session but closed at $1,935, indicating a rejection of the breakout attempt.",
+      "commonMistake": "Traders often enter positions immediately after a sweep without waiting for confirmation through candle closes.",
+      "quickNote": "Evaluate candle closes to confirm or reject breakout validity.",
+      "mentorText": "When you see a price spike, don't rush in. Wait for the candle to close above resistance. If it closes below, that's a clear rejection.",
+      "mentorAnalogy": "Think of this like a plane attempting to take off. If it doesn't gain altitude and starts descending, it’s not ready for flight."
+    },
+    "taskData": null,
+    "visualKey": "gold-stop-sweeps-rejections"
+  },
+  {
+    "type": "concept",
+    "title": "Analyzing Daily Highs and Lows",
+    "label": "Gold Track",
+    "body": "### Gold Breakouts: Daily Highs and Lows Analysis\nAnalyzing candle closes around daily highs and lows is essential for distinguishing between sustainable breakouts and mere sweeps. This card covers **how to interpret these closes effectively**.\n\n* **Daily High Close Confirmation**: A breakout above the daily high is only valid if the candle closes above it with a minimum of 50% of the body above the high. This confirms buying strength.\n* **Daily Low Rejection**: If price approaches the daily low and closes above it, it suggests a rejection of downward momentum, indicating potential for a bullish reversal.\n* **Session Context**: Always consider the context of the trading session. A breakout during the London session carries more weight than one occurring in off-hours.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Daily Highs and Lows",
+          "definition": "The highest and lowest prices reached during a trading day, serving as key reference points for breakout analysis."
+        }
+      ],
+      "whyThisMatters": "Accurate analysis of daily highs and lows helps traders make informed decisions about entry and exit points.",
+      "realLifeExample": "On April 10, 2023, gold closed at $1,965 after breaching the daily high of $1,960, confirming a strong breakout.",
+      "commonMistake": "Failing to wait for a candle close above the daily high before entering a position often leads to premature trades.",
+      "quickNote": "Candle closes at daily highs and lows dictate breakout validity.",
+      "mentorText": "Always wait for the candle to close above the daily high before considering a breakout. This is your confirmation signal.",
+      "mentorAnalogy": "Like a ship navigating through a narrow channel, you must ensure the path is clear before proceeding."
+    },
+    "taskData": null,
+    "visualKey": "gold-stop-sweeps-rejections"
+  },
+  {
+    "type": "concept",
+    "title": "Volume Confirmation for Gold Breakouts",
+    "label": "Gold Track",
+    "body": "### Gold Breakouts: Role of Volume Confirmation\nVolume plays a pivotal role in confirming the validity of breakouts in gold trading. This card highlights **how to interpret volume alongside candle closes**.\n\n* **Volume Spike Requirement**: A breakout is only valid if accompanied by a volume spike of at least 30% above the 10-day average. This indicates strong market participation.\n* **Volume Divergence**: If a breakout occurs with declining volume, it suggests weakness. Traders should be cautious and consider waiting for a retest of the breakout level.\n* **Volume at Close**: Analyze the last 15 minutes of trading volume. A strong close with high volume reinforces the breakout's legitimacy.",
+    "context": {
+      "keyTerms": [
         {
           "term": "Volume Spike",
-          "definition": "A significant increase in trading volume during a specific timeframe."
+          "definition": "A significant increase in trading volume that often accompanies price movements, indicating heightened interest."
         }
       ],
-      "whyThisMatters": "Understanding news-driven displacement allows traders to capitalize on rapid price movements following economic announcements.",
-      "realLifeExample": "On January 12, 2023, the CPI release at 8:30 AM EST resulted in a 3% body-to-wick ratio for gold, with a volume spike of 60%, indicating strong market reaction.",
-      "commonMistake": "Failing to analyze the body-to-wick ratio can lead to misinterpretation of market strength during news events.",
-      "quickNote": "A body-to-wick ratio above 2:1 during news releases indicates significant displacement.",
-      "mentorText": "When a major economic report hits the market, look for the body-to-wick ratio. If it’s above 2:1, you’re likely seeing a strong market reaction that you can trade on.",
-      "mentorAnalogy": "Think of this like a rocket launch; the news is the ignition, and the body-to-wick ratio is the thrust. If the thrust is strong, the rocket will ascend rapidly."
+      "whyThisMatters": "Volume confirmation helps traders avoid false breakouts, ensuring that positions are taken based on solid market interest.",
+      "realLifeExample": "On May 5, 2023, gold broke above $1,980 with a volume of 15,000 contracts, 40% higher than the average, confirming the breakout.",
+      "commonMistake": "Ignoring volume trends can lead to entering trades based on price movements that lack sufficient backing.",
+      "quickNote": "Volume confirmation is essential for validating gold breakouts.",
+      "mentorText": "If you see a breakout but volume is low, think twice. Strong breakouts need strong volume to support them.",
+      "mentorAnalogy": "Consider this like a concert; a loud crowd indicates excitement. A quiet crowd at a supposed hit song means something's off."
     },
     "taskData": null,
-    "visualKey": "gold-news-displacement-wicks"
+    "visualKey": "gold-stop-sweeps-rejections"
   },
   {
     "type": "concept",
-    "title": "CPI Data and Gold Displacement",
+    "title": "Indicators of Sweep in Gold Markets",
     "label": "Gold Track",
-    "body": "### Gold Displacement: CPI Data Analysis\nCPI data releases are pivotal in determining gold displacement. This card explores **the historical impact of CPI on gold pricing**.\n\n* **Historical Trends**: Analyze past CPI releases; observe that gold typically rallies by an average of 1.5% within 24 hours post-release when inflation exceeds expectations.\n* **Displacement Measurement**: Utilize a body-to-wick ratio of 3:1 or higher during CPI announcements to confirm significant displacement, indicating a strong bullish or bearish sentiment.\n* **Volume Correlation**: Track volume changes; a 40% increase in volume during CPI releases often correlates with notable price movements in gold.",
+    "body": "### Gold Breakouts: Identifying Sweep Indicators\nRecognizing indicators of a sweep in gold markets is crucial for avoiding false breakouts. This card focuses on **key signs that suggest a sweep is occurring**.\n\n* **Rapid Price Movements**: A sudden spike in price followed by an immediate reversal is a strong indicator of a sweep. Watch for candles that close significantly lower than their open.\n* **Low Volume on Breakouts**: If a breakout occurs with low volume, it often signals a lack of conviction. This can indicate that the price movement is a sweep rather than a genuine breakout.\n* **Multiple Tests of Resistance**: If price repeatedly tests a resistance level without breaking through, it may indicate that sellers are waiting to push prices down, suggesting a potential sweep.",
     "context": {
       "keyTerms": [
         {
-          "term": "CPI Release",
-          "definition": "The announcement of the Consumer Price Index, a key indicator of inflation."
+          "term": "Sweep Indicators",
+          "definition": "Market signals that suggest a price movement is a false breakout, often characterized by rapid reversals and low volume."
+        }
+      ],
+      "whyThisMatters": "Identifying sweep indicators helps traders avoid entering trades based on misleading price movements.",
+      "realLifeExample": "On June 20, 2023, gold spiked to $2,000 but quickly reversed to $1,950 with low volume, indicating a potential sweep.",
+      "commonMistake": "Traders often mistake rapid price movements for valid breakouts without assessing volume and candle closes.",
+      "quickNote": "Watch for rapid reversals and low volume to identify potential sweeps.",
+      "mentorText": "If you see a quick spike followed by a drop, don’t chase the price. Assess the volume and candle close before making a move.",
+      "mentorAnalogy": "Like a mirage in the desert, a sweep can look enticing but often leads to disappointment if not carefully evaluated."
+    },
+    "taskData": null,
+    "visualKey": "gold-stop-sweeps-rejections"
+  },
+  {
+    "type": "concept",
+    "title": "Trend Analysis for Gold Breakouts",
+    "label": "Gold Track",
+    "body": "### Gold Trend Evaluation: Analyzing Breakout Validity\nConducting trend analysis is essential for assessing breakout quality in gold trading. This card details **how to evaluate candle closes in relation to trend lines**.\n\n* **Candle Close Position**: A breakout is validated if the closing price is above the trend line with a minimum of two consecutive bullish candles. This indicates strong buying pressure.\n* **Volume Confirmation**: Ensure that the breakout occurs with at least a 20% increase in volume compared to the 14-day average. This confirms institutional interest in the move.\n* **Trend Line Integrity**: Maintain a clear trend line; if a breakout occurs but the price reverts back within the trend line within the same session, classify it as a potential sweep rather than a valid breakout.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Candle Close",
+          "definition": "The final price of an asset at the end of a trading period."
         },
         {
-          "term": "Historical Impact",
-          "definition": "The observed effects of past CPI data on gold prices."
-        }
-      ],
-      "whyThisMatters": "CPI data can create volatility in gold prices, making it essential for traders to measure displacement accurately.",
-      "realLifeExample": "On February 14, 2023, CPI data showed a 0.5% increase, leading to a 2% rise in gold prices within hours, with a body-to-wick ratio of 3.5:1 and a volume spike of 55%.",
-      "commonMistake": "Ignoring historical trends can lead to missed opportunities during CPI releases.",
-      "quickNote": "CPI data often leads to significant gold displacement; measure carefully.",
-      "mentorText": "When CPI data is released, watch for a body-to-wick ratio above 3:1. This indicates that the market is reacting strongly, and you should be ready to act.",
-      "mentorAnalogy": "Consider this like a weather forecast; if a storm is predicted and it arrives, the reaction is swift and powerful, just like the market's response to CPI data."
-    },
-    "taskData": null,
-    "visualKey": "gold-news-displacement-wicks"
-  },
-  {
-    "type": "concept",
-    "title": "NFP Reports and Gold Price Movements",
-    "label": "Gold Track",
-    "body": "### Gold Displacement: NFP Report Analysis\nNon-Farm Payroll (NFP) reports significantly impact gold price movements. This card examines **how to measure displacement during NFP announcements**.\n\n* **Price Reaction**: Historically, gold prices can fluctuate by 2% or more within the first hour of an NFP release, necessitating immediate analysis of body-to-wick ratios.\n* **Displacement Indicators**: A body-to-wick ratio of 2:1 or greater during the NFP release indicates strong market sentiment, often leading to sustained price movements.\n* **Volume Patterns**: A volume increase of at least 50% during the NFP announcement is a critical indicator of displacement, confirming the strength of the price move.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "NFP Report",
-          "definition": "A monthly report detailing the number of jobs added in the U.S. economy, excluding farm workers."
+          "term": "Volume Confirmation",
+          "definition": "The verification of breakout strength through increased trading volume."
         },
         {
-          "term": "Price Fluctuation",
-          "definition": "The change in price levels following significant economic announcements."
+          "term": "Trend Line Integrity",
+          "definition": "The maintenance of a clear trend line that supports breakout evaluations."
         }
       ],
-      "whyThisMatters": "NFP reports can create volatility in gold, making it essential to measure displacement accurately for effective trading.",
-      "realLifeExample": "On March 3, 2023, the NFP report showed an increase of 300,000 jobs, leading to a 2.5% rise in gold prices within the first hour, with a body-to-wick ratio of 2.8:1 and a volume spike of 70%.",
-      "commonMistake": "Overlooking volume patterns during NFP releases can lead to missed signals of displacement.",
-      "quickNote": "Monitor NFP reports closely; a body-to-wick ratio above 2:1 signals strong displacement.",
-      "mentorText": "When the NFP report is released, look for immediate price reactions. If you see a body-to-wick ratio above 2:1, it’s a clear signal that the market is moving.",
-      "mentorAnalogy": "Think of the NFP report like a major sporting event; the crowd's reaction is immediate and loud, reflecting the significance of the news."
+      "whyThisMatters": "Accurate trend analysis enhances the ability to differentiate between genuine breakouts and false signals, improving trade execution.",
+      "realLifeExample": "On March 15, 2023, gold closed at $1,950 with two bullish candles above the trend line, accompanied by a volume spike of 25% compared to the 14-day average, confirming a valid breakout.",
+      "commonMistake": "Failing to consider the volume during a breakout often leads to misidentifying sweeps as valid breakouts.",
+      "quickNote": "Evaluate candle closes and volume to confirm breakout validity in gold trading.",
+      "mentorText": "When assessing breakouts, focus on the candle closes relative to trend lines. If the price closes above with strong volume, you have a valid signal. Otherwise, be cautious.",
+      "mentorAnalogy": "Think of trend analysis like a structural engineer assessing a bridge's integrity; only a solid foundation and strong materials ensure it can withstand traffic."
     },
     "taskData": null,
-    "visualKey": "gold-news-displacement-wicks"
+    "visualKey": "gold-stop-sweeps-rejections"
   },
   {
     "type": "concept",
-    "title": "Tracking Heavy Volume Expansion Candles",
+    "title": "Market Sentiment and Gold Breakouts",
     "label": "Gold Track",
-    "body": "### Gold Displacement: Volume Expansion Tracking\nHeavy volume expansion candles are critical in confirming displacement trends. This card explores **how to track these candles post-economic data releases**.\n\n* **Volume Expansion Definition**: A candle exhibiting a volume increase of 100% or more compared to the previous average indicates strong market interest, confirming displacement.\n* **Candle Analysis**: Focus on the body-to-wick ratio; a ratio of 2:1 or higher in conjunction with heavy volume confirms the validity of the displacement trend.\n* **Post-Release Strategy**: After significant economic data releases, analyze the first two candles; if both show heavy volume expansion, consider entering trades in the direction of the displacement.",
+    "body": "### Gold Sentiment Analysis: Impact on Breakouts\nMarket sentiment plays a critical role in the success of gold breakouts. This card outlines **how to incorporate sentiment analysis into breakout evaluations**.\n\n* **Sentiment Indicators**: Utilize sentiment indicators such as the Commitment of Traders (COT) report to gauge trader positioning. A high percentage of long positions can indicate bullish sentiment supporting breakout validity.\n* **News Impact Assessment**: Monitor major economic news releases (e.g., U.S. Non-Farm Payrolls) that could shift market sentiment. A positive surprise can lead to significant breakout momentum.\n* **Social Media Sentiment**: Analyze social media trends and discussions around gold. A surge in positive sentiment can precede a breakout, while negative sentiment may foreshadow a failed move.",
     "context": {
       "keyTerms": [
         {
-          "term": "Volume Expansion Candle",
-          "definition": "A candle that shows a significant increase in trading volume compared to prior candles."
+          "term": "Sentiment Indicators",
+          "definition": "Tools used to gauge the market's overall mood towards an asset."
         },
         {
-          "term": "Displacement Trend",
-          "definition": "The sustained movement in price following a significant market event."
-        }
-      ],
-      "whyThisMatters": "Tracking heavy volume expansion candles allows traders to confirm displacement trends and make informed trading decisions.",
-      "realLifeExample": "On April 7, 2023, following a strong employment report, gold showed a heavy volume expansion candle with a 120% increase in volume and a body-to-wick ratio of 3:1, confirming a bullish displacement trend.",
-      "commonMistake": "Failing to confirm volume expansion can lead to false signals and poor trading decisions.",
-      "quickNote": "Heavy volume expansion candles confirm displacement; look for a 100% increase in volume.",
-      "mentorText": "After an economic release, check the first two candles. If they show heavy volume expansion, it’s a strong signal to consider entering a trade.",
-      "mentorAnalogy": "This process is akin to a chef checking the temperature of a dish; if it exceeds a certain point, it confirms that the dish is ready to serve, just like volume confirms displacement."
-    },
-    "taskData": null,
-    "visualKey": "gold-news-displacement-wicks"
-  },
-  {
-    "type": "concept",
-    "title": "Effective Trading Strategies for Gold Displacement",
-    "label": "Gold Track",
-    "body": "### Gold Displacement: Strategic Timing Around News Events\nEffective trading strategies for gold displacement hinge on precise timing and execution during high-impact news releases. This card outlines **how to leverage displacement for optimal entry and exit points**.\n\n* **News Event Calibration**: Identify key economic indicators, such as U.S. Non-Farm Payrolls, and analyze historical displacement patterns that follow these releases. For instance, observe how gold reacted to a 0.5% deviation in CPI data, often resulting in a 30-pip displacement.\n* **Execution Windows**: Execute trades within a 10-minute window post-news release to capture the initial volatility. Avoid trading during the first 5 minutes post-release to allow for market stabilization and clearer price action.\n* **Volume Confirmation**: Ensure volume exceeds the 20-day average by at least 25% during the news event to validate the strength of the displacement move. For example, if gold typically trades at 10,000 contracts and spikes to 12,500 during a news release, this indicates significant market interest.",
-    "context": {
-      "keyTerms": [
+          "term": "News Impact Assessment",
+          "definition": "Evaluating how economic news affects market sentiment and trading decisions."
+        },
         {
-          "term": "Displacement",
-          "definition": "The difference between the opening price and the closing price of a candle, often indicated by body-to-wick ratios."
+          "term": "Social Media Sentiment",
+          "definition": "The analysis of online discussions to gauge public sentiment towards gold."
         }
       ],
-      "whyThisMatters": "Understanding effective strategies around news events allows traders to capitalize on volatility and maximize profit potential in gold trading.",
-      "realLifeExample": "On March 10, 2023, the U.S. Non-Farm Payrolls report showed a 0.6% increase, leading to a 40-pip upward displacement in gold within 15 minutes, with volume exceeding 15,000 contracts.",
-      "commonMistake": "Traders often enter positions too early, failing to wait for the initial market reaction post-news release.",
-      "quickNote": "Leverage news events for strategic entries in gold displacement trading.",
-      "mentorText": "Focus on the data, not the noise. Wait for the market to digest the news before making your move. Timing is everything.",
-      "mentorAnalogy": "Think of it like a pilot waiting for clearance before takeoff. You need to ensure all systems are go before you launch into the market."
+      "whyThisMatters": "Incorporating sentiment analysis allows traders to anticipate potential breakouts or failures, enhancing decision-making accuracy.",
+      "realLifeExample": "On April 5, 2023, the COT report showed 75% long positions in gold ahead of a positive U.S. jobs report, which resulted in a breakout above $1,975 with strong momentum.",
+      "commonMistake": "Ignoring sentiment indicators can lead to misjudging the strength of a breakout, especially during volatile news events.",
+      "quickNote": "Integrate sentiment analysis to enhance breakout evaluations in gold trading.",
+      "mentorText": "Always check the market sentiment before acting on a breakout. If the sentiment aligns with your analysis, you have a stronger case for execution.",
+      "mentorAnalogy": "Consider sentiment analysis like a weather forecast; understanding the conditions can help you prepare for potential market storms or sunshine."
     },
     "taskData": null,
-    "visualKey": "gold-news-displacement-wicks"
-  },
-  {
-    "type": "concept",
-    "title": "Common Traps in Gold Displacement Trading",
-    "label": "Gold Track",
-    "body": "### Gold Displacement: Avoiding Common Trading Pitfalls\nTraders often fall into traps when interpreting gold displacement signals. This card highlights **how to recognize and avoid misinterpretations of volume and wick signals**.\n\n* **Wick Misinterpretation**: A long wick does not always indicate a reversal; it may reflect temporary liquidity spikes. For instance, a 50-pip wick on a 1-hour candle may mislead traders into thinking a trend reversal is imminent when it could simply be profit-taking.\n* **Volume Deception**: High volume does not guarantee a strong displacement. Analyze the context; for example, a spike in volume during a low-impact news event may lead to false signals. Always compare current volume against historical averages.\n* **Body-to-Wick Ratio Analysis**: Use a minimum body-to-wick ratio of 2:1 to confirm valid displacement. If gold closes at $1,800 with a wick of $10, the body must be at least $20 to validate the move.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Wick",
-          "definition": "The line extending from the body of a candlestick, indicating the high and low prices during a specific time frame."
-        }
-      ],
-      "whyThisMatters": "Recognizing these traps ensures traders make informed decisions based on accurate data interpretation, reducing the risk of losses.",
-      "realLifeExample": "On February 15, 2023, gold exhibited a 45-pip wick during a minor news release, misleading traders into short positions that resulted in a 60-pip upward move shortly after.",
-      "commonMistake": "Traders often react impulsively to long wicks without confirming the underlying volume or trend context.",
-      "quickNote": "Avoid misreading wick signals to prevent unnecessary losses in gold trading.",
-      "mentorText": "Don't let a long wick fool you. Always check the volume and context before making a decision. Stay disciplined.",
-      "mentorAnalogy": "Like a surgeon reading an X-ray, you must analyze all aspects of the market before making a cut. Misreading signals can lead to critical errors."
-    },
-    "taskData": null,
-    "visualKey": "gold-news-displacement-wicks"
+    "visualKey": "gold-stop-sweeps-rejections"
   },
   {
     "type": "practice",
-    "title": "Practical Exercises on Gold Displacement",
+    "title": "Gold Breakout Practice Scenarios",
     "label": "Gold Track",
-    "body": "### Gold Displacement: Real-World Application Exercises\nEngage in practical exercises to reinforce your understanding of gold displacement concepts. This card provides **real-world scenarios to apply your knowledge effectively**.\n\n* **Scenario Analysis**: Given a chart where gold has a body of $25 and a wick of $10, calculate the body-to-wick ratio and determine if the displacement is valid. Identify the implications for your trading strategy.\n* **Volume Assessment Task**: Analyze a recent news event where gold's volume spiked to 18,000 contracts. Compare this to the 20-day average of 14,000 contracts. Decide if this indicates a strong displacement signal or not.\n* **Trade Simulation**: Simulate a trade based on a hypothetical news release where gold's price moves from $1,850 to $1,870 within 10 minutes. Assess the displacement and volume to determine your entry and exit points.",
+    "body": "### Evaluating Gold Breakouts: Practical Scenarios\nEngage in practical scenarios designed to test your ability to evaluate gold breakouts and identify potential sweeps. This card focuses on **real-world applications of breakout analysis**.\n\n* **Scenario 1**: Gold closes at $1,960 with a bullish engulfing candle and volume 30% above the average. Is this a valid breakout or a potential sweep?\n* **Scenario 2**: Gold breaks above $1,970 but closes back below this level within the same session. What does this indicate about the breakout's validity?\n* **Scenario 3**: Gold shows a breakout at $1,980 with a significant news event causing a spike in sentiment. How do you assess the breakout's strength based on the news impact?",
     "context": {
       "keyTerms": [
         {
-          "term": "Trade Simulation",
-          "definition": "A practice exercise where traders simulate trades based on hypothetical market conditions."
+          "term": "Bullish Engulfing Candle",
+          "definition": "A candlestick pattern indicating potential bullish reversal."
+        },
+        {
+          "term": "Session Close",
+          "definition": "The final price at the end of a trading session."
+        },
+        {
+          "term": "News Event",
+          "definition": "An occurrence that can significantly impact market conditions."
         }
       ],
-      "whyThisMatters": "Practical exercises solidify theoretical knowledge, enabling traders to apply concepts in real market conditions confidently.",
-      "realLifeExample": "In a simulated environment, traders analyzed a scenario where gold moved 30 pips post-news, allowing them to practice timing their entries based on displacement metrics.",
-      "commonMistake": "Failing to apply theoretical knowledge to practical scenarios, leading to poor execution in live trading.",
-      "quickNote": "Engage in practical exercises to bridge the gap between theory and real-world application.",
-      "mentorText": "Practice makes perfect. Use these scenarios to hone your skills and prepare for real market conditions. Analyze every detail.",
-      "mentorAnalogy": "Just as a pilot practices in a simulator before flying, you must simulate trades to prepare for the real thing. Every detail matters."
+      "whyThisMatters": "Practical evaluation of breakout scenarios sharpens analytical skills, preparing traders for live market conditions.",
+      "realLifeExample": "In a recent session, gold broke above $1,965 with a bullish engulfing candle, but closed at $1,962, indicating a potential sweep rather than a valid breakout.",
+      "commonMistake": "Rushing to execute trades without thorough evaluation of candle closes and volume can lead to costly mistakes.",
+      "quickNote": "Practice evaluating breakout scenarios to refine your trading strategy.",
+      "mentorText": "Take your time to analyze each breakout scenario. Look for confirmation through candle closes and volume before making any decisions.",
+      "mentorAnalogy": "Approach each breakout like a pilot preparing for takeoff; thorough checks and confirmations are essential for a successful flight."
     },
     "taskData": {
       "type": "choice_block",
-      "question": "In a scenario where gold has a body of $30 and a wick of $15, what is the body-to-wick ratio, and is this valid for displacement?",
+      "question": "Gold closes at $1,965 with a bullish engulfing candle and volume 30% above the average. Is this a valid breakout or a potential sweep?",
       "options": [
         {
           "id": "0",
-          "text": "2:1, valid for displacement",
+          "text": "Valid breakout due to strong volume and bullish candle.",
           "isCorrect": true,
-          "feedback": "Correct. A 2:1 ratio indicates a valid displacement."
+          "feedback": "Correct. The bullish engulfing candle and increased volume indicate a strong breakout."
         },
         {
           "id": "1",
-          "text": "1.5:1, not valid for displacement",
+          "text": "Potential sweep since the price is close to resistance.",
           "isCorrect": false,
-          "feedback": "Incorrect. The ratio must be at least 2:1 to confirm displacement."
+          "feedback": "Incorrect. The volume and candle pattern suggest a valid breakout despite proximity to resistance."
         },
         {
           "id": "2",
-          "text": "3:1, valid for displacement",
+          "text": "Invalid breakout due to lack of follow-through.",
           "isCorrect": false,
-          "feedback": "Incorrect. While this ratio is valid, the question specifically asks for a 2:1 ratio."
+          "feedback": "Incorrect. The candle and volume indicate potential strength."
         },
         {
           "id": "3",
-          "text": "1:1, valid for displacement",
+          "text": "Wait for the next session to confirm.",
           "isCorrect": false,
-          "feedback": "Incorrect. A 1:1 ratio does not meet the criteria for valid displacement."
+          "feedback": "Incorrect. The current session's indicators provide enough information for evaluation."
         }
       ]
     },
-    "visualKey": "gold-news-displacement-wicks"
+    "visualKey": "gold-stop-sweeps-rejections"
   },
   {
     "type": "summary",
-    "title": "Summary of Gold Displacement Insights",
+    "title": "Gold Track Summary",
     "label": "Gold Track",
-    "body": "### Gold Displacement: Key Insights and Strategies\nThis card summarizes critical insights and strategies regarding gold displacement, providing a concise overview for effective trading. Key points include **strategic timing, common pitfalls, and practical applications**.\n\n* **Strategic Timing**: Focus on executing trades around high-impact news events to leverage volatility. Ensure that you wait for market stabilization before entering positions.\n* **Avoiding Pitfalls**: Recognize the difference between valid and misleading signals. Always analyze volume in conjunction with displacement to avoid common traps.\n* **Practical Application**: Engage in simulated trading scenarios to reinforce your understanding and improve execution skills. Practice analyzing body-to-wick ratios and volume metrics in real-time.",
+    "body": "### Summary of Gold Breakout Evaluation Techniques\nThis card summarizes the key concepts regarding the rejection of sweeps and the evaluation of breakout quality in gold trading. Focus on **the critical elements that define successful breakout strategies**.\n\n* **Candle Close Quality**: Always assess the closing price relative to trend lines to determine breakout validity. A close above the trend line with confirmation is essential.\n* **Volume Analysis**: Confirm breakouts with increased trading volume. A lack of volume can indicate a failed breakout, necessitating caution.\n* **Sentiment Integration**: Incorporate market sentiment analysis to enhance breakout evaluations. Understanding trader positioning and news impacts is vital for accurate decision-making.",
     "context": {
       "keyTerms": [
         {
-          "term": "High-Impact News Events",
-          "definition": "Economic announcements that significantly affect market volatility and price movements."
+          "term": "Breakout Strategy",
+          "definition": "A trading approach focused on entering positions when the price breaks above resistance."
+        },
+        {
+          "term": "Failed Breakout",
+          "definition": "A scenario where the price fails to maintain above a breakout level."
+        },
+        {
+          "term": "Confirmation",
+          "definition": "The validation of a breakout through subsequent price action and volume."
         }
       ],
-      "whyThisMatters": "A concise summary allows traders to quickly recall essential strategies and insights, enhancing their decision-making process.",
-      "realLifeExample": "Traders who effectively summarized their insights on gold displacement were able to capitalize on a 50-pip move following the U.S. GDP release, demonstrating the value of strategic execution.",
-      "commonMistake": "Relying solely on past experiences without adapting to current market conditions can lead to missed opportunities.",
-      "quickNote": "Summarize key insights for quick reference in gold displacement trading.",
-      "mentorText": "Keep it simple. Review these insights regularly to ensure you’re prepared for your next trade. Knowledge is your best tool.",
-      "mentorAnalogy": "Like a chef reviewing a recipe before cooking, you must revisit your strategies to ensure a successful trading session."
+      "whyThisMatters": "A comprehensive understanding of these concepts enables traders to make informed decisions and improve their trading outcomes.",
+      "realLifeExample": "Traders who applied these principles effectively identified a valid breakout at $1,950, leading to successful trades during the subsequent rally.",
+      "commonMistake": "Overlooking the importance of volume and sentiment can lead to misjudging breakout strength.",
+      "quickNote": "Focus on candle closes, volume, and sentiment for effective breakout evaluations.",
+      "mentorText": "Review these key concepts regularly. They are the foundation of successful breakout trading in gold markets.",
+      "mentorAnalogy": "Think of your breakout strategy like a chef preparing a dish; each ingredient must be measured and combined correctly for the perfect outcome."
     },
     "taskData": null,
-    "visualKey": "gold-news-displacement-wicks"
+    "visualKey": "gold-stop-sweeps-rejections"
   }
 ];

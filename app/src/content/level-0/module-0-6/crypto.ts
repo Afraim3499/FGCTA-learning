@@ -1,258 +1,263 @@
 import { LessonCard } from "../../../types/curriculum";
 
 /**
- * Module 0.6 - Crypto Track Cards
- * Focus: Crypto Evidence Audit: Reading Fragmented Market Evidence
+ * Module 0.5 - Crypto Track Cards
+ * Focus: Crypto Structure: Fragmented Markets, Liquidity, and Break Quality
  */
 export const cryptoCards: LessonCard[] = [
   {
     type: "mission_brief",
-    title: "Crypto Evidence Audit Starts With Fragmented Markets",
-    label: "Crypto Foundation",
-    visualKey: "crypto-evidence-audit-foundation",
-    body: "When you look at a crypto chart, it is easy to assume you are seeing the 'official' price of the asset. But unlike traditional stock markets, there is no single centralized exchange for crypto. Bitcoin and Ethereum trade across hundreds of centralized spot exchanges (like Binance or Coinbase), perpetual futures venues, decentralized exchanges (DEXs), and aggregate price index feeds. Because liquidity is fragmented across all these different pools, a breakout or rejection can look clean on one chart but be completely unsupported elsewhere. A trained crypto learner doesn't just react to one chart; they audit whether the evidence is supported by the wider market.",
+    title: "Crypto Structure Is Fragmented Market Behavior",
+    label: "Crypto Structure Foundation",
+    visualKey: "crypto-fragmented-structure-skeleton",
+    body: "Crypto structure is the visible behavior of an asset across fragmented markets, not one universal chart truth. A crypto asset can trade across centralized spot exchanges, perpetual markets, DEX pools, and aggregate feeds. The chart visible to the learner is one representation of movement, but crypto structure may be supported, weakened, or distorted by venue differences. A trained learner audits the structure before trusting it.",
     context: {
       keyTerms: [
-        { term: "Fragmented Liquidity", definition: "A market condition where buy and sell orders are split across many different exchanges and venues." },
-        { term: "Spot Exchange (CEX)", definition: "A centralized company-run platform (like Binance or Coinbase) where traders buy and sell the actual cryptocurrency." },
-        { term: "Perpetual Futures (Perps)", definition: "Leveraged trading contracts tracking an asset's price without any expiration date." },
-        { term: "Decentralized Exchange (DEX)", definition: "A blockchain-based platform where trading happens directly between user wallets using smart contracts." },
-        { term: "Market-Layer Audit", definition: "Evaluating price behavior across spot, futures, and related venues to verify a reading." }
+        { term: "Crypto Structure", definition: "The arrangement of price movement in a crypto asset across market conditions." },
+        { term: "Fragmented Market", definition: "A market where trading happens across multiple venues instead of one unified place." },
+        { term: "Venue", definition: "The place or market type where price movement forms, such as spot, perp, or DEX." },
+        { term: "Structure Reading", definition: "Classifying what price is building over time." },
+        { term: "Evidence Alignment", definition: "When multiple layers support the same reading." }
       ],
-      whyThisMatters: "If you only check one exchange's chart, you can easily be trapped by an isolated local movement that has no backing from the broader market.",
-      realLifeExample: "You notice a sudden bullish breakout candle on ETH on a decentralized exchange. But when you check the big centralized exchanges, the spot price hasn't moved at all. The DEX move was just an isolated imbalance in a thin liquidity pool.",
-      commonMistake: "Treating a single exchange's chart as the absolute, unified truth of the entire crypto market.",
-      quickNote: "Crypto price is an average across many islands. Make sure the main islands agree before you trust the move."
+      whyThisMatters: "Crypto learners often trust one chart too quickly. In crypto, one venue can move sharply while broader market evidence remains weak or mixed.",
+      realLifeExample: "A token breaks upward on one exchange, but spot volume is weak elsewhere and BTC is flat. The break happened, but the structure reading is not automatically clean.",
+      commonMistake: "Thinking one crypto chart represents the entire market structure.",
+      quickNote: "In crypto, structure must be audited across market layers."
     }
   },
   {
     type: "visual_intro",
-    title: "One Crypto Wick Is Not the Whole Story",
-    label: "Wick Trap",
-    visualKey: "crypto-single-wick-trap",
-    body: "Crypto charts are famous for printing giant, dramatic wicks that look like instant rejections. It is incredibly tempting to see a massive wick shooting down below support and assume, 'This is a clean rejection, price is guaranteed to reverse!' But in crypto, these wicks are often just the result of thin liquidity, localized liquidations, or cascading stop-losses on a single exchange. One wick is a useful clue that starts a question, but it cannot complete your reading. We must audit where the wick happened, why it formed, and whether price actually follows through.",
+    title: "Crypto Swings Can Come From Different Engines",
+    label: "Swing Source",
+    visualKey: "crypto-swing-source-map",
+    body: "Crypto swings are visible turning points, but the source of the swing matters. A swing high or low may come from spot participation, perpetual pressure, liquidations, thin liquidity, or event movement. The trained learner marks the swing, then audits its quality.",
     context: {
       keyTerms: [
-        { term: "Liquidation Wick", definition: "A sharp, rapid price extension caused by automated system liquidations of leveraged positions." },
-        { term: "Stop Run", definition: "A price sweep designed to trigger resting stop-loss orders before reversing." },
-        { term: "Thin Liquidity", definition: "A low number of buy and sell orders in the order book, making price spike easily with small volume." },
-        { term: "Follow-Through Check", definition: "Observing whether subsequent candles sustain the direction of a major wick." },
-        { term: "Wick Trap", definition: "The mistake of assuming an immediate reversal purely based on the presence of a long wick." }
+        { term: "Swing High", definition: "A visible high point where price turned downward." },
+        { term: "Swing Low", definition: "A visible low point where price turned upward." },
+        { term: "Swing Source", definition: "The market condition that may have created a swing." },
+        { term: "Perp Pressure", definition: "Movement influenced by perpetual contract activity." },
+        { term: "Liquidation Sweep", definition: "Movement accelerated by forced position closures." },
+        { term: "Thin-Liquidity Wick", definition: "A sharp move created in weak market depth." }
       ],
-      whyThisMatters: "Reacting instantly to wicks in crypto often lands you in the middle of a leverage flush, entering right before the real trend continues.",
-      realLifeExample: "ETH wicks down 3% below a key support level on a perp chart and returns inside within a minute. A beginner buys immediately, expecting a reversal. However, the spot market shows no volume support, and the next candle closes below the support level. The wick was just a leveraged stop run.",
-      commonMistake: "Assuming every long wick is a guaranteed reversal signal, rather than a liquidity event that requires verification.",
-      quickNote: "A wick tells you where orders were cleared out, not where price is going next."
+      whyThisMatters: "If a learner marks a swing without checking what created it, they may treat mechanical movement as clean structure.",
+      realLifeExample: "A token drops sharply and forms a swing low, but the move came during a liquidation cascade. The swing exists, but the learner should be cautious before treating it as clean support.",
+      commonMistake: "Assuming every swing point is equally meaningful.",
+      quickNote: "Mark the swing. Then audit the source."
     }
   },
   {
     type: "visual_intro",
-    title: "BTC Context Changes Crypto Reading Quality",
-    label: "BTC Context",
-    visualKey: "crypto-btc-context-evidence",
-    body: "Bitcoin (BTC) is the gravity of the crypto market. It represents the majority of the market's total value and drives the general risk appetite of crypto participants. If you are auditing an altcoin like SOL, LINK, or AVAX, you cannot read its structure in isolation. You must check Bitcoin's context. If an altcoin breaks a resistance level, but BTC is stuck below a major daily resistance or losing its own trend structure, the altcoin's breakout is highly vulnerable. We must check whether the market-wide driver is supportive or conflicting.",
+    title: "BTC Structure vs Altcoin Structure",
+    label: "Market Context",
+    visualKey: "crypto-btc-alt-structure-context",
+    body: "An altcoin can build its own structure, but BTC context can change the quality of that reading. If an altcoin is breaking upward while BTC is weak or near resistance, the structure may be active but not fully aligned. A trained learner checks whether the move is asset-specific or market-supported.",
     context: {
       keyTerms: [
-        { term: "Market Gravity", definition: "The dominant influence of Bitcoin's price trend over the rest of the crypto market." },
-        { term: "Altcoin Structure", definition: "The technical chart pattern and swing points of cryptocurrencies other than Bitcoin." },
-        { term: "BTC Alignment", definition: "When both Bitcoin and altcoins are trending or consolidating in the same direction." },
-        { term: "BTC Conflict", definition: "When an altcoin attempts a move that is directly contradicted by Bitcoin's structure." },
-        { term: "Relative Strength", definition: "An altcoin moving upward while Bitcoin is flat or weak, indicating unique demand." }
+        { term: "BTC Context", definition: "Bitcoin’s broader structure and condition as a market reference." },
+        { term: "Altcoin Structure", definition: "The visible price structure of a non-BTC crypto asset." },
+        { term: "Market-Supported Move", definition: "A move supported by broader crypto context." },
+        { term: "Asset-Specific Move", definition: "A move mainly visible on one asset." },
+        { term: "Context Conflict", definition: "When the asset structure and broader market context do not align." }
       ],
-      whyThisMatters: "Altcoins are highly sensitive to Bitcoin. When Bitcoin drops, it drags down even the strongest-looking altcoin structures.",
-      realLifeExample: "Solana (SOL) breaks out of a neat cup-and-handle pattern on its local chart. However, at the exact same moment, Bitcoin drops below its daily swing low. Solana's breakout fails instantly, dragging price back inside.",
-      commonMistake: "Buying altcoin breakouts without looking at the Bitcoin chart to confirm the broader market's health.",
-      quickNote: "When Bitcoin sneezes, the altcoins catch a cold. Never audit an altcoin in a vacuum."
+      whyThisMatters: "Many altcoin moves look strong until BTC context weakens. Learners need to know whether structure is supported or isolated.",
+      realLifeExample: "SOL makes higher highs on 15m, but BTC is still below resistance and not confirming. SOL may be active, but the broader reading is mixed.",
+      commonMistake: "Reading an altcoin structure as isolated strength without checking BTC context.",
+      quickNote: "Altcoin structure is stronger when broader market context supports it."
     }
   },
   {
     type: "visual_intro",
-    title: "Spot and Perp Evidence Can Disagree",
-    label: "Venue Conflict",
-    visualKey: "crypto-spot-perp-evidence-conflict",
-    body: "In crypto, there is a major difference between the spot market (where people buy the actual asset) and the perpetual futures market (where people trade with leverage). A breakout that is driven purely by futures leverage is often a temporary imbalance. If traders are forcing price higher using high leverage on perp venues while spot volume remains flat and inactive, the breakout is fragile. A healthy, high-quality reading requires spot and perp evidence to confirm each other.",
+    title: "Spot, Perp, and DEX Structure Can Disagree",
+    label: "Venue Structure",
+    visualKey: "crypto-venue-structure-disagreement",
+    body: "Crypto structure can differ across venues. A perp chart may show a strong break while spot remains weaker. A DEX wick may be venue-specific. A trained learner does not treat one venue’s structure as the whole market until other evidence supports it.",
     context: {
       keyTerms: [
-        { term: "Spot Confirmation", definition: "Visible buying volume on centralized spot exchanges backing a price move." },
-        { term: "Perp-Led Movement", definition: "A price move driven predominantly by leverage and derivatives positioning on futures exchanges." },
-        { term: "Leverage Imbalance", definition: "An unstable market condition where the amount of borrowed funds (leverage) in futures contracts is unsustainably high." },
-        { term: "Spot/Perp Divergence", definition: "When price moves on perp exchanges but spot exchanges do not show matching volume or price action." },
-        { term: "Order Book Depth", definition: "The total volume of limit orders (buy and sell orders waiting at specific prices) available to absorb market movements." }
+        { term: "Spot Structure", definition: "Structure built from actual asset trades on a spot venue." },
+        { term: "Perp Structure", definition: "Structure built from perpetual contract price movement." },
+        { term: "DEX Structure", definition: "Structure visible through decentralized swap/liquidity pool pricing." },
+        { term: "Venue-Specific Move", definition: "Movement strong on one venue but not broadly confirmed." },
+        { term: "Cross-Venue Confirmation", definition: "Support across multiple relevant markets." }
       ],
-      whyThisMatters: "Perp-led breakouts are highly susceptible to sudden liquidations and reversals. Checking spot volume acts as a quality filter.",
-      realLifeExample: "BTC spikes 2% on Binance Perps. You check Coinbase Spot and Binance Spot volume and see it is extremely low. This perp-led spike is likely a short squeeze that will collapse as soon as the futures buying stops.",
-      commonMistake: "Trusting a breakout without checking if the volume is coming from spot buying or just perp leverage.",
-      quickNote: "Spot volume is the foundation. Perp leverage is the accelerant. Never trust the accelerant alone."
+      whyThisMatters: "Crypto learners often trust the most dramatic venue. That is dangerous when the move is not broadly confirmed.",
+      realLifeExample: "A perp chart breaks above a resistance area, but spot charts barely move and DEX liquidity remains thin. The structure is not clean yet.",
+      commonMistake: "Treating a perp-only break as full market confirmation.",
+      quickNote: "Crypto structure is cleaner when venues agree."
     }
   },
   {
     type: "visual_intro",
-    title: "Liquidation Cascades Can Fake Clarity",
-    label: "Liquidation Pressure",
-    visualKey: "crypto-liquidation-cascade-audit",
-    body: "When traders use high leverage, they set liquidation prices. If price reaches those levels, the exchange automatically force-closes their positions, buying or selling market orders in a fraction of a second. This triggers further liquidations in a chain reaction—a liquidation cascade. The result is a massive, fast candle that looks like a powerful breakout or breakdown. But this is forced liquidation, not sustainable buying or selling. We must observe whether price holds the new area after the cascade or immediately snaps back.",
+    title: "Trend and Range in Crypto Assets",
+    label: "Crypto Structure Types",
+    visualKey: "crypto-trend-range-structure",
+    body: "A crypto asset can trend, range, or become unclear. Trend structure comes from swing relationships. Range structure comes from repeated movement between upper and lower areas. Fast candles and dramatic wicks do not replace structure classification.",
     context: {
       keyTerms: [
-        { term: "Liquidation Cascade", definition: "A chain reaction where one liquidation triggers price shifts that force subsequent liquidations." },
-        { term: "Forced Order", definition: "A market order executed automatically by an exchange's liquidation engine." },
-        { term: "Cascading Stop", definition: "A series of stop-loss orders triggered sequentially as price spikes rapidly." },
-        { term: "Mean Reversion", definition: "The tendency of price to return to its average level after an extreme, forced spike." },
-        { term: "Liquidation Flush", definition: "Clearing out over-leveraged traders from the market, leading to price stabilization." }
+        { term: "Crypto Trend", definition: "Directional structure built through swing relationships." },
+        { term: "Crypto Range", definition: "Structure where price rotates between upper and lower areas." },
+        { term: "Wick Noise", definition: "Sharp candle extensions that may not change structure." },
+        { term: "Unclear Structure", definition: "A condition where the asset does not show clean trend or range behavior." },
+        { term: "Structure Classification", definition: "Naming what price is building." }
       ],
-      whyThisMatters: "Chasing a liquidation candle often results in buying the absolute top or selling the absolute bottom of a temporary spike.",
-      realLifeExample: "An altcoin consolidates for days, then suddenly spikes down 5% in 10 seconds, hitting a key support. The move was a liquidation cascade of late longs. Within 5 minutes, price returns back to the range. The break was fake.",
-      commonMistake: "Assuming a fast, high-speed news or liquidation candle represents a clean, organic trend shift.",
-      quickNote: "Liquidations create speed, not structure. Let the dust settle before you read the chart."
+      whyThisMatters: "Crypto movement can look dramatic even when the structure has not changed. Classification stops the learner from reacting to every sharp candle.",
+      realLifeExample: "A token produces several strong green candles but remains inside the same higher-timeframe range. The move is active, but the broader structure is still range-bound.",
+      commonMistake: "Calling every fast crypto push a new trend.",
+      quickNote: "Volatility is not structure. Structure is built through relationships."
     }
   },
   {
     type: "visual_intro",
-    title: "DEX and CEX Prices May Not Tell the Same Story",
-    label: "Venue Difference",
-    visualKey: "crypto-dex-cex-evidence",
-    body: "Because decentralized exchanges (DEXs) rely on local liquidity pools rather than central order books, their pricing can temporarily deviate from centralized exchanges (CEXs). A large trade on a DEX can create a massive wick or price distortion due to slippage or thin pool depth. This is a local venue anomaly, not a global market shift. A disciplined auditor cross-checks CEX spot feeds to ensure a DEX move represents a true structural change.",
+    title: "Liquidity Zones, Not Magic Lines",
+    label: "Liquidity Areas",
+    visualKey: "crypto-liquidity-zones",
+    body: "Crypto reaction areas are not magic lines. They are zones where price has previously changed behavior, where liquidity may be sitting, or where traders may react. A trained learner watches behavior around the zone instead of assuming the line must hold.",
     context: {
       keyTerms: [
-        { term: "Centralized Exchange (CEX)", definition: "An exchange operating a centralized order book (e.g., Binance, Coinbase)." },
-        { term: "Decentralized Pool", definition: "Smart-contract-based reserves of tokens that facilitate trading on DEXs." },
-        { term: "Slippage", definition: "The difference between the expected price of a trade and the price at which it is executed." },
-        { term: "Venue Anomaly", definition: "A price spike or discrepancy that occurs on only one specific exchange." },
-        { term: "Arbitrage", definition: "Profiting from price differences by buying a cryptocurrency on one exchange at a lower price and selling it on another exchange at a higher price." }
+        { term: "Liquidity Zone", definition: "An area where orders, reactions, or market interest may cluster." },
+        { term: "Reaction Area", definition: "A zone where price behavior has previously changed." },
+        { term: "Wick Through", definition: "Price briefly moves through an area without clean follow-through." },
+        { term: "Liquidity Cluster", definition: "A concentration of potential orders or interest around an area." },
+        { term: "Zone-Based Reading", definition: "Reading an area flexibly instead of as one exact price." }
       ],
-      whyThisMatters: "Relying purely on DEX charts can lead to trading price wicks that were caused by single large orders rather than general market movement.",
-      realLifeExample: "A local DEX pool for a mid-cap token spikes 8% upward because a whale bought $100k worth of tokens. On Binance and OKX spot, the price remained completely unchanged. Arbitrageurs quickly sell on the DEX, bringing the price back down.",
-      commonMistake: "Failing to check centralized exchange pricing when trading on decentralized platforms.",
-      quickNote: "A DEX wick is often just a localized splash in a small pond. Look at the big lake first."
+      whyThisMatters: "Crypto wicks can easily pass through exact lines. If learners use rigid lines, they will misclassify many moves.",
+      realLifeExample: "ETH pushes below a prior low, wicks through the area, then quickly returns above it. A trained learner audits whether that was a sweep, a failed break, or unstable movement.",
+      commonMistake: "Expecting crypto support and resistance to behave like perfect walls.",
+      quickNote: "In crypto, areas matter more than perfect lines."
     }
   },
   {
     type: "visual_intro",
-    title: "Funding and Leverage Can Pressure the Reading",
-    label: "Funding and Leverage",
-    visualKey: "crypto-funding-leverage-pressure",
-    body: "To keep the price of perpetual futures in line with the spot price, crypto exchanges use a mechanism called the funding rate. When most traders are leverage-long, longs pay shorts a fee every few hours (positive funding). When most are short, shorts pay longs (negative funding). If the funding rate becomes extremely positive, it shows that leverage is heavily crowded. This crowded position makes any bullish breakout fragile, as a small downward move can trigger a massive liquidation chain.",
+    title: "Perp-Driven Breaks and False Structure",
+    label: "Perp Pressure",
+    visualKey: "crypto-perp-break-false-structure",
+    body: "A perp-driven break can look powerful, but it is not automatically clean structure. Perpetual markets can move through leverage pressure, funding imbalance, or liquidations. A trained learner checks whether spot, BTC context, and follow-through support the break.",
     context: {
       keyTerms: [
-        { term: "Funding Rate", definition: "A periodic fee exchanged between buy and sell contract holders to keep perp prices in line with spot prices." },
-        { term: "Crowded Leverage", definition: "An extreme imbalance where the vast majority of market participants are positioned in the same direction." },
-        { term: "Open Interest (OI)", definition: "The total number of active futures contracts that have not yet been closed or settled." },
-        { term: "Funding Pressure", definition: "The financial cost of holding a leveraged position in a crowded market." },
-        { term: "Long Squeeze", definition: "A market event where a sudden price drop forces buyers using leverage (longs) to sell, driving prices down even faster." }
+        { term: "Perp-Driven Break", definition: "A break strongly influenced by perpetual contract movement." },
+        { term: "False Structure", definition: "A structure reading that weakens because the move fails or lacks confirmation." },
+        { term: "Spot Confirmation", definition: "Support from actual spot market movement." },
+        { term: "Leverage Pressure", definition: "Movement influenced by leveraged positioning." },
+        { term: "Funding Imbalance", definition: "Pressure from long/short positioning costs or imbalance." },
+        { term: "Follow-Through", definition: "What price does after the break." }
       ],
-      whyThisMatters: "Trading breakouts when funding is highly elevated is dangerous because the market is structurally fragile and primed for a reversal.",
-      realLifeExample: "You want to buy a breakout on ETH. You check the funding rate and see it is at its highest level in months. This tells you leverage is crowded. A few hours later, a tiny dip triggers a mass cascade of long liquidations.",
-      commonMistake: "Ignoring extremely positive or negative funding rates when evaluating trend continuation.",
-      quickNote: "When everyone is leaning on one side of the boat, a tiny wave will capsize it."
+      whyThisMatters: "Crypto learners often trust the most dramatic perp move, but leverage can exaggerate structure.",
+      realLifeExample: "BTC perps break above a local range, but spot remains weak and price quickly returns inside. The break is not clean confirmation.",
+      commonMistake: "Assuming a perp breakout proves true market structure.",
+      quickNote: "Perp movement needs confirmation before it becomes structure."
     }
   },
   {
     type: "visual_intro",
-    title: "Aligned Crypto Evidence vs Mixed Crypto Evidence",
-    label: "Alignment and Conflict",
-    visualKey: "crypto-aligned-vs-mixed-evidence",
-    body: "Now we must classify our crypto reading. We have a clear aligned reading when multiple independent layers point in the same direction: BTC structure is bullish, spot volume confirms the move, perp open interest rises healthily, and follow-through holds key support levels. We have a mixed reading when we have active conflict: an altcoin is breaking high, but BTC is dropping, spot volume is thin, and the funding rate is crowded. Learning to separate these states keeps you out of risky markets.",
+    title: "Thin Liquidity, Wicks, and Failed Breaks",
+    label: "Break Failure",
+    visualKey: "crypto-thin-liquidity-failed-break",
+    body: "Thin liquidity can make crypto structure look stronger than it is. Price may move beyond an area, print a dramatic wick, and return quickly. A trained learner checks whether the move held, closed well, and gained follow-through before calling it structure change.",
     context: {
       keyTerms: [
-        { term: "Aligned Reading", definition: "A high-quality reading where structure, BTC, spot volume, and perps all agree." },
-        { term: "Mixed Reading", definition: "A classification where some indicators are supportive but others present significant warnings." },
-        { term: "Unclear Reading", definition: "A market state characterized by high noise, flat volume, and erratic price action." },
-        { term: "Conflict Identification", definition: "Actively noting indicators that oppose your primary directional bias." },
-        { term: "Risk Mitigation", definition: "Lowering exposure or standing aside when evidence is classified as mixed or unclear." }
+        { term: "Thin Liquidity", definition: "A condition where limited available orders allow price to move sharply." },
+        { term: "Failed Break", definition: "Price moves beyond an area but cannot hold." },
+        { term: "Failed Hold", definition: "Price cannot remain beyond the broken area." },
+        { term: "Close Location", definition: "Where the candle closes inside its full range." },
+        { term: "Structure Failure", definition: "When movement does not create lasting structural change." }
       ],
-      whyThisMatters: "Altcoins are highly volatile. Without a clear alignment checklist, you will constantly buy into temporary price spikes.",
-      realLifeExample: "SOL breaks its range high. BTC is breaking upward as well, spot volume on Coinbase is expanding, and funding is neutral. This is a clear aligned read. If BTC was flat and spot volume was dry, the read would be mixed.",
-      commonMistake: "Failing to classify a setup as mixed because you are emotionally attached to the altcoin's project news.",
-      quickNote: "If the evidence doesn't align cleanly across spot, perps, and BTC, the reading is mixed. Stand aside."
+      whyThisMatters: "Crypto creates many dramatic candles. Without liquidity awareness, learners may trust moves that were produced by weak depth.",
+      realLifeExample: "A small-cap token breaks above resistance during a quiet period, wicks hard, then closes back below. The visual break happened, but structure did not cleanly change.",
+      commonMistake: "Calling every wick beyond a level a confirmed breakout.",
+      quickNote: "A wick through the level is not enough. Structure needs hold and follow-through."
     }
   },
   {
     type: "visual_intro",
-    title: "Crypto Verification: What Must Happen Next?",
-    label: "Verification Logic",
-    visualKey: "crypto-verification-workflow",
-    body: "Crypto markets move with extreme speed, which often triggers FOMO (Fear of Missing Out). To protect yourself, you must replace emotional reactions with verification logic. Instead of chasing a fast-moving green candle, define what the market must show you next. For a bullish break, ask: 'Does price hold above the broken range high on a pullback? Does spot volume continue to support? Does BTC remain stable?' If yes, the reading is verified. If not, the setup is invalid.",
+    title: "Higher-Timeframe Crypto Location Comes First",
+    label: "Crypto Location",
+    visualKey: "crypto-htf-location-first",
+    body: "A lower-timeframe crypto move can be active and still incomplete. The higher timeframe shows where the asset is located in the broader structure. A trained learner checks location before trusting local movement.",
     context: {
       keyTerms: [
-        { term: "Verification Checkpoint", definition: "A specific price level or volume behavior that confirms a reading's validity." },
-        { term: "Pullback Test", definition: "When price returns to a broken structure level to verify if it acts as support." },
-        { term: "FOMO Filter", definition: "A disciplined habit of waiting for verification checks to prevent chasing price." },
-        { term: "Invalidation Level", definition: "A price point that, if crossed, proves the initial breakout reading was false." },
-        { term: "Volume Verification", definition: "Confirming that trading volume remains high during pullbacks and continuations." }
+        { term: "Higher-Timeframe Location", definition: "Where the asset sits in broader structure." },
+        { term: "Major Reaction Area", definition: "A zone where price has previously changed behavior." },
+        { term: "Local Move", definition: "Shorter-timeframe movement inside broader context." },
+        { term: "Context-Limited Move", definition: "A move that is active but restricted by broader structure." },
+        { term: "Broader Structure", definition: "The larger chart condition surrounding local movement." }
       ],
-      whyThisMatters: "Waiting for verification checks stops you from entering at the absolute peak of a liquidation spike.",
-      realLifeExample: "An altcoin spikes 8% in ten minutes. Instead of FOMO-buying, you say: 'I will wait for a pullback to the broken range high. If it holds on low volume and BTC is stable, I will verify the read.' Price immediately dumps back into the range, proving the breakout was false.",
-      commonMistake: "Buying a high-speed breakout candle before it closes, leaving yourself exposed to a sudden rejection wick.",
-      quickNote: "Let the market run first. If the move is real, it will give you a safe pullback checkpoint to read."
+      whyThisMatters: "Crypto speed makes local movement feel more important than it may be. Higher-timeframe location prevents shallow readings.",
+      realLifeExample: "A token pumps on 15m, but the 4H chart is still pressing into a previous rejection area. The move is active, but the reading is not automatically clean.",
+      commonMistake: "Letting a fast lower-timeframe crypto move override higher-timeframe structure.",
+      quickNote: "In crypto, speed does not erase location."
     }
   },
   {
     type: "practice",
-    title: "Practice Drill: Is This Crypto Reading Clear, Mixed, or Unclear?",
+    title: "Practice Drill: Broad Break or Venue-Specific Trap?",
     label: "Practice Drill",
-    visualKey: "crypto-evidence-audit-practice-drill",
-    body: "Let's put your crypto audit skills to the test. In this drill, we present a realistic crypto market scenario featuring both positive indicators and active warning signs. Your goal is to evaluate the evidence layers objectively and classify the reading quality state. Remember: do not choose the most exciting directional option, choose the most disciplined classification of the evidence.",
+    visualKey: "crypto-structure-break-drill",
+    body: "This drill tests whether you can audit crypto structure across venue, liquidity, BTC context, and higher-timeframe location. A break on one venue is only the first clue. The trained learner checks whether the structure is broadly supported or only locally dramatic.",
     taskData: {
       type: "choice_block",
-      question: "An altcoin breaks above a local range high on its local chart. The perp chart shows a sharp upward spike in price with expanding open interest. However, Bitcoin is currently flat and stuck directly below a major daily resistance zone. Furthermore, the spot volume on major centralized exchanges remains very thin, and the breakout candle immediately hesitates and starts drifting back toward the broken range high. What is the disciplined Crypto evidence-audit reading?",
+      question: "A token breaks above a local resistance area on a perpetual exchange. The perp candle is strong, but spot volume is weak, BTC is flat, and the DEX pool shows a large wick with thin liquidity. The 4H chart is still inside a broader range. What is the disciplined crypto structure reading?",
       options: [
         {
           id: "A",
-          text: "Clear bullish reading because the altcoin broke above the range.",
+          text: "It is a confirmed breakout because the perp chart broke resistance.",
           isCorrect: false,
-          feedback: "Incorrect. While the local breakout exists, you cannot classify this as clear when BTC is stuck under resistance, spot confirmation is thin, and the breakout candle is already losing momentum."
+          feedback: "Wrong: A perp break alone does not prove full-market structure change."
         },
         {
           id: "B",
-          text: "Mixed evidence because the break happened, but BTC context, spot confirmation, and follow-through are not strong yet.",
-          isCorrect: true,
-          feedback: "Correct! The evidence is mixed. The local breakout is an active supportive clue, but the flat BTC context, thin spot volume, and stalling follow-through are significant limiting clues that prevent a clear reading."
+          text: "It is definitely bearish because DEX liquidity is thin.",
+          isCorrect: false,
+          feedback: "Wrong: Thin DEX liquidity adds caution, but it does not automatically create a bearish reading."
         },
         {
           id: "C",
-          text: "Guaranteed reversal because the next candle stalled.",
-          isCorrect: false,
-          feedback: "Incorrect. Stalling or drifting back limits reading confidence, but it does not guarantee a reversal. Avoid absolute predictions."
+          text: "The break is active but mixed because spot, BTC context, DEX liquidity, and higher-timeframe structure do not fully support it.",
+          isCorrect: true,
+          feedback: "Correct! The perp break is active, but the supporting evidence is weak or mixed. Spot is not confirming strongly, BTC is flat, DEX liquidity is thin, and the 4H chart remains range-bound. This is mixed evidence, not a clean structure change."
         },
         {
           id: "D",
-          text: "Unclear forever because crypto markets cannot be read.",
+          text: "The higher timeframe does not matter because crypto moves fast.",
           isCorrect: false,
-          feedback: "Incorrect. Crypto markets can be read systematically, but we must audit the different layers (BTC, spot, perps, and structure) together rather than dismissing them."
+          feedback: "Wrong: Crypto speed makes higher-timeframe location more important, not less important."
         }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Disciplined Reading", definition: "Evaluating charts based on visible evidence rather than hopes or predictions." },
-        { term: "Altcoin Breakout", definition: "Price breaking above a local consolidation range on an altcoin chart." },
-        { term: "Spot/Perp Divergence", definition: "When a price move is driven by perp leverage while spot buying remains inactive." },
-        { term: "BTC Resistance Barrier", definition: "A key historical supply zone on the Bitcoin chart that limits market-wide upside." },
-        { term: "Drifting Follow-Through", definition: "A weak post-breakout candle structure that fails to show impulsive continuation." }
+        { term: "Venue-Specific Break", definition: "A break visible strongly on one venue but not broadly confirmed." },
+        { term: "Mixed Evidence", definition: "Some clues support the move while other clues reduce clarity." },
+        { term: "Spot Confirmation", definition: "Support from actual spot market activity." },
+        { term: "Cross-Venue Support", definition: "Evidence across multiple market venues." },
+        { term: "Higher-Timeframe Limitation", definition: "Broader structure that weakens a local reading." },
+        { term: "Break Audit", definition: "Reviewing venue, liquidity, close, follow-through, and context." }
       ],
-      whyThisMatters: "This drill trains you to notice market-wide gravity and volume depth rather than getting blinded by a fast altcoin breakout.",
-      realLifeExample: "You see SOL spike, but check BTC and spot volume first. Finding no market-wide support, you classify the read as mixed and avoid buying the top of a leverage spike.",
-      commonMistake: "Failing to check Bitcoin's structure before entering an altcoin trade, leading to losses when Bitcoin rejects resistance.",
-      quickNote: "If the breakout is isolated, the reading is mixed. Wait for the market gravity to align."
+      whyThisMatters: "Crypto often creates dramatic one-venue moves. This drill trains learners to classify quality instead of reacting to drama.",
+      realLifeExample: "A token breaks up on perps while spot barely follows and BTC is flat. A rushed learner sees breakout. A trained learner marks it as mixed until broader evidence supports it.",
+      commonMistake: "Calling one venue’s break a full crypto market breakout.",
+      quickNote: "One venue can move. Structure needs support."
     }
   },
   {
     type: "debrief",
-    title: "Debrief: Crypto Reading Requires Market-Layer Evidence",
-    label: "Crypto Debrief",
-    visualKey: "crypto-evidence-audit-debrief",
-    body: "Congratulations! You have completed the Level 0 Crypto Roadway. You have shifted your mindset from a retail speculator chasing speed to a disciplined crypto auditor. You now understand that a crypto chart is just one piece of a fragmented market, shaped by Bitcoin's gravity, spot/perp volume, liquidation cascades, and verification checkpoints. You have built a professional trading foundation that will protect your capital as you transition to Level 1.",
+    title: "Crypto Debrief: Reading Structure Through Venue, Liquidity, and Context",
+    label: "Roadway Debrief",
+    visualKey: "crypto-structure-roadway-debrief",
+    body: "You are no longer reading crypto structure as one chart and one breakout. You now understand that crypto structure must be audited through venue, liquidity, BTC context, swing quality, break quality, and higher-timeframe location. The job is to classify evidence, not react to the loudest candle.\n\n### Your Crypto Competencies:\n\n* [x] Audit **Asset Behavior** across fragmented venues\n* [x] Audit **Swing Quality** and identify the underlying engine\n* [x] Layer **BTC Context** as a major market support filter\n* [x] Identify and resolve **Cross-Venue Disagreements**\n* [x] Use **Liquidity Zones** rather than rigid lines\n* [x] Filter out leverage-driven **Perp-Driven Breaks**\n* [x] Identify **Thin-Liquidity Wicks** and failed structure wicks\n* [x] Prioritize **HTF Location** and establish evidence alignment\n\n**Next**: Level 0 Synthesis & Verification.",
     context: {
       keyTerms: [
-        { term: "Crypto Auditor", definition: "A trader who cross-checks BTC, spot volume, and perp leverage before drawing a reading." },
-        { term: "Market-Layer Reading", definition: "Evaluating crypto assets by combining multiple exchange and derivatives layers." },
-        { term: "Gravity Awareness", definition: "Always checking Bitcoin's structure before forming a view on altcoins." },
-        { term: "Liquidation Literacy", definition: "Understanding that high-speed moves are often forced liquidations rather than real trends." },
-        { term: "Capital Protection", definition: "The ultimate goal of using evidence audits to avoid low-probability trades." }
+        { term: "Crypto Structure", definition: "The arrangement of price movement in a crypto asset." },
+        { term: "Venue Check", definition: "Reviewing where the structure is forming." },
+        { term: "Liquidity Zone", definition: "Area where orders, reactions, or market interest may cluster." },
+        { term: "BTC Context", definition: "Bitcoin’s broader condition as market reference." },
+        { term: "Break Quality", definition: "How reliable a break appears after review." },
+        { term: "Cross-Venue Confirmation", definition: "Evidence across multiple relevant markets." },
+        { term: "Reading Quality", definition: "Clear, mixed, or unclear." }
       ],
-      whyThisMatters: "Crypto is highly volatile and easily manipulated by leverage. A systematic evidence audit is your only shield against these market flushes.",
-      realLifeExample: "A Lurnava graduate audits SOL. They check BTC (bullish trend), spot volume (expanding on Coinbase), perp open interest (stable), and wait for a pullback to hold the H1 low. They execute with complete clarity.",
-      commonMistake: "Slipping back into trading fast wicks and chasing spikes without auditing the market layers.",
-      quickNote: "Do not chase the speed. Audit the source, check the gravity, and verify the hold."
+      whyThisMatters: "Crypto structure reading protects learners from chasing one chart, one wick, or one perp-driven move without broader evidence.",
+      realLifeExample: "Two learners see the same crypto breakout. One reacts to the candle. The trained learner checks spot support, perp pressure, DEX liquidity, BTC context, and higher-timeframe location.",
+      commonMistake: "Leaving with breakout language but no process for auditing structure quality.",
+      quickNote: "Crypto structure is strongest when venue, liquidity, and context align."
     }
   }
 ];

@@ -50,7 +50,7 @@ export const cryptoCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Practical Scenarios for Leverage Adjustment",
     "label": "Crypto Track",
     "body": "### Application: Leverage Scaling in Real-World Scenarios\nEngaging with practical scenarios allows traders to apply theoretical knowledge of leverage scaling during Altcoin drawdowns. This card presents **situational exercises for leverage adjustment**.\n\n* **Scenario 1**: Bitcoin experiences a 25% drop in value. You are currently using 4x leverage. What is your immediate action plan for scaling down leverage?\n* **Scenario 2**: An Altcoin you hold has lost 40% of its value. You must decide whether to maintain your current leverage or reduce it. What factors will influence your decision?\n* **Scenario 3**: A sudden market rally occurs after a significant drawdown. How do you adjust your leverage to capitalize on potential gains while managing risk?",

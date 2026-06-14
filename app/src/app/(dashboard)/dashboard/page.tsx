@@ -10,8 +10,7 @@ import { NextGateCard } from "@/components/dashboard/cards/next-gate-card";
 import { LearningPathCard } from "@/components/dashboard/cards/learning-path-card";
 import { RecentActivityCard } from "@/components/dashboard/cards/recent-activity-card";
 import { MilestoneMapCard } from "@/components/dashboard/cards/milestone-map-card";
-import { SafeLearningCard } from "@/components/dashboard/cards/safe-learning-card";
-import { LearningNoteCard } from "@/components/dashboard/cards/learning-note-card";
+import { SkillProfileCard } from "@/components/dashboard/cards/skill-profile-card";
 
 export default async function DashboardPage() {
   const user = await getUser();
@@ -26,6 +25,10 @@ export default async function DashboardPage() {
 
   const progress = await prisma.userProgress.findUnique({
     where: { userId: user.id },
+  });
+
+  const skillProfile = await prisma.studentSkillProfile.findUnique({
+    where: { userId: user.id }
   });
 
   const nextStep = await getNextStep(user.id);
@@ -149,10 +152,10 @@ export default async function DashboardPage() {
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-5">
         <div className="xl:col-span-2 flex flex-col gap-4 md:gap-5">
           <MilestoneMapCard />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
-            <LearningNoteCard />
-            <SafeLearningCard />
-          </div>
+          <SkillProfileCard 
+            level={progress?.currentLevel ?? 0}
+            profile={skillProfile}
+          />
         </div>
         
         <div className="xl:col-span-1 h-full">

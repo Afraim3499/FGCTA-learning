@@ -4,16 +4,14 @@ import { AcademyModule } from "../../../types/curriculum";
 export const module011: AcademyModule = {
   moduleNumber: "0.11",
   level: 0,
-  title: "Crypto Reading Lab: Venue Fragmentation & Liquidity Spikes",
-  objective: "Teach learners how to verify whether a crypto move is broad market movement or a local venue/liquidity distortion by comparing CEX, DEX, BTC context, venue agreement, liquidity quality, and follow-through.",
+  title: "Forex Reading Lab: Pair Pressure, Sessions, News, and Verification",
+  objective: "Teach learners how to combine pair pressure, session context, USD/DXY awareness, related-pair behavior, ADR caution, news pressure, and verification into a disciplined Forex reading.",
   skillLevel: "beginner",
   orderIndex: 11,
   tracks: {
     core: coreCards,
     forex: [],
     gold: [],
-    crypto: []
-  }
+    crypto: [],
+  },
 };
-
-export * from "./core";

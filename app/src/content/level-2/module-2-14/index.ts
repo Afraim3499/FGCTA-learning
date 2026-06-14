@@ -9,7 +9,7 @@ export const module214: AcademyModule = {
   level: 2,
   title: "Session Windows",
   objective: "Coordinate execution plans with high-volume session openings.",
-  skillLevel: "beginner",
+  skillLevel: "intermediate",
   orderIndex: 14,
   tracks: {
     core: coreCards,

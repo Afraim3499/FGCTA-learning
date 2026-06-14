@@ -50,7 +50,7 @@ export const goldCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Practical Application of Gold Asian Range Concepts",
     "label": "Gold Track",
     "body": "### Gold Asian Range: Practical Exercises\nEngaging with practical exercises reinforces the concepts learned about the Asian range in gold trading. This card presents scenarios to apply your knowledge effectively.\n\n* **Scenario Analysis**: Analyze a chart of gold (XAU/USD) during the Asian session, identifying the established range and potential breakout points.\n* **Trade Simulation**: Simulate a trade based on a hypothetical news release at 10:30 PM EST, determining entry and exit points while applying risk management techniques discussed.\n* **Review and Adjust**: After executing simulated trades, review outcomes and adjust strategies based on observed market behavior during the Asian range.",

@@ -274,7 +274,7 @@ export const coreCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "summary",
     "title": "Reinforcing Key Branching Logic Concepts",
     "label": "Core Track",
     "body": "### Core Scenario: Summary of Key Branching Logic Concepts\nThis card consolidates essential concepts related to branching logic workflows, reinforcing critical elements necessary for the final gate mission. Understanding these concepts ensures a robust execution strategy.\n\n* **Evidence Stack Hierarchy**: Prioritize the evidence stack by categorizing data into primary, secondary, and tertiary levels, ensuring clarity in decision-making pathways.\n* **Dynamic State Transitions**: Recognize the importance of transitioning between states based on hard structural closes rather than emotional reactions, maintaining objectivity.\n* **Feedback Loop Mechanisms**: Implement feedback loops to evaluate past decisions, allowing for continuous improvement in workflow execution and adaptability.",

@@ -122,7 +122,7 @@ export const cryptoCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Practical Exercises on Leverage Volume",
     "label": "Crypto Track",
     "body": "### Practical Application: Leverage Volume Delta Analysis\nEngaging in practical exercises will solidify your understanding of leverage volume delta analysis in real-world scenarios. This card provides **hands-on tasks to apply learned concepts**.\n\n* **Scenario Analysis**: Review a recent trading session of BTC/USD where the price surged from $40,000 to $42,000. Analyze the volume delta during this move and determine if it supported the price increase or indicated potential exhaustion.\n* **Trade Simulation**: Create a simulated trading plan based on observed leverage volume deltas for ETH. Identify entry and exit points using delta signals and set stop-loss orders based on volume profile support levels.\n* **Case Study Review**: Examine a historical case where a significant delta shift occurred before a market correction. Analyze the conditions leading up to the event and how leverage positions were affected, focusing on the implications for future trades.",

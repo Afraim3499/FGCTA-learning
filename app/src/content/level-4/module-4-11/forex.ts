@@ -130,7 +130,7 @@ export const forexCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Forex Advanced Time & Price 7",
     "label": "Forex Track",
     "body": "### Forex Weekly Cycle: Advanced Application\nThis card focuses on the advanced application of weekly cycle concepts, emphasizing timing filters and session dynamics. Mastering these elements is crucial for optimizing trade entries.\n\n* **Timing Filters**: Implement timing filters to refine entry points. For instance, consider entering a trade only if the price approaches Tuesday's LOD during the London session, increasing the probability of a bounce.\n* **Session Dynamics**: Analyze the behavior of major currency pairs during different sessions. For example, if EURUSD shows a bullish trend during the New York session, align your trades accordingly when price approaches Tuesday's HOD.\n* **Confirmation Signals**: Use additional indicators (e.g., RSI, MACD) to confirm potential reversals at LOD and HOD levels. This multi-faceted approach enhances decision-making and risk management.",

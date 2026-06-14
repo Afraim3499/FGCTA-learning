@@ -1045,34 +1045,5 @@ export const CryptoStructureRoadwayDebrief = () => {
 };
 
 export const CryptoPlaceholderVisual = () => (
-  <div className="w-full min-h-[400px] bg-[#F8FBFC] border border-[#E2E8F0] rounded-[2rem] p-8 flex flex-col relative overflow-hidden shadow-sm">
-    {/* Grid background handled by InstitutionalFrame */}
-    <div className="flex items-center justify-between mb-8 relative z-10 border-b border-slate-200 pb-4">
-      <div className="flex flex-col">
-        <div className="flex items-center gap-2 mb-1">
-          <Database size={10} className="text-amber-600" />
-          <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Track Adaptation Diagnostic</span>
-        </div>
-        <h4 className="text-base font-black text-[#071B36] uppercase tracking-tighter italic">Crypto Structural Adaptation</h4>
-      </div>
-      <div className="text-[10px] font-mono text-[#071B36] font-bold">STR-CR-05</div>
-    </div>
-    <div className="flex-1 flex flex-col items-center justify-center relative z-10">
-      <div className="flex flex-col items-center gap-6 text-center max-w-sm">
-        <div className="w-16 h-16 rounded-2xl bg-[#E6F2F0] flex items-center justify-center text-teal-600">
-          <Globe size={32} />
-        </div>
-        <div className="space-y-2">
-          <h5 className="text-lg font-black text-[#071B36] uppercase">Crypto Logic Pending</h5>
-          <p className="text-xs text-slate-500 font-medium leading-relaxed">
-            Crypto's fragmented liquidity pools require unique multi-venue alignment. Audit in progress.
-          </p>
-        </div>
-        <div className="px-6 py-2 bg-slate-100 rounded-full text-[8px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
-          <ShieldAlert size={12} />
-          Awaiting Verification
-        </div>
-      </div>
-    </div>
-  </div>
+  <CryptoStructureRoadwayDebrief />
 );

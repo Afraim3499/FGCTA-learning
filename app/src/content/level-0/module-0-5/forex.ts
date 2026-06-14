@@ -1,266 +1,212 @@
 import { LessonCard } from "../../../types/curriculum";
 
-/**
- * Module 0.5 - Forex Track Cards
- * Focus: Forex Structure: How Currency Pairs Build Direction, Ranges, and Breaks
- */
 export const forexCards: LessonCard[] = [
   {
-    type: "mission_brief",
-    title: "Forex Structure Is Pair Behavior",
-    label: "Forex Structure Foundation",
-    visualKey: "forex-pair-structure-skeleton",
-    body: "Forex structure is the visible behavior of a currency pair over time. The chart shows how one currency is being priced against another, and that relationship forms swings, ranges, trends, breaks, and failures. A trained learner reads the pair structure, not one candle in isolation.",
+    type: "visual_intro",
+    title: "Forex Timeframes Are Session Records",
+    visualKey: "forex-session-timeframe-board",
+    label: "Forex Foundation",
+    body: "A 15-minute candle records 15 minutes of activity. But in the Foreign Exchange (Forex) market, those 15 minutes are not equal across the day. A candle formed during quiet Asia, London open, New York overlap, or major news does not carry the same environment. \n\n**The Formula**: timeframe + session = reading environment",
     context: {
       keyTerms: [
-        { term: "Currency Pair", definition: "Two currencies priced against each other." },
-        { term: "Pair Structure", definition: "The visible arrangement of movement in a currency pair." },
-        { term: "Relative Pressure", definition: "Movement created by the changing relationship between the two currencies." },
-        { term: "Swing", definition: "A visible push or turn in price." },
-        { term: "Structure Reading", definition: "Classifying what the pair is building over time." }
+        { term: "Forex Session", definition: "A major trading window such as Asia, London, or New York." },
+        { term: "Session Context", definition: "The market environment created by the active trading region and participation level." },
+        { term: "Reading Environment", definition: "The condition surrounding the candle: quiet, active, volatile, or mixed." },
+        { term: "Session Record", definition: "A candle understood through both its timeframe and the session that created it." }
       ],
-      whyThisMatters: "Forex learners often read a pair like one isolated asset. That creates weak interpretation. A pair’s structure is the visible result of relative movement between two currencies.",
-      realLifeExample: "EUR/USD can rise because EUR is strengthening, USD is weakening, or both are happening together. The learner does not need to solve the whole macro picture yet, but they must know the chart is a relationship.",
-      commonMistake: "Reading EUR/USD as if only EUR is moving.",
-      quickNote: "In Forex, structure belongs to the pair, not one currency alone."
+      whyThisMatters: "If a learner reads only the candle duration, they miss the market environment behind the candle. Forex movement changes across the trading day.",
+      realLifeExample: "A 15-minute Euro vs. US Dollar (EUR/USD) candle during late Asia may be slow and narrow. A 15-minute EUR/USD candle after London opens may form inside a much more active environment.",
+      commonMistake: "Reading Forex candles as if every hour of the day has the same quality.",
+      quickNote: "In Forex, timeframe tells you how long. Session tells you what kind of market."
     }
   },
   {
     type: "visual_intro",
-    title: "Forex Swings Show Pressure Turning Points",
-    label: "Swing Pressure",
-    visualKey: "forex-swing-pressure-points",
-    body: "Forex swings are pressure turning points. A swing high shows where the pair pushed up and turned. A swing low shows where the pair pushed down and turned. Once the learner can separate meaningful turns from small noise, the pair’s structure becomes easier to read.",
+    title: "The Forex Trading Day Has Rhythms",
+    visualKey: "forex-trading-rhythm-board",
+    label: "Session Rhythm",
+    body: "Forex is a 24-hour market, but participation is not equal across all hours. The market has rhythm: Asia, London, New York, and overlaps. Some periods are quiet, some are active, and some are unstable because of economic releases. \n\n**The Rule**: Know the environment you are reading.",
     context: {
       keyTerms: [
-        { term: "Swing High", definition: "A visible point where the pair pushed up and turned down." },
-        { term: "Swing Low", definition: "A visible point where the pair pushed down and turned up." },
-        { term: "Pressure Turn", definition: "A point where local movement changes direction." },
-        { term: "Meaningful Swing", definition: "A swing that helps define structure." },
-        { term: "Minor Wiggle", definition: "Small movement that does not improve the structure reading." }
+        { term: "Asia Session", definition: "A major trading window often associated with quieter movement in many major pairs." },
+        { term: "London Session", definition: "A major trading window often associated with stronger Forex participation." },
+        { term: "New York Session", definition: "A major trading window that can bring continuation, reversal, or news-driven movement." },
+        { term: "Session Rhythm", definition: "The changing activity pattern across the Forex trading day." },
+        { term: "Participation", definition: "The amount of market activity and involvement behind price movement." }
       ],
-      whyThisMatters: "Forex learners often over-mark charts. Too many markings create false structure and confusion.",
-      realLifeExample: "GBP/USD may move up and down several times inside a small session range, but only a few turning points may actually define the structure.",
-      commonMistake: "Treating every tiny lower-timeframe movement as a structural swing.",
-      quickNote: "Good structure reading starts by filtering weak swings."
+      whyThisMatters: "A learner who ignores session rhythm may treat quiet movement, active movement, and event-driven movement as the same kind of evidence.",
+      realLifeExample: "A pair may stay tight during Asia, expand during London, and react sharply during New York data. The timeframe stayed the same, but the environment changed.",
+      commonMistake: "Thinking the market is equally active just because Forex is open.",
+      quickNote: "Forex is open for long hours, but activity comes in waves."
     }
   },
   {
     type: "visual_intro",
-    title: "Trend and Range in Currency Pairs",
-    label: "Pair Structure Types",
-    visualKey: "forex-trend-range-structure",
-    body: "A Forex pair can trend, range, or become unclear. Trend structure appears through swing relationships. Range structure appears when price keeps rotating between upper and lower areas. The trained learner classifies the pair’s structure before trusting a candle.",
+    title: "Session Handoffs and Overlaps",
+    visualKey: "forex-handoff-overlap-board",
+    label: "Liquidity Windows",
+    body: "Session handoffs and overlaps can change how a timeframe behaves. A candle formed during an overlap may carry more participation than one formed during a quiet period. But activity alone is not enough. The learner still needs structure, context, and close-location review.",
     context: {
       keyTerms: [
-        { term: "Pair Trend", definition: "Directional structure built by swing relationships." },
-        { term: "Pair Range", definition: "Structure where the pair rotates between upper and lower areas." },
-        { term: "Higher High", definition: "A swing high above a previous swing high." },
-        { term: "Higher Low", definition: "A swing low above a previous swing low." },
-        { term: "Lower High", definition: "A swing high below a previous swing high." },
-        { term: "Lower Low", definition: "A swing low below a previous swing low." },
-        { term: "Range Boundary", definition: "Upper or lower area of a sideways structure." }
+        { term: "Session Handoff", definition: "A transition period where one major trading region becomes less active and another becomes more active." },
+        { term: "Overlap", definition: "A time window where two major sessions are active at the same time." },
+        { term: "Liquidity Window", definition: "A period where market participation may be stronger." },
+        { term: "Activity Spike", definition: "A sudden increase in price movement or participation." },
+        { term: "Clean Movement", definition: "Movement that is easier to read because it has structure and follow-through." }
       ],
-      whyThisMatters: "A learner who cannot classify trend vs range will keep applying the wrong logic to the wrong condition.",
-      realLifeExample: "EUR/USD may make clean higher highs during one period, then spend hours rotating between the same upper and lower areas. The structure changed from directional to balanced.",
-      commonMistake: "Calling every active move a trend.",
-      quickNote: "First classify the pair. Then read the candle."
+      whyThisMatters: "Many Forex learners get excited when movement increases. But stronger activity can create useful evidence or unstable movement depending on context.",
+      realLifeExample: "London opens and EUR/USD starts moving faster. A trained learner does not call direction immediately. They check whether the move is breaking structure or only reacting to fresh activity.",
+      commonMistake: "Assuming every session overlap move is automatically clean.",
+      quickNote: "Overlap can increase activity. It does not guarantee clarity."
     }
   },
   {
     type: "visual_intro",
-    title: "Session Ranges Become Structure",
-    label: "Session Structure",
-    visualKey: "forex-session-range-structure",
-    body: "A Forex session can create structure. A quiet period may form a range with upper and lower boundaries. Later activity may expand beyond it, reject from it, or rotate back inside. The range is not a signal. It is a reference area for reading behavior.",
+    title: "Same Candle, Different Session Meaning",
+    visualKey: "forex-candle-weight-board",
+    label: "Candle Quality",
+    body: "A Forex candle gains meaning from the environment that produced it. The same candle shape can be weak, useful, or unstable depending on session activity, liquidity, and news pressure. Candle shape alone is not enough.",
     context: {
       keyTerms: [
-        { term: "Session Range", definition: "A range formed during a specific trading window." },
-        { term: "Session High", definition: "The upper area reached during a session." },
-        { term: "Session Low", definition: "The lower area reached during a session." },
-        { term: "Reference Area", definition: "A price area used to observe later behavior." },
-        { term: "Expansion", definition: "Movement beyond a range or area." },
-        { term: "Rotation", definition: "Movement back inside or across a range." }
+        { term: "Evidence Weight", definition: "The relative importance of a candle after considering timeframe and context." },
+        { term: "Candle Quality", definition: "How useful a candle is as market evidence." },
+        { term: "Thin Movement", definition: "Movement formed in a weaker or less active environment." },
+        { term: "Active Session Candle", definition: "A candle formed during stronger market participation." },
+        { term: "Unstable Candle", definition: "A candle formed in conditions where movement may be fast but not clean." }
       ],
-      whyThisMatters: "Forex learners often turn session ranges into mechanical signals. The correct habit is to use them as structure references.",
-      realLifeExample: "EUR/USD builds a tight Asia range. During London, price moves above the range, but the learner still checks whether it holds, follows through, or returns inside.",
-      commonMistake: "Assuming a session range break is automatically meaningful.",
-      quickNote: "A session range is a reference, not an instruction."
+      whyThisMatters: "Forex learners often memorize candle shapes. This card teaches them to judge the quality of the candle, not just the appearance.",
+      realLifeExample: "A strong-looking candle during London may matter more than the same shape printed during a quiet period. But if the candle forms during news, it may be unstable instead of clean.",
+      commonMistake: "Thinking the same candle shape has the same meaning in every trading hour.",
+      quickNote: "The candle shape is only part of the reading. The session gives it weight."
     }
   },
   {
     type: "visual_intro",
-    title: "Session Highs and Lows Are Reaction Areas",
-    label: "Session Reaction Areas",
-    visualKey: "forex-session-high-low-reaction",
-    body: "Session highs and lows are not magic lines. They are reaction areas created by previous session behavior. A trained learner watches how price behaves near those areas instead of assuming the line must hold or fail.",
+    title: "News Windows Distort Timeframe Reading",
+    visualKey: "forex-news-distortion-board",
+    label: "Event Pressure",
+    body: "A Forex candle formed during a major news window may record real market reaction, but it can also include unstable movement, spread changes (the widening gap between buying and selling prices), violent wicks, or fast repricing. The disciplined learner does not treat a news candle as clean until structure and follow-through appear.",
     context: {
       keyTerms: [
-        { term: "Session High", definition: "The upper area reached during a session." },
-        { term: "Session Low", definition: "The lower area reached during a session." },
-        { term: "Reaction Area", definition: "A zone where price behavior may change." },
-        { term: "Overshoot", definition: "Price briefly moves beyond an area." },
-        { term: "Hold", definition: "Price remains beyond or above/below an area after testing." },
-        { term: "Return Inside", definition: "Price moves outside an area but comes back in." }
+        { term: "News Window", definition: "The time around major economic releases or central bank events." },
+        { term: "Repricing", definition: "A fast adjustment in price after new information enters the market." },
+        { term: "Spread Expansion", definition: "A widening difference between bid and ask during unstable conditions." },
+        { term: "Event Volatility", definition: "Fast movement caused by scheduled or unexpected events." },
+        { term: "Follow-Through", definition: "What price does after the event candle closes." }
       ],
-      whyThisMatters: "Rigid line thinking makes learners panic when price moves slightly beyond a session high or low.",
-      realLifeExample: "GBP/USD pushes above the London high by a small margin (a few pips, which are the smallest price fractions in Forex), then closes back below it. A trained learner does not call that a clean break without follow-through.",
-      commonMistake: "Treating session highs and lows as walls.",
-      quickNote: "Session levels are areas to audit, not buttons to press."
+      whyThisMatters: "Many Forex learners mistake fast news movement for high-quality evidence. Speed can create drama without clarity.",
+      realLifeExample: "The British Pound vs. US Dollar (GBP/USD) currency pair prints a huge candle after economic data. A rushed learner sees direction. A trained learner waits to see whether the next candles confirm the move or reject it.",
+      commonMistake: "Treating every large news candle as a clean directional reading.",
+      "quickNote": "News can make a candle loud before it becomes clear."
     }
   },
   {
     type: "visual_intro",
-    title: "Expansion and Pullback in Forex",
-    label: "Session Movement Rhythm",
-    visualKey: "forex-expansion-pullback-rhythm",
-    body: "Forex structure often moves through compression, expansion, and pullback. Expansion shows stronger movement beyond a previous area. A pullback is the market moving back against that expansion. The pullback is not automatically failure. Structure and follow-through decide its meaning.",
-    context: {
-      keyTerms: [
-        { term: "Compression", definition: "Tight or limited movement before expansion." },
-        { term: "Expansion", definition: "Stronger movement beyond a previous area." },
-        { term: "Pullback", definition: "Movement back against the expansion." },
-        { term: "Continuation", definition: "Price resumes the expansion direction." },
-        { term: "Failure", definition: "Price cannot continue and returns into prior structure." },
-        { term: "Follow-Through", definition: "What price does after the move." }
-      ],
-      whyThisMatters: "Forex learners often chase expansion or fear pullbacks. This card teaches them to read the rhythm instead of reacting emotionally.",
-      realLifeExample: "A pair breaks above a session range, pulls back toward the range high, then either holds and continues or fails and returns inside.",
-      commonMistake: "Thinking every pullback after expansion means the move is dead.",
-      quickNote: "Expansion starts the question. Pullback quality helps answer it."
-    }
-  },
-  {
-    type: "visual_intro",
-    title: "Breaks and Failed Breaks Around Forex Areas",
-    label: "Break Quality",
-    visualKey: "forex-break-failure-quality",
-    body: "A break is not automatically a structure change. In Forex, price can move beyond a session high, range boundary, or swing point and still fail. A trained learner checks close quality, hold, and follow-through before treating the break as meaningful.",
-    context: {
-      keyTerms: [
-        { term: "Break", definition: "Price moving beyond a structure area." },
-        { term: "Failed Break", definition: "Price moves beyond an area but cannot hold." },
-        { term: "Hold", definition: "Price remains beyond the area after the break." },
-        { term: "Close Quality", definition: "Where and how the candle closes relative to the area." },
-        { term: "Follow-Through", definition: "Continued behavior after the break." },
-        { term: "Break Quality", definition: "How reliable the break appears after review." }
-      ],
-      whyThisMatters: "Many Forex mistakes come from reacting to the first move outside a level.",
-      realLifeExample: "EUR/USD breaks above the range high, but the candle closes back inside. That is different from a break that closes above and continues.",
-      commonMistake: "Calling every move outside a Forex area a confirmed breakout.",
-      quickNote: "A break must prove quality after crossing the area."
-    }
-  },
-  {
-    type: "visual_intro",
-    title: "Higher-Timeframe Pair Location Comes First",
+    title: "Higher-Timeframe Location in Forex",
+    visualKey: "forex-location-context-board",
     label: "Pair Location",
-    visualKey: "forex-htf-location-first",
-    body: "A lower-timeframe Forex move can be active and still incomplete. The higher timeframe shows where the pair is located in the broader structure. A trained learner checks pair location before trusting local session movement.",
+    body: "In Forex, a lower-timeframe move can be active and still incomplete. The higher timeframe shows where the pair is located in the broader structure. A trained learner checks location before trusting local movement.",
     context: {
       keyTerms: [
-        { term: "Higher-Timeframe Location", definition: "Where the pair sits in broader structure." },
-        { term: "Major Area", definition: "A price area that has mattered previously." },
-        { term: "Local Session Move", definition: "A shorter-term move inside a session." },
-        { term: "Context-Limited Move", definition: "A move that is active but restricted by broader location." },
-        { term: "Pair Location", definition: "The structural position of the currency pair." }
+        { term: "Higher-Timeframe Location", definition: "Where price sits in the broader chart structure." },
+        { term: "Major Area", definition: "A zone that has mattered previously in the market." },
+        { term: "Local Movement", definition: "Shorter-term movement inside a broader context." },
+        { term: "Support / Resistance Area", definition: "A price zone where the market has previously reacted." },
+        { term: "Incomplete Reading", definition: "A reading that needs more context before becoming strong." }
       ],
-      whyThisMatters: "Without higher-timeframe location, learners overtrust lower-timeframe session moves.",
-      realLifeExample: "GBP/USD rallies during London, but the 4H chart shows price entering a previous rejection zone. The move is active, but the reading is not automatically clean.",
-      commonMistake: "Letting a 15m session push overrule the higher-timeframe structure.",
-      quickNote: "In Forex, location comes before session excitement."
+      whyThisMatters: "Without location, learners overreact to local movement and miss the broader structure.",
+      realLifeExample: "EUR/USD rallies on 15m, but the 4H chart shows price pressing into a previous resistance zone. The rally is real, but the broader context still matters.",
+      commonMistake: "Trusting a small-timeframe move without checking where the pair is on the larger chart.",
+      "quickNote": "In Forex, location comes before reaction."
     }
   },
   {
     type: "visual_intro",
-    title: "Related-Pair Context Can Support or Complicate Structure",
-    label: "Context Layer",
-    visualKey: "forex-related-pair-context",
-    body: "Forex structure can be supported or complicated by related context. A move on one pair may be stronger if similar pairs or USD context support it. But related-pair context is not a signal. It is another layer of evidence.",
+    title: "Lower-Timeframe Session Behavior",
+    visualKey: "forex-behavior-lens-board",
+    label: "Local Behavior",
+    body: "Lower timeframes are useful when they explain behavior inside a known context. They become dangerous when the learner treats them as the whole market. In Forex, lower-timeframe charts should refine the reading, not replace the broader reading.",
     context: {
       keyTerms: [
-        { term: "Related-Pair Context", definition: "Information from similar or connected currency pairs." },
-        { term: "USD Context", definition: "The broader condition of the US Dollar when reading USD pairs." },
-        { term: "Isolated Move", definition: "Movement strong on one pair but not broadly supported." },
-        { term: "Supported Move", definition: "Movement aligned with related context." },
-        { term: "Evidence Layer", definition: "Additional information that can strengthen or weaken a reading." }
+        { term: "Local Behavior", definition: "Short-term price action inside a broader context." },
+        { term: "Behavior Lens", definition: "Using a smaller timeframe to observe how price is reacting now." },
+        { term: "Refinement", definition: "Adding detail to an existing reading." },
+        { term: "Noise", definition: "Movement that feels important but does not improve the broader reading." },
+        { term: "Reaction", definition: "How price behaves near an important area or condition." }
       ],
-      whyThisMatters: "Forex learners who read one pair alone may miss whether the move is broad, isolated, or mixed.",
-      realLifeExample: "EUR/USD breaks upward, but other USD pairs do not show similar USD weakness. The learner may still observe the move, but the evidence is less clean.",
-      commonMistake: "Using related pairs as automatic confirmation instead of context.",
-      quickNote: "Related context can support a reading. It should not replace structure."
+      whyThisMatters: "Lower timeframes are where many learners become emotional. This card teaches them how to use detail without becoming controlled by it.",
+      realLifeExample: "The 1H chart shows price near a zone. The 5m chart helps observe whether price is rejecting, slowing, or pushing through that zone.",
+      commonMistake: "Using lower timeframes to create the main opinion instead of refining an existing one.",
+      "quickNote": "Lower timeframes should explain behavior, not create blind confidence."
+    }
+  },
+  {
+    type: "visual_intro",
+    title: "Multi-Timeframe Forex Reading Process",
+    visualKey: "forex-reading-stack-board",
+    label: "Forex Workflow",
+    body: "Professional Forex reading moves through a structured audit. You start with the broader building (HTF Location), then check the environment (Session Timing & Events), and only then use the local detail (Structure & Behavior) to refine the reading.",
+    context: {
+      keyTerms: [
+        { term: "Forex Top-Down Reading", definition: "A process for reading from broader context into session behavior and local detail." },
+        { term: "HTF Location", definition: "Identifying the broader chart structure before local analysis." },
+        { term: "Session Timing", definition: "Audit of participation quality based on the current trading hour." },
+        { term: "Event Pressure", definition: "Checking for news-driven distortion or upcoming catalysts." },
+        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." }
+      ],
+      whyThisMatters: "Forex is fast and fragmented. A fixed process slows the learner down and improves the quality of the evidence they accept.",
+      realLifeExample: "EUR/USD pushes on 15m. A trained learner checks 4H location, London participation, and upcoming Consumer Price Index (CPI) inflation data before trusting the move.",
+      commonMistake: "Starting from the fastest chart and letting session speed control the reading.",
+      "quickNote": "Read Forex from session into behavior, not from speed into emotion."
     }
   },
   {
     type: "practice",
-    title: "Practice Drill: Clean Break, Failed Break, or Mixed?",
+    title: "Forex Timeframe Conflict Drill",
+    visualKey: "forex-timeframe-drill",
     label: "Practice Drill",
-    visualKey: "forex-structure-break-drill",
-    body: "This drill tests whether you can audit a Forex break instead of reacting to it. A move beyond a session high is only the first clue. Hold, close quality, follow-through, and higher-timeframe location decide whether the structure is clean, weak, or mixed.",
+    body: "This drill tests whether you can separate active session movement from full timeframe alignment. A Forex move can be real and still incomplete. The trained learner does not call the reading clean until broader context, working structure, and session behavior support each other.",
     taskData: {
       type: "choice_block",
-      question: "GBP/USD builds a tight session range. During London, price pushes above the session high. The first candle closes slightly above the range, but the next candle returns back inside. The 4H chart is still near a previous resistance area. What is the disciplined Forex structure reading?",
+      question: "GBP/USD shows a strong 15-minute bullish push during London session. The 1-hour chart is still inside a range, and the 4-hour chart shows price near a previous resistance area. \n\nWhat is the disciplined Forex reading?",
       options: [
-        {
-          id: "A",
-          text: "It is a confirmed breakout because price moved above the session high.",
-          isCorrect: false,
-          feedback: "Wrong: Moving above an area is not enough. A break needs hold, close quality, and follow-through."
-        },
-        {
-          id: "B",
-          text: "It is definitely bearish because price returned inside the range.",
-          isCorrect: false,
-          feedback: "Wrong: A return inside weakens the break, but it does not automatically create a clean bearish reading."
-        },
-        {
-          id: "C",
-          text: "The break attempt is weak or mixed because price did not hold above the area and higher-timeframe location still limits clarity.",
-          isCorrect: true,
-          feedback: "Correct: Price moved above the session high, but the move did not hold and the higher-timeframe location still limits clarity. This is weak or mixed break evidence, not a clean structure change."
-        },
-        {
-          id: "D",
-          text: "The higher timeframe does not matter because London movement is more important.",
-          isCorrect: false,
-          feedback: "Wrong: Session movement must still be read inside higher-timeframe location."
-        }
+        { id: "A", text: "The 15-minute candle is strong, so the pair is clearly bullish.", isCorrect: false, feedback: "Not correct. A strong lower-timeframe candle does not automatically define the whole pair. You still need higher-timeframe and session context." },
+        { id: "B", text: "London activity means the move must continue.", isCorrect: false, feedback: "Not correct. London activity can increase participation, but it does not guarantee continuation." },
+        { id: "C", text: "The lower-timeframe push is active, but higher-timeframe context is not fully aligned. This is a mixed reading until structure confirms.", isCorrect: true, feedback: "Correct. The 15-minute move is active and worth observing, but the 1-hour range and 4-hour resistance reduce clarity. This is a mixed reading until the pair shows stronger alignment across timeframe and structure." },
+        { id: "D", text: "The higher timeframe does not matter because the 15-minute chart is more recent.", isCorrect: false, feedback: "Not correct. Newer does not always mean more important. Lower-timeframe movement must be read inside broader context." }
       ]
     },
     context: {
       keyTerms: [
-        { term: "Break Attempt", definition: "Price trying to move beyond a structure area." },
-        { term: "Failed Hold", definition: "Price cannot stay beyond the broken area." },
-        { term: "Mixed Evidence", definition: "Some clues support the move while other clues reduce clarity." },
-        { term: "Higher-Timeframe Limitation", definition: "Broader context that weakens a local reading." },
-        { term: "Break Audit", definition: "Reviewing close, hold, follow-through, and context." }
+        { term: "Mixed Reading", definition: "A condition where some evidence supports the move but other layers reduce clarity." },
+        { term: "Alignment", definition: "When multiple timeframes support the same reading." },
+        { term: "Active but Incomplete", definition: "Movement that is worth observing but not strong enough for a clean conclusion." },
+        { term: "Confirmation", definition: "Additional structure or behavior that strengthens the reading." }
       ],
-      whyThisMatters: "Forex learners often overreact to breaks. This drill forces the learner to classify quality, not just direction.",
-      realLifeExample: "A pair moves above the session high, but quickly returns into the range while the higher timeframe is still near resistance.",
-      commonMistake: "Calling a break confirmed just because price crossed a line.",
-      quickNote: "Crossing the area is not enough. The break must hold quality."
+      whyThisMatters: "Forex often produces active lower-timeframe moves during major sessions. The learner’s job is not to chase activity. The learner’s job is to judge alignment.",
+      realLifeExample: "GBP/USD pushes upward during London, but the 4H chart still shows resistance. A rushed learner calls it bullish. A trained learner marks it as active but not fully confirmed.",
+      commonMistake: "Confusing active session movement with full multi-timeframe alignment.",
+      "quickNote": "In Forex, active is not the same as aligned."
     }
   },
   {
-    type: "debrief",
-    title: "Forex Debrief: Reading Pair Structure Properly",
+    type: "summary",
+    title: "Forex Debrief: Time, Session, Structure",
+    visualKey: "forex-roadway-debrief",
     label: "Roadway Debrief",
-    visualKey: "forex-structure-roadway-debrief",
-    body: "You are no longer reading Forex structure as random candles or mechanical session breaks. You now understand that currency pairs build structure through swings, ranges, session areas, expansion, pullbacks, breaks, failures, and broader context. The job is to audit what the pair is building, not react to the loudest move.\n\n### Your Forex Competencies:\n\n* [x] Audit **Pair Behavior** as relative currency pressure\n* [x] Identify **Forex Swings** and filter session noise\n* [x] Classify **Trend vs. Range** structures in pairs\n* [x] Use **Session Ranges** as structural reference areas\n* [x] Audit **Break Quality** using close, hold, and follow-through\n* [x] Prioritize **HTF Location** and layer **Related Context**\n\n**Next**: Level 0 Synthesis & Verification.",
+    body: "You are no longer reading Forex candles as isolated shapes. You now understand that every candle belongs to a timeframe, every timeframe forms inside a session, and every session move must be checked against broader structure. This is how Forex reading becomes disciplined instead of reactive.",
     context: {
       keyTerms: [
-        { term: "Pair Structure", definition: "The visible arrangement of movement in a currency pair." },
-        { term: "Session Structure", definition: "Structure created during a trading window." },
-        { term: "Reaction Area", definition: "A zone where price behavior may change." },
-        { term: "Break Quality", definition: "How reliable a break appears after review." },
-        { term: "Higher-Timeframe Location", definition: "The pair’s broader structural position." },
-        { term: "Related Context", definition: "Additional pair or currency evidence." },
-        { term: "Reading Quality", definition: "Clear, mixed, or unclear." }
+        { term: "Session Context", definition: "The trading environment behind the candle." },
+        { term: "Timeframe Alignment", definition: "When multiple timeframes support the same reading." },
+        { term: "Reading Quality", definition: "Whether the evidence is clear, mixed, or unclear." },
+        { term: "Pair Location", definition: "Where the currency pair sits in broader structure." },
+        { term: "Top-Down Forex Reading", definition: "Reading from broader context into session behavior and local detail." }
       ],
-      whyThisMatters: "Forex structure reading prevents learners from chasing candles, session breaks, or isolated movement without context.",
-      realLifeExample: "Two learners see the same London break. One reacts immediately. The trained learner checks session structure, break quality, higher-timeframe location, and whether related context supports the move.",
-      commonMistake: "Leaving with session concepts but no process for reading structure quality.",
-      quickNote: "Forex structure is audited through pair behavior, session areas, and context."
+      whyThisMatters: "Forex becomes much easier to misread when the learner ignores time, session, and structure. This roadway gives a repeatable process.",
+      realLifeExample: "Two learners see the same 15m candle. One reacts to the candle. The trained learner asks which session created it, where the pair is on 4H, and whether the move is aligned.",
+      commonMistake: "Leaving with session names but no reading process.",
+      "quickNote": "Forex candles are read through time, session, and structure together."
     }
   }
 ];

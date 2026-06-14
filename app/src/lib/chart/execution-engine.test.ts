@@ -78,7 +78,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     // @ts-ignore
     jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
-    engine.executeMarketOrder("buy", 1); // 1 lot = 100k units
+    engine.executeMarketOrder({ direction: "buy", size: 1 }); // 1 lot = 100k units
     advanceTick(engine, 1.1010, 0); // 10 pip gain
     
     const snapshot = engine.getSnapshot();
@@ -92,7 +92,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     // @ts-ignore
     jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
-    engine.executeMarketOrder("buy", 0.5); 
+    engine.executeMarketOrder({ direction: "buy", size: 0.5 }); 
     advanceTick(engine, 61000, 0); 
     
     expect(engine.getSnapshot().openPositions[0].floatingPnl).toBe(500);
@@ -105,7 +105,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     // @ts-ignore
     jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
-    engine.executeMarketOrder("buy", 1); // 1 lot = 100 oz
+    engine.executeMarketOrder({ direction: "buy", size: 1 }); // 1 lot = 100 oz
     advanceTick(engine, 2310, 0); 
     
     expect(engine.getSnapshot().openPositions[0].floatingPnl).toBe(1000);
@@ -120,7 +120,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     engine.eventBus.on("RULE_VIOLATION", ruleMock);
 
     // 1 lot = 100k units. SL 50 pips away = $500 risk. Should be rejected.
-    engine.executeMarketOrder("buy", 1, 1.0950); 
+    engine.executeMarketOrder({ direction: "buy", size: 1, stopLoss: 1.0950 }); 
     expect(ruleMock).toHaveBeenCalledWith(expect.objectContaining({ description: expect.stringContaining("Max risk per trade exceeded") }));
   });
 
@@ -132,10 +132,10 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     const ruleMock = jest.fn();
     engine.eventBus.on("RULE_VIOLATION", ruleMock);
 
-    engine.executeMarketOrder("buy", 0.001); // Below 0.01 min
+    engine.executeMarketOrder({ direction: "buy", size: 0.001 }); // Below 0.01 min
     expect(ruleMock).toHaveBeenCalledWith(expect.objectContaining({ description: expect.stringContaining("Size too small") }));
 
-    engine.executeMarketOrder("buy", 200); // Above 100 max
+    engine.executeMarketOrder({ direction: "buy", size: 200 }); // Above 100 max
     expect(ruleMock).toHaveBeenCalledWith(expect.objectContaining({ description: expect.stringContaining("Size too large") }));
   });
 
@@ -146,7 +146,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     // @ts-ignore
     jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
-    engine.executeMarketOrder("buy", 1, 1.0990); // $100 risk
+    engine.executeMarketOrder({ direction: "buy", size: 1, stopLoss: 1.0990 }); // $100 risk
     const posId = engine.getSnapshot().openPositions[0].id;
 
     advanceTick(engine, 1.1030, 0); // $300 gain
@@ -172,7 +172,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     // @ts-ignore
     jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
-    engine.executeMarketOrder("sell", 1); // Short at 1.1000
+    engine.executeMarketOrder({ direction: "sell", size: 1 }); // Short at 1.1000
     advanceTick(engine, 1.0990, 0); // 10 pip drop = gain for short
     
     expect(engine.getSnapshot().openPositions[0].floatingPnl).toBe(100);
@@ -185,7 +185,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     // @ts-ignore
     jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
-    engine.executeMarketOrder("sell", 1); // Short at 60,000
+    engine.executeMarketOrder({ direction: "sell", size: 1 }); // Short at 60,000
     advanceTick(engine, 61000, 0); // $1,000 rise = loss for short
     
     expect(engine.getSnapshot().openPositions[0].floatingPnl).toBe(-1000);
@@ -198,7 +198,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     // @ts-ignore
     jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
-    engine.executeMarketOrder("sell", 1); // Short at 2300
+    engine.executeMarketOrder({ direction: "sell", size: 1 }); // Short at 2300
     advanceTick(engine, 2290, 0); // $10 drop = $1000 gain (100 oz)
     
     expect(engine.getSnapshot().openPositions[0].floatingPnl).toBe(1000);
@@ -211,7 +211,7 @@ describe("Execution Engine (Phase 4.6 PnL & Instrument Integrity)", () => {
     // @ts-ignore
     jest.spyOn(engine.OrderEngine, 'getDeterministicSlippage').mockReturnValue(0);
 
-    engine.executeMarketOrder("buy", 1, 1.0990); // $100 risk
+    engine.executeMarketOrder({ direction: "buy", size: 1, stopLoss: 1.0990 }); // $100 risk
     const pos = engine.getSnapshot().openPositions[0];
     
     // Simulate moving SL to break-even (1.1000)

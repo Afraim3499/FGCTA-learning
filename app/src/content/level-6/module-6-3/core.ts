@@ -274,7 +274,7 @@ export const coreCards: LessonCard[] = [
     "taskData": null
   },
   {
-    "type": "practice",
+    "type": "summary",
     "title": "Summary of Core Concepts",
     "label": "Core Track",
     "body": "### Core Scenario: Summary of Core Concepts\nThis card consolidates the key concepts of scenario formulation, emphasizing the importance of structuring paths based on the evidence stack. Understanding these principles is vital for maintaining a disciplined trading approach.\n\n* **Evidence Stack Hierarchy**: Prioritize the evidence stack by assessing the strength of each indicator. For instance, if the DXY shows a strong bullish trend while EURUSD is at a critical support level, the evidence stack should reflect this hierarchy.\n* **Scenario Validation**: Validate scenarios through backtesting against historical data. For example, if a trader's scenario for GBPUSD was based on a breakout above 1.3000, check past instances where similar breakouts occurred to assess success rates.\n* **Risk Assessment**: Incorporate risk management metrics into scenario formulation. If the primary scenario suggests a long position in AUDUSD, calculate the risk-to-reward ratio and ensure it meets the minimum threshold before execution.",

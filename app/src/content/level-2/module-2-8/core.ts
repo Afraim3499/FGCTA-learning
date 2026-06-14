@@ -3,353 +3,433 @@ import { LessonCard } from "../../../types/curriculum";
 export const coreCards: LessonCard[] = [
   {
     "type": "mission_brief",
-    "title": "Understanding Internal vs External Structures",
+    "title": "Understanding Raw Algorithmic Displacement",
     "label": "Core Track",
-    "body": "### Internal vs External Structures: Conceptual Framework\nDistinguishing between internal and external structures is essential for effective market analysis. This card outlines **the significance of identifying minor pullbacks against major dealing ranges**.\n\n* **Internal Pullbacks**: These are minor retracements within a prevailing trend, often misleading traders into thinking a reversal is imminent. Recognizing these can prevent premature entries.\n* **External Structures**: Major dealing ranges represent significant price zones where institutional activity occurs. Understanding these ranges helps traders filter out noise and focus on high-probability setups.\n* **Market Context**: Analyze the broader market context to determine whether a price movement is a minor pullback or part of a larger external structure, which can guide strategic decision-making.",
+    "body": "### Displacement: Raw Algorithmic Displacement\nRaw algorithmic displacement quantifies market movements by analyzing body-to-wick ratios. This card emphasizes **how to measure significant price shifts** based on these ratios.\n\n* **Body-to-Wick Ratio Calculation**: Calculate the ratio by dividing the body length (close minus open) by the total candle length (high minus low). A ratio above 0.5 indicates strong momentum.\n* **Market Shift Identification**: Look for instances where the body-to-wick ratio exceeds 0.75, indicating a decisive market shift that may precede trend continuation or reversal.\n* **Algorithmic Relevance**: Understand that algorithmic trading systems often react to these ratios, amplifying price movements when certain thresholds are breached.",
     "context": {
       "keyTerms": [
         {
-          "term": "Internal Structure",
-          "definition": "Minor price movements within a trend that do not signify a reversal."
-        },
-        {
-          "term": "External Structure",
-          "definition": "Major price ranges defined by significant market activity."
+          "term": "Raw Algorithmic Displacement",
+          "definition": "The measurement of price shifts based on body-to-wick ratios in candlestick analysis."
         }
       ],
-      "whyThisMatters": "Accurate identification of internal versus external structures enhances trade execution and risk management.",
-      "realLifeExample": "On the EURUSD, a 30-pip retracement during a bullish trend can be classified as an internal pullback, while a 100-pip range established over several days indicates an external structure.",
-      "commonMistake": "Traders often mistake minor internal pullbacks for trend reversals, leading to ill-timed entries.",
-      "quickNote": "Differentiate internal pullbacks from external structures to refine trading strategies.",
-      "mentorText": "When analyzing market movements, always ask yourself whether the price action is a minor fluctuation or part of a larger trend. This distinction will save you from unnecessary losses.",
-      "mentorAnalogy": "Think of internal structures as ripples in a pond, while external structures are the larger waves that define the overall water level."
+      "whyThisMatters": "Accurate measurement of raw displacement allows traders to identify potential market reversals or continuations based on algorithmic behavior.",
+      "realLifeExample": "On the EURUSD, a daily candle closed at 1.1200 with a high of 1.1250 and a low of 1.1150, resulting in a body-to-wick ratio of 0.67, indicating strong bullish momentum.",
+      "commonMistake": "Failing to consider the context of the displacement, such as market news or events, which can skew the interpretation of the body-to-wick ratio.",
+      "quickNote": "A body-to-wick ratio above 0.5 signals potential market momentum.",
+      "mentorText": "When you see a body-to-wick ratio above 0.75, recognize that the market is likely reacting to a strong sentiment, and prepare to adjust your strategy accordingly.",
+      "mentorAnalogy": "Think of this like an aircraft's takeoff; a strong thrust (high body) relative to drag (wick) indicates a successful lift-off into a new altitude."
     },
     "taskData": null,
-    "visualKey": "internal-external-intro"
+    "visualKey": "displacement-intro"
   },
   {
     "type": "concept",
-    "title": "Identifying Minor Internal Pullbacks",
+    "title": "High Body-to-Wick Ratio Commitment Candles",
     "label": "Core Track",
-    "body": "### Minor Internal Pullbacks: Recognition Techniques\nRecognizing minor internal pullbacks is vital for maintaining a robust trading strategy. This card focuses on **how to identify these pullbacks within larger market contexts**.\n\n* **Price Action Analysis**: Observe candlestick formations and volume patterns during pullbacks. A series of lower highs in an uptrend may indicate a minor pullback rather than a reversal.\n* **Fibonacci Retracement**: Utilize Fibonacci levels to gauge the depth of pullbacks. A retracement to the 38.2% level in a strong trend often signifies a minor internal pullback.\n* **Time Frame Consideration**: Analyze pullbacks across multiple time frames. A minor pullback on a 1-hour chart may appear insignificant on a daily chart, reinforcing the need for context.",
+    "body": "### Displacement: High Body-to-Wick Ratio Commitment Candles\nHigh body-to-wick ratio commitment candles indicate robust market sentiment and potential price movements. This card details **how to identify and interpret these signals** for effective trading strategies.\n\n* **Identification Criteria**: Look for candles with a body-to-wick ratio exceeding 0.7, which suggests strong buying or selling pressure. This ratio indicates that the market is committing to a direction.\n* **Confirmation with Volume**: Validate commitment candles by ensuring that they occur with above-average volume, confirming that the market participants are actively engaging in the price movement.\n* **Contextual Analysis**: Analyze the preceding price action; commitment candles following a period of consolidation often signal a breakout, while those after a trend may indicate continuation or reversal.",
     "context": {
       "keyTerms": [
         {
-          "term": "Price Action",
-          "definition": "The movement of a security's price over time."
-        },
-        {
-          "term": "Fibonacci Retracement",
-          "definition": "A technical analysis tool used to identify potential reversal levels."
+          "term": "Commitment Candle",
+          "definition": "A candlestick with a high body-to-wick ratio indicating strong market sentiment."
         }
       ],
-      "whyThisMatters": "Accurate identification of minor pullbacks allows traders to avoid false breakouts and optimize entry points.",
-      "realLifeExample": "On GBPJPY, a 20-pip pullback during a bullish trend on the 15-minute chart can be identified as an internal pullback, while the daily chart shows a strong upward trend.",
-      "commonMistake": "Failing to consider the larger trend context can lead to misidentifying minor pullbacks as significant reversals.",
-      "quickNote": "Use price action and Fibonacci tools to accurately identify minor internal pullbacks.",
-      "mentorText": "Always assess the context of price movements. A small pullback can be a great entry point if it aligns with the larger trend.",
-      "mentorAnalogy": "Identifying minor pullbacks is like spotting small bumps in a smooth road; they may seem significant up close but are part of a larger, well-paved path."
+      "whyThisMatters": "Recognizing commitment candles allows traders to align their strategies with prevailing market sentiment, enhancing trade accuracy.",
+      "realLifeExample": "On GBPJPY, a 4-hour candle closed at 150.50 with a high of 151.00 and a low of 149.50, achieving a body-to-wick ratio of 0.8 with a volume spike, signaling strong bullish commitment.",
+      "commonMistake": "Ignoring the importance of volume when assessing commitment candles, which can lead to false signals.",
+      "quickNote": "Commitment candles with a body-to-wick ratio above 0.7 indicate strong market sentiment.",
+      "mentorText": "When you spot a commitment candle, check the volume; if it’s above average, you’re likely seeing a significant market move that you should consider trading.",
+      "mentorAnalogy": "Imagine a surgeon making a decisive incision; the commitment candle is that precise cut, indicating a clear direction in the market's operation."
     },
     "taskData": null,
-    "visualKey": "minor-pullbacks"
+    "visualKey": "body-to-wick-ratio"
   },
   {
     "type": "concept",
-    "title": "Dissecting Major External Dealing Ranges",
+    "title": "Volume-Weighted Displacement Analysis",
     "label": "Core Track",
-    "body": "### Major External Dealing Ranges: Characteristics and Importance\nUnderstanding major external dealing ranges is crucial for effective market navigation. This card elaborates on **the defining features of these ranges and their role in filtering market noise**.\n\n* **Volume Profiles**: Major external ranges are often characterized by high trading volume, indicating strong institutional interest. Analyze volume spikes to confirm the significance of these ranges.\n* **Support and Resistance Levels**: Identify key support and resistance levels within major external ranges. These levels act as critical reference points for potential price reversals or continuations.\n* **Time Duration**: The length of time a price remains within a major external range can signify its strength. Ranges that persist for several days or weeks indicate significant market consensus.",
+    "body": "### Displacement: Volume-Weighted Displacement Analysis\nVolume-weighted displacement analysis assesses the significance of volume alongside price movements. This card teaches **how to gauge market strength** using volume metrics.\n\n* **Volume Correlation**: Analyze the relationship between price movements and volume spikes; a price increase accompanied by high volume indicates strong market conviction.\n* **Displacement Thresholds**: Establish thresholds for volume relative to the average daily volume (ADV); a volume exceeding 150% of the ADV during a price movement signals potential continuation.\n* **Divergence Analysis**: Identify divergences where price moves in one direction while volume trends in another; this often indicates weakening momentum and potential reversal points.",
     "context": {
       "keyTerms": [
         {
-          "term": "Volume Profile",
-          "definition": "A graphical representation of trading volume at different price levels."
-        },
-        {
-          "term": "Support and Resistance",
-          "definition": "Price levels where a stock tends to stop and reverse."
+          "term": "Volume-Weighted Displacement",
+          "definition": "An analysis method that combines price movements with volume data to assess market strength."
         }
       ],
-      "whyThisMatters": "Identifying major external ranges allows traders to filter out minor fluctuations and focus on significant market movements.",
-      "realLifeExample": "In the S&P 500, a trading range established between 4,200 and 4,300 over two weeks with high volume indicates a major external dealing range.",
-      "commonMistake": "Traders often overlook the significance of volume when analyzing external ranges, leading to misinterpretations of market strength.",
-      "quickNote": "Focus on volume and duration to identify major external dealing ranges effectively.",
-      "mentorText": "Always check the volume when analyzing price ranges. High volume at specific levels indicates that the market is paying attention.",
-      "mentorAnalogy": "Think of major external ranges as the foundations of a building; they provide stability and structure, while minor fluctuations are like the paint on the walls."
+      "whyThisMatters": "Understanding volume-weighted displacement enhances the ability to make informed trading decisions based on market dynamics.",
+      "realLifeExample": "During a breakout on the NASDAQ index, the price surged 2% with volume at 200% of the ADV, confirming the strength of the upward movement.",
+      "commonMistake": "Failing to consider volume trends when interpreting price movements, which can lead to misjudging market strength.",
+      "quickNote": "Volume exceeding 150% of the ADV during price movements indicates strong market conviction.",
+      "mentorText": "Always check the volume when you see a price move; if the volume is high, it’s a sign that the market is serious about that direction.",
+      "mentorAnalogy": "Think of volume as the fuel in a race car; without enough fuel, even the fastest car can’t maintain speed, just like price movements need volume to sustain momentum."
     },
     "taskData": null,
-    "visualKey": "major-dealing-ranges"
+    "visualKey": "volume-displacement"
   },
   {
     "type": "concept",
-    "title": "Hierarchy of Structure Mapping",
+    "title": "Identifying Commitment Candles in Displacement",
     "label": "Core Track",
-    "body": "### Hierarchy of Structure Mapping: Filtering Techniques\nImplementing a hierarchy of structure mapping is essential for effective trade decision-making. This card discusses **how to filter minor internal pullbacks from significant external ranges**.\n\n* **Layered Analysis**: Start with the highest time frame to identify major external structures, then drill down to lower time frames for internal pullbacks. This layered approach ensures alignment with the broader trend.\n* **Contextual Confirmation**: Use additional indicators, such as moving averages, to confirm the validity of internal pullbacks within the context of external structures. This adds a layer of verification to your analysis.\n* **Trade Execution Protocols**: Establish clear protocols for entering trades based on the hierarchy of structures. For example, only enter a long position if the price is above a major external range and shows a minor pullback on a lower time frame.",
+    "body": "### Displacement: Identifying Commitment Candles in Displacement\nIdentifying commitment candles is crucial for understanding strong market participation. This card explores **how these candles confirm displacement trends** across various trading contexts.\n\n* **Candle Characteristics**: Look for candles with a body-to-wick ratio above 0.7, indicating a strong commitment to price direction, and assess their placement within the trend.\n* **Trend Confirmation**: Use commitment candles to confirm existing trends; a commitment candle in the direction of the trend strengthens the case for continuation, while one against it may signal a reversal.\n* **Multi-Timeframe Analysis**: Validate commitment candles across multiple timeframes; a commitment candle on a higher timeframe can provide stronger confirmation for trades on lower timeframes.",
     "context": {
       "keyTerms": [
         {
-          "term": "Layered Analysis",
-          "definition": "A method of analyzing multiple time frames to gain a comprehensive market view."
-        },
-        {
-          "term": "Contextual Confirmation",
-          "definition": "Using additional indicators to validate trading signals."
+          "term": "Displacement Trend",
+          "definition": "A directional movement in price confirmed by commitment candles and volume."
         }
       ],
-      "whyThisMatters": "A structured approach to filtering pullbacks enhances trade accuracy and reduces risk exposure.",
-      "realLifeExample": "On AUDCAD, if the daily chart shows a major external range between 0.9000 and 0.9100, and the 1-hour chart shows a minor pullback to 0.9050, this alignment supports a long entry.",
-      "commonMistake": "Ignoring the hierarchy of structures can lead to entering trades based on isolated signals rather than a comprehensive market view.",
-      "quickNote": "Utilize a structured approach to filter minor pullbacks from major external ranges.",
-      "mentorText": "Always analyze the market from the top down. This ensures that your trades are aligned with the overall market direction.",
-      "mentorAnalogy": "Mapping market structures is like creating a detailed architectural plan; each layer must support the next to ensure stability and success."
+      "whyThisMatters": "Identifying commitment candles allows traders to pinpoint entry and exit opportunities aligned with market sentiment.",
+      "realLifeExample": "On AUDCAD, a daily commitment candle formed with a body-to-wick ratio of 0.75 after a bullish trend, confirming the continuation of upward momentum.",
+      "commonMistake": "Overlooking the importance of candle placement within the trend, which can lead to false confirmations.",
+      "quickNote": "Commitment candles above 0.7 confirm strong market trends and potential entry points.",
+      "mentorText": "When you identify a commitment candle, assess its context; if it aligns with the trend, it’s a strong signal to consider entering the market.",
+      "mentorAnalogy": "Like a lighthouse guiding ships, commitment candles illuminate the path of market direction, helping traders navigate through uncertainty."
     },
     "taskData": null,
-    "visualKey": "layer-filtering"
+    "visualKey": "commitment-candles"
   },
   {
     "type": "concept",
-    "title": "Filtering Noise on the LTF",
+    "title": "Debriefing Displacement Patterns",
     "label": "Core Track",
-    "body": "### Internal vs External Structure: Filtering Noise on the LTF\nTechniques for filtering noise on lower time frames (LTF) are essential for isolating significant price movements. This card teaches **how to distinguish between minor fluctuations and major trends**.\n\n* **Volume Analysis**: Monitor volume spikes during price movements; a significant increase in volume accompanying a price move indicates strength, while low volume suggests noise. For instance, if GBPUSD shows a 15-pip move with only 10% of average volume, consider it noise.\n* **ATR Filtering**: Utilize the Average True Range (ATR) to set thresholds for acceptable price movements. If the ATR for EURJPY is 20 pips and the price moves 5 pips, this is likely a minor pullback rather than a significant trend.\n* **Multi-Timeframe Confirmation**: Validate LTF signals with higher time frame trends. If the H1 chart shows a bullish trend but the M5 chart exhibits a 10-pip pullback, prioritize the H1 trend to avoid false signals.",
+    "body": "### Displacement Patterns: Analyzing Body-to-Wick Ratios\nDisplacement patterns reveal market dynamics through the analysis of body-to-wick ratios and volume. This card synthesizes the critical insights necessary for interpreting these patterns effectively.\n\n* **Body-to-Wick Ratio Assessment**: A body-to-wick ratio exceeding 2:1 indicates strong bullish or bearish sentiment, suggesting potential continuation or reversal. Analyze these ratios across multiple time frames for confirmation.\n* **Volume Correlation**: High volume accompanying significant body-to-wick ratios confirms the strength of the displacement. A volume spike of over 150% relative to the 14-day average during a displacement pattern signals increased conviction.\n* **Pattern Recognition**: Identify displacement patterns by observing price action around key support and resistance levels. For instance, a bullish displacement pattern on GBPUSD at 1.3000 with a 3:1 body-to-wick ratio and 200% volume increase indicates a strong upward momentum.\n",
     "context": {
       "keyTerms": [
+        {
+          "term": "Displacement Pattern",
+          "definition": "A market formation characterized by significant differences between the body and wick of price candles."
+        },
+        {
+          "term": "Body-to-Wick Ratio",
+          "definition": "The ratio of the body of a price candle to its wick, indicating market sentiment."
+        },
+        {
+          "term": "Volume Spike",
+          "definition": "A sudden increase in trading volume that often accompanies significant price movements."
+        }
+      ],
+      "whyThisMatters": "Understanding displacement patterns allows traders to gauge market sentiment and make informed decisions based on price action and volume analysis.",
+      "realLifeExample": "On EURUSD, a displacement pattern formed at 1.1000 with a body-to-wick ratio of 2.5:1 and a volume spike of 180% during the European session, indicating strong bullish sentiment.",
+      "commonMistake": "Traders often overlook the importance of volume confirmation when analyzing body-to-wick ratios, leading to misinterpretation of market signals.",
+      "quickNote": "High body-to-wick ratios with volume spikes indicate strong market sentiment.",
+      "mentorText": "When you see a body-to-wick ratio that exceeds 2:1, pay close attention to the accompanying volume. This is your confirmation that the market is serious about the move.",
+      "mentorAnalogy": "Think of analyzing displacement patterns like a forensic investigator examining a crime scene; the body-to-wick ratios are the evidence, while volume is the witness testimony confirming the story."
+    },
+    "taskData": null,
+    "visualKey": "displacement-debrief"
+  },
+  {
+    "type": "concept",
+    "title": "Algorithmic Strategies for Measuring Displacement",
+    "label": "Core Track",
+    "body": "### Algorithmic Measurement: Displacement Strategies\nAlgorithmic strategies provide a systematic approach to measuring displacement in the markets. This card focuses on programming techniques to identify significant price movements and their implications.\n\n* **Displacement Detection Algorithm**: Implement a script that calculates body-to-wick ratios in real-time, flagging instances where the ratio exceeds a predefined threshold (e.g., 2:1) for immediate review.\n* **Volume-Weighted Displacement Metrics**: Incorporate volume analysis into your algorithm by calculating the average volume over a specified period and flagging displacements where current volume exceeds this average by 150% or more.\n* **Backtesting Framework**: Develop a backtesting framework to evaluate the effectiveness of your displacement detection algorithms across various market conditions. For example, test your algorithm on historical data from the S&P 500 to assess its predictive accuracy during high volatility periods.\n",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Algorithmic Trading",
+          "definition": "The use of computer algorithms to automate trading strategies."
+        },
+        {
+          "term": "Backtesting",
+          "definition": "The process of testing a trading strategy on historical data to evaluate its performance."
+        },
+        {
+          "term": "Volume-Weighted Metrics",
+          "definition": "Metrics that incorporate trading volume into the analysis of price movements."
+        }
+      ],
+      "whyThisMatters": "Algorithmic strategies enhance precision in measuring displacement, allowing traders to capitalize on significant price movements systematically.",
+      "realLifeExample": "An algorithm identifies a displacement on AUDJPY with a body-to-wick ratio of 2.2:1 and alerts the trader when volume spikes above 160% during the Asian session, indicating a potential entry point.",
+      "commonMistake": "Failing to incorporate volume analysis into displacement algorithms can lead to false signals and poor trading decisions.",
+      "quickNote": "Use algorithms to automate the detection of significant displacement patterns and volume spikes.",
+      "mentorText": "When programming your displacement detection, ensure your algorithm flags both the body-to-wick ratio and volume. This dual confirmation is critical for accuracy.",
+      "mentorAnalogy": "Designing an algorithm for displacement is akin to creating a flight control system; it must monitor multiple variables in real-time to ensure a safe and efficient journey."
+    },
+    "taskData": null,
+    "visualKey": "displacement-intro"
+  },
+  {
+    "type": "concept",
+    "title": "Market Sentiment and Displacement",
+    "label": "Core Track",
+    "body": "### Sentiment Analysis: Displacement Correlation\nMarket sentiment plays a pivotal role in displacement, influencing body-to-wick ratios and volume spikes. This card explores how trader psychology impacts these metrics.\n\n* **Psychological Resistance Levels**: Identify psychological price levels (e.g., round numbers) where traders exhibit heightened sentiment. A body-to-wick ratio of 3:1 near a psychological level indicates strong bullish or bearish sentiment.\n* **Volume and Sentiment Correlation**: Analyze the correlation between volume spikes and body-to-wick ratios during news events. For instance, a 200% volume increase with a 2.5:1 body-to-wick ratio during a Non-Farm Payroll release suggests strong market conviction.\n* **Sentiment Indicators**: Utilize sentiment indicators (e.g., COT reports) to gauge trader positioning. A shift in sentiment reflected in body-to-wick ratios can precede significant market movements, such as a bullish displacement on USDCHF at 0.9500.\n",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Psychological Price Levels",
+          "definition": "Price levels that are significant to traders, often leading to increased buying or selling activity."
+        },
+        {
+          "term": "Volume Spike Analysis",
+          "definition": "The examination of sudden increases in trading volume to assess market sentiment."
+        },
+        {
+          "term": "Sentiment Indicators",
+          "definition": "Tools used to gauge the overall mood of market participants."
+        }
+      ],
+      "whyThisMatters": "Understanding the relationship between market sentiment and displacement allows traders to anticipate price movements based on trader psychology.",
+      "realLifeExample": "During a bullish displacement on GBPUSD at 1.3500, a body-to-wick ratio of 3:1 and a volume spike of 220% coincided with a positive economic report, reflecting strong market sentiment.",
+      "commonMistake": "Traders often misinterpret body-to-wick ratios without considering the broader market sentiment, leading to misguided trading decisions.",
+      "quickNote": "Market sentiment significantly influences body-to-wick ratios and volume spikes.",
+      "mentorText": "Always consider the psychological factors at play when analyzing displacement. A strong body-to-wick ratio near a psychological level can indicate a powerful market move.",
+      "mentorAnalogy": "Understanding market sentiment is like a weather forecast; just as meteorologists analyze atmospheric conditions, traders must assess psychological factors that influence market movements."
+    },
+    "taskData": null,
+    "visualKey": "body-to-wick-ratio"
+  },
+  {
+    "type": "concept",
+    "title": "Common Traps in Displacement Trading",
+    "label": "Core Track",
+    "body": "### Displacement Trading: Identifying Common Traps\nTraders often fall into traps when interpreting displacement signals. This card highlights common pitfalls related to body-to-wick ratios and volume analysis.\n\n* **Misinterpretation of Body-to-Wick Ratios**: A body-to-wick ratio of 1.5:1 may appear significant, but without volume confirmation, it can lead to false signals. Always seek a volume spike of at least 150% to validate the ratio.\n* **Ignoring Contextual Factors**: Displacement patterns can be misleading if traders ignore broader market context, such as economic data releases. For example, a body-to-wick ratio of 2:1 on EURCAD during a major news event may not indicate true market sentiment.\n* **Overtrading on False Signals**: Traders may overreact to minor displacements, leading to overtrading. A body-to-wick ratio of 2.2:1 without significant volume should be approached with caution, as it may not reflect genuine market interest.\n",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "False Signals",
+          "definition": "Market signals that appear significant but do not lead to expected price movements."
+        },
+        {
+          "term": "Contextual Analysis",
+          "definition": "The examination of market conditions surrounding a trading signal."
+        },
+        {
+          "term": "Overtrading",
+          "definition": "The act of executing too many trades based on insufficient evidence."
+        }
+      ],
+      "whyThisMatters": "Recognizing common traps in displacement trading helps traders avoid costly mistakes and enhances decision-making accuracy.",
+      "realLifeExample": "A trader identifies a body-to-wick ratio of 2.3:1 on NZDJPY but fails to notice the lack of volume support, resulting in a premature entry that leads to a loss when the price retraces.",
+      "commonMistake": "Traders often act on body-to-wick ratios without volume confirmation, leading to misinformed trading decisions.",
+      "quickNote": "Always validate body-to-wick ratios with volume analysis to avoid common traps.",
+      "mentorText": "When you see a displacement, don’t jump in immediately. Check the volume and the context; if it doesn’t align, it’s a trap.",
+      "mentorAnalogy": "Navigating displacement trading is like sailing; without checking the wind direction (volume), you risk capsizing your boat (trading account) on false signals."
+    },
+    "taskData": null,
+    "visualKey": "volume-displacement"
+  },
+  {
+    "type": "concept",
+    "title": "Synthesis of Displacement Strategies",
+    "label": "Core Track",
+    "body": "### Displacement Strategy: Cohesive Trading Plan Synthesis\nEffective displacement trading requires the integration of body-to-wick ratios and volume analysis into a unified strategy. This card outlines **how to synthesize various displacement strategies for optimal decision-making**.\n\n* **Body-to-Wick Ratio Analysis**: Identify displacement candles with a body-to-wick ratio exceeding 2:1, indicating strong market commitment. For example, a bullish candle on GBPUSD with a body of 50 pips and a wick of 20 pips signals significant buying pressure.\n* **Volume Confirmation**: Ensure that the volume during displacement events is at least 30% above the 10-day average. This confirms that the price movement is supported by sufficient market participation, enhancing the reliability of the signal.\n* **Multi-Timeframe Alignment**: Confirm displacement signals across multiple timeframes. A bullish displacement on the 1-hour chart should align with a similar signal on the 4-hour chart to reinforce the trading decision.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Body-to-Wick Ratio",
+          "definition": "The ratio of the body of a candle to its wick, indicating the strength of price movement."
+        },
         {
           "term": "Volume Analysis",
-          "definition": "The assessment of trading volume to gauge the strength of price movements."
+          "definition": "The examination of trading volume to confirm price movements and market commitment."
+        }
+      ],
+      "whyThisMatters": "Synthesizing displacement strategies enhances decision-making accuracy and increases the probability of successful trades.",
+      "realLifeExample": "On EURUSD, a 1-hour candle shows a body of 60 pips and a wick of 20 pips, with volume at 150% of the average, indicating a strong bullish displacement.",
+      "commonMistake": "Failing to confirm displacement signals across multiple timeframes can lead to premature entries.",
+      "quickNote": "Integrate body-to-wick ratios and volume for cohesive displacement strategies.",
+      "mentorText": "When you see a strong body-to-wick ratio combined with high volume, it’s your cue to act. Always check multiple timeframes to ensure you’re not missing a larger trend.",
+      "mentorAnalogy": "Think of this like an architect ensuring that all structural elements of a building align before construction begins; every aspect must be cohesive for a solid outcome."
+    },
+    "taskData": null,
+    "visualKey": "commitment-candles"
+  },
+  {
+    "type": "concept",
+    "title": "Historical Analysis of Displacement Events",
+    "label": "Core Track",
+    "body": "### Displacement Events: Historical Analysis\nAnalyzing historical displacement events provides insights into market behavior and trend formation. This card covers **how to leverage past displacement data to inform current trading strategies**.\n\n* **Event Cataloging**: Maintain a log of significant displacement events, noting the body-to-wick ratios and volume spikes. For instance, during the March 2020 market crash, observe how displacement candles on indices had body-to-wick ratios exceeding 3:1 with unprecedented volume.\n* **Trend Correlation**: Identify correlations between historical displacement events and subsequent market trends. For example, after a major displacement on the S&P 500, the following month often shows a continuation pattern, which can be statistically analyzed.\n* **Backtesting Strategies**: Implement backtesting on historical data to evaluate the effectiveness of displacement strategies. Use a dataset from the last five years to assess how often specific body-to-wick ratios led to profitable trades.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Event Cataloging",
+          "definition": "The systematic recording of significant market displacement events for analysis."
         },
         {
-          "term": "ATR",
-          "definition": "A technical indicator that measures market volatility."
+          "term": "Trend Correlation",
+          "definition": "The relationship between past displacement events and subsequent market movements."
+        }
+      ],
+      "whyThisMatters": "Understanding historical displacement events allows traders to anticipate potential market movements and refine their strategies.",
+      "realLifeExample": "In April 2020, a displacement event on the NASDAQ showed a body-to-wick ratio of 4:1, leading to a sustained bullish trend over the next quarter.",
+      "commonMistake": "Neglecting to analyze historical data can result in missed opportunities and repeated mistakes.",
+      "quickNote": "Leverage historical displacement data to refine trading strategies.",
+      "mentorText": "Look back at past displacement events; they tell a story about how the market reacts. Use that knowledge to shape your current strategies.",
+      "mentorAnalogy": "Like a historian studying past civilizations to predict future trends, you must analyze market history to understand potential outcomes."
+    },
+    "taskData": null,
+    "visualKey": "displacement-debrief"
+  },
+  {
+    "type": "concept",
+    "title": "Real-Time Monitoring of Displacement",
+    "label": "Core Track",
+    "body": "### Displacement Monitoring: Real-Time Techniques\nReal-time monitoring of displacement events is critical for timely trading decisions. This card discusses **the tools and indicators necessary for effective real-time displacement tracking**.\n\n* **Indicator Setup**: Utilize custom indicators that highlight body-to-wick ratios in real-time. For example, set alerts for when a candle forms with a body-to-wick ratio greater than 2:1 on the 5-minute chart of USDJPY.\n* **Volume Oscillators**: Implement volume oscillators to detect spikes in trading volume that accompany displacement events. A sudden increase in volume on a breakout candle can signal a high-probability trade opportunity.\n* **Price Action Alerts**: Configure price action alerts on your trading platform to notify you when displacement candles form. For instance, an alert for a bullish engulfing candle with a significant body-to-wick ratio can prompt immediate analysis and potential entry.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Indicator Setup",
+          "definition": "The configuration of trading indicators to monitor specific market conditions in real-time."
         },
+        {
+          "term": "Volume Oscillator",
+          "definition": "A tool that measures the change in volume over time to identify significant trading activity."
+        }
+      ],
+      "whyThisMatters": "Real-time monitoring allows traders to react swiftly to market changes, maximizing profit potential during displacement events.",
+      "realLifeExample": "On AUDCAD, a real-time alert for a 5-minute candle with a body-to-wick ratio of 3:1 triggered a buy order just before a 50-pip upward movement.",
+      "commonMistake": "Relying solely on historical data without real-time monitoring can lead to missed trading opportunities.",
+      "quickNote": "Utilize real-time tools to monitor displacement events effectively.",
+      "mentorText": "Set up your alerts and indicators to catch displacement events as they happen. Timing is everything, and being proactive is key.",
+      "mentorAnalogy": "Like a pilot using instruments to monitor flight conditions in real-time, you must have the right tools to navigate market changes swiftly."
+    },
+    "taskData": null,
+    "visualKey": "displacement-intro"
+  },
+  {
+    "type": "concept",
+    "title": "Psychological Factors in Displacement Trading",
+    "label": "Core Track",
+    "body": "### Displacement Trading: Psychological Factors\nUnderstanding psychological factors during displacement events is essential for maintaining discipline. This card examines **how emotions like fear and greed can impact trading decisions**.\n\n* **Fear Management**: Recognize that fear can lead to premature exits during displacement. For example, if a trader sees a large bearish candle on GBPJPY, they may close their position too early, missing further profits.\n* **Greed Control**: Avoid the trap of greed by setting predefined profit targets based on body-to-wick ratios. If a trader identifies a bullish displacement with a 3:1 ratio, they should have a clear exit strategy rather than holding indefinitely for more gains.\n* **Emotional Journaling**: Maintain a trading journal to document emotional responses during displacement events. This practice helps identify patterns in behavior that can lead to improved decision-making in future trades.",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Fear Management",
+          "definition": "Strategies to control fear that may lead to hasty trading decisions."
+        },
+        {
+          "term": "Emotional Journaling",
+          "definition": "The practice of recording emotional responses to trading events to improve future decision-making."
+        }
+      ],
+      "whyThisMatters": "Managing psychological factors is crucial for executing disciplined trading strategies during displacement events.",
+      "realLifeExample": "After a displacement event on NZDUSD, a trader who succumbed to fear closed their position at a 20-pip profit, only to watch the price continue to rise by another 100 pips.",
+      "commonMistake": "Ignoring emotional responses can lead to inconsistent trading results and missed opportunities.",
+      "quickNote": "Control fear and greed to maintain discipline during displacement trading.",
+      "mentorText": "Stay aware of your emotions; fear and greed can cloud your judgment. Stick to your plan and don’t let emotions dictate your trades.",
+      "mentorAnalogy": "Just as a surgeon must remain calm and focused during a critical operation, you must manage your emotions to execute your trading plan effectively."
+    },
+    "taskData": null,
+    "visualKey": "body-to-wick-ratio"
+  },
+  {
+    "type": "concept",
+    "title": "Advanced Techniques for Displacement Measurement",
+    "label": "Core Track",
+    "body": "### Displacement Measurement: Multi-Timeframe Analysis and Indicators\nAdvanced displacement measurement requires a nuanced approach that integrates multi-timeframe analysis with complex indicators. This card focuses on **enhancing body-to-wick ratio assessments through advanced techniques**.\n\n* **Multi-Timeframe Correlation**: Analyze displacement across at least three timeframes (e.g., daily, hourly, and 15-minute) to identify consistent displacement patterns. A significant displacement on a higher timeframe should correlate with similar patterns on lower timeframes to validate the signal.\n* **Volume-Weighted Displacement**: Utilize volume indicators such as the Volume Profile or On-Balance Volume (OBV) to assess the strength of displacement. A large body-to-wick ratio accompanied by high volume indicates stronger market conviction.\n* **Complex Indicators**: Incorporate indicators like the Average True Range (ATR) to gauge volatility and refine displacement measurements. A high ATR in conjunction with a large body-to-wick ratio suggests potential for significant price movement.\n",
+    "context": {
+      "keyTerms": [
         {
           "term": "Multi-Timeframe Analysis",
-          "definition": "The practice of analyzing price action across different time frames."
+          "definition": "The practice of analyzing price action across different timeframes to identify consistent trading signals."
+        },
+        {
+          "term": "Volume-Weighted Displacement",
+          "definition": "A method of measuring displacement that incorporates trading volume to assess market strength."
+        },
+        {
+          "term": "Average True Range (ATR)",
+          "definition": "An indicator that measures market volatility by decomposing the entire range of an asset price for a set period."
         }
       ],
-      "whyThisMatters": "Filtering noise allows traders to focus on significant price movements, enhancing decision-making accuracy.",
-      "realLifeExample": "During the London session, GBPUSD fluctuated between 1.3000 and 1.3010 with low volume, indicating minor noise rather than a trend reversal.",
-      "commonMistake": "Traders often react to minor price movements without confirming volume or trend strength.",
-      "quickNote": "Focus on volume and ATR to distinguish significant movements from noise.",
-      "mentorText": "When analyzing LTF, always check the volume behind the move. If it’s not there, it’s likely just noise. Stick to the higher time frame trend.",
-      "mentorAnalogy": "Think of filtering noise like a surgeon identifying critical signals in a patient's vitals amidst background chatter in an operating room."
+      "whyThisMatters": "Advanced techniques refine displacement measurements, leading to more accurate trading decisions based on market dynamics.",
+      "realLifeExample": "On the EURUSD daily chart, a body-to-wick ratio of 4:1 on a bullish candle coincided with a 1.5% increase in volume, confirmed by a similar pattern on the hourly chart, indicating strong bullish sentiment.",
+      "commonMistake": "Relying solely on body-to-wick ratios without considering volume or multi-timeframe analysis can lead to misleading signals.",
+      "quickNote": "Integrate multi-timeframe analysis and volume indicators for precise displacement measurement.",
+      "mentorText": "When measuring displacement, always check multiple timeframes. If you see a strong signal on the daily chart, confirm it with the hourly and 15-minute charts to ensure you're not missing critical context.",
+      "mentorAnalogy": "Think of displacement measurement like a structural engineer assessing a bridge. They don’t just look at one section; they analyze the entire structure from multiple angles to ensure stability and safety."
     },
     "taskData": null,
-    "visualKey": "internal-external-debrief"
-  },
-  {
-    "type": "concept",
-    "title": "Analyzing External Ranges for Trading Signals",
-    "label": "Core Track",
-    "body": "### Internal vs External Structure: Analyzing External Ranges for Trading Signals\nUnderstanding external ranges is crucial for deriving actionable trading signals. This card teaches **how to analyze these ranges to avoid being misled by minor pullbacks**.\n\n* **Range Boundaries**: Identify key support and resistance levels that define external ranges. For example, if AUDCAD is trading between 0.9500 and 0.9600, these levels serve as boundaries for potential trades.\n* **Breakout Confirmation**: Wait for a confirmed breakout above or below the external range before entering a trade. If USDCHF breaks above 0.9300 with a close above this level, it signals a potential uptrend.\n* **Retracement Levels**: Use Fibonacci retracement levels within the context of external ranges to identify potential reversal points. If EURUSD retraces to the 61.8% level of a recent move before bouncing back, this reinforces the external range's validity.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Range Boundaries",
-          "definition": "Key levels that define the upper and lower limits of price movement."
-        },
-        {
-          "term": "Breakout Confirmation",
-          "definition": "The process of validating a price movement beyond established support or resistance."
-        },
-        {
-          "term": "Fibonacci Retracement",
-          "definition": "A tool used to identify potential reversal levels based on the Fibonacci sequence."
-        }
-      ],
-      "whyThisMatters": "Accurate analysis of external ranges helps traders make informed decisions, reducing the risk of false entries.",
-      "realLifeExample": "In a recent trading session, GBPJPY oscillated within a range of 150.00 to 152.00; a breakout above 152.00 confirmed a bullish signal.",
-      "commonMistake": "Traders often enter trades prematurely without waiting for confirmation of breakouts.",
-      "quickNote": "Focus on confirmed breakouts and retracement levels to validate trading signals.",
-      "mentorText": "Always wait for a solid breakout before acting. If you jump in too early, you risk getting caught in a false move.",
-      "mentorAnalogy": "Analyzing external ranges is like a pilot assessing weather conditions before takeoff; clear skies indicate a safe flight path."
-    },
-    "taskData": null,
-    "visualKey": "internal-external-intro"
-  },
-  {
-    "type": "concept",
-    "title": "The Significance of Internal Pullbacks",
-    "label": "Core Track",
-    "body": "### Internal vs External Structure: The Significance of Internal Pullbacks\nInternal pullbacks serve a critical role within major external structures. This card teaches **how to interpret these pullbacks in the context of market dynamics**.\n\n* **Trend Continuation**: Recognize that internal pullbacks often indicate a pause in a prevailing trend rather than a reversal. For instance, if S&P 500 futures pull back 20 points during an uptrend, it may present a buying opportunity.\n* **Market Sentiment**: Analyze internal pullbacks for insights into market sentiment. If a stock like AAPL pulls back while maintaining strong volume, it suggests that buyers are still in control.\n* **Timing Entries**: Use internal pullbacks to time entries more effectively. If the price of BTC retraces to a moving average during a bullish trend, this can be an optimal entry point for long positions.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Trend Continuation",
-          "definition": "The concept that a trend is likely to persist after a temporary pullback."
-        },
-        {
-          "term": "Market Sentiment",
-          "definition": "The overall attitude of traders towards a particular market or asset."
-        },
-        {
-          "term": "Moving Average",
-          "definition": "A technical indicator that smooths price data to identify trends."
-        }
-      ],
-      "whyThisMatters": "Understanding internal pullbacks allows traders to capitalize on opportunities within established trends.",
-      "realLifeExample": "During a bullish run, AAPL retraced from $150 to $148 before continuing upward, indicating a strong internal pullback rather than a reversal.",
-      "commonMistake": "Traders often misinterpret internal pullbacks as trend reversals, leading to premature exits.",
-      "quickNote": "Internal pullbacks can signal continuation; analyze them within the context of the larger trend.",
-      "mentorText": "When you see a pullback, ask yourself if it’s a pause or a reversal. Often, it’s just the market catching its breath before continuing.",
-      "mentorAnalogy": "Think of internal pullbacks like a runner taking a breath during a race; it’s a momentary pause before pushing forward."
-    },
-    "taskData": null,
-    "visualKey": "minor-pullbacks"
-  },
-  {
-    "type": "concept",
-    "title": "Validating External Structures",
-    "label": "Core Track",
-    "body": "### Internal vs External Structure: Validating External Structures\nMethods to validate external structures ensure alignment with broader market contexts. This card teaches **how to confirm the validity of external structures in your trading strategies**.\n\n* **Confluence Analysis**: Look for confluence between external structures and other technical indicators. If USDJPY is at a major resistance level and RSI indicates overbought conditions, this strengthens the case for a potential reversal.\n* **Market Context**: Assess the broader market context, including economic indicators and news events. For example, if gold is trading at a key resistance level during a high-impact news release, this context can validate the external structure.\n* **Historical Data Comparison**: Compare current price action with historical data to confirm the relevance of external structures. If GBPUSD has repeatedly rejected a level around 1.3500 in the past, this reinforces its significance as an external structure.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Confluence Analysis",
-          "definition": "The process of identifying multiple indicators that support a trading decision."
-        },
-        {
-          "term": "Market Context",
-          "definition": "The overall economic and news environment impacting price movements."
-        },
-        {
-          "term": "Historical Data Comparison",
-          "definition": "Analyzing past price action to validate current market structures."
-        }
-      ],
-      "whyThisMatters": "Validating external structures enhances the robustness of trading strategies, minimizing the risk of false signals.",
-      "realLifeExample": "When EURUSD approached 1.2000, it coincided with a significant economic report, reinforcing the level's importance as a resistance point.",
-      "commonMistake": "Traders often overlook broader market contexts, leading to misinterpretation of external structures.",
-      "quickNote": "Validate external structures through confluence, market context, and historical relevance.",
-      "mentorText": "Always check if your external structures align with other indicators and market conditions. If they don’t, reconsider your strategy.",
-      "mentorAnalogy": "Validating external structures is like an architect ensuring that a building's foundation aligns with the surrounding landscape; without that, it risks collapse."
-    },
-    "taskData": null,
-    "visualKey": "major-dealing-ranges"
-  },
-  {
-    "type": "concept",
-    "title": "Decision Making Between Internal and External Structures",
-    "label": "Core Track",
-    "body": "### Structure Analysis: Internal vs External Decision Making\nTraders must differentiate between internal pullbacks and external structures to make informed entry decisions. This card emphasizes **strategic entry points based on structural analysis**.\n\n* **Identifying External Ranges**: Use a minimum of three higher timeframe swings to define external structures. Enter trades only when price approaches the outer edges of these ranges, ensuring alignment with broader market sentiment.\n* **Internal Pullback Confirmation**: Confirm internal pullbacks with at least two lower timeframe swings that respect the external structure. This ensures that the trade is not merely a minor fluctuation but part of a larger trend.\n* **Entry Timing**: Execute trades at the completion of an internal pullback, ideally at a Fibonacci retracement level or a significant support/resistance zone within the external structure to maximize risk-reward ratios.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Internal Structure",
-          "definition": "Short-term price movements within a larger external range."
-        },
-        {
-          "term": "External Structure",
-          "definition": "Broader price ranges defined by significant swings on higher timeframes."
-        }
-      ],
-      "whyThisMatters": "Understanding the distinction between internal and external structures allows traders to filter out noise and focus on high-probability setups.",
-      "realLifeExample": "On the EURUSD daily chart, price retraced to the 1.0850 level after a significant drop, forming an internal structure while the external range was defined between 1.0800 and 1.0900. A trader could enter a long position at 1.0850 upon confirmation of a bullish internal pullback.",
-      "commonMistake": "Failing to recognize the difference between minor internal fluctuations and significant external ranges, leading to premature entries.",
-      "quickNote": "Strategic entries require clear differentiation between internal and external structures.",
-      "mentorText": "When analyzing structures, I always look for the larger context. If I'm seeing a pullback within a significant range, I wait for confirmation before entering. This prevents me from getting caught in minor fluctuations.",
-      "mentorAnalogy": "Think of trading like navigating a ship. The external structure is the ocean's currents, while the internal structure is the waves on the surface. You must understand both to steer your course effectively."
-    },
-    "taskData": null,
-    "visualKey": "layer-filtering"
-  },
-  {
-    "type": "concept",
-    "title": "Trade Execution Strategies Based on Structure",
-    "label": "Core Track",
-    "body": "### Execution Techniques: Leveraging Structure for Optimal Trades\nEffective trade execution hinges on understanding the relationship between internal and external structures. This card outlines **strategies for executing trades that align with structural analysis**.\n\n* **Limit Orders at External Boundaries**: Place limit orders at key external structure levels, ensuring they coincide with internal pullbacks. This increases the likelihood of execution at optimal prices.\n* **Market Orders on Breakouts**: Utilize market orders when price breaks through confirmed external structures. This approach captures momentum and minimizes the risk of missing significant moves.\n* **Trailing Stops within Internal Structures**: Implement trailing stops when trading within internal structures to lock in profits while allowing for potential further gains as the trend develops.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Limit Order",
-          "definition": "An order to buy or sell a security at a specified price or better."
-        },
-        {
-          "term": "Market Order",
-          "definition": "An order to buy or sell a security immediately at the current market price."
-        }
-      ],
-      "whyThisMatters": "Utilizing structured execution strategies enhances the probability of successful trades and optimizes risk management.",
-      "realLifeExample": "On GBPJPY, after identifying a breakout above 165.00 (external structure), a trader executed a market order to capitalize on the momentum, while also placing a trailing stop to protect profits as the price moved to 167.50.",
-      "commonMistake": "Using market orders indiscriminately without considering the structure can lead to unfavorable fills and increased slippage.",
-      "quickNote": "Align execution strategies with structural analysis for optimal trade outcomes.",
-      "mentorText": "When I see a breakout, I’m ready to act. I use market orders to capture that momentum, but I also know when to set my limits at key levels to maximize my entries.",
-      "mentorAnalogy": "Executing trades is like a chef timing the cooking of multiple dishes. You must know when to add ingredients (orders) based on the overall meal structure (market structure) to achieve the best result."
-    },
-    "taskData": null,
-    "visualKey": "internal-external-debrief"
-  },
-  {
-    "type": "concept",
-    "title": "Risk Management in Context of Structures",
-    "label": "Core Track",
-    "body": "### Risk Control: Managing Capital Amidst Structural Analysis\nEffective risk management is crucial when trading within the context of internal and external structures. This card focuses on **techniques to safeguard capital based on structural insights**.\n\n* **Position Sizing Relative to Structure**: Adjust position sizes based on the volatility of internal pullbacks and the width of external ranges. Use a smaller position size when trading within tighter internal structures to mitigate risk.\n* **Stop Loss Placement**: Set stop losses just beyond the external structure boundaries to avoid being stopped out by minor internal fluctuations while protecting against larger moves.\n* **Risk-Reward Ratio Assessment**: Always evaluate the risk-reward ratio before entering a trade. A minimum of 1:2 is recommended when trading external structures to ensure that potential gains justify the risk taken.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Position Sizing",
-          "definition": "Determining the amount of capital to allocate to a specific trade."
-        },
-        {
-          "term": "Stop Loss",
-          "definition": "An order placed to sell a security when it reaches a certain price to limit losses."
-        }
-      ],
-      "whyThisMatters": "Implementing structured risk management techniques protects capital and enhances long-term trading viability.",
-      "realLifeExample": "In a trade on AUDCAD, a trader identified an external structure at 0.9300 and placed a stop loss at 0.9320, ensuring that the risk was limited to 20 pips while targeting a potential gain of 60 pips, achieving a 1:3 risk-reward ratio.",
-      "commonMistake": "Neglecting to adjust position sizes or stop loss placements based on structural analysis, leading to excessive risk exposure.",
-      "quickNote": "Effective risk management is rooted in understanding market structures.",
-      "mentorText": "I always assess my risk based on the structure I’m trading. If I’m in a volatile area, I’ll reduce my position size and widen my stop loss to protect my capital.",
-      "mentorAnalogy": "Managing risk in trading is akin to an architect ensuring the stability of a building. You must account for the structural integrity (market structure) to prevent collapse (losses)."
-    },
-    "taskData": null,
-    "visualKey": "internal-external-intro"
-  },
-  {
-    "type": "concept",
-    "title": "Common Pitfalls in Structure Analysis",
-    "label": "Core Track",
-    "body": "### Avoiding Traps: Structure Analysis Mistakes\nTraders often encounter pitfalls when analyzing internal and external structures. This card highlights **common mistakes and strategies to avoid them**.\n\n* **Overlooking Timeframes**: Failing to analyze multiple timeframes can lead to misinterpretation of structures. Always confirm internal and external structures across at least two timeframes to ensure accuracy.\n* **Ignoring Volume Indicators**: Neglecting volume analysis during structure identification can result in false signals. Ensure that volume supports the validity of both internal pullbacks and external ranges before executing trades.\n* **Confirmation Bias**: Allowing preconceived notions to dictate analysis can cloud judgment. Always remain objective and rely on structural evidence rather than personal beliefs about market direction.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Confirmation Bias",
-          "definition": "The tendency to interpret new evidence as confirmation of one's existing beliefs."
-        },
-        {
-          "term": "Volume Analysis",
-          "definition": "The study of trading volume to assess the strength of price movements."
-        }
-      ],
-      "whyThisMatters": "Recognizing and avoiding common pitfalls enhances analytical precision and improves trading outcomes.",
-      "realLifeExample": "A trader on USDCHF observed an internal structure without confirming it on the 4-hour chart, leading to a false entry. The subsequent price action revealed a strong external resistance at 0.9500, invalidating the internal setup.",
-      "commonMistake": "Relying solely on one timeframe for structure analysis, which can lead to inaccurate trade decisions.",
-      "quickNote": "Avoiding analysis pitfalls is essential for accurate trading decisions.",
-      "mentorText": "I’ve seen many traders fall into the trap of only looking at one timeframe. Always check multiple timeframes to confirm your analysis; it’s crucial for making informed decisions.",
-      "mentorAnalogy": "Analyzing market structures is like a detective gathering evidence. You must look at all available clues (timeframes and volume) to solve the case (make a trade decision) accurately."
-    },
-    "taskData": null,
-    "visualKey": "minor-pullbacks"
-  },
-  {
-    "type": "concept",
-    "title": "Practical Application of Structure Analysis",
-    "label": "Core Track",
-    "body": "### Structure Analysis: Internal vs External Application\nEngaging in practical exercises enhances the understanding of internal and external structure analysis. This card focuses on **applying learned techniques in simulated trading scenarios**.\n\n* **Identifying Major Ranges**: Use historical price data to delineate major external dealing ranges on a chart. Mark significant highs and lows to visualize the broader market context.\n* **Internal Pullback Recognition**: Simulate trades by identifying minor internal pullbacks within the established major ranges. Focus on recognizing the difference between a valid pullback and a potential reversal signal.\n* **Scenario Testing**: Conduct backtesting on specific instruments, such as GBPUSD during the London session, to evaluate the effectiveness of your internal vs external structure analysis in real-time market conditions.",
-    "visualKey": "major-dealing-ranges",
-    "taskData": null
+    "visualKey": "volume-displacement"
   },
   {
     "type": "practice",
-    "title": "Summary of Internal vs External Structures",
+    "title": "Practical Application of Displacement Concepts",
     "label": "Core Track",
-    "body": "### Filtering Structures: Internal vs External Summary\nThis card summarizes the critical concepts of internal and external structures, emphasizing effective filtering techniques. Understanding these distinctions is vital for precision in trading decisions.\n\n* **External Structure Dominance**: Always prioritize trades that align with the major external structure. This ensures that your trading decisions are made in the direction of the prevailing market sentiment.\n* **Internal Pullback Filtering**: Develop a checklist for filtering internal pullbacks. Only consider setups that show clear rejection of the internal structure at key levels, such as Fibonacci retracement zones.\n* **Example Application**: Analyze a recent market scenario where the S&P 500 exhibited a minor pullback within a major bullish range. Document the entry and exit points based on the internal vs external structure analysis.",
-    "visualKey": "layer-filtering"
+    "body": "### Displacement Application: Real-World Scenario Exercises\nEngaging with practical exercises reinforces the understanding of displacement concepts through real-world scenarios. This card focuses on **applying displacement measurement techniques in live market conditions**.\n\n* **Scenario Analysis**: Examine a recent price action on the GBPJPY 4-hour chart where the body-to-wick ratio was 3:1. Assess the accompanying volume and determine if it supports a bullish or bearish displacement.\n* **Volume Confirmation**: After identifying a displacement candle, check the volume for that session. A displacement with volume exceeding the 14-day average by 50% strengthens the case for a valid trading signal.\n* **Trade Execution Plan**: Based on your analysis, outline a trade execution plan that includes entry, stop-loss, and target levels, ensuring they align with the displacement measurement findings.\n",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Scenario Analysis",
+          "definition": "The process of evaluating specific market conditions to determine potential trading opportunities."
+        },
+        {
+          "term": "Volume Confirmation",
+          "definition": "The practice of validating a trading signal by analyzing the volume associated with it."
+        },
+        {
+          "term": "Trade Execution Plan",
+          "definition": "A detailed strategy outlining entry, exit, and risk management parameters for a trade."
+        }
+      ],
+      "whyThisMatters": "Practical application solidifies theoretical knowledge, enhancing decision-making skills in real trading environments.",
+      "realLifeExample": "On the GBPJPY 4-hour chart, a recent bullish candle with a body-to-wick ratio of 3:1 was accompanied by a volume spike of 60% above the 14-day average, indicating a strong buy signal.",
+      "commonMistake": "Failing to validate displacement signals with volume can lead to premature trade entries and increased risk.",
+      "quickNote": "Apply displacement concepts in real scenarios to enhance your trading proficiency.",
+      "mentorText": "When you spot a displacement candle, always check the volume. If it’s not supporting your analysis, reconsider your trade. A strong signal needs strong backing.",
+      "mentorAnalogy": "Consider a chef preparing a dish. They don’t just follow the recipe; they taste and adjust based on the ingredients' quality and freshness to ensure the final product is exceptional."
+    },
+    "taskData": {
+      "type": "choice_block",
+      "question": "You observe a bullish candle on the AUDCAD 1-hour chart with a body-to-wick ratio of 5:1. The volume is 30% below the 14-day average. What should be your next step?",
+      "options": [
+        {
+          "id": "0",
+          "text": "Enter a long position immediately.",
+          "isCorrect": false,
+          "feedback": "Entering without volume confirmation increases risk; the signal lacks strength."
+        },
+        {
+          "id": "1",
+          "text": "Wait for volume to increase before considering a trade.",
+          "isCorrect": true,
+          "feedback": "Waiting for volume confirmation strengthens the validity of the displacement signal."
+        },
+        {
+          "id": "2",
+          "text": "Short the position since the volume is low.",
+          "isCorrect": false,
+          "feedback": "Shorting based on low volume without confirming the displacement signal is premature."
+        },
+        {
+          "id": "3",
+          "text": "Analyze the higher timeframe for confirmation.",
+          "isCorrect": false,
+          "feedback": "While analyzing higher timeframes is beneficial, volume confirmation is essential before entering a trade."
+        }
+      ]
+    },
+    "visualKey": "commitment-candles"
   },
   {
     "type": "summary",
-    "title": "Internal vs External Range Synthesis",
+    "title": "Summary of Displacement Insights",
     "label": "Core Track",
-    "body": "### Advanced Application: Internal vs External Structure\nThis card delves into advanced applications of internal vs external structure concepts, addressing edge cases and professional-level nuances. Mastery of these details is essential for high-level trading.\n\n* **Complex Market Conditions**: Analyze situations where internal structures appear to contradict external ranges. Develop strategies for navigating these complexities, such as using additional indicators or volume analysis.\n* **Risk Management Techniques**: Implement advanced risk management techniques when trading near the boundaries of major external structures. Set tighter stop-loss orders to mitigate potential losses from false breakouts.\n* **Case Study Review**: Review a case study involving AUDJPY during a high-impact news release. Examine how internal structures reacted to external range boundaries and the implications for trade execution.",
-    "visualKey": "internal-external-debrief",
-    "taskData": null
+    "body": "### Displacement Insights: Key Takeaways\nThis card summarizes the essential insights and strategies for effective displacement measurement. Understanding these concepts is critical for professional trading.\n\n* **Body-to-Wick Ratios**: Utilize body-to-wick ratios as a primary measure of displacement, but enhance this analysis with volume and multi-timeframe validation for accuracy.\n* **Volume Analysis**: Always incorporate volume analysis to confirm displacement signals. High volume accompanying a strong body-to-wick ratio indicates market conviction.\n* **Multi-Timeframe Validation**: Cross-reference displacement measurements across multiple timeframes to ensure consistency and reliability in trading signals.\n",
+    "context": {
+      "keyTerms": [
+        {
+          "term": "Body-to-Wick Ratio",
+          "definition": "The ratio of the body of a candle to its wick, indicating the strength of price movement."
+        },
+        {
+          "term": "Volume Analysis",
+          "definition": "The examination of trading volume to validate price movements and signals."
+        },
+        {
+          "term": "Multi-Timeframe Validation",
+          "definition": "The process of confirming trading signals by analyzing price action across different timeframes."
+        }
+      ],
+      "whyThisMatters": "Summarizing key insights reinforces learning and ensures traders can apply effective displacement measurement techniques.",
+      "realLifeExample": "A trader successfully identified a bullish trend on USDCHF by applying body-to-wick ratios, confirming with volume spikes, and validating across daily and 4-hour charts.",
+      "commonMistake": "Overlooking the importance of volume in displacement analysis can lead to missed opportunities or false signals.",
+      "quickNote": "Integrate body-to-wick ratios, volume analysis, and multi-timeframe validation for effective displacement measurement.",
+      "mentorText": "Remember, displacement is not just about the candle size; it’s about the context. Always validate your findings with volume and check multiple timeframes to ensure you’re making informed decisions.",
+      "mentorAnalogy": "Think of displacement measurement like a pilot preparing for a flight. They don’t just check the plane's fuel; they assess weather conditions and air traffic to ensure a safe and successful journey."
+    },
+    "taskData": null,
+    "visualKey": "displacement-debrief"
   }
 ];

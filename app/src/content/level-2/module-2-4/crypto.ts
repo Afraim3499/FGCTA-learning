@@ -2,212 +2,120 @@ import { LessonCard } from "../../../types/curriculum";
 
 export const cryptoCards: LessonCard[] = [
   {
-    "type": "mission_brief",
-    "title": "Impact of Perpetual Funding Rates on Ranges",
+    "type": "concept",
+    "title": "Awareness of Structure Traps in Crypto",
     "label": "Crypto Track",
-    "body": "### Crypto Dynamics: Perpetual Funding Rates and Price Ranges\nPerpetual funding rates create a feedback loop that influences price movements within established ranges. This card examines **how these rates affect trader behavior and market equilibrium**.\n\n* **Funding Rate Influence**: A positive funding rate indicates long positions are paying shorts, often leading to upward pressure on prices as longs seek to avoid costs. Conversely, a negative rate can trigger selling pressure as shorts receive payments, pushing prices down.\n* **Range Compression**: When funding rates are consistently high, price action may compress within a narrow range as traders adjust positions to manage costs, often leading to breakout scenarios when rates stabilize.\n* **Market Sentiment Reflection**: Analyze the funding rate in conjunction with price action; a rising funding rate alongside a stagnant price may indicate over-leveraged positions, suggesting a potential reversal or breakout.\n",
+    "body": "### Market Structure: Structure Traps in Crypto\nRecognizing structure traps is essential for accurate market analysis in the volatile crypto environment. This card outlines **how to identify and avoid common pitfalls** that can mislead traders.\n\n* **False Breakouts**: Watch for price movements that breach established swing highs or lows without corresponding volume support. A breakout above $30,000 in BTC without a volume increase may indicate a trap.\n* **Liquidity Gaps**: Identify areas where price moves rapidly with little trading activity, often leading to sudden reversals. For example, ETH dropping from $2,000 to $1,800 with minimal resistance can signal a potential trap.\n* **Market Sentiment Divergence**: Be cautious of bullish sentiment when price fails to make higher highs. If XRP is trending upwards but consistently retraces below $0.50, this divergence may indicate a structural trap.",
     "context": {
       "keyTerms": [
         {
-          "term": "Perpetual Funding Rate",
-          "definition": "The cost associated with holding a perpetual contract, reflecting the balance between long and short positions."
+          "term": "Structure Trap",
+          "definition": "A misleading market condition where price movements suggest a trend that fails to sustain."
         }
       ],
-      "whyThisMatters": "Understanding funding rates is essential for anticipating price movements and managing risk in crypto trading ranges.",
-      "realLifeExample": "On a day when Bitcoin's funding rate spiked to 0.1% at 10:00 AM EST, the price oscillated between $30,000 and $31,000, reflecting the upward pressure from long positions.",
-      "commonMistake": "Traders often overlook the impact of funding rates, assuming price movements are solely driven by technical factors.",
-      "quickNote": "Funding rates can dictate price behavior within ranges, influencing trader sentiment and market dynamics.",
-      "mentorText": "Consider funding rates as the cost of doing business in crypto. If you're holding a long position and funding is high, you're essentially paying to stay in the game, which can lead to price adjustments.",
-      "mentorAnalogy": "Think of funding rates like the interest on a loan; if the cost is too high, it can force you to sell or adjust your strategy, just like a borrower would reconsider their payments."
+      "whyThisMatters": "Understanding structure traps prevents traders from making decisions based on false market signals, enhancing overall analysis accuracy.",
+      "realLifeExample": "During the BTC rally to $35,000, a sudden drop to $32,000 with low volume led many traders to enter long positions, only to see prices reverse back to $30,000.",
+      "commonMistake": "Traders often enter positions based on initial breakouts without confirming volume or structural integrity.",
+      "quickNote": "Identify structure traps by analyzing price movements against volume and sentiment.",
+      "mentorText": "When you see a breakout, ask yourself: Is there volume backing this move? If not, it’s likely a trap waiting to ensnare you.",
+      "mentorAnalogy": "Think of structure traps like a mirage in the desert; they appear enticing but often lead to disappointment if you don't verify their existence."
     },
     "taskData": null,
-    "visualKey": "crypto-perp-funding-premium"
+    "visualKey": "crypto-venue-confirmed-structure"
   },
   {
     "type": "concept",
-    "title": "Mapping Premium and Discount Arrays",
+    "title": "Volume Analysis for Structure Confirmation",
     "label": "Crypto Track",
-    "body": "### Price Structure: Premium and Discount Arrays in Crypto\nMapping premium and discount arrays is critical for understanding price behavior in crypto markets. This card focuses on **how these arrays interact with funding rates and market psychology**.\n\n* **Identifying Premiums**: A premium occurs when the perpetual contract price exceeds the spot price, indicating bullish sentiment. Traders should monitor the magnitude of this premium to gauge potential price corrections back to equilibrium.\n* **Discount Analysis**: Conversely, a discount arises when the perpetual price is below the spot price, suggesting bearish sentiment. This can signal buying opportunities if the price approaches key support levels.\n* **Funding Rate Correlation**: Track the funding rate alongside premium and discount arrays; a rising premium with increasing funding rates may indicate overextension, while a discount with low funding rates could suggest accumulation phases.\n",
+    "body": "### Market Structure: Volume Analysis for Confirmation\nVolume analysis is critical for validating swing highs and lows in the crypto market. This card emphasizes **how to leverage volume data to confirm structural integrity**.\n\n* **Volume Spikes**: A significant increase in volume during a swing high or low confirms the strength of that level. For instance, if LTC surges to $150 with a volume spike of 200% compared to its 14-day average, this reinforces the swing high.\n* **Volume Divergence**: Analyze situations where price makes new highs or lows but volume decreases. If ADA reaches $1.50 but volume drops, this suggests weakening momentum and potential reversal.\n* **Accumulation and Distribution Patterns**: Identify accumulation phases where volume increases as price consolidates before a breakout. For example, if DOT trades sideways around $30 with increasing volume, it indicates accumulation before a potential upward move.",
     "context": {
       "keyTerms": [
         {
-          "term": "Premium Array",
-          "definition": "The range of prices where perpetual contracts trade above the underlying asset's spot price."
-        },
-        {
-          "term": "Discount Array",
-          "definition": "The range of prices where perpetual contracts trade below the underlying asset's spot price."
+          "term": "Volume Confirmation",
+          "definition": "The process of validating price movements through corresponding trading volume."
         }
       ],
-      "whyThisMatters": "Mapping these arrays allows traders to identify potential entry and exit points based on market sentiment and funding dynamics.",
-      "realLifeExample": "Ethereum was trading at a premium of $200 over its spot price during a funding rate spike of 0.15% at 3:00 PM EST, indicating potential over-leverage among long positions.",
-      "commonMistake": "Failing to recognize the significance of premium and discount arrays can lead to misjudging market sentiment and entry points.",
-      "quickNote": "Understanding premium and discount arrays is essential for identifying market sentiment and potential reversals.",
-      "mentorText": "When you see a premium, think of it as a warning sign; it tells you that traders are willing to pay more for the contract, but it can also mean a correction is on the horizon.",
-      "mentorAnalogy": "Mapping premium and discount arrays is like a pilot checking fuel levels; knowing how much you have above or below the required amount can dictate your next move."
+      "whyThisMatters": "Volume analysis provides deeper insights into market dynamics, allowing traders to make informed decisions based on structural strength.",
+      "realLifeExample": "During a recent ETH rally to $2,200, a volume increase of 150% confirmed the swing high, leading to a strategic entry point for traders.",
+      "commonMistake": "Ignoring volume trends when analyzing price movements can lead to misinterpretation of market strength.",
+      "quickNote": "Always assess volume alongside price action to confirm swing highs and lows.",
+      "mentorText": "Volume is your ally; it tells you whether the market supports the price action or if it’s just noise. Pay attention to it.",
+      "mentorAnalogy": "Consider volume like the engine of a car; without it, the vehicle may move, but it lacks the power to sustain speed or direction."
     },
     "taskData": null,
-    "visualKey": "crypto-perp-funding-premium"
-  },
-  {
-    "type": "concept",
-    "title": "Common Traps with Funding Rate Misinterpretation",
-    "label": "Crypto Track",
-    "body": "### Risk Management: Avoiding Funding Rate Misinterpretation\nMisinterpreting funding rates can lead to significant trading errors. This card highlights **common traps and strategies to mitigate risks associated with funding rate analysis**.\n\n* **Overreacting to Short-Term Fluctuations**: Traders often react impulsively to daily funding rate changes without considering the broader context, leading to premature entries or exits. Always analyze funding rates in conjunction with longer-term price trends.\n* **Ignoring Market Sentiment**: Failing to assess the sentiment behind funding rates can result in misjudging market conditions. For instance, a high funding rate may not always indicate bullishness if accompanied by bearish price action.\n* **Neglecting Correlation with Volatility**: Funding rates can spike during volatile market conditions, misleading traders into thinking that price will continue in the same direction. Use volatility indicators to confirm funding rate signals before acting.\n",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Market Sentiment",
-          "definition": "The overall attitude of traders towards a particular market or asset, often reflected in price movements."
-        }
-      ],
-      "whyThisMatters": "Recognizing these traps is vital for maintaining a disciplined trading strategy and avoiding unnecessary losses.",
-      "realLifeExample": "During a volatile session, Bitcoin's funding rate surged to 0.2% while the price dropped from $32,000 to $30,000, misleading traders into thinking a recovery was imminent.",
-      "commonMistake": "Traders often misinterpret high funding rates as a clear buy signal without considering the underlying price action.",
-      "quickNote": "Misinterpreting funding rates can lead to costly trading decisions; always analyze in context.",
-      "mentorText": "Don't let short-term funding rate spikes dictate your actions. Always step back and assess the bigger picture before making a trade.",
-      "mentorAnalogy": "Navigating funding rates is like a surgeon assessing a patient's vitals; a single reading doesn’t tell the whole story without the context of the overall health."
-    },
-    "taskData": null,
-    "visualKey": "crypto-perp-funding-premium"
-  },
-  {
-    "type": "concept",
-    "title": "Synthesis of Funding Rate Strategies",
-    "label": "Crypto Track",
-    "body": "### Strategic Integration: Funding Rate Strategies for Range Trading\nIntegrating funding rate strategies into a cohesive trading plan enhances decision-making in crypto markets. This card focuses on **how to synthesize these strategies for effective range trading**.\n\n* **Establishing Entry and Exit Points**: Use funding rates to define optimal entry and exit points within established ranges. For example, enter long positions when funding rates are low and the price approaches the lower range boundary, indicating potential support.\n* **Dynamic Position Sizing**: Adjust position sizes based on funding rate trends; increase exposure when rates are favorable and decrease when they become unfavorable, ensuring risk management aligns with market conditions.\n* **Combining Technical Indicators**: Pair funding rate analysis with technical indicators such as RSI or moving averages to confirm trade setups, enhancing the robustness of your trading strategy.\n",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Position Sizing",
-          "definition": "The process of determining the amount of capital to allocate to a specific trade based on risk management principles."
-        }
-      ],
-      "whyThisMatters": "A cohesive strategy that incorporates funding rates can significantly improve trading performance and risk management.",
-      "realLifeExample": "In a recent trading session, a trader entered a long position on Litecoin when the funding rate dropped to 0.05% and the price hit $150, leading to a successful exit at $170 as the price approached the upper range limit.",
-      "commonMistake": "Traders often fail to adjust their strategies based on changing funding rates, leading to misaligned risk and reward profiles.",
-      "quickNote": "Integrating funding rates into your trading plan enhances decision-making and risk management.",
-      "mentorText": "Think of your trading strategy as a living organism; it needs to adapt to changes in funding rates to thrive in the crypto environment.",
-      "mentorAnalogy": "Synthesis of funding rate strategies is like an architect designing a building; every element must work together to create a stable and functional structure."
-    },
-    "taskData": null,
-    "visualKey": "crypto-perp-funding-premium"
-  },
-  {
-    "type": "concept",
-    "title": "Practical Exercises on Funding Rate Applications",
-    "label": "Crypto Track",
-    "body": "### Funding Rate Application: Practical Exercises\nFunding rates play a critical role in crypto trading, influencing trader behavior and market dynamics. This card provides practical exercises to reinforce the application of funding rates in various trading scenarios.\n\n* **Scenario Analysis**: Evaluate a scenario where the funding rate for BTC perpetual contracts is set at 0.01% per 8 hours. Calculate the cost of holding a long position of 1 BTC over a 24-hour period, factoring in the funding rate.\n* **Impact Assessment**: Analyze how a sudden increase in funding rates to 0.05% affects your existing long position. Consider the implications on your profit margin and overall strategy.\n* **Decision-Making Exercise**: Given a funding rate of -0.02%, determine whether to close a short position in ETH or maintain it. Assess the potential risks and rewards based on current market conditions.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Funding Rate",
-          "definition": "The periodic fee exchanged between long and short positions in perpetual contracts."
-        }
-      ],
-      "whyThisMatters": "Understanding funding rates is essential for optimizing entry and exit points in crypto trading, directly impacting profitability.",
-      "realLifeExample": "On March 15, 2023, the funding rate for BTC/USDT perpetual contracts was 0.02%. A trader holding 2 BTC for 24 hours incurred a cost of $2.40, impacting their profit calculations.",
-      "commonMistake": "Traders often overlook the cumulative effect of funding rates over multiple periods, leading to unexpected losses.",
-      "quickNote": "Funding rates directly affect the cost of holding positions in crypto trading.",
-      "mentorText": "When you enter a position, always calculate the funding cost. It can turn a winning trade into a losing one if not accounted for.",
-      "mentorAnalogy": "Think of funding rates like interest on a loan; if you don't factor in the costs, you may end up paying more than you earn."
-    },
-    "taskData": null,
-    "visualKey": "crypto-perp-funding-premium"
-  },
-  {
-    "type": "concept",
-    "title": "Advanced Techniques for Managing Funding Rates",
-    "label": "Crypto Track",
-    "body": "### Funding Rate Management: Advanced Techniques\nManaging funding rates effectively can significantly enhance trading strategies in the crypto market. This card explores advanced techniques to mitigate the impact of funding rates on your positions.\n\n* **Hedging Strategies**: Utilize options or futures contracts to hedge against adverse funding rate changes. For instance, if holding a long position in BTC, consider shorting an equivalent amount in futures to offset potential funding costs.\n* **Dynamic Position Sizing**: Adjust your position size based on the current funding rate. If the rate is high, reduce your exposure to limit costs; conversely, increase your position when rates are favorable.\n* **Timing Entry and Exit**: Monitor funding rate schedules and enter trades just before favorable funding periods. For example, if the funding rate is expected to decrease, position yourself accordingly to benefit from lower costs.",
-    "context": {
-      "keyTerms": [
-        {
-          "term": "Hedging",
-          "definition": "A risk management strategy used to offset potential losses in an investment."
-        }
-      ],
-      "whyThisMatters": "Advanced management of funding rates can lead to improved risk-adjusted returns and overall trading performance.",
-      "realLifeExample": "On April 10, 2023, a trader hedged a long BTC position by shorting 1 BTC in futures when the funding rate spiked to 0.04%, effectively neutralizing the cost impact.",
-      "commonMistake": "Failing to adjust position sizes in response to fluctuating funding rates can lead to excessive costs and reduced profitability.",
-      "quickNote": "Effective funding rate management is crucial for maintaining profitability in volatile markets.",
-      "mentorText": "Always have a plan for managing funding rates. They can eat into your profits if you’re not proactive.",
-      "mentorAnalogy": "Consider funding rates like fuel costs for a vehicle; if you don’t plan for them, your journey can become more expensive than anticipated."
-    },
-    "taskData": null,
-    "visualKey": "crypto-perp-funding-premium"
+    "visualKey": "crypto-venue-confirmed-structure"
   },
   {
     "type": "practice",
-    "title": "Summary of Funding Rate Concepts",
+    "title": "Practical Application of Crypto Swing Analysis",
     "label": "Crypto Track",
-    "body": "### Funding Rate Concepts: Summary\nThis card summarizes key concepts related to funding rates and their significance in crypto trading, particularly in range modeling. Understanding these concepts is vital for effective trading strategies.\n\n* **Cost Implications**: Recognize how funding rates can impact the overall cost of holding positions. A positive funding rate increases costs for long positions, while a negative rate benefits shorts.\n* **Market Sentiment Indicator**: Use funding rates as a gauge of market sentiment. High funding rates often indicate bullish sentiment, while negative rates suggest bearish outlooks.\n* **Integration into Trading Plans**: Incorporate funding rate analysis into your trading plans. For instance, if the funding rate is consistently high, consider adjusting your strategy to account for increased holding costs.",
+    "body": "### Market Structure: Practical Application of Swing Analysis\nEngaging in practical exercises reinforces the application of swing analysis techniques in crypto trading. This card provides **real-world scenarios to apply learned concepts**.\n\n* **Scenario Analysis**: Given a chart where BTC swings from $28,000 to $32,000, identify the swing high and low, and analyze the corresponding volume. Determine if the price action is supported by volume.\n* **Trade Simulation**: Create a hypothetical trade plan based on a swing low at $25,000 for ETH, including entry, stop-loss, and take-profit levels. Justify your levels with volume data.\n* **Review Historical Data**: Examine past price movements of XRP around $0.60, identifying swing highs and lows, and assess volume patterns to validate your analysis.",
     "context": {
       "keyTerms": [
         {
-          "term": "Market Sentiment",
-          "definition": "The overall attitude of investors toward a particular security or financial market."
+          "term": "Swing Analysis",
+          "definition": "The process of identifying significant price movements to establish market structure."
         }
       ],
-      "whyThisMatters": "A thorough understanding of funding rates enhances decision-making and risk management in crypto trading.",
-      "realLifeExample": "On May 5, 2023, the funding rate for ETH/USDT was +0.03%, prompting traders to reassess their long positions due to increased holding costs.",
-      "commonMistake": "Traders often ignore the implications of funding rates on their overall strategy, leading to unexpected losses.",
-      "quickNote": "Funding rates are a critical component of effective range trading strategies.",
-      "mentorText": "Always factor funding rates into your trading decisions. They can shift the profitability of your trades significantly.",
-      "mentorAnalogy": "Think of funding rates like the weather forecast; if you ignore it, you may find yourself unprepared for unexpected conditions."
+      "whyThisMatters": "Practical application solidifies theoretical knowledge, enabling traders to execute strategies effectively in real market conditions.",
+      "realLifeExample": "In a recent exercise, traders analyzed BTC's swing from $30,000 to $35,000, confirming the swing high with a 180% volume increase.",
+      "commonMistake": "Failing to apply learned concepts in real scenarios can lead to theoretical knowledge without practical execution.",
+      "quickNote": "Practice swing analysis with real data to enhance your trading strategy.",
+      "mentorText": "Theoretical knowledge is useless without application. Get your hands dirty with real charts and trade setups.",
+      "mentorAnalogy": "Like a pilot practicing in a simulator, you must apply your knowledge in a controlled environment before flying solo in the market."
     },
     "taskData": {
       "type": "choice_block",
-      "question": "A trader holds a long position in BTC when the funding rate is +0.02%. What should the trader consider doing next?",
+      "question": "Given the following price movement of BTC from $29,000 to $31,000, what is the swing high and how would you confirm it?",
       "options": [
         {
           "id": "0",
-          "text": "Maintain the position without adjustments.",
-          "isCorrect": false,
-          "feedback": "Ignoring the funding rate can lead to increased costs."
+          "text": "Swing high is $31,000, confirmed by a volume increase of 150%.",
+          "isCorrect": true,
+          "feedback": "Correct. The swing high is validated by the significant volume increase."
         },
         {
           "id": "1",
-          "text": "Close the position immediately.",
+          "text": "Swing high is $31,000, confirmed by a volume decrease.",
           "isCorrect": false,
-          "feedback": "Closing the position may not be necessary unless costs become prohibitive."
+          "feedback": "Incorrect. A volume decrease does not confirm the swing high."
         },
         {
           "id": "2",
-          "text": "Reassess the position based on the funding rate and market conditions.",
-          "isCorrect": true,
-          "feedback": "Reassessing allows for informed decisions that can mitigate costs."
+          "text": "Swing high is $29,000, confirmed by a volume spike.",
+          "isCorrect": false,
+          "feedback": "Incorrect. The swing high is at $31,000, not $29,000."
         },
         {
           "id": "3",
-          "text": "Increase the position size to capitalize on the funding rate.",
+          "text": "Swing high is $31,000, but volume is irrelevant.",
           "isCorrect": false,
-          "feedback": "Increasing position size without considering costs can lead to losses."
+          "feedback": "Incorrect. Volume is crucial for confirming the swing high."
         }
       ]
     },
-    "visualKey": "crypto-perp-funding-premium"
+    "visualKey": "crypto-venue-confirmed-structure"
   },
   {
     "type": "summary",
-    "title": "Comprehensive Summary of Crypto Range Trading",
+    "title": "Summary of Crypto Market Insights",
     "label": "Crypto Track",
-    "body": "### Crypto Range Trading: Comprehensive Summary\nThis card provides a comprehensive summary of key concepts covered in crypto range trading, emphasizing the importance of funding rates in this context.\n\n* **Range Identification**: Recognize the significance of identifying trading ranges to optimize entry and exit points. Funding rates can influence the behavior of price within these ranges.\n* **Funding Rate Analysis**: Understand how funding rates affect trader sentiment and market dynamics. Positive rates may indicate bullish pressure, while negative rates can signal bearish sentiment.\n* **Strategic Adjustments**: Incorporate funding rate assessments into your trading strategy. Adjust position sizes and entry points based on current funding rates to enhance profitability.",
+    "body": "### Market Structure: Summary of Insights\nThis card summarizes key insights from the Crypto track, emphasizing the importance of swing analysis in trading. The focus is on **integrating swing analysis into your trading strategy**.\n\n* **Key Takeaways**: Recognizing swing highs and lows is fundamental for establishing market structure. Use volume as a confirmation tool to validate these swings.\n* **Avoiding Traps**: Be vigilant of structure traps that can mislead your analysis. Always cross-check price movements with volume and market sentiment.\n* **Practical Application**: Engage in exercises to solidify your understanding of swing analysis, ensuring you can apply these concepts in real trading scenarios.",
     "context": {
       "keyTerms": [
         {
-          "term": "Range Trading",
-          "definition": "A trading strategy that involves buying and selling within a defined price range."
+          "term": "Market Structure",
+          "definition": "The arrangement of price movements that define trends and reversals."
         }
       ],
-      "whyThisMatters": "A comprehensive understanding of range trading and funding rates is essential for maximizing trading efficiency and profitability.",
-      "realLifeExample": "On June 1, 2023, traders identified a range for LTC/USDT between $150 and $160. With a funding rate of -0.01%, many opted to hold long positions, anticipating a bounce back to the upper range.",
-      "commonMistake": "Traders often fail to adjust their strategies based on funding rate changes, leading to missed opportunities or increased costs.",
-      "quickNote": "Effective range trading requires a deep understanding of funding rates and their implications.",
-      "mentorText": "Always keep funding rates in mind when trading ranges. They can dictate your success or failure.",
-      "mentorAnalogy": "Think of range trading like navigating a river; the funding rates are the currents that can either help or hinder your progress."
+      "whyThisMatters": "Summarizing insights helps consolidate knowledge, ensuring traders can effectively apply swing analysis in their strategies.",
+      "realLifeExample": "Reviewing the BTC price action from $28,000 to $35,000 illustrates the importance of confirming swings with volume.",
+      "commonMistake": "Failing to integrate insights from swing analysis into trading strategies can lead to missed opportunities.",
+      "quickNote": "Integrate swing analysis into your trading strategy for enhanced decision-making.",
+      "mentorText": "Reflect on what you’ve learned. Swing analysis isn’t just theory; it’s your roadmap to navigating the crypto market.",
+      "mentorAnalogy": "Like an architect reviewing blueprints, you must synthesize your insights into a cohesive trading plan."
     },
     "taskData": null,
-    "visualKey": "crypto-perp-funding-premium"
+    "visualKey": "crypto-venue-confirmed-structure"
   }
 ];

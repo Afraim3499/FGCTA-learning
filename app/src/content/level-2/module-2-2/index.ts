@@ -7,9 +7,9 @@ import { AcademyModule } from "../../../types/curriculum";
 export const module22: AcademyModule = {
   moduleNumber: "2.2",
   level: 2,
-  title: "Fractal Nature of Price",
-  objective: "Identify how price structure repeats fractal patterns across scales.",
-  skillLevel: "beginner",
+  title: "The Range Model",
+  objective: "Model price movement inside dealing ranges using equilibrium and discount/premium arrays.",
+  skillLevel: "intermediate",
   orderIndex: 2,
   tracks: {
     core: coreCards,

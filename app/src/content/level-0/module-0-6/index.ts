@@ -1,20 +1,20 @@
 import { coreCards } from "./core";
 import { forexCards } from "./forex";
-import { cryptoCards } from "./crypto";
 import { goldCards } from "./gold";
+import { cryptoCards } from "./crypto";
 import { AcademyModule } from "../../../types/curriculum";
 
 export const module06: AcademyModule = {
   moduleNumber: "0.6",
   level: 0,
-  title: "Evidence Audit: Turning Chart Records Into a Reading",
-  objective: "Combine separate candle, timeframe, and structure clues into a unified market reading quality classification.",
+  title: "Market Structure: The Skeleton of Price Movement",
+  objective: "Understand how candles form swings and swings form structure to identify market direction.",
   skillLevel: "beginner",
   orderIndex: 6,
   tracks: {
     core: coreCards,
     forex: forexCards,
     gold: goldCards,
-    crypto: cryptoCards
-  }
+    crypto: cryptoCards,
+  },
 };

@@ -158,7 +158,7 @@ export const cryptoCards: LessonCard[] = [
     "visualKey": "correlation-portfolio-risk"
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Practical Exercises on Crypto Correlation",
     "label": "Crypto Track",
     "body": "### Analyzing Correlation: Practical Application\nEngaging in practical exercises helps solidify understanding of asset correlation in crypto. This card provides **exercises to analyze BTC and altcoin correlations**.\n\n* **Correlation Matrix Creation**: Construct a correlation matrix for selected altcoins against BTC over a specified period (e.g., 30 days). Identify which altcoins have the highest and lowest correlations with BTC.\n* **Scenario Analysis**: Create hypothetical scenarios where BTC experiences a 10% drop. Analyze how different altcoins (e.g., ETH, ADA, and DOT) react based on their historical correlation data. Determine which altcoins would pose the highest risk.\n* **Risk Management Simulation**: Simulate a portfolio adjustment based on correlation findings. If your analysis shows that ADA has a correlation of 0.75 with BTC, consider adjusting its weight in your portfolio to reduce overall risk exposure.\n",

@@ -784,3 +784,34 @@ export const STRATEGIES_DATA: StrategyDefinition[] = [
     metrics: { winRate: "55%", avgR: "2.5", complexity: "MED" }, linkedModuleNumber: "2.9"
   }
 ];
+
+export function getStrategyLevel(family: string, assetClass: string, seqNumber: number): number {
+  const fam = (family || "").toLowerCase();
+  
+  if (fam.includes('algorithmic') || fam.includes('ml') || fam.includes('quantitative') || fam.includes('execution') || fam.includes('market making') || fam.includes('statistical')) {
+    return 7;
+  }
+  
+  if (fam.includes('option') || fam.includes('gamma') || fam.includes('volatility strategies') || fam.includes('spread')) {
+    return 8;
+  }
+  
+  if (fam.includes('hedging') || fam.includes('central bank') || fam.includes('geopolitical') || fam.includes('macro economics') || fam.includes('recession')) {
+    return 9;
+  }
+  
+  if (fam.includes('risk') || fam.includes('on-chain') || fam.includes('cot-based')) {
+    return 6;
+  }
+  
+  if (fam.includes('trend following') || fam.includes('breakout') || fam.includes('mean reversion') || fam.includes('price action') || fam.includes('support and resistance') || fam.includes('indicator‑based') || fam.includes('pattern‑based')) {
+    return 2;
+  }
+  
+  if (assetClass === 'GOLD') return 3;
+  if (assetClass === 'FOREX') return 4;
+  if (assetClass === 'CRYPTO') return 5;
+  
+  return 2;
+}
+

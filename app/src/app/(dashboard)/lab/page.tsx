@@ -2,6 +2,7 @@ import { getUser, getProfile } from "@/lib/auth-actions";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { StrategyLabClient } from "@/components/academy/strategy-lab-client";
+import { Suspense } from "react";
 
 /**
  * Strategy Lab (V1) — Server Component
@@ -15,8 +16,15 @@ export default async function StrategyLabPage() {
 
   const profile = await prisma.user.findUnique({
     where: { id: user.id },
-    select: { marketTrack: true },
+    select: { 
+      marketTrack: true,
+      progress: {
+        select: { currentLevel: true }
+      }
+    },
   });
+
+  const currentLevel = profile?.progress?.currentLevel ?? 0;
 
   // Get completed module numbers
   const completions = await prisma.moduleCompletion.findMany({
@@ -37,6 +45,11 @@ export default async function StrategyLabPage() {
     orderBy: { sequenceNumber: "asc" }
   });
 
+  // Fetch all modules for linking
+  const modules = await prisma.courseModule.findMany({
+    select: { id: true, moduleNumber: true, level: true, title: true }
+  });
+
   return (
     <div className="space-y-8 pb-10 h-[calc(100vh-140px)]">
       {/* Header */}
@@ -53,12 +66,17 @@ export default async function StrategyLabPage() {
         </div>
       </section>
 
-      <StrategyLabClient 
-        userTrack={profile?.marketTrack || "forex"} 
-        completedModuleNumbers={completedModuleNumbers}
-        initialSavedAnalyses={savedAnalyses}
-        dbStrategies={dbStrategies}
-      />
+      <Suspense fallback={<div className="p-8 text-center text-slate-400 font-medium">Loading Strategy Lab...</div>}>
+        <StrategyLabClient 
+          userTrack={profile?.marketTrack || "forex"} 
+          currentLevel={currentLevel}
+          completedModuleNumbers={completedModuleNumbers}
+          initialSavedAnalyses={savedAnalyses}
+          dbStrategies={dbStrategies}
+          modules={modules}
+        />
+      </Suspense>
     </div>
   );
 }
+

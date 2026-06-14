@@ -10,7 +10,10 @@ import {
   CheckCircle2,
   StickyNote,
   ChevronDown,
+  FlaskConical,
+  ExternalLink,
 } from "lucide-react";
+import Link from "next/link";
 
 interface ContextData {
   keyTerms?: Array<string | { term: string; definition: string }>;
@@ -25,6 +28,7 @@ interface LessonContextRailProps {
   context?: ContextData;
   objective?: string;
   cardType?: string;
+  logicIds?: string[];
 }
 
 interface AccordionItemProps {
@@ -92,6 +96,7 @@ export function LessonContextRail({
   context,
   objective,
   cardType,
+  logicIds,
 }: LessonContextRailProps) {
   const [activeTermIdx, setActiveTermIdx] = useState<number | null>(null);
   
@@ -292,6 +297,33 @@ export function LessonContextRail({
           <p className="text-sm font-medium text-slate-600 leading-relaxed">
             {context.quickNote}
           </p>
+        </AccordionItem>
+      )}
+
+      {/* Related Playbook Strategies */}
+      {logicIds && logicIds.length > 0 && (
+        <AccordionItem
+          icon={<FlaskConical size={16} />}
+          title="Related Playbook Strategies"
+          color="text-indigo-600"
+          bgColor="bg-indigo-50/50"
+          borderColor="border-indigo-200"
+          isOpen={openSections.relatedStrategies !== false}
+          onToggle={() => toggleSection("relatedStrategies")}
+        >
+          <div className="space-y-2 mt-2">
+            {logicIds.map((id) => (
+              <div key={id} className="flex items-center justify-between p-2.5 bg-white border border-slate-200 rounded-xl shadow-sm gap-2">
+                <span className="text-[10px] font-bold text-slate-700 uppercase tracking-tight">{id}</span>
+                <Link 
+                  href={`/lab?strategy=${id}`} 
+                  className="text-[10px] font-extrabold text-[var(--ln-teal-500)] hover:text-[var(--ln-teal-600)] flex items-center gap-1 transition-colors whitespace-nowrap"
+                >
+                  STUDY IN LAB <ExternalLink size={10} />
+                </Link>
+              </div>
+            ))}
+          </div>
         </AccordionItem>
       )}
     </aside>

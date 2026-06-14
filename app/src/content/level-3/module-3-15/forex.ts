@@ -86,7 +86,7 @@ export const forexCards: LessonCard[] = [
     "visualKey": "forex-multi-pair-orderflow"
   },
   {
-    "type": "practice",
+    "type": "concept",
     "title": "Practical Multi-Pair Exercises",
     "label": "Forex Track",
     "body": "### Multi-Pair Order Flow Exercises: Simulating Real Scenarios\nEngaging in practical exercises enhances understanding of multi-pair order flow dynamics. This card provides **realistic scenarios for practice**.\n\n* **Scenario 1: NFP Release**: Analyze the impact of the U.S. Non-Farm Payrolls release on EURUSD and USDJPY. Identify entry points based on volatility spikes and correlation shifts.\n* **Scenario 2: ECB Rate Decision**: Simulate trading EURUSD and GBPUSD during an ECB interest rate decision. Assess how the announcement affects both pairs and plan your trades accordingly.\n* **Scenario 3: Geopolitical Events**: Review how geopolitical tensions (e.g., U.S.-China trade talks) affect AUDUSD and NZDUSD. Determine how to position trades based on expected order flow shifts.",

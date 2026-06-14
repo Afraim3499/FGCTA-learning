@@ -7,9 +7,9 @@ import { AcademyModule } from "../../../types/curriculum";
 export const module27: AcademyModule = {
   moduleNumber: "2.7",
   level: 2,
-  title: "The Trend Fallacy",
-  objective: "Why price moves between liquidity pools rather than continuous trendlines.",
-  skillLevel: "beginner",
+  title: "Internal vs External Structure",
+  objective: "Filter minor internal pullbacks from major external dealing ranges.",
+  skillLevel: "intermediate",
   orderIndex: 7,
   tracks: {
     core: coreCards,
