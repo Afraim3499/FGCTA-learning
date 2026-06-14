@@ -33,6 +33,7 @@ model User {
   progress          UserProgress?
   xpLedger          XPLedgerEntry[]
   scenarioAttempts  ScenarioAttempt[]
+  skillProfile      StudentSkillProfile?
 
   @@map("users")
 }
@@ -343,15 +344,16 @@ model SavedAnalysis {
 }
 
 model Strategy {
-  id             String    @id @default(uuid())
-  assetClass     AssetType @map("asset_class")
-  sequenceNumber Int       @map("sequence_number")
-  name           String
-  parentFamily   String    @map("parent_family")
-  coreLogic      String    @map("core_logic")
-  trapMechanics  String?   @map("trap_mechanics")
-  createdAt      DateTime  @default(now()) @map("created_at")
-  updatedAt      DateTime  @updatedAt @map("updated_at")
+  id               String    @id @default(uuid())
+  assetClass       AssetType @map("asset_class")
+  sequenceNumber   Int       @map("sequence_number")
+  name             String
+  parentFamily     String    @map("parent_family")
+  coreLogic        String    @map("core_logic")
+  trapMechanics    String?   @map("trap_mechanics")
+  tradeWalkthrough String?   @map("trade_walkthrough")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
 
   @@unique([assetClass, name], name: "assetClass_name")
   @@map("strategies")
@@ -557,4 +559,66 @@ enum CandleSourceType {
   curated
   imported_csv
   live_snapshot
+}
+
+model StudentSkillProfile {
+  id                    String   @id @default(uuid())
+  userId                String   @unique @map("user_id")
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Basic Foundations
+  chartReading          Float    @default(0.0) @map("chart_reading")
+  marketStructure       Float    @default(0.0) @map("market_structure")
+  
+  // Quantitative Skills
+  executionPrecision    Float    @default(0.0) @map("execution_precision")
+  riskManagement        Float    @default(0.0) @map("risk_management")
+  
+  // Regime Mastery
+  swingMarketMastery    Float    @default(0.0) @map("swing_market_mastery")
+  flatMarketMastery     Float    @default(0.0) @map("flat_market_mastery")
+  
+  // Asset Class Specialization
+  forexUnderstanding    Float    @default(0.0) @map("forex_understanding")
+  goldSpecifics         Float    @default(0.0) @map("gold_specifics")
+  cryptoDerivatives     Float    @default(0.0) @map("crypto_derivatives")
+  
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  @@map("student_skill_profiles")
+}
+
+enum QuestionType {
+  MCQ
+  MATCHING
+  SCENARIO_CLICK
+  TICKER_DECISION
+}
+
+model ExamQuestion {
+  id            String       @id @default(uuid())
+  level         Int          
+  type          QuestionType
+  domain        String       
+  logicId       String?      @map("logic_id") 
+  prompt        String
+  
+  // MCQ Data
+  options       String[]     @default([])
+  correctIndex  Int?         @map("correct_index")
+  
+  // Matching Data
+  matchingLeft  String[]     @default([]) @map("matching_left")
+  matchingRight String[]     @default([]) @map("matching_right")
+  
+  // Scenario Click Data
+  chartState    Json?        @map("chart_state") 
+  targetX       Float?       @map("target_x")    
+  targetY       Float?       @map("target_y")    
+  tolerance     Float?       @map("tolerance")   
+  
+  // Explanation text shown post-exam
+  explanation   String
+
+  @@map("exam_questions")
 }

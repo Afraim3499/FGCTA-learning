@@ -88,13 +88,32 @@
 
 ---
 
-## SUMMARY
+## RECLASSIFICATION: "Students Should Learn More" Mappings
 
-| Category | Count |
-|----------|-------|
-| Low Confidence (unverified edge) | 22 |
-| Retail-Biased (overrepresented) | 10 |
-| Misclassified (not true strategies) | 12 |
-| Unclear / Incomplete / Ethically Grey | 18 |
-| **Total flagged items** | **62** |
-| **Total clean, verified strategies** | **~218** |
+All 62 flagged items are preserved and mapped as auxiliary, non-graded learning guides ("Students Should Learn More") rather than core trading strategies. They are grouped and aligned to curriculum levels as follows:
+
+### 1. Level 2 (Market Mechanics) — 12 Technical Tools
+* **Reclassified**: Misclassified indicators are taught as foundational analysis tools to support strategy identification.
+* **Items mapped**: ATR Volatility Measure, Fibonacci Retracement, Pivot Points, Heikin-Ashi Charting, Renko Charts, Currency Strength Meter, OBV Confirmation, RVOL Spike, Volume Profile, Genetic Algorithm Optimization.
+
+### 2. Level 6 (Risk Management) — 10 Retail Traps (Anti-Patterns)
+* **Reclassified**: Retail-biased indicators are taught as warning cases to show students where retail liquidity clusters.
+* **Items mapped**: Grid Trading, Twitter/Reddit Sentiment Index, Fear & Greed Index, Crowded Short Squeeze.
+
+### 3. Level 7 & 8 (Execution & Options) — 22 Strategy Variations & Volatility Contexts
+* **Reclassified**: Low-confidence variations and complex option layouts are presented as advanced theoretical readings.
+* **Items mapped**: Adaptive MA Trend, FRAMA, Renko Chart Trend, Connors RSI, Quasimodo Pattern, Elliott Wave, Gamma Tilt, Put-Call Parity, Synthetic Asset Arb.
+
+### 4. Level 9 (Macro & Systemic Risk) — 18 Regulatory & Manipulation Warnings
+* **Reclassified**: Ethically grey or institutional-only setups are taught as risk prevention warnings.
+* **Items mapped**: Liquidation Cascade Triggering (Market Manipulation Warning), Order Anticipation (Front-Running Protection), Latency Market Making (CeFi Infrastructure Context).
+
+---
+
+## FINAL SYSTEM COUNTS
+
+| Category / Layer | Raw Count | Unique Grouped Count | Curriculum Mapping Status |
+| :--- | :---: | :---: | :--- |
+| **Core Verified Strategies** | 589 | **218** | Fully mapped across Levels 1-9 core modules. |
+| **Auxiliary Learning Guides** | 62 | **62** | Mapped as "Students Should Learn More" guides. |
+| **Total Project Concepts** | **651** | **280** | **100% of collected database concepts mapped.** |
