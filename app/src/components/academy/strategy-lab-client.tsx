@@ -22,6 +22,7 @@ import { StrategySummaryCard } from "@/components/academy/StrategySummaryCard";
 import { StrategyConditionCard } from "@/components/academy/StrategyConditionCard";
 import { StrategySetupLogicCard } from "@/components/academy/StrategySetupLogicCard";
 import { StrategyTrapCard } from "@/components/academy/StrategyTrapCard";
+import { StrategyTradeWalkthrough } from "@/components/academy/StrategyTradeWalkthrough";
 import { StrategyRelatedLessons } from "@/components/academy/StrategyRelatedLessons";
 
 interface StrategyLabClientProps {
@@ -176,6 +177,7 @@ export function StrategyLabClient({
           isDbStrategy: true,
           coreLogic: dbS.coreLogic,
           trapMechanics: dbS.trapMechanics,
+          tradeWalkthrough: dbS.tradeWalkthrough || "",
           practiceConfig: {
             prompt: `Practice identification for ${dbS.name}`,
             guideSteps: ["Locate critical structural context.", "Identify standard entry points.", "Note key rejection signals."],
@@ -569,9 +571,21 @@ export function StrategyLabClient({
                 // Full Learning Cards Grid
                 <>
                   <StrategySummaryCard summary={parsed.summary} />
-                  <StrategyConditionCard conditions={parsed.marketConditions} family={selectedStrategy.family} />
-                  <StrategySetupLogicCard entryCriteria={parsed.entryCriteria} />
-                  <StrategyTrapCard traps={parsed.traps} risk={parsed.risk} />
+                  <StrategyConditionCard 
+                    conditions={parsed.marketConditions} 
+                    family={selectedStrategy.family}
+                    rawStrategy={selectedStrategy}
+                  />
+                  <StrategySetupLogicCard 
+                    entryCriteria={parsed.entryCriteria}
+                    rawStrategy={selectedStrategy}
+                  />
+                  <StrategyTradeWalkthrough rawStrategy={selectedStrategy} />
+                  <StrategyTrapCard 
+                    traps={parsed.traps} 
+                    risk={parsed.risk}
+                    rawStrategy={selectedStrategy}
+                  />
                   <StrategyRelatedLessons 
                     linkedModule={linkedModule} 
                     level={selectedStrategy.level} 
