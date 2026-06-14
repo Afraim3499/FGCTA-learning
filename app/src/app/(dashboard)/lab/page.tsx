@@ -60,21 +60,7 @@ export default async function StrategyLabPage() {
   });
 
   return (
-    <div className="flex flex-col gap-6 h-[calc(100vh-110px)] pb-6 overflow-hidden">
-      {/* Header */}
-      <section className="flex items-center justify-between shrink-0">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-extrabold text-[var(--ln-navy-900)] tracking-tight">
-            Technical Library
-          </h1>
-          <div className="flex items-center gap-3">
-            <p className="text-[var(--ln-text-secondary)] font-medium text-sm">
-              Review key academy concepts and practice them with structure.
-            </p>
-          </div>
-        </div>
-      </section>
-
+    <div className="flex flex-col h-[calc(100vh-100px)] overflow-hidden">
       <Suspense fallback={<div className="p-8 text-center text-slate-400 font-medium">Loading Strategy Lab...</div>}>
         <StrategyLabClient 
           userTrack={profile?.marketTrack || "forex"} 

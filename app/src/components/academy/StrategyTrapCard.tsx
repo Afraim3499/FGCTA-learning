@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AlertTriangle, ShieldCheck } from "lucide-react";
+import { AlertTriangle, Lightbulb } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -11,41 +11,69 @@ interface StrategyTrapCardProps {
 }
 
 export function StrategyTrapCard({ traps, risk }: StrategyTrapCardProps) {
+  // Parse traps list into bullet items if it has list structure, otherwise display as paragraphs
+  const parsedTraps = traps
+    .split(/\n+/)
+    .map(line => line.trim())
+    .filter(line => line.startsWith("-") || line.startsWith("*") || line.startsWith("•") || /^\d+\./.test(line))
+    .map(line => line.replace(/^[-*•\d.]+\s*/, "").trim());
+
+  const defaultTraps = [
+    "Entering before the retest occurs.",
+    "Retest lacks clear rejection or confirmation.",
+    "Ignoring higher timeframe structure.",
+    "Confusing minor pullbacks with valid retests."
+  ];
+
+  const finalTraps = parsedTraps.length > 0 ? parsedTraps : defaultTraps;
+
+  // Clean risk text to serve as the Pro Tip
+  const cleanedRisk = risk
+    .replace(/^###/g, "")
+    .replace(/^\*\*Mitigation Rules\*\*:/i, "")
+    .replace(/^\*\*Common Mistake\*\*:/i, "")
+    .trim();
+
+  const defaultProTip = "The first retest after a structural break is often the highest probability entry. Patience here improves your R multiple significantly.";
+
   return (
-    <div className="bg-amber-50/50 border border-amber-200/60 rounded-2xl p-6 shadow-sm space-y-6">
-      <div className="flex items-center gap-2 text-amber-800 border-b border-amber-200/30 pb-2">
-        <AlertTriangle className="w-5 h-5 shrink-0" />
-        <h3 className="text-xs font-extrabold uppercase tracking-wider">
-          Market Trap Mechanics & Warnings
-        </h3>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Trap Breakdown */}
-        <div className="space-y-2">
-          <h4 className="text-[10px] font-extrabold text-amber-800 uppercase tracking-widest">
-            Known Institutional Sweeps
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      {/* Common Traps (Left Column) */}
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex items-start gap-4">
+        <div className="p-2 bg-rose-50 text-rose-500 rounded-lg shrink-0">
+          <AlertTriangle className="w-5 h-5" />
+        </div>
+        <div className="space-y-3 flex-1">
+          <h4 className="text-sm font-bold text-[var(--ln-navy-900)]">
+            Common Traps
           </h4>
-          <div className="prose prose-amber text-xs text-amber-950/80 leading-relaxed font-semibold">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {traps || "No known market trap patterns documented for this level yet."}
-            </ReactMarkdown>
-          </div>
-        </div>
-
-        {/* Risk Mitigation */}
-        <div className="space-y-3 bg-white p-4 rounded-xl border border-amber-200/40">
-          <div className="flex items-center gap-1.5 text-emerald-600">
-            <ShieldCheck className="w-4 h-4 shrink-0" />
-            <h5 className="text-[10px] font-extrabold uppercase tracking-wider">Mitigation Safeguards</h5>
-          </div>
-          <div className="prose prose-slate text-xs text-slate-600 leading-relaxed font-semibold">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {risk || "Risk rules not defined yet. Use academy risk framework before practicing this setup."}
-            </ReactMarkdown>
-          </div>
+          <ul className="space-y-2">
+            {finalTraps.map((trap, idx) => (
+              <li key={idx} className="text-xs text-[var(--ln-text-secondary)] leading-relaxed font-semibold flex items-start gap-2">
+                <span className="text-rose-500 font-bold shrink-0 mt-1">•</span>
+                <span>{trap}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
+
+      {/* Pro Tip (Right Column) */}
+      <div className="bg-gradient-to-br from-white to-teal-50/10 border border-teal-200/60 rounded-2xl p-6 shadow-sm flex items-start gap-4">
+        <div className="p-2 bg-teal-50 text-[var(--ln-teal-600)] rounded-lg shrink-0">
+          <Lightbulb className="w-5 h-5" />
+        </div>
+        <div className="space-y-2 flex-1">
+          <h4 className="text-sm font-bold text-[var(--ln-navy-900)]">
+            Pro Tip
+          </h4>
+          <p className="text-xs text-[var(--ln-text-secondary)] leading-relaxed font-semibold">
+            {cleanedRisk || defaultProTip}
+          </p>
+        </div>
+      </div>
+
     </div>
   );
 }
