@@ -196,7 +196,7 @@ export function StrategySetupLogicCard({ entryCriteria, rawStrategy }: StrategyS
 
         {/* Right Side: Chart Visual */}
         <div className="lg:col-span-6">
-          <StrategySetupVisual />
+          <StrategySetupVisual visualModel={rawStrategy?.visualModel} />
         </div>
       </div>
     </div>

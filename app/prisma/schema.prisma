@@ -352,6 +352,8 @@ model Strategy {
   coreLogic        String    @map("core_logic")
   trapMechanics    String?   @map("trap_mechanics")
   tradeWalkthrough String?   @map("trade_walkthrough")
+  learningProfile  Json?     @map("learning_profile")
+  visualModel      Json?     @map("visual_model")
   createdAt        DateTime  @default(now()) @map("created_at")
   updatedAt        DateTime  @updatedAt @map("updated_at")
 

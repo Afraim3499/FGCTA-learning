@@ -39,11 +39,11 @@ async function main() {
 
     const columns = parseCSVLine(line);
     const name = columns[0];
+    if (!name || name.toLowerCase() === 'strategy name') continue;
+
     const parentFamily = columns[1];
     const coreLogic = columns[4];
     const sequenceNumber = i;
-
-    if (!name) continue;
 
     await prisma.strategy.upsert({
       where: {
