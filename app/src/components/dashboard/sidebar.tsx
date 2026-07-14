@@ -13,7 +13,8 @@ import {
   LogOut,
   Flame,
   CheckCircle2,
-  Library
+  Library,
+  Radar
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { signOut } from "@/lib/auth-actions";
@@ -25,6 +26,7 @@ const NAV_ITEMS = [
   { name: "Academy", href: "/course", icon: BookOpen },
   { name: "Chart Practice", href: "/trading", icon: Target },
   { name: "Library", href: "/lab", icon: Library },
+  { name: "Asset Lab", href: "/asset-lab", icon: Radar },
   { name: "Settings", href: "/dashboard/records", icon: Settings },
 ];
 
@@ -39,7 +41,7 @@ export function Sidebar() {
   const isLessonMode = pathname?.startsWith('/course/module/');
   if (isLessonMode) return null;
 
-  const isStrategyPage = pathname?.startsWith('/lab') || pathname?.startsWith('/trading');
+  const isStrategyPage = pathname?.startsWith('/lab') || pathname?.startsWith('/trading') || pathname?.startsWith('/asset-lab');
 
   // Calculate XP threshold for current level progress bar
   const xpTotal = progress?.xpTotal || 0;

@@ -41,7 +41,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-xs text-slate-400 leading-relaxed max-w-[240px]">
-              Lurnava is a visual-first market education platform that helps beginners learn chart reading, risk discipline, and structured decision-making without hype.
+              Lurnava is a visual-first market education platform that helps learners build chart reading, risk discipline, and structured decision-making without hype.
             </p>
           </div>
 
@@ -75,7 +75,7 @@ export function Footer() {
             © {new Date().getFullYear()} Lurnava Academy. All rights reserved.
           </p>
           <p className="text-[9px] text-slate-500 uppercase tracking-widest text-right">
-            Educational content only. No financial advice, signals, or profit guarantees. Trading involves risk.
+            Educational content only. No financial advice or trade calls. Trading involves risk.
           </p>
         </div>
       </div>
