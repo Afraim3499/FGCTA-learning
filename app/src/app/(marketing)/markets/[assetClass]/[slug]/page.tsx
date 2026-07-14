@@ -1,7 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, BarChart3, BookOpenCheck, CheckCircle2, ExternalLink, Eye, LineChart, ShieldAlert } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  BookOpenCheck,
+  CalendarDays,
+  CheckCircle2,
+  ExternalLink,
+  Eye,
+  Layers3,
+  LineChart,
+  ShieldAlert,
+  Users,
+} from "lucide-react";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
 import {
@@ -185,6 +197,89 @@ export default async function PublicAssetPage({ params }: PageProps) {
         </section>
 
         <section className="px-6 py-12 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+              <div>
+                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[var(--ln-teal-500)]">Origin and market memory</p>
+                <h2 className="mt-3 text-3xl font-black tracking-tight text-[var(--ln-navy-900)] lg:text-4xl">
+                  The history that gives {asset.name} context.
+                </h2>
+              </div>
+              <p className="text-sm leading-7 text-[var(--ln-text-secondary)]">
+                Markets are easier to understand when learners know what shaped them. This timeline highlights the events our Asset Lab uses as reference points, not as predictions.
+              </p>
+            </div>
+
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(340px,0.9fr)]">
+              <div className="space-y-4">
+                {asset.lab.historicalEvents.map((event) => (
+                  <div
+                    key={`${event.year}-${event.title}`}
+                    className="grid gap-4 rounded-2xl border border-[var(--ln-border)] bg-white p-5 shadow-sm sm:grid-cols-[120px_minmax(0,1fr)]"
+                  >
+                    <div className="flex items-center gap-3 sm:block">
+                      <CalendarDays className="h-5 w-5 text-[var(--ln-teal-500)] sm:hidden" />
+                      <p className="font-mono text-2xl font-black text-[var(--ln-teal-500)]">{event.year}</p>
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="break-words text-lg font-black text-[var(--ln-navy-900)]">{event.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-[var(--ln-text-secondary)]">{event.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="rounded-[2rem] border border-[var(--ln-border)] bg-white p-6 shadow-sm lg:p-7">
+                <Users className="mb-5 h-7 w-7 text-[var(--ln-teal-500)]" />
+                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[var(--ln-teal-500)]">Authorities, builders, and big players</p>
+                <h3 className="mt-3 text-2xl font-black tracking-tight text-[var(--ln-navy-900)]">
+                  Who learners should know around {asset.symbol}.
+                </h3>
+                <div className="mt-6 space-y-4">
+                  {asset.lab.participants.map((participant) => (
+                    <div key={participant.name} className="rounded-2xl border border-[var(--ln-border)] bg-[var(--ln-bg-soft)] p-4">
+                      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--ln-text-muted)]">{participant.role}</p>
+                      <h4 className="mt-2 break-words text-lg font-black text-[var(--ln-navy-900)]">{participant.name}</h4>
+                      <p className="mt-2 text-sm leading-7 text-[var(--ln-text-secondary)]">{participant.whyItMatters}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-12 lg:px-8">
+          <div className="mx-auto max-w-7xl rounded-[2rem] border border-[var(--ln-border)] bg-white p-6 shadow-sm lg:p-10">
+            <div className="mb-8 grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+              <div>
+                <Layers3 className="mb-5 h-8 w-8 text-[var(--ln-teal-500)]" />
+                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[var(--ln-teal-500)]">Wider-market connections</p>
+                <h2 className="mt-3 text-3xl font-black tracking-tight text-[var(--ln-navy-900)]">
+                  {asset.name} does not move in isolation.
+                </h2>
+              </div>
+              <p className="text-sm leading-7 text-[var(--ln-text-secondary)]">
+                Asset Lab connects every market to related forces so learners can compare context before they study chart behavior.
+              </p>
+            </div>
+
+            <div className="grid gap-4 lg:grid-cols-3">
+              {asset.lab.correlations.map((correlation) => (
+                <div key={correlation.market} className="rounded-2xl border border-[var(--ln-border)] bg-[var(--ln-bg-soft)] p-5">
+                  <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--ln-text-muted)]">Market link</p>
+                  <h3 className="mt-2 break-words text-xl font-black text-[var(--ln-navy-900)]">{correlation.market}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[var(--ln-text-secondary)]">{correlation.relationship}</p>
+                  <div className="mt-4 rounded-xl bg-white p-4 text-sm font-bold leading-6 text-[var(--ln-navy-900)]">
+                    {correlation.learnerNote}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-12 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-[2rem] border border-[var(--ln-border)] bg-white p-7">
               <ShieldAlert className="mb-5 h-7 w-7 text-[var(--ln-warning)]" />
@@ -206,17 +301,51 @@ export default async function PublicAssetPage({ params }: PageProps) {
 
         <section className="px-6 py-16 lg:px-8">
           <div className="mx-auto max-w-7xl rounded-[2rem] border border-[var(--ln-border)] bg-white p-8 shadow-sm lg:p-12">
-            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
                 <BookOpenCheck className="mb-5 h-8 w-8 text-[var(--ln-teal-500)]" />
                 <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[var(--ln-teal-500)]">Inside Lurnava</p>
                 <h2 className="mt-3 text-3xl font-black tracking-tight text-[var(--ln-navy-900)] lg:text-4xl">The public page is only the surface.</h2>
+                <p className="mt-4 text-sm leading-7 text-[var(--ln-text-secondary)]">{asset.conversionCta}</p>
               </div>
               <div className="space-y-5">
                 <p className="text-base leading-8 text-[var(--ln-text-secondary)]">{asset.lab.deskBrief}</p>
                 <div className="rounded-2xl border border-[var(--ln-border)] bg-[var(--ln-bg-soft)] p-5">
                   <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--ln-text-muted)]">Research question</p>
                   <p className="mt-2 text-lg font-black text-[var(--ln-navy-900)]">{asset.lab.researchQuestion}</p>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="rounded-2xl border border-[var(--ln-border)] bg-white p-5">
+                    <h3 className="text-lg font-black text-[var(--ln-navy-900)]">Related lessons</h3>
+                    <div className="mt-4 space-y-2">
+                      {asset.lab.relatedLessons.map((lesson) => (
+                        <div key={lesson} className="rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)]">
+                          {lesson}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-[var(--ln-border)] bg-white p-5">
+                    <h3 className="text-lg font-black text-[var(--ln-navy-900)]">Strategy Lab links</h3>
+                    <div className="mt-4 space-y-2">
+                      {asset.lab.relatedStrategies.map((strategy) => (
+                        <div key={strategy} className="rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)]">
+                          {strategy}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-[var(--ln-border)] bg-[var(--ln-navy-900)] p-5 text-white">
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--ln-teal-400)]">Platform research routine</p>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {asset.lab.researchRoutine.slice(0, 4).map((step, index) => (
+                      <div key={step} className="grid grid-cols-[34px_minmax(0,1fr)] gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
+                        <span className="font-mono text-xs font-black text-[var(--ln-teal-400)]">{String(index + 1).padStart(2, "0")}</span>
+                        <span className="text-sm font-bold leading-6 text-slate-200">{step}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Link href="/register" className="inline-flex items-center justify-center gap-3 rounded-xl bg-[var(--ln-navy-900)] px-7 py-4 text-sm font-black text-white transition hover:bg-[var(--ln-navy-800)]">

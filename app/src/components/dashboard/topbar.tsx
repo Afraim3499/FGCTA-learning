@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { Bell, Search, User, Settings, LogOut, ChevronDown, Menu, LayoutDashboard, BookOpen, Target, BarChart } from "lucide-react";
+import { Bell, Search, User, Settings, LogOut, ChevronDown, Menu, LayoutDashboard, BookOpen, Target, BarChart, Library, Radar } from "lucide-react";
 import { useUser } from "@/components/user-provider";
 import { signOut } from "@/lib/auth-actions";
 import { useRouter } from "next/navigation";
@@ -113,8 +113,14 @@ export function Topbar({ showStrategySidebarHamburger = false }: { showStrategyS
                   <Link href="/course" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
                     <BookOpen className="w-5 h-5 text-[var(--ln-text-dim)]" /> Academy
                   </Link>
-                  <Link href="/practice" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
+                  <Link href="/trading" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
                     <Target className="w-5 h-5 text-[var(--ln-text-dim)]" /> Chart Practice
+                  </Link>
+                  <Link href="/lab" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
+                    <Library className="w-5 h-5 text-[var(--ln-text-dim)]" /> Library
+                  </Link>
+                  <Link href="/asset-lab" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
+                    <Radar className="w-5 h-5 text-[var(--ln-text-dim)]" /> Asset Lab
                   </Link>
                   <Link href="/dashboard/records" className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-[var(--ln-text-secondary)] hover:text-[var(--ln-navy-900)] hover:bg-slate-50 rounded-xl transition-all">
                     <BarChart className="w-5 h-5 text-[var(--ln-text-dim)]" /> Progress

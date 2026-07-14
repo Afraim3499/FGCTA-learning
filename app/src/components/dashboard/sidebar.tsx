@@ -41,7 +41,7 @@ export function Sidebar() {
   const isLessonMode = pathname?.startsWith('/course/module/');
   if (isLessonMode) return null;
 
-  const isStrategyPage = pathname?.startsWith('/lab') || pathname?.startsWith('/trading') || pathname?.startsWith('/asset-lab');
+  const isStrategyPage = pathname?.startsWith('/lab') || pathname?.startsWith('/trading');
 
   // Calculate XP threshold for current level progress bar
   const xpTotal = progress?.xpTotal || 0;
@@ -69,7 +69,7 @@ export function Sidebar() {
 
       <nav className="flex-1 px-4 py-2 space-y-1">
         {NAV_ITEMS.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive = pathname === item.href || pathname?.startsWith(`${item.href}/`);
           return (
             <Link
               key={item.href}
@@ -132,7 +132,7 @@ export function Sidebar() {
             </div>
             <div>
               <p className="text-sm font-bold text-[var(--ln-navy-900)]">Level {progress?.currentLevel || 0}</p>
-              <p className="text-xs text-[var(--ln-text-secondary)]">{progress?.xpRank || 'Recruit'}</p>
+              <p className="text-xs text-[var(--ln-text-secondary)]">{progress?.xpRank || 'Student'}</p>
             </div>
           </div>
 
