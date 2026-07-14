@@ -8,10 +8,14 @@ import {
   BookOpenCheck,
   Building2,
   CalendarDays,
+  Database,
   ExternalLink,
+  FileCheck2,
   Gauge,
+  Landmark,
   Layers3,
   LineChart,
+  Network,
   Radar,
   ShieldAlert,
 } from "lucide-react";
@@ -25,15 +29,22 @@ type AssetLabDetailClientProps = {
 
 type TabKey =
   | "overview"
+  | "identity"
   | "drivers"
   | "participants"
+  | "holdings"
+  | "structure"
+  | "regimes"
   | "history"
   | "correlations"
   | "risks"
   | "routine"
+  | "claims"
   | "sources";
 
-const tabs: Array<{ key: TabKey; label: string; icon: typeof Activity }> = [
+type TabConfig = { key: TabKey; label: string; icon: typeof Activity };
+
+const baseTabs: TabConfig[] = [
   { key: "overview", label: "Overview", icon: Gauge },
   { key: "drivers", label: "Drivers", icon: LineChart },
   { key: "participants", label: "Participants", icon: Building2 },
@@ -44,9 +55,20 @@ const tabs: Array<{ key: TabKey; label: string; icon: typeof Activity }> = [
   { key: "sources", label: "Sources", icon: ExternalLink },
 ];
 
+const deepTabs: TabConfig[] = [
+  { key: "identity", label: "Deep Identity", icon: FileCheck2 },
+  { key: "holdings", label: "Exposure Map", icon: Database },
+  { key: "structure", label: "Structure", icon: Network },
+  { key: "regimes", label: "Regimes", icon: Landmark },
+  { key: "claims", label: "Verified Claims", icon: BookOpenCheck },
+];
+
 export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
   const [activeTab, setActiveTab] = useState<TabKey>("overview");
-  const active = tabs.find((tab) => tab.key === activeTab) ?? tabs[0];
+  const tabs = asset.lab.deepDive ? [baseTabs[0], ...deepTabs, ...baseTabs.slice(1)] : baseTabs;
+  const selectedTab = tabs.some((tab) => tab.key === activeTab) ? activeTab : "overview";
+  const active = tabs.find((tab) => tab.key === selectedTab) ?? tabs[0];
+  const deepDive = asset.lab.deepDive;
 
   return (
     <div className="space-y-5 pb-8">
@@ -92,7 +114,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
               <TabButton
                 key={tab.key}
                 tab={tab}
-                activeTab={activeTab}
+                activeTab={selectedTab}
                 onSelect={setActiveTab}
                 mobile
               />
@@ -106,7 +128,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
           <div className="sticky top-24 space-y-4 rounded-2xl border border-[var(--ln-border)] bg-white p-4 shadow-sm">
             <div className="space-y-2">
               {tabs.map((tab) => (
-                <TabButton key={tab.key} tab={tab} activeTab={activeTab} onSelect={setActiveTab} />
+                <TabButton key={tab.key} tab={tab} activeTab={selectedTab} onSelect={setActiveTab} />
               ))}
             </div>
 
@@ -134,7 +156,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
             </div>
           </div>
 
-          {activeTab === "overview" && (
+          {selectedTab === "overview" && (
             <div className="grid gap-4 xl:grid-cols-2">
               <FeaturePanel icon={Radar} title="Research question" body={asset.lab.researchQuestion} highlight />
               <FeaturePanel icon={Gauge} title="Operating model" body={asset.lab.operatingModel} />
@@ -145,7 +167,14 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
             </div>
           )}
 
-          {activeTab === "drivers" && (
+          {selectedTab === "identity" && deepDive && (
+            <div className="space-y-6">
+              <SectionBlock title="Asset identity" items={deepDive.identity} />
+              <SectionBlock title="Authority, origin, and control" items={deepDive.authorityOrFounders} />
+            </div>
+          )}
+
+          {selectedTab === "drivers" && (
             <div className="grid gap-4 xl:grid-cols-2">
               {asset.drivers.map((driver) => (
                 <Panel key={driver.title} title={driver.title} body={driver.detail} />
@@ -153,7 +182,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
             </div>
           )}
 
-          {activeTab === "participants" && (
+          {selectedTab === "participants" && (
             <div className="grid gap-4 xl:grid-cols-2">
               {asset.lab.participants.map((participant) => (
                 <ParticipantCard key={participant.name} participant={participant} />
@@ -161,7 +190,19 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
             </div>
           )}
 
-          {activeTab === "history" && (
+          {selectedTab === "holdings" && deepDive && (
+            <div className="space-y-4">
+              {deepDive.holderExposureMap.map((item) => (
+                <HoldingExposureCard key={`${item.entityName}-${item.assetOrInstrument}-${item.asOfDate}`} item={item} />
+              ))}
+            </div>
+          )}
+
+          {selectedTab === "structure" && deepDive && <SectionBlock title="Market structure" items={deepDive.marketStructure} />}
+
+          {selectedTab === "regimes" && deepDive && <SectionBlock title="Driver regimes" items={deepDive.driverRegimes} />}
+
+          {selectedTab === "history" && (
             <div className="space-y-4">
               {asset.lab.historicalEvents.map((event) => (
                 <EventCard key={`${event.year}-${event.title}`} event={event} />
@@ -169,7 +210,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
             </div>
           )}
 
-          {activeTab === "correlations" && (
+          {selectedTab === "correlations" && (
             <div className="grid gap-4 xl:grid-cols-2">
               {asset.lab.correlations.map((correlation) => (
                 <CorrelationCard key={correlation.market} correlation={correlation} />
@@ -177,7 +218,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
             </div>
           )}
 
-          {activeTab === "risks" && (
+          {selectedTab === "risks" && (
             <div className="grid gap-4 xl:grid-cols-2">
               {asset.lab.riskMap.map((risk) => (
                 <RiskCard key={risk.risk} risk={risk} />
@@ -185,7 +226,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
             </div>
           )}
 
-          {activeTab === "routine" && (
+          {selectedTab === "routine" && (
             <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(280px,0.75fr)]">
               <div className="rounded-2xl border border-[var(--ln-border)] bg-white p-5">
                 <h3 className="text-xl font-black text-[var(--ln-navy-900)]">Research routine</h3>
@@ -207,7 +248,14 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
             </div>
           )}
 
-          {activeTab === "sources" && (
+          {selectedTab === "claims" && deepDive && (
+            <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(280px,0.75fr)]">
+              <SectionBlock title="Verified claims" items={deepDive.sourceBackedClaims} />
+              <ListPanel title="Review notes" items={deepDive.reviewNotes} />
+            </div>
+          )}
+
+          {selectedTab === "sources" && (
             <div className="grid gap-4 xl:grid-cols-2">
               {asset.sources.map((source) => (
                 <SourceCard key={source.url} source={source} />
@@ -226,7 +274,7 @@ function TabButton({
   onSelect,
   mobile = false,
 }: {
-  tab: { key: TabKey; label: string; icon: typeof Activity };
+  tab: TabConfig;
   activeTab: TabKey;
   onSelect: (key: TabKey) => void;
   mobile?: boolean;
@@ -289,6 +337,77 @@ function ParticipantCard({ participant }: { participant: AssetProfile["lab"]["pa
       <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--ln-teal-500)]">{participant.role}</p>
       <h3 className="mt-2 break-words text-xl font-black text-[var(--ln-navy-900)]">{participant.name}</h3>
       <p className="mt-3 text-sm leading-7 text-[var(--ln-text-secondary)]">{participant.whyItMatters}</p>
+      {participant.sourceBasis && (
+        <p className="mt-4 rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-xs font-bold leading-5 text-[var(--ln-text-muted)]">
+          Source basis: {participant.sourceBasis}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function SectionBlock({ title, items }: { title: string; items: Array<{ title: string; detail: string }> }) {
+  return (
+    <div className="min-w-0">
+      <h3 className="mb-4 break-words text-xl font-black text-[var(--ln-navy-900)]">{title}</h3>
+      <div className="grid gap-4 xl:grid-cols-2">
+        {items.map((item) => (
+          <Panel key={item.title} title={item.title} body={item.detail} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HoldingExposureCard({ item }: { item: NonNullable<AssetProfile["lab"]["deepDive"]>["holderExposureMap"][number] }) {
+  return (
+    <div className="min-w-0 rounded-2xl border border-[var(--ln-border)] bg-white p-5">
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(220px,0.45fr)]">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-full bg-[var(--ln-teal-soft)] px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-[var(--ln-teal-500)]">
+              {item.entityType}
+            </span>
+            <span className="rounded-full bg-[var(--ln-bg-soft)] px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-[var(--ln-text-muted)]">
+              {item.freshnessStatus}
+            </span>
+          </div>
+          <h3 className="mt-3 break-words text-xl font-black text-[var(--ln-navy-900)]">{item.entityName}</h3>
+          <p className="mt-2 break-words text-sm font-bold text-[var(--ln-text-secondary)]">{item.assetOrInstrument}</p>
+          <p className="mt-4 text-sm leading-7 text-[var(--ln-text-secondary)]">{item.whyItMatters}</p>
+          {item.limitations && (
+            <div className="mt-4 rounded-xl border border-[var(--ln-border)] bg-[var(--ln-bg-soft)] p-4 text-sm font-bold leading-6 text-[var(--ln-navy-900)]">
+              {item.limitations}
+            </div>
+          )}
+        </div>
+
+        <div className="min-w-0 rounded-2xl bg-[var(--ln-bg-soft)] p-4">
+          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--ln-text-muted)]">Amount</p>
+          <p className="mt-2 break-words font-mono text-2xl font-black text-[var(--ln-navy-900)]">{item.amount}</p>
+          <p className="mt-1 break-words text-sm font-black text-[var(--ln-teal-500)]">{item.unit}</p>
+          {item.estimatedUsdValue && (
+            <p className="mt-3 break-words text-xs font-bold leading-5 text-[var(--ln-text-secondary)]">
+              Value reference: {item.estimatedUsdValue}
+            </p>
+          )}
+          <div className="mt-4 space-y-2 text-xs font-bold leading-5 text-[var(--ln-text-secondary)]">
+            <p>As of: {item.asOfDate}</p>
+            {item.sourcePublishedAt && <p>Source date: {item.sourcePublishedAt}</p>}
+            <p>Retrieved: {item.retrievedAt}</p>
+            <p>Exposure: {item.exposureType}</p>
+          </div>
+          <a
+            href={item.sourceUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-flex items-center gap-2 rounded-xl border border-[var(--ln-border)] bg-white px-4 py-3 text-xs font-black text-[var(--ln-navy-900)] transition hover:bg-[var(--ln-surface-soft)]"
+          >
+            {item.sourcePublisher}
+            <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
