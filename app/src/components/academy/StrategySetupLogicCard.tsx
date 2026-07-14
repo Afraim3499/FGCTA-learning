@@ -40,8 +40,8 @@ function parseCoreLogicIntoSteps(coreLogic: string): Step[] {
 
   const sectionTitle = (s: string) => {
     if (s === "entry") return "Entry Criteria";
-    if (s === "stoploss") return "Stop-Loss Placement";
-    if (s === "target") return "Profit Target";
+    if (s === "stoploss") return "Invalidation Placement";
+    if (s === "target") return "Reference Zone";
     return "Setup Rule";
   };
 
@@ -103,9 +103,21 @@ const STEP_ICONS: Record<string, React.ReactNode> = {
 export function StrategySetupLogicCard({ entryCriteria, rawStrategy }: StrategySetupLogicCardProps) {
   const [showAll, setShowAll] = useState(false);
 
-  const steps: Step[] = rawStrategy?.coreLogic
-    ? parseCoreLogicIntoSteps(rawStrategy.coreLogic)
+  const profileSteps: Step[] = Array.isArray(rawStrategy?.learningProfile?.setupLogic)
+    ? rawStrategy.learningProfile.setupLogic
+        .map((step: any) => ({
+          title: step.step ? `Step ${step.step}` : "Setup Rule",
+          desc: [step.action, step.reason].filter(Boolean).join(" - "),
+          type: "entry" as const,
+        }))
+        .filter((step: Step) => step.desc.length > 5)
     : [];
+
+  const steps: Step[] = profileSteps.length > 0
+    ? profileSteps
+    : rawStrategy?.coreLogic
+      ? parseCoreLogicIntoSteps(rawStrategy.coreLogic)
+      : [];
 
   // Fallback to basic entry criteria parsing
   const fallbackSteps: Step[] = entryCriteria
@@ -123,8 +135,8 @@ export function StrategySetupLogicCard({ entryCriteria, rawStrategy }: StrategyS
     { title: "Identify the Trend", desc: "Confirm a clear swing structure in one direction with aligned higher timeframe bias.", type: "entry" },
     { title: "Spot the Structure Break", desc: "Price breaks a key swing high/low with impulsive momentum and closes beyond the level.", type: "entry" },
     { title: "Wait for the Retest", desc: "Price returns to the broken level now acting as support/resistance. Do not enter early.", type: "entry" },
-    { title: "Set Stop-Loss", desc: "Place stop-loss below/above the retest zone by 1–1.5x ATR. This is your invalidation.", type: "stoploss" },
-    { title: "Define Target", desc: "Aim for minimum 1:2 RR. Mark the next structural level as your primary target.", type: "target" },
+    { title: "Set Invalidation", desc: "Place invalidation beyond the structure that would prove the setup wrong.", type: "stoploss" },
+    { title: "Define Reference Zone", desc: "Mark the next structural area the lesson uses for educational review.", type: "target" },
   ];
 
   const finalSteps = steps.length > 0 ? steps : (fallbackSteps.length > 0 ? fallbackSteps : defaultSteps);
@@ -149,7 +161,7 @@ export function StrategySetupLogicCard({ entryCriteria, rawStrategy }: StrategyS
         <div className="flex items-center gap-1.5 text-[9px] font-black uppercase">
           {entryCount > 0 && <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded">{entryCount} Entry Rules</span>}
           {slCount > 0 && <span className="px-2 py-0.5 bg-rose-50 text-rose-700 rounded">{slCount} SL Rules</span>}
-          {tgtCount > 0 && <span className="px-2 py-0.5 bg-blue-50 text-blue-700 rounded">{tgtCount} Targets</span>}
+          {tgtCount > 0 && <span className="px-2 py-0.5 bg-blue-50 text-blue-700 rounded">{tgtCount} Zones</span>}
         </div>
       </div>
 
@@ -171,7 +183,7 @@ export function StrategySetupLogicCard({ entryCriteria, rawStrategy }: StrategyS
                     </h4>
                     {step.type && step.type !== "general" && (
                       <span className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded ${colors.badge}`}>
-                        {step.type === "stoploss" ? "Stop-Loss" : step.type}
+                        {step.type === "stoploss" ? "Invalidation" : step.type}
                       </span>
                     )}
                   </div>

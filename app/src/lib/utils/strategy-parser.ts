@@ -148,6 +148,65 @@ export function parseStrategyContent(strategy: any): ParsedStrategy {
   }
 
   // It's a DB Strategy
+  if (strategy.learningProfile) {
+    const profile = strategy.learningProfile;
+    const toText = (value: unknown): string => {
+      if (!value) return "";
+      if (typeof value === "string") return value;
+      if (Array.isArray(value)) {
+        return value
+          .map(item => {
+            if (typeof item === "string") return item;
+            return [item?.action || item?.item || item?.title, item?.reason || item?.description]
+              .filter(Boolean)
+              .join(": ");
+          })
+          .filter(Boolean)
+          .join("\n\n");
+      }
+      if (typeof value === "object") {
+        return Object.values(value as Record<string, unknown>).filter(Boolean).join("\n\n");
+      }
+      return String(value);
+    };
+
+    const setupLogic = Array.isArray(profile.setupLogic) ? profile.setupLogic : [];
+    const checklist = Array.isArray(profile.practiceChecklist)
+      ? profile.practiceChecklist
+          .map((item: any) => typeof item === "string" ? item : item?.item)
+          .filter((item: unknown): item is string => typeof item === "string" && item.trim().length > 0)
+      : [];
+
+    return {
+      summary: profile.simpleExplanation || profile.whyExists || profile.whyUseful || strategy.setupSummary || "A structured educational strategy setup.",
+      marketConditions: [
+        toText(profile.whenToUse),
+        toText(profile.suitableMarkets),
+        toText(profile.suitableTimeframes),
+        toText(profile.suitableSessions),
+      ].filter(Boolean).join("\n\n") || `Family: ${strategy.family || "General Technical Setup"}.`,
+      entryCriteria: setupLogic
+        .map((step: any) => `${step.step ? `${step.step}. ` : ""}${step.action}${step.reason ? `\n${step.reason}` : ""}`)
+        .join("\n\n") || "Entry criteria details are not defined yet. Refer to the academy guide.",
+      confirmation: toText(profile.confirmationRules) || "Confirm the setup with a close, location check, and asset-specific context.",
+      invalidation: toText(profile.invalidationRules) || "Structural invalidation zone is not defined yet.",
+      risk: [toText(profile.riskRules), toText(profile.tradeManagement)].filter(Boolean).join("\n\n") ||
+        "Risk rules are not defined yet. Use the academy risk framework before practicing this setup.",
+      targetPath: toText(profile.targetLogic) || "Reference-zone logic is not defined yet.",
+      traps: toText(profile.commonTraps) || "No known market trap patterns documented for this level yet.",
+      checklist: checklist.length > 0 ? checklist : [
+        "Confirm market condition alignment",
+        "Identify the activation zone",
+        "Set strict invalidation",
+        "Verify the structural reference zone"
+      ],
+      practicePrompts: [
+        profile.sandboxInstructions,
+        ...setupLogic.slice(0, 2).map((step: any) => step.action),
+      ].filter(Boolean),
+    };
+  }
+
   const coreLogic = strategy.coreLogic || "";
   const trapMechanics = strategy.trapMechanics || "";
   const tradeWalkthrough = strategy.tradeWalkthrough || "";
@@ -195,7 +254,7 @@ export function parseStrategyContent(strategy: any): ParsedStrategy {
   // Parse Target Path
   let targetPath = extractSection(coreLogic, ["profit target", "exit criteria", "target path"], ["checklist"]);
   if (!targetPath) {
-    targetPath = "Target path logic not defined yet.";
+    targetPath = "Reference-zone logic not defined yet.";
   }
 
   // Parse Risk Rules
@@ -232,7 +291,7 @@ export function parseStrategyContent(strategy: any): ParsedStrategy {
   const practicePrompts = strategy.practiceConfig?.guideSteps || [
     "Locate critical structural context.",
     "Identify standard entry points.",
-    "Note key rejection signals."
+    "Note key rejection or acceptance clues."
   ];
 
   return {

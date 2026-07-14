@@ -20,6 +20,52 @@ const pool = new Pool({
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
+function normalizedLowerName(name: string): string {
+  return name.toLowerCase().replace(/[\u2010-\u2015\u2212]/g, "-");
+}
+
+function isCrossExchangeArbitrageName(name: string): boolean {
+  const normalized = normalizedLowerName(name);
+  return normalized.includes("cross-exchange arbitrage") || normalized.includes("cross-exchange market making");
+}
+
+function isPortfolioCorrelationName(name: string): boolean {
+  const normalized = normalizedLowerName(name);
+  return (
+    normalized.includes("portfolio") ||
+    normalized.includes("hedging") ||
+    normalized.includes("hedge") ||
+    normalized.includes("correlation") ||
+    normalized.includes("correlated") ||
+    normalized.includes("diversification") ||
+    normalized.includes("risk parity") ||
+    normalized.includes("allocation")
+  );
+}
+
+function isModelAuditName(name: string): boolean {
+  const normalized = normalizedLowerName(name);
+  return (
+    normalized.includes("neural network price prediction") ||
+    normalized.includes("random forest classification") ||
+    normalized.includes("support vector machine") ||
+    normalized.includes("reinforcement learning trading agent") ||
+    normalized.includes("kalman filter trend estimation") ||
+    normalized.includes("hidden markov model") ||
+    normalized.includes("genetic algorithm parameter") ||
+    normalized.includes("technical + sentiment confluence") ||
+    normalized.includes("technical \\+ sentiment confluence") ||
+    normalized.includes("funding + social sentiment filter") ||
+    normalized.includes("funding \\+ social sentiment filter") ||
+    normalized.includes("indicator + price action confluence") ||
+    normalized.includes("indicator \\+ price action confluence") ||
+    normalized.includes("triangular confluence") ||
+    normalized.includes("macro + machine learning hybrid") ||
+    normalized.includes("macro \\+ machine learning hybrid") ||
+    normalized.includes("cross-asset statistical factor model")
+  );
+}
+
 const allowedCategories = [
   "Breakout / Retest Visual",
   "Trend Continuation Visual",
@@ -36,7 +82,18 @@ const allowedCategories = [
   "Gold Macro Reaction Visual",
   "Forex Pair Strength Visual",
   "Psychology / Process Audit Visual",
-  "Portfolio / Allocation Visual"
+  "Portfolio / Allocation Visual",
+  "Pattern Geometry Visual",
+  "Wave Structure Visual",
+  "Candlestick Confluence Visual",
+  "Crypto Supply Event Visual",
+  "Intermarket Correlation Visual",
+  "Forex Macro Differential Visual",
+  "Forex Positioning Visual",
+  "Forex Options Positioning Visual",
+  "Options Positioning Visual",
+  "Crypto Fundamental Audit Visual",
+  "Crypto Governance Event Visual"
 ];
 
 function hasForbiddenWordInValues(obj: any, forbiddenWords: string[]): string | null {
@@ -119,9 +176,10 @@ function checkToneAndPrecision(obj: any, sName: string): string[] {
       }
 
       // Check fake precision terms for volume / contracts
-      if (val.includes("contract") || val.includes("comex")) {
+      if (/\bcontracts?\b|\bcomex\b/.test(val)) {
         const isSimulated = val.includes("simulated") || val.includes("example") || val.includes("relative") || val.includes("marker");
-        if (!isSimulated && /\b\d+[\d,]*\b/.test(val)) {
+        const precisionText = val.replace(/\b(?:fx|cr|gd)-\d{3}\b/g, "");
+        if (!isSimulated && /\b\d+[\d,]*\b/.test(precisionText)) {
           errors.push(`Fake precision violation: Exact volume/contract count found without being marked as simulated: "${node}"`);
         }
       }
@@ -244,6 +302,12 @@ async function main() {
           s.name.toLowerCase().includes("filter") || 
           s.name.toLowerCase().includes("cross")
         ) &&
+        !isModelAuditName(s.name) &&
+        !isCrossExchangeArbitrageName(s.name) &&
+        !isPortfolioCorrelationName(s.name) &&
+        !s.name.toLowerCase().includes("fundamental filter") &&
+        !s.name.toLowerCase().includes("across") &&
+        !s.name.toLowerCase().includes("atr") &&
         vm.visualCategory !== "Trend Continuation Visual"
       ) {
         errors.push(`Visual category mismatch: "${s.name}" should use "Trend Continuation Visual", got "${vm.visualCategory}"`);
@@ -259,10 +323,15 @@ async function main() {
         s.name.toLowerCase().includes("moving‑average") || 
         s.name.toLowerCase().includes("filter") ||
         s.name.toLowerCase().includes("cross")) &&
+        !isModelAuditName(s.name) &&
+        !isCrossExchangeArbitrageName(s.name) &&
+        !s.name.toLowerCase().includes("fundamental filter") &&
+        !s.name.toLowerCase().includes("across") &&
         !s.name.toLowerCase().includes("heikin") &&
         !s.name.toLowerCase().includes("supertrend") &&
         !s.name.toLowerCase().includes("parabolic sar") &&
-        !s.name.toLowerCase().includes("ichimoku")
+        !s.name.toLowerCase().includes("ichimoku") &&
+        !s.name.toLowerCase().includes("atr")
       ) {
         const hasMAWords = vmText.includes("ema") || vmText.includes("sma") || vmText.includes("moving average") || vmText.includes("crossover") || vmText.includes("cross");
         if (!hasMAWords) {
@@ -310,8 +379,36 @@ async function main() {
       if (vm.visualCategory === "Risk / Position Sizing Visual" && vm.componentType !== "SizingCalculator") {
         errors.push(`Visual component mismatch: Risk / Position Sizing Visual should use "SizingCalculator", got "${vm.componentType}"`);
       }
-      if (vm.visualCategory === "Crypto Derivatives Visual" && vm.componentType !== "DerivativesDashboard") {
-        errors.push(`Visual component mismatch: Crypto Derivatives Visual should use "DerivativesDashboard", got "${vm.componentType}"`);
+      const cryptoDerivativesComponents = new Set([
+        "DerivativesDashboard",
+        "FundingArbitrageChart",
+        "FundingMeanReversionChart",
+        "FundingMomentumChart",
+        "OpenInterestExpansionChart",
+        "OpenInterestDivergenceChart",
+        "LiquidationHeatmapChart",
+        "LiquidationCascadeChart",
+        "FundingOpenInterestMatrixChart",
+        "FundingBasisConvergenceChart",
+        "ShortSqueezeMechanicsChart",
+        "LiquidationFrontRunRiskChart",
+        "SpotFuturesBasisChart",
+        "ReverseBasisTradeChart",
+        "CalendarSpreadRollChart",
+        "GammaScalpingChart",
+        "VolatilitySkewChart",
+        "OptionsStraddleChart",
+        "PutCallParityChart",
+        "ProtectivePutHedgeChart",
+        "CoveredCallChart",
+        "OptionsButterflySpreadChart",
+        "OptionsIronCondorChart",
+        "GammaTiltChart",
+        "CrossExchangeArbitrageChart",
+        "TriangularArbitrageChart",
+      ]);
+      if (vm.visualCategory === "Crypto Derivatives Visual" && !cryptoDerivativesComponents.has(vm.componentType)) {
+        errors.push(`Visual component mismatch: Crypto Derivatives Visual received unsupported component "${vm.componentType}"`);
       }
     }
 
@@ -417,9 +514,9 @@ async function main() {
     if (vm) {
       const vmText = JSON.stringify(vm).toLowerCase();
       if (vm.visualCategory === "Trend Continuation Visual") {
-        const hasMALabels = vmText.includes("ema") || vmText.includes("sma") || vmText.includes("moving average") || vmText.includes("crossover") || vmText.includes("cross") || vmText.includes("filter") || vmText.includes("ichimoku") || vmText.includes("heikin") || vmText.includes("adx");
+        const hasMALabels = vmText.includes("ema") || vmText.includes("sma") || vmText.includes("moving average") || vmText.includes("crossover") || vmText.includes("cross") || vmText.includes("filter") || vmText.includes("ichimoku") || vmText.includes("heikin") || vmText.includes("adx") || vmText.includes("alligator") || vmText.includes("jaw") || vmText.includes("teeth") || vmText.includes("lips") || vmText.includes("fractal");
         if (!hasMALabels) {
-          errors.push(`Visual-specific violation: Trend Continuation Visual for "${s.name}" must contain EMA, SMA, crossover, moving average, Ichimoku, or Heikin-Ashi labels.`);
+          errors.push(`Visual-specific violation: Trend Continuation Visual for "${s.name}" must contain recognized trend-structure labels.`);
         }
       }
       if (vm.visualCategory === "Session / Time Window Visual") {
@@ -489,7 +586,7 @@ async function main() {
     }
 
     // 2. Session-Breakout Differentiation Check (Intraday vs Swing, NY vs London)
-    const lowerName = s.name.toLowerCase();
+    const lowerName = normalizedLowerName(s.name);
     if (lowerName.includes("breakout")) {
       const isIntraday = lowerName.includes("intraday");
       const isSwing = lowerName.includes("swing");
@@ -542,7 +639,7 @@ async function main() {
 
     // 5. Component Specialization Check
     if (vm) {
-      const lowerName = s.name.toLowerCase();
+      const lowerName = normalizedLowerName(s.name);
       if (lowerName.includes("macd")) {
         if (vm.componentType !== "MACDStructureChart") {
           errors.push(`Component specialization error: MACD strategy "${s.name}" must use componentType "MACDStructureChart", got "${vm.componentType}".`);
@@ -571,11 +668,57 @@ async function main() {
         if (vm.componentType !== "DonchianChannelBreakoutChart") {
           errors.push(`Component specialization error: Donchian strategy "${s.name}" must use componentType "DonchianChannelBreakoutChart", got "${vm.componentType}".`);
         }
+        if (vm.visualCategory === "Session / Time Window Visual") {
+          errors.push(`Component specialization error: Donchian strategy "${s.name}" must not use Session / Time Window Visual.`);
+        }
+      } else if (lowerName.includes("price channel breakout")) {
+        if (vm.componentType !== "ChannelBreakoutChart") {
+          errors.push(`Component specialization error: Price Channel strategy "${s.name}" must use componentType "ChannelBreakoutChart", got "${vm.componentType}".`);
+        }
+        if (vm.visualCategory === "Session / Time Window Visual") {
+          errors.push(`Component specialization error: Price Channel strategy "${s.name}" must not use Session / Time Window Visual.`);
+        }
+      } else if (lowerName.includes("higher") && lowerName.includes("lower") && lowerName.includes("trend structure")) {
+        if (vm.componentType !== "MarketStructureChart") {
+          errors.push(`Component specialization error: Market structure strategy "${s.name}" must use componentType "MarketStructureChart", got "${vm.componentType}".`);
+        }
+      } else if (lowerName.includes("atr-adjusted volatility sizing")) {
+        if (vm.componentType !== "SizingCalculator") {
+          errors.push(`Component specialization error: ATR-adjusted sizing strategy "${s.name}" must use componentType "SizingCalculator", got "${vm.componentType}".`);
+        }
+      } else if (lowerName.includes("atr") && lowerName.includes("volatility")) {
+        if (vm.componentType !== "ATRVolatilityChart") {
+          errors.push(`Component specialization error: ATR volatility strategy "${s.name}" must use componentType "ATRVolatilityChart", got "${vm.componentType}".`);
+        }
+      } else if (lowerName.includes("moving average envelope")) {
+        if (vm.componentType !== "KeltnerChannelChart") {
+          errors.push(`Component specialization error: Moving Average Envelope strategy "${s.name}" must use componentType "KeltnerChannelChart", got "${vm.componentType}".`);
+        }
+      } else if (lowerName.includes("moving average bounce")) {
+        if (vm.componentType !== "MovingAverageBounceChart") {
+          errors.push(`Component specialization error: Moving Average Bounce strategy "${s.name}" must use componentType "MovingAverageBounceChart", got "${vm.componentType}".`);
+        }
+      } else if (isCrossExchangeArbitrageName(s.name)) {
+        // Cross-exchange arbitrage uses venue/depth routing, not moving-average crossover routing.
+      } else if (isModelAuditName(s.name)) {
+        // Model-audit strategies can contain words like cross or factor without being MA crossover strategies.
+      } else if (lowerName.includes("stablecoin arbitrage across chains")) {
+        // Cross-chain stablecoin arbitrage uses venue/depth routing, not moving-average crossover routing.
+      } else if (isPortfolioCorrelationName(s.name)) {
+        // Portfolio, hedge, allocation, and correlation strategies may include words like cross or pairs.
       } else if (
         lowerName.includes("crossover") || 
         lowerName.includes("moving average") || 
         lowerName.includes("moving‑average") || 
-        lowerName.includes("filter") ||
+        (lowerName.includes("filter") && (
+          lowerName.includes("moving") ||
+          lowerName.includes("average") ||
+          lowerName.includes("ema") ||
+          lowerName.includes("sma") ||
+          lowerName.includes("wma") ||
+          lowerName.includes("adx") ||
+          lowerName.includes("atr")
+        )) ||
         lowerName.includes("cross") ||
         lowerName.includes("wma")
       ) {
@@ -597,7 +740,7 @@ async function main() {
     // 6. Visual Depth Check
     if (vm) {
       const vmText = JSON.stringify(vm).toLowerCase();
-      const lowerName = s.name.toLowerCase();
+      const lowerName = normalizedLowerName(s.name);
       if (lowerName.includes("macd")) {
         const hasZeroLine = vmText.includes("zero line") || vmText.includes("zero-line") || vmText.includes("baseline");
         const hasHistogram = vmText.includes("histogram") || vmText.includes("bar");
@@ -652,6 +795,45 @@ async function main() {
         if (!hasBreakout) errors.push(`Visual depth check error: Donchian visual must reference channel breakout triggers.`);
         if (!hasTrap) errors.push(`Visual depth check error: Donchian visual must reference false breakout traps.`);
       }
+      if (lowerName.includes("price channel breakout")) {
+        const hasChannelBounds = vmText.includes("upper") && vmText.includes("lower") && vmText.includes("channel");
+        const hasBackInside = vmText.includes("inside channel") || vmText.includes("back inside") || vmText.includes("return inside");
+        if (!hasChannelBounds) errors.push(`Visual depth check error: Price Channel visual must reference upper/lower channel boundaries.`);
+        if (!hasBackInside) errors.push(`Visual depth check error: Price Channel visual must reference invalidation back inside the channel.`);
+      }
+      if (lowerName.includes("bollinger")) {
+        const hasBands = vmText.includes("bollinger") && vmText.includes("band");
+        const hasTrap = vmText.includes("trap") || vmText.includes("fakeout") || vmText.includes("failed");
+        if (!hasBands) errors.push(`Visual depth check error: Bollinger visual must reference Bollinger Bands.`);
+        if (!hasTrap) errors.push(`Visual depth check error: Bollinger visual must reference a failed breakout, fakeout, or trap zone.`);
+      }
+      if (lowerName.includes("higher") && lowerName.includes("lower") && lowerName.includes("trend structure")) {
+        const combinedStructureText = `${JSON.stringify(lp)} ${vmText}`.toLowerCase();
+        const forbiddenStructureWords = ["ema", "sma", "atr", "macd", "adx", "session", "liquidity sweep", "order block", "order blocks", "bollinger", "rsi", "moving average", "volatility band", "supertrend", "donchian"];
+        for (const word of forbiddenStructureWords) {
+          if (combinedStructureText.includes(word)) {
+            errors.push(`Level 1 purity error: Market structure strategy "${s.name}" contains "${word}".`);
+          }
+        }
+        const hasSwingStructure = combinedStructureText.includes("swing high") && combinedStructureText.includes("higher high") && combinedStructureText.includes("higher low");
+        if (!hasSwingStructure) {
+          errors.push(`Level 1 purity error: Market structure strategy "${s.name}" must reference swing highs, higher highs, and higher lows.`);
+        }
+      }
+      if (lowerName.includes("volatility breakout") && lowerName.includes("atr") && s.assetClass === "CRYPTO") {
+        const combinedAtrText = `${JSON.stringify(lp)} ${vmText}`.toLowerCase();
+        const hasCryptoAtr = combinedAtrText.includes("atr") && combinedAtrText.includes("compression") && combinedAtrText.includes("expansion");
+        const hasCryptoExecutionCaution = combinedAtrText.includes("slippage") || combinedAtrText.includes("liquidity depth") || combinedAtrText.includes("spread percentage") || combinedAtrText.includes("basis points");
+        if (!hasCryptoAtr) errors.push(`ATR differentiation error: Crypto ATR breakout must reference ATR compression and expansion.`);
+        if (!hasCryptoExecutionCaution) errors.push(`ATR differentiation error: Crypto ATR breakout must reference crypto execution caution such as slippage, liquidity depth, spread percentage, or basis points.`);
+      }
+      if (lowerName.includes("volatility") && lowerName.includes("atr filter") && s.assetClass === "FOREX") {
+        const combinedAtrText = `${JSON.stringify(lp)} ${vmText}`.toLowerCase();
+        const hasForexAtr = combinedAtrText.includes("atr") && combinedAtrText.includes("filter") && combinedAtrText.includes("trend");
+        const hasForexDistance = combinedAtrText.includes("pip") || combinedAtrText.includes("pips") || combinedAtrText.includes("pair") || combinedAtrText.includes("spread");
+        if (!hasForexAtr) errors.push(`ATR differentiation error: Forex ATR filter must reference ATR as a trend filter.`);
+        if (!hasForexDistance) errors.push(`ATR differentiation error: Forex ATR filter must include Forex pair, spread, or pip language.`);
+      }
       if (
         (lowerName.includes("crossover") || 
         lowerName.includes("moving average") || 
@@ -662,7 +844,14 @@ async function main() {
         !lowerName.includes("supertrend") &&
         !lowerName.includes("parabolic sar") &&
         !lowerName.includes("ichimoku") &&
-        !lowerName.includes("heikin")
+        !lowerName.includes("heikin") &&
+        !isModelAuditName(s.name) &&
+        !isCrossExchangeArbitrageName(s.name) &&
+        !lowerName.includes("fundamental filter") &&
+        !lowerName.includes("across") &&
+        !lowerName.includes("atr") &&
+        !lowerName.includes("moving average envelope") &&
+        !lowerName.includes("moving average bounce")
       ) {
         const hasMALines = vmText.includes("ema") || vmText.includes("sma") || vmText.includes("wma") || vmText.includes("moving average") || vmText.includes("line");
         const hasCrossoverOrPoint = vmText.includes("crossover") || vmText.includes("cross") || vmText.includes("trigger") || vmText.includes("point") || vmText.includes("crossover point");
@@ -670,6 +859,14 @@ async function main() {
         if (!hasMALines) errors.push(`Visual depth check error: MA visual must reference indicator/MA lines.`);
         if (!hasCrossoverOrPoint) errors.push(`Visual depth check error: MA visual must reference crossover/trigger points.`);
         if (!hasLagOrTrap) errors.push(`Visual depth check error: MA visual must reference whipsaw / lag trap / false crossover zones.`);
+      }
+      if (lowerName.includes("moving average bounce")) {
+        const hasMALine = vmText.includes("moving average") || vmText.includes("ema") || vmText.includes("sma") || vmText.includes("line");
+        const hasBounceContext = vmText.includes("bounce") || vmText.includes("pullback") || vmText.includes("reaction");
+        const hasFailedReaction = vmText.includes("trap") || vmText.includes("fail") || vmText.includes("break below") || vmText.includes("breaks below");
+        if (!hasMALine) errors.push(`Visual depth check error: Moving Average Bounce visual must reference the moving average line.`);
+        if (!hasBounceContext) errors.push(`Visual depth check error: Moving Average Bounce visual must reference pullback or bounce context.`);
+        if (!hasFailedReaction) errors.push(`Visual depth check error: Moving Average Bounce visual must reference a failed reaction or trap.`);
       }
       if (
         (lowerName.includes("london") || 

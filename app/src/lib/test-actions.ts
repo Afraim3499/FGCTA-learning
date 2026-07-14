@@ -58,21 +58,33 @@ export async function getTest(level: number) {
   // Determine user's unlocked strategy logicIds
   const completedModules = await prisma.moduleCompletion.findMany({
     where: { userId: user.id },
-    select: { module: { select: { logicIds: true } } }
+    select: {
+      module: {
+        select: {
+          level: true,
+          logicIds: true,
+          strategyFamilies: true,
+        }
+      }
+    }
   });
+  const levelLogicIds = completedModules
+    .filter(c => c.module.level === level)
+    .flatMap(c => c.module.logicIds || []);
+  const allCompletedLogicIds = completedModules.flatMap(c => c.module.logicIds || []);
   const unlockedLogicIds = Array.from(
-    new Set(completedModules.flatMap(c => c.module.logicIds || []))
+    new Set((levelLogicIds.length > 0 ? levelLogicIds : allCompletedLogicIds))
   );
 
   // Dynamic 70/30 Exam Sourcing
   const totalQuestions = testData.questionsPerAttempt;
-  const strategyTarget = level < 2 ? 0 : Math.round(totalQuestions * 0.3);
+  const strategyTarget = Math.round(totalQuestions * 0.3);
 
-  // Fetch strategy questions at or below this level
+  // Fetch strategy questions connected to this exact level.
   const strategyQuestions = await prisma.examQuestion.findMany({
     where: {
       logicId: { in: unlockedLogicIds },
-      level: { lte: level }
+      level
     }
   });
 
@@ -143,6 +155,11 @@ export async function getTest(level: number) {
     title: testData.title,
     timeLimit: testData.timeLimitMin,
     questions: sanitizedQuestions,
+    composition: {
+      coreQuestionCount: selectedCore.length,
+      strategyQuestionCount: selectedStrategy.length,
+      strategyTarget,
+    },
   };
 }
 

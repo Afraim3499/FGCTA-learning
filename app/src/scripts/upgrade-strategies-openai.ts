@@ -3,6 +3,48 @@ import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
 import dotenv from "dotenv";
 import { OpenAI } from "openai";
+import fs from "fs";
+import path from "path";
+import {
+  BATCH_4_TARGETS,
+  BATCH_101_120_TARGETS,
+  BATCH_121_140_TARGETS,
+  BATCH_141_160_TARGETS,
+  BATCH_161_180_TARGETS,
+  BATCH_181_200_TARGETS,
+  BATCH_201_220_TARGETS,
+  BATCH_221_240_TARGETS,
+  BATCH_241_260_TARGETS,
+  BATCH_261_280_TARGETS,
+  BATCH_281_300_TARGETS,
+  BATCH_301_320_TARGETS,
+  BATCH_321_340_TARGETS,
+  BATCH_341_360_TARGETS,
+  BATCH_361_380_TARGETS,
+  BATCH_381_400_TARGETS,
+  BATCH_401_420_TARGETS,
+  BATCH_421_440_TARGETS,
+  BATCH_441_460_TARGETS,
+  BATCH_461_480_TARGETS,
+  BATCH_481_500_TARGETS,
+  BATCH_501_520_TARGETS,
+  BATCH_521_540_TARGETS,
+  BATCH_541_560_TARGETS,
+  BATCH_561_580_TARGETS,
+  BATCH_581_600_TARGETS,
+  BATCH_601_620_TARGETS,
+  BATCH_621_640_TARGETS,
+  BATCH_641_660_TARGETS,
+  BATCH_661_671_TARGETS,
+  BATCH_81_100_TARGETS,
+  BATCH_61_80_TARGETS,
+  PILOT_20_TARGETS,
+  getBatch4Directive,
+  getCorrectFamily as getRuleCorrectFamily,
+  getCorrectLevel as getRuleCorrectLevel,
+  namesMatchExpected,
+  overrideVisualModel as applyVisualModelOverrides,
+} from "./strategy-override-rules";
 
 dotenv.config();
 
@@ -107,8 +149,8 @@ You must return a single JSON object containing exactly TWO nested objects: "lea
     "sandboxInstructions": "string (how to practice in Chart Lab/Strategy Lab, what to mark/log)"
   },
   "visualModel": {
-    "visualCategory": "string (Must be exactly one of: Breakout / Retest Visual | Trend Continuation Visual | Range / Mean Reversion Visual | Supply / Demand Zone Visual | Liquidity Sweep / Trap Visual | Volatility / Trailing Stop Visual | Indicator Structure Visual | Multi-Timeframe Confluence Visual | Session / Time Window Visual | Order Flow / Imbalance Visual | Risk / Position Sizing Visual | Crypto Derivatives Visual | Gold Macro Reaction Visual | Forex Pair Strength Visual | Psychology / Process Audit Visual | Portfolio / Allocation Visual)",
-    "componentType": "string (suitable UI component e.g. CandlestickChart | OrderFlowBook | DerivativesDashboard | SizingCalculator | GoldMacroRealYieldChart)",
+    "visualCategory": "string (Must be exactly one of: Breakout / Retest Visual | Trend Continuation Visual | Range / Mean Reversion Visual | Supply / Demand Zone Visual | Liquidity Sweep / Trap Visual | Volatility / Trailing Stop Visual | Indicator Structure Visual | Multi-Timeframe Confluence Visual | Session / Time Window Visual | Order Flow / Imbalance Visual | Risk / Position Sizing Visual | Crypto Derivatives Visual | Gold Macro Reaction Visual | Forex Pair Strength Visual | Psychology / Process Audit Visual | Portfolio / Allocation Visual | Options Positioning Visual)",
+    "componentType": "string (suitable UI component e.g. CandlestickChart | ChannelBreakoutChart | MarketStructureChart | DonchianChannelBreakoutChart | SupertrendVolatilityChart | OrderFlowBook | DerivativesDashboard | SizingCalculator | GoldMacroRealYieldChart)",
     "chartTitle": "string (educational title for the visual)",
     "chartPurpose": "string (what the visual illustrates)",
     "marketConditionShown": "string (context drawn in the chart)",
@@ -171,7 +213,7 @@ function generateTrapMechanics(lp: any): string {
     `### Market Trap Mechanics`,
     `- **Risk Rules**: ${lp.riskRules}`,
     `- **Common Traps**: ${lp.commonTraps}`,
-    `- **Beginner Mistakes**: ${lp.beginnerMistakes}`
+    `- **Learner Mistakes**: ${lp.beginnerMistakes}`
   ].join("\n\n");
 }
 
@@ -275,6 +317,30 @@ function sanitizeAssetLanguage(obj: any, assetClass: string): any {
 function sanitizeTargetLanguage(obj: any): any {
   if (typeof obj === "string") {
     return obj
+      .replace(/\bstop-losses\b/gi, "invalidation lines")
+      .replace(/\bstop losses\b/gi, "invalidation lines")
+      .replace(/\bstop-loss orders\b/gi, "invalidation markers")
+      .replace(/\bstop-loss\b/gi, "invalidation line")
+      .replace(/\bstop loss\b/gi, "invalidation line")
+      .replace(/\bmoving stops to break-even\b/gi, "moving the simulation note to a protected state")
+      .replace(/\bbreak-even\b/gi, "protected simulation state")
+      .replace(/\bexact entry\b/gi, "activation area")
+      .replace(/\bentry zone\b/gi, "activation zone")
+      .replace(/\bentry trigger\b/gi, "activation trigger")
+      .replace(/\bentry\b/gi, "activation")
+      .replace(/\benter a long position\b/gi, "study a bullish activation")
+      .replace(/\benter a short position\b/gi, "study a bearish activation")
+      .replace(/\benter a long\b/gi, "study a bullish activation")
+      .replace(/\benter a short\b/gi, "study a bearish activation")
+      .replace(/\blong entry\b/gi, "bullish activation")
+      .replace(/\bshort entry\b/gi, "bearish activation")
+      .replace(/\bposition size\b/gi, "simulation size note")
+      .replace(/\bposition sizing\b/gi, "simulation sizing")
+      .replace(/\btrade size\b/gi, "simulation size")
+      .replace(/\btrading account\b/gi, "simulation journal")
+      .replace(/\baccount balance\b/gi, "simulation balance")
+      .replace(/\bper trade\b/gi, "for each practice idea")
+      .replace(/\bleading to losses\b/gi, "creating a failed read")
       .replace(/target\s+at\s+(\d+(\.\d+)?%)/gi, "educational target reference at the next structural level ($1)")
       .replace(/target\s+(\d+(\.\d+)?%)\s+profit/gi, "educational target reference at $1")
       .replace(/target\s+(\d+(\.\d+)?%)\s+level/gi, "educational target reference at $1")
@@ -594,6 +660,14 @@ async function main() {
   const limitArg = args.find(a => a.startsWith("--limit="))?.split("=")[1];
   const dryRun = args.includes("--dry-run");
   const strategyId = args.find(a => a.startsWith("--id="))?.split("=")[1];
+  const strategyIdsArg = args.find(a => a.startsWith("--ids="))?.split("=")[1];
+  const fromArg = args.find(a => a.startsWith("--from="))?.split("=")[1];
+  const toArg = args.find(a => a.startsWith("--to="))?.split("=")[1];
+  const expectFileArg = args.find(a => a.startsWith("--expect-file="))?.split("=")[1];
+  const pilot20 = args.includes("--pilot-20");
+  const allowOverwrite = args.includes("--allow-overwrite");
+  const finalBatch661671 = args.includes("--expect-batch-661-671");
+  const maxBatchSize = pilot20 ? 20 : finalBatch661671 ? 11 : 10;
   const limit = limitArg ? parseInt(limitArg) : 10;
 
   // Fetch all strategies and filter in memory to avoid Prisma Json null querying complications
@@ -607,16 +681,46 @@ async function main() {
   const totalCount = allDbStrategies.length;
   const pendingStrategies = allDbStrategies.filter((s: any) => !s.learningProfile || !s.visualModel);
   const pendingCount = pendingStrategies.length;
+  const ordinalById = new Map(allDbStrategies.map((s: any, index: number) => [s.id, index + 1]));
 
   console.log("--- STRATEGY CONTENT UPGRADE PROCESS START ---");
-  console.log(`Mode: ${dryRun ? "DRY RUN" : "LIVE DB UPDATE"}`);
+  console.log(`Mode: ${dryRun ? "DRY RUN SELECTION PREVIEW" : "LIVE DB UPDATE"}`);
   console.log(`Total Database Strategies: ${totalCount}`);
   console.log(`Strategies Needing Schema Upgrade: ${pendingCount}`);
-  console.log(`Limit: ${strategyId ? "Single Strategy" : limit}`);
+  console.log(`Limit: ${strategyId || strategyIdsArg || fromArg || toArg ? "Explicit Selection" : limit}`);
 
-  // Fetch strategies that need upgrading
   let strategies: any[] = [];
-  if (strategyId) {
+  if (strategyIdsArg) {
+    const ids = strategyIdsArg.split(",").map(id => id.trim()).filter(Boolean);
+    if (ids.length === 0) {
+      throw new Error("--ids was provided but no IDs were parsed.");
+    }
+    if (ids.length > maxBatchSize) {
+      throw new Error(`Selection safety stop: ${ids.length} IDs were provided. Maximum batch size is ${maxBatchSize}.`);
+    }
+    const dbById = new Map(allDbStrategies.map((s: any) => [s.id, s]));
+    strategies = ids.map(id => {
+      const strategy = dbById.get(id);
+      if (!strategy) {
+        throw new Error(`Selection safety stop: ID not found in database: ${id}`);
+      }
+      return strategy;
+    });
+  } else if (fromArg || toArg) {
+    if (!fromArg || !toArg) {
+      throw new Error("Selection safety stop: provide both --from and --to.");
+    }
+    const from = parseInt(fromArg, 10);
+    const to = parseInt(toArg, 10);
+    if (!Number.isInteger(from) || !Number.isInteger(to) || from < 1 || to < from) {
+      throw new Error(`Selection safety stop: invalid ordinal range --from=${fromArg} --to=${toArg}.`);
+    }
+    const count = to - from + 1;
+    if (count > maxBatchSize) {
+      throw new Error(`Selection safety stop: range selects ${count} strategies. Maximum batch size is ${maxBatchSize}.`);
+    }
+    strategies = allDbStrategies.slice(from - 1, to);
+  } else if (strategyId) {
     const s = await prisma.strategy.findUnique({ where: { id: strategyId } });
     if (s) strategies.push(s);
   } else {
@@ -629,6 +733,186 @@ async function main() {
     await pool.end();
     return;
   }
+  if (strategies.length > maxBatchSize) {
+    throw new Error(`Selection safety stop: ${strategies.length} strategies selected. Maximum batch size is ${maxBatchSize}.`);
+  }
+
+  const selectedRows = strategies.map((s: any) => ({
+    ordinal: ordinalById.get(s.id),
+    id: s.id,
+    name: s.name,
+    assetClass: s.assetClass,
+    sequenceNumber: s.sequenceNumber,
+    learningProfileStatus: s.learningProfile ? "present" : "missing",
+    visualModelStatus: s.visualModel ? "present" : "missing",
+  }));
+
+  console.log("\nSelected strategies before OpenAI or database writes:");
+  console.table(selectedRows);
+
+  const selectedAlreadyUpgraded = selectedRows.filter(row => row.learningProfileStatus === "present" || row.visualModelStatus === "present");
+  if (!allowOverwrite && selectedAlreadyUpgraded.length > 0) {
+    console.error("\nSelection safety stop: selected rows include existing upgraded content.");
+    selectedAlreadyUpgraded.forEach(row => console.error(`- ${row.ordinal}: ${row.name} (${row.id})`));
+    process.exit(1);
+  }
+
+  function loadExpectedTargets(filePath: string): typeof BATCH_4_TARGETS {
+    const resolved = path.isAbsolute(filePath) ? filePath : path.resolve(process.cwd(), filePath);
+    const parsed = JSON.parse(fs.readFileSync(resolved, "utf8"));
+    const targets = Array.isArray(parsed) ? parsed : parsed.targets;
+    if (!Array.isArray(targets)) {
+      throw new Error(`Selection safety stop: expected target file ${resolved} must contain an array or a { targets: [] } object.`);
+    }
+
+    return targets.map((target: any, index: number) => {
+      const ordinal = Number(target.ordinal);
+      if (!Number.isInteger(ordinal)) {
+        throw new Error(`Selection safety stop: target file row ${index + 1} is missing integer ordinal.`);
+      }
+      if (!target.id || !target.name || !target.assetClass) {
+        throw new Error(`Selection safety stop: target file row ${index + 1} must include id, name, and assetClass.`);
+      }
+      return {
+        ordinal,
+        id: String(target.id),
+        name: String(target.name),
+        assetClass: target.assetClass,
+      };
+    });
+  }
+
+  function assertExactTargets(label: string, targets: typeof BATCH_4_TARGETS) {
+    const mismatches: string[] = [];
+    if (selectedRows.length !== targets.length) {
+      mismatches.push(`Expected ${targets.length} strategies, selected ${selectedRows.length}.`);
+    }
+    targets.forEach((expected, index) => {
+      const actual = selectedRows[index];
+      if (!actual) return;
+      if (actual.ordinal !== expected.ordinal) mismatches.push(`Row ${index + 1}: expected ordinal ${expected.ordinal}, got ${actual.ordinal}.`);
+      if (actual.id !== expected.id) mismatches.push(`Row ${index + 1}: expected ID ${expected.id}, got ${actual.id}.`);
+      if (!namesMatchExpected(actual.name, expected.name)) mismatches.push(`Row ${index + 1}: expected name "${expected.name}", got "${actual.name}".`);
+      if (actual.assetClass !== expected.assetClass) mismatches.push(`Row ${index + 1}: expected asset ${expected.assetClass}, got ${actual.assetClass}.`);
+    });
+
+    if (mismatches.length > 0) {
+      console.error(`\nSelection safety stop: selected list does not exactly match ${label}.`);
+      mismatches.forEach(m => console.error(`- ${m}`));
+      process.exit(1);
+    }
+    console.log(`Selection guard passed: selected list exactly matches ${label}.`);
+  }
+
+  if (args.includes("--expect-batch-4")) {
+    assertExactTargets("Batch 4", BATCH_4_TARGETS);
+  }
+  if (args.includes("--expect-pilot-20")) {
+    assertExactTargets("Pilot 20", PILOT_20_TARGETS);
+  }
+  if (args.includes("--expect-batch-61-80")) {
+    assertExactTargets("Batch 61-80", BATCH_61_80_TARGETS);
+  }
+  if (args.includes("--expect-batch-81-100")) {
+    assertExactTargets("Batch 81-100", BATCH_81_100_TARGETS);
+  }
+  if (args.includes("--expect-batch-101-120")) {
+    assertExactTargets("Batch 101-120", BATCH_101_120_TARGETS);
+  }
+  if (args.includes("--expect-batch-121-140")) {
+    assertExactTargets("Batch 121-140", BATCH_121_140_TARGETS);
+  }
+  if (args.includes("--expect-batch-141-160")) {
+    assertExactTargets("Batch 141-160", BATCH_141_160_TARGETS);
+  }
+  if (args.includes("--expect-batch-161-180")) {
+    assertExactTargets("Batch 161-180", BATCH_161_180_TARGETS);
+  }
+  if (args.includes("--expect-batch-181-200")) {
+    assertExactTargets("Batch 181-200", BATCH_181_200_TARGETS);
+  }
+  if (args.includes("--expect-batch-201-220")) {
+    assertExactTargets("Batch 201-220", BATCH_201_220_TARGETS);
+  }
+  if (args.includes("--expect-batch-221-240")) {
+    assertExactTargets("Batch 221-240", BATCH_221_240_TARGETS);
+  }
+  if (args.includes("--expect-batch-241-260")) {
+    assertExactTargets("Batch 241-260", BATCH_241_260_TARGETS);
+  }
+  if (args.includes("--expect-batch-261-280")) {
+    assertExactTargets("Batch 261-280", BATCH_261_280_TARGETS);
+  }
+  if (args.includes("--expect-batch-281-300")) {
+    assertExactTargets("Batch 281-300", BATCH_281_300_TARGETS);
+  }
+  if (args.includes("--expect-batch-301-320")) {
+    assertExactTargets("Batch 301-320", BATCH_301_320_TARGETS);
+  }
+  if (args.includes("--expect-batch-321-340")) {
+    assertExactTargets("Batch 321-340", BATCH_321_340_TARGETS);
+  }
+  if (args.includes("--expect-batch-341-360")) {
+    assertExactTargets("Batch 341-360", BATCH_341_360_TARGETS);
+  }
+  if (args.includes("--expect-batch-361-380")) {
+    assertExactTargets("Batch 361-380", BATCH_361_380_TARGETS);
+  }
+  if (args.includes("--expect-batch-381-400")) {
+    assertExactTargets("Batch 381-400", BATCH_381_400_TARGETS);
+  }
+  if (args.includes("--expect-batch-401-420")) {
+    assertExactTargets("Batch 401-420", BATCH_401_420_TARGETS);
+  }
+  if (args.includes("--expect-batch-421-440")) {
+    assertExactTargets("Batch 421-440", BATCH_421_440_TARGETS);
+  }
+  if (args.includes("--expect-batch-441-460")) {
+    assertExactTargets("Batch 441-460", BATCH_441_460_TARGETS);
+  }
+  if (args.includes("--expect-batch-461-480")) {
+    assertExactTargets("Batch 461-480", BATCH_461_480_TARGETS);
+  }
+  if (args.includes("--expect-batch-481-500")) {
+    assertExactTargets("Batch 481-500", BATCH_481_500_TARGETS);
+  }
+  if (args.includes("--expect-batch-501-520")) {
+    assertExactTargets("Batch 501-520", BATCH_501_520_TARGETS);
+  }
+  if (args.includes("--expect-batch-521-540")) {
+    assertExactTargets("Batch 521-540", BATCH_521_540_TARGETS);
+  }
+  if (args.includes("--expect-batch-541-560")) {
+    assertExactTargets("Batch 541-560", BATCH_541_560_TARGETS);
+  }
+  if (args.includes("--expect-batch-561-580")) {
+    assertExactTargets("Batch 561-580", BATCH_561_580_TARGETS);
+  }
+  if (args.includes("--expect-batch-581-600")) {
+    assertExactTargets("Batch 581-600", BATCH_581_600_TARGETS);
+  }
+  if (args.includes("--expect-batch-601-620")) {
+    assertExactTargets("Batch 601-620", BATCH_601_620_TARGETS);
+  }
+  if (args.includes("--expect-batch-621-640")) {
+    assertExactTargets("Batch 621-640", BATCH_621_640_TARGETS);
+  }
+  if (args.includes("--expect-batch-641-660")) {
+    assertExactTargets("Batch 641-660", BATCH_641_660_TARGETS);
+  }
+  if (args.includes("--expect-batch-661-671")) {
+    assertExactTargets("Batch 661-671", BATCH_661_671_TARGETS);
+  }
+  if (expectFileArg) {
+    assertExactTargets(`target file ${expectFileArg}`, loadExpectedTargets(expectFileArg));
+  }
+
+  if (dryRun) {
+    console.log("\nDry run complete: stopped after selection preview. No OpenAI call made and no database write attempted.");
+    await prisma.$disconnect();
+    await pool.end();
+    return;
+  }
 
   const chunkSize = 5;
   for (let i = 0; i < strategies.length; i += chunkSize) {
@@ -637,19 +921,19 @@ async function main() {
     await Promise.all(chunk.map(async (s) => {
       console.log(`Upgrading strategy: "${s.name}" (ID: ${s.id}, Seq: ${s.sequenceNumber}, Asset: ${s.assetClass})`);
 
-      const level = getCorrectLevel(s.name, s.assetClass);
-      const correctFamily = getCorrectFamily(s.name, s.parentFamily);
+      const level = getRuleCorrectLevel(s.name, s.assetClass);
+      const correctFamily = getRuleCorrectFamily(s.name, s.parentFamily, s.assetClass);
 
       // Level-specific constraints to prevent future-concept leakage
       let levelConstraints = "";
       if (level === 1) {
         levelConstraints = "- Level 1 Constraint: Do NOT mention any indicators (e.g. EMA, SMA, RSI, MACD, Bollinger Bands) or session names (e.g., London session, NY session, Asian session, COMEX) or macro concepts. Focus strictly on price action, swings, and horizontal support/resistance.";
       } else if (level === 2) {
-        levelConstraints = "- Level 2 Constraint: Do NOT mention macro drivers (real yields, TIPS, DXY) or session names/timings (London open, Asian range, NY session, COMEX) or derivatives/funding. Focus strictly on indicator crossover rules, trend direction, and basic candle triggers.";
+        levelConstraints = "- Level 2 Constraint: Do NOT mention macro drivers (real yields, TIPS, DXY) or session names/timings (London open, Asian range, NY session, COMEX) or derivatives/funding. Focus strictly on simple indicator, band, channel, trend direction, and basic candle-trigger rules.";
       } else if (level === 3) {
         levelConstraints = "- Level 3 Constraint: Do NOT mention session names/timings (London open, Asian range, NY session, COMEX) or derivatives/funding. Focus on macro correlations, real yields, TIPS, and gold price movements.";
       } else if (level === 4) {
-        levelConstraints = "- Level 4 Constraint: Do NOT mention crypto derivatives (perps, funding rate, open interest) or on-chain metrics. Focus on session ranges, London Open breakouts, volatility, ATR, and session timings.";
+        levelConstraints = "- Level 4 Constraint: Do NOT mention crypto derivatives (perps, funding rate, open interest) or on-chain metrics. Focus on session ranges when the strategy is session-based, or volatility/ATR behavior when the strategy is volatility-based.";
       }
 
       const userPrompt = [
@@ -661,6 +945,9 @@ async function main() {
         "",
         "Level Constraints to Enforce:",
         levelConstraints,
+        "",
+        "Strategy-Specific Directive:",
+        getBatch4Directive(s.name, s.assetClass),
         "",
         "Draft Core Logic:",
         s.coreLogic,
@@ -694,10 +981,10 @@ async function main() {
 
         // Ensure correct level and family are stored
         result.learningProfile.level = level;
-        result.learningProfile.family = getCorrectFamily(s.name, s.parentFamily);
+        result.learningProfile.family = getRuleCorrectFamily(s.name, s.parentFamily, s.assetClass);
 
         // Apply programmatic category overrides to match visual component routes exactly
-        result.visualModel = overrideVisualModel(s.name, s.assetClass, result.visualModel);
+        result.visualModel = applyVisualModelOverrides(s.name, s.assetClass, result.visualModel);
 
         // Safeguard timeframes for swing/intraday breakouts
         if (s.name.toLowerCase().includes("swing") && s.name.toLowerCase().includes("breakout")) {

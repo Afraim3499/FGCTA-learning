@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { getUser } from "@/lib/auth-actions";
 import { getXPRank } from "./utils";
 import { logUserEvent } from "./analytics";
+import { getLegacyStrategyCode, getVaultStrategyRef } from "./strategy-curriculum";
 
 /**
  * Fetches all course levels and calculates the completion percentage for the current user.
@@ -197,11 +198,51 @@ export async function getModuleContent(moduleId: string) {
     },
   });
 
+  const vaultIds = (module.logicIds || [])
+    .filter((logicId) => logicId.startsWith("SV-"))
+    .map((logicId) => logicId.slice(3));
+
+  const linkedStrategies = vaultIds.length > 0
+      ? await prisma.strategy.findMany({
+        where: {
+          id: { in: vaultIds },
+        },
+        select: {
+          id: true,
+          name: true,
+          assetClass: true,
+          sequenceNumber: true,
+        },
+      })
+    : [];
+
+  const linkedStrategyByRef = new Map(
+    linkedStrategies.map((strategy) => [
+      getVaultStrategyRef(strategy.id),
+      {
+        logicId: getVaultStrategyRef(strategy.id),
+        name: strategy.name,
+        displayCode: getLegacyStrategyCode(strategy.assetClass, strategy.sequenceNumber),
+        assetClass: strategy.assetClass,
+      },
+    ])
+  );
+
+  const relatedStrategies = (module.logicIds || []).map((logicId) => (
+    linkedStrategyByRef.get(logicId) || {
+      logicId,
+      name: logicId,
+      displayCode: logicId,
+      assetClass: null,
+    }
+  ));
+
   return {
     ...module,
     completed: !!completion,
     prevModuleId,
     nextModuleId,
+    relatedStrategies,
   };
 }
 

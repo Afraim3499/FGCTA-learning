@@ -5,7 +5,14 @@ import { cn } from "@/lib/utils";
 import { NavaTrigger } from "@/components/nava/NavaTrigger";
 import { prisma } from "@/lib/prisma";
 import { getUser } from "@/lib/auth-actions";
-import { STRATEGIES_DATA, getStrategyLevel } from "@/lib/strategies-data";
+import { STRATEGIES_DATA } from "@/lib/strategies-data";
+import {
+  getLegacyStrategyCode,
+  getStrategyFamily,
+  getStrategyLevel,
+  getVaultStrategyRef,
+  strategyMatchesModule,
+} from "@/lib/strategy-curriculum";
 
 export default async function LevelPage({ params }: { params: Promise<{ levelId: string }> }) {
   const { levelId: levelIdStr } = await params;
@@ -17,6 +24,7 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
   const profile = await prisma.user.findUnique({
     where: { id: user.id },
     select: { 
+      isAdmin: true,
       progress: {
         select: { currentLevel: true }
       }
@@ -24,31 +32,64 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
   });
 
   const userLevel = profile?.progress?.currentLevel ?? 0;
+  const canBypassLocks = profile?.isAdmin || false;
 
   // Fetch strategies for this level
-  const dbStrategies = await prisma.strategy.findMany({
+  const allDbStrategies = await prisma.strategy.findMany({
     orderBy: { sequenceNumber: "asc" }
   });
+  const dbStrategies = allDbStrategies.filter((strategy: any) => (
+    strategy.learningProfile !== null && strategy.visualModel !== null
+  ));
+  const curriculumModules = await prisma.courseModule.findMany({
+    orderBy: [{ level: "asc" }, { orderIndex: "asc" }],
+    select: {
+      id: true,
+      level: true,
+      moduleNumber: true,
+      title: true,
+      logicIds: true,
+      strategyFamilies: true,
+    },
+  });
+  const completedModules = await prisma.moduleCompletion.findMany({
+    where: { userId: user.id },
+    select: { moduleId: true },
+  });
+  const completedModuleIds = new Set(completedModules.map(completion => completion.moduleId));
 
-  const staticNames = new Set(STRATEGIES_DATA.map(s => s.name.toLowerCase().trim()));
+  const upgradedNames = new Set(dbStrategies.map(s => s.name.toLowerCase().trim()));
 
   const mappedDb = dbStrategies
-    .filter(dbS => !staticNames.has(dbS.name.toLowerCase().trim()))
     .map(dbS => {
-      const level = getStrategyLevel(dbS.parentFamily, dbS.assetClass, dbS.sequenceNumber);
-      const prefix = dbS.assetClass === "CRYPTO" ? "CR" : dbS.assetClass === "GOLD" ? "GD" : "FX";
-      const logicId = `${prefix}-${String(dbS.sequenceNumber).padStart(3, "0")}`;
+      const logicId = getVaultStrategyRef(dbS.id);
+      const displayCode = getLegacyStrategyCode(dbS.assetClass, dbS.sequenceNumber);
+      const strategyShape = {
+        id: dbS.id,
+        logicId,
+        displayCode,
+        sequenceNumber: dbS.sequenceNumber,
+        assetClass: dbS.assetClass,
+        parentFamily: dbS.parentFamily,
+        learningProfile: dbS.learningProfile,
+      };
+      const linkedModule = curriculumModules.find(module => strategyMatchesModule(strategyShape, module));
+      const level = linkedModule?.level ?? getStrategyLevel(strategyShape);
 
       return {
         logicId,
+        displayCode,
         name: dbS.name,
-        family: dbS.parentFamily,
+        family: getStrategyFamily(strategyShape),
         level,
+        linkedModuleId: linkedModule?.id,
+        linkedModuleNumber: linkedModule?.moduleNumber,
         isDbStrategy: true,
       };
     });
 
-  const allStrategies = [...STRATEGIES_DATA, ...mappedDb];
+  const staticStrategies = STRATEGIES_DATA.filter(s => !upgradedNames.has(s.name.toLowerCase().trim()));
+  const allStrategies = [...staticStrategies, ...mappedDb];
   const levelStrategies = allStrategies.filter(s => s.level === levelId);
 
   // Group by family
@@ -170,7 +211,7 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
             <span className="text-[10px] font-black uppercase tracking-[0.25em] text-teal-600">Syllabus Guide</span>
             <h2 className="text-xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">Interactive Syllabus Map</h2>
             <p className="text-sm text-[var(--ln-text-secondary)] leading-relaxed max-w-xl font-medium">
-              Explore Level 0's complete 6-stage learning journey and 15-module card mapping, presented in detail by Nava.
+              Explore Level 0's complete 6-stage learning path and 15-module card mapping, presented in detail by Nava.
             </p>
           </div>
           <Link
@@ -233,7 +274,7 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
               <h2 className="text-2xl font-extrabold text-[var(--ln-navy-900)] uppercase tracking-tight">Level {levelId} Playbook & Reference Tools</h2>
             </div>
             <p className="text-sm text-[var(--ln-text-secondary)] font-medium max-w-2xl">
-              Study and practice these concepts in the Strategy Lab once unlocked. Locking is determined by your current progress level.
+              Study and practice these concepts in the Strategy Lab once unlocked. Mapped vault strategies unlock from their linked modules.
             </p>
           </div>
 
@@ -244,20 +285,23 @@ export default async function LevelPage({ params }: { params: Promise<{ levelId:
                   <h3 className="text-xs font-black uppercase tracking-wider text-[var(--ln-teal-600)] border-b border-slate-100 pb-2">{family}</h3>
                   <div className="space-y-2.5">
                     {list.map((strat) => {
-                      const isLocked = userLevel < levelId;
+                      const linkedModuleId = (strat as any).linkedModuleId;
+                      const isLocked = canBypassLocks ? false : linkedModuleId
+                        ? !completedModuleIds.has(linkedModuleId)
+                        : userLevel < levelId;
                       return (
                         <div key={strat.logicId} className={cn(
                           "flex items-center justify-between p-3.5 rounded-2xl border transition-all",
                           isLocked ? "bg-slate-50 border-slate-150 opacity-70" : "bg-white border-[var(--ln-border)] hover:border-[var(--ln-teal-500)]/25"
                         )}>
                           <div className="flex items-center gap-3">
-                            <span className="px-2 py-0.5 rounded bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] text-[9px] font-bold uppercase tracking-wider">{strat.logicId}</span>
+                            <span className="px-2 py-0.5 rounded bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] text-[9px] font-bold uppercase tracking-wider">{(strat as any).displayCode || strat.logicId}</span>
                             <span className="text-xs font-bold text-[var(--ln-navy-900)]">{strat.name}</span>
                           </div>
                           {isLocked ? (
                             <div className="flex items-center gap-1.5 text-[10px] font-semibold text-slate-500 bg-slate-200/50 px-2 py-1 rounded">
                               <Lock className="w-3 h-3 text-slate-400" />
-                              Lvl {levelId} Req
+                              {(strat as any).linkedModuleNumber ? `Module ${(strat as any).linkedModuleNumber} Req` : `Lvl ${levelId} Req`}
                             </div>
                           ) : (
                             <Link

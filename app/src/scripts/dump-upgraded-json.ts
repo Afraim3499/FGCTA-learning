@@ -23,41 +23,26 @@ const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  const countArg = process.argv.find(arg => arg.startsWith("--count="))?.split("=")[1];
-  const requestedCount = countArg ? parseInt(countArg, 10) : 40;
-  if (!Number.isInteger(requestedCount) || requestedCount <= 0) {
-    throw new Error(`Invalid --count value: ${countArg}`);
-  }
-
-  const allDbStrategies = await prisma.strategy.findMany({
+  const strategies = await prisma.strategy.findMany({
     orderBy: [
       { sequenceNumber: "asc" },
       { id: "asc" }
-    ]
+    ],
+    take: 10
   });
 
-  const upgraded = allDbStrategies
-    .filter((s: any) => s.learningProfile !== null && s.visualModel !== null)
-    .slice(0, requestedCount);
-  if (upgraded.length < requestedCount) {
-    throw new Error(`Requested ${requestedCount} upgraded strategies, but only ${upgraded.length} are ready.`);
-  }
-
-  const output = upgraded.map((s, index) => ({
-    ordinal: index + 1,
+  const output = strategies.map(s => ({
     id: s.id,
     name: s.name,
     assetClass: s.assetClass,
     sequenceNumber: s.sequenceNumber,
-    parentFamily: s.parentFamily,
     learningProfile: s.learningProfile,
     visualModel: s.visualModel
   }));
 
-  const outputPath = path.join(__dirname, `dumped_${requestedCount}_strategies.json`);
+  const outputPath = path.join(__dirname, "dumped_batch_1.json");
   fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
-  console.log(`Successfully dumped ${output.length} strategies to: ${outputPath}`);
-  console.log("Note: dump-upgraded-strategies.ts is the preferred export script for continuing batches.");
+  console.log(`Successfully dumped Batch 1 to: ${outputPath}`);
 
   await prisma.$disconnect();
   await pool.end();

@@ -89,6 +89,29 @@ function parseWalkthrough(text: string): { context: Record<string, string>; step
   return { context, steps };
 }
 
+function parseProfileWalkthrough(profile: any): { context: Record<string, string>; steps: TradeStep[] } {
+  const example = profile?.exampleWalkthrough;
+  if (!example) return { context: {}, steps: [] };
+
+  if (typeof example === "string") {
+    return {
+      context: { Example: example },
+      steps: [],
+    };
+  }
+
+  const context: Record<string, string> = {};
+  if (example.context) context["Market Context"] = example.context;
+
+  const steps: TradeStep[] = [
+    example.setup ? { label: "Setup", content: example.setup } : null,
+    example.outcome ? { label: "Outcome", content: example.outcome } : null,
+    example.lesson ? { label: "Review", content: example.lesson } : null,
+  ].filter(Boolean) as TradeStep[];
+
+  return { context, steps };
+}
+
 const STEP_BADGE_COLORS = [
   "bg-teal-50 text-teal-700 border-teal-100",
   "bg-blue-50 text-blue-700 border-blue-100",
@@ -101,10 +124,17 @@ const STEP_BADGE_COLORS = [
 export function StrategyTradeWalkthrough({ rawStrategy }: StrategyTradeWalkthroughProps) {
   const [showAll, setShowAll] = useState(false);
 
+  const profileWalkthrough = parseProfileWalkthrough(rawStrategy?.learningProfile);
   const wt = rawStrategy?.tradeWalkthrough || "";
-  if (!wt) return null;
+  if (!wt && profileWalkthrough.steps.length === 0 && Object.keys(profileWalkthrough.context).length === 0) return null;
 
-  const { context, steps } = parseWalkthrough(wt);
+  const parsedMarkdown = parseWalkthrough(wt);
+  const context = Object.keys(profileWalkthrough.context).length > 0
+    ? profileWalkthrough.context
+    : parsedMarkdown.context;
+  const steps = profileWalkthrough.steps.length > 0
+    ? profileWalkthrough.steps
+    : parsedMarkdown.steps;
 
   if (steps.length === 0 && Object.keys(context).length === 0) return null;
 

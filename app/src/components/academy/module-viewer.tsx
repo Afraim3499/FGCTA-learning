@@ -36,6 +36,12 @@ interface ModuleViewerProps {
     nextModuleId: string | null;
     strategyFamilies?: string[];
     logicIds?: string[];
+    relatedStrategies?: Array<{
+      logicId: string;
+      name: string;
+      displayCode: string;
+      assetClass: string | null;
+    }>;
     moduleNumber?: string;
     interactiveTaskType?: string | null;
     interactiveTaskData?: any;
@@ -223,7 +229,7 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
         }
       }
 
-      // If we are in a journey track and it doesn't end with a summary, append the core summary
+      // If we are in a market track and it doesn't end with a summary, append the core summary
       if (activeTab !== "core" && cards.length > 0 && cards[cards.length - 1].type !== "summary") {
         const coreSummary = coreCards.find((c: any) => c.type === "summary");
         if (coreSummary) {
@@ -354,10 +360,22 @@ export function ModuleViewer({ module, userTrack }: ModuleViewerProps) {
                 Related Strategies
               </div>
               <div className="space-y-2">
-                {module.logicIds.map((id) => (
-                  <div key={id} className="flex items-center justify-between p-3 bg-white border border-[var(--ln-border)] rounded-2xl shadow-sm">
-                    <span className="text-[10px] font-bold text-[var(--ln-navy-900)]">{id}</span>
-                    <Link href="/lab" className="text-[10px] font-extrabold text-[var(--ln-teal-500)] hover:text-[var(--ln-teal-600)] flex items-center gap-1 transition-colors">
+                {(module.relatedStrategies?.length ? module.relatedStrategies : module.logicIds.map((id) => ({
+                  logicId: id,
+                  name: id,
+                  displayCode: id,
+                  assetClass: null,
+                }))).map((strategy) => (
+                  <div key={strategy.logicId} className="flex items-center justify-between gap-3 p-3 bg-white border border-[var(--ln-border)] rounded-2xl shadow-sm">
+                    <div className="min-w-0">
+                      <div className="truncate text-[11px] font-extrabold text-[var(--ln-navy-900)]">
+                        {strategy.name}
+                      </div>
+                      <div className="text-[9px] font-bold text-[var(--ln-text-muted)] uppercase tracking-widest">
+                        {strategy.displayCode}{strategy.assetClass ? ` / ${strategy.assetClass}` : ""}
+                      </div>
+                    </div>
+                    <Link href={`/lab?strategy=${encodeURIComponent(strategy.logicId)}`} className="shrink-0 text-[10px] font-extrabold text-[var(--ln-teal-500)] hover:text-[var(--ln-teal-600)] flex items-center gap-1 transition-colors">
                       VIEW LAB <ExternalLink size={10} />
                     </Link>
                   </div>

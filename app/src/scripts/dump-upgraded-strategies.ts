@@ -24,26 +24,25 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   const countArg = process.argv.find(arg => arg.startsWith("--count="))?.split("=")[1];
-  const requestedCount = countArg ? parseInt(countArg, 10) : 40;
-  if (!Number.isInteger(requestedCount) || requestedCount <= 0) {
+  const requestedCount = countArg ? parseInt(countArg, 10) : undefined;
+  if (requestedCount !== undefined && (!Number.isInteger(requestedCount) || requestedCount <= 0)) {
     throw new Error(`Invalid --count value: ${countArg}`);
   }
 
   const allDbStrategies = await prisma.strategy.findMany({
     orderBy: [
       { sequenceNumber: "asc" },
-      { id: "asc" }
-    ]
+      { id: "asc" },
+    ],
   });
 
-  const upgraded = allDbStrategies
-    .filter((s: any) => s.learningProfile !== null && s.visualModel !== null)
-    .slice(0, requestedCount);
-  if (upgraded.length < requestedCount) {
+  const upgraded = allDbStrategies.filter((s: any) => s.learningProfile !== null && s.visualModel !== null);
+  if (requestedCount !== undefined && upgraded.length < requestedCount) {
     throw new Error(`Requested ${requestedCount} upgraded strategies, but only ${upgraded.length} are ready.`);
   }
 
-  const output = upgraded.map((s, index) => ({
+  const selected = requestedCount !== undefined ? upgraded.slice(0, requestedCount) : upgraded;
+  const output = selected.map((s: any, index: number) => ({
     ordinal: index + 1,
     id: s.id,
     name: s.name,
@@ -51,16 +50,19 @@ async function main() {
     sequenceNumber: s.sequenceNumber,
     parentFamily: s.parentFamily,
     learningProfile: s.learningProfile,
-    visualModel: s.visualModel
+    visualModel: s.visualModel,
   }));
 
-  const outputPath = path.join(__dirname, `dumped_${requestedCount}_strategies.json`);
+  const outputName = requestedCount ? `dumped_${requestedCount}_strategies.json` : "dumped_upgraded_strategies.json";
+  const outputPath = path.join(__dirname, outputName);
   fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
   console.log(`Successfully dumped ${output.length} strategies to: ${outputPath}`);
-  console.log("Note: dump-upgraded-strategies.ts is the preferred export script for continuing batches.");
 
   await prisma.$disconnect();
   await pool.end();
 }
 
-main().catch(err => console.error(err));
+main().catch(err => {
+  console.error(err);
+  process.exit(1);
+});

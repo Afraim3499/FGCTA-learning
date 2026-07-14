@@ -1,7 +1,17 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { STRATEGIES_DATA, StrategyDefinition, getStrategyLevel } from "@/lib/strategies-data";
+import { STRATEGIES_DATA } from "@/lib/strategies-data";
+import {
+  getCompletedStrategyRefs,
+  getLegacyStrategyCode,
+  getStrategyFamily,
+  getStrategyLevel,
+  getStrategyLinkedModules,
+  getStrategyRefs,
+  getVaultStrategyRef,
+  isStrategyUnlockedByCurriculum,
+} from "@/lib/strategy-curriculum";
 import { 
   Search, 
   BookOpen, 
@@ -32,6 +42,9 @@ interface StrategyLabClientProps {
   initialSavedAnalyses: any[];
   dbStrategies: any[];
   modules: any[];
+  completedStrategyRefs: string[];
+  initialStrategyRef?: string;
+  canBypassLocks?: boolean;
 }
 
 const PRIMARY_TABS = ["Core Concepts", "Market Logic", "Risk & Bias", "Saved"] as const;
@@ -66,6 +79,31 @@ function getSetupSummary(coreLogic: string): string {
   return lines[0].replace(/^\*?\s*/, '').trim();
 }
 
+function stringifyLearningValue(value: unknown): string {
+  if (!value) return "";
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) {
+    return value
+      .map(item => typeof item === "string" ? item : [item?.item, item?.action, item?.reason].filter(Boolean).join(": "))
+      .filter(Boolean)
+      .join("\n");
+  }
+  if (typeof value === "object") {
+    return Object.values(value as Record<string, unknown>).filter(Boolean).join("\n");
+  }
+  return String(value);
+}
+
+function getPracticeChecklistItems(strategy: any): string[] {
+  const checklist = strategy?.learningProfile?.practiceChecklist;
+  if (Array.isArray(checklist) && checklist.length > 0) {
+    return checklist
+      .map(item => typeof item === "string" ? item : item?.item)
+      .filter((item): item is string => typeof item === "string" && item.trim().length > 0);
+  }
+  return CHECKLIST_ITEMS;
+}
+
 const CHECKLIST_ITEMS = [
   "Identify the trend and key structure levels.",
   "Confirm a strong structural break with momentum.",
@@ -83,7 +121,10 @@ export function StrategyLabClient({
   completedModuleNumbers, 
   initialSavedAnalyses,
   dbStrategies,
-  modules
+  modules,
+  completedStrategyRefs,
+  initialStrategyRef,
+  canBypassLocks = false,
 }: StrategyLabClientProps) {
   const [activeTab, setActiveTab] = useState<PrimaryTab>("Core Concepts");
   const [search, setSearch] = useState("");
@@ -145,42 +186,81 @@ export function StrategyLabClient({
 
   // Merge and deduplicate database strategies
   const combinedStrategies = useMemo(() => {
-    const staticNames = new Set(STRATEGIES_DATA.map(s => s.name.toLowerCase().trim()));
+    const modulesWithCompletion = (modules || []).map(module => ({
+      ...module,
+      completed: completedModuleNumbers?.has?.(module.moduleNumber) || false,
+    }));
+    const upgradedNames = new Set(dbStrategies.map(dbS => dbS.name.toLowerCase().trim()));
+    const staticStrategies = STRATEGIES_DATA
+      .filter(staticStrategy => !upgradedNames.has(staticStrategy.name.toLowerCase().trim()))
+      .map(staticStrategy => ({
+        ...staticStrategy,
+        dbId: undefined,
+        displayCode: staticStrategy.logicId,
+        linkedModules: getStrategyLinkedModules(staticStrategy, modulesWithCompletion),
+        practiceChecklist: [
+          ...(staticStrategy.checklists?.entry || []),
+          ...(staticStrategy.checklists?.exit || []),
+          ...(staticStrategy.checklists?.invalidation || []),
+        ],
+      }));
 
     const mappedDb = dbStrategies
-      .filter(dbS => !staticNames.has(dbS.name.toLowerCase().trim()))
       .map(dbS => {
         const track: "crypto" | "gold" | "forex" = dbS.assetClass === "CRYPTO" ? "crypto" : dbS.assetClass === "GOLD" ? "gold" : "forex";
-        const level = getStrategyLevel(dbS.parentFamily, dbS.assetClass, dbS.sequenceNumber);
-        const prefix = dbS.assetClass === "CRYPTO" ? "CR" : dbS.assetClass === "GOLD" ? "GD" : "FX";
-        const logicId = `${prefix}-${String(dbS.sequenceNumber).padStart(3, "0")}`;
+        const learningProfile = dbS.learningProfile || {};
+        const logicId = getVaultStrategyRef(dbS.id);
+        const displayCode = getLegacyStrategyCode(dbS.assetClass, dbS.sequenceNumber);
+        const strategyShape = {
+          id: dbS.id,
+          logicId,
+          displayCode,
+          sequenceNumber: dbS.sequenceNumber,
+          assetClass: dbS.assetClass,
+          parentFamily: dbS.parentFamily,
+          learningProfile,
+        };
+        const family = getStrategyFamily(strategyShape);
+        const linkedModules = getStrategyLinkedModules(strategyShape, modulesWithCompletion);
+        const level = linkedModules[0]?.level ?? getStrategyLevel(strategyShape);
 
         return {
           logicId,
+          displayCode,
+          dbId: dbS.id,
           name: dbS.name,
-          family: dbS.parentFamily,
+          family,
           track,
           level,
-          setupSummary: getSetupSummary(dbS.coreLogic),
+          setupSummary: learningProfile.simpleExplanation || learningProfile.whyExists || getSetupSummary(dbS.coreLogic),
           checklists: {
-            entry: [],
+            entry: getPracticeChecklistItems({ learningProfile }),
             exit: [],
             invalidation: []
           },
-          riskNotes: dbS.trapMechanics || "",
+          riskNotes: stringifyLearningValue(learningProfile.commonTraps) || dbS.trapMechanics || "",
           metrics: {
             winRate: "50%",
             avgR: "2.0",
             complexity: "MED" as const
           },
-          linkedModuleNumber: "N/A",
+          linkedModuleNumber: linkedModules[0]?.moduleNumber || "N/A",
+          linkedModules,
           isDbStrategy: true,
           coreLogic: dbS.coreLogic,
           trapMechanics: dbS.trapMechanics,
           tradeWalkthrough: dbS.tradeWalkthrough || "",
+          learningProfile,
+          visualModel: dbS.visualModel,
+          practiceChecklist: getPracticeChecklistItems({ learningProfile }),
           practiceConfig: {
             prompt: `Practice identification for ${dbS.name}`,
-            guideSteps: ["Locate critical structural context.", "Identify standard entry points.", "Note key rejection signals."],
+            guideSteps: [
+              learningProfile.sandboxInstructions || "Locate the setup context on a clean chart.",
+              ...(Array.isArray(learningProfile.setupLogic)
+                ? learningProfile.setupLogic.slice(0, 2).map((step: any) => step.action).filter(Boolean)
+                : []),
+            ],
             reflection: ["Is this setup fully aligned?", "What is the primary driver?"],
             selfReview: ["I identified the core setup."],
             validationMode: "self" as const
@@ -188,12 +268,28 @@ export function StrategyLabClient({
         };
       });
 
-    return [...STRATEGIES_DATA, ...mappedDb];
-  }, [dbStrategies]);
+    return [...staticStrategies, ...mappedDb];
+  }, [dbStrategies, modules, completedModuleNumbers]);
 
   // Handle default initial selection
   useEffect(() => {
     if (combinedStrategies.length > 0 && !selectedStrategy) {
+      if (initialStrategyRef) {
+        const directMatch = combinedStrategies.find(s => {
+          const refs = new Set([
+            s.logicId,
+            s.displayCode,
+            s.dbId,
+            ...getStrategyRefs(s),
+          ].filter(Boolean));
+          return refs.has(initialStrategyRef);
+        });
+        if (directMatch) {
+          setSelectedStrategy(directMatch);
+          return;
+        }
+      }
+
       // Pick first active tab strategy
       const first = combinedStrategies.find(s => {
         let mappedTab: PrimaryTab = "Core Concepts";
@@ -210,7 +306,7 @@ export function StrategyLabClient({
       });
       if (first) setSelectedStrategy(first);
     }
-  }, [combinedStrategies, activeTab, selectedStrategy, userTrack]);
+  }, [combinedStrategies, activeTab, selectedStrategy, userTrack, initialStrategyRef]);
 
   const filteredStrategies = useMemo(() => {
     return combinedStrategies.filter(s => {
@@ -218,7 +314,9 @@ export function StrategyLabClient({
       const query = search.toLowerCase();
       
       const matchesSearch = safeLower(s.name).includes(query) || 
-                            safeLower(s.logicId).includes(query);
+                            safeLower(s.logicId).includes(query) ||
+                            safeLower(s.displayCode).includes(query) ||
+                            safeLower(s.dbId).includes(query);
       
       let mappedTab: PrimaryTab = "Core Concepts";
       if (s.level === 2) {
@@ -241,21 +339,45 @@ export function StrategyLabClient({
       const matchesAsset = assetFilter === "all" || s.track === assetFilter;
       const matchesLevel = levelFilter === "all" || String(s.level) === levelFilter;
       const matchesDifficulty = difficultyFilter === "all" || s.metrics?.complexity === difficultyFilter;
-      const matchesUnlocked = !unlockedOnly || currentLevel >= s.level;
+      const curriculumUnlocked = isStrategyUnlockedByCurriculum(
+        s,
+        completedStrategyRefs,
+        s.linkedModules || []
+      );
+      const hasCurriculumLinks = (s.linkedModules || []).length > 0;
+      const isUnlocked = canBypassLocks || (hasCurriculumLinks ? curriculumUnlocked : currentLevel >= s.level || curriculumUnlocked);
+      const matchesUnlocked = !unlockedOnly || isUnlocked;
 
       return matchesSearch && matchesTab && matchesTrack && matchesAsset && matchesLevel && matchesDifficulty && matchesUnlocked;
     });
-  }, [combinedStrategies, search, activeTab, assetFilter, levelFilter, difficultyFilter, unlockedOnly, bookmarkedIds, userTrack, currentLevel]);
+  }, [combinedStrategies, search, activeTab, assetFilter, levelFilter, difficultyFilter, unlockedOnly, bookmarkedIds, userTrack, currentLevel, completedStrategyRefs, canBypassLocks]);
 
   const handleSelectStrategy = (s: any) => {
     setSelectedStrategy(s);
   };
 
-  const isLocked = selectedStrategy ? currentLevel < selectedStrategy.level : false;
+  const isSelectedUnlockedByCurriculum = selectedStrategy
+    ? isStrategyUnlockedByCurriculum(
+        selectedStrategy,
+        completedStrategyRefs,
+        selectedStrategy.linkedModules || []
+      )
+    : false;
+  const selectedHasCurriculumLinks = (selectedStrategy?.linkedModules || []).length > 0;
+  const isLocked = selectedStrategy
+    ? canBypassLocks
+      ? false
+      : selectedHasCurriculumLinks
+        ? !isSelectedUnlockedByCurriculum
+        : currentLevel < selectedStrategy.level && !isSelectedUnlockedByCurriculum
+    : false;
   const parsed = useMemo(() => parseStrategyContent(selectedStrategy), [selectedStrategy]);
 
   const linkedModule = useMemo(() => {
     if (!selectedStrategy) return null;
+    if (selectedStrategy.linkedModules?.length > 0) {
+      return selectedStrategy.linkedModules[0];
+    }
     let match = modules?.find(m => m.moduleNumber === selectedStrategy.linkedModuleNumber);
     if (!match) {
       match = modules?.find(m => m.level === selectedStrategy.level);
@@ -264,6 +386,7 @@ export function StrategyLabClient({
   }, [selectedStrategy, modules]);
 
   const selectedChecklist = selectedStrategy ? (checklistProgress[selectedStrategy.logicId] || []) : [];
+  const activeChecklistItems = selectedStrategy ? getPracticeChecklistItems(selectedStrategy) : CHECKLIST_ITEMS;
 
   return (
     <div className="flex flex-col h-full gap-5 overflow-hidden pr-2">
@@ -399,7 +522,17 @@ export function StrategyLabClient({
           <div className="flex-1 overflow-y-auto space-y-2 pr-1 custom-scrollbar">
             {filteredStrategies.length > 0 ? (
               filteredStrategies.map((s) => {
-                const sLocked = currentLevel < s.level;
+                const curriculumUnlocked = isStrategyUnlockedByCurriculum(
+                  s,
+                  completedStrategyRefs,
+                  s.linkedModules || []
+                );
+                const hasCurriculumLinks = (s.linkedModules || []).length > 0;
+                const sLocked = canBypassLocks
+                  ? false
+                  : hasCurriculumLinks
+                    ? !curriculumUnlocked
+                    : currentLevel < s.level && !curriculumUnlocked;
                 const sParsed = parseStrategyContent(s);
                 const isSel = selectedStrategy?.logicId === s.logicId;
                 
@@ -417,7 +550,7 @@ export function StrategyLabClient({
                     )}
                   >
                     <div className="flex items-center justify-between w-full text-[9px] font-bold text-slate-400 uppercase tracking-wide">
-                      <span>{s.logicId}</span>
+                      <span>{s.displayCode || s.logicId}</span>
                       <div className="flex items-center gap-1">
                         {sLocked ? (
                           <span className="flex items-center gap-1 text-[8px] font-black text-slate-500 bg-slate-200 px-1.5 py-0.5 rounded">
@@ -484,7 +617,7 @@ export function StrategyLabClient({
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="px-2 py-0.5 rounded bg-[var(--ln-teal-soft)] text-[var(--ln-teal-600)] text-[9px] font-black uppercase">
-                        CONCEPT ID: {selectedStrategy.logicId}
+                        CONCEPT ID: {selectedStrategy.displayCode || selectedStrategy.logicId}
                       </span>
                       <span className="text-[9px] font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded uppercase">
                         {selectedStrategy.family}
@@ -612,12 +745,12 @@ export function StrategyLabClient({
                   </h3>
                 </div>
                 <span className="text-[10px] font-bold text-slate-400">
-                  {selectedChecklist.length} / {CHECKLIST_ITEMS.length}
+                  {selectedChecklist.length} / {activeChecklistItems.length}
                 </span>
               </div>
 
               <div className="space-y-3">
-                {CHECKLIST_ITEMS.map((item, index) => {
+                {activeChecklistItems.map((item, index) => {
                   const isChecked = selectedChecklist.includes(item);
                   return (
                     <button
