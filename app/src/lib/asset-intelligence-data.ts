@@ -1,5 +1,6 @@
 import { assetDeepBatch2Enhancements } from "./asset-intelligence-deep-batch-2";
 import { assetDeepBatch3Enhancements } from "./asset-intelligence-deep-batch-3";
+import { assetDeepBatch4Enhancements } from "./asset-intelligence-deep-batch-4";
 
 export type AssetClassKey = "crypto" | "forex" | "gold";
 export type AssetCoverageStatus = "ready" | "planned" | "archived";
@@ -7019,7 +7020,10 @@ const baseAssetProfiles: AssetProfile[] = [
 ];
 
 export const assetProfiles: AssetProfile[] = baseAssetProfiles.map((asset) => {
-  const enhancement = assetDeepBatch3Enhancements[asset.slug] ?? assetDeepBatch2Enhancements[asset.slug];
+  const enhancement =
+    assetDeepBatch4Enhancements[asset.slug] ??
+    assetDeepBatch3Enhancements[asset.slug] ??
+    assetDeepBatch2Enhancements[asset.slug];
   if (!enhancement) return asset;
 
   return {
