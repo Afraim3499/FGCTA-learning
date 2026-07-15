@@ -10,6 +10,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 * Before any strategy upgrade, curriculum link, strategy exam question, or strategy visual routing work, read and follow `STRATEGY_UPGRADE_STANDARD.md`.
 * That file is the source of truth for 10/10 strategy quality, learner-facing clarity, visual teaching quality, batch safety, and review of existing upgraded strategies.
 
+## 0A. Mandatory Asset Intelligence Final QA Standard
+* Before any release-readiness work on Markets pages, Asset Lab pages, asset navigation, asset SEO, source freshness, access control, legal review, analytics, or final Asset Intelligence QA, read and follow `ASSET_INTELLIGENCE_FINAL_QA_STANDARD.md`.
+* The route inventory for final Asset Intelligence QA must be generated from live `assetProfiles` with `npx tsx src/scripts/generate-asset-route-inventory.ts`. Do not hand-count the 142 public and paid asset routes.
+
 ## 1. Quality Standards & Tone Rules
 * **Tone & Vocabulary Restrictions**:
   - Never use vague motivational words, emotional adjectives, or profit promises.
