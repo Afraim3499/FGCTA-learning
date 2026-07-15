@@ -24,8 +24,6 @@ const restrictedWords = [
   "profit target",
 ];
 
-const deepDivePilotSlugs = new Set(["bitcoin", "us-dollar", "gold"]);
-
 const paidThresholds: Record<AssetClassKey, { sources: number; participants: number; events: number; risks: number; drivers: number; holdings: number }> = {
   crypto: { sources: 4, participants: 6, events: 6, risks: 5, drivers: 6, holdings: 5 },
   forex: { sources: 4, participants: 6, events: 6, risks: 5, drivers: 6, holdings: 5 },
@@ -131,7 +129,7 @@ function validateReadyAsset(asset: AssetProfile): string[] {
   if (asset.lab.researchRoutine.length < 5) errors.push("Paid profile needs at least 5 research routine steps.");
   if (asset.lab.relatedLessons.length < 2) errors.push("Paid profile needs related lessons.");
   if (asset.lab.relatedStrategies.length < 2) errors.push("Paid profile needs related Strategy Lab items.");
-  if (deepDivePilotSlugs.has(asset.slug)) errors.push(...validateProofAsset(asset));
+  if (asset.lab.deepDive) errors.push(...validateProofAsset(asset));
 
   const restricted = scanRestrictedWords(asset);
   if (restricted.length > 0) errors.push(`Restricted wording found: ${restricted.join(", ")}`);

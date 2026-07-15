@@ -1,3 +1,5 @@
+import { assetDeepBatch2Enhancements } from "./asset-intelligence-deep-batch-2";
+
 export type AssetClassKey = "crypto" | "forex" | "gold";
 export type AssetCoverageStatus = "ready" | "planned" | "archived";
 
@@ -1071,7 +1073,7 @@ export const coverageUniverse: CoverageAsset[] = [
   { rank: 1, slug: "gold", name: "Gold", symbol: "XAU", assetClass: "gold", status: "ready" },
 ];
 
-export const assetProfiles: AssetProfile[] = [
+const baseAssetProfiles: AssetProfile[] = [
   {
     slug: "bitcoin",
     name: "Bitcoin",
@@ -7014,6 +7016,20 @@ export const assetProfiles: AssetProfile[] = [
     },
   },
 ];
+
+export const assetProfiles: AssetProfile[] = baseAssetProfiles.map((asset) => {
+  const enhancement = assetDeepBatch2Enhancements[asset.slug];
+  if (!enhancement) return asset;
+
+  return {
+    ...asset,
+    ...enhancement,
+    lab: {
+      ...asset.lab,
+      ...(enhancement.lab ?? {}),
+    },
+  };
+});
 
 export function assetClassLabel(assetClass: AssetClassKey): string {
   if (assetClass === "crypto") return "Crypto";
