@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
+import { AssetEducationNotice } from "@/components/asset-intelligence/AssetEducationNotice";
 import {
   assetClassLabel,
   assetLabHref,
@@ -177,6 +178,10 @@ export default async function PublicAssetPage({ params }: PageProps) {
                     See Training Structure
                   </Link>
                 </div>
+
+                <div className="max-w-3xl">
+                  <AssetEducationNotice compact />
+                </div>
               </div>
 
               <aside className="rounded-[2rem] border border-[var(--ln-border)] bg-white p-5 shadow-[0_24px_70px_rgba(8,26,54,0.12)]">
@@ -329,6 +334,9 @@ export default async function PublicAssetPage({ params }: PageProps) {
               <p className="mt-4 text-sm leading-7 text-[var(--ln-text-secondary)]">
                 Lurnava teaches asset study before trade decisions. A learner should know what can weaken an idea before treating any market as tradable.
               </p>
+              <div className="mt-5">
+                <AssetEducationNotice compact />
+              </div>
             </div>
             <div className="grid gap-4">
               {asset.publicRisks.map((risk) => (

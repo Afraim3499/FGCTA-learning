@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Database, Globe2, LineChart, Radar, ShieldCheck } from "lucide-react";
 import { redirect } from "next/navigation";
 import { AssetLabAccessNotice } from "@/components/asset-lab/AssetLabAccessNotice";
+import { AssetEducationNotice } from "@/components/asset-intelligence/AssetEducationNotice";
 import { getAssetLabAccessState } from "@/lib/asset-lab-access";
 import {
   assetClassLabel,
@@ -43,6 +44,9 @@ export default async function AssetLabPage() {
               <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--ln-text-secondary)]">
                 Asset Lab is the research layer for Lurnava learners. It connects market identity, drivers, participants, historical events, correlations, risks, related lessons, and Strategy Lab items in one platform workspace.
               </p>
+              <div className="mt-5 max-w-3xl">
+                <AssetEducationNotice compact />
+              </div>
             </div>
           </div>
 

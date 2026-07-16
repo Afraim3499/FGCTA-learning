@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, BarChart3, CalendarCheck, CheckCircle2, Globe2, LockKeyhole, Search, ShieldCheck } from "lucide-react";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
+import { AssetEducationNotice } from "@/components/asset-intelligence/AssetEducationNotice";
 import {
   assetClassLabel,
   assetLabHref,
@@ -98,6 +99,10 @@ export default function MarketsPage() {
                   >
                     View Curriculum
                   </Link>
+                </div>
+
+                <div className="max-w-3xl">
+                  <AssetEducationNotice compact />
                 </div>
               </div>
 
@@ -229,6 +234,9 @@ export default function MarketsPage() {
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300">
               Inside Lurnava, learners study assets through deeper dashboards, related lessons, Strategy Lab links, risk maps, and certification checks.
             </p>
+            <div className="mx-auto mt-6 max-w-2xl text-left">
+              <AssetEducationNotice tone="dark" compact />
+            </div>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Link href="/register" className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-7 py-4 text-sm font-black text-[var(--ln-navy-900)] transition hover:bg-slate-100">
                 Enter Training Platform

@@ -76,7 +76,7 @@ export function Footer() {
             © {new Date().getFullYear()} Lurnava Academy. All rights reserved.
           </p>
           <p className="text-[9px] text-slate-500 uppercase tracking-widest text-right">
-            Educational content only. No financial advice or trade calls. Trading involves risk.
+            Education only. No personal financial advice or trade directions. Markets involve risk.
           </p>
         </div>
       </div>

@@ -23,6 +23,7 @@ import type { AssetProfile } from "@/lib/asset-intelligence-data";
 import { assetClassLabel, publicAssetHref } from "@/lib/asset-intelligence-data";
 import { relatedLessonHref, relatedStrategyLabHref } from "@/lib/asset-navigation";
 import { cn } from "@/lib/utils";
+import { AssetEducationNotice } from "@/components/asset-intelligence/AssetEducationNotice";
 
 type AssetLabDetailClientProps = {
   asset: AssetProfile;
@@ -107,6 +108,10 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
+        </div>
+
+        <div className="border-b border-[var(--ln-border)] bg-[var(--ln-bg-soft)] px-4 py-4 sm:px-6 lg:px-8">
+          <AssetEducationNotice compact />
         </div>
 
         <div className="border-b border-[var(--ln-border)] bg-white px-4 py-3 lg:hidden">

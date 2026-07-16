@@ -1,69 +1,135 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { AlertTriangle, BookOpenCheck, ShieldAlert } from "lucide-react";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
+
+export const metadata: Metadata = {
+  title: "Financial Disclaimer | Lurnava Academy",
+  description:
+    "Read Lurnava Academy's education-only disclaimer for market lessons, practice scenarios, Asset Intelligence, Strategy Lab, and learning records.",
+  alternates: {
+    canonical: "/disclaimer",
+  },
+};
 
 export default function DisclaimerPage() {
   return (
     <div className="min-h-screen bg-[var(--ln-bg)] text-[var(--ln-text-primary)] overflow-x-hidden">
       <Navbar />
-      <article className="pt-40 pb-20 px-6 lg:px-8 max-w-3xl mx-auto prose prose-slate prose-sm prose-headings:tracking-tight prose-headings:font-bold prose-headings:text-[var(--ln-navy-900)] prose-p:text-[var(--ln-text-secondary)] prose-p:leading-relaxed prose-li:text-[var(--ln-text-secondary)] prose-strong:text-[var(--ln-navy-900)]">
-        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--ln-teal-500)] !mb-2">Legal</p>
-        <h1 className="!text-4xl !mb-4 !text-[var(--ln-navy-900)]">Financial Disclaimer</h1>
-        <p className="!text-xs !text-[var(--ln-text-muted)]">Last updated: April 2026</p>
 
-        <div className="!p-6 !bg-rose-50 !border !border-rose-200 !rounded-2xl !not-prose !mb-8">
-          <p className="text-sm text-rose-600 font-bold mb-3">⚠ IMPORTANT NOTICE</p>
-          <p className="text-sm text-[var(--ln-text-secondary)] leading-relaxed font-medium">
-            Lurnava Academy is an <strong className="text-[var(--ln-navy-900)]">educational platform only</strong>.
-            Nothing on this platform constitutes financial advice, investment advice, trading advice, or any
-            other form of professional financial guidance.
-          </p>
-        </div>
+      <main className="px-6 pb-24 pt-36 lg:px-8 lg:pt-44">
+        <section className="mx-auto max-w-5xl">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[var(--ln-border)] bg-white px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[var(--ln-teal-500)]">
+            <ShieldAlert className="h-4 w-4" />
+            Legal notice
+          </div>
 
-        <h2>What We Are</h2>
-        <p>Lurnava Academy is a market education company. We provide:</p>
-        <ul>
-          <li>Structured educational content about financial markets and chart reading.</li>
-          <li>Visual lessons and guided practice for building market awareness.</li>
-          <li>Knowledge tests to validate understanding of concepts.</li>
-          <li>Analytics tools for self-assessment and improvement.</li>
-        </ul>
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+            <article className="rounded-2xl border border-[var(--ln-border)] bg-white p-6 shadow-sm lg:p-10">
+              <p className="text-xs font-bold text-[var(--ln-text-muted)]">Last updated: July 2026</p>
+              <h1 className="mt-4 text-4xl font-black tracking-tight text-[var(--ln-navy-900)] lg:text-5xl">
+                Financial Disclaimer
+              </h1>
+              <p className="mt-5 text-sm leading-7 text-[var(--ln-text-secondary)]">
+                Lurnava Academy is an education platform. We teach market concepts, asset research, chart reading, practice routines, and assessment workflows. We do not provide personal financial advice, brokerage services, investment management, trade directions, or account funding.
+              </p>
 
-        <h2>What We Are NOT</h2>
-        <ul>
-          <li><strong>Not a broker or dealer.</strong> We do not execute trades on real markets.</li>
-          <li><strong>Not a financial advisor.</strong> We do not provide personalized investment advice.</li>
-          <li><strong>Not a prop trading firm.</strong> We do not manage real capital or offer funded accounts.</li>
-          <li><strong>Not an investment company.</strong> We do not pool or invest funds.</li>
-          <li><strong>Not a signal service.</strong> Our curriculum teaches methodology, not trade recommendations.</li>
-        </ul>
+              <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+                <div className="flex gap-3">
+                  <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
+                  <p className="text-sm font-bold leading-7 text-amber-900">
+                    Markets involve risk. Forex, crypto, gold, derivatives, and leveraged products can move quickly and may cause financial loss. Lurnava lessons and practice results do not predict future market results.
+                  </p>
+                </div>
+              </div>
 
-        <h2>Practice Environment Disclaimer</h2>
-        <p>Any practice activities on our platform use <strong>virtual scenarios only</strong>. No real money is at risk at any time. Practice results:</p>
-        <ul>
-          <li>Do NOT represent real trading results.</li>
-          <li>Do NOT guarantee future performance in real markets.</li>
-          <li>Are designed for educational assessment purposes only.</li>
-          <li>May differ significantly from real market conditions.</li>
-        </ul>
+              <div className="mt-10 space-y-8">
+                <section>
+                  <h2 className="text-2xl font-black text-[var(--ln-navy-900)]">What Lurnava Provides</h2>
+                  <ul className="mt-4 space-y-3 text-sm font-bold leading-7 text-[var(--ln-text-secondary)]">
+                    <li>Structured market education and visual lessons.</li>
+                    <li>Practice scenarios that use simulated conditions.</li>
+                    <li>Asset Intelligence pages for research, source review, and market context.</li>
+                    <li>Strategy Lab pages for classroom study of setup logic and visual models.</li>
+                    <li>Learning records that verify coursework and assessment progress.</li>
+                  </ul>
+                </section>
 
-        <h2>Trading Risk Warning</h2>
-        <p><strong>Trading financial instruments involves substantial risk of financial loss.</strong></p>
-        <ul>
-          <li>Forex, cryptocurrency, and gold markets are highly volatile.</li>
-          <li>You can lose more than your initial investment, especially when using leverage.</li>
-          <li>Past performance — in practice or in real markets — does not guarantee future results.</li>
-          <li>Only trade with capital you can afford to lose.</li>
-        </ul>
+                <section>
+                  <h2 className="text-2xl font-black text-[var(--ln-navy-900)]">What Lurnava Does Not Provide</h2>
+                  <ul className="mt-4 space-y-3 text-sm font-bold leading-7 text-[var(--ln-text-secondary)]">
+                    <li>We are not a broker, dealer, exchange, investment adviser, prop trading firm, or investment company.</li>
+                    <li>We do not execute trades, custody funds, pool investor money, or manage user capital.</li>
+                    <li>We do not provide personalized recommendations, trade alerts, copy-trading instructions, or portfolio management.</li>
+                    <li>We do not promise market results, employment outcomes, funded accounts, or returns.</li>
+                  </ul>
+                </section>
 
-        <h2>Professional Advice</h2>
-        <p><strong>Before trading with real capital, consult a licensed financial professional.</strong> Our educational content is designed to build skill and knowledge, but the decision to trade real money should be made with professional guidance appropriate to your individual financial situation, risk tolerance, and investment objectives.</p>
+                <section>
+                  <h2 className="text-2xl font-black text-[var(--ln-navy-900)]">Practice And Assessment Limits</h2>
+                  <p className="mt-4 text-sm font-bold leading-7 text-[var(--ln-text-secondary)]">
+                    Practice scenarios are educational simulations. They may not reflect real liquidity, slippage, spreads, fees, execution delay, emotional pressure, taxation, or broker rules. Assessment scores and certificates show learning progress inside Lurnava only.
+                  </p>
+                </section>
 
-        <h2>Limitation of Liability</h2>
-        <p>Lurnava Academy, its officers, directors, employees, and affiliates shall not be held liable for any financial losses incurred as a result of applying strategies, techniques, or knowledge gained through the platform in real-market trading.</p>
+                <section>
+                  <h2 className="text-2xl font-black text-[var(--ln-navy-900)]">Real-Market Decisions</h2>
+                  <p className="mt-4 text-sm font-bold leading-7 text-[var(--ln-text-secondary)]">
+                    Any real-market decision is your responsibility. Before using real capital, consider your financial situation, risk tolerance, jurisdiction, tax treatment, and whether you need guidance from a properly licensed professional.
+                  </p>
+                </section>
 
-        <h2>Contact</h2>
-        <p>For questions about this disclaimer, contact us at legal@lurnava.com.</p>
-      </article>
+                <section>
+                  <h2 className="text-2xl font-black text-[var(--ln-navy-900)]">Asset Intelligence And Sources</h2>
+                  <p className="mt-4 text-sm font-bold leading-7 text-[var(--ln-text-secondary)]">
+                    Asset Intelligence pages use public sources and review dates to teach market context. Fast-changing holdings, reserves, TVL, flows, rates, and market metrics can become outdated after review. Treat those items as research references, not current instructions.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-black text-[var(--ln-navy-900)]">Limitation Of Liability</h2>
+                  <p className="mt-4 text-sm font-bold leading-7 text-[var(--ln-text-secondary)]">
+                    Lurnava Academy, its owners, team members, contractors, and affiliates are not liable for losses or damages connected to real-market activity, personal financial choices, third-party platforms, broker behavior, exchange behavior, or reliance on educational material.
+                  </p>
+                </section>
+              </div>
+            </article>
+
+            <aside className="space-y-4">
+              <div className="rounded-2xl border border-[var(--ln-border)] bg-[var(--ln-navy-900)] p-5 text-white">
+                <BookOpenCheck className="h-6 w-6 text-[var(--ln-teal-400)]" />
+                <p className="mt-4 text-[10px] font-black uppercase tracking-[0.2em] text-[var(--ln-teal-400)]">
+                  Read this first
+                </p>
+                <p className="mt-3 text-sm font-bold leading-7 text-slate-300">
+                  Lurnava helps learners study markets. It does not decide what anyone should do with money.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[var(--ln-border)] bg-white p-5 shadow-sm">
+                <h2 className="text-lg font-black text-[var(--ln-navy-900)]">Related pages</h2>
+                <div className="mt-4 space-y-2">
+                  {[
+                    { label: "Terms of Service", href: "/terms" },
+                    { label: "Privacy Policy", href: "/privacy" },
+                    { label: "Market Guides", href: "/markets" },
+                  ].map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-black text-[var(--ln-text-secondary)] transition hover:bg-[var(--ln-teal-soft)] hover:text-[var(--ln-navy-900)]"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+
       <Footer />
     </div>
   );

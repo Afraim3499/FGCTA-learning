@@ -1,0 +1,731 @@
+{
+  "startedAt": "2026-07-16T04:00:29.498Z",
+  "finishedAt": "2026-07-16T04:00:30.369Z",
+  "baseUrl": "http://localhost:3000",
+  "summary": {
+    "publicRoutesChecked": 71,
+    "sourceFilesScanned": 18,
+    "highRiskSourceMatches": 0,
+    "publicRoutesMissingNotice": 0,
+    "publicRoutesMissingDisclaimerLink": 0,
+    "publicRoutesMissingRiskLanguage": 0,
+    "issues": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0
+    }
+  },
+  "referenceBasis": [
+    {
+      "name": "SEC investor education resources",
+      "url": "https://www.sec.gov/resources-investors",
+      "relevance": "Supports education-first framing and investor risk awareness."
+    },
+    {
+      "name": "CFTC virtual currency customer advisory",
+      "url": "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html",
+      "relevance": "Supports explicit crypto risk and fraud caution language."
+    },
+    {
+      "name": "FINRA crypto asset risk education",
+      "url": "https://www.finra.org/investors/investing/investment-products/crypto-assets/risks",
+      "relevance": "Supports volatility, liquidity, and loss-risk framing for digital assets."
+    }
+  ],
+  "staticChecks": [
+    {
+      "name": "public-asset-education-notice",
+      "status": "pass",
+      "details": "Public asset detail pages render the education-only notice."
+    },
+    {
+      "name": "markets-index-education-notice",
+      "status": "pass",
+      "details": "Markets index renders education-only framing before conversion."
+    },
+    {
+      "name": "paid-asset-lab-education-notice",
+      "status": "pass",
+      "details": "Paid Asset Lab detail workspace renders education-only framing."
+    },
+    {
+      "name": "asset-lab-index-education-notice",
+      "status": "pass",
+      "details": "Asset Lab index renders education-only framing."
+    },
+    {
+      "name": "disclaimer-current-scope",
+      "status": "pass",
+      "details": "Disclaimer covers Asset Intelligence, learning records, advice limits, and result limits."
+    },
+    {
+      "name": "record-limitation-public",
+      "status": "pass",
+      "details": "Public verification page limits the meaning of records."
+    },
+    {
+      "name": "record-limitation-dashboard",
+      "status": "pass",
+      "details": "Dashboard records page limits the meaning of records."
+    },
+    {
+      "name": "footer-disclaimer-link",
+      "status": "pass",
+      "details": "Footer links to the disclaimer and repeats education-only framing."
+    }
+  ],
+  "publicRoutes": [
+    {
+      "path": "/markets/crypto/bitcoin",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/ethereum",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/tether",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/usd-coin",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/bnb",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/solana",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/xrp",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/dogecoin",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/cardano",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/tron",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/toncoin",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/avalanche",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/chainlink",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/shiba-inu",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/polkadot",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/bitcoin-cash",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/litecoin",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/uniswap",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/aptos",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/near-protocol",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/ethereum-classic",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/internet-computer",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/filecoin",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/cosmos",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/arbitrum",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/optimism",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/sui",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/pepe",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/dogwifhat",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/injective",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/render",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/aave",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/maker",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/lido-dao",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/celestia",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/sei",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/stacks",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/hedera",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/stellar",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/monero",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/okb",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/cronos",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/polygon",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/algorand",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/vechain",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/fetch-ai",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/thorchain",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/the-graph",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/pyth-network",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/crypto/jupiter",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/us-dollar",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/euro",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/japanese-yen",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/british-pound",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/chinese-yuan",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/australian-dollar",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/canadian-dollar",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/swiss-franc",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/hong-kong-dollar",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/singapore-dollar",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/swedish-krona",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/south-korean-won",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/mexican-peso",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/new-zealand-dollar",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/norwegian-krone",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/indian-rupee",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/turkish-lira",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/south-african-rand",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/brazilian-real",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/forex/danish-krone",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    },
+    {
+      "path": "/markets/gold/gold",
+      "status": 200,
+      "hasEducationNotice": true,
+      "hasDisclaimerLink": true,
+      "hasRiskLanguage": true,
+      "highRiskMarkers": []
+    }
+  ],
+  "sourceScans": [
+    {
+      "file": "src/lib/asset-intelligence-data.ts",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/lib/asset-intelligence-deep-batch-2.ts",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/lib/asset-intelligence-deep-batch-3.ts",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/lib/asset-intelligence-deep-batch-4.ts",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/lib/asset-intelligence-deep-batch-5.ts",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/lib/asset-intelligence-deep-batch-6.ts",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/lib/asset-intelligence-deep-batch-7.ts",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/lib/asset-intelligence-deep-batch-8.ts",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/app/(marketing)/markets/page.tsx",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/app/(marketing)/markets/[assetClass]/[slug]/page.tsx",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/app/(dashboard)/asset-lab/page.tsx",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/components/asset-lab/AssetLabDetailClient.tsx",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/components/asset-intelligence/AssetEducationNotice.tsx",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/app/(marketing)/disclaimer/page.tsx",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/app/(marketing)/outcomes/page.tsx",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/app/(marketing)/verify/[certId]/page.tsx",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/app/(dashboard)/dashboard/records/page.tsx",
+      "highRiskMatches": []
+    },
+    {
+      "file": "src/components/marketing/footer.tsx",
+      "highRiskMatches": []
+    }
+  ],
+  "authenticatedPaid": {
+    "configured": false,
+    "routesChecked": 0,
+    "passed": 0,
+    "failed": 0,
+    "notes": [
+      "Set ASSET_QA_PAID_EMAIL/ASSET_QA_PAID_PASSWORD or ASSET_QA_EMAIL/ASSET_QA_PASSWORD to crawl authenticated paid pages."
+    ]
+  },
+  "issues": []
+}

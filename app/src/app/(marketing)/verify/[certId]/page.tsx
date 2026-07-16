@@ -103,6 +103,9 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
                   ID: {cert.certIdPublic.split('-').join('')}
                 </div>
               </div>
+              <p className="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-xs font-bold leading-6 text-slate-500">
+                This record verifies learning progress and assessment results inside Lurnava. It is not a license, financial credential, employment promise, or market-performance claim.
+              </p>
             </div>
           </div>
         ) : (

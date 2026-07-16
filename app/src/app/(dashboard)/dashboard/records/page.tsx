@@ -27,6 +27,9 @@ export default async function LearningRecordPage() {
               Official records of your Academy learning progress and achievements.
             </p>
           </div>
+          <p className="mt-2 max-w-2xl text-xs font-bold leading-6 text-slate-500">
+            Records verify coursework and assessment progress only. They are not financial credentials, employment promises, or market-performance claims.
+          </p>
         </div>
       </section>
 
