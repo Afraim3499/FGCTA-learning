@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
+import { loadPlaywrightChromium, type BrowserLike, type PageLike } from "./playwright-runtime";
 import {
   assetClassLabel,
   getReadyAssetProfiles,
@@ -37,32 +38,6 @@ type RenderedMetrics = {
   ctaTexts: string[];
   articleTagCount: number;
   maxParagraphLength: number;
-};
-
-type ResponseLike = {
-  status(): number;
-};
-
-type PageLike = {
-  goto(url: string, options: { waitUntil: "domcontentloaded"; timeout: number }): Promise<ResponseLike | null>;
-  waitForLoadState(state: "networkidle", options: { timeout: number }): Promise<void>;
-  waitForTimeout(milliseconds: number): Promise<void>;
-  evaluate<T = unknown>(pageFunction: string): Promise<T>;
-  close(): Promise<void>;
-};
-
-type BrowserContextLike = {
-  newPage(): Promise<PageLike>;
-  close(): Promise<void>;
-};
-
-type BrowserLike = {
-  newContext(options: { viewport: { width: number; height: number } }): Promise<BrowserContextLike>;
-  close(): Promise<void>;
-};
-
-type ChromiumLike = {
-  launch(options: { headless: boolean }): Promise<BrowserLike>;
 };
 
 type CopyScorecard = {
@@ -219,19 +194,6 @@ const phase5PreviousCtasByPath: Record<string, string> = {
   "/markets/forex/south-african-rand":
     "Use the paid Asset Lab to connect ZAR policy, metal exports, reserve data, fiscal risk, infrastructure pressure, and practical pair execution.",
 };
-
-async function loadPlaywrightChromium(): Promise<ChromiumLike> {
-  const loadPackage = new Function("specifier", "return import(specifier)") as (specifier: string) => Promise<{ chromium: ChromiumLike }>;
-
-  try {
-    const playwright = await loadPackage("playwright");
-    return playwright.chromium;
-  } catch (error) {
-    throw new Error(
-      `Rendered conversion QA requires Playwright at runtime. Install it locally before running with ASSET_CONVERSION_BASE_URL. Original error: ${error instanceof Error ? error.message : String(error)}`
-    );
-  }
-}
 
 function normalizeBaseUrl(baseUrl: string) {
   return baseUrl.replace(/\/+$/, "");

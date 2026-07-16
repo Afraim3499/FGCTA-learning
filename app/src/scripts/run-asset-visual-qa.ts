@@ -1,6 +1,6 @@
-import { chromium, type BrowserContext, type Page } from "playwright";
 import fs from "fs/promises";
 import path from "path";
+import { loadPlaywrightChromium, type BrowserContextLike as BrowserContext, type PageLike as Page } from "./playwright-runtime";
 
 type RouteType = "public" | "paid";
 type Severity = "blocker" | "major" | "minor";
@@ -886,6 +886,7 @@ async function run() {
   console.log(`Routes: ${publicRoutes.length + paidRoutes.length}`);
   console.log(`Viewports: ${activeViewports.map((viewport) => `${viewport.width}x${viewport.height}`).join(", ")}`);
 
+  const chromium = await loadPlaywrightChromium();
   const browser = await chromium.launch({ headless: process.env.ASSET_QA_HEADLESS !== "0" });
   const results: RouteResult[] = [];
 
