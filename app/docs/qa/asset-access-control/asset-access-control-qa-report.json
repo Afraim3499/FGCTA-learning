@@ -1,0 +1,1324 @@
+{
+  "startedAt": "2026-07-16T03:45:02.425Z",
+  "finishedAt": "2026-07-16T03:45:06.123Z",
+  "baseUrl": "http://localhost:3000",
+  "summary": {
+    "publicRoutesCheckedForLeaks": 71,
+    "paidRoutesCheckedLoggedOut": 71,
+    "issues": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0
+    },
+    "configuredAuthenticatedStates": 0,
+    "deferredAuthenticatedStates": [
+      "authenticated-without-access",
+      "active-access",
+      "admin"
+    ]
+  },
+  "staticChecks": [
+    {
+      "name": "middleware-protects-asset-lab",
+      "status": "pass",
+      "details": "The unauthenticated route prefilter includes /asset-lab and redirects to login."
+    },
+    {
+      "name": "asset-lab-index-uses-server-gate",
+      "status": "pass",
+      "details": "The paid index route checks access in the Server Component and renders a gate before data lists."
+    },
+    {
+      "name": "asset-lab-detail-uses-server-gate",
+      "status": "pass",
+      "details": "The paid detail route checks access before passing the asset profile to the client renderer."
+    },
+    {
+      "name": "central-access-helper",
+      "status": "pass",
+      "details": "Asset Lab access is centralized around admin or current level 1+ until a billing entitlement model exists."
+    },
+    {
+      "name": "login-redirect-preserved",
+      "status": "pass",
+      "details": "Login can return the user to a safe local target after the access prefilter redirects them."
+    },
+    {
+      "name": "stripe-access-proxy-documented-in-code",
+      "status": "pass",
+      "details": "The current checkout completion path grants level 1, which is the existing access proxy."
+    },
+    {
+      "name": "billing-lifecycle-model",
+      "status": "note",
+      "details": "No persisted subscription lifecycle model was detected. Expired and canceled states need a billing entitlement field before they can be proven end to end."
+    },
+    {
+      "name": "asset-lab-api-surface",
+      "status": "pass",
+      "details": "No Asset Lab API payload route was found."
+    }
+  ],
+  "userStates": [
+    {
+      "state": "logged-out",
+      "configured": true,
+      "expectedOutcome": "login-redirect",
+      "routesChecked": 71,
+      "passed": 71,
+      "failed": 0,
+      "notes": [
+        "Checked with no browser cookies and redirect following disabled."
+      ],
+      "screenshotPath": "docs/qa/asset-access-control/screenshots/logged-out-login-redirect.png"
+    },
+    {
+      "state": "authenticated-without-access",
+      "configured": false,
+      "expectedOutcome": "upgrade-gate",
+      "routesChecked": 0,
+      "passed": 0,
+      "failed": 0,
+      "notes": [
+        "Set ASSET_QA_NON_PAID credentials to run this browser state."
+      ]
+    },
+    {
+      "state": "active-access",
+      "configured": false,
+      "expectedOutcome": "workspace",
+      "routesChecked": 0,
+      "passed": 0,
+      "failed": 0,
+      "notes": [
+        "Set ASSET_QA_PAID credentials to run this browser state."
+      ]
+    },
+    {
+      "state": "admin",
+      "configured": false,
+      "expectedOutcome": "workspace",
+      "routesChecked": 0,
+      "passed": 0,
+      "failed": 0,
+      "notes": [
+        "Set ASSET_QA_ADMIN credentials to run this browser state."
+      ]
+    }
+  ],
+  "routeAccess": [
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/bitcoin",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fbitcoin",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fbitcoin"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/ethereum",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fethereum",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fethereum"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/tether",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ftether",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ftether"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/usd-coin",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fusd-coin",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fusd-coin"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/bnb",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fbnb",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fbnb"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/solana",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fsolana",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fsolana"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/xrp",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fxrp",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fxrp"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/dogecoin",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fdogecoin",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fdogecoin"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/cardano",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fcardano",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fcardano"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/tron",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ftron",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ftron"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/toncoin",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ftoncoin",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ftoncoin"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/avalanche",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Favalanche",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Favalanche"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/chainlink",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fchainlink",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fchainlink"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/shiba-inu",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fshiba-inu",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fshiba-inu"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/polkadot",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fpolkadot",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fpolkadot"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/bitcoin-cash",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fbitcoin-cash",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fbitcoin-cash"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/litecoin",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Flitecoin",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Flitecoin"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/uniswap",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Funiswap",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Funiswap"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/aptos",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Faptos",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Faptos"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/near-protocol",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fnear-protocol",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fnear-protocol"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/ethereum-classic",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fethereum-classic",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fethereum-classic"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/internet-computer",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Finternet-computer",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Finternet-computer"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/filecoin",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ffilecoin",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ffilecoin"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/cosmos",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fcosmos",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fcosmos"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/arbitrum",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Farbitrum",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Farbitrum"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/optimism",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Foptimism",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Foptimism"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/sui",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fsui",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fsui"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/pepe",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fpepe",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fpepe"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/dogwifhat",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fdogwifhat",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fdogwifhat"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/injective",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Finjective",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Finjective"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/render",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Frender",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Frender"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/aave",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Faave",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Faave"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/maker",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fmaker",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fmaker"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/lido-dao",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Flido-dao",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Flido-dao"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/celestia",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fcelestia",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fcelestia"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/sei",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fsei",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fsei"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/stacks",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fstacks",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fstacks"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/hedera",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fhedera",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fhedera"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/stellar",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fstellar",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fstellar"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/monero",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fmonero",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fmonero"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/okb",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fokb",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fokb"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/cronos",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fcronos",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fcronos"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/polygon",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fpolygon",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fpolygon"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/algorand",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Falgorand",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Falgorand"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/vechain",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fvechain",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fvechain"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/fetch-ai",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ffetch-ai",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Ffetch-ai"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/thorchain",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fthorchain",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fthorchain"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/the-graph",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fthe-graph",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fthe-graph"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/pyth-network",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fpyth-network",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fpyth-network"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/crypto/jupiter",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fjupiter",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fcrypto%2Fjupiter"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/us-dollar",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fus-dollar",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fus-dollar"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/euro",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Feuro",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Feuro"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/japanese-yen",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fjapanese-yen",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fjapanese-yen"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/british-pound",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fbritish-pound",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fbritish-pound"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/chinese-yuan",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fchinese-yuan",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fchinese-yuan"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/australian-dollar",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Faustralian-dollar",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Faustralian-dollar"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/canadian-dollar",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fcanadian-dollar",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fcanadian-dollar"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/swiss-franc",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fswiss-franc",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fswiss-franc"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/hong-kong-dollar",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fhong-kong-dollar",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fhong-kong-dollar"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/singapore-dollar",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fsingapore-dollar",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fsingapore-dollar"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/swedish-krona",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fswedish-krona",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fswedish-krona"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/south-korean-won",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fsouth-korean-won",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fsouth-korean-won"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/mexican-peso",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fmexican-peso",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fmexican-peso"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/new-zealand-dollar",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fnew-zealand-dollar",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fnew-zealand-dollar"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/norwegian-krone",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fnorwegian-krone",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fnorwegian-krone"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/indian-rupee",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Findian-rupee",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Findian-rupee"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/turkish-lira",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fturkish-lira",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fturkish-lira"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/south-african-rand",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fsouth-african-rand",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fsouth-african-rand"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/brazilian-real",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fbrazilian-real",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fbrazilian-real"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/forex/danish-krone",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fforex%2Fdanish-krone",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fforex%2Fdanish-krone"
+      }
+    },
+    {
+      "state": "logged-out",
+      "path": "/asset-lab/gold/gold",
+      "expectedOutcome": "login-redirect",
+      "status": 307,
+      "finalUrl": "/login?redirect=%2Fasset-lab%2Fgold%2Fgold",
+      "passed": true,
+      "details": {
+        "location": "/login?redirect=%2Fasset-lab%2Fgold%2Fgold"
+      }
+    }
+  ],
+  "publicLeakChecks": [
+    {
+      "path": "/markets/crypto/bitcoin",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/ethereum",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/tether",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/usd-coin",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/bnb",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/solana",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/xrp",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/dogecoin",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/cardano",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/tron",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/toncoin",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/avalanche",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/chainlink",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/shiba-inu",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/polkadot",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/bitcoin-cash",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/litecoin",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/uniswap",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/aptos",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/near-protocol",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/ethereum-classic",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/internet-computer",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/filecoin",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/cosmos",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/arbitrum",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/optimism",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/sui",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/pepe",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/dogwifhat",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/injective",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/render",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/aave",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/maker",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/lido-dao",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/celestia",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/sei",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/stacks",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/hedera",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/stellar",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/monero",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/okb",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/cronos",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/polygon",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/algorand",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/vechain",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/fetch-ai",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/thorchain",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/the-graph",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/pyth-network",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/crypto/jupiter",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/us-dollar",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/euro",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/japanese-yen",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/british-pound",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/chinese-yuan",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/australian-dollar",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/canadian-dollar",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/swiss-franc",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/hong-kong-dollar",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/singapore-dollar",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/swedish-krona",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/south-korean-won",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/mexican-peso",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/new-zealand-dollar",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/norwegian-krone",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/indian-rupee",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/turkish-lira",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/south-african-rand",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/brazilian-real",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/forex/danish-krone",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    },
+    {
+      "path": "/markets/gold/gold",
+      "status": 200,
+      "paidOnlyMarkers": [],
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "docs/qa/asset-access-control/screenshots/logged-out-login-redirect.png"
+  ],
+  "issues": []
+}

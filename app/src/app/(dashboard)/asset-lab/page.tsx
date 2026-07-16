@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, Database, Globe2, LineChart, Radar, ShieldCheck } from "lucide-react";
+import { redirect } from "next/navigation";
+import { AssetLabAccessNotice } from "@/components/asset-lab/AssetLabAccessNotice";
+import { getAssetLabAccessState } from "@/lib/asset-lab-access";
 import {
   assetClassLabel,
   assetLabHref,
@@ -8,7 +11,19 @@ import {
   getReadyAssetProfiles,
 } from "@/lib/asset-intelligence-data";
 
-export default function AssetLabPage() {
+export const dynamic = "force-dynamic";
+
+export default async function AssetLabPage() {
+  const access = await getAssetLabAccessState();
+
+  if (access.status === "logged-out") {
+    redirect("/login?redirect=%2Fasset-lab");
+  }
+
+  if (access.status === "needs-upgrade") {
+    return <AssetLabAccessNotice />;
+  }
+
   const readyAssets = getReadyAssetProfiles();
   const counts = getCoverageCounts();
 

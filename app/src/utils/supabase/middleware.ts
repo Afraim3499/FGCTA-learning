@@ -42,13 +42,13 @@ export const updateSession = async (request: NextRequest) => {
   const path = request.nextUrl.pathname;
 
   // Protected routes: redirect to login if not authenticated
-  const protectedPaths = ["/dashboard", "/course", "/lab", "/test", "/trading", "/profile", "/certification", "/onboarding", "/journey"];
-  const isProtected = protectedPaths.some((p) => path.startsWith(p));
+  const protectedPaths = ["/dashboard", "/course", "/lab", "/asset-lab", "/test", "/trading", "/profile", "/certification", "/onboarding", "/journey"];
+  const isProtected = protectedPaths.some((p) => path === p || path.startsWith(`${p}/`));
 
   if (isProtected && !user) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
-    url.searchParams.set("redirect", path);
+    url.searchParams.set("redirect", `${path}${request.nextUrl.search}`);
     
     const response = NextResponse.redirect(url);
     // Copy cookies to ensure session refresh persists through redirect

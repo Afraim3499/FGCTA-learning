@@ -41,7 +41,7 @@ export async function POST(req: Request) {
                   currentLevel: 1,
                   currentPhase: 0,
                   xpTotal: 0,
-                  xpRank: "Recruit",
+                  xpRank: "Student",
                   certLevel: 0,
                 },
                 update: {

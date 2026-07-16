@@ -8,6 +8,20 @@ import type { MarketTrack } from "@/types";
 import { createAdminClient } from "@/utils/supabase/admin";
 import { cacheUserTier, getCachedUserTier } from "@/lib/redis";
 
+function getSafeRedirectTarget(value: FormDataEntryValue | null) {
+  if (typeof value !== "string" || value.length === 0) return "/dashboard";
+  if (!value.startsWith("/") || value.startsWith("//")) return "/dashboard";
+
+  try {
+    const parsed = new URL(value, "http://lurnava.local");
+    if (parsed.origin !== "http://lurnava.local") return "/dashboard";
+    if (parsed.pathname === "/login" || parsed.pathname === "/register") return "/dashboard";
+    return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+  } catch {
+    return "/dashboard";
+  }
+}
+
 export async function signUp(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
@@ -53,7 +67,7 @@ export async function signUp(formData: FormData) {
               currentLevel: 0,
               currentPhase: 0,
               xpTotal: 0,
-              xpRank: "Recruit",
+              xpRank: "Student",
               certLevel: 0,
             },
           },
@@ -90,6 +104,7 @@ export async function signUp(formData: FormData) {
 export async function signIn(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
+  const redirectTarget = getSafeRedirectTarget(formData.get("redirectTo"));
 
   const supabase = await createClient();
 
@@ -113,7 +128,7 @@ export async function signIn(formData: FormData) {
   }
 
   revalidatePath("/", "layout");
-  redirect("/dashboard");
+  redirect(redirectTarget);
 }
 
 export async function signOut() {

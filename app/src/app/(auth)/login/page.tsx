@@ -1,13 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { signIn } from "@/lib/auth-actions";
 import { motion } from "framer-motion";
 
 export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [redirectTo, setRedirectTo] = useState("/dashboard");
+
+  useEffect(() => {
+    const nextPath = new URLSearchParams(window.location.search).get("redirect");
+    if (nextPath) setRedirectTo(nextPath);
+  }, []);
 
   async function handleSubmit(formData: FormData) {
     setLoading(true);
@@ -28,6 +34,8 @@ export default function LoginPage() {
       <h2 className="text-xl font-bold text-[var(--ln-navy-900)] mb-6 text-center">Sign In</h2>
 
       <form action={handleSubmit} className="space-y-5">
+        <input type="hidden" name="redirectTo" value={redirectTo} />
+
         <div>
           <label className="block text-sm font-medium text-[var(--ln-text-secondary)] mb-1.5">
             Email Address
