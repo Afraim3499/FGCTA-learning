@@ -3,6 +3,7 @@ import { AssetLabAccessNotice } from "@/components/asset-lab/AssetLabAccessNotic
 import { AssetLabDetailClient } from "@/components/asset-lab/AssetLabDetailClient";
 import { getAssetLabAccessState } from "@/lib/asset-lab-access";
 import { assetLabHref, getAssetProfile } from "@/lib/asset-intelligence-data";
+import { assetAccessToAnalyticsUserState } from "@/lib/asset-analytics-events";
 
 type PageProps = {
   params: Promise<{ assetClass: string; slug: string }>;
@@ -25,5 +26,5 @@ export default async function AssetLabDetailPage({ params }: PageProps) {
     return <AssetLabAccessNotice assetName={asset.name} />;
   }
 
-  return <AssetLabDetailClient asset={asset} />;
+  return <AssetLabDetailClient asset={asset} userState={assetAccessToAnalyticsUserState(access.status, access.isAdmin)} />;
 }

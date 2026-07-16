@@ -26,6 +26,8 @@ export type PageLike = {
   goto(url: string, options?: Record<string, unknown>): Promise<ResponseLike | null>;
   waitForLoadState(state: string, options?: Record<string, unknown>): Promise<void>;
   waitForTimeout(milliseconds: number): Promise<void>;
+  addInitScript(pageFunction: () => void | Promise<void>): Promise<void>;
+  exposeFunction(name: string, callback: (...args: unknown[]) => void | Promise<void>): Promise<void>;
   fill(selector: string, value: string, options?: Record<string, unknown>): Promise<void>;
   click(selector: string, options?: Record<string, unknown>): Promise<void>;
   waitForURL(predicate: (url: URL) => boolean, options?: Record<string, unknown>): Promise<void>;

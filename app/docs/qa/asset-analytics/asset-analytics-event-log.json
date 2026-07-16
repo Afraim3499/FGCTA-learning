@@ -1,0 +1,662 @@
+[
+  {
+    "name": "asset_markets_index_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown"
+    },
+    "url": "http://localhost:3000/markets",
+    "capturedAt": "2026-07-16T05:07:14.330Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_class_filter_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "filter_value": "crypto"
+    },
+    "url": "http://localhost:3000/markets",
+    "capturedAt": "2026-07-16T05:07:15.083Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_public_page_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin"
+    },
+    "url": "http://localhost:3000/markets/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:15.177Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_public_cta_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "destination": "/register",
+      "cta_id": "public-asset-hero-register"
+    },
+    "url": "http://localhost:3000/markets/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:15.844Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_public_page_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin"
+    },
+    "url": "http://localhost:3000/markets/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:15.893Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_pricing_cta_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "destination": "/pricing",
+      "cta_id": "public-asset-pricing"
+    },
+    "url": "http://localhost:3000/markets/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:16.576Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_public_page_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin"
+    },
+    "url": "http://localhost:3000/markets/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:16.624Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_related_lesson_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "destination": "/curriculum?level=5",
+      "link_label": "Level 5 Market Regimes"
+    },
+    "url": "http://localhost:3000/markets/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:17.328Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_public_page_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin"
+    },
+    "url": "http://localhost:3000/markets/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:17.375Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_related_strategy_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "destination": "/lab?strategy=Exchange%20Inflow%20Exhaustion",
+      "link_label": "Exchange Inflow Exhaustion"
+    },
+    "url": "http://localhost:3000/markets/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:18.128Z",
+    "scenario": "public-desktop",
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_markets_index_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown"
+    },
+    "url": "http://localhost:3000/markets",
+    "capturedAt": "2026-07-16T05:07:18.473Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_class_filter_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "filter_value": "gold"
+    },
+    "url": "http://localhost:3000/markets",
+    "capturedAt": "2026-07-16T05:07:19.178Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_public_page_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "ethereum",
+      "asset_class": "crypto",
+      "asset_symbol": "ETH",
+      "asset_rank": 2,
+      "asset_name": "Ethereum"
+    },
+    "url": "http://localhost:3000/markets/crypto/ethereum",
+    "capturedAt": "2026-07-16T05:07:19.258Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_public_cta_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "ethereum",
+      "asset_class": "crypto",
+      "asset_symbol": "ETH",
+      "asset_rank": 2,
+      "destination": "/register",
+      "cta_id": "public-asset-hero-register"
+    },
+    "url": "http://localhost:3000/markets/crypto/ethereum",
+    "capturedAt": "2026-07-16T05:07:19.877Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_public_page_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "ethereum",
+      "asset_class": "crypto",
+      "asset_symbol": "ETH",
+      "asset_rank": 2,
+      "asset_name": "Ethereum"
+    },
+    "url": "http://localhost:3000/markets/crypto/ethereum",
+    "capturedAt": "2026-07-16T05:07:19.932Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_pricing_cta_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "ethereum",
+      "asset_class": "crypto",
+      "asset_symbol": "ETH",
+      "asset_rank": 2,
+      "destination": "/pricing",
+      "cta_id": "public-asset-pricing"
+    },
+    "url": "http://localhost:3000/markets/crypto/ethereum",
+    "capturedAt": "2026-07-16T05:07:20.561Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_public_page_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "ethereum",
+      "asset_class": "crypto",
+      "asset_symbol": "ETH",
+      "asset_rank": 2,
+      "asset_name": "Ethereum"
+    },
+    "url": "http://localhost:3000/markets/crypto/ethereum",
+    "capturedAt": "2026-07-16T05:07:20.617Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_related_lesson_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "ethereum",
+      "asset_class": "crypto",
+      "asset_symbol": "ETH",
+      "destination": "/curriculum?level=8",
+      "link_label": "Level 8 On-Chain Analysis"
+    },
+    "url": "http://localhost:3000/markets/crypto/ethereum",
+    "capturedAt": "2026-07-16T05:07:21.230Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_public_page_viewed",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "ethereum",
+      "asset_class": "crypto",
+      "asset_symbol": "ETH",
+      "asset_rank": 2,
+      "asset_name": "Ethereum"
+    },
+    "url": "http://localhost:3000/markets/crypto/ethereum",
+    "capturedAt": "2026-07-16T05:07:21.280Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_related_strategy_clicked",
+    "payload": {
+      "route_type": "public",
+      "user_state": "unknown",
+      "asset_slug": "ethereum",
+      "asset_class": "crypto",
+      "asset_symbol": "ETH",
+      "destination": "/lab?strategy=Network%20Adoption%20Trend",
+      "link_label": "Network Adoption Trend"
+    },
+    "url": "http://localhost:3000/markets/crypto/ethereum",
+    "capturedAt": "2026-07-16T05:07:21.894Z",
+    "scenario": "public-mobile",
+    "viewport": {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  },
+  {
+    "name": "asset_lab_index_viewed",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin"
+    },
+    "url": "http://localhost:3000/asset-lab",
+    "capturedAt": "2026-07-16T05:07:24.224Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_page_viewed",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:24.970Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_tab_clicked",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin",
+      "tab_key": "holdings",
+      "tab_label": "Exposure Map"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:26.110Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_exposure_map_viewed",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin",
+      "tab_key": "holdings",
+      "tab_label": "Exposure Map"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:26.111Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_tab_clicked",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin",
+      "tab_key": "claims",
+      "tab_label": "Verified Claims"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:26.162Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_verified_claims_viewed",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin",
+      "tab_key": "claims",
+      "tab_label": "Verified Claims"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:26.162Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_tab_clicked",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin",
+      "tab_key": "sources",
+      "tab_label": "Sources"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:26.210Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_source_pack_viewed",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin",
+      "tab_key": "sources",
+      "tab_label": "Sources",
+      "source_count": 8
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:26.211Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_tab_clicked",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin",
+      "tab_key": "routine",
+      "tab_label": "Routine"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:26.263Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_related_lesson_clicked",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "destination": "/course/5",
+      "link_label": "Level 5 Market Regimes"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:26.314Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_page_viewed",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:26.986Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_lab_tab_clicked",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "asset_name": "Bitcoin",
+      "tab_key": "routine",
+      "tab_label": "Routine"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:28.060Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "asset_related_strategy_clicked",
+    "payload": {
+      "route_type": "paid",
+      "user_state": "admin",
+      "asset_slug": "bitcoin",
+      "asset_class": "crypto",
+      "asset_symbol": "BTC",
+      "asset_rank": 1,
+      "destination": "/lab?strategy=Exchange%20Inflow%20Exhaustion",
+      "link_label": "Exchange Inflow Exhaustion"
+    },
+    "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
+    "capturedAt": "2026-07-16T05:07:28.112Z",
+    "scenario": "paid-authenticated",
+    "viewport": {
+      "name": "desktop-paid",
+      "width": 1440,
+      "height": 1000
+    }
+  }
+]

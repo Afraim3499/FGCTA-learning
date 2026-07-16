@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, BarChart3, CalendarCheck, CheckCircle2, Globe2, LockKeyhole, Search, ShieldCheck } from "lucide-react";
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
 import { AssetEducationNotice } from "@/components/asset-intelligence/AssetEducationNotice";
+import { AssetAnalyticsLink } from "@/components/asset-intelligence/AssetAnalyticsLink";
+import { AssetAnalyticsPageView } from "@/components/asset-intelligence/AssetAnalyticsPageView";
+import { MarketsAssetDirectory, type MarketsDirectoryAsset } from "@/components/asset-intelligence/MarketsAssetDirectory";
 import {
   assetClassLabel,
   assetLabHref,
@@ -60,10 +62,28 @@ const lanes = [
 export default function MarketsPage() {
   const readyAssets = getReadyAssetProfiles();
   const counts = getCoverageCounts();
+  const directoryAssets: MarketsDirectoryAsset[] = readyAssets.map((asset) => ({
+    href: publicAssetHref(asset),
+    slug: asset.slug,
+    name: asset.name,
+    symbol: asset.symbol,
+    assetClass: asset.assetClass,
+    assetClassLabel: assetClassLabel(asset.assetClass),
+    rank: asset.rank,
+    plainEnglish: asset.plainEnglish,
+  }));
 
   return (
     <div className="min-h-screen bg-[var(--ln-bg)] text-[var(--ln-text-primary)] overflow-x-hidden">
       <Navbar />
+      <AssetAnalyticsPageView
+        eventName="asset_markets_index_viewed"
+        onceKey="asset-markets-index"
+        payload={{
+          route_type: "public",
+          user_state: "unknown",
+        }}
+      />
 
       <main>
         <section className="relative px-6 pt-36 pb-16 lg:px-8 lg:pt-44 lg:pb-24 overflow-hidden">
@@ -86,19 +106,35 @@ export default function MarketsPage() {
                 </div>
 
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link
+                  <AssetAnalyticsLink
                     href="/register"
+                    eventName="asset_public_cta_clicked"
+                    eventPayload={{
+                      route_type: "public",
+                      user_state: "unknown",
+                      destination: "/register",
+                      cta_id: "markets-hero-register",
+                    }}
+                    data-asset-event="asset_public_cta_clicked"
                     className="inline-flex items-center justify-center gap-3 rounded-xl bg-[var(--ln-navy-900)] px-7 py-4 text-sm font-black text-white shadow-[0_16px_36px_rgba(8,26,54,0.18)] transition hover:bg-[var(--ln-navy-800)]"
                   >
                     Start Structured Training
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
+                  </AssetAnalyticsLink>
+                  <AssetAnalyticsLink
                     href="/curriculum"
+                    eventName="asset_public_cta_clicked"
+                    eventPayload={{
+                      route_type: "public",
+                      user_state: "unknown",
+                      destination: "/curriculum",
+                      cta_id: "markets-hero-curriculum",
+                    }}
+                    data-asset-event="asset_public_cta_clicked"
                     className="inline-flex items-center justify-center rounded-xl border border-[var(--ln-border)] bg-white px-7 py-4 text-sm font-black text-[var(--ln-navy-900)] transition hover:bg-[var(--ln-surface-soft)]"
                   >
                     View Curriculum
-                  </Link>
+                  </AssetAnalyticsLink>
                 </div>
 
                 <div className="max-w-3xl">
@@ -147,30 +183,7 @@ export default function MarketsPage() {
               </p>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {readyAssets.map((asset) => (
-                <Link
-                  key={`${asset.assetClass}-${asset.slug}`}
-                  href={publicAssetHref(asset)}
-                  className="group rounded-2xl border border-[var(--ln-border)] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(8,26,54,0.1)]"
-                >
-                  <div className="mb-6 flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--ln-text-muted)]">{assetClassLabel(asset.assetClass)}</p>
-                      <h3 className="mt-2 text-2xl font-black text-[var(--ln-navy-900)]">{asset.name}</h3>
-                    </div>
-                    <div className="rounded-xl bg-[var(--ln-teal-soft)] px-3 py-2 font-mono text-sm font-black text-[var(--ln-teal-500)]">
-                      {asset.symbol}
-                    </div>
-                  </div>
-                  <p className="min-h-24 text-sm leading-7 text-[var(--ln-text-secondary)]">{asset.plainEnglish}</p>
-                  <div className="mt-6 flex items-center justify-between border-t border-[var(--ln-border-soft)] pt-5">
-                    <span className="text-xs font-black uppercase tracking-[0.18em] text-[var(--ln-navy-900)]">Open guide</span>
-                    <ArrowRight className="h-4 w-4 text-[var(--ln-teal-500)] transition group-hover:translate-x-1" />
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <MarketsAssetDirectory assets={directoryAssets} />
           </div>
         </section>
 
@@ -238,13 +251,35 @@ export default function MarketsPage() {
               <AssetEducationNotice tone="dark" compact />
             </div>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link href="/register" className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-7 py-4 text-sm font-black text-[var(--ln-navy-900)] transition hover:bg-slate-100">
+              <AssetAnalyticsLink
+                href="/register"
+                eventName="asset_public_cta_clicked"
+                eventPayload={{
+                  route_type: "public",
+                  user_state: "unknown",
+                  destination: "/register",
+                  cta_id: "markets-footer-register",
+                }}
+                data-asset-event="asset_public_cta_clicked"
+                className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-7 py-4 text-sm font-black text-[var(--ln-navy-900)] transition hover:bg-slate-100"
+              >
                 Enter Training Platform
                 <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href={assetLabHref(readyAssets[0])} className="inline-flex items-center justify-center rounded-xl border border-white/15 px-7 py-4 text-sm font-black text-white transition hover:bg-white/10">
+              </AssetAnalyticsLink>
+              <AssetAnalyticsLink
+                href={assetLabHref(readyAssets[0])}
+                eventName="asset_public_cta_clicked"
+                eventPayload={{
+                  route_type: "public",
+                  user_state: "unknown",
+                  destination: assetLabHref(readyAssets[0]),
+                  cta_id: "markets-footer-asset-lab-preview",
+                }}
+                data-asset-event="asset_public_cta_clicked"
+                className="inline-flex items-center justify-center rounded-xl border border-white/15 px-7 py-4 text-sm font-black text-white transition hover:bg-white/10"
+              >
                 Preview Asset Lab Route
-              </Link>
+              </AssetAnalyticsLink>
             </div>
           </div>
         </section>

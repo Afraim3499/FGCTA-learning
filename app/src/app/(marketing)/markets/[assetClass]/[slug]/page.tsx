@@ -17,6 +17,8 @@ import {
 import { Navbar } from "@/components/marketing/navbar";
 import { Footer } from "@/components/marketing/footer";
 import { AssetEducationNotice } from "@/components/asset-intelligence/AssetEducationNotice";
+import { AssetAnalyticsLink } from "@/components/asset-intelligence/AssetAnalyticsLink";
+import { AssetAnalyticsPageView } from "@/components/asset-intelligence/AssetAnalyticsPageView";
 import {
   assetClassLabel,
   assetLabHref,
@@ -131,6 +133,19 @@ export default async function PublicAssetPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-[var(--ln-bg)] text-[var(--ln-text-primary)] overflow-x-hidden">
       <Navbar />
+      <AssetAnalyticsPageView
+        eventName="asset_public_page_viewed"
+        onceKey={`asset-public-${asset.assetClass}-${asset.slug}`}
+        payload={{
+          route_type: "public",
+          user_state: "unknown",
+          asset_slug: asset.slug,
+          asset_class: asset.assetClass,
+          asset_symbol: asset.symbol,
+          asset_rank: asset.rank,
+          asset_name: asset.name,
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
@@ -163,20 +178,44 @@ export default async function PublicAssetPage({ params }: PageProps) {
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <AssetAnalyticsLink
                     href="/register"
+                    eventName="asset_public_cta_clicked"
+                    eventPayload={{
+                      route_type: "public",
+                      user_state: "unknown",
+                      asset_slug: asset.slug,
+                      asset_class: asset.assetClass,
+                      asset_symbol: asset.symbol,
+                      asset_rank: asset.rank,
+                      destination: "/register",
+                      cta_id: "public-asset-hero-register",
+                    }}
+                    data-asset-event="asset_public_cta_clicked"
                     className="inline-flex items-center justify-center gap-3 rounded-xl bg-[var(--ln-navy-900)] px-7 py-4 text-sm font-black text-white shadow-[0_16px_36px_rgba(8,26,54,0.18)] transition hover:bg-[var(--ln-navy-800)]"
                   >
                     Learn Assets Like This
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
+                  </AssetAnalyticsLink>
+                  <AssetAnalyticsLink
                     href="/curriculum"
+                    eventName="asset_public_cta_clicked"
+                    eventPayload={{
+                      route_type: "public",
+                      user_state: "unknown",
+                      asset_slug: asset.slug,
+                      asset_class: asset.assetClass,
+                      asset_symbol: asset.symbol,
+                      asset_rank: asset.rank,
+                      destination: "/curriculum",
+                      cta_id: "public-asset-hero-curriculum",
+                    }}
+                    data-asset-event="asset_public_cta_clicked"
                     className="inline-flex items-center justify-center rounded-xl border border-[var(--ln-border)] bg-white px-7 py-4 text-sm font-black text-[var(--ln-navy-900)] transition hover:bg-[var(--ln-surface-soft)]"
                   >
                     See Training Structure
-                  </Link>
+                  </AssetAnalyticsLink>
                 </div>
 
                 <div className="max-w-3xl">
@@ -369,15 +408,26 @@ export default async function PublicAssetPage({ params }: PageProps) {
                     <h3 className="text-lg font-black text-[var(--ln-navy-900)]">Related lessons</h3>
                     <div className="mt-4 space-y-2">
                       {asset.lab.relatedLessons.map((lesson) => (
-                        <Link
+                        <AssetAnalyticsLink
                           key={lesson}
                           href={relatedLessonHref(lesson, "public")}
+                          eventName="asset_related_lesson_clicked"
+                          eventPayload={{
+                            route_type: "public",
+                            user_state: "unknown",
+                            asset_slug: asset.slug,
+                            asset_class: asset.assetClass,
+                            asset_symbol: asset.symbol,
+                            destination: relatedLessonHref(lesson, "public"),
+                            link_label: lesson,
+                          }}
+                          data-asset-event="asset_related_lesson_clicked"
                           data-asset-nav-kind="related-lesson"
                           className="group flex items-center justify-between gap-3 rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)] transition hover:bg-[var(--ln-teal-soft)] hover:text-[var(--ln-navy-900)]"
                         >
                           {lesson}
                           <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[var(--ln-teal-500)] transition group-hover:translate-x-0.5" />
-                        </Link>
+                        </AssetAnalyticsLink>
                       ))}
                     </div>
                   </div>
@@ -385,15 +435,26 @@ export default async function PublicAssetPage({ params }: PageProps) {
                     <h3 className="text-lg font-black text-[var(--ln-navy-900)]">Strategy Lab links</h3>
                     <div className="mt-4 space-y-2">
                       {asset.lab.relatedStrategies.map((strategy) => (
-                        <Link
+                        <AssetAnalyticsLink
                           key={strategy}
                           href={relatedStrategyLabHref(strategy)}
+                          eventName="asset_related_strategy_clicked"
+                          eventPayload={{
+                            route_type: "public",
+                            user_state: "unknown",
+                            asset_slug: asset.slug,
+                            asset_class: asset.assetClass,
+                            asset_symbol: asset.symbol,
+                            destination: relatedStrategyLabHref(strategy),
+                            link_label: strategy,
+                          }}
+                          data-asset-event="asset_related_strategy_clicked"
                           data-asset-nav-kind="related-strategy"
                           className="group flex items-center justify-between gap-3 rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)] transition hover:bg-[var(--ln-teal-soft)] hover:text-[var(--ln-navy-900)]"
                         >
                           {strategy}
                           <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[var(--ln-teal-500)] transition group-hover:translate-x-0.5" />
-                        </Link>
+                        </AssetAnalyticsLink>
                       ))}
                     </div>
                   </div>
@@ -409,14 +470,62 @@ export default async function PublicAssetPage({ params }: PageProps) {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link href="/register" className="inline-flex items-center justify-center gap-3 rounded-xl bg-[var(--ln-navy-900)] px-7 py-4 text-sm font-black text-white transition hover:bg-[var(--ln-navy-800)]">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <AssetAnalyticsLink
+                    href="/register"
+                    eventName="asset_public_cta_clicked"
+                    eventPayload={{
+                      route_type: "public",
+                      user_state: "unknown",
+                      asset_slug: asset.slug,
+                      asset_class: asset.assetClass,
+                      asset_symbol: asset.symbol,
+                      asset_rank: asset.rank,
+                      destination: "/register",
+                      cta_id: "public-asset-inside-register",
+                    }}
+                    data-asset-event="asset_public_cta_clicked"
+                    className="inline-flex items-center justify-center gap-3 rounded-xl bg-[var(--ln-navy-900)] px-7 py-4 text-sm font-black text-white transition hover:bg-[var(--ln-navy-800)]"
+                  >
                     Train Inside Lurnava
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link href={assetLabHref(asset)} className="inline-flex items-center justify-center rounded-xl border border-[var(--ln-border)] bg-white px-7 py-4 text-sm font-black text-[var(--ln-navy-900)] transition hover:bg-[var(--ln-surface-soft)]">
+                  </AssetAnalyticsLink>
+                  <AssetAnalyticsLink
+                    href={assetLabHref(asset)}
+                    eventName="asset_public_cta_clicked"
+                    eventPayload={{
+                      route_type: "public",
+                      user_state: "unknown",
+                      asset_slug: asset.slug,
+                      asset_class: asset.assetClass,
+                      asset_symbol: asset.symbol,
+                      asset_rank: asset.rank,
+                      destination: assetLabHref(asset),
+                      cta_id: "public-asset-lab-route",
+                    }}
+                    data-asset-event="asset_public_cta_clicked"
+                    className="inline-flex items-center justify-center rounded-xl border border-[var(--ln-border)] bg-white px-7 py-4 text-sm font-black text-[var(--ln-navy-900)] transition hover:bg-[var(--ln-surface-soft)]"
+                  >
                     Asset Lab Route
-                  </Link>
+                  </AssetAnalyticsLink>
+                  <AssetAnalyticsLink
+                    href="/pricing"
+                    eventName="asset_pricing_cta_clicked"
+                    eventPayload={{
+                      route_type: "public",
+                      user_state: "unknown",
+                      asset_slug: asset.slug,
+                      asset_class: asset.assetClass,
+                      asset_symbol: asset.symbol,
+                      asset_rank: asset.rank,
+                      destination: "/pricing",
+                      cta_id: "public-asset-pricing",
+                    }}
+                    data-asset-event="asset_pricing_cta_clicked"
+                    className="inline-flex items-center justify-center rounded-xl border border-[var(--ln-border)] bg-white px-7 py-4 text-sm font-black text-[var(--ln-navy-900)] transition hover:bg-[var(--ln-surface-soft)]"
+                  >
+                    Compare Plans
+                  </AssetAnalyticsLink>
                 </div>
               </div>
             </div>

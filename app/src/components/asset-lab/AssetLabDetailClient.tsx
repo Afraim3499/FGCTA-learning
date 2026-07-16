@@ -24,9 +24,13 @@ import { assetClassLabel, publicAssetHref } from "@/lib/asset-intelligence-data"
 import { relatedLessonHref, relatedStrategyLabHref } from "@/lib/asset-navigation";
 import { cn } from "@/lib/utils";
 import { AssetEducationNotice } from "@/components/asset-intelligence/AssetEducationNotice";
+import { AssetAnalyticsPageView } from "@/components/asset-intelligence/AssetAnalyticsPageView";
+import { trackAssetEvent } from "@/lib/asset-analytics-client";
+import type { AssetAnalyticsUserState } from "@/lib/asset-analytics-events";
 
 type AssetLabDetailClientProps = {
   asset: AssetProfile;
+  userState: AssetAnalyticsUserState;
 };
 
 type TabKey =
@@ -65,15 +69,59 @@ const deepTabs: TabConfig[] = [
   { key: "claims", label: "Verified Claims", icon: BookOpenCheck },
 ];
 
-export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
+export function AssetLabDetailClient({ asset, userState }: AssetLabDetailClientProps) {
   const [activeTab, setActiveTab] = useState<TabKey>("overview");
   const tabs = asset.lab.deepDive ? [baseTabs[0], ...deepTabs, ...baseTabs.slice(1)] : baseTabs;
   const selectedTab = tabs.some((tab) => tab.key === activeTab) ? activeTab : "overview";
   const active = tabs.find((tab) => tab.key === selectedTab) ?? tabs[0];
   const deepDive = asset.lab.deepDive;
+  const basePayload = {
+    route_type: "paid" as const,
+    user_state: userState,
+    asset_slug: asset.slug,
+    asset_class: asset.assetClass,
+    asset_symbol: asset.symbol,
+    asset_rank: asset.rank,
+    asset_name: asset.name,
+  };
+
+  function handleTabSelect(tabKey: TabKey) {
+    if (tabKey === selectedTab) return;
+
+    const tab = tabs.find((item) => item.key === tabKey);
+    const tabPayload = {
+      ...basePayload,
+      tab_key: tabKey,
+      tab_label: tab?.label ?? tabKey,
+    };
+
+    trackAssetEvent("asset_lab_tab_clicked", tabPayload);
+
+    if (tabKey === "holdings") {
+      trackAssetEvent("asset_lab_exposure_map_viewed", tabPayload);
+    }
+
+    if (tabKey === "claims") {
+      trackAssetEvent("asset_lab_verified_claims_viewed", tabPayload);
+    }
+
+    if (tabKey === "sources") {
+      trackAssetEvent("asset_lab_source_pack_viewed", {
+        ...tabPayload,
+        source_count: asset.sources.length,
+      });
+    }
+
+    setActiveTab(tabKey);
+  }
 
   return (
     <div className="space-y-5 pb-8">
+      <AssetAnalyticsPageView
+        eventName="asset_lab_page_viewed"
+        onceKey={`asset-lab-${asset.assetClass}-${asset.slug}`}
+        payload={basePayload}
+      />
       <section className="overflow-hidden rounded-2xl border border-[var(--ln-border)] bg-white shadow-sm">
         <div className="bg-[var(--ln-navy-900)] px-4 py-5 text-white sm:px-6 lg:px-8 lg:py-7">
           <div className="flex min-w-0 flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
@@ -121,7 +169,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
                 key={tab.key}
                 tab={tab}
                 activeTab={selectedTab}
-                onSelect={setActiveTab}
+                onSelect={handleTabSelect}
                 mobile
               />
             ))}
@@ -134,7 +182,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
           <div className="sticky top-24 max-h-[calc(100vh-7rem)] space-y-4 overflow-y-auto rounded-2xl border border-[var(--ln-border)] bg-white p-4 shadow-sm">
             <div className="space-y-2">
               {tabs.map((tab) => (
-                <TabButton key={tab.key} tab={tab} activeTab={selectedTab} onSelect={setActiveTab} />
+                <TabButton key={tab.key} tab={tab} activeTab={selectedTab} onSelect={handleTabSelect} />
               ))}
             </div>
 
@@ -253,12 +301,16 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
                   items={asset.lab.relatedLessons}
                   navKind="related-lesson"
                   hrefForItem={(item) => relatedLessonHref(item, "paid")}
+                  asset={asset}
+                  userState={userState}
                 />
                 <ListPanel
                   title="Related Strategy Lab items"
                   items={asset.lab.relatedStrategies}
                   navKind="related-strategy"
                   hrefForItem={relatedStrategyLabHref}
+                  asset={asset}
+                  userState={userState}
                 />
               </div>
             </div>
@@ -298,6 +350,8 @@ function TabButton({
   return (
     <button
       type="button"
+      data-asset-event="asset_lab_tab_clicked"
+      data-asset-tab={tab.key}
       onClick={() => onSelect(tab.key)}
       className={cn(
         "flex items-center gap-3 rounded-xl text-left text-sm font-black transition",
@@ -488,11 +542,15 @@ function ListPanel({
   items,
   navKind,
   hrefForItem,
+  asset,
+  userState = "unknown",
 }: {
   title: string;
   items: string[];
   navKind?: "related-lesson" | "related-strategy";
   hrefForItem?: (item: string) => string;
+  asset?: AssetProfile;
+  userState?: AssetAnalyticsUserState;
 }) {
   return (
     <div className="min-w-0 rounded-2xl border border-[var(--ln-border)] bg-white p-5">
@@ -502,10 +560,32 @@ function ListPanel({
           const href = hrefForItem?.(item);
 
           if (href) {
+            const eventName =
+              navKind === "related-lesson"
+                ? "asset_related_lesson_clicked"
+                : navKind === "related-strategy"
+                  ? "asset_related_strategy_clicked"
+                  : null;
+
             return (
               <Link
                 key={item}
                 href={href}
+                onClick={() => {
+                  if (!asset || !eventName) return;
+
+                  trackAssetEvent(eventName, {
+                    route_type: "paid",
+                    user_state: userState,
+                    asset_slug: asset.slug,
+                    asset_class: asset.assetClass,
+                    asset_symbol: asset.symbol,
+                    asset_rank: asset.rank,
+                    destination: href,
+                    link_label: item,
+                  });
+                }}
+                data-asset-event={eventName ?? undefined}
                 data-asset-nav-kind={navKind}
                 className="group flex items-center justify-between gap-3 rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)] transition hover:bg-[var(--ln-teal-soft)] hover:text-[var(--ln-navy-900)]"
               >

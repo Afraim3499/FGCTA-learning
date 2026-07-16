@@ -3,6 +3,7 @@ import { ArrowRight, Database, Globe2, LineChart, Radar, ShieldCheck } from "luc
 import { redirect } from "next/navigation";
 import { AssetLabAccessNotice } from "@/components/asset-lab/AssetLabAccessNotice";
 import { AssetEducationNotice } from "@/components/asset-intelligence/AssetEducationNotice";
+import { AssetAnalyticsPageView } from "@/components/asset-intelligence/AssetAnalyticsPageView";
 import { getAssetLabAccessState } from "@/lib/asset-lab-access";
 import {
   assetClassLabel,
@@ -11,6 +12,7 @@ import {
   getCoverageCounts,
   getReadyAssetProfiles,
 } from "@/lib/asset-intelligence-data";
+import { assetAccessToAnalyticsUserState } from "@/lib/asset-analytics-events";
 
 export const dynamic = "force-dynamic";
 
@@ -27,9 +29,18 @@ export default async function AssetLabPage() {
 
   const readyAssets = getReadyAssetProfiles();
   const counts = getCoverageCounts();
+  const analyticsUserState = assetAccessToAnalyticsUserState(access.status, access.isAdmin);
 
   return (
     <div className="min-h-[calc(100vh-100px)] space-y-6">
+      <AssetAnalyticsPageView
+        eventName="asset_lab_index_viewed"
+        onceKey="asset-lab-index"
+        payload={{
+          route_type: "paid",
+          user_state: analyticsUserState,
+        }}
+      />
       <section className="rounded-2xl border border-[var(--ln-border)] bg-white p-6 shadow-sm lg:p-8">
         <div className="grid gap-8 xl:grid-cols-[1fr_420px] xl:items-end">
           <div className="space-y-5">

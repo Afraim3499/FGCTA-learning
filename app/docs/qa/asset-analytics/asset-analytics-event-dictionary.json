@@ -1,0 +1,176 @@
+[
+  {
+    "name": "asset_markets_index_viewed",
+    "description": "A visitor loads the public Markets index.",
+    "trigger": "Markets index view",
+    "routeType": "public",
+    "requiredPayload": [
+      "route_type",
+      "user_state"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_public_page_viewed",
+    "description": "A visitor loads a public asset guide.",
+    "trigger": "Public asset page view",
+    "routeType": "public",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "asset_slug",
+      "asset_class",
+      "asset_symbol"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_class_filter_clicked",
+    "description": "A visitor changes the asset class filter on the Markets index.",
+    "trigger": "Markets index asset class filter click",
+    "routeType": "public",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "filter_value"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_public_cta_clicked",
+    "description": "A visitor clicks a public asset conversion or training CTA.",
+    "trigger": "Public CTA click",
+    "routeType": "public",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "destination",
+      "cta_id"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_lab_index_viewed",
+    "description": "An authorized learner loads the Asset Lab index.",
+    "trigger": "Asset Lab index view",
+    "routeType": "paid",
+    "requiredPayload": [
+      "route_type",
+      "user_state"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_lab_page_viewed",
+    "description": "An authorized learner loads a paid asset workspace.",
+    "trigger": "Paid asset page view",
+    "routeType": "paid",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "asset_slug",
+      "asset_class",
+      "asset_symbol"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_lab_tab_clicked",
+    "description": "An authorized learner changes a tab inside a paid asset workspace.",
+    "trigger": "Asset Lab tab click",
+    "routeType": "paid",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "asset_slug",
+      "asset_class",
+      "tab_key",
+      "tab_label"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_lab_exposure_map_viewed",
+    "description": "An authorized learner opens the Exposure Map tab.",
+    "trigger": "Exposure Map tab selected",
+    "routeType": "paid",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "asset_slug",
+      "asset_class",
+      "tab_key"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_lab_verified_claims_viewed",
+    "description": "An authorized learner opens the Verified Claims tab.",
+    "trigger": "Verified Claims tab selected",
+    "routeType": "paid",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "asset_slug",
+      "asset_class",
+      "tab_key"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_lab_source_pack_viewed",
+    "description": "An authorized learner opens the Sources tab.",
+    "trigger": "Sources tab selected",
+    "routeType": "paid",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "asset_slug",
+      "asset_class",
+      "tab_key",
+      "source_count"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_related_lesson_clicked",
+    "description": "A learner or visitor clicks a related lesson link from an asset page.",
+    "trigger": "Related lesson click",
+    "routeType": "both",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "destination",
+      "link_label"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_related_strategy_clicked",
+    "description": "A learner or visitor clicks a related Strategy Lab link from an asset page.",
+    "trigger": "Related strategy click",
+    "routeType": "both",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "destination",
+      "link_label"
+    ],
+    "sensitiveDataAllowed": false
+  },
+  {
+    "name": "asset_pricing_cta_clicked",
+    "description": "A visitor clicks a pricing CTA from a public asset page.",
+    "trigger": "Public asset pricing CTA click",
+    "routeType": "public",
+    "requiredPayload": [
+      "route_type",
+      "user_state",
+      "asset_slug",
+      "asset_class",
+      "destination",
+      "cta_id"
+    ],
+    "sensitiveDataAllowed": false
+  }
+]
