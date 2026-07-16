@@ -125,7 +125,7 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
 
       <div className="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
         <aside className="hidden lg:block">
-          <div className="sticky top-24 space-y-4 rounded-2xl border border-[var(--ln-border)] bg-white p-4 shadow-sm">
+          <div className="sticky top-24 max-h-[calc(100vh-7rem)] space-y-4 overflow-y-auto rounded-2xl border border-[var(--ln-border)] bg-white p-4 shadow-sm">
             <div className="space-y-2">
               {tabs.map((tab) => (
                 <TabButton key={tab.key} tab={tab} activeTab={selectedTab} onSelect={setActiveTab} />

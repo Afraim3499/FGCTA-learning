@@ -84,8 +84,8 @@ export function Topbar({ showStrategySidebarHamburger = false }: { showStrategyS
   const { toggleSidebar } = useUiStore();
 
   return (
-    <header className="h-20 border-b border-[var(--ln-border)] bg-white/80 backdrop-blur-xl flex items-center justify-between px-4 md:px-8 sticky top-0 z-50">
-      <div className="flex items-center gap-4 md:gap-8">
+    <header className="h-20 min-w-0 border-b border-[var(--ln-border)] bg-white/80 backdrop-blur-xl flex items-center justify-between px-4 md:px-6 lg:px-8 sticky top-0 z-50">
+      <div className="flex min-w-0 items-center gap-4 lg:gap-8">
         {showStrategySidebarHamburger ? (
           <button
             onClick={() => toggleSidebar()}
@@ -131,7 +131,7 @@ export function Topbar({ showStrategySidebarHamburger = false }: { showStrategyS
           </div>
         )}
 
-        <div className="hidden md:block relative group" ref={searchContainerRef}>
+        <div className="hidden lg:block relative group" ref={searchContainerRef}>
           <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-[var(--ln-text-dim)] group-focus-within:text-[var(--ln-teal-500)] transition-colors" />
           <input
             type="text"
@@ -139,7 +139,7 @@ export function Topbar({ showStrategySidebarHamburger = false }: { showStrategyS
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setIsSearchFocused(true)}
-            className="pl-12 pr-4 py-2.5 bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] rounded-2xl text-sm text-[var(--ln-navy-900)] focus:outline-none focus:ring-1 focus:ring-[var(--ln-teal-500)]/50 w-72 transition-all placeholder:text-[var(--ln-text-muted)] font-medium"
+            className="pl-12 pr-4 py-2.5 bg-[var(--ln-bg-soft)] border border-[var(--ln-border)] rounded-2xl text-sm text-[var(--ln-navy-900)] focus:outline-none focus:ring-1 focus:ring-[var(--ln-teal-500)]/50 w-56 xl:w-72 transition-all placeholder:text-[var(--ln-text-muted)] font-medium"
           />
 
           {/* Search Results Dropdown */}
@@ -169,10 +169,10 @@ export function Topbar({ showStrategySidebarHamburger = false }: { showStrategyS
         </div>
       </div>
 
-      <div className="flex items-center gap-3 md:gap-6">
+      <div className="flex min-w-0 items-center gap-2 lg:gap-6">
 
         {/* Notifications */}
-        <div className="relative" ref={notificationRef}>
+        <div className="relative shrink-0" ref={notificationRef}>
           <button
             onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
             className={`relative p-3 rounded-2xl border transition-all ${isNotificationsOpen ? 'bg-[var(--ln-teal-soft)] border-[var(--ln-teal-500)]/30 text-[var(--ln-teal-500)]' : 'bg-white border-[var(--ln-border)] text-[var(--ln-text-dim)] hover:text-[var(--ln-navy-900)] hover:border-slate-300 shadow-sm'}`}
@@ -211,15 +211,15 @@ export function Topbar({ showStrategySidebarHamburger = false }: { showStrategyS
         </div>
 
         {/* Profile Dropdown */}
-        <div className="relative" ref={profileRef}>
+        <div className="relative shrink-0" ref={profileRef}>
           <button
             onClick={() => setIsProfileOpen(!isProfileOpen)}
-            className={`flex items-center gap-3 p-1.5 pr-4 rounded-2xl border transition-all shadow-sm ${isProfileOpen ? 'bg-[var(--ln-surface-soft)] border-slate-300' : 'bg-white border-[var(--ln-border)] hover:border-slate-300'}`}
+            className={`flex items-center gap-3 p-1.5 pr-2 xl:pr-4 rounded-2xl border transition-all shadow-sm ${isProfileOpen ? 'bg-[var(--ln-surface-soft)] border-slate-300' : 'bg-white border-[var(--ln-border)] hover:border-slate-300'}`}
           >
             <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[var(--ln-teal-500)] to-[var(--ln-teal-400)] flex items-center justify-center text-xs font-extrabold text-white shadow-md">
               {userInitial.toUpperCase()}
             </div>
-            <div className="hidden sm:block text-left">
+            <div className="hidden xl:block text-left">
               <p className="text-sm font-bold text-[var(--ln-navy-900)] tracking-tight leading-none truncate max-w-[100px]">
                 {user?.name || user?.email?.split('@')[0]}
               </p>

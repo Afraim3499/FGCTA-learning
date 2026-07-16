@@ -62,9 +62,12 @@ export function TopbarRouter() {
     <>
       <style>{`
         /* Apply sidebar offset in standard mode */
+        .lesson-layout-shell {
+          min-width: 0;
+        }
         @media (min-width: 768px) {
           .lesson-layout-shell {
-            padding-left: 16rem; /* 256px = w-64 */
+            margin-left: 16rem; /* 256px = w-64 */
           }
         }
         .main-content-wrapper {
