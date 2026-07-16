@@ -12,11 +12,30 @@ import {
   getReadyAssetProfiles,
   publicAssetHref,
 } from "@/lib/asset-intelligence-data";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Market Guides | Lurnava Asset Intelligence",
   description:
     "Explore Lurnava's curated crypto, forex, and gold market guides. Learn what each asset is, what moves it, and how structured traders study it.",
+  alternates: {
+    canonical: "/markets",
+  },
+  openGraph: {
+    title: "Market Guides | Lurnava Asset Intelligence",
+    description:
+      "Explore Lurnava's curated crypto, forex, and gold market guides. Learn what each asset is, what moves it, and how structured traders study it.",
+    url: absoluteUrl("/markets"),
+    siteName: "Lurnava Academy",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Market Guides | Lurnava Asset Intelligence",
+    description:
+      "Explore Lurnava's curated crypto, forex, and gold market guides. Learn what each asset is, what moves it, and how structured traders study it.",
+  },
 };
 
 const lanes = [

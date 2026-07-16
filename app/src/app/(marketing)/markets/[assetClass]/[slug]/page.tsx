@@ -24,6 +24,7 @@ import {
   publicAssetHref,
 } from "@/lib/asset-intelligence-data";
 import { relatedLessonHref, relatedStrategyLabHref } from "@/lib/asset-navigation";
+import { absoluteUrl } from "@/lib/site-url";
 
 type PageProps = {
   params: Promise<{ assetClass: string; slug: string }>;
@@ -40,16 +41,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { assetClass, slug } = await params;
   const asset = getAssetProfile(assetClass, slug);
   if (!asset) return {};
+  const canonicalUrl = absoluteUrl(publicAssetHref(asset));
 
   return {
     title: asset.seoTitle,
     description: asset.seoDescription,
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: publicAssetHref(asset),
     },
     openGraph: {
       title: asset.seoTitle,
       description: asset.seoDescription,
+      url: canonicalUrl,
+      siteName: "Lurnava Academy",
+      locale: "en_US",
       type: "website",
     },
     twitter: {
@@ -64,6 +73,7 @@ export default async function PublicAssetPage({ params }: PageProps) {
   const { assetClass, slug } = await params;
   const asset = getAssetProfile(assetClass, slug);
   if (!asset) notFound();
+  const canonicalUrl = absoluteUrl(publicAssetHref(asset));
 
   const relatedAssets = getReadyAssetProfiles()
     .filter((item) => item.slug !== asset.slug)
@@ -71,19 +81,50 @@ export default async function PublicAssetPage({ params }: PageProps) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: asset.seoTitle,
-    description: asset.seoDescription,
-    url: publicAssetHref(asset),
-    about: {
-      "@type": "Thing",
-      name: asset.name,
-      alternateName: asset.symbol,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Lurnava Academy",
-    },
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: asset.seoTitle,
+        description: asset.seoDescription,
+        dateModified: asset.lastReviewed,
+        about: {
+          "@type": "Thing",
+          name: asset.name,
+          alternateName: asset.symbol,
+        },
+        publisher: {
+          "@type": "EducationalOrganization",
+          name: "Lurnava Academy",
+          url: absoluteUrl("/"),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: absoluteUrl("/"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Markets",
+            item: absoluteUrl("/markets"),
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: asset.name,
+            item: canonicalUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (
@@ -91,7 +132,7 @@ export default async function PublicAssetPage({ params }: PageProps) {
       <Navbar />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
 
       <main>

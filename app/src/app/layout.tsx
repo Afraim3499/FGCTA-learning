@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { getSiteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
+  metadataBase: new URL(getSiteUrl()),
   title: "Lurnava Academy — Learn the Market With Structure",
   description:
     "Lurnava is a visual-first market education platform that helps learners build chart reading, risk discipline, and structured decision-making without hype.",
