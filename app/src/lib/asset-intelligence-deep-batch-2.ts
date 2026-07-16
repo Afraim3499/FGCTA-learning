@@ -164,7 +164,7 @@ const batchSources = {
   xrplEscrow: source(
     "An Explanation of Ripple's XRP Escrow",
     "XRP Ledger",
-    "https://xrpl.org/blog/2017/an-explanation-of-ripples-xrp-escrow",
+    "https://xrpl.org/blog/2017/explanation-of-ripples-xrp-escrow",
     "XRPL source for escrow mechanics and the original 55 billion XRP lockup context."
   ),
   secRippleSettlement: source(
