@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-07-16T05:07:13.263Z",
-  "finishedAt": "2026-07-16T05:07:28.201Z",
+  "startedAt": "2026-07-16T05:36:40.896Z",
+  "finishedAt": "2026-07-16T05:36:55.375Z",
   "baseUrl": "http://localhost:3000",
   "summary": {
     "eventDefinitions": 13,
@@ -62,7 +62,7 @@
             "user_state": "unknown"
           },
           "url": "http://localhost:3000/markets",
-          "capturedAt": "2026-07-16T05:07:14.330Z",
+          "capturedAt": "2026-07-16T05:36:41.940Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -78,7 +78,7 @@
             "filter_value": "crypto"
           },
           "url": "http://localhost:3000/markets",
-          "capturedAt": "2026-07-16T05:07:15.083Z",
+          "capturedAt": "2026-07-16T05:36:42.844Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -98,7 +98,7 @@
             "asset_name": "Bitcoin"
           },
           "url": "http://localhost:3000/markets/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:15.177Z",
+          "capturedAt": "2026-07-16T05:36:43.153Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -119,7 +119,7 @@
             "cta_id": "public-asset-hero-register"
           },
           "url": "http://localhost:3000/markets/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:15.844Z",
+          "capturedAt": "2026-07-16T05:36:43.873Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -139,7 +139,7 @@
             "asset_name": "Bitcoin"
           },
           "url": "http://localhost:3000/markets/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:15.893Z",
+          "capturedAt": "2026-07-16T05:36:43.924Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -160,7 +160,7 @@
             "cta_id": "public-asset-pricing"
           },
           "url": "http://localhost:3000/markets/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:16.576Z",
+          "capturedAt": "2026-07-16T05:36:44.606Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -180,7 +180,7 @@
             "asset_name": "Bitcoin"
           },
           "url": "http://localhost:3000/markets/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:16.624Z",
+          "capturedAt": "2026-07-16T05:36:44.655Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -200,7 +200,7 @@
             "link_label": "Level 5 Market Regimes"
           },
           "url": "http://localhost:3000/markets/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:17.328Z",
+          "capturedAt": "2026-07-16T05:36:45.307Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -220,7 +220,7 @@
             "asset_name": "Bitcoin"
           },
           "url": "http://localhost:3000/markets/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:17.375Z",
+          "capturedAt": "2026-07-16T05:36:45.353Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -240,7 +240,7 @@
             "link_label": "Exchange Inflow Exhaustion"
           },
           "url": "http://localhost:3000/markets/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:18.128Z",
+          "capturedAt": "2026-07-16T05:36:46.007Z",
           "scenario": "public-desktop",
           "viewport": {
             "name": "desktop",
@@ -267,7 +267,7 @@
             "user_state": "unknown"
           },
           "url": "http://localhost:3000/markets",
-          "capturedAt": "2026-07-16T05:07:18.473Z",
+          "capturedAt": "2026-07-16T05:36:46.357Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -283,7 +283,7 @@
             "filter_value": "gold"
           },
           "url": "http://localhost:3000/markets",
-          "capturedAt": "2026-07-16T05:07:19.178Z",
+          "capturedAt": "2026-07-16T05:36:47.057Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -303,7 +303,7 @@
             "asset_name": "Ethereum"
           },
           "url": "http://localhost:3000/markets/crypto/ethereum",
-          "capturedAt": "2026-07-16T05:07:19.258Z",
+          "capturedAt": "2026-07-16T05:36:47.144Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -324,7 +324,7 @@
             "cta_id": "public-asset-hero-register"
           },
           "url": "http://localhost:3000/markets/crypto/ethereum",
-          "capturedAt": "2026-07-16T05:07:19.877Z",
+          "capturedAt": "2026-07-16T05:36:47.756Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -344,7 +344,7 @@
             "asset_name": "Ethereum"
           },
           "url": "http://localhost:3000/markets/crypto/ethereum",
-          "capturedAt": "2026-07-16T05:07:19.932Z",
+          "capturedAt": "2026-07-16T05:36:47.801Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -365,7 +365,7 @@
             "cta_id": "public-asset-pricing"
           },
           "url": "http://localhost:3000/markets/crypto/ethereum",
-          "capturedAt": "2026-07-16T05:07:20.561Z",
+          "capturedAt": "2026-07-16T05:36:48.406Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -385,7 +385,7 @@
             "asset_name": "Ethereum"
           },
           "url": "http://localhost:3000/markets/crypto/ethereum",
-          "capturedAt": "2026-07-16T05:07:20.617Z",
+          "capturedAt": "2026-07-16T05:36:48.451Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -405,7 +405,7 @@
             "link_label": "Level 8 On-Chain Analysis"
           },
           "url": "http://localhost:3000/markets/crypto/ethereum",
-          "capturedAt": "2026-07-16T05:07:21.230Z",
+          "capturedAt": "2026-07-16T05:36:49.056Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -425,7 +425,7 @@
             "asset_name": "Ethereum"
           },
           "url": "http://localhost:3000/markets/crypto/ethereum",
-          "capturedAt": "2026-07-16T05:07:21.280Z",
+          "capturedAt": "2026-07-16T05:36:49.099Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -445,7 +445,7 @@
             "link_label": "Network Adoption Trend"
           },
           "url": "http://localhost:3000/markets/crypto/ethereum",
-          "capturedAt": "2026-07-16T05:07:21.894Z",
+          "capturedAt": "2026-07-16T05:36:49.706Z",
           "scenario": "public-mobile",
           "viewport": {
             "name": "mobile",
@@ -472,7 +472,7 @@
             "user_state": "admin"
           },
           "url": "http://localhost:3000/asset-lab",
-          "capturedAt": "2026-07-16T05:07:24.224Z",
+          "capturedAt": "2026-07-16T05:36:51.833Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -492,7 +492,7 @@
             "asset_name": "Bitcoin"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:24.970Z",
+          "capturedAt": "2026-07-16T05:36:52.249Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -514,7 +514,7 @@
             "tab_label": "Exposure Map"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:26.110Z",
+          "capturedAt": "2026-07-16T05:36:53.272Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -536,7 +536,7 @@
             "tab_label": "Exposure Map"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:26.111Z",
+          "capturedAt": "2026-07-16T05:36:53.272Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -558,7 +558,7 @@
             "tab_label": "Verified Claims"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:26.162Z",
+          "capturedAt": "2026-07-16T05:36:53.323Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -580,7 +580,7 @@
             "tab_label": "Verified Claims"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:26.162Z",
+          "capturedAt": "2026-07-16T05:36:53.323Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -602,7 +602,7 @@
             "tab_label": "Sources"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:26.210Z",
+          "capturedAt": "2026-07-16T05:36:53.373Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -625,7 +625,7 @@
             "source_count": 8
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:26.211Z",
+          "capturedAt": "2026-07-16T05:36:53.373Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -647,7 +647,7 @@
             "tab_label": "Routine"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:26.263Z",
+          "capturedAt": "2026-07-16T05:36:53.422Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -668,7 +668,7 @@
             "link_label": "Level 5 Market Regimes"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:26.314Z",
+          "capturedAt": "2026-07-16T05:36:53.457Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -688,7 +688,7 @@
             "asset_name": "Bitcoin"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:26.986Z",
+          "capturedAt": "2026-07-16T05:36:54.134Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -710,7 +710,7 @@
             "tab_label": "Routine"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:28.060Z",
+          "capturedAt": "2026-07-16T05:36:55.255Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",
@@ -731,7 +731,7 @@
             "link_label": "Exchange Inflow Exhaustion"
           },
           "url": "http://localhost:3000/asset-lab/crypto/bitcoin",
-          "capturedAt": "2026-07-16T05:07:28.112Z",
+          "capturedAt": "2026-07-16T05:36:55.306Z",
           "scenario": "paid-authenticated",
           "viewport": {
             "name": "desktop-paid",

@@ -1,7 +1,7 @@
 {
-  "startedAt": "2026-07-16T02:58:07.543Z",
-  "finishedAt": "2026-07-16T02:59:09.536Z",
-  "baseUrl": "http://127.0.0.1:3000",
+  "startedAt": "2026-07-16T05:27:35.254Z",
+  "finishedAt": "2026-07-16T05:28:35.778Z",
+  "baseUrl": "http://localhost:3000",
   "summary": {
     "publicPagesReviewed": 71,
     "renderedPagesChecked": 71,

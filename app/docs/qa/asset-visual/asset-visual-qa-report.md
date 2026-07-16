@@ -1,8 +1,8 @@
 # Asset Visual QA Report
 
-Started: 2026-07-16T00:33:56.502Z
-Finished: 2026-07-16T00:53:51.920Z
-Base URL: http://localhost:7820
+Started: 2026-07-16T06:02:24.177Z
+Finished: 2026-07-16T06:22:39.451Z
+Base URL: http://localhost:3000
 
 ## Summary
 

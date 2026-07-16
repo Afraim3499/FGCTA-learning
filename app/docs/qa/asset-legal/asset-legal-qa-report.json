@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-07-16T04:00:29.498Z",
-  "finishedAt": "2026-07-16T04:00:30.369Z",
+  "startedAt": "2026-07-16T05:36:02.632Z",
+  "finishedAt": "2026-07-16T05:36:39.760Z",
   "baseUrl": "http://localhost:3000",
   "summary": {
     "publicRoutesChecked": 71,
@@ -719,12 +719,12 @@
     }
   ],
   "authenticatedPaid": {
-    "configured": false,
-    "routesChecked": 0,
-    "passed": 0,
+    "configured": true,
+    "routesChecked": 71,
+    "passed": 71,
     "failed": 0,
     "notes": [
-      "Set ASSET_QA_PAID_EMAIL/ASSET_QA_PAID_PASSWORD or ASSET_QA_EMAIL/ASSET_QA_PASSWORD to crawl authenticated paid pages."
+      "Authenticated paid route crawl completed with configured credentials."
     ]
   },
   "issues": []

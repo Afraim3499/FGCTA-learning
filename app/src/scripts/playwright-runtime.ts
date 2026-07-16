@@ -42,6 +42,7 @@ export type PageLike = {
   url(): string;
   on(event: "console", handler: (message: ConsoleMessageLike) => void): void;
   on(event: "pageerror", handler: (error: Error) => void): void;
+  on(event: "response", handler: (response: ResponseLike) => void): void;
 };
 
 export type BrowserContextLike = {

@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-07-16",
+  "verdict": "release-ready",
+  "scope": {
+    "assets": 71,
+    "publicRoutes": 71,
+    "paidRoutes": 71,
+    "totalRoutes": 142,
+    "visualRouteViewportChecks": 568
+  },
+  "inventory": {
+    "readyAssets": 71,
+    "deepPaidProfiles": 71,
+    "duplicateRoutes": 0,
+    "byClass": {
+      "crypto": 50,
+      "forex": 20,
+      "gold": 1
+    }
+  },
+  "qaGates": {
+    "visual": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0
+    },
+    "navigation": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0
+    },
+    "seo": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0
+    },
+    "sourceFreshness": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0,
+      "exposuresChecked": 378,
+      "sourceUrlsChecked": 231
+    },
+    "conversionCopy": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0,
+      "averageScore": 100,
+      "lowestScore": 100
+    },
+    "accessControl": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0,
+      "deferredStates": [
+        "authenticated-without-access"
+      ]
+    },
+    "legal": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0
+    },
+    "analytics": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0,
+      "requiredEventsImplemented": 13,
+      "capturedEvents": 33
+    }
+  },
+  "validation": {
+    "typescript": "pass",
+    "build": "pass",
+    "assetInventory": "pass",
+    "assetValidator": "pass",
+    "npmAuditProd": "pass",
+    "npmAuditAll": "pass"
+  },
+  "fixes": [
+    "Migrated Next.js middleware convention to src/proxy.ts.",
+    "Updated Next.js and package overrides to clear dependency audit findings.",
+    "Made Redis cache access lazy and quiet when REDIS_URL is not configured.",
+    "Improved visual QA missing-resource diagnostics and filtered the exact local-only Vercel Analytics script path."
+  ],
+  "evidence": [
+    "docs/qa/asset-visual/asset-visual-qa-report.json",
+    "docs/qa/asset-navigation/asset-navigation-qa-report.json",
+    "docs/qa/asset-seo/asset-seo-qa-report.json",
+    "docs/qa/asset-source-freshness/asset-source-freshness-qa-report.json",
+    "docs/qa/asset-conversion-copy/asset-conversion-copy-qa-report.json",
+    "docs/qa/asset-access-control/asset-access-control-qa-report.json",
+    "docs/qa/asset-legal/asset-legal-qa-report.json",
+    "docs/qa/asset-analytics/asset-analytics-qa-report.json",
+    "docs/asset-intelligence-route-inventory.json"
+  ]
+}

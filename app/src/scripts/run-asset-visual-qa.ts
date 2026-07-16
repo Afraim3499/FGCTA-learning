@@ -119,6 +119,8 @@ const REQUIRED_PAID_TABS = ["Deep Identity", "Exposure Map", "Verified Claims", 
 
 const ignoredConsoleErrorPatterns = [
   /favicon/i,
+  /_vercel\/insights\/script\.js/i,
+  /Failed to load resource: the server responded with a status of 404/i,
   /ResizeObserver loop completed/i,
   /Download the React DevTools/i,
 ];
@@ -638,6 +640,7 @@ async function reviewPaidTabs(page: Page, route: RouteEntry, issues: QaIssue[]) 
 async function checkRoute(context: BrowserContext, baseUrl: string, route: RouteEntry, viewport: ViewportConfig): Promise<RouteResult> {
   const page = await context.newPage();
   const consoleErrors: string[] = [];
+  const missingResources: string[] = [];
   const pageErrors: string[] = [];
   const issues: QaIssue[] = [];
   const startedAt = Date.now();
@@ -652,6 +655,13 @@ async function checkRoute(context: BrowserContext, baseUrl: string, route: Route
 
   page.on("pageerror", (error) => {
     pageErrors.push(error.message);
+  });
+
+  page.on("response", (response) => {
+    const responseStatus = response.status();
+    if (responseStatus === 404) {
+      missingResources.push(`${responseStatus} ${response.url()}`);
+    }
   });
 
   try {
@@ -693,12 +703,14 @@ async function checkRoute(context: BrowserContext, baseUrl: string, route: Route
     }
 
     const pageConsoleErrors = filteredConsoleErrors(consoleErrors);
-    if (pageConsoleErrors.length > 0) {
+    const pageMissingResources = filteredConsoleErrors(missingResources);
+    const consoleDetails = [...pageMissingResources.slice(0, 8), ...pageConsoleErrors.slice(0, 8)];
+    if (consoleDetails.length > 0) {
       addIssue(issues, {
         severity: "major",
         check: "console-errors",
         message: "Console errors were emitted while rendering the route.",
-        details: pageConsoleErrors.slice(0, 8),
+        details: consoleDetails,
       });
     }
 

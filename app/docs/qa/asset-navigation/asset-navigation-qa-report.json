@@ -1,7 +1,7 @@
 {
-  "startedAt": "2026-07-16T01:28:25.061Z",
-  "finishedAt": "2026-07-16T01:34:06.840Z",
-  "baseUrl": "http://127.0.0.1:3000",
+  "startedAt": "2026-07-16T05:29:14.602Z",
+  "finishedAt": "2026-07-16T05:34:52.817Z",
+  "baseUrl": "http://localhost:3000",
   "summary": {
     "expectedPublicRoutes": 71,
     "expectedPaidRoutes": 71,
@@ -95,994 +95,994 @@
       "routeType": "public",
       "path": "/markets/crypto/bitcoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/bitcoin",
+      "finalUrl": "http://localhost:3000/markets/crypto/bitcoin",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/ethereum",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/ethereum",
+      "finalUrl": "http://localhost:3000/markets/crypto/ethereum",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/tether",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/tether",
+      "finalUrl": "http://localhost:3000/markets/crypto/tether",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/usd-coin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/usd-coin",
+      "finalUrl": "http://localhost:3000/markets/crypto/usd-coin",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/bnb",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/bnb",
+      "finalUrl": "http://localhost:3000/markets/crypto/bnb",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/solana",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/solana",
+      "finalUrl": "http://localhost:3000/markets/crypto/solana",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/xrp",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/xrp",
+      "finalUrl": "http://localhost:3000/markets/crypto/xrp",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/dogecoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/dogecoin",
+      "finalUrl": "http://localhost:3000/markets/crypto/dogecoin",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/cardano",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/cardano",
+      "finalUrl": "http://localhost:3000/markets/crypto/cardano",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/tron",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/tron",
+      "finalUrl": "http://localhost:3000/markets/crypto/tron",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/toncoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/toncoin",
+      "finalUrl": "http://localhost:3000/markets/crypto/toncoin",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/avalanche",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/avalanche",
+      "finalUrl": "http://localhost:3000/markets/crypto/avalanche",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/chainlink",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/chainlink",
+      "finalUrl": "http://localhost:3000/markets/crypto/chainlink",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/shiba-inu",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/shiba-inu",
+      "finalUrl": "http://localhost:3000/markets/crypto/shiba-inu",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/polkadot",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/polkadot",
+      "finalUrl": "http://localhost:3000/markets/crypto/polkadot",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/bitcoin-cash",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/bitcoin-cash",
+      "finalUrl": "http://localhost:3000/markets/crypto/bitcoin-cash",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/litecoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/litecoin",
+      "finalUrl": "http://localhost:3000/markets/crypto/litecoin",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/uniswap",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/uniswap",
+      "finalUrl": "http://localhost:3000/markets/crypto/uniswap",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/aptos",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/aptos",
+      "finalUrl": "http://localhost:3000/markets/crypto/aptos",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/near-protocol",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/near-protocol",
+      "finalUrl": "http://localhost:3000/markets/crypto/near-protocol",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/ethereum-classic",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/ethereum-classic",
+      "finalUrl": "http://localhost:3000/markets/crypto/ethereum-classic",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/internet-computer",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/internet-computer",
+      "finalUrl": "http://localhost:3000/markets/crypto/internet-computer",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/filecoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/filecoin",
+      "finalUrl": "http://localhost:3000/markets/crypto/filecoin",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/cosmos",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/cosmos",
+      "finalUrl": "http://localhost:3000/markets/crypto/cosmos",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/arbitrum",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/arbitrum",
+      "finalUrl": "http://localhost:3000/markets/crypto/arbitrum",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/optimism",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/optimism",
+      "finalUrl": "http://localhost:3000/markets/crypto/optimism",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/sui",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/sui",
+      "finalUrl": "http://localhost:3000/markets/crypto/sui",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/pepe",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/pepe",
+      "finalUrl": "http://localhost:3000/markets/crypto/pepe",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/dogwifhat",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/dogwifhat",
+      "finalUrl": "http://localhost:3000/markets/crypto/dogwifhat",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/injective",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/injective",
+      "finalUrl": "http://localhost:3000/markets/crypto/injective",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/render",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/render",
+      "finalUrl": "http://localhost:3000/markets/crypto/render",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/aave",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/aave",
+      "finalUrl": "http://localhost:3000/markets/crypto/aave",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/maker",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/maker",
+      "finalUrl": "http://localhost:3000/markets/crypto/maker",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/lido-dao",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/lido-dao",
+      "finalUrl": "http://localhost:3000/markets/crypto/lido-dao",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/celestia",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/celestia",
+      "finalUrl": "http://localhost:3000/markets/crypto/celestia",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/sei",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/sei",
+      "finalUrl": "http://localhost:3000/markets/crypto/sei",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/stacks",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/stacks",
+      "finalUrl": "http://localhost:3000/markets/crypto/stacks",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/hedera",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/hedera",
+      "finalUrl": "http://localhost:3000/markets/crypto/hedera",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/stellar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/stellar",
+      "finalUrl": "http://localhost:3000/markets/crypto/stellar",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/monero",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/monero",
+      "finalUrl": "http://localhost:3000/markets/crypto/monero",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/okb",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/okb",
+      "finalUrl": "http://localhost:3000/markets/crypto/okb",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/cronos",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/cronos",
+      "finalUrl": "http://localhost:3000/markets/crypto/cronos",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/polygon",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/polygon",
+      "finalUrl": "http://localhost:3000/markets/crypto/polygon",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/algorand",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/algorand",
+      "finalUrl": "http://localhost:3000/markets/crypto/algorand",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/vechain",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/vechain",
+      "finalUrl": "http://localhost:3000/markets/crypto/vechain",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/fetch-ai",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/fetch-ai",
+      "finalUrl": "http://localhost:3000/markets/crypto/fetch-ai",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/thorchain",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/thorchain",
+      "finalUrl": "http://localhost:3000/markets/crypto/thorchain",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/the-graph",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/the-graph",
+      "finalUrl": "http://localhost:3000/markets/crypto/the-graph",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/pyth-network",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/pyth-network",
+      "finalUrl": "http://localhost:3000/markets/crypto/pyth-network",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/crypto/jupiter",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/crypto/jupiter",
+      "finalUrl": "http://localhost:3000/markets/crypto/jupiter",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/us-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/us-dollar",
+      "finalUrl": "http://localhost:3000/markets/forex/us-dollar",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/euro",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/euro",
+      "finalUrl": "http://localhost:3000/markets/forex/euro",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/japanese-yen",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/japanese-yen",
+      "finalUrl": "http://localhost:3000/markets/forex/japanese-yen",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/british-pound",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/british-pound",
+      "finalUrl": "http://localhost:3000/markets/forex/british-pound",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/chinese-yuan",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/chinese-yuan",
+      "finalUrl": "http://localhost:3000/markets/forex/chinese-yuan",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/australian-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/australian-dollar",
+      "finalUrl": "http://localhost:3000/markets/forex/australian-dollar",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/canadian-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/canadian-dollar",
+      "finalUrl": "http://localhost:3000/markets/forex/canadian-dollar",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/swiss-franc",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/swiss-franc",
+      "finalUrl": "http://localhost:3000/markets/forex/swiss-franc",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/hong-kong-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/hong-kong-dollar",
+      "finalUrl": "http://localhost:3000/markets/forex/hong-kong-dollar",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/singapore-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/singapore-dollar",
+      "finalUrl": "http://localhost:3000/markets/forex/singapore-dollar",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/swedish-krona",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/swedish-krona",
+      "finalUrl": "http://localhost:3000/markets/forex/swedish-krona",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/south-korean-won",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/south-korean-won",
+      "finalUrl": "http://localhost:3000/markets/forex/south-korean-won",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/mexican-peso",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/mexican-peso",
+      "finalUrl": "http://localhost:3000/markets/forex/mexican-peso",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/new-zealand-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/new-zealand-dollar",
+      "finalUrl": "http://localhost:3000/markets/forex/new-zealand-dollar",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/norwegian-krone",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/norwegian-krone",
+      "finalUrl": "http://localhost:3000/markets/forex/norwegian-krone",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/indian-rupee",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/indian-rupee",
+      "finalUrl": "http://localhost:3000/markets/forex/indian-rupee",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/turkish-lira",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/turkish-lira",
+      "finalUrl": "http://localhost:3000/markets/forex/turkish-lira",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/south-african-rand",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/south-african-rand",
+      "finalUrl": "http://localhost:3000/markets/forex/south-african-rand",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/brazilian-real",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/brazilian-real",
+      "finalUrl": "http://localhost:3000/markets/forex/brazilian-real",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/forex/danish-krone",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/forex/danish-krone",
+      "finalUrl": "http://localhost:3000/markets/forex/danish-krone",
       "ok": true
     },
     {
       "routeType": "public",
       "path": "/markets/gold/gold",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/markets/gold/gold",
+      "finalUrl": "http://localhost:3000/markets/gold/gold",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/bitcoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/bitcoin",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/bitcoin",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/ethereum",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/ethereum",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/ethereum",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/tether",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/tether",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/tether",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/usd-coin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/usd-coin",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/usd-coin",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/bnb",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/bnb",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/bnb",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/solana",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/solana",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/solana",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/xrp",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/xrp",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/xrp",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/dogecoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/dogecoin",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/dogecoin",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/cardano",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/cardano",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/cardano",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/tron",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/tron",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/tron",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/toncoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/toncoin",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/toncoin",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/avalanche",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/avalanche",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/avalanche",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/chainlink",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/chainlink",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/chainlink",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/shiba-inu",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/shiba-inu",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/shiba-inu",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/polkadot",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/polkadot",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/polkadot",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/bitcoin-cash",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/bitcoin-cash",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/bitcoin-cash",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/litecoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/litecoin",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/litecoin",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/uniswap",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/uniswap",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/uniswap",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/aptos",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/aptos",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/aptos",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/near-protocol",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/near-protocol",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/near-protocol",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/ethereum-classic",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/ethereum-classic",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/ethereum-classic",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/internet-computer",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/internet-computer",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/internet-computer",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/filecoin",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/filecoin",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/filecoin",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/cosmos",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/cosmos",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/cosmos",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/arbitrum",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/arbitrum",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/arbitrum",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/optimism",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/optimism",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/optimism",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/sui",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/sui",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/sui",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/pepe",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/pepe",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/pepe",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/dogwifhat",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/dogwifhat",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/dogwifhat",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/injective",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/injective",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/injective",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/render",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/render",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/render",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/aave",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/aave",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/aave",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/maker",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/maker",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/maker",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/lido-dao",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/lido-dao",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/lido-dao",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/celestia",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/celestia",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/celestia",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/sei",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/sei",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/sei",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/stacks",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/stacks",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/stacks",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/hedera",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/hedera",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/hedera",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/stellar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/stellar",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/stellar",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/monero",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/monero",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/monero",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/okb",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/okb",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/okb",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/cronos",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/cronos",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/cronos",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/polygon",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/polygon",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/polygon",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/algorand",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/algorand",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/algorand",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/vechain",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/vechain",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/vechain",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/fetch-ai",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/fetch-ai",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/fetch-ai",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/thorchain",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/thorchain",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/thorchain",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/the-graph",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/the-graph",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/the-graph",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/pyth-network",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/pyth-network",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/pyth-network",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/crypto/jupiter",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/crypto/jupiter",
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/jupiter",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/us-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/us-dollar",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/us-dollar",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/euro",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/euro",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/euro",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/japanese-yen",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/japanese-yen",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/japanese-yen",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/british-pound",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/british-pound",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/british-pound",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/chinese-yuan",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/chinese-yuan",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/chinese-yuan",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/australian-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/australian-dollar",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/australian-dollar",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/canadian-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/canadian-dollar",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/canadian-dollar",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/swiss-franc",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/swiss-franc",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/swiss-franc",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/hong-kong-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/hong-kong-dollar",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/hong-kong-dollar",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/singapore-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/singapore-dollar",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/singapore-dollar",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/swedish-krona",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/swedish-krona",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/swedish-krona",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/south-korean-won",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/south-korean-won",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/south-korean-won",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/mexican-peso",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/mexican-peso",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/mexican-peso",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/new-zealand-dollar",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/new-zealand-dollar",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/new-zealand-dollar",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/norwegian-krone",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/norwegian-krone",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/norwegian-krone",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/indian-rupee",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/indian-rupee",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/indian-rupee",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/turkish-lira",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/turkish-lira",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/turkish-lira",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/south-african-rand",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/south-african-rand",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/south-african-rand",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/brazilian-real",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/brazilian-real",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/brazilian-real",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/forex/danish-krone",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/forex/danish-krone",
+      "finalUrl": "http://localhost:3000/asset-lab/forex/danish-krone",
       "ok": true
     },
     {
       "routeType": "paid",
       "path": "/asset-lab/gold/gold",
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3000/asset-lab/gold/gold",
+      "finalUrl": "http://localhost:3000/asset-lab/gold/gold",
       "ok": true
     }
   ],

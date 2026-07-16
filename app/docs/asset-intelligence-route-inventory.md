@@ -1,6 +1,6 @@
 # Asset Intelligence Route Inventory
 
-Generated at: 2026-07-15T22:11:49.450Z
+Generated at: 2026-07-16T06:24:23.503Z
 
 This inventory is generated from `assetProfiles` and is the route source of truth for Asset Intelligence final QA.
 

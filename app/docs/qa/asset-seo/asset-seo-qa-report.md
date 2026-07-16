@@ -1,8 +1,8 @@
 # Asset SEO QA Report
 
-Started: 2026-07-16T02:01:14.528Z
-Finished: 2026-07-16T02:02:21.336Z
-Base URL: http://127.0.0.1:3000
+Started: 2026-07-16T05:25:49.343Z
+Finished: 2026-07-16T05:26:53.753Z
+Base URL: http://localhost:3000
 
 ## Summary
 
@@ -21,7 +21,7 @@ Base URL: http://127.0.0.1:3000
 
 ## Sitemap Inclusion
 
-- Sitemap URL: http://127.0.0.1:3000/sitemap.xml
+- Sitemap URL: http://localhost:3000/sitemap.xml
 - Expected public routes: 71
 - Public asset routes found: 71
 - Missing public routes: 0

@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-07-16T03:45:02.425Z",
-  "finishedAt": "2026-07-16T03:45:06.123Z",
+  "startedAt": "2026-07-16T05:34:54.086Z",
+  "finishedAt": "2026-07-16T05:36:01.595Z",
   "baseUrl": "http://localhost:3000",
   "summary": {
     "publicRoutesCheckedForLeaks": 71,
@@ -10,11 +10,9 @@
       "major": 0,
       "minor": 0
     },
-    "configuredAuthenticatedStates": 0,
+    "configuredAuthenticatedStates": 2,
     "deferredAuthenticatedStates": [
-      "authenticated-without-access",
-      "active-access",
-      "admin"
+      "authenticated-without-access"
     ]
   },
   "staticChecks": [
@@ -85,25 +83,27 @@
     },
     {
       "state": "active-access",
-      "configured": false,
+      "configured": true,
       "expectedOutcome": "workspace",
-      "routesChecked": 0,
-      "passed": 0,
+      "routesChecked": 71,
+      "passed": 71,
       "failed": 0,
       "notes": [
-        "Set ASSET_QA_PAID credentials to run this browser state."
-      ]
+        "Checked with browser login and the browser request context."
+      ],
+      "screenshotPath": "docs/qa/asset-access-control/screenshots/active-access.png"
     },
     {
       "state": "admin",
-      "configured": false,
+      "configured": true,
       "expectedOutcome": "workspace",
-      "routesChecked": 0,
-      "passed": 0,
+      "routesChecked": 71,
+      "passed": 71,
       "failed": 0,
       "notes": [
-        "Set ASSET_QA_ADMIN credentials to run this browser state."
-      ]
+        "Checked with browser login and the browser request context."
+      ],
+      "screenshotPath": "docs/qa/asset-access-control/screenshots/admin.png"
     }
   ],
   "routeAccess": [
@@ -887,6 +887,1710 @@
       "details": {
         "location": "/login?redirect=%2Fasset-lab%2Fgold%2Fgold"
       }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/bitcoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/bitcoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/ethereum",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/ethereum",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/tether",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/tether",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/usd-coin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/usd-coin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/bnb",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/bnb",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/solana",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/solana",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/xrp",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/xrp",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/dogecoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/dogecoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/cardano",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/cardano",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/tron",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/tron",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/toncoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/toncoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/avalanche",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/avalanche",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/chainlink",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/chainlink",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/shiba-inu",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/shiba-inu",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/polkadot",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/polkadot",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/bitcoin-cash",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/bitcoin-cash",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/litecoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/litecoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/uniswap",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/uniswap",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/aptos",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/aptos",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/near-protocol",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/near-protocol",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/ethereum-classic",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/ethereum-classic",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/internet-computer",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/internet-computer",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/filecoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/filecoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/cosmos",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/cosmos",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/arbitrum",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/arbitrum",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/optimism",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/optimism",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/sui",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/sui",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/pepe",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/pepe",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/dogwifhat",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/dogwifhat",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/injective",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/injective",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/render",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/render",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/aave",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/aave",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/maker",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/maker",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/lido-dao",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/lido-dao",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/celestia",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/celestia",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/sei",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/sei",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/stacks",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/stacks",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/hedera",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/hedera",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/stellar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/stellar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/monero",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/monero",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/okb",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/okb",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/cronos",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/cronos",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/polygon",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/polygon",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/algorand",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/algorand",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/vechain",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/vechain",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/fetch-ai",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/fetch-ai",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/thorchain",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/thorchain",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/the-graph",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/the-graph",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/pyth-network",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/pyth-network",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/crypto/jupiter",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/jupiter",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/us-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/us-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/euro",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/euro",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/japanese-yen",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/japanese-yen",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/british-pound",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/british-pound",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/chinese-yuan",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/chinese-yuan",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/australian-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/australian-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/canadian-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/canadian-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/swiss-franc",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/swiss-franc",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/hong-kong-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/hong-kong-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/singapore-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/singapore-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/swedish-krona",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/swedish-krona",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/south-korean-won",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/south-korean-won",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/mexican-peso",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/mexican-peso",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/new-zealand-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/new-zealand-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/norwegian-krone",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/norwegian-krone",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/indian-rupee",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/indian-rupee",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/turkish-lira",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/turkish-lira",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/south-african-rand",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/south-african-rand",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/brazilian-real",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/brazilian-real",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/forex/danish-krone",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/danish-krone",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "active-access",
+      "path": "/asset-lab/gold/gold",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/gold/gold",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/bitcoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/bitcoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/ethereum",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/ethereum",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/tether",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/tether",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/usd-coin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/usd-coin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/bnb",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/bnb",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/solana",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/solana",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/xrp",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/xrp",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/dogecoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/dogecoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/cardano",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/cardano",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/tron",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/tron",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/toncoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/toncoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/avalanche",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/avalanche",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/chainlink",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/chainlink",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/shiba-inu",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/shiba-inu",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/polkadot",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/polkadot",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/bitcoin-cash",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/bitcoin-cash",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/litecoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/litecoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/uniswap",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/uniswap",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/aptos",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/aptos",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/near-protocol",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/near-protocol",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/ethereum-classic",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/ethereum-classic",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/internet-computer",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/internet-computer",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/filecoin",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/filecoin",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/cosmos",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/cosmos",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/arbitrum",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/arbitrum",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/optimism",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/optimism",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/sui",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/sui",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/pepe",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/pepe",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/dogwifhat",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/dogwifhat",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/injective",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/injective",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/render",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/render",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/aave",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/aave",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/maker",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/maker",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/lido-dao",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/lido-dao",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/celestia",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/celestia",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/sei",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/sei",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/stacks",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/stacks",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/hedera",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/hedera",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/stellar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/stellar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/monero",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/monero",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/okb",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/okb",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/cronos",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/cronos",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/polygon",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/polygon",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/algorand",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/algorand",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/vechain",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/vechain",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/fetch-ai",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/fetch-ai",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/thorchain",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/thorchain",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/the-graph",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/the-graph",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/pyth-network",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/pyth-network",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/crypto/jupiter",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/crypto/jupiter",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/us-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/us-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/euro",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/euro",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/japanese-yen",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/japanese-yen",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/british-pound",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/british-pound",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/chinese-yuan",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/chinese-yuan",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/australian-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/australian-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/canadian-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/canadian-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/swiss-franc",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/swiss-franc",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/hong-kong-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/hong-kong-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/singapore-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/singapore-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/swedish-krona",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/swedish-krona",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/south-korean-won",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/south-korean-won",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/mexican-peso",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/mexican-peso",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/new-zealand-dollar",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/new-zealand-dollar",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/norwegian-krone",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/norwegian-krone",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/indian-rupee",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/indian-rupee",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/turkish-lira",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/turkish-lira",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/south-african-rand",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/south-african-rand",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/brazilian-real",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/brazilian-real",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/forex/danish-krone",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/forex/danish-krone",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
+    },
+    {
+      "state": "admin",
+      "path": "/asset-lab/gold/gold",
+      "expectedOutcome": "workspace",
+      "status": 200,
+      "finalUrl": "http://localhost:3000/asset-lab/gold/gold",
+      "passed": true,
+      "details": {
+        "hasUpgradeGate": false,
+        "hasWorkspace": true
+      }
     }
   ],
   "publicLeakChecks": [
@@ -1318,7 +3022,9 @@
     }
   ],
   "screenshots": [
-    "docs/qa/asset-access-control/screenshots/logged-out-login-redirect.png"
+    "docs/qa/asset-access-control/screenshots/logged-out-login-redirect.png",
+    "docs/qa/asset-access-control/screenshots/active-access.png",
+    "docs/qa/asset-access-control/screenshots/admin.png"
   ],
   "issues": []
 }

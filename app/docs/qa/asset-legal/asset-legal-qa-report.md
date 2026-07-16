@@ -1,7 +1,7 @@
 # Asset Legal And Disclaimer QA Report
 
-Started: 2026-07-16T04:00:29.498Z
-Finished: 2026-07-16T04:00:30.369Z
+Started: 2026-07-16T05:36:02.632Z
+Finished: 2026-07-16T05:36:39.760Z
 Base URL: http://localhost:3000
 
 ## Summary
@@ -39,11 +39,11 @@ Base URL: http://localhost:3000
 
 ## Authenticated Paid Crawl
 
-- Configured: no
-- Routes checked: 0
-- Passed: 0
+- Configured: yes
+- Routes checked: 71
+- Passed: 71
 - Failed: 0
-- Notes: Set ASSET_QA_PAID_EMAIL/ASSET_QA_PAID_PASSWORD or ASSET_QA_EMAIL/ASSET_QA_PASSWORD to crawl authenticated paid pages.
+- Notes: Authenticated paid route crawl completed with configured credentials.
 
 ## Issue Table
 

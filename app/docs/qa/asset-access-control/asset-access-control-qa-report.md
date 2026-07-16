@@ -1,15 +1,15 @@
 # Asset Access-Control QA Report
 
-Started: 2026-07-16T03:45:02.425Z
-Finished: 2026-07-16T03:45:06.123Z
+Started: 2026-07-16T05:34:54.086Z
+Finished: 2026-07-16T05:36:01.595Z
 Base URL: http://localhost:3000
 
 ## Summary
 
 - Public routes checked for leaks: 71
 - Paid routes checked logged out: 71
-- Configured authenticated states: 0
-- Deferred authenticated states: authenticated-without-access, active-access, admin
+- Configured authenticated states: 2
+- Deferred authenticated states: authenticated-without-access
 - Blocker issues: 0
 - Major issues: 0
 - Minor issues: 0
@@ -33,8 +33,8 @@ Base URL: http://localhost:3000
 |---|---:|---|---:|---:|---:|---|
 | logged-out | yes | login-redirect | 71 | 71 | 0 | docs/qa/asset-access-control/screenshots/logged-out-login-redirect.png |
 | authenticated-without-access | no | upgrade-gate | 0 | 0 | 0 |  |
-| active-access | no | workspace | 0 | 0 | 0 |  |
-| admin | no | workspace | 0 | 0 | 0 |  |
+| active-access | yes | workspace | 71 | 71 | 0 | docs/qa/asset-access-control/screenshots/active-access.png |
+| admin | yes | workspace | 71 | 71 | 0 | docs/qa/asset-access-control/screenshots/admin.png |
 
 ## Public Leak Check
 

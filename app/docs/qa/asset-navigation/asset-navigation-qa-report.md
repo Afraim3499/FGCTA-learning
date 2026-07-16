@@ -1,8 +1,8 @@
 # Asset Navigation QA Report
 
-Started: 2026-07-16T01:28:25.061Z
-Finished: 2026-07-16T01:34:06.840Z
-Base URL: http://127.0.0.1:3000
+Started: 2026-07-16T05:29:14.602Z
+Finished: 2026-07-16T05:34:52.817Z
+Base URL: http://localhost:3000
 
 ## Summary
 
