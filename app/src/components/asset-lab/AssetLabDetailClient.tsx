@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import type { AssetProfile } from "@/lib/asset-intelligence-data";
 import { assetClassLabel, publicAssetHref } from "@/lib/asset-intelligence-data";
+import { relatedLessonHref, relatedStrategyLabHref } from "@/lib/asset-navigation";
 import { cn } from "@/lib/utils";
 
 type AssetLabDetailClientProps = {
@@ -242,8 +243,18 @@ export function AssetLabDetailClient({ asset }: AssetLabDetailClientProps) {
                 </div>
               </div>
               <div className="space-y-5">
-                <ListPanel title="Related lessons" items={asset.lab.relatedLessons} />
-                <ListPanel title="Related Strategy Lab items" items={asset.lab.relatedStrategies} />
+                <ListPanel
+                  title="Related lessons"
+                  items={asset.lab.relatedLessons}
+                  navKind="related-lesson"
+                  hrefForItem={(item) => relatedLessonHref(item, "paid")}
+                />
+                <ListPanel
+                  title="Related Strategy Lab items"
+                  items={asset.lab.relatedStrategies}
+                  navKind="related-strategy"
+                  hrefForItem={relatedStrategyLabHref}
+                />
               </div>
             </div>
           )}
@@ -467,16 +478,44 @@ function SourceCard({ source }: { source: AssetProfile["sources"][number] }) {
   );
 }
 
-function ListPanel({ title, items }: { title: string; items: string[] }) {
+function ListPanel({
+  title,
+  items,
+  navKind,
+  hrefForItem,
+}: {
+  title: string;
+  items: string[];
+  navKind?: "related-lesson" | "related-strategy";
+  hrefForItem?: (item: string) => string;
+}) {
   return (
     <div className="min-w-0 rounded-2xl border border-[var(--ln-border)] bg-white p-5">
       <h3 className="break-words text-lg font-black text-[var(--ln-navy-900)]">{title}</h3>
       <div className="mt-4 space-y-2">
-        {items.map((item) => (
-          <div key={item} className="rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)]">
-            {item}
-          </div>
-        ))}
+        {items.map((item) => {
+          const href = hrefForItem?.(item);
+
+          if (href) {
+            return (
+              <Link
+                key={item}
+                href={href}
+                data-asset-nav-kind={navKind}
+                className="group flex items-center justify-between gap-3 rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)] transition hover:bg-[var(--ln-teal-soft)] hover:text-[var(--ln-navy-900)]"
+              >
+                <span>{item}</span>
+                <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[var(--ln-teal-500)] transition group-hover:translate-x-0.5" />
+              </Link>
+            );
+          }
+
+          return (
+            <div key={item} className="rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)]">
+              {item}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

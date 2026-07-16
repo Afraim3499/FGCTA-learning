@@ -23,6 +23,7 @@ import {
   getReadyAssetProfiles,
   publicAssetHref,
 } from "@/lib/asset-intelligence-data";
+import { relatedLessonHref, relatedStrategyLabHref } from "@/lib/asset-navigation";
 
 type PageProps = {
   params: Promise<{ assetClass: string; slug: string }>;
@@ -319,9 +320,15 @@ export default async function PublicAssetPage({ params }: PageProps) {
                     <h3 className="text-lg font-black text-[var(--ln-navy-900)]">Related lessons</h3>
                     <div className="mt-4 space-y-2">
                       {asset.lab.relatedLessons.map((lesson) => (
-                        <div key={lesson} className="rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)]">
+                        <Link
+                          key={lesson}
+                          href={relatedLessonHref(lesson, "public")}
+                          data-asset-nav-kind="related-lesson"
+                          className="group flex items-center justify-between gap-3 rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)] transition hover:bg-[var(--ln-teal-soft)] hover:text-[var(--ln-navy-900)]"
+                        >
                           {lesson}
-                        </div>
+                          <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[var(--ln-teal-500)] transition group-hover:translate-x-0.5" />
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -329,9 +336,15 @@ export default async function PublicAssetPage({ params }: PageProps) {
                     <h3 className="text-lg font-black text-[var(--ln-navy-900)]">Strategy Lab links</h3>
                     <div className="mt-4 space-y-2">
                       {asset.lab.relatedStrategies.map((strategy) => (
-                        <div key={strategy} className="rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)]">
+                        <Link
+                          key={strategy}
+                          href={relatedStrategyLabHref(strategy)}
+                          data-asset-nav-kind="related-strategy"
+                          className="group flex items-center justify-between gap-3 rounded-xl bg-[var(--ln-bg-soft)] px-4 py-3 text-sm font-bold leading-6 text-[var(--ln-text-secondary)] transition hover:bg-[var(--ln-teal-soft)] hover:text-[var(--ln-navy-900)]"
+                        >
                           {strategy}
-                        </div>
+                          <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[var(--ln-teal-500)] transition group-hover:translate-x-0.5" />
+                        </Link>
                       ))}
                     </div>
                   </div>
