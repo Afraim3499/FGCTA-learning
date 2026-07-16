@@ -94,7 +94,7 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The won is South Korea's currency. It often moves with semiconductor exports, foreign investment into Korean stocks, oil-import pressure, Bank of Korea policy, and whether exporters keep dollars abroad or convert them into won.",
     marketRole: "KRW is a managed free-floating Asian currency with heavy export exposure. Lurnava monitors USD/KRW and KRW crosses, pips, spread behavior, Seoul and London session handoff, BOK reserve data, intervention language, semiconductor exports, and foreign equity flows.",
     whyTradersWatch: "Traders watch KRW because Korea is central to chips, autos, batteries, shipbuilding, and global risk appetite. A strong export month can still fail to lift KRW if equity outflows, dollar hoarding, or energy import costs dominate the pair.",
-    lurnavaMonitorNote: "Our desk compares BOK policy, reserve levels, semiconductor export receipts, Samsung and SK Hynix news, Korea current-account data, foreign equity flows, oil prices, China demand, pips, spreads, and session liquidity before classifying a won move.",
+    lurnavaMonitorNote: "Lurnava's research desk compares BOK policy, reserve levels, semiconductor export receipts, Samsung and SK Hynix news, Korea current-account data, foreign equity flows, oil prices, China demand, pips, spreads, and session liquidity before classifying a won move.",
     conversionCta: "Use the paid Asset Lab to study KRW through policy, export receipts, reserve flow, intervention risk, and practical USD/KRW pair reading before making market decisions.",
     sources: [batchSources.bokTarget, batchSources.koreaReserves, batchSources.koreaCurrentAccount, batchSources.koreaExports, batchSources.krwFlow, batchSources.bisFx2025],
     drivers: [
@@ -206,7 +206,7 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The peso is Mexico's currency. Students should read it as a rate-differential, US trade, and household-flow market rather than only as an emerging-market chart.",
     marketRole: "MXN is one of the most watched emerging-market currencies. Lurnava reviews USD/MXN, EUR/MXN, pips, spread quality, New York session depth, Banxico policy, remittance flow, US manufacturing demand, and reserve data.",
     whyTradersWatch: "Traders watch MXN because it can offer carry when Banxico rates are high, but it can also weaken fast when US risk appetite, tariffs, oil, fiscal concerns, or remittance pressure change the pair story.",
-    lurnavaMonitorNote: "Our desk compares Banxico policy, international reserves, remittances, US-Mexico trade, nearshoring announcements, oil and Pemex risk, pips, spread behavior, and New York session liquidity before classifying a peso move.",
+    lurnavaMonitorNote: "Lurnava's research desk compares Banxico policy, international reserves, remittances, US-Mexico trade, nearshoring announcements, oil and Pemex risk, pips, spread behavior, and New York session liquidity before classifying a peso move.",
     conversionCta: "Use the paid Asset Lab to study MXN with rate differentials, remittance flow, reserve support, US trade exposure, and practical USD/MXN execution context.",
     sources: [batchSources.banxicoReserves, batchSources.mexicoReserves, batchSources.banxicoPolicy, batchSources.mexicoRemittances, batchSources.bbvaRemittanceTax, batchSources.bisFx2025],
     drivers: [
@@ -318,8 +318,8 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The New Zealand dollar reflects a small economy with large global links. Dairy exports, RBNZ rate decisions, China demand, Australian comparisons, and risk mood can all matter more than a single chart candle.",
     marketRole: "NZD is a commodity-sensitive G10 currency. Lurnava reviews NZD/USD, AUD/NZD, pips, spread behavior, Asia-Pacific session timing, RBNZ policy, reserve assets, dairy export revenue, housing risk, and China demand.",
     whyTradersWatch: "Traders watch NZD because it can respond quickly to RBNZ repricing, dairy auction expectations, China growth, AUD comparison, and global risk appetite, especially when liquidity is thinner than major pairs.",
-    lurnavaMonitorNote: "Our desk compares RBNZ policy, official reserves, dairy export data, Fonterra milk price guidance, Stats NZ trade releases, China data, AUD/NZD structure, pips, spread, and Asia session liquidity before classifying an NZD move.",
-    conversionCta: "Use the paid Asset Lab to connect RBNZ policy, dairy flow, China demand, reserve data, AUD/NZD comparison, and practical spread awareness.",
+    lurnavaMonitorNote: "Lurnava's research desk compares RBNZ policy, official reserves, dairy export data, Fonterra milk price guidance, Stats NZ trade releases, China data, AUD/NZD structure, pips, spread, and Asia session liquidity before classifying an NZD move.",
+    conversionCta: "Study NZD inside Lurnava with RBNZ policy, dairy flow, China demand, reserve data, AUD/NZD comparison, pips, and practical spread awareness.",
     sources: [batchSources.rbnzPolicy, batchSources.rbnzReserves, batchSources.nzReserves, batchSources.mpiDairy, batchSources.fonterraReports, batchSources.statsNzTrade, batchSources.bisFx2025],
     drivers: [
       { title: "RBNZ OCR path", detail: "OCR decisions change the rate support behind NZD/USD and AUD/NZD." },
@@ -430,7 +430,7 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The krone is Norway's currency. It is not only an oil-price chart. Students must connect Norges Bank policy, state petroleum cash flow, the sovereign wealth fund, Europe energy demand, and EUR/NOK liquidity.",
     marketRole: "NOK is a small G10 currency with energy and fiscal-flow exposure. Lurnava reviews EUR/NOK, USD/NOK, pips, spread behavior, European session liquidity, Norges Bank policy, FX transactions, reserves, oil and gas prices, and NBIM fund value.",
     whyTradersWatch: "Traders watch NOK because oil and gas revenues, state FX purchases or sales, Norges Bank rate expectations, and euro-side movement can create sharp changes in EUR/NOK, especially when liquidity is thin.",
-    lurnavaMonitorNote: "Our desk compares Norges Bank decisions, inflation target, official reserves, daily FX transaction plans, oil and gas prices, NBIM fund value, EUR/NOK pips, spreads, and European session depth before classifying a krone move.",
+    lurnavaMonitorNote: "Lurnava's research desk compares Norges Bank decisions, inflation target, official reserves, daily FX transaction plans, oil and gas prices, NBIM fund value, EUR/NOK pips, spreads, and European session depth before classifying a krone move.",
     conversionCta: "Use the paid Asset Lab to study NOK through energy flow, sovereign-wealth mechanics, reserves, central-bank policy, and EUR/NOK execution quality.",
     sources: [batchSources.norgesReserves, batchSources.norgesInflation, batchSources.ssbReserves, batchSources.norgesFx, batchSources.nbimValue, batchSources.bisFx2025],
     drivers: [
@@ -542,8 +542,8 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The rupee is India's currency. It often moves through a mix of oil-import dollar demand, RBI reserve management, foreign portfolio flow, inflation pressure, and how strongly the dollar is moving against Asia.",
     marketRole: "INR is a heavily monitored Asian currency. Lurnava reviews USD/INR, INR crosses, pips, spread behavior, India and London session liquidity, RBI reserves, intervention risk, crude oil imports, trade deficit, inflation, and capital flows.",
     whyTradersWatch: "Traders watch INR because India is a large oil importer and a major growth market. A strong domestic story can still face pressure when crude rises, the trade deficit widens, or foreign investors reduce exposure.",
-    lurnavaMonitorNote: "Our desk compares RBI reserve releases, oil import data, trade deficit, inflation and policy expectations, foreign portfolio flow, USD/INR pips, spreads, session behavior, and official smoothing risk before classifying a rupee move.",
-    conversionCta: "Use the paid Asset Lab to connect RBI reserves, oil-import pressure, capital flow, trade balance, and USD/INR execution conditions in one workspace.",
+    lurnavaMonitorNote: "Lurnava's research desk compares RBI reserve releases, oil import data, trade deficit, inflation and policy expectations, foreign portfolio flow, USD/INR pips, spreads, session behavior, and official smoothing risk before classifying a rupee move.",
+    conversionCta: "Study INR inside Lurnava with RBI reserves, oil-import pressure, capital flow, trade balance, USD/INR pips, spread behavior, and session context.",
     sources: [batchSources.rbiWss, batchSources.indiaReserves, batchSources.indiaReserveNews, batchSources.ppacOil, batchSources.indiaTrade, batchSources.bisFx2025],
     drivers: [
       { title: "RBI reserve management", detail: "Reserve changes and intervention expectations shape USD/INR behavior during dollar stress." },
@@ -654,7 +654,7 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The lira is Turkey's currency. It can move sharply when inflation, policy credibility, reserves, dollar deposits, external funding, or official rules change the market's trust in TRY.",
     marketRole: "TRY is a high-volatility emerging-market currency. Lurnava reviews USD/TRY, EUR/TRY, pips, spread behavior, Istanbul and London session conditions, CBRT policy, reserves, inflation targets, dollarization, capital rules, and external debt pressure.",
     whyTradersWatch: "Traders watch TRY because high rates can look attractive, but inflation, reserve quality, policy credibility, and capital-flow restrictions can change risk faster than chart structure.",
-    lurnavaMonitorNote: "Our desk compares CBRT decisions, inflation target language, gross FX reserves, policy rate, IMF reserve reporting, dollarization pressure, external financing, USD/TRY pips, spread, and session liquidity before classifying a lira move.",
+    lurnavaMonitorNote: "Lurnava's research desk compares CBRT decisions, inflation target language, gross FX reserves, policy rate, IMF reserve reporting, dollarization pressure, external financing, USD/TRY pips, spread, and session liquidity before classifying a lira move.",
     conversionCta: "Use the paid Asset Lab to study TRY with inflation, reserve quality, policy credibility, external financing, and high-volatility execution context.",
     sources: [batchSources.cbrtPolicy, batchSources.cbrtMpc, batchSources.turkeyReserves, batchSources.turkeyRate, batchSources.imfTurkeyReserves, batchSources.bisFx2025],
     drivers: [
@@ -766,8 +766,8 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The rand is South Africa's currency. It can move with metals, local inflation policy, power reliability, fiscal credibility, foreign investor flow, and global demand for emerging-market risk.",
     marketRole: "ZAR is a liquid emerging-market currency with commodity and fiscal sensitivity. Lurnava reviews USD/ZAR, EUR/ZAR, pips, spread behavior, London and Johannesburg session liquidity, SARB policy, reserves, gold, platinum group metals, fiscal risk, and China demand.",
     whyTradersWatch: "Traders watch ZAR because it can react quickly to commodity prices, SARB decisions, political risk, infrastructure stress, foreign bond flow, and global carry appetite.",
-    lurnavaMonitorNote: "Our desk compares SARB policy, reserve data, gold and PGM exposure, fiscal news, electricity and logistics risk, China demand, USD/ZAR pips, spreads, and session depth before classifying a rand move.",
-    conversionCta: "Use the paid Asset Lab to connect ZAR policy, metal exports, reserve data, fiscal risk, infrastructure pressure, and practical pair execution.",
+    lurnavaMonitorNote: "Lurnava's research desk compares SARB policy, reserve data, gold and PGM exposure, fiscal news, electricity and logistics risk, China demand, USD/ZAR pips, spreads, and session depth before classifying a rand move.",
+    conversionCta: "Study ZAR inside Lurnava with SARB policy, metal exports, reserve data, fiscal risk, infrastructure pressure, USD/ZAR pips, spreads, and pair practice.",
     sources: [batchSources.sarbPolicy, batchSources.sarbMpc, batchSources.sarbReserves, batchSources.southAfricaReserves, batchSources.southAfricaTarget, batchSources.pgmTrade, batchSources.bisFx2025],
     drivers: [
       { title: "SARB policy", detail: "Rate expectations and inflation-target credibility shape ZAR carry and confidence." },
@@ -878,7 +878,7 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The real is Brazil's currency. It often moves with interest-rate expectations, commodities, China demand, fiscal credibility, trade surpluses, and how willing global investors are to hold Brazilian risk.",
     marketRole: "BRL is a large Latin American currency with commodity and carry exposure. Lurnava reviews USD/BRL, EUR/BRL, pips, spread behavior, Sao Paulo and New York session liquidity, BCB policy, international reserves, Selic expectations, trade surplus, commodities, and fiscal news.",
     whyTradersWatch: "Traders watch BRL because high rates can attract carry while fiscal risk, commodity reversals, China demand, or BCB policy shifts can quickly change the pair story.",
-    lurnavaMonitorNote: "Our desk compares BCB policy, inflation target, Selic expectations, reserves, trade surplus, soy and iron ore demand, China flow, fiscal headlines, USD/BRL pips, spread, and session depth before classifying a real move.",
+    lurnavaMonitorNote: "Lurnava's research desk compares BCB policy, inflation target, Selic expectations, reserves, trade surplus, soy and iron ore demand, China flow, fiscal headlines, USD/BRL pips, spread, and session depth before classifying a real move.",
     conversionCta: "Use the paid Asset Lab to study BRL through BCB policy, commodity flow, reserve strength, fiscal pressure, and practical USD/BRL execution context.",
     sources: [batchSources.bcbReserves, batchSources.brazilReserves, batchSources.bcbTarget, batchSources.bcbPolicy, batchSources.brazilTrade, batchSources.bisFx2025],
     drivers: [
@@ -990,7 +990,7 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The Danish krone is not a normal free-floating FX story. Denmark keeps it close to the euro, so students must study EUR/DKK policy mechanics, reserves, central-bank rate adjustments, and intervention logic.",
     marketRole: "DKK is a fixed-exchange-rate currency against the euro. Lurnava reviews EUR/DKK, USD/DKK, pips, spread behavior, European session liquidity, ERM II central rate, reserve data, Danmarks Nationalbank policy, ECB rates, and intervention mechanics.",
     whyTradersWatch: "Traders watch DKK because the lesson is about peg credibility, reserve defense, rate alignment, and tiny deviations in EUR/DKK rather than ordinary trend following.",
-    lurnavaMonitorNote: "Our desk compares Danmarks Nationalbank reserve data, EUR/DKK central-rate mechanics, ECB reference rates, intervention framework, interest-rate alignment, pips, spread, and European session depth before classifying a krone move.",
+    lurnavaMonitorNote: "Lurnava's research desk compares Danmarks Nationalbank reserve data, EUR/DKK central-rate mechanics, ECB reference rates, intervention framework, interest-rate alignment, pips, spread, and European session depth before classifying a krone move.",
     conversionCta: "Use the paid Asset Lab to study DKK as a live peg mechanics case: reserves, intervention rules, ECB linkage, and EUR/DKK execution detail.",
     sources: [batchSources.nationalbankenFaq, batchSources.nationalbankenReserve, batchSources.denmarkReserves, batchSources.imfDenmark, batchSources.ecbDkk, batchSources.bisFx2025],
     drivers: [
@@ -1102,7 +1102,7 @@ export const assetDeepBatch7Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "Cronos is a crypto network connected to the CRO ecosystem. Students should study it through real network use, validators, DeFi liquidity, bridge flow, Crypto.com distribution, and whether token demand matches activity.",
     marketRole: "CRO is a crypto ecosystem asset tied to Cronos EVM, Cronos POS, Crypto.com distribution, app activity, staking, fees, liquidity depth, slippage, stablecoins, bridges, exchange access, and DeFi protocol usage.",
     whyTradersWatch: "Traders watch CRO when Cronos app activity rises, Crypto.com distribution expands, validator and staking conditions change, DeFi liquidity improves, stablecoin activity grows, or exchange-token narratives rotate.",
-    lurnavaMonitorNote: "Our desk reviews Cronos docs, POS validator mechanics, Crypto.com CRO data, DefiLlama TVL, stablecoins, active addresses, transactions, bridged assets, VVS Finance activity, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a CRO move.",
+    lurnavaMonitorNote: "Lurnava's research desk reviews Cronos docs, POS validator mechanics, Crypto.com CRO data, DefiLlama TVL, stablecoins, active addresses, transactions, bridged assets, VVS Finance activity, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a CRO move.",
     conversionCta: "Use the paid Asset Lab to study Cronos through network activity, CRO utility, validators, bridge exposure, DeFi liquidity, and execution risk.",
     sources: [batchSources.cronosDocs, batchSources.cronosModules, batchSources.cronosStaking, batchSources.cronosExplorer, batchSources.cryptoComCro, batchSources.defillamaCronos, batchSources.defillamaBridge, batchSources.vvsDefillama],
     drivers: [

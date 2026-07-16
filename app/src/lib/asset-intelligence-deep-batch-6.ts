@@ -65,7 +65,7 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The Euro is shared money for the euro area. It is not controlled by one country, so students must read the ECB, member-country bond spreads, growth gaps, and energy pressure together before judging EUR pairs.",
     marketRole: "EUR is a reserve, funding, invoicing, and trading currency. Lurnava reviews EUR/USD, EUR/JPY, EUR/GBP, EUR/CHF, pips, spread conditions, London and New York session behavior, ECB policy, bond spreads, and reserve data.",
     whyTradersWatch: "Traders watch EUR because it is the main alternative to USD in global FX. It moves when ECB pricing, US rate expectations, energy prices, German and Italian bond spreads, or political risk changes the pair story.",
-    lurnavaMonitorNote: "Our desk compares ECB statements, euro-area inflation, growth surveys, current-account data, Bund-BTP spreads, reserve-use reports, and session liquidity before classifying an EUR move.",
+    lurnavaMonitorNote: "Lurnava's research desk compares ECB statements, euro-area inflation, growth surveys, current-account data, Bund-BTP spreads, reserve-use reports, and session liquidity before classifying an EUR move.",
     conversionCta: "Learn how our paid Asset Lab turns EUR headlines into structured pair reading, session planning, spread awareness, and policy-driven scenario work.",
     sources: [batchSources.ecbEuroRole, batchSources.ecbAccounts2025, batchSources.ecbTarget, batchSources.ecbJune2026, batchSources.bisFx2025],
     drivers: [
@@ -162,7 +162,7 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The yen often behaves differently from high-yield currencies. Traders borrow it, hedge with it, and watch Japanese authorities when moves become disorderly, especially in USD/JPY.",
     marketRole: "JPY is a major funding, reserve, and defensive currency. Lurnava monitors USD/JPY, EUR/JPY, AUD/JPY, pips, spread changes, Tokyo and London session behavior, BOJ policy, MOF intervention risk, and Japan's reserve data.",
     whyTradersWatch: "Traders watch JPY because it links rate gaps, global risk appetite, carry trades, and official intervention. A quiet trend can become a sharp unwind when yields or policy language changes.",
-    lurnavaMonitorNote: "Our desk compares BOJ decisions, Japan MOF reserve releases, US-Japan yield spreads, official intervention language, Tokyo liquidity, and carry positioning before classifying a JPY move.",
+    lurnavaMonitorNote: "Lurnava's research desk compares BOJ decisions, Japan MOF reserve releases, US-Japan yield spreads, official intervention language, Tokyo liquidity, and carry positioning before classifying a JPY move.",
     conversionCta: "Use the paid Asset Lab to study JPY pairs with policy context, intervention awareness, session timing, spread behavior, and pips-based risk reading.",
     sources: [batchSources.japanReserves, batchSources.bojTarget, batchSources.bojMarch2026, batchSources.bisFx2025],
     drivers: [
@@ -259,8 +259,8 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The pound is the UK's currency and one of the oldest actively traded currencies. It can move like a major, but it also reacts sharply to UK politics, budgets, gilts, and inflation data.",
     marketRole: "GBP is a major trading, reserve, and London-session currency. Lurnava tracks GBP/USD, EUR/GBP, GBP/JPY, pips, spread behavior, London and New York sessions, BOE policy, gilt yields, and fiscal credibility.",
     whyTradersWatch: "Traders watch GBP because sterling can reprice quickly when UK inflation, wages, fiscal plans, or gilt yields change the market's view of Bank Rate and confidence.",
-    lurnavaMonitorNote: "Our desk compares BOE decisions, inflation letters, gilt-market behavior, UK reserve reports, fiscal news, London session flow, and cross-pair confirmation before classifying GBP moves.",
-    conversionCta: "The paid Asset Lab helps students read GBP pairs through policy, gilts, session liquidity, spread behavior, and pips-based risk rather than headlines alone.",
+    lurnavaMonitorNote: "Lurnava's research desk compares BOE decisions, inflation letters, gilt-market behavior, UK reserve reports, fiscal news, London session flow, and cross-pair confirmation before classifying GBP moves.",
+    conversionCta: "Study GBP inside Lurnava with BOE policy, gilt-market context, London session practice, spread behavior, and pips-based risk checks before planning cable or EUR/GBP scenarios.",
     sources: [batchSources.boePolicy, batchSources.boeReserves, batchSources.ukReservesPdf, batchSources.bisFx2025],
     drivers: [
       { title: "Bank Rate expectations", detail: "BOE decisions and MPC vote splits shape sterling's yield support." },
@@ -356,8 +356,8 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The yuan is China's currency. Students must separate onshore CNY from offshore CNH because policy, liquidity, and market access are not the same in both venues.",
     marketRole: "CNY is a managed trade, reserve, and Asia-liquidity currency. Lurnava studies USD/CNH, USD/CNY context, pips, spread behavior, Asia session liquidity, daily fixing, SAFE reserves, and trade-policy pressure.",
     whyTradersWatch: "Traders watch CNY because China is central to global trade, commodities, manufacturing, and Asia FX. A small fixing change can alter how markets read policy tolerance.",
-    lurnavaMonitorNote: "Our desk reviews PBOC fixing, SAFE reserve releases, CNH-CNY gaps, trade data, credit conditions, Asia session liquidity, and related AUD, HKD, SGD, and KRW behavior.",
-    conversionCta: "The paid Asset Lab teaches yuan structure through fixing mechanics, onshore-offshore gaps, reserve data, pair selection, spread behavior, and session timing.",
+    lurnavaMonitorNote: "Lurnava's research desk reviews PBOC fixing, SAFE reserve releases, CNH-CNY gaps, trade data, credit conditions, Asia session liquidity, and related AUD, HKD, SGD, and KRW behavior.",
+    conversionCta: "Study CNY and CNH inside Lurnava with PBOC fixing mechanics, reserve context, onshore-offshore gap checks, Asia FX links, session planning, and spread awareness.",
     sources: [
       batchSources.safeReserves,
       batchSources.chinaManagedFloat,
@@ -458,7 +458,7 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The Australian dollar often reacts to interest rates, commodities, and China growth together. It can look like a major currency, a risk currency, and a commodity currency at the same time.",
     marketRole: "AUD is a major commodity and risk-linked currency. Lurnava monitors AUD/USD, AUD/JPY, AUD/NZD, pips, spread, Asia and London session behavior, RBA policy, China data, and reserve assets.",
     whyTradersWatch: "Traders watch AUD because it links Australian rates, China demand, iron ore, global risk mood, and carry appetite. It can move before domestic data when Asia risk changes.",
-    lurnavaMonitorNote: "Our desk reviews RBA guidance, inflation data, labor data, official reserve releases, China growth, iron ore and energy prices, AUD crosses, session liquidity, and spread behavior.",
+    lurnavaMonitorNote: "Lurnava's research desk reviews RBA guidance, inflation data, labor data, official reserve releases, China growth, iron ore and energy prices, AUD crosses, session liquidity, and spread behavior.",
     conversionCta: "The paid Asset Lab teaches AUD as a policy-plus-commodity currency with pair selection, pips, spreads, sessions, and China-demand context built into the study process.",
     sources: [batchSources.rbaReserves, batchSources.rbaOperations, batchSources.rbaTarget, batchSources.rbaRates, batchSources.bisFx2025],
     drivers: [
@@ -555,8 +555,8 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The Canadian dollar often reacts to the Bank of Canada, the US economy, oil prices, and risk appetite. USD/CAD can hide whether the Canadian side or the US dollar side is really moving.",
     marketRole: "CAD is a commodity-linked major and North American trade currency. Lurnava tracks USD/CAD, CAD/JPY, EUR/CAD, pips, spread, New York and London session behavior, Bank of Canada policy, oil, and reserve data.",
     whyTradersWatch: "Traders watch CAD because Canada is deeply linked to the US and energy markets. Oil shocks, US growth, and Bank of Canada repricing can all change USD/CAD structure.",
-    lurnavaMonitorNote: "Our desk reviews Bank of Canada policy, inflation and jobs data, oil prices, US data, official reserve publications, cross-pair behavior, pips, spreads, and session timing.",
-    conversionCta: "The paid Asset Lab teaches CAD through policy, oil, US trade, pair selection, spread quality, session behavior, and pips-based structure reading.",
+    lurnavaMonitorNote: "Lurnava's research desk reviews Bank of Canada policy, inflation and jobs data, oil prices, US data, official reserve publications, cross-pair behavior, pips, spreads, and session timing.",
+    conversionCta: "Study CAD inside Lurnava with Bank of Canada policy, oil sensitivity, US trade context, USD/CAD practice, spread quality, and pips-based structure checks.",
     sources: [batchSources.bocPolicy, batchSources.bocReserves, batchSources.canadaReservesMay, batchSources.bisFx2025],
     drivers: [
       { title: "Bank of Canada policy", detail: "Rate expectations shape CAD yield support and USD/CAD repricing." },
@@ -652,8 +652,8 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The Swiss franc is often treated as a defensive currency, but students must also watch the SNB. The central bank has large foreign-currency investments and a history of acting when franc strength threatens price stability.",
     marketRole: "CHF is a defensive, reserve, and policy-sensitive major. Lurnava monitors EUR/CHF, USD/CHF, CHF/JPY, pips, spread, London and European session behavior, SNB policy, intervention language, and reserve allocation.",
     whyTradersWatch: "Traders watch CHF because it can strengthen during stress, yet the SNB may resist rapid appreciation. EUR/CHF is especially important because Switzerland is tightly linked to Europe.",
-    lurnavaMonitorNote: "Our desk compares SNB policy, reserve allocation, foreign-currency investments, gold value, EUR/CHF structure, European risk, pips, spread, and session behavior before classifying CHF moves.",
-    conversionCta: "The paid Asset Lab teaches CHF through SNB balance-sheet reality, intervention risk, EUR/CHF structure, pips, spreads, and defensive-market behavior.",
+    lurnavaMonitorNote: "Lurnava's research desk compares SNB policy, reserve allocation, foreign-currency investments, gold value, EUR/CHF structure, European risk, pips, spread, and session behavior before classifying CHF moves.",
+    conversionCta: "Study CHF inside Lurnava with SNB balance-sheet reality, intervention risk, EUR/CHF structure, defensive-market context, pips, and spread behavior.",
     sources: [batchSources.snbStatements, batchSources.snbAllocation, batchSources.snbAssets, batchSources.snbMarch2026, batchSources.bisFx2025],
     drivers: [
       { title: "SNB policy rate", detail: "The SNB rate path and inflation forecast shape CHF's yield and intervention context." },
@@ -749,8 +749,8 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The Hong Kong dollar is not traded like a free-floating major. It is managed inside a stated USD band, so students must study the band, the HKMA, reserves, and local liquidity before reading USD/HKD.",
     marketRole: "HKD is a linked exchange-rate and liquidity currency. Lurnava monitors USD/HKD, pips, spread, Asia session behavior, the 7.75-7.85 band, HKMA reserves, HIBOR, Aggregate Balance, and Exchange Fund data.",
     whyTradersWatch: "Traders watch HKD because the band, HIBOR, Hong Kong equity flows, China-linked capital flow, and HKMA operations can reveal pressure inside a rules-based system.",
-    lurnavaMonitorNote: "Our desk reviews HKMA reserve releases, Exchange Fund data, foreign assets, backing ratio, HIBOR, Aggregate Balance, Stock Connect flow, and USD/HKD band behavior.",
-    conversionCta: "The paid Asset Lab teaches HKD through the LERS band, reserve backing, HIBOR pressure, pips, spreads, and Asia-session liquidity instead of free-float assumptions.",
+    lurnavaMonitorNote: "Lurnava's research desk reviews HKMA reserve releases, Exchange Fund data, foreign assets, backing ratio, HIBOR, Aggregate Balance, Stock Connect flow, and USD/HKD band behavior.",
+    conversionCta: "Study HKD inside Lurnava with the LERS band, reserve backing, HIBOR pressure, USD/HKD band behavior, pips, spreads, and Asia-session liquidity.",
     sources: [batchSources.hkmaLers, batchSources.hkmaReserves, batchSources.hkmaExchangeFund, batchSources.hkmaAnalytical, batchSources.bisFx2025],
     drivers: [
       { title: "LERS band", detail: "The HK$7.75-7.85 per US dollar range defines the first rule for reading USD/HKD." },
@@ -846,7 +846,7 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "Singapore does not run monetary policy mainly through a standard policy-rate target. MAS manages the Singapore dollar against a trade-weighted basket, so USD/SGD alone is not the whole story.",
     marketRole: "SGD is a managed exchange-rate, reserve, and Asia financial-center currency. Lurnava tracks USD/SGD, SGD crosses, pips, spread, Asia session behavior, S$NEER policy, MAS reserves, and imported inflation.",
     whyTradersWatch: "Traders watch SGD because MAS policy is exchange-rate centered. The currency can reflect inflation control, trade competitiveness, regional Asia stress, and reserve-manager demand.",
-    lurnavaMonitorNote: "Our desk reviews MAS policy statements, S$NEER behavior, reserve data, Singapore inflation, trade data, USD/SGD, regional Asia FX, pips, spreads, and session liquidity.",
+    lurnavaMonitorNote: "Lurnava's research desk reviews MAS policy statements, S$NEER behavior, reserve data, Singapore inflation, trade data, USD/SGD, regional Asia FX, pips, spreads, and session liquidity.",
     conversionCta: "The paid Asset Lab teaches SGD through MAS band mechanics, reserve evidence, Asia FX context, pair selection, pips, spreads, and session-aware study.",
     sources: [batchSources.masFramework, batchSources.masOperations, batchSources.masReserves, batchSources.masReservesJan, batchSources.bisFx2025],
     drivers: [
@@ -943,8 +943,8 @@ export const assetDeepBatch6Enhancements: Record<string, AssetProfileEnhancement
     plainEnglish: "The krona is Sweden's currency. It can move faster than larger majors because Sweden is a small open economy with Europe exposure, housing sensitivity, and a central bank reserve framework students can verify.",
     marketRole: "SEK is a smaller European, floating, and risk-sensitive currency. Lurnava monitors EUR/SEK, USD/SEK, NOK/SEK, pips, spread, European session behavior, Riksbank policy, reserves, housing risk, and regional growth.",
     whyTradersWatch: "Traders watch SEK because it can react to Riksbank decisions, European growth, housing stress, bank funding, and global risk appetite with sharper movement than the largest majors.",
-    lurnavaMonitorNote: "Our desk reviews Riksbank policy, reserve allocation, gold value, housing data, bank funding, EUR/SEK, USD/SEK, NOK/SEK, pips, spreads, and European liquidity.",
-    conversionCta: "The paid Asset Lab teaches SEK through Riksbank policy, reserves, European growth, housing sensitivity, pips, spreads, and cross-pair confirmation.",
+    lurnavaMonitorNote: "Lurnava's research desk reviews Riksbank policy, reserve allocation, gold value, housing data, bank funding, EUR/SEK, USD/SEK, NOK/SEK, pips, spreads, and European liquidity.",
+    conversionCta: "Study SEK inside Lurnava with Riksbank policy, reserve context, European growth, housing sensitivity, pips, spreads, and cross-pair confirmation.",
     sources: [batchSources.riksbankAnnual, batchSources.riksbankAllocation, batchSources.riksbankReserve, batchSources.riksbankGold, batchSources.bisFx2025],
     drivers: [
       { title: "Riksbank policy", detail: "Policy-rate expectations and inflation language shape SEK's yield support." },

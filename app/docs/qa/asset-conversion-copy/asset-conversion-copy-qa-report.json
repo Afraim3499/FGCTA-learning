@@ -1,0 +1,3521 @@
+{
+  "startedAt": "2026-07-16T02:58:07.543Z",
+  "finishedAt": "2026-07-16T02:59:09.536Z",
+  "baseUrl": "http://127.0.0.1:3000",
+  "summary": {
+    "publicPagesReviewed": 71,
+    "renderedPagesChecked": 71,
+    "genericPublicPages": 0,
+    "weakCtas": 0,
+    "missingConversionPaths": 0,
+    "hypeOrPromiseCtas": 0,
+    "issueCounts": {
+      "blocker": 0,
+      "major": 0,
+      "minor": 0
+    },
+    "averageScore": 100,
+    "lowestScore": 100
+  },
+  "scorecards": [
+    {
+      "path": "/markets/crypto/bitcoin",
+      "asset": "Bitcoin",
+      "symbol": "BTC",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Bitcoin: Bitcoin is crypto's reserve benchmark.",
+      "conversionCta": "Learn how to study Bitcoin and markets like it through structured lessons, guided practice, Strategy Lab reviews, and certification checks.",
+      "assetSpecificTermHits": 40,
+      "primaryClaims": {
+        "headline": "Bitcoin is crypto's reserve benchmark.",
+        "subheadline": "BTC is watched because it sits at the center of crypto liquidity, ETF access, public-company exposure, miner economics, and macro risk appetite.",
+        "monitorNote": "Lurnava studies Bitcoin through spot liquidity, ETF access, custody structure, public treasury exposure, exchange flow, miner pressure, derivatives leverage, macro liquidity, and major policy changes."
+      },
+      "rendered": {
+        "path": "/markets/crypto/bitcoin",
+        "status": 200,
+        "h1": "Bitcoin: Bitcoin is crypto's reserve benchmark.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 281
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/ethereum",
+      "asset": "Ethereum",
+      "symbol": "ETH",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Ethereum: Ethereum is the settlement layer behind much of crypto finance.",
+      "conversionCta": "Learn how to read Ethereum's market role through structured asset research, visual lessons, and guided practice inside Lurnava.",
+      "assetSpecificTermHits": 33,
+      "primaryClaims": {
+        "headline": "Ethereum is the settlement layer behind much of crypto finance.",
+        "subheadline": "ETH is watched because decentralized apps, stablecoins, staking, layer-2 networks, and token issuance all depend on Ethereum activity.",
+        "monitorNote": "Lurnava studies Ethereum through network fees, staking flows, layer-2 activity, ETF demand, developer activity, DeFi liquidity, and ETH/BTC rotation."
+      },
+      "rendered": {
+        "path": "/markets/crypto/ethereum",
+        "status": 200,
+        "h1": "Ethereum: Ethereum is the settlement layer behind much of crypto finance.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 236
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/solana",
+      "asset": "Solana",
+      "symbol": "SOL",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Solana: Solana is crypto's high-speed application network.",
+      "conversionCta": "Learn how to study fast-moving crypto ecosystems with structured research, risk mapping, and professional testing inside Lurnava.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "Solana is crypto's high-speed application network.",
+        "subheadline": "SOL is watched because it reflects demand for fast consumer crypto apps, active trading venues, DePIN projects, and high-throughput blockchain infrastructure.",
+        "monitorNote": "Lurnava studies Solana through network usage, validator performance, app revenue, liquidity depth, ecosystem launches, and risk from congestion or outages."
+      },
+      "rendered": {
+        "path": "/markets/crypto/solana",
+        "status": 200,
+        "h1": "Solana: Solana is crypto's high-speed application network.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 209
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/us-dollar",
+      "asset": "US Dollar",
+      "symbol": "USD",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "US Dollar: The US Dollar is the anchor of global currency markets.",
+      "conversionCta": "Learn how to read the US Dollar through macro lessons, forex structure, strategy practice, and professional certification checks.",
+      "assetSpecificTermHits": 35,
+      "primaryClaims": {
+        "headline": "The US Dollar is the anchor of global currency markets.",
+        "subheadline": "USD is watched because global trade, official reserves, Treasury holdings, debt, commodities, and risk appetite often pass through dollar pricing.",
+        "monitorNote": "Lurnava studies the dollar through Fed policy, H.4.1 balance-sheet data, IMF reserve composition, Treasury foreign-holder data, BIS FX turnover, DXY behavior, session liquidity, and pair-specific context."
+      },
+      "rendered": {
+        "path": "/markets/forex/us-dollar",
+        "status": 200,
+        "h1": "US Dollar: The US Dollar is the anchor of global currency markets.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 245
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/euro",
+      "asset": "Euro",
+      "symbol": "EUR",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Euro: The Euro is the world's second major reserve and trading currency.",
+      "conversionCta": "Learn how our paid Asset Lab turns EUR headlines into structured pair reading, session planning, spread awareness, and policy-driven scenario work.",
+      "assetSpecificTermHits": 41,
+      "primaryClaims": {
+        "headline": "The Euro is the world's second major reserve and trading currency.",
+        "subheadline": "EUR matters because it connects ECB policy, euro-area inflation, sovereign bond spreads, energy exposure, trade invoicing, reserve management, and the most traded non-dollar currency bloc.",
+        "monitorNote": "Lurnava's research desk compares ECB statements, euro-area inflation, growth surveys, current-account data, Bund-BTP spreads, reserve-use reports, and session liquidity before classifying an EUR move."
+      },
+      "rendered": {
+        "path": "/markets/forex/euro",
+        "status": 200,
+        "h1": "Euro: The Euro is the world's second major reserve and trading currency.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 267
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/japanese-yen",
+      "asset": "Japanese Yen",
+      "symbol": "JPY",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Japanese Yen: The Japanese Yen is a funding currency with intervention risk.",
+      "conversionCta": "Use the paid Asset Lab to study JPY pairs with policy context, intervention awareness, session timing, spread behavior, and pips-based risk reading.",
+      "assetSpecificTermHits": 29,
+      "primaryClaims": {
+        "headline": "The Japanese Yen is a funding currency with intervention risk.",
+        "subheadline": "JPY matters because BOJ policy, yield gaps, Japan's reserve base, carry-trade unwinds, official warnings, and global risk stress can all reshape yen pairs quickly.",
+        "monitorNote": "Lurnava's research desk compares BOJ decisions, Japan MOF reserve releases, US-Japan yield spreads, official intervention language, Tokyo liquidity, and carry positioning before classifying a JPY move."
+      },
+      "rendered": {
+        "path": "/markets/forex/japanese-yen",
+        "status": 200,
+        "h1": "Japanese Yen: The Japanese Yen is a funding currency with intervention risk.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 245
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/british-pound",
+      "asset": "British Pound",
+      "symbol": "GBP",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "British Pound: The British Pound is a high-liquidity currency with policy and gilt risk.",
+      "conversionCta": "Study GBP inside Lurnava with BOE policy, gilt-market context, London session practice, spread behavior, and pips-based risk checks before planning cable or EUR/GBP scenarios.",
+      "assetSpecificTermHits": 36,
+      "primaryClaims": {
+        "headline": "The British Pound is a high-liquidity currency with policy and gilt risk.",
+        "subheadline": "GBP matters because Bank of England policy, gilt yields, inflation, wage pressure, fiscal credibility, London liquidity, and reserve-management data can all shift sterling pairs.",
+        "monitorNote": "Lurnava's research desk compares BOE decisions, inflation letters, gilt-market behavior, UK reserve reports, fiscal news, London session flow, and cross-pair confirmation before classifying GBP moves."
+      },
+      "rendered": {
+        "path": "/markets/forex/british-pound",
+        "status": 200,
+        "h1": "British Pound: The British Pound is a high-liquidity currency with policy and gilt risk.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 220
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/chinese-yuan",
+      "asset": "Chinese Yuan",
+      "symbol": "CNY",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Chinese Yuan: The Chinese Yuan is a managed currency with onshore and offshore markets.",
+      "conversionCta": "Study CNY and CNH inside Lurnava with PBOC fixing mechanics, reserve context, onshore-offshore gap checks, Asia FX links, session planning, and spread awareness.",
+      "assetSpecificTermHits": 42,
+      "primaryClaims": {
+        "headline": "The Chinese Yuan is a managed currency with onshore and offshore markets.",
+        "subheadline": "CNY matters because PBOC fixing, SAFE reserves, China trade data, CNH liquidity, capital-flow controls, and policy guidance shape how yuan pairs behave.",
+        "monitorNote": "Lurnava's research desk reviews PBOC fixing, SAFE reserve releases, CNH-CNY gaps, trade data, credit conditions, Asia session liquidity, and related AUD, HKD, SGD, and KRW behavior."
+      },
+      "rendered": {
+        "path": "/markets/forex/chinese-yuan",
+        "status": 200,
+        "h1": "Chinese Yuan: The Chinese Yuan is a managed currency with onshore and offshore markets.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 255
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/australian-dollar",
+      "asset": "Australian Dollar",
+      "symbol": "AUD",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Australian Dollar: The Australian Dollar is a commodity-linked major currency.",
+      "conversionCta": "The paid Asset Lab teaches AUD as a policy-plus-commodity currency with pair selection, pips, spreads, sessions, and China-demand context built into the study process.",
+      "assetSpecificTermHits": 35,
+      "primaryClaims": {
+        "headline": "The Australian Dollar is a commodity-linked major currency.",
+        "subheadline": "AUD matters because RBA policy, China demand, commodity prices, risk appetite, reserve data, and Asia-Pacific session flow all shape Australian dollar pairs.",
+        "monitorNote": "Lurnava's research desk reviews RBA guidance, inflation data, labor data, official reserve releases, China growth, iron ore and energy prices, AUD crosses, session liquidity, and spread behavior."
+      },
+      "rendered": {
+        "path": "/markets/forex/australian-dollar",
+        "status": 200,
+        "h1": "Australian Dollar: The Australian Dollar is a commodity-linked major currency.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 237
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/canadian-dollar",
+      "asset": "Canadian Dollar",
+      "symbol": "CAD",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Canadian Dollar: The Canadian Dollar is a North American currency tied to rates, oil, and US demand.",
+      "conversionCta": "Study CAD inside Lurnava with Bank of Canada policy, oil sensitivity, US trade context, USD/CAD practice, spread quality, and pips-based structure checks.",
+      "assetSpecificTermHits": 31,
+      "primaryClaims": {
+        "headline": "The Canadian Dollar is a North American currency tied to rates, oil, and US demand.",
+        "subheadline": "CAD matters because Bank of Canada policy, oil prices, US trade, inflation, jobs data, reserve management, and USD/CAD structure all meet in one major pair.",
+        "monitorNote": "Lurnava's research desk reviews Bank of Canada policy, inflation and jobs data, oil prices, US data, official reserve publications, cross-pair behavior, pips, spreads, and session timing."
+      },
+      "rendered": {
+        "path": "/markets/forex/canadian-dollar",
+        "status": 200,
+        "h1": "Canadian Dollar: The Canadian Dollar is a North American currency tied to rates, oil, and US demand.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 256
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/swiss-franc",
+      "asset": "Swiss Franc",
+      "symbol": "CHF",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Swiss Franc: The Swiss Franc is a defensive currency with a very large central-bank balance sheet.",
+      "conversionCta": "Study CHF inside Lurnava with SNB balance-sheet reality, intervention risk, EUR/CHF structure, defensive-market context, pips, and spread behavior.",
+      "assetSpecificTermHits": 35,
+      "primaryClaims": {
+        "headline": "The Swiss Franc is a defensive currency with a very large central-bank balance sheet.",
+        "subheadline": "CHF matters because SNB policy, foreign-currency investments, gold holdings, intervention language, EUR/CHF pressure, and defensive demand shape franc pairs.",
+        "monitorNote": "Lurnava's research desk compares SNB policy, reserve allocation, foreign-currency investments, gold value, EUR/CHF structure, European risk, pips, spread, and session behavior before classifying CHF moves."
+      },
+      "rendered": {
+        "path": "/markets/forex/swiss-franc",
+        "status": 200,
+        "h1": "Swiss Franc: The Swiss Franc is a defensive currency with a very large central-bank balance sheet.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 236
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/hong-kong-dollar",
+      "asset": "Hong Kong Dollar",
+      "symbol": "HKD",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Hong Kong Dollar: The Hong Kong Dollar is anchored by a rules-based USD-linked system.",
+      "conversionCta": "Study HKD inside Lurnava with the LERS band, reserve backing, HIBOR pressure, USD/HKD band behavior, pips, spreads, and Asia-session liquidity.",
+      "assetSpecificTermHits": 35,
+      "primaryClaims": {
+        "headline": "The Hong Kong Dollar is anchored by a rules-based USD-linked system.",
+        "subheadline": "HKD matters because the HKMA currency-board framework, US dollar band, Exchange Fund, foreign reserves, HIBOR, and Hong Kong liquidity shape USD/HKD behavior.",
+        "monitorNote": "Lurnava's research desk reviews HKMA reserve releases, Exchange Fund data, foreign assets, backing ratio, HIBOR, Aggregate Balance, Stock Connect flow, and USD/HKD band behavior."
+      },
+      "rendered": {
+        "path": "/markets/forex/hong-kong-dollar",
+        "status": 200,
+        "h1": "Hong Kong Dollar: The Hong Kong Dollar is anchored by a rules-based USD-linked system.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 248
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/singapore-dollar",
+      "asset": "Singapore Dollar",
+      "symbol": "SGD",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Singapore Dollar: The Singapore Dollar is managed through a trade-weighted exchange-rate band.",
+      "conversionCta": "The paid Asset Lab teaches SGD through MAS band mechanics, reserve evidence, Asia FX context, pair selection, pips, spreads, and session-aware study.",
+      "assetSpecificTermHits": 39,
+      "primaryClaims": {
+        "headline": "The Singapore Dollar is managed through a trade-weighted exchange-rate band.",
+        "subheadline": "SGD matters because MAS uses the S$NEER policy band, official reserves, imported inflation, trade exposure, and regional Asia FX pressure to guide monetary conditions.",
+        "monitorNote": "Lurnava's research desk reviews MAS policy statements, S$NEER behavior, reserve data, Singapore inflation, trade data, USD/SGD, regional Asia FX, pips, spreads, and session liquidity."
+      },
+      "rendered": {
+        "path": "/markets/forex/singapore-dollar",
+        "status": 200,
+        "h1": "Singapore Dollar: The Singapore Dollar is managed through a trade-weighted exchange-rate band.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 226
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/swedish-krona",
+      "asset": "Swedish Krona",
+      "symbol": "SEK",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Swedish Krona: The Swedish Krona is a small open-economy currency tied to Europe and risk appetite.",
+      "conversionCta": "Study SEK inside Lurnava with Riksbank policy, reserve context, European growth, housing sensitivity, pips, spreads, and cross-pair confirmation.",
+      "assetSpecificTermHits": 36,
+      "primaryClaims": {
+        "headline": "The Swedish Krona is a small open-economy currency tied to Europe and risk appetite.",
+        "subheadline": "SEK matters because Riksbank policy, reserve allocation, European growth, housing sensitivity, bank funding, and global risk appetite can all move krona pairs.",
+        "monitorNote": "Lurnava's research desk reviews Riksbank policy, reserve allocation, gold value, housing data, bank funding, EUR/SEK, USD/SEK, NOK/SEK, pips, spreads, and European liquidity."
+      },
+      "rendered": {
+        "path": "/markets/forex/swedish-krona",
+        "status": 200,
+        "h1": "Swedish Krona: The Swedish Krona is a small open-economy currency tied to Europe and risk appetite.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 251
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/south-korean-won",
+      "asset": "South Korean Won",
+      "symbol": "KRW",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "South Korean Won: The South Korean Won is Asia's semiconductor-linked export currency.",
+      "conversionCta": "Use the paid Asset Lab to study KRW through policy, export receipts, reserve flow, intervention risk, and practical USD/KRW pair reading before making market decisions.",
+      "assetSpecificTermHits": 35,
+      "primaryClaims": {
+        "headline": "The South Korean Won is Asia's semiconductor-linked export currency.",
+        "subheadline": "KRW matters because Bank of Korea policy, reserve strength, Samsung and SK Hynix export receipts, foreign equity flows, energy imports, and China demand all meet inside USD/KRW.",
+        "monitorNote": "Lurnava's research desk compares BOK policy, reserve levels, semiconductor export receipts, Samsung and SK Hynix news, Korea current-account data, foreign equity flows, oil prices, China demand, pips, spreads, and session liquidity before classifying a won move."
+      },
+      "rendered": {
+        "path": "/markets/forex/south-korean-won",
+        "status": 200,
+        "h1": "South Korean Won: The South Korean Won is Asia's semiconductor-linked export currency.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 348
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/mexican-peso",
+      "asset": "Mexican Peso",
+      "symbol": "MXN",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Mexican Peso: The Mexican Peso is a high-turnover carry and trade currency.",
+      "conversionCta": "Use the paid Asset Lab to study MXN with rate differentials, remittance flow, reserve support, US trade exposure, and practical USD/MXN execution context.",
+      "assetSpecificTermHits": 38,
+      "primaryClaims": {
+        "headline": "The Mexican Peso is a high-turnover carry and trade currency.",
+        "subheadline": "MXN matters because Banxico rates, US growth, remittances, nearshoring, oil and fiscal pressure, reserve credibility, and risk appetite all meet inside USD/MXN.",
+        "monitorNote": "Lurnava's research desk compares Banxico policy, international reserves, remittances, US-Mexico trade, nearshoring announcements, oil and Pemex risk, pips, spread behavior, and New York session liquidity before classifying a peso move."
+      },
+      "rendered": {
+        "path": "/markets/forex/mexican-peso",
+        "status": 200,
+        "h1": "Mexican Peso: The Mexican Peso is a high-turnover carry and trade currency.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 271
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/new-zealand-dollar",
+      "asset": "New Zealand Dollar",
+      "symbol": "NZD",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "New Zealand Dollar: The New Zealand Dollar is a small open-economy and dairy-linked currency.",
+      "conversionCta": "Study NZD inside Lurnava with RBNZ policy, dairy flow, China demand, reserve data, AUD/NZD comparison, pips, and practical spread awareness.",
+      "assetSpecificTermHits": 36,
+      "primaryClaims": {
+        "headline": "The New Zealand Dollar is a small open-economy and dairy-linked currency.",
+        "subheadline": "NZD matters because RBNZ policy, dairy prices, China and Australia demand, housing stress, reserve assets, and risk appetite can all reshape NZD/USD and AUD/NZD.",
+        "monitorNote": "Lurnava's research desk compares RBNZ policy, official reserves, dairy export data, Fonterra milk price guidance, Stats NZ trade releases, China data, AUD/NZD structure, pips, spread, and Asia session liquidity before classifying an NZD move."
+      },
+      "rendered": {
+        "path": "/markets/forex/new-zealand-dollar",
+        "status": 200,
+        "h1": "New Zealand Dollar: The New Zealand Dollar is a small open-economy and dairy-linked currency.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 311
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/norwegian-krone",
+      "asset": "Norwegian Krone",
+      "symbol": "NOK",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Norwegian Krone: The Norwegian Krone is an oil, gas, and sovereign-wealth currency.",
+      "conversionCta": "Use the paid Asset Lab to study NOK through energy flow, sovereign-wealth mechanics, reserves, central-bank policy, and EUR/NOK execution quality.",
+      "assetSpecificTermHits": 37,
+      "primaryClaims": {
+        "headline": "The Norwegian Krone is an oil, gas, and sovereign-wealth currency.",
+        "subheadline": "NOK matters because Norges Bank policy, petroleum revenues, the Government Pension Fund Global, reserve management, euro demand, and global energy pricing all affect EUR/NOK.",
+        "monitorNote": "Lurnava's research desk compares Norges Bank decisions, inflation target, official reserves, daily FX transaction plans, oil and gas prices, NBIM fund value, EUR/NOK pips, spreads, and European session depth before classifying a krone move."
+      },
+      "rendered": {
+        "path": "/markets/forex/norwegian-krone",
+        "status": 200,
+        "h1": "Norwegian Krone: The Norwegian Krone is an oil, gas, and sovereign-wealth currency.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 339
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/indian-rupee",
+      "asset": "Indian Rupee",
+      "symbol": "INR",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Indian Rupee: The Indian Rupee is a managed-flow currency tied to oil, reserves, and capital movement.",
+      "conversionCta": "Study INR inside Lurnava with RBI reserves, oil-import pressure, capital flow, trade balance, USD/INR pips, spread behavior, and session context.",
+      "assetSpecificTermHits": 40,
+      "primaryClaims": {
+        "headline": "The Indian Rupee is a managed-flow currency tied to oil, reserves, and capital movement.",
+        "subheadline": "INR matters because RBI reserve management, crude oil imports, trade deficits, portfolio flows, remittances, policy expectations, and intervention risk shape USD/INR.",
+        "monitorNote": "Lurnava's research desk compares RBI reserve releases, oil import data, trade deficit, inflation and policy expectations, foreign portfolio flow, USD/INR pips, spreads, session behavior, and official smoothing risk before classifying a rupee move."
+      },
+      "rendered": {
+        "path": "/markets/forex/indian-rupee",
+        "status": 200,
+        "h1": "Indian Rupee: The Indian Rupee is a managed-flow currency tied to oil, reserves, and capital movement.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 329
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/turkish-lira",
+      "asset": "Turkish Lira",
+      "symbol": "TRY",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Turkish Lira: The Turkish Lira is a high-inflation, policy-credibility currency.",
+      "conversionCta": "Use the paid Asset Lab to study TRY with inflation, reserve quality, policy credibility, external financing, and high-volatility execution context.",
+      "assetSpecificTermHits": 43,
+      "primaryClaims": {
+        "headline": "The Turkish Lira is a high-inflation, policy-credibility currency.",
+        "subheadline": "TRY matters because CBRT policy, inflation expectations, reserves, dollarization, external financing, gold demand, and political credibility shape USD/TRY.",
+        "monitorNote": "Lurnava's research desk compares CBRT decisions, inflation target language, gross FX reserves, policy rate, IMF reserve reporting, dollarization pressure, external financing, USD/TRY pips, spread, and session liquidity before classifying a lira move."
+      },
+      "rendered": {
+        "path": "/markets/forex/turkish-lira",
+        "status": 200,
+        "h1": "Turkish Lira: The Turkish Lira is a high-inflation, policy-credibility currency.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 353
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/south-african-rand",
+      "asset": "South African Rand",
+      "symbol": "ZAR",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "South African Rand: The South African Rand is a metals, policy, and risk-appetite currency.",
+      "conversionCta": "Study ZAR inside Lurnava with SARB policy, metal exports, reserve data, fiscal risk, infrastructure pressure, USD/ZAR pips, spreads, and pair practice.",
+      "assetSpecificTermHits": 40,
+      "primaryClaims": {
+        "headline": "The South African Rand is a metals, policy, and risk-appetite currency.",
+        "subheadline": "ZAR matters because SARB policy, gold and platinum group metals, China demand, power and fiscal risk, reserves, and global risk appetite all affect USD/ZAR.",
+        "monitorNote": "Lurnava's research desk compares SARB policy, reserve data, gold and PGM exposure, fiscal news, electricity and logistics risk, China demand, USD/ZAR pips, spreads, and session depth before classifying a rand move."
+      },
+      "rendered": {
+        "path": "/markets/forex/south-african-rand",
+        "status": 200,
+        "h1": "South African Rand: The South African Rand is a metals, policy, and risk-appetite currency.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 340
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/brazilian-real",
+      "asset": "Brazilian Real",
+      "symbol": "BRL",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Brazilian Real: The Brazilian Real is a commodity, carry, and fiscal-credibility currency.",
+      "conversionCta": "Use the paid Asset Lab to study BRL through BCB policy, commodity flow, reserve strength, fiscal pressure, and practical USD/BRL execution context.",
+      "assetSpecificTermHits": 36,
+      "primaryClaims": {
+        "headline": "The Brazilian Real is a commodity, carry, and fiscal-credibility currency.",
+        "subheadline": "BRL matters because BCB policy, Selic rates, reserves, soy and iron ore exports, China demand, fiscal expectations, and risk appetite all affect USD/BRL.",
+        "monitorNote": "Lurnava's research desk compares BCB policy, inflation target, Selic expectations, reserves, trade surplus, soy and iron ore demand, China flow, fiscal headlines, USD/BRL pips, spread, and session depth before classifying a real move."
+      },
+      "rendered": {
+        "path": "/markets/forex/brazilian-real",
+        "status": 200,
+        "h1": "Brazilian Real: The Brazilian Real is a commodity, carry, and fiscal-credibility currency.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 349
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/forex/danish-krone",
+      "asset": "Danish Krone",
+      "symbol": "DKK",
+      "assetClass": "forex",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Danish Krone: The Danish Krone is a euro-anchored currency with a narrow exchange-rate band.",
+      "conversionCta": "Use the paid Asset Lab to study DKK as a live peg mechanics case: reserves, intervention rules, ECB linkage, and EUR/DKK execution detail.",
+      "assetSpecificTermHits": 36,
+      "primaryClaims": {
+        "headline": "The Danish Krone is a euro-anchored currency with a narrow exchange-rate band.",
+        "subheadline": "DKK matters because Danmarks Nationalbank defends the EUR/DKK anchor through interest rates, reserves, intervention capacity, ECB linkage, and ERM II rules.",
+        "monitorNote": "Lurnava's research desk compares Danmarks Nationalbank reserve data, EUR/DKK central-rate mechanics, ECB reference rates, intervention framework, interest-rate alignment, pips, spread, and European session depth before classifying a krone move."
+      },
+      "rendered": {
+        "path": "/markets/forex/danish-krone",
+        "status": 200,
+        "h1": "Danish Krone: The Danish Krone is a euro-anchored currency with a narrow exchange-rate band.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 313
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/gold/gold",
+      "asset": "Gold",
+      "symbol": "XAU",
+      "assetClass": "gold",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Gold: Gold is the market's old monetary mirror.",
+      "conversionCta": "Learn how to study gold with macro context, chart structure, risk mapping, and professional certification checks inside Lurnava.",
+      "assetSpecificTermHits": 42,
+      "primaryClaims": {
+        "headline": "Gold is the market's old monetary mirror.",
+        "subheadline": "Gold is watched because it reacts to real yields, central-bank reserves, ETF flows, dollar strength, crisis demand, and long-term trust in money.",
+        "monitorNote": "Lurnava studies gold through real yields, dollar strength, World Gold Council reserve data, ETF holdings, SPDR and iShares trust data, LBMA pricing, COMEX futures, physical demand, event risk, and Gold-specific wick behavior."
+      },
+      "rendered": {
+        "path": "/markets/gold/gold",
+        "status": 200,
+        "h1": "Gold: Gold is the market's old monetary mirror.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 254
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/tether",
+      "asset": "Tether",
+      "symbol": "USDT",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Tether: Tether is crypto's most watched dollar-linked liquidity token.",
+      "conversionCta": "Learn how to study stablecoins like USDT through liquidity lessons, on-chain review, risk mapping, and certified market training inside Lurnava.",
+      "assetSpecificTermHits": 29,
+      "primaryClaims": {
+        "headline": "Tether is crypto's most watched dollar-linked liquidity token.",
+        "subheadline": "USDT is watched because it sits across exchanges, settlement rails, offshore liquidity, DeFi venues, and crypto trading pairs.",
+        "monitorNote": "Lurnava studies Tether as a crypto liquidity gauge. The review focuses on supply changes, issuer disclosures, reserve confidence, chain movement, exchange balances, and stress behavior during market selloffs."
+      },
+      "rendered": {
+        "path": "/markets/crypto/tether",
+        "status": 200,
+        "h1": "Tether: Tether is crypto's most watched dollar-linked liquidity token.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 230
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/usd-coin",
+      "asset": "USD Coin",
+      "symbol": "USDC",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "USD Coin: USD Coin is a regulated dollar-linked stablecoin used across crypto markets.",
+      "conversionCta": "Learn how to study regulated stablecoin liquidity through structured lessons, DeFi risk review, on-chain practice, and certification checks inside Lurnava.",
+      "assetSpecificTermHits": 34,
+      "primaryClaims": {
+        "headline": "USD Coin is a regulated dollar-linked stablecoin used across crypto markets.",
+        "subheadline": "USDC is watched because it connects dollar settlement, exchanges, DeFi, payment use cases, and institutional stablecoin adoption.",
+        "monitorNote": "Lurnava studies USDC through issuer transparency, reserve disclosures, supply changes, DeFi use, supported-chain activity, exchange balances, and stress behavior during market uncertainty."
+      },
+      "rendered": {
+        "path": "/markets/crypto/usd-coin",
+        "status": 200,
+        "h1": "USD Coin: USD Coin is a regulated dollar-linked stablecoin used across crypto markets.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 243
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/bnb",
+      "asset": "BNB",
+      "symbol": "BNB",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "BNB: BNB is the utility asset at the center of the BNB Chain ecosystem.",
+      "conversionCta": "Learn how to study exchange-linked ecosystem assets through structured crypto lessons, liquidity review, and professional testing inside Lurnava.",
+      "assetSpecificTermHits": 26,
+      "primaryClaims": {
+        "headline": "BNB is the utility asset at the center of the BNB Chain ecosystem.",
+        "subheadline": "BNB is watched because it connects exchange utility, chain fees, application activity, validator economics, and ecosystem liquidity.",
+        "monitorNote": "Lurnava studies BNB through chain activity, validator and fee context, ecosystem launches, liquidity depth, regulatory pressure, exchange confidence, and relative strength against BTC and ETH."
+      },
+      "rendered": {
+        "path": "/markets/crypto/bnb",
+        "status": 200,
+        "h1": "BNB: BNB is the utility asset at the center of the BNB Chain ecosystem.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 208
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/xrp",
+      "asset": "XRP",
+      "symbol": "XRP",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "XRP: XRP is the native asset of the XRP Ledger payment network.",
+      "conversionCta": "Learn how to study payment-focused crypto assets through legal-context review, liquidity mapping, and structured market training inside Lurnava.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "XRP is the native asset of the XRP Ledger payment network.",
+        "subheadline": "XRP is watched because it sits inside a fast settlement network, payment narratives, exchange liquidity, and long-running regulatory discussion.",
+        "monitorNote": "Lurnava studies XRP through XRP Ledger usage, legal and regulatory context, payment-related adoption, exchange access, liquidity depth, and headline-driven volatility."
+      },
+      "rendered": {
+        "path": "/markets/crypto/xrp",
+        "status": 200,
+        "h1": "XRP: XRP is the native asset of the XRP Ledger payment network.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 238
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/dogecoin",
+      "asset": "Dogecoin",
+      "symbol": "DOGE",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Dogecoin: Dogecoin is the original meme currency with real market liquidity.",
+      "conversionCta": "Learn how to study community-driven assets with attention analysis, liquidity review, risk controls, and structured training inside Lurnava.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "Dogecoin is the original meme currency with real market liquidity.",
+        "subheadline": "DOGE is watched because community attention, payment use, exchange depth, social cycles, and retail positioning can create large moves.",
+        "monitorNote": "Lurnava studies Dogecoin through social attention, wallet concentration, exchange liquidity, meme-sector rotation, payment-related updates, and volatility caused by crowded retail positioning."
+      },
+      "rendered": {
+        "path": "/markets/crypto/dogecoin",
+        "status": 200,
+        "h1": "Dogecoin: Dogecoin is the original meme currency with real market liquidity.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 198
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/cardano",
+      "asset": "Cardano",
+      "symbol": "ADA",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Cardano: Cardano is a research-driven proof-of-stake blockchain.",
+      "conversionCta": "Learn how to study proof-of-stake assets with network research, ecosystem review, and structured market training inside Lurnava.",
+      "assetSpecificTermHits": 33,
+      "primaryClaims": {
+        "headline": "Cardano is a research-driven proof-of-stake blockchain.",
+        "subheadline": "ADA is watched because it connects staking, governance, smart contracts, academic design, ecosystem growth, and long-term community conviction.",
+        "monitorNote": "Lurnava studies Cardano through staking participation, governance milestones, upgrade progress, ecosystem activity, DeFi liquidity, and whether ADA strength is network-led or broad-market-led."
+      },
+      "rendered": {
+        "path": "/markets/crypto/cardano",
+        "status": 200,
+        "h1": "Cardano: Cardano is a research-driven proof-of-stake blockchain.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 250
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/tron",
+      "asset": "TRON",
+      "symbol": "TRX",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "TRON: TRON is a high-activity network known for stablecoin settlement.",
+      "conversionCta": "Learn how to study payment-heavy blockchain networks with on-chain review, liquidity mapping, and structured crypto education inside Lurnava.",
+      "assetSpecificTermHits": 25,
+      "primaryClaims": {
+        "headline": "TRON is a high-activity network known for stablecoin settlement.",
+        "subheadline": "TRX is watched because TRON carries heavy transfer activity, stablecoin movement, DeFi usage, resource mechanics, and payment-style crypto demand.",
+        "monitorNote": "Lurnava studies TRON through USDT settlement activity, account growth, resource usage, DeFi liquidity, exchange balances, regulatory context, and whether TRX strength reflects real network demand."
+      },
+      "rendered": {
+        "path": "/markets/crypto/tron",
+        "status": 200,
+        "h1": "TRON: TRON is a high-activity network known for stablecoin settlement.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 209
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/toncoin",
+      "asset": "Toncoin",
+      "symbol": "TON",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Toncoin: Toncoin is the native asset of The Open Network ecosystem.",
+      "conversionCta": "Learn how to study user-distribution crypto ecosystems with adoption research, risk review, and structured market training inside Lurnava.",
+      "assetSpecificTermHits": 36,
+      "primaryClaims": {
+        "headline": "Toncoin is the native asset of The Open Network ecosystem.",
+        "subheadline": "TON is watched because it connects scalable blockchain design, wallet adoption, Telegram-linked distribution, mini-app activity, and payment-style crypto use.",
+        "monitorNote": "Lurnava studies TON through wallet activity, app usage, payments, ecosystem launches, exchange depth, distribution quality, and whether growth is sticky or only campaign-driven."
+      },
+      "rendered": {
+        "path": "/markets/crypto/toncoin",
+        "status": 200,
+        "h1": "Toncoin: Toncoin is the native asset of The Open Network ecosystem.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 208
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/avalanche",
+      "asset": "Avalanche",
+      "symbol": "AVAX",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Avalanche: Avalanche turns blockchain infrastructure into custom networks.",
+      "conversionCta": "Inside Lurnava, learn how to separate a real network-usage thesis from an AVAX price move driven only by sector rotation or short-lived attention.",
+      "assetSpecificTermHits": 27,
+      "primaryClaims": {
+        "headline": "Avalanche turns blockchain infrastructure into custom networks.",
+        "subheadline": "AVAX matters because Avalanche combines a public smart-contract chain, custom L1 networks, validator economics, DeFi liquidity, gaming infrastructure, and institutional tokenization experiments.",
+        "monitorNote": "Lurnava monitors Avalanche through validator data, delegated stake, C-Chain activity, custom L1 launches, DeFi liquidity, gaming network activity, treasury-company filings, exchange depth, slippage, and relative strength versus other Layer 1 assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/avalanche",
+        "status": 200,
+        "h1": "Avalanche: Avalanche turns blockchain infrastructure into custom networks.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 285
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/chainlink",
+      "asset": "Chainlink",
+      "symbol": "LINK",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Chainlink: Chainlink is the data layer many smart contracts depend on.",
+      "conversionCta": "Inside Lurnava, learn how to judge whether a LINK move is backed by real infrastructure adoption or only partnership excitement.",
+      "assetSpecificTermHits": 27,
+      "primaryClaims": {
+        "headline": "Chainlink is the data layer many smart contracts depend on.",
+        "subheadline": "LINK matters because Chainlink connects blockchains with market data, proof-of-reserve tools, automation, cross-chain messaging, institutional infrastructure, staking, and reserve economics.",
+        "monitorNote": "Lurnava monitors Chainlink through official docs, staking-pool data, Chainlink Reserve dashboard values, supply releases, oracle integrations, CCIP adoption, DeFi dependency, exchange depth, slippage, funding, and relative strength versus infrastructure assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/chainlink",
+        "status": 200,
+        "h1": "Chainlink: Chainlink is the data layer many smart contracts depend on.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 285
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/shiba-inu",
+      "asset": "Shiba Inu",
+      "symbol": "SHIB",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Shiba Inu: Shiba Inu is a meme asset with a large on-chain footprint.",
+      "conversionCta": "Inside Lurnava, learn how to study high-supply meme assets without confusing community attention, burn headlines, and real liquidity demand.",
+      "assetSpecificTermHits": 35,
+      "primaryClaims": {
+        "headline": "Shiba Inu is a meme asset with a large on-chain footprint.",
+        "subheadline": "SHIB matters because it combines massive ERC-20 supply, community culture, Shibarium Layer 2 activity, burn mechanics, exchange liquidity, large holder concentration, and attention-driven market cycles.",
+        "monitorNote": "Lurnava monitors SHIB through Etherscan supply and holder data, ShibariumScan transactions and addresses, burn-mechanism updates, exchange depth, slippage, open interest, funding, whale-wallet concentration, and social-attention cycles."
+      },
+      "rendered": {
+        "path": "/markets/crypto/shiba-inu",
+        "status": 200,
+        "h1": "Shiba Inu: Shiba Inu is a meme asset with a large on-chain footprint.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 294
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/polkadot",
+      "asset": "Polkadot",
+      "symbol": "DOT",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Polkadot: Polkadot is a multichain network governed through DOT.",
+      "conversionCta": "Inside Lurnava, learn how to read DOT as a network-governance asset rather than only another Layer 1 token.",
+      "assetSpecificTermHits": 28,
+      "primaryClaims": {
+        "headline": "Polkadot is a multichain network governed through DOT.",
+        "subheadline": "DOT matters because Polkadot combines validator and nominator staking, shared security, parachain and rollup-style infrastructure, OpenGov, treasury spending, and ecosystem funding decisions.",
+        "monitorNote": "Lurnava monitors Polkadot through official wiki references, staking and nominator mechanics, treasury reports, Parity treasury data, OpenGov debates, ecosystem development, exchange depth, slippage, funding, and DOT relative strength."
+      },
+      "rendered": {
+        "path": "/markets/crypto/polkadot",
+        "status": 200,
+        "h1": "Polkadot: Polkadot is a multichain network governed through DOT.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 298
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/bitcoin-cash",
+      "asset": "Bitcoin Cash",
+      "symbol": "BCH",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Bitcoin Cash: Bitcoin Cash is a peer-to-peer cash network with BCH mining economics.",
+      "conversionCta": "Inside Lurnava, learn how to review proof-of-work payment coins through mining data, supply rules, liquidity, and real usage instead of name similarity alone.",
+      "assetSpecificTermHits": 32,
+      "primaryClaims": {
+        "headline": "Bitcoin Cash is a peer-to-peer cash network with BCH mining economics.",
+        "subheadline": "BCH matters because it preserves a 21 million supply model while focusing on payment usage, larger-block capacity, SHA-256 mining, block rewards, exchange liquidity, and merchant-style settlement.",
+        "monitorNote": "Lurnava monitors BCH through official supply references, BitInfoCharts network data, halving schedules, Blockchair explorer checks, miner reward data, hash rate, block activity, exchange depth, slippage, funding, and BCH/BTC relative behavior."
+      },
+      "rendered": {
+        "path": "/markets/crypto/bitcoin-cash",
+        "status": 200,
+        "h1": "Bitcoin Cash: Bitcoin Cash is a peer-to-peer cash network with BCH mining economics.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 289
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/litecoin",
+      "asset": "Litecoin",
+      "symbol": "LTC",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Litecoin: Litecoin is a long-running proof-of-work payment network.",
+      "conversionCta": "Inside Lurnava, learn how to review older proof-of-work assets through mining data, supply rules, usage, and liquidity without relying on nostalgia.",
+      "assetSpecificTermHits": 36,
+      "primaryClaims": {
+        "headline": "Litecoin is a long-running proof-of-work payment network.",
+        "subheadline": "LTC matters because it combines an 84 million supply cap, fast block cadence, Scrypt mining, halving cycles, payment history, optional MWEB privacy features, and strong exchange availability.",
+        "monitorNote": "Lurnava monitors Litecoin through official ecosystem sources, BitInfoCharts network data, halving schedule references, MWEB activation history, explorer-rich-list limitations, hash rate, block rewards, exchange depth, slippage, funding, and LTC/BTC behavior."
+      },
+      "rendered": {
+        "path": "/markets/crypto/litecoin",
+        "status": 200,
+        "h1": "Litecoin: Litecoin is a long-running proof-of-work payment network.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 307
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/uniswap",
+      "asset": "Uniswap",
+      "symbol": "UNI",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Uniswap: Uniswap is a decentralized exchange protocol with UNI governance.",
+      "conversionCta": "Inside Lurnava, learn how to judge a DeFi governance token by usage, treasury decisions, liquidity, and value-capture design.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "Uniswap is a decentralized exchange protocol with UNI governance.",
+        "subheadline": "UNI matters because Uniswap combines automated market makers, liquidity pools, Ethereum and multi-chain DEX activity, governance, treasury decisions, foundation grants, and fee-value debates.",
+        "monitorNote": "Lurnava monitors Uniswap through official docs, UNI launch allocation, governance forum proposals, foundation financial reports, grants, liquidity-pool activity, Ethereum DeFi conditions, exchange depth, slippage, funding, and UNI relative strength."
+      },
+      "rendered": {
+        "path": "/markets/crypto/uniswap",
+        "status": 200,
+        "h1": "Uniswap: Uniswap is a decentralized exchange protocol with UNI governance.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 310
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/aptos",
+      "asset": "Aptos",
+      "symbol": "APT",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Aptos: Aptos is a Move-based Layer 1 built for scalable applications.",
+      "conversionCta": "Inside Lurnava, learn how to analyze a newer Layer 1 by joining technical promise with supply structure, unlock risk, usage, and liquidity.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "Aptos is a Move-based Layer 1 built for scalable applications.",
+        "subheadline": "APT matters because Aptos combines Move smart contracts, high-throughput infrastructure, validator staking, large initial allocations, unlock schedules, ecosystem funding, and intense Layer 1 competition.",
+        "monitorNote": "Lurnava monitors Aptos through official tokenomics, staking docs, developer activity, validator references, unlock calendars, ecosystem usage, stablecoin activity, exchange depth, slippage, funding, open interest, and relative strength versus other Layer 1 assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/aptos",
+        "status": 200,
+        "h1": "Aptos: Aptos is a Move-based Layer 1 built for scalable applications.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 334
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/near-protocol",
+      "asset": "NEAR Protocol",
+      "symbol": "NEAR",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "NEAR Protocol: NEAR Protocol is a scalable app platform built around usability and chain abstraction.",
+      "conversionCta": "Inside Lurnava, learn how to analyze NEAR by separating narrative, validator health, inflation policy, real usage, and market depth.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "NEAR Protocol is a scalable app platform built around usability and chain abstraction.",
+        "subheadline": "NEAR matters because it combines validator staking, account usability, chain abstraction, user-owned AI positioning, application activity, inflation changes, and ecosystem liquidity.",
+        "monitorNote": "Lurnava monitors NEAR through official docs, validator references, NearBlocks staking data, inflation-policy sources, app and chain-abstraction adoption, stablecoin activity, liquidity depth, slippage, funding, open interest, and relative strength versus Layer 1 assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/near-protocol",
+        "status": 200,
+        "h1": "NEAR Protocol: NEAR Protocol is a scalable app platform built around usability and chain abstraction.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 331
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/ethereum-classic",
+      "asset": "Ethereum Classic",
+      "symbol": "ETC",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Ethereum Classic: Ethereum Classic is a proof-of-work smart-contract network with ETC monetary policy.",
+      "conversionCta": "Inside Lurnava, learn how to study a proof-of-work smart-contract asset by combining monetary policy, mining data, security history, and liquidity.",
+      "assetSpecificTermHits": 34,
+      "primaryClaims": {
+        "headline": "Ethereum Classic is a proof-of-work smart-contract network with ETC monetary policy.",
+        "subheadline": "ETC matters because it preserves the original Ethereum Classic chain, uses proof-of-work mining, follows a capped emission schedule, supports smart contracts, and carries important security-history lessons.",
+        "monitorNote": "Lurnava monitors Ethereum Classic through official ECIP policy, BitInfoCharts network data, mining hash rate, difficulty, attack-history sources, exchange depth, slippage, funding, open interest, and ETC behavior versus ETH and proof-of-work assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/ethereum-classic",
+        "status": 200,
+        "h1": "Ethereum Classic: Ethereum Classic is a proof-of-work smart-contract network with ETC monetary policy.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 335
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/internet-computer",
+      "asset": "Internet Computer",
+      "symbol": "ICP",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Internet Computer: Internet Computer is a blockchain cloud with ICP-powered governance and compute.",
+      "conversionCta": "Inside Lurnava, learn how to inspect a complex infrastructure asset by separating network usage, governance, reward issuance, and liquidity.",
+      "assetSpecificTermHits": 35,
+      "primaryClaims": {
+        "headline": "Internet Computer is a blockchain cloud with ICP-powered governance and compute.",
+        "subheadline": "ICP matters because the Internet Computer combines subnet infrastructure, node providers, NNS governance, neurons, cycles burned for compute, node rewards, and a 2026 push to improve token economics.",
+        "monitorNote": "Lurnava monitors ICP through the official dashboard, NNS governance, node-machine count, subnet count, cycles economics, Mission 70 inflation work, DFINITY voting-power context, exchange depth, slippage, funding, and ICP relative strength."
+      },
+      "rendered": {
+        "path": "/markets/crypto/internet-computer",
+        "status": 200,
+        "h1": "Internet Computer: Internet Computer is a blockchain cloud with ICP-powered governance and compute.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 350
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/filecoin",
+      "asset": "Filecoin",
+      "symbol": "FIL",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Filecoin: Filecoin is a decentralized storage network powered by FIL incentives.",
+      "conversionCta": "Inside Lurnava, learn how to analyze storage networks by connecting real client demand, provider incentives, token supply, and market depth.",
+      "assetSpecificTermHits": 32,
+      "primaryClaims": {
+        "headline": "Filecoin is a decentralized storage network powered by FIL incentives.",
+        "subheadline": "FIL matters because Filecoin connects storage providers, client data, proof-based storage, Filecoin Virtual Machine contracts, block rewards, token allocation, and a 2026 focus on paid onchain deals.",
+        "monitorNote": "Lurnava monitors Filecoin through official capacity metrics, Filfox adjusted power, active miners, block rewards, client counts, FVM contract activity, Filecoin 2026 strategy, token allocation, liquidity depth, slippage, funding, and open interest."
+      },
+      "rendered": {
+        "path": "/markets/crypto/filecoin",
+        "status": 200,
+        "h1": "Filecoin: Filecoin is a decentralized storage network powered by FIL incentives.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 341
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/cosmos",
+      "asset": "Cosmos",
+      "symbol": "ATOM",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Cosmos: Cosmos is an interchain ecosystem with ATOM at the Cosmos Hub.",
+      "conversionCta": "Inside Lurnava, learn how to study interchain assets by separating ecosystem activity, hub economics, validator power, governance policy, and tradable liquidity.",
+      "assetSpecificTermHits": 31,
+      "primaryClaims": {
+        "headline": "Cosmos is an interchain ecosystem with ATOM at the Cosmos Hub.",
+        "subheadline": "ATOM matters because the Cosmos Hub connects staking, validator governance, IBC connectivity, app-chain economics, inflation policy, and a constant debate about how much ecosystem value reaches the hub.",
+        "monitorNote": "Lurnava monitors Cosmos through Cosmos Hub proposals, ATOM delegation, validator-set concentration, active-set debates, IBC usage, app-chain liquidity, inflation policy, unbonding conditions, exchange depth, slippage, funding, and ATOM relative strength versus DOT and other interoperability assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/cosmos",
+        "status": 200,
+        "h1": "Cosmos: Cosmos is an interchain ecosystem with ATOM at the Cosmos Hub.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 365
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/arbitrum",
+      "asset": "Arbitrum",
+      "symbol": "ARB",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Arbitrum: Arbitrum is an Ethereum Layer 2 ecosystem governed by ARB.",
+      "conversionCta": "Inside Lurnava, learn how to study Layer 2 assets by connecting real usage, governance power, treasury structure, unlock risk, and tradable liquidity.",
+      "assetSpecificTermHits": 27,
+      "primaryClaims": {
+        "headline": "Arbitrum is an Ethereum Layer 2 ecosystem governed by ARB.",
+        "subheadline": "ARB matters because Arbitrum combines rollup usage, DAO governance, a large treasury, scheduled unlocks, Ethereum fee economics, and competition across Layer 2 networks.",
+        "monitorNote": "Lurnava monitors Arbitrum through Arbitrum One usage, DAO votes, delegate behavior, treasury allocations, grant outcomes, ARB unlock schedules, parent-chain fee pressure, sequencer fee context, exchange depth, slippage, funding, and ARB relative strength versus OP."
+      },
+      "rendered": {
+        "path": "/markets/crypto/arbitrum",
+        "status": 200,
+        "h1": "Arbitrum: Arbitrum is an Ethereum Layer 2 ecosystem governed by ARB.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 323
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/optimism",
+      "asset": "Optimism",
+      "symbol": "OP",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Optimism: Optimism is an Ethereum scaling ecosystem built around the OP Stack.",
+      "conversionCta": "Inside Lurnava, learn how to analyze scaling assets by separating stack adoption, governance design, treasury policy, revenue mechanics, and market depth.",
+      "assetSpecificTermHits": 28,
+      "primaryClaims": {
+        "headline": "Optimism is an Ethereum scaling ecosystem built around the OP Stack.",
+        "subheadline": "OP matters because Optimism combines Superchain adoption, Token House governance, public-goods funding, OP allocation, sequencer revenue, and a 2026 buyback program tied to Superchain revenue.",
+        "monitorNote": "Lurnava monitors Optimism through OP Stack adoption, Superchain chain activity, Token House votes, Citizens' House funding context, allocation schedules, buyback execution, sequencer revenue, Ethereum fees, liquidity depth, slippage, funding, and OP relative strength versus ARB."
+      },
+      "rendered": {
+        "path": "/markets/crypto/optimism",
+        "status": 200,
+        "h1": "Optimism: Optimism is an Ethereum scaling ecosystem built around the OP Stack.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 391
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/sui",
+      "asset": "Sui",
+      "symbol": "SUI",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Sui: Sui is a Move-based Layer 1 with object-centric blockchain design.",
+      "conversionCta": "Inside Lurnava, learn how to evaluate newer Layer 1 assets by connecting technology design, validator economics, release schedules, and market depth.",
+      "assetSpecificTermHits": 31,
+      "primaryClaims": {
+        "headline": "Sui is a Move-based Layer 1 with object-centric blockchain design.",
+        "subheadline": "SUI matters because Sui combines high-throughput design, delegated proof of stake, validator stake thresholds, a 10 billion token supply, scheduled releases, and a growing app ecosystem.",
+        "monitorNote": "Lurnava monitors Sui through official supply schedules, validator participation, stake requirements, voting-power caps, Move developer activity, app usage, DeFi liquidity, unlock data, exchange depth, slippage, funding, and SUI relative strength versus Aptos and other Layer 1 assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/sui",
+        "status": 200,
+        "h1": "Sui: Sui is a Move-based Layer 1 with object-centric blockchain design.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 401
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/pepe",
+      "asset": "Pepe",
+      "symbol": "PEPE",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Pepe: Pepe is an Ethereum meme asset with a huge fixed-style supply.",
+      "conversionCta": "Inside Lurnava, learn how to study meme assets by separating verifiable onchain facts, liquidity, concentration, leverage, and attention cycles.",
+      "assetSpecificTermHits": 34,
+      "primaryClaims": {
+        "headline": "Pepe is an Ethereum meme asset with a huge fixed-style supply.",
+        "subheadline": "PEPE matters because it teaches how meme assets can move through attention, exchange liquidity, holder concentration, contract history, large-wallet behavior, and rapid changes in market depth.",
+        "monitorNote": "Lurnava monitors PEPE through Etherscan supply and holders, transfer activity, contract context, liquidity depth, large-wallet movement, exchange access, funding, open interest, Ethereum meme-sector rotation, slippage, and attention breadth."
+      },
+      "rendered": {
+        "path": "/markets/crypto/pepe",
+        "status": 200,
+        "h1": "Pepe: Pepe is an Ethereum meme asset with a huge fixed-style supply.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 354
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/dogwifhat",
+      "asset": "dogwifhat",
+      "symbol": "WIF",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "dogwifhat: dogwifhat is a Solana meme asset driven by culture and liquidity.",
+      "conversionCta": "Inside Lurnava, learn how to study meme assets without guessing by combining supply, chain context, liquidity, holder activity, and leverage checks.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "dogwifhat is a Solana meme asset driven by culture and liquidity.",
+        "subheadline": "WIF matters because it teaches how a Solana-native meme asset can move through fixed-style supply, exchange access, SOL ecosystem flows, holder behavior, social breadth, and leverage conditions.",
+        "monitorNote": "Lurnava monitors WIF through CoinMarketCap and exchange market data, Solana explorer checks, circulating and max supply, liquidity depth, slippage, social breadth, funding, open interest, SOL context, and comparison with other Solana meme assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/dogwifhat",
+        "status": 200,
+        "h1": "dogwifhat: dogwifhat is a Solana meme asset driven by culture and liquidity.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 332
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/injective",
+      "asset": "Injective",
+      "symbol": "INJ",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Injective: Injective is a finance-focused Layer 1 with INJ staking and burns.",
+      "conversionCta": "Inside Lurnava, learn how to evaluate finance-chain assets by connecting usage, staking, burns, buybacks, supply state, and liquidity.",
+      "assetSpecificTermHits": 34,
+      "primaryClaims": {
+        "headline": "Injective is a finance-focused Layer 1 with INJ staking and burns.",
+        "subheadline": "INJ matters because Injective combines on-chain finance apps, staking, governance, validator participation, monthly revenue-backed buybacks, burn mechanics, and a fully circulating supply claim.",
+        "monitorNote": "Lurnava monitors Injective through official INJ supply and burn claims, InjHub staked amount and APR, validator context, governance, application usage, DeFi liquidity, exchange depth, slippage, funding, open interest, and INJ relative strength versus DeFi infrastructure assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/injective",
+        "status": 200,
+        "h1": "Injective: Injective is a finance-focused Layer 1 with INJ staking and burns.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 427
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/render",
+      "asset": "Render",
+      "symbol": "RENDER",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Render: Render is a decentralized GPU network for rendering and compute demand.",
+      "conversionCta": "Inside Lurnava, learn how to evaluate compute infrastructure assets by connecting real usage, supply mechanics, node rewards, token migration, and liquidity.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "Render is a decentralized GPU network for rendering and compute demand.",
+        "subheadline": "RENDER matters because it connects creator demand, GPU node operators, Burn Mint Equilibrium, Solana token migration, supply metrics, node rewards, and AI compute attention.",
+        "monitorNote": "Lurnava monitors Render through official network materials, BME burn and mint mechanics, Solana RENDER token data, RNDR-to-RENDER migration context, dashboard supply and holder data, node rewards, creator demand, exchange depth, slippage, funding, and RENDER relative strength versus AI and compute assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/render",
+        "status": 200,
+        "h1": "Render: Render is a decentralized GPU network for rendering and compute demand.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 398
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/aave",
+      "asset": "Aave",
+      "symbol": "AAVE",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Aave: Aave is DeFi's major non-custodial lending protocol.",
+      "conversionCta": "Inside Lurnava, learn how to analyze lending protocols by connecting usage, collateral risk, governance policy, stablecoin demand, and execution quality.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "Aave is DeFi's major non-custodial lending protocol.",
+        "subheadline": "AAVE matters because Aave connects supplier deposits, borrower demand, collateral parameters, GHO stablecoin growth, governance, buybacks, and the Umbrella automated safety system.",
+        "monitorNote": "Lurnava monitors Aave through supply and borrow markets, DefiLlama active-loan data, collateral composition, GHO adoption, governance proposals, Umbrella safety coverage, buyback execution, exchange depth, slippage, funding, open interest, and AAVE relative strength versus MKR and UNI."
+      },
+      "rendered": {
+        "path": "/markets/crypto/aave",
+        "status": 200,
+        "h1": "Aave: Aave is DeFi's major non-custodial lending protocol.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 406
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/maker",
+      "asset": "Maker",
+      "symbol": "MKR",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Maker: Maker is a DeFi stablecoin system now tied to the Sky transition.",
+      "conversionCta": "Inside Lurnava, learn how to analyze stablecoin governance assets by connecting collateral, conversion mechanics, rate policy, and migration risk.",
+      "assetSpecificTermHits": 28,
+      "primaryClaims": {
+        "headline": "Maker is a DeFi stablecoin system now tied to the Sky transition.",
+        "subheadline": "MKR matters because Maker and Sky connect Dai, USDS, vault collateral, governance conversion, stablecoin supply, Sky Savings Rate policy, and migration risk into one DeFi lesson.",
+        "monitorNote": "Lurnava monitors Maker through Maker and Sky sources, USDS supply, collateral backing, DAI-to-USDS conversion, MKR-to-SKY upgrade ratio, Sky Savings Rate, governance votes, vault risk, liquidity depth, slippage, funding, and MKR relative strength versus AAVE."
+      },
+      "rendered": {
+        "path": "/markets/crypto/maker",
+        "status": 200,
+        "h1": "Maker: Maker is a DeFi stablecoin system now tied to the Sky transition.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 377
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/lido-dao",
+      "asset": "Lido DAO",
+      "symbol": "LDO",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Lido DAO: Lido DAO governs a major liquid staking system around stETH.",
+      "conversionCta": "Inside Lurnava, learn how to analyze liquid staking by connecting ETH demand, validator risk, governance safeguards, and DeFi liquidity.",
+      "assetSpecificTermHits": 28,
+      "primaryClaims": {
+        "headline": "Lido DAO governs a major liquid staking system around stETH.",
+        "subheadline": "LDO matters because Lido connects stETH demand, Ethereum staking, validator operators, DVT adoption, Dual Governance safeguards, DeFi liquidity, and concentration-risk debates.",
+        "monitorNote": "Lurnava monitors Lido through stETH demand, DefiLlama TVL, validator and node-operator reports, DVT adoption, Community Staking Module growth, Dual Governance status, DeFi liquidity, exchange depth, slippage, funding, and LDO relative strength versus ETH and DeFi assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/lido-dao",
+        "status": 200,
+        "h1": "Lido DAO: Lido DAO governs a major liquid staking system around stETH.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 427
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/celestia",
+      "asset": "Celestia",
+      "symbol": "TIA",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Celestia: Celestia is a modular data availability network powered by TIA.",
+      "conversionCta": "Inside Lurnava, learn how to analyze modular infrastructure by connecting usage, staking, unlocks, inflation, and market depth.",
+      "assetSpecificTermHits": 32,
+      "primaryClaims": {
+        "headline": "Celestia is a modular data availability network powered by TIA.",
+        "subheadline": "TIA matters because Celestia connects rollup blobspace demand, PayForBlobs fees, staking, governance, unlock schedules, inflation policy, and modular blockchain competition.",
+        "monitorNote": "Lurnava monitors Celestia through PayForBlobs activity, rollup integrations, TIA staking and governance, official supply framing, Tokenomist unlocked supply, DefiLlama inflation notes, upcoming unlocks, exchange depth, slippage, funding, and TIA relative strength versus modular infrastructure assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/celestia",
+        "status": 200,
+        "h1": "Celestia: Celestia is a modular data availability network powered by TIA.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 436
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/sei",
+      "asset": "Sei",
+      "symbol": "SEI",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Sei: Sei is a high-speed Layer 1 with SEI staking and unlock risk.",
+      "conversionCta": "Inside Lurnava, learn how to evaluate fast Layer 1 assets by connecting staking, unlocks, validators, app demand, and liquidity.",
+      "assetSpecificTermHits": 31,
+      "primaryClaims": {
+        "headline": "Sei is a high-speed Layer 1 with SEI staking and unlock risk.",
+        "subheadline": "SEI matters because Sei combines validator staking, gas rewards, token unlock schedules, allocation groups, trading-focused app design, and high-beta Layer 1 market behavior.",
+        "monitorNote": "Lurnava monitors Sei through official staking docs, validator explorer data, SEI total supply, DefiLlama circulating supply and allocation categories, Tokenomics.com vesting data, app activity, exchange depth, slippage, funding, open interest, and SEI relative strength versus SUI, APT, and other Layer 1 assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/sei",
+        "status": 200,
+        "h1": "Sei: Sei is a high-speed Layer 1 with SEI staking and unlock risk.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 406
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/stacks",
+      "asset": "Stacks",
+      "symbol": "STX",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Stacks: Stacks brings smart contracts and Bitcoin-linked rewards to Bitcoin builders.",
+      "conversionCta": "Inside Lurnava, learn how to study Bitcoin-layer assets by connecting BTC settlement, reward mechanics, sBTC liquidity, and application demand.",
+      "assetSpecificTermHits": 33,
+      "primaryClaims": {
+        "headline": "Stacks brings smart contracts and Bitcoin-linked rewards to Bitcoin builders.",
+        "subheadline": "STX matters because Stacks connects Proof of Transfer, stacking for BTC rewards, Nakamoto fast blocks, sBTC liquidity, Bitcoin settlement, and the 2026 Bitcoin-native finance roadmap.",
+        "monitorNote": "Lurnava monitors Stacks through PoX docs, stacking behavior, sBTC TVL, Bitcoin staking participation, Nakamoto fast blocks, BTC rewards, institutional integrations, wallet growth, exchange depth, slippage, funding, open interest, and STX relative strength versus BTC and Bitcoin-layer assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/stacks",
+        "status": 200,
+        "h1": "Stacks: Stacks brings smart contracts and Bitcoin-linked rewards to Bitcoin builders.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 418
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/hedera",
+      "asset": "Hedera",
+      "symbol": "HBAR",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Hedera: Hedera is an enterprise-governed public network powered by HBAR.",
+      "conversionCta": "Inside Lurnava, learn how to analyze enterprise-linked networks by connecting governance, supply, staking, use cases, and trust risk.",
+      "assetSpecificTermHits": 29,
+      "primaryClaims": {
+        "headline": "Hedera is an enterprise-governed public network powered by HBAR.",
+        "subheadline": "HBAR matters because Hedera connects fixed supply, council governance, staking to nodes, fast finality, tokenization use cases, enterprise participation, and platform trust risk.",
+        "monitorNote": "Lurnava monitors Hedera through official council sources, HBAR treasury disclosures, staking docs, FedEx council membership, finality claims, tokenization examples, staking ratios, reward estimates, exchange depth, slippage, funding, and HBAR relative strength versus enterprise and payment-network assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/hedera",
+        "status": 200,
+        "h1": "Hedera: Hedera is an enterprise-governed public network powered by HBAR.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 437
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/stellar",
+      "asset": "Stellar",
+      "symbol": "XLM",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Stellar: Stellar is a payments and tokenized-asset network powered by XLM.",
+      "conversionCta": "Inside Lurnava, learn how to analyze payment networks by connecting real volume, tokenized assets, account mechanics, and value capture.",
+      "assetSpecificTermHits": 36,
+      "primaryClaims": {
+        "headline": "Stellar is a payments and tokenized-asset network powered by XLM.",
+        "subheadline": "XLM matters because Stellar connects low-cost payments, tokenized real-world assets, stablecoin volume, anchors, Soroban smart contracts, base reserves, and fee mechanics.",
+        "monitorNote": "Lurnava monitors Stellar through Stellar Foundation updates, RWA value, stablecoin payment volume, developer growth, XLM fee and reserve rules, anchor activity, Soroban progress, exchange depth, slippage, funding, and XLM relative strength versus XRP and payments assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/stellar",
+        "status": 200,
+        "h1": "Stellar: Stellar is a payments and tokenized-asset network powered by XLM.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 397
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/monero",
+      "asset": "Monero",
+      "symbol": "XMR",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Monero: Monero is a privacy-focused proof-of-work digital cash network.",
+      "conversionCta": "Inside Lurnava, learn how to analyze high-sensitivity assets by connecting protocol design, mining security, venue access, and policy risk.",
+      "assetSpecificTermHits": 31,
+      "primaryClaims": {
+        "headline": "Monero is a privacy-focused proof-of-work digital cash network.",
+        "subheadline": "XMR matters because Monero combines default transaction privacy, tail emission, proof-of-work mining, adaptive block rewards, wallet privacy tools, exchange access constraints, and regulatory scrutiny.",
+        "monitorNote": "Lurnava monitors Monero through official privacy docs, tail-emission specs, explorer hashrate and emission, wallet and node updates, exchange access, regulatory pressure, liquidity depth, slippage, funding, and XMR relative strength versus privacy and proof-of-work assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/monero",
+        "status": 200,
+        "h1": "Monero: Monero is a privacy-focused proof-of-work digital cash network.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 447
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/okb",
+      "asset": "OKB",
+      "symbol": "OKB",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "OKB: OKB is an OKX-linked utility asset and X Layer gas token.",
+      "conversionCta": "Inside Lurnava, learn how to analyze exchange-linked utility assets by connecting official disclosures, supply mechanics, chain utility, and platform risk.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "OKB is an OKX-linked utility asset and X Layer gas token.",
+        "subheadline": "OKB matters because it connects OKX platform utility, X Layer gas demand, a 21 million fixed supply, the 65,256,712.097 OKB burn, OKT handling, and exchange-platform trust risk.",
+        "monitorNote": "Lurnava monitors OKB through official OKX white paper and announcements, fixed 21 million supply, burn mechanics, X Layer gas usage, OKT handling, OP Stack architecture, exchange trust, liquidity depth, slippage, funding, open interest, and OKB relative strength versus exchange-linked utility assets."
+      },
+      "rendered": {
+        "path": "/markets/crypto/okb",
+        "status": 200,
+        "h1": "OKB: OKB is an OKX-linked utility asset and X Layer gas token.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 431
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/cronos",
+      "asset": "Cronos",
+      "symbol": "CRO",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Cronos: Cronos is the CRO ecosystem's EVM-compatible app and DeFi network.",
+      "conversionCta": "Use the paid Asset Lab to study Cronos through network activity, CRO utility, validators, bridge exposure, DeFi liquidity, and execution risk.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "Cronos is the CRO ecosystem's EVM-compatible app and DeFi network.",
+        "subheadline": "Cronos matters because it connects CRO utility, Crypto.com distribution, EVM developers, POS validators, DeFi liquidity, stablecoins, bridge flow, and execution depth.",
+        "monitorNote": "Lurnava's research desk reviews Cronos docs, POS validator mechanics, Crypto.com CRO data, DefiLlama TVL, stablecoins, active addresses, transactions, bridged assets, VVS Finance activity, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a CRO move."
+      },
+      "rendered": {
+        "path": "/markets/crypto/cronos",
+        "status": 200,
+        "h1": "Cronos: Cronos is the CRO ecosystem's EVM-compatible app and DeFi network.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 424
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/polygon",
+      "asset": "Polygon",
+      "symbol": "POL",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Polygon: Polygon is a payments, app, and interoperability network built around POL.",
+      "conversionCta": "Use the paid Asset Lab to study Polygon through validator security, stablecoins, Agglayer, app usage, bridge exposure, and execution depth.",
+      "assetSpecificTermHits": 23,
+      "primaryClaims": {
+        "headline": "Polygon is a payments, app, and interoperability network built around POL.",
+        "subheadline": "Polygon matters because POL staking, PoS validators, Agglayer, stablecoins, prediction markets, DeFi apps, bridged assets, and Ethereum anchoring all affect its market role.",
+        "monitorNote": "Lurnava's research desk reviews Polygon docs, validator requirements, Agglayer updates, DefiLlama stablecoins, active addresses, transactions, DEX volume, bridged TVL, POL supply data, exchange depth, spread percentage, slippage, funding, and app concentration before classifying a POL move."
+      },
+      "rendered": {
+        "path": "/markets/crypto/polygon",
+        "status": 200,
+        "h1": "Polygon: Polygon is a payments, app, and interoperability network built around POL.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 410
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/algorand",
+      "asset": "Algorand",
+      "symbol": "ALGO",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Algorand: Algorand is a Pure Proof-of-Stake chain built for fast finality and open participation.",
+      "conversionCta": "Use the paid Asset Lab to study Algorand through consensus participation, Foundation transparency, stablecoins, usage quality, and execution risk.",
+      "assetSpecificTermHits": 29,
+      "primaryClaims": {
+        "headline": "Algorand is a Pure Proof-of-Stake chain built for fast finality and open participation.",
+        "subheadline": "Algorand matters because ALGO supply, participation nodes, Foundation transparency, community stake, stablecoin liquidity, RWA experiments, and app usage all shape the asset.",
+        "monitorNote": "Lurnava's research desk reviews Algorand Pure Proof-of-Stake materials, node docs, Foundation transparency reports, total supply, community stake, DefiLlama stablecoins, active addresses, transactions, DEX volume, exchange depth, spread percentage, slippage, and liquidity depth before classifying an ALGO move."
+      },
+      "rendered": {
+        "path": "/markets/crypto/algorand",
+        "status": 200,
+        "h1": "Algorand: Algorand is a Pure Proof-of-Stake chain built for fast finality and open participation.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 427
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/vechain",
+      "asset": "VeChain",
+      "symbol": "VET",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "VeChain: VeChain is an enterprise-focused chain with a two-token VET and VTHO model.",
+      "conversionCta": "Use the paid Asset Lab to study VeChain through VET, VTHO, StarGate, enterprise use, on-chain liquidity, and tokenomics risk.",
+      "assetSpecificTermHits": 28,
+      "primaryClaims": {
+        "headline": "VeChain is an enterprise-focused chain with a two-token VET and VTHO model.",
+        "subheadline": "VeChain matters because VET, VTHO, StarGate staking, Hayabusa tokenomics, enterprise adoption, sustainability apps, and thin on-chain liquidity all affect the asset.",
+        "monitorNote": "Lurnava's research desk reviews VeChain official sources, StarGate docs, Hayabusa updates, VTHO mechanics, DefiLlama stablecoin and DEX metrics, enterprise adoption, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a VET move."
+      },
+      "rendered": {
+        "path": "/markets/crypto/vechain",
+        "status": 200,
+        "h1": "VeChain: VeChain is an enterprise-focused chain with a two-token VET and VTHO model.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 352
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/fetch-ai",
+      "asset": "Artificial Superintelligence Alliance",
+      "symbol": "FET",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Artificial Superintelligence Alliance: The Artificial Superintelligence Alliance is a merged AI-crypto ecosystem built around FET and ASI.",
+      "conversionCta": "Use the paid Asset Lab to study FET and ASI through merger mechanics, AI infrastructure, supply changes, participant roles, and execution risk.",
+      "assetSpecificTermHits": 28,
+      "primaryClaims": {
+        "headline": "The Artificial Superintelligence Alliance is a merged AI-crypto ecosystem built around FET and ASI.",
+        "subheadline": "ASI matters because Fetch.ai, SingularityNET, Ocean Protocol, and CUDOS combined token and AI-network narratives into one asset story with real merger mechanics.",
+        "monitorNote": "Lurnava's research desk reviews Fetch.ai merger sources, ASI alliance docs, conversion rates, supply changes, CoinGecko trading identity, agent architecture research, exchange migration status, spread percentage, slippage, funding, liquidity depth, and whether product usage supports narrative demand."
+      },
+      "rendered": {
+        "path": "/markets/crypto/fetch-ai",
+        "status": 200,
+        "h1": "Artificial Superintelligence Alliance: The Artificial Superintelligence Alliance is a merged AI-crypto ecosystem built around FET and ASI.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 405
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/thorchain",
+      "asset": "THORChain",
+      "symbol": "RUNE",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "THORChain: THORChain is a native cross-chain liquidity network secured by RUNE bonds.",
+      "conversionCta": "Use the paid Asset Lab to study THORChain through RUNE settlement, node bonding, native swap flow, liquidity pool risk, TCY, and execution depth.",
+      "assetSpecificTermHits": 29,
+      "primaryClaims": {
+        "headline": "THORChain is a native cross-chain liquidity network secured by RUNE bonds.",
+        "subheadline": "THORChain matters because RUNE sits in every liquidity pool, nodes bond RUNE, native assets swap without wrapped tokens, and the network has a real 2025 restructuring history.",
+        "monitorNote": "Lurnava's research desk reviews THORChain docs, RUNE pool mechanics, node bonds, deprecation of lending, DefiLlama DEX TVL, fees, volume, liquidity depth, spread percentage, slippage, funding, and native asset pool composition before classifying a RUNE move."
+      },
+      "rendered": {
+        "path": "/markets/crypto/thorchain",
+        "status": 200,
+        "h1": "THORChain: THORChain is a native cross-chain liquidity network secured by RUNE bonds.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 362
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/the-graph",
+      "asset": "The Graph",
+      "symbol": "GRT",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "The Graph: The Graph is decentralized indexing infrastructure for blockchain data.",
+      "conversionCta": "Use the paid Asset Lab to study The Graph through indexing roles, query economics, GRT issuance, unlocks, and data-demand quality.",
+      "assetSpecificTermHits": 30,
+      "primaryClaims": {
+        "headline": "The Graph is decentralized indexing infrastructure for blockchain data.",
+        "subheadline": "The Graph matters because Indexers, Delegators, Curators, Subgraph Developers, query fees, GRT issuance, and unlocks define whether data demand supports the token.",
+        "monitorNote": "Lurnava's research desk reviews The Graph docs, GRT tokenomics, Explorer metrics, query fees, indexing rewards, delegation capacity, scheduled unlocks, developer usage, CEX depth, spread percentage, slippage, funding, and liquidity depth before classifying a GRT move."
+      },
+      "rendered": {
+        "path": "/markets/crypto/the-graph",
+        "status": 200,
+        "h1": "The Graph: The Graph is decentralized indexing infrastructure for blockchain data.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 357
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/pyth-network",
+      "asset": "Pyth Network",
+      "symbol": "PYTH",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Pyth Network: Pyth Network is an oracle network built around first-party market data publishers.",
+      "conversionCta": "Use the paid Asset Lab to study PYTH through publisher quality, oracle demand, revenue, unlocks, and execution risk.",
+      "assetSpecificTermHits": 27,
+      "primaryClaims": {
+        "headline": "Pyth Network is an oracle network built around first-party market data publishers.",
+        "subheadline": "Pyth matters because publishers such as Cboe, Coinbase, Revolut, and Virtu provide market data, while PYTH supply, unlocks, revenue, and oracle demand shape the token.",
+        "monitorNote": "Lurnava's research desk reviews Pyth tokenomics, publisher lists, Cboe and Tradeweb updates, DefiLlama Pyth revenue, Tokenomist unlocks, feed adoption, subscription changes, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a PYTH move."
+      },
+      "rendered": {
+        "path": "/markets/crypto/pyth-network",
+        "status": 200,
+        "h1": "Pyth Network: Pyth Network is an oracle network built around first-party market data publishers.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 386
+      },
+      "issues": []
+    },
+    {
+      "path": "/markets/crypto/jupiter",
+      "asset": "Jupiter",
+      "symbol": "JUP",
+      "assetClass": "crypto",
+      "score": 100,
+      "dimensions": {
+        "firstScreen": 100,
+        "reasonToContinue": 100,
+        "monitoring": 100,
+        "cta": 100,
+        "landingPageShape": 100,
+        "specificity": 100,
+        "differentiation": 100
+      },
+      "firstScreenSummary": "Jupiter: Jupiter is Solana's everything exchange for swaps, perps, lending, and routing.",
+      "conversionCta": "Use the paid Asset Lab to study Jupiter through Solana routing, protocol fees, buybacks, supply burns, product risk, and execution depth.",
+      "assetSpecificTermHits": 32,
+      "primaryClaims": {
+        "headline": "Jupiter is Solana's everything exchange for swaps, perps, lending, and routing.",
+        "subheadline": "Jupiter matters because it routes Solana swaps, runs Ultra aggregation, perps and lending products, buys back JUP from fees, and has major supply-burn history.",
+        "monitorNote": "Lurnava's research desk reviews Jupiter official sources, DefiLlama aggregator fees, holders revenue, swap volume, JUP Tokenomist supply, DefiLlama unlocks, Litterbox governance, Solana chain metrics, spread percentage, slippage, funding, and liquidity depth before classifying a JUP move."
+      },
+      "rendered": {
+        "path": "/markets/crypto/jupiter",
+        "status": 200,
+        "h1": "Jupiter: Jupiter is Solana's everything exchange for swaps, perps, lending, and routing.",
+        "hasRegisterCta": true,
+        "hasCurriculumCta": true,
+        "hasAssetLabLink": true,
+        "ctaTexts": [
+          "Academy",
+          "Get Started",
+          "Learn Assets Like This",
+          "See Training Structure",
+          "Train Inside Lurnava",
+          "Asset Lab Route",
+          "Curriculum"
+        ],
+        "articleTagCount": 0,
+        "maxParagraphLength": 386
+      },
+      "issues": []
+    }
+  ],
+  "weakCtaList": [],
+  "rewrittenCtaBank": [
+    {
+      "asset": "British Pound",
+      "path": "/markets/forex/british-pound",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab helps students read GBP pairs through policy, gilts, session liquidity, spread behavior, and pips-based risk rather than headlines alone.",
+      "suggestedText": "Study GBP inside Lurnava with BOE policy, gilt-market context, London session practice, spread behavior, and pips-based risk checks before planning cable or EUR/GBP scenarios.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Chinese Yuan",
+      "path": "/markets/forex/chinese-yuan",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches yuan structure through fixing mechanics, onshore-offshore gaps, reserve data, pair selection, spread behavior, and session timing.",
+      "suggestedText": "Study CNY and CNH inside Lurnava with PBOC fixing mechanics, reserve context, onshore-offshore gap checks, Asia FX links, session planning, and spread awareness.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Canadian Dollar",
+      "path": "/markets/forex/canadian-dollar",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches CAD through policy, oil, US trade, pair selection, spread quality, session behavior, and pips-based structure reading.",
+      "suggestedText": "Study CAD inside Lurnava with Bank of Canada policy, oil sensitivity, US trade context, USD/CAD practice, spread quality, and pips-based structure checks.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Swiss Franc",
+      "path": "/markets/forex/swiss-franc",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches CHF through SNB balance-sheet reality, intervention risk, EUR/CHF structure, pips, spreads, and defensive-market behavior.",
+      "suggestedText": "Study CHF inside Lurnava with SNB balance-sheet reality, intervention risk, EUR/CHF structure, defensive-market context, pips, and spread behavior.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Hong Kong Dollar",
+      "path": "/markets/forex/hong-kong-dollar",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches HKD through the LERS band, reserve backing, HIBOR pressure, pips, spreads, and Asia-session liquidity instead of free-float assumptions.",
+      "suggestedText": "Study HKD inside Lurnava with the LERS band, reserve backing, HIBOR pressure, USD/HKD band behavior, pips, spreads, and Asia-session liquidity.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Swedish Krona",
+      "path": "/markets/forex/swedish-krona",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches SEK through Riksbank policy, reserves, European growth, housing sensitivity, pips, spreads, and cross-pair confirmation.",
+      "suggestedText": "Study SEK inside Lurnava with Riksbank policy, reserve context, European growth, housing sensitivity, pips, spreads, and cross-pair confirmation.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "New Zealand Dollar",
+      "path": "/markets/forex/new-zealand-dollar",
+      "field": "conversionCta",
+      "currentText": "Use the paid Asset Lab to connect RBNZ policy, dairy flow, China demand, reserve data, AUD/NZD comparison, and practical spread awareness.",
+      "suggestedText": "Study NZD inside Lurnava with RBNZ policy, dairy flow, China demand, reserve data, AUD/NZD comparison, pips, and practical spread awareness.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Indian Rupee",
+      "path": "/markets/forex/indian-rupee",
+      "field": "conversionCta",
+      "currentText": "Use the paid Asset Lab to connect RBI reserves, oil-import pressure, capital flow, trade balance, and USD/INR execution conditions in one workspace.",
+      "suggestedText": "Study INR inside Lurnava with RBI reserves, oil-import pressure, capital flow, trade balance, USD/INR pips, spread behavior, and session context.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "South African Rand",
+      "path": "/markets/forex/south-african-rand",
+      "field": "conversionCta",
+      "currentText": "Use the paid Asset Lab to connect ZAR policy, metal exports, reserve data, fiscal risk, infrastructure pressure, and practical pair execution.",
+      "suggestedText": "Study ZAR inside Lurnava with SARB policy, metal exports, reserve data, fiscal risk, infrastructure pressure, USD/ZAR pips, spreads, and pair practice.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    }
+  ],
+  "beforeAfterExamples": [
+    {
+      "asset": "Euro",
+      "path": "/markets/forex/euro",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares ECB statements, euro-area inflation, growth surveys, current-account data, Bund-BTP spreads, reserve-use reports, and session liquidity before classifying an EUR move.",
+      "suggestedText": "Lurnava's research desk compares ECB statements, euro-area inflation, growth surveys, current-account data, Bund-BTP spreads, reserve-use reports, and session liquidity before classifying an EUR move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Japanese Yen",
+      "path": "/markets/forex/japanese-yen",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares BOJ decisions, Japan MOF reserve releases, US-Japan yield spreads, official intervention language, Tokyo liquidity, and carry positioning before classifying a JPY move.",
+      "suggestedText": "Lurnava's research desk compares BOJ decisions, Japan MOF reserve releases, US-Japan yield spreads, official intervention language, Tokyo liquidity, and carry positioning before classifying a JPY move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "British Pound",
+      "path": "/markets/forex/british-pound",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab helps students read GBP pairs through policy, gilts, session liquidity, spread behavior, and pips-based risk rather than headlines alone.",
+      "suggestedText": "Study GBP inside Lurnava with BOE policy, gilt-market context, London session practice, spread behavior, and pips-based risk checks before planning cable or EUR/GBP scenarios.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "British Pound",
+      "path": "/markets/forex/british-pound",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares BOE decisions, inflation letters, gilt-market behavior, UK reserve reports, fiscal news, London session flow, and cross-pair confirmation before classifying GBP moves.",
+      "suggestedText": "Lurnava's research desk compares BOE decisions, inflation letters, gilt-market behavior, UK reserve reports, fiscal news, London session flow, and cross-pair confirmation before classifying GBP moves.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Chinese Yuan",
+      "path": "/markets/forex/chinese-yuan",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches yuan structure through fixing mechanics, onshore-offshore gaps, reserve data, pair selection, spread behavior, and session timing.",
+      "suggestedText": "Study CNY and CNH inside Lurnava with PBOC fixing mechanics, reserve context, onshore-offshore gap checks, Asia FX links, session planning, and spread awareness.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Chinese Yuan",
+      "path": "/markets/forex/chinese-yuan",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews PBOC fixing, SAFE reserve releases, CNH-CNY gaps, trade data, credit conditions, Asia session liquidity, and related AUD, HKD, SGD, and KRW behavior.",
+      "suggestedText": "Lurnava's research desk reviews PBOC fixing, SAFE reserve releases, CNH-CNY gaps, trade data, credit conditions, Asia session liquidity, and related AUD, HKD, SGD, and KRW behavior.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Australian Dollar",
+      "path": "/markets/forex/australian-dollar",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews RBA guidance, inflation data, labor data, official reserve releases, China growth, iron ore and energy prices, AUD crosses, session liquidity, and spread behavior.",
+      "suggestedText": "Lurnava's research desk reviews RBA guidance, inflation data, labor data, official reserve releases, China growth, iron ore and energy prices, AUD crosses, session liquidity, and spread behavior.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Canadian Dollar",
+      "path": "/markets/forex/canadian-dollar",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches CAD through policy, oil, US trade, pair selection, spread quality, session behavior, and pips-based structure reading.",
+      "suggestedText": "Study CAD inside Lurnava with Bank of Canada policy, oil sensitivity, US trade context, USD/CAD practice, spread quality, and pips-based structure checks.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Canadian Dollar",
+      "path": "/markets/forex/canadian-dollar",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews Bank of Canada policy, inflation and jobs data, oil prices, US data, official reserve publications, cross-pair behavior, pips, spreads, and session timing.",
+      "suggestedText": "Lurnava's research desk reviews Bank of Canada policy, inflation and jobs data, oil prices, US data, official reserve publications, cross-pair behavior, pips, spreads, and session timing.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Swiss Franc",
+      "path": "/markets/forex/swiss-franc",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches CHF through SNB balance-sheet reality, intervention risk, EUR/CHF structure, pips, spreads, and defensive-market behavior.",
+      "suggestedText": "Study CHF inside Lurnava with SNB balance-sheet reality, intervention risk, EUR/CHF structure, defensive-market context, pips, and spread behavior.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Swiss Franc",
+      "path": "/markets/forex/swiss-franc",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares SNB policy, reserve allocation, foreign-currency investments, gold value, EUR/CHF structure, European risk, pips, spread, and session behavior before classifying CHF moves.",
+      "suggestedText": "Lurnava's research desk compares SNB policy, reserve allocation, foreign-currency investments, gold value, EUR/CHF structure, European risk, pips, spread, and session behavior before classifying CHF moves.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Hong Kong Dollar",
+      "path": "/markets/forex/hong-kong-dollar",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches HKD through the LERS band, reserve backing, HIBOR pressure, pips, spreads, and Asia-session liquidity instead of free-float assumptions.",
+      "suggestedText": "Study HKD inside Lurnava with the LERS band, reserve backing, HIBOR pressure, USD/HKD band behavior, pips, spreads, and Asia-session liquidity.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Hong Kong Dollar",
+      "path": "/markets/forex/hong-kong-dollar",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews HKMA reserve releases, Exchange Fund data, foreign assets, backing ratio, HIBOR, Aggregate Balance, Stock Connect flow, and USD/HKD band behavior.",
+      "suggestedText": "Lurnava's research desk reviews HKMA reserve releases, Exchange Fund data, foreign assets, backing ratio, HIBOR, Aggregate Balance, Stock Connect flow, and USD/HKD band behavior.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Singapore Dollar",
+      "path": "/markets/forex/singapore-dollar",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews MAS policy statements, S$NEER behavior, reserve data, Singapore inflation, trade data, USD/SGD, regional Asia FX, pips, spreads, and session liquidity.",
+      "suggestedText": "Lurnava's research desk reviews MAS policy statements, S$NEER behavior, reserve data, Singapore inflation, trade data, USD/SGD, regional Asia FX, pips, spreads, and session liquidity.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Swedish Krona",
+      "path": "/markets/forex/swedish-krona",
+      "field": "conversionCta",
+      "currentText": "The paid Asset Lab teaches SEK through Riksbank policy, reserves, European growth, housing sensitivity, pips, spreads, and cross-pair confirmation.",
+      "suggestedText": "Study SEK inside Lurnava with Riksbank policy, reserve context, European growth, housing sensitivity, pips, spreads, and cross-pair confirmation.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Swedish Krona",
+      "path": "/markets/forex/swedish-krona",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews Riksbank policy, reserve allocation, gold value, housing data, bank funding, EUR/SEK, USD/SEK, NOK/SEK, pips, spreads, and European liquidity.",
+      "suggestedText": "Lurnava's research desk reviews Riksbank policy, reserve allocation, gold value, housing data, bank funding, EUR/SEK, USD/SEK, NOK/SEK, pips, spreads, and European liquidity.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "South Korean Won",
+      "path": "/markets/forex/south-korean-won",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares BOK policy, reserve levels, semiconductor export receipts, Samsung and SK Hynix news, Korea current-account data, foreign equity flows, oil prices, China demand, pips, spreads, and session liquidity before classifying a won move.",
+      "suggestedText": "Lurnava's research desk compares BOK policy, reserve levels, semiconductor export receipts, Samsung and SK Hynix news, Korea current-account data, foreign equity flows, oil prices, China demand, pips, spreads, and session liquidity before classifying a won move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Mexican Peso",
+      "path": "/markets/forex/mexican-peso",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares Banxico policy, international reserves, remittances, US-Mexico trade, nearshoring announcements, oil and Pemex risk, pips, spread behavior, and New York session liquidity before classifying a peso move.",
+      "suggestedText": "Lurnava's research desk compares Banxico policy, international reserves, remittances, US-Mexico trade, nearshoring announcements, oil and Pemex risk, pips, spread behavior, and New York session liquidity before classifying a peso move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "New Zealand Dollar",
+      "path": "/markets/forex/new-zealand-dollar",
+      "field": "conversionCta",
+      "currentText": "Use the paid Asset Lab to connect RBNZ policy, dairy flow, China demand, reserve data, AUD/NZD comparison, and practical spread awareness.",
+      "suggestedText": "Study NZD inside Lurnava with RBNZ policy, dairy flow, China demand, reserve data, AUD/NZD comparison, pips, and practical spread awareness.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "New Zealand Dollar",
+      "path": "/markets/forex/new-zealand-dollar",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares RBNZ policy, official reserves, dairy export data, Fonterra milk price guidance, Stats NZ trade releases, China data, AUD/NZD structure, pips, spread, and Asia session liquidity before classifying an NZD move.",
+      "suggestedText": "Lurnava's research desk compares RBNZ policy, official reserves, dairy export data, Fonterra milk price guidance, Stats NZ trade releases, China data, AUD/NZD structure, pips, spread, and Asia session liquidity before classifying an NZD move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Norwegian Krone",
+      "path": "/markets/forex/norwegian-krone",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares Norges Bank decisions, inflation target, official reserves, daily FX transaction plans, oil and gas prices, NBIM fund value, EUR/NOK pips, spreads, and European session depth before classifying a krone move.",
+      "suggestedText": "Lurnava's research desk compares Norges Bank decisions, inflation target, official reserves, daily FX transaction plans, oil and gas prices, NBIM fund value, EUR/NOK pips, spreads, and European session depth before classifying a krone move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Indian Rupee",
+      "path": "/markets/forex/indian-rupee",
+      "field": "conversionCta",
+      "currentText": "Use the paid Asset Lab to connect RBI reserves, oil-import pressure, capital flow, trade balance, and USD/INR execution conditions in one workspace.",
+      "suggestedText": "Study INR inside Lurnava with RBI reserves, oil-import pressure, capital flow, trade balance, USD/INR pips, spread behavior, and session context.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "Indian Rupee",
+      "path": "/markets/forex/indian-rupee",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares RBI reserve releases, oil import data, trade deficit, inflation and policy expectations, foreign portfolio flow, USD/INR pips, spreads, session behavior, and official smoothing risk before classifying a rupee move.",
+      "suggestedText": "Lurnava's research desk compares RBI reserve releases, oil import data, trade deficit, inflation and policy expectations, foreign portfolio flow, USD/INR pips, spreads, session behavior, and official smoothing risk before classifying a rupee move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Turkish Lira",
+      "path": "/markets/forex/turkish-lira",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares CBRT decisions, inflation target language, gross FX reserves, policy rate, IMF reserve reporting, dollarization pressure, external financing, USD/TRY pips, spread, and session liquidity before classifying a lira move.",
+      "suggestedText": "Lurnava's research desk compares CBRT decisions, inflation target language, gross FX reserves, policy rate, IMF reserve reporting, dollarization pressure, external financing, USD/TRY pips, spread, and session liquidity before classifying a lira move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "South African Rand",
+      "path": "/markets/forex/south-african-rand",
+      "field": "conversionCta",
+      "currentText": "Use the paid Asset Lab to connect ZAR policy, metal exports, reserve data, fiscal risk, infrastructure pressure, and practical pair execution.",
+      "suggestedText": "Study ZAR inside Lurnava with SARB policy, metal exports, reserve data, fiscal risk, infrastructure pressure, USD/ZAR pips, spreads, and pair practice.",
+      "reason": "Phase 5 strengthened this CTA with an asset-specific study or practice path."
+    },
+    {
+      "asset": "South African Rand",
+      "path": "/markets/forex/south-african-rand",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares SARB policy, reserve data, gold and PGM exposure, fiscal news, electricity and logistics risk, China demand, USD/ZAR pips, spreads, and session depth before classifying a rand move.",
+      "suggestedText": "Lurnava's research desk compares SARB policy, reserve data, gold and PGM exposure, fiscal news, electricity and logistics risk, China demand, USD/ZAR pips, spreads, and session depth before classifying a rand move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Brazilian Real",
+      "path": "/markets/forex/brazilian-real",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares BCB policy, inflation target, Selic expectations, reserves, trade surplus, soy and iron ore demand, China flow, fiscal headlines, USD/BRL pips, spread, and session depth before classifying a real move.",
+      "suggestedText": "Lurnava's research desk compares BCB policy, inflation target, Selic expectations, reserves, trade surplus, soy and iron ore demand, China flow, fiscal headlines, USD/BRL pips, spread, and session depth before classifying a real move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Danish Krone",
+      "path": "/markets/forex/danish-krone",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk compares Danmarks Nationalbank reserve data, EUR/DKK central-rate mechanics, ECB reference rates, intervention framework, interest-rate alignment, pips, spread, and European session depth before classifying a krone move.",
+      "suggestedText": "Lurnava's research desk compares Danmarks Nationalbank reserve data, EUR/DKK central-rate mechanics, ECB reference rates, intervention framework, interest-rate alignment, pips, spread, and European session depth before classifying a krone move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Cronos",
+      "path": "/markets/crypto/cronos",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews Cronos docs, POS validator mechanics, Crypto.com CRO data, DefiLlama TVL, stablecoins, active addresses, transactions, bridged assets, VVS Finance activity, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a CRO move.",
+      "suggestedText": "Lurnava's research desk reviews Cronos docs, POS validator mechanics, Crypto.com CRO data, DefiLlama TVL, stablecoins, active addresses, transactions, bridged assets, VVS Finance activity, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a CRO move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Polygon",
+      "path": "/markets/crypto/polygon",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews Polygon docs, validator requirements, Agglayer updates, DefiLlama stablecoins, active addresses, transactions, DEX volume, bridged TVL, POL supply data, exchange depth, spread percentage, slippage, funding, and app concentration before classifying a POL move.",
+      "suggestedText": "Lurnava's research desk reviews Polygon docs, validator requirements, Agglayer updates, DefiLlama stablecoins, active addresses, transactions, DEX volume, bridged TVL, POL supply data, exchange depth, spread percentage, slippage, funding, and app concentration before classifying a POL move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Algorand",
+      "path": "/markets/crypto/algorand",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews Algorand Pure Proof-of-Stake materials, node docs, Foundation transparency reports, total supply, community stake, DefiLlama stablecoins, active addresses, transactions, DEX volume, exchange depth, spread percentage, slippage, and liquidity depth before classifying an ALGO move.",
+      "suggestedText": "Lurnava's research desk reviews Algorand Pure Proof-of-Stake materials, node docs, Foundation transparency reports, total supply, community stake, DefiLlama stablecoins, active addresses, transactions, DEX volume, exchange depth, spread percentage, slippage, and liquidity depth before classifying an ALGO move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "VeChain",
+      "path": "/markets/crypto/vechain",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews VeChain official sources, StarGate docs, Hayabusa updates, VTHO mechanics, DefiLlama stablecoin and DEX metrics, enterprise adoption, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a VET move.",
+      "suggestedText": "Lurnava's research desk reviews VeChain official sources, StarGate docs, Hayabusa updates, VTHO mechanics, DefiLlama stablecoin and DEX metrics, enterprise adoption, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a VET move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Artificial Superintelligence Alliance",
+      "path": "/markets/crypto/fetch-ai",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews Fetch.ai merger sources, ASI alliance docs, conversion rates, supply changes, CoinGecko trading identity, agent architecture research, exchange migration status, spread percentage, slippage, funding, liquidity depth, and whether product usage supports narrative demand.",
+      "suggestedText": "Lurnava's research desk reviews Fetch.ai merger sources, ASI alliance docs, conversion rates, supply changes, CoinGecko trading identity, agent architecture research, exchange migration status, spread percentage, slippage, funding, liquidity depth, and whether product usage supports narrative demand.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "THORChain",
+      "path": "/markets/crypto/thorchain",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews THORChain docs, RUNE pool mechanics, node bonds, deprecation of lending, DefiLlama DEX TVL, fees, volume, liquidity depth, spread percentage, slippage, funding, and native asset pool composition before classifying a RUNE move.",
+      "suggestedText": "Lurnava's research desk reviews THORChain docs, RUNE pool mechanics, node bonds, deprecation of lending, DefiLlama DEX TVL, fees, volume, liquidity depth, spread percentage, slippage, funding, and native asset pool composition before classifying a RUNE move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "The Graph",
+      "path": "/markets/crypto/the-graph",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews The Graph docs, GRT tokenomics, Explorer metrics, query fees, indexing rewards, delegation capacity, scheduled unlocks, developer usage, CEX depth, spread percentage, slippage, funding, and liquidity depth before classifying a GRT move.",
+      "suggestedText": "Lurnava's research desk reviews The Graph docs, GRT tokenomics, Explorer metrics, query fees, indexing rewards, delegation capacity, scheduled unlocks, developer usage, CEX depth, spread percentage, slippage, funding, and liquidity depth before classifying a GRT move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Pyth Network",
+      "path": "/markets/crypto/pyth-network",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews Pyth tokenomics, publisher lists, Cboe and Tradeweb updates, DefiLlama Pyth revenue, Tokenomist unlocks, feed adoption, subscription changes, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a PYTH move.",
+      "suggestedText": "Lurnava's research desk reviews Pyth tokenomics, publisher lists, Cboe and Tradeweb updates, DefiLlama Pyth revenue, Tokenomist unlocks, feed adoption, subscription changes, exchange depth, spread percentage, slippage, funding, and liquidity depth before classifying a PYTH move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    },
+    {
+      "asset": "Jupiter",
+      "path": "/markets/crypto/jupiter",
+      "field": "lurnavaMonitorNote",
+      "currentText": "Our desk reviews Jupiter official sources, DefiLlama aggregator fees, holders revenue, swap volume, JUP Tokenomist supply, DefiLlama unlocks, Litterbox governance, Solana chain metrics, spread percentage, slippage, funding, and liquidity depth before classifying a JUP move.",
+      "suggestedText": "Lurnava's research desk reviews Jupiter official sources, DefiLlama aggregator fees, holders revenue, swap volume, JUP Tokenomist supply, DefiLlama unlocks, Litterbox governance, Solana chain metrics, spread percentage, slippage, funding, and liquidity depth before classifying a JUP move.",
+      "reason": "Phase 5 changed this monitoring note so the public page names Lurnava directly."
+    }
+  ],
+  "similarStrategyDifferentiation": [],
+  "issues": []
+}
